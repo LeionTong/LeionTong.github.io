@@ -1,0 +1,211 @@
+---
+title: useHexo
+date: 2017-05-17T19:39:26.000Z
+tags: null
+---
+
+# How to use Hexo and deploy to GitHub Pages
+
+- <https://github.com/hexojs/hexo>
+- <https://hexo.io/docs/>
+
+## 1\. Install Hexo
+
+```
+$ sudo npm install -g hexo-cli
+
+$ hexo -v
+hexo-cli: 1.0.2
+os: Linux 4.9.15-x86_64-linode81 linux x64
+http_parser: 2.7.0
+node: 6.10.2
+v8: 5.1.281.98
+uv: 1.10.2
+zlib: 1.2.7
+ares: 1.10.1-DEV
+icu: 50.1.2
+modules: 48
+openssl: 1.0.1e-fips
+```
+
+## 2\. Create a project for your GitHub Pages
+
+<!-- more --> 
+
+```
+$ hexo init github-page.Hexo
+INFO  Copying data to ~/***/github-page.Hexo
+INFO  You are almost done! Don't forget to run 'npm install' before you start blogging with Hexo!
+
+$ cd github-page.Hexo
+
+$ npm install
+```
+
+## 3\. Run a test server for your page on Mac
+
+```
+$ hexo server
+INFO  Hexo is running at http://0.0.0.0:4000/. Press Ctrl+C to stop.
+```
+
+## 4\. Set information for your new blog
+
+<https://hexo.io/docs/configuration.html>
+
+```
+$ vi _config.yml
+
+~~~~~~~~~~~~~~~~~~ _config.yml ~~~~~~~~~~~~~~~~~~
+# Site
+title: LeionTong's note
+subtitle:
+description: LeionTong's personal blog
+author: LeionTong
+language:
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://LeionTong.github.io/
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+```
+
+## 5\. Set information to use Git
+
+<https://github.com/hexojs/hexo-deployer-git>
+
+```
+$ npm install hexo-deployer-git --save
+$ vi _config.yml
+
+~~~~~~~~~~~~~~~~~~ _config.yml ~~~~~~~~~~~~~~~~~~
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:LeionTong/LeionTong.github.io.git
+  branch: master
+```
+
+## 6\. Set "watch" before starting your work
+
+"watch" command can monitor your files.<br>
+<https://hexo.io/docs/generating.html>
+
+```
+$ hexo generate --watch
+```
+
+## 7\. Create a new post file
+
+```
+$ hexo new first-post
+INFO  Created: ~/***/github-page.Hexo/source/_posts/first-post.md
+```
+
+## 8\. Edit the above file with Markdown or Hexo's Helper
+
+Hexo's Helper<br>
+<https://hexo.io/docs/helpers.html><br>
+I use Atom with "shift + control + m" when I use Markdown :-)<br>
+<https://atom.io/>
+
+## 9\. Delete "source/_posts/hello-world.md"
+
+It's not necessary to deploy.
+
+## 10\. Deploy your new blog!!
+
+<https://hexo.io/docs/deployment.html>
+
+```
+$ hexo clean
+$ hexo deploy
+```
+
+After writting the above command, you can see your new blog on GitHub Pages.<br>
+<http://******.github.io/>
+
+## 11\. Change your blog theme
+
+<https://github.com/hexojs/hexo/wiki/Themes>
+
+For instance, How to use the following theme.
+https://hexo.io/hexo-theme-light/ or maybe https://github.com/theme-next/hexo-theme-next ?
+
+```
+## Install it
+$ cd github-page.Hexo
+$ git clone https://github.com/hexojs/hexo-theme-light.git themes/light
+## or maybe: 
+## $ cd github-page.Hexo
+## $ git clone https://github.com/theme-next/hexo-theme-next themes/next
+
+## Update the above files
+$ cd themes/light
+$ git pull
+
+## Set information to use the theme
+$ cd github-page.Hexo
+$ vi _config.yml
+
+~~~~~~~~~~~~~~~~~~ _config.yml ~~~~~~~~~~~~~~~~~~
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: light
+```
+
+## 12\. Create a new page file
+
+<https://hexo.io/docs/writing.html>
+
+```
+$ hexo new page aboutme
+INFO  Created: ~/***/github-page.Hexo/source/aboutme/index.md
+```
+
+## Q&A
+
+Q：运行 hexo 提示 "/usr/bin/env: node: 没有那个文件或目录"
+
+A：由于 Ubuntu 下已经有一个名叫 node 的库，因此 Node.js 在 ubuntu 下默认叫 nodejs ，创建软链接：
+
+```
+sudo ln -s`which nodejs` /usr/bin/node
+```
+
+Q: 如果要将源码上传至Github，或者GitLab等云平台，.gitignore怎么写？
+
+A: .gitignore代码：
+
+```
+# .DS_Store
+# Thumbs.db
+# db.json
+# *.log
+# node_modules/
+# public/
+# .deploy*/
+## 上面是Hexo自带的gitignore内容，我注释掉了，换成了我自己的。
+## 我这里只需要备份source文件夹下的Markdown笔记和配置信息。
+## 另外，我自定义的NexT主题配置项也在NexT官方指导下合并到了Hexo的_config.yml文件里。
+## 所以也不需要备份themes文件夹，如果主题改动较大建议将themes那两行取消注释。
+## 注意：这里采用排除法，先忽略所有文件，然后再排除，这样就只留下了自己需要git版本控制的文件(夹)。
+*
+!/source/
+!/source/**/*
+#!/themes/
+#!/themes/**/*
+!/_config.yml
+!/.gitignore
+!/README.md
+```
+
+Q：Github Pages要想自定义域名怎么办？
+
+在 source 目录下新建 CNAME 文本文件，写入购买的域名，然后在域名供应商管理后台配置好域名解析记录。
+
