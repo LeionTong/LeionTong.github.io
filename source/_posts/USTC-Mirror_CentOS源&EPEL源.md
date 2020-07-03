@@ -28,6 +28,8 @@ sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
 
 ***
 
+<!-- more --> 
+
 EPEL 源
 https://mirrors.ustc.edu.cn/epel/
 

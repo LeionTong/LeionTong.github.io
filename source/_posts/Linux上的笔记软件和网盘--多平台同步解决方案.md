@@ -27,6 +27,9 @@ Joplin 的特色：
 网页剪藏插件 (支持 Chrome 和 FireFox)  
 支持端到端加密 (End To End Encryption / E2EE)  
 可完全离线使用，不上传任何数据  
+
+<!-- more -->  
+
 也可搭配各种主流网盘同步，比如 OneDrive、NextCloud、Dropbox,、WebDAV 等  
 支持导入印象笔记的 .enex 备份文件，支持导入 Markdown 文档  
 可以导出：JEX （Joplin 导出格式）备份，或 MD、TXT、PDF、JASON 等格式  
