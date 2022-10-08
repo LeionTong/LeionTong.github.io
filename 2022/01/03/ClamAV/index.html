@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leiontong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ClamAV - Linux上的杀毒软件安装安装ClamAV软件包。 1sudo pacman -S clamav clamtk  更新数据库更新病毒定义库： 12sudo freshclam  如果使用代理，请编辑&#x2F;etc&#x2F;clamav&#x2F;freshclam.conf，更新 HTTPProxyServer、HTTPProxyPort、HTTPProxyUsername 和 HTTPProxyPas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ClamAV - Linux上的杀毒软件">
+<meta property="og:url" content="https://leiontong.github.io/2022/01/03/ClamAV/index.html">
+<meta property="og:site_name" content="Leion-Sky">
+<meta property="og:description" content="ClamAV - Linux上的杀毒软件安装安装ClamAV软件包。 1sudo pacman -S clamav clamtk  更新数据库更新病毒定义库： 12sudo freshclam  如果使用代理，请编辑&#x2F;etc&#x2F;clamav&#x2F;freshclam.conf，更新 HTTPProxyServer、HTTPProxyPort、HTTPProxyUsername 和 HTTPProxyPas">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-03T07:33:00.000Z">
+<meta property="article:modified_time" content="2022-05-13T09:58:21.000Z">
+<meta property="article:author" content="LeionTong">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leiontong.github.io/2022/01/03/ClamAV/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leiontong.github.io/2022/01/03/ClamAV/","path":"2022/01/03/ClamAV/","title":"ClamAV - Linux上的杀毒软件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ClamAV - Linux上的杀毒软件 | Leion-Sky</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99348322-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-99348322-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Leion-Sky</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ClamAV-Linux%E4%B8%8A%E7%9A%84%E6%9D%80%E6%AF%92%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">ClamAV - Linux上的杀毒软件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">更新数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">启动守护进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%BD%AF%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">测试软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Option-1-Set-up-Fangfrisch"><span class="nav-number">1.4.1.</span> <span class="nav-text">Option #1: Set up Fangfrisch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Option-2-Set-up-clamav-unofficial-sigs"><span class="nav-number">1.4.2.</span> <span class="nav-text">Option #2: Set up clamav-unofficial-sigs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F%E7%97%85%E6%AF%92"><span class="nav-number">1.5.</span> <span class="nav-text">扫描病毒</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%8B%AC%E7%AB%8B%E6%89%AB%E6%8F%8F%E5%99%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">使用独立扫描器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.5.2.</span> <span class="nav-text">使用守护进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E5%B7%A7%E5%92%8C%E7%AA%8D%E9%97%A8"><span class="nav-number">1.6.</span> <span class="nav-text">技巧和窍门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C"><span class="nav-number">1.6.1.</span> <span class="nav-text">多线程运行</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-clamscan"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">使用 clamscan</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-clamdscan"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">使用 clamdscan</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E9%98%85"><span class="nav-number">1.7.</span> <span class="nav-text">参阅</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeionTong"
+      src="/avatar.gif">
+  <p class="site-author-name" itemprop="name">LeionTong</p>
+  <div class="site-description" itemprop="description">LeionTong's personal blog!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leiontong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leiontong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leion.tong@outlook.com" title="E-Mail → mailto:leion.tong@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/leiontong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2022/01/03/ClamAV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ClamAV - Linux上的杀毒软件 | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ClamAV - Linux上的杀毒软件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-03 15:33:00" itemprop="dateCreated datePublished" datetime="2022-01-03T15:33:00+08:00">2022-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-13 17:58:21" itemprop="dateModified" datetime="2022-05-13T17:58:21+08:00">2022-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="ClamAV-Linux上的杀毒软件"><a href="#ClamAV-Linux上的杀毒软件" class="headerlink" title="ClamAV - Linux上的杀毒软件"></a>ClamAV - Linux上的杀毒软件</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Install">安装</a><a target="_blank" rel="noopener" href="https://archlinux.org/packages/?name=clamav">ClamAV</a>软件包。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S clamav clamtk</span><br></pre></td></tr></table></figure>
+
+<h2 id="更新数据库"><a href="#更新数据库" class="headerlink" title="更新数据库"></a>更新数据库</h2><p>更新病毒定义库：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo freshclam</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果使用代理，请编辑<code>/etc/clamav/freshclam.conf</code>，更新 HTTPProxyServer、HTTPProxyPort、HTTPProxyUsername 和 HTTPProxyPassword。</p>
+<p>数据库文件保存在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/var/lib/clamav/daily.cvd</span><br><span class="line">/var/lib/clamav/main.cvd</span><br><span class="line">/var/lib/clamav/bytecode.cvd</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Start/enable">启动&#x2F;启用</a> <code>clamav-freshclam.service</code>以使病毒定义保持最新。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start clamav-freshclam.service</span><br><span class="line">sudo systemctl enable clamav-freshclam.service</span><br><span class="line">systemctl status clamav-freshclam.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动守护进程"><a href="#启动守护进程" class="headerlink" title="启动守护进程"></a>启动守护进程</h2><p><strong>注释：</strong></p>
+<ul>
+<li>需要<code>freshclam</code>在第一次启动服务之前运行，否则会遇到问题&#x2F;错误，这将阻止 ClamAV 正确启动。</li>
+<li>如果只想执行独立扫描，则不需要守护程序。请参阅下面的<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/ClamAV#Scan_for_viruses">扫描病毒</a>。</li>
+</ul>
+<p>该服务叫做<code>clamav-daemon.service</code>。<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Start">启动</a>它并<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Enable">使其</a>在系统启动时自动启动。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start clamav-daemon.service</span><br><span class="line">sudo systemctl enable clamav-daemon.service</span><br><span class="line">systemctl status clamav-daemon.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="测试软件"><a href="#测试软件" class="headerlink" title="测试软件"></a>测试软件</h2><p>为了确保 ClamAV 和定义安装正确，请使用 clamscan扫描<a target="_blank" rel="noopener" href="http://2016.eicar.org/86-0-Intended-use.html">EICAR 测试文件</a>（一个不含病毒代码的无害签名）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://secure.eicar.org/eicar.com.txt | clamscan -</span><br></pre></td></tr></table></figure>
+
+<p>输出 <strong>必须</strong> 包含：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stdin: Win.Test.EICAR_HDB-1 FOUND</span><br></pre></td></tr></table></figure>
+
+<h3 id="Option-1-Set-up-Fangfrisch"><a href="#Option-1-Set-up-Fangfrisch" class="headerlink" title="Option #1: Set up Fangfrisch"></a>Option #1: Set up Fangfrisch</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S aur/python-fangfrisch</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo -u clamav /usr/bin/fangfrisch --conf /etc/fangfrisch/fangfrisch.conf initdb</span><br><span class="line"></span><br><span class="line">sudo systemctl enable fangfrisch.timer</span><br><span class="line">sudo systemctl start fangfrisch.timer</span><br><span class="line">systemctl status fangfrisch.timer</span><br></pre></td></tr></table></figure>
+
+<h3 id="Option-2-Set-up-clamav-unofficial-sigs"><a href="#Option-2-Set-up-clamav-unofficial-sigs" class="headerlink" title="Option #2: Set up clamav-unofficial-sigs"></a>Option #2: Set up clamav-unofficial-sigs</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S aur/clamav-unofficial-sigs</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo clamav-unofficial-sigs.sh</span><br><span class="line">sudo less /var/log/clamav-unofficial-sigs/clamav-unofficial-sigs.log</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable clamav-unofficial-sigs.timer</span><br><span class="line">sudo systemctl start clamav-unofficial-sigs.timer</span><br><span class="line">systemctl status clamav-unofficial-sigs.timer</span><br></pre></td></tr></table></figure>
+
+<p>要更改任何默认设置，请参阅并修改<code>/etc/clamav-unofficial-sigs/user.conf</code>。</p>
+<h2 id="扫描病毒"><a href="#扫描病毒" class="headerlink" title="扫描病毒"></a>扫描病毒</h2><p>按需扫描有两种选择：</p>
+<h3 id="使用独立扫描器"><a href="#使用独立扫描器" class="headerlink" title="使用独立扫描器"></a>使用独立扫描器</h3><p><code>clamscan</code> 可用于扫描指定文件、家目录或整个系统：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ clamscan myfile</span><br><span class="line">$ clamscan --recursive --infected $HOME</span><br><span class="line">$ sudo clamscan -r -i / -l /var/log/clamscan.log</span><br><span class="line"># clamscan --recursive --infected --exclude-dir=&#x27;^/sys|^/dev&#x27; /</span><br></pre></td></tr></table></figure>
+
+<p>如果想要<code>clamscan</code>删除受感染的文件，请在命令中添加该<code>--remove</code>选项，或者可以使用它<code>--move=/dir</code>来隔离它们。</p>
+<p>可能还想要<code>clamscan</code>扫描较大的文件。在这种情况下，将选项<code>--max-filesize=4000M</code>和<code>--max-scansize=4000M</code>附加到命令中。’4000M’ 是最大的可能值，可以根据需要降低。</p>
+<p>使用该<code>-l /path/to/file</code>选项会将<code>clamscan</code>日志打印到文本文件中，以定位报告的感染情况。</p>
+<h3 id="使用守护进程"><a href="#使用守护进程" class="headerlink" title="使用守护进程"></a>使用守护进程</h3><p><code>clamdscan</code>与上述用法类似，但要用到守护程序，守护程序必须运行才能使用该命令。多数选项都会被忽略，因为守护进程读取指定在<code>/etc/clamav/clamd.conf</code>中的设置。</p>
+<h2 id="技巧和窍门"><a href="#技巧和窍门" class="headerlink" title="技巧和窍门"></a>技巧和窍门</h2><h3 id="多线程运行"><a href="#多线程运行" class="headerlink" title="多线程运行"></a>多线程运行</h3><h4 id="使用-clamscan"><a href="#使用-clamscan" class="headerlink" title="使用 clamscan"></a>使用 clamscan</h4><p>当从命令行使用<code>clamscan</code>扫描文件或目录时仅会用到单个 CPU 线程。在时间不关键或不希望计算机变得迟钝的情况下，这可能没问题。如果需要快速扫描大文件夹或 USB 驱动器，可能想要使用所有可用的 CPU 来加速该过程。</p>
+<p><code>clamscan</code>被设计为单线程，而<code>xargs</code>可用于并行运行扫描：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ find $HOME -type f -print0 | xargs -0 -P $(nproc) clamscan </span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>-P</code>参数 for在与 CPU 一样多的进程中<code>xargs</code>同时运行<code>clamscan</code>（由<code>nproc</code>）报告。<code>--max-lines</code>和<code>--max-args</code>选项允许更精细地控制跨线程批量处理工作负载。</p>
+<h4 id="使用-clamdscan"><a href="#使用-clamdscan" class="headerlink" title="使用 clamdscan"></a>使用 clamdscan</h4><p>如果<code>clamd</code>守护程序正在运行，则可以使用<code>clamdscan</code>来替代 (查阅 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/ClamAV#Starting_the_daemon">Starting the daemon</a>):。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clamdscan --multiscan --fdpass $HOME</span><br></pre></td></tr></table></figure>
+
+<p>这里的<code>--multiscan</code>参数允许<code>clamd</code>使用可用线程并行扫描目录的内容。当守护进程在<code>clamav</code>用户和组下运行时，<code>--fdpass</code>参数被用来传递文件描述符权限给 <code>clamd</code>。</p>
+<p><code>clamdscan</code>可用的线程数在<code>/etc/clamav/clamd.conf</code> <a target="_blank" rel="noopener" href="https://man.archlinux.org/man/clamd.conf.5">clamd.conf(5)</a> 通过<code>MaxThreads</code>参数定义。即使可能会看到<code>MaxThreads</code>指定的数量超过 1（当前默认为 10），但当使用<code>clamdscan</code>命令行启动扫描而不指定<code>--multiscan</code>选项时，只会有一个有效的 CPU 线程用于进行扫描。</p>
+<h2 id="参阅"><a href="#参阅" class="headerlink" title="参阅"></a>参阅</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ClamAV" title="wikipedia:ClamAV">Wikipedia:ClamAV</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ClamAV">https://en.wikipedia.org/wiki/ClamAV</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.clamav.net/">http://www.clamav.net</a></li>
+<li>file:&#x2F;&#x2F;&#x2F;usr&#x2F;share&#x2F;doc&#x2F;ClamAV&#x2F;html&#x2F;index.html</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5235b4972442">https://www.jianshu.com/p/5235b4972442</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/01/Obsidian_%E8%AE%BE%E7%BD%AE_%E6%96%87%E4%BB%B6%E4%B8%8E%E9%93%BE%E6%8E%A5/" rel="prev" title="oneplus6解锁并root教程">
+                  <i class="fa fa-chevron-left"></i> oneplus6解锁并root教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/03/01/onedrive_app_on_Linux/" rel="next" title="onedrive app on ArchLinux">
+                  onedrive app on ArchLinux <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeionTong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

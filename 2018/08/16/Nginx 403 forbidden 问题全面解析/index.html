@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leiontong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Nginx 403 forbidden 问题全面解析122020&#x2F;07&#x2F;16 15:48:34 [error] 2220#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.253.20, server: _, request: &quot;GET &#x2F; HTTP&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx 403 forbidden 问题全面解析">
+<meta property="og:url" content="https://leiontong.github.io/2018/08/16/Nginx%20403%20forbidden%20%E9%97%AE%E9%A2%98%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:site_name" content="Leion-Sky">
+<meta property="og:description" content="Nginx 403 forbidden 问题全面解析122020&#x2F;07&#x2F;16 15:48:34 [error] 2220#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.253.20, server: _, request: &quot;GET &#x2F; HTTP&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-16T08:22:01.000Z">
+<meta property="article:modified_time" content="2022-04-24T03:59:54.000Z">
+<meta property="article:author" content="LeionTong">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leiontong.github.io/2018/08/16/Nginx%20403%20forbidden%20%E9%97%AE%E9%A2%98%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leiontong.github.io/2018/08/16/Nginx%20403%20forbidden%20%E9%97%AE%E9%A2%98%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90/","path":"2018/08/16/Nginx 403 forbidden 问题全面解析/","title":"Nginx 403 forbidden 问题全面解析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Nginx 403 forbidden 问题全面解析 | Leion-Sky</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99348322-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-99348322-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Leion-Sky</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx-403-forbidden-%E9%97%AE%E9%A2%98%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">Nginx 403 forbidden 问题全面解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SELinux-%E7%8A%B6%E6%80%81"><span class="nav-number">1.1.</span> <span class="nav-text">SELinux 状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB-%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%BC%BA%E5%B0%91-index-%E7%B4%A2%E5%BC%95%E6%96%87%E4%BB%B6%E6%88%96-nginx-%E9%85%8D%E7%BD%AE%E6%9C%AA-%E6%AD%A3%E7%A1%AE-%E6%8C%87%E5%AE%9A-index"><span class="nav-number">1.2.</span> <span class="nav-text">WEB 资源目录下缺少 index 索引文件或 nginx 配置未(正确)指定 index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90"><span class="nav-number">1.3.</span> <span class="nav-text">权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88%E5%88%86%E6%9E%90%E6%94%BE%E5%88%B0%E5%AE%B6%E7%9B%AE%E5%BD%95%E4%BB%A5%E5%A4%96%E7%9A%84%E8%B7%AF%E5%BE%84%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.3.1.</span> <span class="nav-text">先分析放到家目录以外的路径的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%8D%E6%9D%A5%E5%88%86%E6%9E%90-WEB-%E8%B5%84%E6%BA%90%E6%94%BE%E5%88%B0%E5%AE%B6%E7%9B%AE%E5%BD%95%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.3.2.</span> <span class="nav-text">再来分析 WEB 资源放到家目录的情况</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeionTong"
+      src="/avatar.gif">
+  <p class="site-author-name" itemprop="name">LeionTong</p>
+  <div class="site-description" itemprop="description">LeionTong's personal blog!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leiontong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leiontong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leion.tong@outlook.com" title="E-Mail → mailto:leion.tong@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/leiontong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/Nginx%20403%20forbidden%20%E9%97%AE%E9%A2%98%E5%85%A8%E9%9D%A2%E8%A7%A3%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Nginx 403 forbidden 问题全面解析 | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx 403 forbidden 问题全面解析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-16 16:22:01" itemprop="dateCreated datePublished" datetime="2018-08-16T16:22:01+08:00">2018-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-24 11:59:54" itemprop="dateModified" datetime="2022-04-24T11:59:54+08:00">2022-04-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Nginx-403-forbidden-问题全面解析"><a href="#Nginx-403-forbidden-问题全面解析" class="headerlink" title="Nginx 403 forbidden 问题全面解析"></a>Nginx 403 forbidden 问题全面解析</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2020/07/16 15:48:34 [error] 2220#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.253.20, server: _, request: &quot;GET / HTTP/1.1&quot;, upstream: &quot;http://[::1]:8001/&quot;, host: &quot;172.18.253.20&quot;</span><br><span class="line">2020/07/16 15:48:34 [error] 2221#0: *4 &quot;/home/leion/www/nginx_server_8001/index.html&quot; is forbidden (13: Permission denied), client: 127.0.0.1, server: _, request: &quot;GET / HTTP/1.0&quot;, host: &quot;172.18.253.20&quot;</span><br></pre></td></tr></table></figure>
+
+<p>上面的报错有两个问题，第一个是 nginx 负载均衡连接上游失败<code>connect() failed (111: Connection refused)</code>也就是本地 IPv6 地址所在端口访问不通，在 server{} 块下启用<code>listen [::]:8001;</code>即可。</p>
+<p>第二个问题是本节的重点<code>403 forbidden (13: Permission denied)</code>。</p>
+<h2 id="SELinux-状态"><a href="#SELinux-状态" class="headerlink" title="SELinux 状态"></a>SELinux 状态</h2><p>安全增强型 Linux（SELinux）是一种采用安全架构的 Linux® 系统，它能够让管理员更好地管控哪些人可以访问系统。它最初是作为 Linux 内核的一系列补丁，由美国国家安全局（NSA）利用 Linux 安全模块（LSM）开发而成。</p>
+<p>CentOS 系统默认启用 SELINUX。</p>
+<p>查看 SELINUX 的状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sestatus</span><br><span class="line">getenforce</span><br><span class="line">grep &#x27;^SELINUX=&#x27; /etc/selinux/config</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span> 
+
+<p>关闭 SELINUX（更建议掌握 SELINUX 的工作原理和配置方法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i.bak &#x27;s/^SELINUX=.*/SELINUX=disabled/&#x27; /etc/sysconfig/selinux</span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
+
+<p>TODO：后续专门研究 SELINUX 开启状态下如何解决的办法。</p>
+<h2 id="WEB-资源目录下缺少-index-索引文件或-nginx-配置未-正确-指定-index"><a href="#WEB-资源目录下缺少-index-索引文件或-nginx-配置未-正确-指定-index" class="headerlink" title="WEB 资源目录下缺少 index 索引文件或 nginx 配置未(正确)指定 index"></a>WEB 资源目录下缺少 index 索引文件或 nginx 配置未(正确)指定 index</h2><p>nginx 默认加载 index.html 文件作为索引，php-fpm 则默认加载 index.php，如果 WEB 资源目录下未提供该文件会报 403，如果使用 index.php，需要在 WEB 服务配置里指明，一般在 nginx.conf 或者 vhost&#x2F;yourserver.conf (注意这里是你的 nginx 的 WEB 配置文件) 的 server{} 块下配置：<code>index index.php index.html index.htm</code>，按需配置。</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>一般会遇到这样的状况：把 WEB 目录放到默认位置（如 &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html）访问没问题，或者放到根目录(&#x2F;)下（如 &#x2F;www&#x2F;webserver&#x2F;）访问也没问题，而放到普通用户家目录下访问则会 403 forbidden Permission denied。</p>
+<p>可以查看 nginx worker process 的用户是谁：<code>ps aux | grep nginx</code>和<code>grep user /path/to/nginx.conf</code>。</p>
+<p>一般来说为了安全，执行 nignx 进程的用户不应该通过 login 登录，下面是 CentOS7 中 epel 源里安装 nginx 时的预安装脚本，显示了设置用于执行 nginx 进程的用户和用户组的情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ rpm -q --scripts nginx-filesystem</span><br><span class="line">preinstall scriptlet (using /bin/sh):</span><br><span class="line">getent group nginx &gt; /dev/null || groupadd -r nginx</span><br><span class="line">getent passwd nginx &gt; /dev/null || \</span><br><span class="line">    useradd -r -d /var/lib/nginx -g nginx \</span><br><span class="line">    -s /sbin/nologin -c &quot;Nginx web server&quot; nginx</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+
+<p>注意到创建的 nginx 用户属于系统用户（ID 号小于 1000），家目录是&#x2F;var&#x2F;lib&#x2F;nginx，用于存放代理和缓存数据，登录 shell 是&#x2F;sbin&#x2F;nologin，登录即退出，也就是不允许像普通用户一样登录。</p>
+<h3 id="先分析放到家目录以外的路径的情况"><a href="#先分析放到家目录以外的路径的情况" class="headerlink" title="先分析放到家目录以外的路径的情况"></a>先分析放到家目录以外的路径的情况</h3><p>一般，系统的 root 的 umask 是 022，非特权用户 umask 是 002。无论如何新建的文件(夹)默认其他用户(o)都有 x 权限，因此无论目录属于任何一个用户，nginx 进程(的执行用户)都对 WEB 资源目录具有执行(x)权限，从而才允许对最终目标文件具有读取(r)权限。</p>
+<p>建议这样做：单独在根下创建 WEB 资源目录并把 WEB 资源目录的属主和属组归属给普通用户 leion（<code>sudo mkdir -p /www/webserver &amp;&amp; sudo chown leion.leion -R /www/webserver</code>），这样可以使用普通用户管理 WEB 资源。</p>
+<blockquote>
+<p>TIPS：WEB 服务权限的关键点在于对最终目标文件有读取权限，而最容易忽视的地方是从根到最终目标文件途中的所有目录的权限设置。换句话说，ningx 进程(的执行用户)要对 WEB 资源所在目录的所有递归父目录有(x)执行权限，注意是所有递归父目录。根(&#x2F;)的默认权限是 555(dr-xr-xr-x)，ugo 均有 x 权限，无妨。</p>
+</blockquote>
+<h3 id="再来分析-WEB-资源放到家目录的情况"><a href="#再来分析-WEB-资源放到家目录的情况" class="headerlink" title="再来分析 WEB 资源放到家目录的情况"></a>再来分析 WEB 资源放到家目录的情况</h3><p>分两种情形：</p>
+<ol>
+<li>在普通用户的家目录下存放 WEB 资源，并使用普通用户运行 nginx 进程（不推荐）。</li>
+<li>在普通用户的家目录下存放 WEB 资源，并使用系统用户运行 nginx 进程（推荐）。</li>
+</ol>
+<p>如果 WEB 目录是 ~&#x2F;www&#x2F;webserver&#x2F;。</p>
+<p>第 1 种情形的实现就是将 WEB 资源放到 ~&#x2F;www&#x2F;webserver&#x2F; 目录下，然后在 nginx.conf 里配置<code>user leion</code>，然后<code>sudo nginx -s reload</code>。</p>
+<p>第 2 种情形的实现就是先将 WEB 资源放到~&#x2F;www&#x2F;webserver&#x2F;目录下</p>
+<p>由于 WEB 目录是 ~&#x2F;www&#x2F;webserver&#x2F;，需要 nginx 进程的执行用户对 &#x2F;home、&#x2F;home&#x2F;leion、&#x2F;home&#x2F;leion&#x2F;www、&#x2F;home&#x2F;leion&#x2F;www&#x2F;webserver 这几个目录全都要有执行权限。而普通用户家目录默认权限 700，其他用户(o)无执行(x)权限。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$namei -om ~</span><br><span class="line">f: /home/leion</span><br><span class="line"> drwxr-xr-x root  root  /</span><br><span class="line"> drwxr-xr-x root  root  home</span><br><span class="line"> drwx------ leion leion leion</span><br></pre></td></tr></table></figure>
+
+<p>方法 1. 可以这样修正：<code>chmod o+x /home/leion</code>，不过这样做法只能先救急，稳态 WEB 服务不建议这么做，因为如此一来所有其他用户都可以至查看家目录下的详细信息了(<code>ls -l /home/leion</code>)。</p>
+<p>方法 2. 还可以将 nginx_user 加入 普通用户的用户组 leion 里：<code>sudo usermod -aG leion nginx</code>，可以用<code>getent group leion</code>检查组内成员信息，然后让普通用户属组 leion 对 WEB 资源目录(&#x2F;home&#x2F;leion&#x2F;www&#x2F;webserver)自顶至下具有 x 权限：1.使用命令检查权限(<code>namei -om /home/leion/www/webserver</code>)，2.使用<code>chmod g+x /home/leion</code>（一般这一个命令就足够）和<code>chmod g+x /home/leion/www</code>和<code>chmod g+x /home/leion/www/webserver</code>对 WEB 资源的父目录逐层赋权，这种方法可以作为备选方案推荐。</p>
+<blockquote>
+<p>备注：恢复默认的属组：<code>sudo usermod -G nginx nginx</code>，检查：<code>id nginx</code>。</p>
+</blockquote>
+<p>其他方法. 其他方法无外乎是用户、属主、属组和文件(夹)读取(r)执行(x)权限的各种组合变体的运用，不再深入赘述。</p>
+<p><strong>总结</strong></p>
+<p>执行 nginx 进程的用户需要对 WEB 资源所在的目录树自顶至下所有目录全都有执行(x)权限，因此比较简单也是最建议的解决办法是把 WEB 目录独立出来，让 WEB 资源所在的目录树从除了根(&#x2F;)以外的最顶端(比如&#x2F;www)全都隶属于普通用户。</p>
+<p>如果无法做到（比如 WEB 目录在别人的家目录下&#x2F;home&#x2F;leion&#x2F;www&#x2F;webserver），那么注意到如果一开始就是使用 leion 用户创建&#x2F;home&#x2F;leion&#x2F;www&#x2F;webserver 目录（<code>mkdir -p /www/webserver</code>）并上传 WEB 代码的话此时 WEB 资源目录（&#x2F;home&#x2F;leion&#x2F;www&#x2F;webserver）会很自然的隶属于 leion，此时可行的做法是将 nginx_user 加入 leion 的用户组里，然后让 leion 用户组对 WEB 资源目录(&#x2F;home&#x2F;leion&#x2F;www)自顶至下具有 x 权限。</p>
+<h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><p>可能用得到的网页测试命令：<br><code>for i in &#123;1..20&#125;; do curl 172.18.253.20 ;done</code></p>
+<blockquote>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files">https://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files</a></p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/08/16/USTC-Mirror_CentOS%E6%BA%90&EPEL%E6%BA%90/" rel="prev" title="USTC-Mirror_CentOS源&EPEL源">
+                  <i class="fa fa-chevron-left"></i> USTC-Mirror_CentOS源&EPEL源
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/16/Linux%E4%B8%8A%E7%9A%84%E7%AC%94%E8%AE%B0%E8%BD%AF%E4%BB%B6%E5%92%8C%E7%BD%91%E7%9B%98--%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%90%8C%E6%AD%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="next" title="Linux上的笔记软件和网盘--多平台同步解决方案">
+                  Linux上的笔记软件和网盘--多平台同步解决方案 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeionTong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

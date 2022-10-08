@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leiontong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用原理 SSH的X11转发原理–来自ssh的manpage：     如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用">
+<meta property="og:url" content="https://leiontong.github.io/2020/07/05/SSH%E7%9A%84X11%E8%BD%AC%E5%8F%91--%E5%9C%A8%E6%9C%AC%E5%9C%B0%20Linux%20OS%20%E6%A1%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B%20Linux%20OS%20%E7%9A%84%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:site_name" content="Leion-Sky">
+<meta property="og:description" content="SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用原理 SSH的X11转发原理–来自ssh的manpage：     如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-05T11:39:26.000Z">
+<meta property="article:modified_time" content="2022-04-24T03:59:54.000Z">
+<meta property="article:author" content="LeionTong">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leiontong.github.io/2020/07/05/SSH%E7%9A%84X11%E8%BD%AC%E5%8F%91--%E5%9C%A8%E6%9C%AC%E5%9C%B0%20Linux%20OS%20%E6%A1%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B%20Linux%20OS%20%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leiontong.github.io/2020/07/05/SSH%E7%9A%84X11%E8%BD%AC%E5%8F%91--%E5%9C%A8%E6%9C%AC%E5%9C%B0%20Linux%20OS%20%E6%A1%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B%20Linux%20OS%20%E7%9A%84%E5%BA%94%E7%94%A8/","path":"2020/07/05/SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用/","title":"SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用 | Leion-Sky</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99348322-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-99348322-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Leion-Sky</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH%E7%9A%84X11%E8%BD%AC%E5%8F%91%E2%80%93%E5%9C%A8%E6%9C%AC%E5%9C%B0-Linux-OS-%E6%A1%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B-Linux-OS-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%87%86%E5%A4%87"><span class="nav-number">1.2.</span> <span class="nav-text">预准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-X-Server-%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">本地Linux操作系统(X Server)操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8BLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-X-Client-%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text">远程Linux操作系统(X Client)操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.5.</span> <span class="nav-text">实验</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeionTong"
+      src="/avatar.gif">
+  <p class="site-author-name" itemprop="name">LeionTong</p>
+  <div class="site-description" itemprop="description">LeionTong's personal blog!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leiontong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leiontong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leion.tong@outlook.com" title="E-Mail → mailto:leion.tong@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/leiontong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2020/07/05/SSH%E7%9A%84X11%E8%BD%AC%E5%8F%91--%E5%9C%A8%E6%9C%AC%E5%9C%B0%20Linux%20OS%20%E6%A1%8C%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%BF%9C%E7%A8%8B%20Linux%20OS%20%E7%9A%84%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用 | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-05 19:39:26" itemprop="dateCreated datePublished" datetime="2020-07-05T19:39:26+08:00">2020-07-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-24 11:59:54" itemprop="dateModified" datetime="2022-04-24T11:59:54+08:00">2022-04-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="SSH的X11转发–在本地-Linux-OS-桌面显示器上运行远程-Linux-OS-的应用"><a href="#SSH的X11转发–在本地-Linux-OS-桌面显示器上运行远程-Linux-OS-的应用" class="headerlink" title="SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用"></a>SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
+<p>SSH的X11转发原理–来自ssh的manpage：<br>     如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或命令启动的 X11 程序将穿过加密的通道, 从本地机器连接真正的 X 服务器. 用户不应该手动设置 DISPLAY.  可以在命令行上, 也可以在配置文件中设置 X11 连接的转发.<br>     ssh 设置的 DISPLAY 值将指向服务器, 但是显示器号大于零. 这很自然, 因为 ssh 在服务器上创建了一个 “proxy” X 服务器,把连接通过加密通道转发出去.</p>
+</blockquote>
+<p>从原理来讲，对于用户login来说，本地主机是客户端（SSH Client），远程主机是服务端（SSH Server）；对于X11程序来说，本地主机是服务端(X Server)，远程主机是客户端(X Client)。</p>
+<p>从实际使用体验来说，是用户在本地主机通过 SSH Client 登录到启用了 X11 转发功能的远程主机的 SSH Server 上执行 GUI 图形界面程序，此时本地主机的显示器(X Server DISPLAY)上会呈现远程主机的GUI程序的图形界面。</p>
+<h2 id="预准备"><a href="#预准备" class="headerlink" title="预准备"></a>预准备</h2><table>
+<thead>
+<tr>
+<th>Linux</th>
+<th>SSH协议中的角色</th>
+<th>X协议中的角色</th>
+<th>OS</th>
+<th>IP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>本地Linux操作系统</td>
+<td>SSH Client</td>
+<td>X Server</td>
+<td>ArchLinux</td>
+<td>172.18.253.70</td>
+</tr>
+<tr>
+<td>远程Linux操作系统</td>
+<td>SSH Server</td>
+<td>X Client</td>
+<td>CentOS</td>
+<td>172.18.253.19</td>
+</tr>
+</tbody></table>
+<h2 id="本地Linux操作系统-X-Server-操作"><a href="#本地Linux操作系统-X-Server-操作" class="headerlink" title="本地Linux操作系统(X Server)操作"></a>本地Linux操作系统(X Server)操作</h2><ol>
+<li>安装依赖：<br>xauth用于授权，fonts用于字体显示。<br>Arch系统，执行：<br><code>sudo pacman -S xorg-xauth xorg-fonts-*</code><br>其他发行版软件包名称可能是 <code>xorg-x11-xauth</code> 和 <code>xorg-x11-fonts-*</code>。</li>
+</ol>
+<span id="more"></span> 
+
+<h2 id="远程Linux操作系统-X-Client-操作"><a href="#远程Linux操作系统-X-Client-操作" class="headerlink" title="远程Linux操作系统(X Client)操作"></a>远程Linux操作系统(X Client)操作</h2><ol>
+<li><p>配置sshd</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">X11Forwarding yes	#允许X11转发</span><br><span class="line">X11UseLocalhost no	#禁止将X11转发请求绑定到本地回环地址上</span><br><span class="line">AddressFamily inet	#（可选）强制使用IPv4通道。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启服务：<code>systemctl restart sshd</code></p>
+</li>
+<li><p>安装实验用GUI程序，采用 xclock，一个简单的时钟。<br>CentOS系统，执行：<br><code>sudo yum install xclock</code></p>
+</li>
+</ol>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>本地Linux操作系统(X Server)通过ssh连接远程Linux操作系统(X Client)，注意选项 -X<br><code>ssh -X 172.18.253.19 xclock</code><br>此时会直接在本地的X Server DISPLAY上（也就是本地的显示器上）打开xclock的GUI图形界面。</p>
+<p>当然也可以<code>ssh -X 172.18.253.19</code>登录后执行xclock命令，同样的效果。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/05/18/Joplin-desktop_%E6%94%B9%E5%8F%98%E7%BC%96%E8%BE%91%E5%AD%97%E4%BD%93%E6%A0%B7%E5%BC%8F%E5%92%8C%E8%B0%83%E6%95%B4markdown%E6%B8%B2%E6%9F%93%E6%95%88%E6%9E%9C%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F/" rel="prev" title="Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小">
+                  <i class="fa fa-chevron-left"></i> Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/04/01/sshd_config%E8%AF%AF%E5%88%A0%E9%99%A4/" rel="next" title="sshd_config误删除如何恢复？">
+                  sshd_config误删除如何恢复？ <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeionTong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

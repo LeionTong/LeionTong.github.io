@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leiontong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="准备好deploy APP二进制包文件：1234curl -L -O https&#x2F;&#x2F;artifacts.elastic.co&#x2F;downloads&#x2F;elasticsearch&#x2F;elasticsearch-6.3.0.tar.gzcurl -L -O https:&#x2F;&#x2F;artifacts.elastic.co&#x2F;downloads&#x2F;logstash&#x2F;logstash-6.3.0.tar.gzcurl -L">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch cluster deploy">
+<meta property="og:url" content="https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/index.html">
+<meta property="og:site_name" content="Leion-Sky">
+<meta property="og:description" content="准备好deploy APP二进制包文件：1234curl -L -O https&#x2F;&#x2F;artifacts.elastic.co&#x2F;downloads&#x2F;elasticsearch&#x2F;elasticsearch-6.3.0.tar.gzcurl -L -O https:&#x2F;&#x2F;artifacts.elastic.co&#x2F;downloads&#x2F;logstash&#x2F;logstash-6.3.0.tar.gzcurl -L">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-16T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-24T03:59:54.000Z">
+<meta property="article:author" content="LeionTong">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/","path":"2018/08/16/elasticsearch-cluster-deploy/","title":"Elasticsearch cluster deploy"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Elasticsearch cluster deploy | Leion-Sky</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99348322-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-99348322-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Leion-Sky</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%A5%BDdeploy-APP%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8C%85%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">准备好deploy APP二进制包文件：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">创建普通用户：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">切换用户：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-APP%E7%9B%AE%E5%BD%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">创建 APP目录和数据目录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9deploy%E7%9B%AE%E5%BD%95%E5%92%8C%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95%E6%9D%83%E9%99%90%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">更改deploy目录和数据目录权限：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">修改配置文件：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E5%90%AF%E5%8A%A8elasticsearch%E9%9B%86%E7%BE%A4"><span class="nav-number">7.1.</span> <span class="nav-text">后台启动elasticsearch集群</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ansible-%E5%B0%86%E9%85%8D%E7%BD%AE%E5%A5%BD%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%88%86%E5%8F%91%E5%88%B0%E5%90%84%E8%8A%82%E7%82%B9%E4%B8%BB%E6%9C%BA%E4%B8%8A"><span class="nav-number">8.</span> <span class="nav-text">使用 ansible 将配置好的配置文件分发到各节点主机上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-unarchlive-%E6%A8%A1%E5%9D%97%E8%A7%A3%E5%8E%8B-zip-%E6%96%87%E4%BB%B6%E5%89%8D%E9%9C%80%E8%A6%81%E5%85%88%E5%9C%A8%E7%9B%AE%E6%A0%87%E4%B8%BB%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-unzip-%E5%8C%85"><span class="nav-number">9.</span> <span class="nav-text">使用 unarchlive 模块解压 zip 文件前需要先在目标主机上安装 unzip 包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-elasticsearch-analysis-ik-%E6%8F%92%E4%BB%B6"><span class="nav-number">10.</span> <span class="nav-text">安装 elasticsearch-analysis-ik 插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E5%86%8D%E8%B5%8B%E6%9D%83%E4%B8%80%E9%81%8D%EF%BC%8C%E4%BB%A5%E9%98%B2%E4%B8%87%E4%B8%80%EF%BC%9A"><span class="nav-number">11.</span> <span class="nav-text">最后再赋权一遍，以防万一：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#elasticsearch%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%81%9C%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="nav-number">12.</span> <span class="nav-text">elasticsearch服务启停操作：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E5%81%A5%E5%BA%B7%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">13.</span> <span class="nav-text">查看集群健康状态：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">14.</span> <span class="nav-text">查看集群状态：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FAQ%EF%BC%9A"><span class="nav-number">15.</span> <span class="nav-text">FAQ：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#deploy%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number"></span> <span class="nav-text">deploy环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E9%99%90%E5%88%B6"><span class="nav-number"></span> <span class="nav-text">修改文件限制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6"><span class="nav-number">0.1.</span> <span class="nav-text">修改系统文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="nav-number">0.2.</span> <span class="nav-text">增加的内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E8%BF%9B%E7%A8%8B%E6%95%B0%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">调整进程数：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6-1"><span class="nav-number">1.1.</span> <span class="nav-text">修改系统文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E6%88%90%E4%BB%A5%E4%B8%8B%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">调整成以下配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E6%95%B4%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98-amp-%E6%9C%80%E5%A4%A7%E5%B9%B6%E5%8F%91%E8%BF%9E%E6%8E%A5%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">调整虚拟内存&amp;最大并发连接：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6-2"><span class="nav-number">2.1.</span> <span class="nav-text">修改系统文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A2%9E%E5%8A%A0%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%8C%E6%89%A7%E8%A1%8C-%E2%80%9Csudo-sysctl-p%E2%80%9D-%E7%94%9F%E6%95%88%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">增加的内容，执行 “sudo sysctl -p” 生效：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeionTong"
+      src="/avatar.gif">
+  <p class="site-author-name" itemprop="name">LeionTong</p>
+  <div class="site-description" itemprop="description">LeionTong's personal blog!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leiontong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leiontong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leion.tong@outlook.com" title="E-Mail → mailto:leion.tong@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/leiontong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Elasticsearch cluster deploy | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Elasticsearch cluster deploy
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-16 09:00:00" itemprop="dateCreated datePublished" datetime="2018-08-16T09:00:00+08:00">2018-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-24 11:59:54" itemprop="dateModified" datetime="2022-04-24T11:59:54+08:00">2022-04-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="准备好deploy-APP二进制包文件："><a href="#准备好deploy-APP二进制包文件：" class="headerlink" title="准备好deploy APP二进制包文件："></a>准备好deploy APP二进制包文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https//artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建普通用户："><a href="#创建普通用户：" class="headerlink" title="创建普通用户："></a>创建普通用户：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id deploy &amp;&gt;/dev/null; if [[ $? != &quot;0&quot; ]]; then useradd deploy; fi</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="切换用户："><a href="#切换用户：" class="headerlink" title="切换用户："></a>切换用户：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - deploy</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span> 
+
+<h3 id="创建-APP目录和数据目录："><a href="#创建-APP目录和数据目录：" class="headerlink" title="创建 APP目录和数据目录："></a>创建 APP目录和数据目录：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line">mkdir -pv ./&#123;elasticsearch,logstash,kibana&#125;</span><br><span class="line">mkdir -pv ./&#123;elasticsearch,logstash,kibana&#125;/&#123;data,logs&#125; # （建议）可以放到单独分区的目录里：/data/&#123;elasticsearch,logstash&#125;/&#123;data,logs&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="更改deploy目录和数据目录权限："><a href="#更改deploy目录和数据目录权限：" class="headerlink" title="更改deploy目录和数据目录权限："></a>更改deploy目录和数据目录权限：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R deploy:deploy /home/deploy/&#123;elasticsearch,logstash,kibana&#125;   #如果是放到单独分区的目录里注意赋权： chown -R deploy:deploy /deploy</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvf elasticsearch-6.3.0.tar.gz -C /home/deploy/elasticsearch</span><br><span class="line">tar xvf logstash-6.3.0.tar.gz -C /home/deploy/logstash/</span><br><span class="line">tar xvf kibana-6.3.0.tar.gz -C /home/deploy/kibana/</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改配置文件："><a href="#修改配置文件：" class="headerlink" title="修改配置文件："></a>修改配置文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /home/deploy/elasticsearch/elasticsearch-6.3.0/config/elasticsearch.yml&#123;,.ori&#125;</span><br><span class="line">vim /home/deploy/elasticsearch/elasticsearch-6.3.0/config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cluster.name: es-cluster    #自定义，集群内统一</span><br><span class="line">node.name: es-node-1    #自定义，集群内唯一</span><br><span class="line">node.master: true   # 可选值：true|false</span><br><span class="line">node.data: true</span><br><span class="line">path.data: /home/deploy/elasticsearch/data/</span><br><span class="line">path.logs: /home/deploy/elasticsearch/logs</span><br><span class="line">#bootstrap.memory_lock: true</span><br><span class="line">network.host: 10.0.0.11</span><br><span class="line">http.port: 9200</span><br><span class="line">discovery.zen.ping.unicast.hosts: [&quot;10.0.0.11&quot;, &quot;10.0.0.12&quot;]</span><br><span class="line">discovery.zen.minimum_master_nodes: 1</span><br><span class="line">#gateway.recover_after_nodes: 3</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="后台启动elasticsearch集群"><a href="#后台启动elasticsearch集群" class="headerlink" title="后台启动elasticsearch集群"></a>后台启动elasticsearch集群</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - deploy -c &#x27;/home/deploy/elasticsearch/elasticsearch-6.3.0/bin/elasticsearch -d&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用-ansible-将配置好的配置文件分发到各节点主机上"><a href="#使用-ansible-将配置好的配置文件分发到各节点主机上" class="headerlink" title="使用 ansible 将配置好的配置文件分发到各节点主机上"></a>使用 ansible 将配置好的配置文件分发到各节点主机上</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m file -a &quot;path=/home/deploy/elasticsearch state=directory&quot; ansible elasticsearch_servers -i elasticsearch_hosts -m copy -a &quot;src=/home/deploy/elasticsearch-6.3.0.tar.gz dest=/home/deploy/ owner=root group=root mode=0644&quot;</span><br><span class="line"></span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m user -a &quot;name=deploy password=deploy&quot;</span><br><span class="line"></span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m file -a &quot;path=/home/deploy/elasticsearch state=directory owner=deploy group=deploy mode=0755&quot;</span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m file -a &quot;path=/home/deploy/elasticsearch/data state=directory owner=deploy group=deploy mode=0755&quot;</span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m file -a &quot;path=/home/deploy/elasticsearch/logs state=directory owner=deploy group=deploy mode=0755&quot;</span><br><span class="line"></span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m unarhchive -a &quot;src=/home/deploy/elasticsearch-6.3.0.tar.gz dest=/home/deploy/elasticsearch&quot;</span><br><span class="line"></span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m copy -a &quot;src=/home/deploy/elasticsearch/elasticsearch-6.3.0/config/elasticsearch.yml dest=/home/deploy/elasticsearch/elasticsearch-6.3.0/config owner=deploy group=deploy mode=0644&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用-unarchlive-模块解压-zip-文件前需要先在目标主机上安装-unzip-包"><a href="#使用-unarchlive-模块解压-zip-文件前需要先在目标主机上安装-unzip-包" class="headerlink" title="使用 unarchlive 模块解压 zip 文件前需要先在目标主机上安装 unzip 包"></a>使用 unarchlive 模块解压 zip 文件前需要先在目标主机上安装 unzip 包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m yum -a &quot;name=unzip state=present&quot;</span><br><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m yum -a &quot;list=unzip&quot;  #等同于命令yum list unzip</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装-elasticsearch-analysis-ik-插件"><a href="#安装-elasticsearch-analysis-ik-插件" class="headerlink" title="安装 elasticsearch-analysis-ik 插件"></a>安装 elasticsearch-analysis-ik 插件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m unarchive -a &quot;src=elasticsearch-analysis-ik-6.3.0.zip dest=/home/deploy/elasticsearch/elasticsearch-6.3.0/plugins/ik&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="最后再赋权一遍，以防万一："><a href="#最后再赋权一遍，以防万一：" class="headerlink" title="最后再赋权一遍，以防万一："></a>最后再赋权一遍，以防万一：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m command -a &quot;chown -R deploy:deploy /home/deploy/deploy&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="elasticsearch服务启停操作："><a href="#elasticsearch服务启停操作：" class="headerlink" title="elasticsearch服务启停操作："></a>elasticsearch服务启停操作：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ansible elasticsearch_servers -i elasticsearch_hosts -m command -a &quot;su - deploy -c /home/deploy/elasticsearch/elasticsearch-6.3.0/bin/elasticsearch -d&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看集群健康状态："><a href="#查看集群健康状态：" class="headerlink" title="查看集群健康状态："></a>查看集群健康状态：</h3><p><code>curl http:/10.0.0.11:9200/_cluster/health</code></p>
+<p>如果返回status&#x3D;green表示正常，返回结果类似如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;cluster_name&quot;:&quot;es-cluster&quot;,&quot;status&quot;:&quot;green&quot;,&quot;timed_out&quot;:false,&quot;number_of_nodes&quot;:2,&quot;number_of_data_nodes&quot;:2,&quot;active_primary_shards&quot;:0,&quot;active_shards&quot;:0,&quot;relocating_shards&quot;:0,&quot;initializing_shards&quot;:0,&quot;unassigned_shards&quot;:0,&quot;delayed_unassigned_shards&quot;:0,&quot;number_of_pending_tasks&quot;:0,&quot;number_of_in_flight_fetch&quot;:0,&quot;task_max_waiting_in_queue_millis&quot;:0,&quot;active_shards_percent_as_number&quot;:100.0&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="查看集群状态："><a href="#查看集群状态：" class="headerlink" title="查看集群状态："></a>查看集群状态：</h3><p><code>http://10.0.0.11:9200/_cluster/state</code></p>
+<p><code>http://10.0.0.11:9200/_cluster/state?pretty</code></p>
+<h3 id="FAQ："><a href="#FAQ：" class="headerlink" title="FAQ："></a>FAQ：</h3><p>Q: </p>
+<p>报错：<code>org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root</code></p>
+<p>A:<br>不能以root账号执行，要以普通用户执行：<br><code>su - deploy -c &#39;/home/deploy/elasticsearch/elasticsearch-6.3.0/bin/elasticsearch -d&#39;</code></p>
+<p>Q：<br><code>elasticsearch java.nio.file.AccessDeniedException</code><br>A：<br>出现这个异常的原因是当前用户没权限，解决办法，为普通用户deploy授权：</p>
+<p><code>chown -R deploy:deploy /usr/local/elasticsearch</code></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>Q:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: [3] bootstrap checks failed</span><br><span class="line">[1]&amp;#x3A; max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536][2]: max number of threads [3892] for user [deploy] is too low, increase to at least [4096][3]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br></pre></td></tr></table></figure>
+
+<p>A:</p>
+<h1 id="deploy环境准备"><a href="#deploy环境准备" class="headerlink" title="deploy环境准备"></a>deploy环境准备</h1><p>由于Elasticsearch、Logstash、Kibana均不能以root账号运行。<br>但是Linux对非root账号可并发操作的文件、线程都有限制。<br>所以，部署deploy相关的机器都要调整：</p>
+<h2 id="修改文件限制"><a href="#修改文件限制" class="headerlink" title="修改文件限制"></a>修改文件限制</h2><h4 id="修改系统文件"><a href="#修改系统文件" class="headerlink" title="修改系统文件"></a>修改系统文件</h4><p><code>vi /etc/security/limits.conf</code></p>
+<h4 id="增加的内容"><a href="#增加的内容" class="headerlink" title="增加的内容"></a>增加的内容</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">soft nofile 65536</span><br><span class="line">hard nofile 65536</span><br><span class="line">soft nproc 2048</span><br><span class="line">hard nproc 4096</span><br><span class="line">deploy soft memlock unlimited</span><br><span class="line">deploy hard memlock unlimited</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="调整进程数："><a href="#调整进程数：" class="headerlink" title="调整进程数："></a>调整进程数：</h3><h4 id="修改系统文件-1"><a href="#修改系统文件-1" class="headerlink" title="修改系统文件"></a>修改系统文件</h4><p><code>vi /etc/security/limits.d/20-nproc.conf</code></p>
+<h4 id="调整成以下配置"><a href="#调整成以下配置" class="headerlink" title="调整成以下配置"></a>调整成以下配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">soft    nproc     4096</span><br><span class="line">root       soft    nproc     unlimited</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="调整虚拟内存-amp-最大并发连接："><a href="#调整虚拟内存-amp-最大并发连接：" class="headerlink" title="调整虚拟内存&amp;最大并发连接："></a>调整虚拟内存&amp;最大并发连接：</h3><h4 id="修改系统文件-2"><a href="#修改系统文件-2" class="headerlink" title="修改系统文件"></a>修改系统文件</h4><p><code>vi /etc/sysctl.conf</code></p>
+<h4 id="增加的内容，执行-“sudo-sysctl-p”-生效："><a href="#增加的内容，执行-“sudo-sysctl-p”-生效：" class="headerlink" title="增加的内容，执行 “sudo sysctl -p” 生效："></a>增加的内容，执行 “sudo sysctl -p” 生效：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vm.max_map_count=655360</span><br><span class="line">fs.file-max=655360</span><br><span class="line">vm.swappiness=0</span><br></pre></td></tr></table></figure>
+
+<p>以上操作重启系统后生效: reboot</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>Q:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: [10.0.0.12]&amp;#x3A; FAILED! =&gt; &#123;&quot;changed&quot;: false, &quot;msg&quot;: &quot;Failed to find handler for &quot;/root/.ansible/tmp/ansible-tmp-1530157101.0-36263796351235/source&quot;. Make sure the required command to extract the file is installed. Command &quot;unzip&quot; not found. Command &quot;/usr/bin/gtar&quot; could not handle archive.&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>A: 目标主机缺少unzip命令。<br>Solution：在远程目标主机上执行安装命令：</p>
+<p><code>sudo yum install unzip</code></p>
+<p><code>ansible remote_servers -i \_etc_ansible_hosts -m yum -a &quot;list=unzip&quot;</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/08/16/kibana-deploy/" rel="prev" title="Kibana deploy">
+                  <i class="fa fa-chevron-left"></i> Kibana deploy
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/08/16/logstash-deploy/" rel="next" title="Logstash deploy">
+                  Logstash deploy <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeionTong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

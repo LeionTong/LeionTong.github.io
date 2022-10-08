@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"leiontong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="SQL：DDL，DMLDDL：Data Defination Language mysql&gt; HELP Data Definition1234CREATE, ALTER, DROP    DATABASE, TABLE    INDEX, VIEW, USER    FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="https://leiontong.github.io/2017/04/16/MySQL%EF%BC%9ADDL%EF%BC%8CDML/index.html">
+<meta property="og:site_name" content="Leion-Sky">
+<meta property="og:description" content="SQL：DDL，DMLDDL：Data Defination Language mysql&gt; HELP Data Definition1234CREATE, ALTER, DROP    DATABASE, TABLE    INDEX, VIEW, USER    FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-04-16T01:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-24T08:01:54.000Z">
+<meta property="article:author" content="LeionTong">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://leiontong.github.io/2017/04/16/MySQL%EF%BC%9ADDL%EF%BC%8CDML/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://leiontong.github.io/2017/04/16/MySQL%EF%BC%9ADDL%EF%BC%8CDML/","path":"2017/04/16/MySQL：DDL，DML/","title":"MySQL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MySQL | Leion-Sky</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99348322-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-99348322-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Leion-Sky</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL%EF%BC%9ADDL%EF%BC%8CDML"><span class="nav-number">1.</span> <span class="nav-text">SQL：DDL，DML</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL%EF%BC%9AData-Defination-Language-mysql-gt-HELP-Data-Definition"><span class="nav-number">1.1.</span> <span class="nav-text">DDL：Data Defination Language mysql&gt; HELP Data Definition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML-Data-Manipulation-Language-mysql-gt-HELP-Data-Manipulation"><span class="nav-number">1.2.</span> <span class="nav-text">DML: Data Manipulation Language mysql&gt; HELP Data Manipulation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">数据库：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">1.3.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">表：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CREATE%EF%BC%9A"><span class="nav-number">1.4.1.</span> <span class="nav-text">CREATE：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%951"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">语法1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%952"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">语法2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AD%E6%B3%953"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">语法3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E9%A1%B9"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">选项</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DROP"><span class="nav-number">1.4.2.</span> <span class="nav-text">DROP:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALTER%EF%BC%9A"><span class="nav-number">1.4.3.</span> <span class="nav-text">ALTER：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E7%BB%93%E6%9E%84%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.4.4.</span> <span class="nav-text">查看表结构定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%AE%9A%E4%B9%89%EF%BC%9A"><span class="nav-number">1.4.5.</span> <span class="nav-text">查看表定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%A1%A8%E5%B1%9E%E6%80%A7%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-number">1.4.6.</span> <span class="nav-text">查看表属性信息：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">1.4.6.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-3"><span class="nav-number">1.4.6.2.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LeionTong"
+      src="/avatar.gif">
+  <p class="site-author-name" itemprop="name">LeionTong</p>
+  <div class="site-description" itemprop="description">LeionTong's personal blog!</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/leiontong" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;leiontong" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:leion.tong@outlook.com" title="E-Mail → mailto:leion.tong@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/leiontong" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2017/04/16/MySQL%EF%BC%9ADDL%EF%BC%8CDML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-16 09:00:00" itemprop="dateCreated datePublished" datetime="2017-04-16T09:00:00+08:00">2017-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-05-24 16:01:54" itemprop="dateModified" datetime="2022-05-24T16:01:54+08:00">2022-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="SQL：DDL，DML"><a href="#SQL：DDL，DML" class="headerlink" title="SQL：DDL，DML"></a>SQL：DDL，DML</h1><h2 id="DDL：Data-Defination-Language-mysql-gt-HELP-Data-Definition"><a href="#DDL：Data-Defination-Language-mysql-gt-HELP-Data-Definition" class="headerlink" title="DDL：Data Defination Language mysql&gt; HELP Data Definition"></a>DDL：Data Defination Language <code>mysql&gt; HELP Data Definition</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE, ALTER, DROP</span><br><span class="line">    DATABASE, TABLE</span><br><span class="line">    INDEX, VIEW, USER</span><br><span class="line">    FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER</span><br></pre></td></tr></table></figure>
+
+<h2 id="DML-Data-Manipulation-Language-mysql-gt-HELP-Data-Manipulation"><a href="#DML-Data-Manipulation-Language-mysql-gt-HELP-Data-Manipulation" class="headerlink" title="DML: Data Manipulation Language mysql&gt; HELP Data Manipulation"></a>DML: Data Manipulation Language <code>mysql&gt; HELP Data Manipulation</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT/REPLACE, DELETE, SELECT, UPDATE</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据库："><a href="#数据库：" class="headerlink" title="数据库："></a>数据库：</h2><blockquote>
+<p>对于MySQL而言，每个数据库（DATABASE）其实就是对应数据目录（datadir）下的一个目录（db_name），用于规定一个项目或者方案的集合，因此DATABASE也被称为SCHEMA；</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE &#123;DATABASE | SCHEMA&#125; [IF NOT EXISTS] db_name CHARACTER SET [=] charset_name  COLLATE [=] collation_name</span><br><span class="line">ALTER &#123;DATABASE | SCHEMA&#125; [db_name] CHARACTER SET [=] charset_name  COLLATE [=] collation_name</span><br><span class="line">DROP &#123;DATABASE | SCHEMA&#125; [IF EXISTS] db_name</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span> 
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p><strong>示例：</strong> 显示当前已存在的所有数据库;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| test               |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建一个数据库 CREATE DATABASE;</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE mydb;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>如果要创建的数据库已存在，就会报错；如果此时是一个sql脚本的话执行到这里就中断了；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE mydb;</span><br><span class="line">ERROR 1007 (HY000): Can&#x27;t create database &#x27;mydb&#x27;; database exists</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库时可以加上条件判断 IF NOT EXISTS ；这样只会出现警告，而不会报错中断操作；可以使用命令 SHOW WARNINGS 查看；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS mydb;</span><br><span class="line">Query OK, 1 row affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS mydb;</span><br><span class="line">Query OK, 1 row affected, 1 warning (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; SHOW WARNINGS;</span><br><span class="line">+-------+------+-----------------------------------------------+</span><br><span class="line">| Level | Code | Message                                       |</span><br><span class="line">+-------+------+-----------------------------------------------+</span><br><span class="line">| Note  | 1007 | Can&#x27;t create database &#x27;mydb&#x27;; database exists |</span><br><span class="line">+-------+------+-----------------------------------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>创建数据库时可以指定默认字符集 CHARATER SET；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS testdb CHARACTER SET utf8;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果要创建数据库时忘记指定字符集，可以使用ALTER DATABASE 修改；</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; ALTER DATABASE mydb CHARATER SET utf8;</span><br><span class="line">Query OK, 1 row affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除一个数据库 DROP DATABASE;</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; DROP DATABASE testdb;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>同样，如果要删除的数据库不存在，就会报错；可以加上条件判断IF EXISTS 以避免报错；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; DROP DATABASE testdb;</span><br><span class="line">ERROR 1008 (HY000): Can&#x27;t drop database &#x27;testdb&#x27;; database doesn&#x27;t exist</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; DROP DATABASE IF EXISTS testdb;</span><br><span class="line">Query OK, 0 rows affected, 1 warning (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><h2 id="表："><a href="#表：" class="headerlink" title="表："></a>表：</h2><blockquote>
+<p>表名是否区分大小写取决于文件系统，强烈建议不要使用仅仅大小写不同的表名；</p>
+</blockquote>
+<h3 id="CREATE："><a href="#CREATE：" class="headerlink" title="CREATE："></a>CREATE：</h3><h4 id="语法1"><a href="#语法1" class="headerlink" title="语法1"></a>语法1</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    (create_definition,...)</span><br><span class="line">    [table_options]</span><br><span class="line">    [partition_options]</span><br></pre></td></tr></table></figure>
+
+<h4 id="语法2"><a href="#语法2" class="headerlink" title="语法2"></a>语法2</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    [(create_definition,...)]</span><br><span class="line">    [table_options]</span><br><span class="line">    [partition_options]</span><br><span class="line">    select_statement</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过查询语句来创建表，直接将查询语句的结果插入到新创建的表中；只能复制字段名和类型，不能复制字段定义；</p>
+</blockquote>
+<h4 id="语法3"><a href="#语法3" class="headerlink" title="语法3"></a>语法3</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name</span><br><span class="line">    &#123; LIKE old_tbl_name | (LIKE old_tbl_name) &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>复制某存在的表的结构来创建新的空表；</p>
+</blockquote>
+<h4 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create_definition:</span><br><span class="line">    col_name column_definition</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">column_definition:</span><br><span class="line">    data_type [NOT NULL | NULL] [DEFAULT default_value]</span><br><span class="line">      [AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]</span><br><span class="line">      [COMMENT &#x27;string&#x27;]</span><br><span class="line">      [COLUMN_FORMAT &#123;FIXED|DYNAMIC|DEFAULT&#125;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">table_options：</span><br><span class="line">    ENGINE [=] engine_name</span><br></pre></td></tr></table></figure>
+
+<p>查看支持的所有存储引擎： <code>mysql&gt; SHOW ENGINES;</code> 查看指定表的存储引擎： <code>mysql&gt; SHOW TABLE STATUS LIKE clause;</code> 查看使用指定存储引擎的表： <code>mysql&gt; SHOW TABLE STATUS WHERE Engine=&#39;InnoDB&#39;\G</code></p>
+<h3 id="DROP"><a href="#DROP" class="headerlink" title="DROP:"></a>DROP:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP [TEMPORARY] TABLE [IF EXISTS] tbl_name [, tbl_name];</span><br></pre></td></tr></table></figure>
+
+<h3 id="ALTER："><a href="#ALTER：" class="headerlink" title="ALTER："></a>ALTER：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER  TABLE tbl_name</span><br><span class="line">    [alter_specification [, alter_specification] ...]</span><br></pre></td></tr></table></figure>
+
+<p>可修改内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* table_options</span><br><span class="line">* 添加定义：ADD</span><br><span class="line">    - 字段、字段集合、索引、约束</span><br><span class="line">* 修改字段：</span><br><span class="line">    - CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name]</span><br><span class="line">    - MODIFY [COLUMN] col_name column_definition [FIRST | AFTER col_name]</span><br><span class="line">* 删除操作：DROP</span><br><span class="line">    - 字段、索引、约束</span><br></pre></td></tr></table></figure>
+
+<p>表重命名： <code>RENAME [TO|AS] new_tbl_name</code></p>
+<h3 id="查看表结构定义："><a href="#查看表结构定义：" class="headerlink" title="查看表结构定义："></a>查看表结构定义：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DESC tbl_name；</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表定义："><a href="#查看表定义：" class="headerlink" title="查看表定义："></a>查看表定义：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW CREATE TABLE tbl_name</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看表属性信息："><a href="#查看表属性信息：" class="headerlink" title="查看表属性信息："></a>查看表属性信息：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW TABLE STATUS [&#123;FROM | IN&#125; db_name] [LIKE &#x27;pattern&#x27; | WHERE expr]</span><br></pre></td></tr></table></figure>
+
+<h4 id="-2"><a href="#-2" class="headerlink" title=""></a></h4><p><strong>示例：</strong> <strong>创建一张表</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE tbl1;`</span><br></pre></td></tr></table></figure>
+
+<p>创建表tbl2，指定字段列数据类型、主键等信息；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; USE mydb;</span><br><span class="line">Database changed</span><br><span class="line">MariaDB [mydb]&gt; CREATE TABLE tbl2(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name CHAR(20));</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; DESC tbl2;</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type                | Null | Key | Default | Extra          |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | char(20)            | YES  |     | NULL    |                |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>创建表tbl3，单独指定主键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; CREATE TABLE tbl3(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), PRIMARY KEY(id));</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; DESC tbl3;</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type                | Null | Key | Default | Extra          |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | char(20)            | YES  |     | NULL    |                |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>创建表tbl4，同时给指定字段创建索引；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; CREATE TABLE tbl4(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), age TINYINT UNSIGNED, PRIMARY KEY(id), index(name));</span><br><span class="line">MariaDB [mydb]&gt; DESC tbl4;</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| Field | Type                | Null | Key | Default | Extra          |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |</span><br><span class="line">| name  | char(20)            | YES  | MUL | NULL    |                |</span><br><span class="line">| age   | tinyint(3) unsigned | YES  |     | NULL    |                |</span><br><span class="line">+-------+---------------------+------+-----+---------+----------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>查看表tbl4的索引信息;注意到，这里有两行，第一行是主键索引 PRIMARY 针对 id 字段，第二行是自定义索引 name 针对 name 字段；由于自定义的索引未指定索引名，因此默认索引名与字段名一样；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; SHOW INDEXES FROM tbl4;</span><br><span class="line">+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span><br><span class="line">| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |</span><br><span class="line">+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span><br><span class="line">| tbl4  |          0 | PRIMARY  |            1 | id          | A         |           0 |     NULL | NULL   |      | BTREE      |         |               |</span><br><span class="line">| tbl4  |          1 | name     |            1 | name        | A         |           0 |     NULL | NULL   | YES  | BTREE      |         |               |</span><br><span class="line">+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; SHOW INDEXES FROM tbl4\G</span><br><span class="line">*************************** 1\. row ***************************</span><br><span class="line">        Table: tbl4</span><br><span class="line">   Non_unique: 0</span><br><span class="line">     Key_name: PRIMARY</span><br><span class="line"> Seq_in_index: 1</span><br><span class="line">  Column_name: id</span><br><span class="line">    Collation: A</span><br><span class="line">  Cardinality: 0</span><br><span class="line">     Sub_part: NULL</span><br><span class="line">       Packed: NULL</span><br><span class="line">         Null:</span><br><span class="line">   Index_type: BTREE</span><br><span class="line">      Comment:</span><br><span class="line">Index_comment:</span><br><span class="line">*************************** 2\. row ***************************</span><br><span class="line">        Table: tbl4</span><br><span class="line">   Non_unique: 1</span><br><span class="line">     Key_name: name</span><br><span class="line"> Seq_in_index: 1</span><br><span class="line">  Column_name: name</span><br><span class="line">    Collation: A</span><br><span class="line">  Cardinality: 0</span><br><span class="line">     Sub_part: NULL</span><br><span class="line">       Packed: NULL</span><br><span class="line">         Null: YES</span><br><span class="line">   Index_type: BTREE</span><br><span class="line">      Comment:</span><br><span class="line">Index_comment:</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>查看表的索引信息；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; show table status;</span><br><span class="line">+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+</span><br><span class="line">| Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time         | Update_time | Check_time | Collation       | Checksum | Create_options | Comment |</span><br><span class="line">+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+</span><br><span class="line">| tbl2 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |            0 |   9437184 |              1 | 2017-06-03 22:24:47 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |</span><br><span class="line">| tbl3 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |            0 |   9437184 |              1 | 2017-06-03 22:29:15 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |</span><br><span class="line">| tbl4 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |        16384 |   9437184 |              1 | 2017-06-03 22:51:45 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |</span><br><span class="line">+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; SHOW TABLE STATUS\G</span><br><span class="line">*************************** 1\. row ***************************</span><br><span class="line">           Name: tbl2</span><br><span class="line">         Engine: InnoDB</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Compact</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 16384</span><br><span class="line">Max_data_length: 0</span><br><span class="line">   Index_length: 0</span><br><span class="line">      Data_free: 9437184</span><br><span class="line"> Auto_increment: 1</span><br><span class="line">    Create_time: 2017-06-03 22:24:47</span><br><span class="line">    Update_time: NULL</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">*************************** 2\. row ***************************</span><br><span class="line">           Name: tbl3</span><br><span class="line">         Engine: InnoDB</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Compact</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 16384</span><br><span class="line">Max_data_length: 0</span><br><span class="line">   Index_length: 0</span><br><span class="line">      Data_free: 9437184</span><br><span class="line"> Auto_increment: 1</span><br><span class="line">    Create_time: 2017-06-03 22:29:15</span><br><span class="line">    Update_time: NULL</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">*************************** 3\. row ***************************</span><br><span class="line">           Name: tbl4</span><br><span class="line">         Engine: InnoDB</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Compact</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 16384</span><br><span class="line">Max_data_length: 0</span><br><span class="line">   Index_length: 16384</span><br><span class="line">      Data_free: 9437184</span><br><span class="line"> Auto_increment: 1</span><br><span class="line">    Create_time: 2017-06-03 22:51:45</span><br><span class="line">    Update_time: NULL</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">3 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; SHOW TABLE STATUS LIKE &#x27;tbl4&#x27;\G</span><br><span class="line">*************************** 1\. row ***************************</span><br><span class="line">           Name: tbl4</span><br><span class="line">         Engine: InnoDB</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Compact</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 16384</span><br><span class="line">Max_data_length: 0</span><br><span class="line">   Index_length: 16384</span><br><span class="line">      Data_free: 9437184</span><br><span class="line"> Auto_increment: 1</span><br><span class="line">    Create_time: 2017-06-03 22:51:45</span><br><span class="line">    Update_time: NULL</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>创建表tbl5，表选项 table_options 指定存储引擎 ENGINE ；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt;  CREATE TABLE tbl5(id INT) ENGINE MyISAM;</span><br><span class="line">Query OK, 0 rows affected (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; DESC tbl5;</span><br><span class="line">+-------+---------+------+-----+---------+-------+</span><br><span class="line">| Field | Type    | Null | Key | Default | Extra |</span><br><span class="line">+-------+---------+------+-----+---------+-------+</span><br><span class="line">| id    | int(11) | YES  |     | NULL    |       |</span><br><span class="line">+-------+---------+------+-----+---------+-------+</span><br><span class="line">1 row in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; SHOW TABLE STATUS WHERE ENGINE=&#x27;MyISAM&#x27;\G</span><br><span class="line">*************************** 1\. row ***************************</span><br><span class="line">           Name: tbl5</span><br><span class="line">         Engine: MyISAM</span><br><span class="line">        Version: 10</span><br><span class="line">     Row_format: Fixed</span><br><span class="line">           Rows: 0</span><br><span class="line"> Avg_row_length: 0</span><br><span class="line">    Data_length: 0</span><br><span class="line">Max_data_length: 1970324836974591</span><br><span class="line">   Index_length: 1024</span><br><span class="line">      Data_free: 0</span><br><span class="line"> Auto_increment: NULL</span><br><span class="line">    Create_time: 2017-06-03 23:26:08</span><br><span class="line">    Update_time: 2017-06-03 23:26:08</span><br><span class="line">     Check_time: NULL</span><br><span class="line">      Collation: utf8_general_ci</span><br><span class="line">       Checksum: NULL</span><br><span class="line"> Create_options:</span><br><span class="line">        Comment:</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>使用SELECT语句查询获取的数据创建表tbl6；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; CREATE TABLE tbl6 SELECT Host,User,Password From mysql.user;</span><br><span class="line">Query OK, 8 rows affected (0.02 sec)</span><br><span class="line">Records: 8  Duplicates: 0  Warnings: 0</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; DESC tbl6;</span><br><span class="line">+----------+----------+------+-----+---------+-------+</span><br><span class="line">| Field    | Type     | Null | Key | Default | Extra |</span><br><span class="line">+----------+----------+------+-----+---------+-------+</span><br><span class="line">| Host     | char(60) | NO   |     |         |       |</span><br><span class="line">| User     | char(16) | NO   |     |         |       |</span><br><span class="line">| Password | char(41) | NO   |     |         |       |</span><br><span class="line">+----------+----------+------+-----+---------+-------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; SELECT * FROM tbl6;</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| Host      | User | Password                                  |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">| localhost | root |                                           |</span><br><span class="line">| centos7   | root |                                           |</span><br><span class="line">| 127.0.0.1 | root |                                           |</span><br><span class="line">| ::1       | root |                                           |</span><br><span class="line">| localhost |      |                                           |</span><br><span class="line">| centos7   |      |                                           |</span><br><span class="line">| %         | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |</span><br><span class="line">| localhost | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |</span><br><span class="line">+-----------+------+-------------------------------------------+</span><br><span class="line">8 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
+<p>复制表结构；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [mydb]&gt; CREATE TABLE tbl7 like mysql.user;</span><br><span class="line">Query OK, 0 rows affected (0.02 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [mydb]&gt; DESC tbl7;</span><br><span class="line">+------------------------+-----------------------------------+------+-----+----------+-------+</span><br><span class="line">| Field                  | Type                              | Null | Key | Default  | Extra |</span><br><span class="line">+------------------------+-----------------------------------+------+-----+----------+-------+</span><br><span class="line">| Host                   | char(60)                          | NO   | PRI |          |       |</span><br><span class="line">| User                   | char(80)                          | NO   | PRI |          |       |</span><br><span class="line">| Password               | char(41)                          | NO   |     |          |       |</span><br><span class="line">| Select_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Insert_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Update_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Delete_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Drop_priv              | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Reload_priv            | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Shutdown_priv          | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Process_priv           | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| File_priv              | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Grant_priv             | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| References_priv        | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Index_priv             | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Alter_priv             | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Show_db_priv           | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Super_priv             | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_tmp_table_priv  | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Lock_tables_priv       | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Execute_priv           | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Repl_slave_priv        | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Repl_client_priv       | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_view_priv       | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Show_view_priv         | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_routine_priv    | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Alter_routine_priv     | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_user_priv       | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Event_priv             | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Trigger_priv           | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| Create_tablespace_priv | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| ssl_type               | enum(&#x27;&#x27;,&#x27;ANY&#x27;,&#x27;X509&#x27;,&#x27;SPECIFIED&#x27;) | NO   |     |          |       |</span><br><span class="line">| ssl_cipher             | blob                              | NO   |     | NULL     |       |</span><br><span class="line">| x509_issuer            | blob                              | NO   |     | NULL     |       |</span><br><span class="line">| x509_subject           | blob                              | NO   |     | NULL     |       |</span><br><span class="line">| max_questions          | int(11) unsigned                  | NO   |     | 0        |       |</span><br><span class="line">| max_updates            | int(11) unsigned                  | NO   |     | 0        |       |</span><br><span class="line">| max_connections        | int(11) unsigned                  | NO   |     | 0        |       |</span><br><span class="line">| max_user_connections   | int(11)                           | NO   |     | 0        |       |</span><br><span class="line">| plugin                 | char(64)                          | NO   |     |          |       |</span><br><span class="line">| authentication_string  | text                              | NO   |     | NULL     |       |</span><br><span class="line">| password_expired       | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| is_role                | enum(&#x27;N&#x27;,&#x27;Y&#x27;)                     | NO   |     | N        |       |</span><br><span class="line">| default_role           | char(80)                          | NO   |     |          |       |</span><br><span class="line">| max_statement_time     | decimal(12,6)                     | NO   |     | 0.000000 |       |</span><br><span class="line">+------------------------+-----------------------------------+------+-----+----------+-------+</span><br><span class="line">46 rows in set (0.02 sec)</span><br></pre></td></tr></table></figure>
+
+<h4 id="-3"><a href="#-3" class="headerlink" title=""></a></h4>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/1970/01/01/Git%E6%B8%85%E7%90%86%E5%88%A0%E9%99%A4%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E6%96%87%E4%BB%B6/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/05/17/Hexo-deploy-to-GitHub-Pages/" rel="next" title="How to use Hexo and deploy to GitHub Pages">
+                  How to use Hexo and deploy to GitHub Pages <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LeionTong</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
