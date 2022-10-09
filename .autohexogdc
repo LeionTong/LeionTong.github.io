@@ -1,3 +1,9 @@
 #!/bin/sh
 
-hexo clean && hexo g -d && hexo clean 
+hexo clean && hexo g -d
+hexo clean
+
+git checkout master
+git add .
+git commit -m 'New post, auto commit.'
+git push
