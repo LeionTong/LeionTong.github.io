@@ -4,8 +4,8 @@
 # hexo clean && hexo g && hexo s
 
 # To push:
-hexo clean && hexo g -d
-hexo clean
+hexo clean && hexo g -d && hexo clean
+[ $? -ne 0 ] && exit 1
 
 git checkout master
 git add .
