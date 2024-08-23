@@ -17,6 +17,7 @@ Nixnote2是evernote的第三方客户端通过API接口实现同步，不会占�
 为知笔记，优良的跨平台笔记软件，支持多级目录和多标签，以及markdown，试用100天。
 
 ### 有道云笔记 YNote
+<!-- more -->
 
 官方不支持Linux操作系统，Linux上只能使用第三方通过Electron封装版或者网页版。
 
@@ -34,7 +35,6 @@ Joplin 的特色：
 支持端到端加密 (End To End Encryption / E2EE)  
 可完全离线使用，不上传任何数据  
 
-<!-- more -->  
 
 也可搭配各种主流网盘同步，比如 OneDrive、NextCloud、Dropbox,、WebDAV 等  
 支持导入印象笔记的 .enex 备份文件，支持导入 Markdown 文档  

@@ -13,6 +13,7 @@ https://mirrors.ustc.edu.cn/centos/
 操作前请做好相应备份。
 
 对于 CentOS 8，使用以下命令替换默认的配置
+<!-- more -->
 
 ```
 sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
@@ -34,7 +35,6 @@ sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
 
 ***
 
-<!-- more --> 
 
 EPEL 源
 https://mirrors.ustc.edu.cn/epel/

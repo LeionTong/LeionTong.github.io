@@ -17,6 +17,7 @@ CREATE, ALTER, DROP
 
 ## DML: Data Manipulation Language `mysql> HELP Data Manipulation`
 
+<!-- more -->
 ```
 INSERT/REPLACE, DELETE, SELECT, UPDATE
 ```
@@ -31,7 +32,6 @@ ALTER {DATABASE | SCHEMA} [db_name] CHARACTER SET [=] charset_name  COLLATE [=] 
 DROP {DATABASE | SCHEMA} [IF EXISTS] db_name
 ```
 
-<!-- more --> 
 
 ### #
 

@@ -13,6 +13,7 @@ sudo sh -c "sed -i 's/IgnoreLid=false/IgnoreLid=true/' /etc/UPower/UPower.conf"
 
 sudo systemctl restart upower.service
 ```
+<!-- more -->
 同时：
 ```sh
 #设置笔记本合上盖子不休眠

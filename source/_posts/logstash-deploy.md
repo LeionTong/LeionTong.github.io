@@ -17,6 +17,7 @@ id deploy &>/dev/null ; if \[[ $? != "0" ]]; then useradd deploy; fi
 su - deploy
 ```
 ### 创建APP目录和数据目录：
+<!-- more -->
 ```
 cd ~
 mkdir -pv ./logstash
@@ -29,7 +30,6 @@ chown -R deploy:deploy /home/deploy/logstash   #如果是放到单独分区的�
 
 ### 安装APP：
 
-<!-- more --> 
 
 tar xvf logstash-6.3.0.tar.gz -C /home/deploy/logstash
 

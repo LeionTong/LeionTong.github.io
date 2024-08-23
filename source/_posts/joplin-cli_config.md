@@ -17,6 +17,7 @@ joplin-cli config sync.target 2
 joplin-cli config sync.2.path /home/leion/Nextcloud-nc.nl.tab.digital-leitong1990@gmail/Joplin/
 joplin-cli sync
 ```
+<!-- more -->
 
 ```sh
 # 配置用户默认编辑器

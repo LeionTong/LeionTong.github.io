@@ -8,7 +8,6 @@ tags: null
  ## 现象描述：
 在一次常规给 root 用户配置秘钥登录过程中，通过命令  `ssh-copy-id` 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。
 
-<!-- more -->
 
 ## 问题分析：
 普通用户SSH秘钥登录没问题：
@@ -18,6 +17,7 @@ OpenSSH_8.6p1, OpenSSL 1.1.1k  25 Mar 2021
 debug1: Reading configuration data /home/leion/.ssh/config
 debug1: /home/leion/.ssh/config line 1: Applying options for *
 debug1: Reading configuration data /etc/ssh/ssh_config
+<!-- more -->
 debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/leion/.ssh/known_hosts'
 debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/leion/.ssh/known_hosts2'
 debug2: resolving "lfs9.0" port 22

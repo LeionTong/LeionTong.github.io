@@ -17,6 +17,7 @@ tags: linux
 从实际使用体验来说，是用户在本地主机通过 SSH Client 登录到启用了 X11 转发功能的远程主机的 SSH Server 上执行 GUI 图形界面程序，此时本地主机的显示器(X Server DISPLAY)上会呈现远程主机的GUI程序的图形界面。
 
 ## 预准备
+<!-- more -->
 
 |  Linux |  SSH协议中的角色  |  X协议中的角色  |  OS  |  IP  |
 |-|-|-|-|-|
@@ -31,7 +32,6 @@ Arch系统，执行：
 `sudo pacman -S xorg-xauth xorg-fonts-*`
 其他发行版软件包名称可能是 `xorg-x11-xauth` 和 `xorg-x11-fonts-*`。
 
-<!-- more --> 
 
 ## 远程Linux操作系统(X Client)操作
 

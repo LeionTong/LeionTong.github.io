@@ -17,6 +17,7 @@ Panel 1:
 - Global Menu
 
 Panel 2:
+<!-- more -->
 - Latte Tasks
 - Analog Clock
 - Digital Colck

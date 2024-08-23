@@ -14,6 +14,7 @@ $ npm install -g cnpm --registry=https://registry.npmmirror.com
 
 或者你直接通过添加 `npm` 参数 `alias` 一个新命令:
 
+<!-- more -->
 ```bash
 alias cnpm="npm --registry=https://registry.npmmirror.com \
 --cache=$HOME/.npm/.cache/cnpm \

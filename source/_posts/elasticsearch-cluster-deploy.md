@@ -16,6 +16,7 @@ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-
 
 ### 创建普通用户：
 
+<!-- more -->
 ```
 id deploy &>/dev/null; if [[ $? != "0" ]]; then useradd deploy; fi
 ```
@@ -28,7 +29,6 @@ id deploy &>/dev/null; if [[ $? != "0" ]]; then useradd deploy; fi
 su - deploy
 ```
 
-<!-- more --> 
 
 ### 创建 APP目录和数据目录：
 ```

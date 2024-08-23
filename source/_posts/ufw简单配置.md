@@ -16,6 +16,7 @@ sudo systemctl restart firewalld.service
 ```
 
 UFW firewall
+<!-- more -->
 ```
 sudo ufw allow 1714:1764/udp
 sudo ufw allow 1714:1764/tcp

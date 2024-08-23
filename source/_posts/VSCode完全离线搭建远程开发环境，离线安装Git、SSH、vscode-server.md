@@ -15,9 +15,9 @@ References:
 - 完全离线环境：Windows客户端和Linux服务端均在内网，Windows客户端可以直接访问Linux服务端，两者均无法访问互联网。笔者另有一台电脑可以通过零信任访问这两台内网机器，但对两者均无法直连。
 - 用户受限：Windows客户端无 Administrator 管理员权限，即无法执行任何需要管理员权限的动作，比如无法安装全局软件、只能使用便携版软件；无法往Windows文件夹放dll；无法执行需要管理员权限的powershell或bat脚本、当然无法启动具有管理员权限的powershell或cmd。
 
-<!-- more --> 
 ## 安装 PortableGit
 
+<!-- more -->
 https://github.com/git-for-windows/git/releases/download/v2.46.0.windows.1/PortableGit-2.46.0-64-bit.7z.exe
 
 这是一个7z自动解压包，安装至 `C:\PortableGit\`。

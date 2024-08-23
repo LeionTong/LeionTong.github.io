@@ -1,5 +1,5 @@
 ---
-title: oneplus6解锁并root教程
+title: Obsidian_设置_文件与链接
 date: 2022-01-01T00:00:00.000Z
 tags: null
 ---
@@ -17,6 +17,7 @@ Obsidian 支持双向链接，再配合 Pandoc 导出功能。问题是插入图
 新附件的默认位置：下方指定的文件夹
 子文件夹名称：β-Sources
 ```
+<!-- more -->
 
 ***
 ~~Obsidian 支持双向链接，Typora 导出功能很强大，在 Obsidian 中粘贴了图片又想要 Typora 能打开，那么需要修改 Obsidian 的配置：

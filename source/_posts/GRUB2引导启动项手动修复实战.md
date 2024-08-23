@@ -17,6 +17,7 @@ grub rescue> set prefix=(hdX,Y)/boot/grub
 ```
 其中 X 是物理驱动器的编号，而 Y 是分区的编号。
 **注意：** 如果启动分区是个独立的分区，要在路径中省略 `/boot`（例如键入 `set prefix=(hdX,Y)/grub`）。
+<!-- more -->
 
 通过加载 `linux` 模组来扩展命令行的功能：
 ```sh

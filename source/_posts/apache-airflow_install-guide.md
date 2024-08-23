@@ -17,6 +17,7 @@ or python36:
 
 `yum install python36 python36-pip python36-setuptools python36-dev`
 
+<!-- more -->
 
 ## install airflow
 
@@ -38,7 +39,6 @@ airflow initdb
 airflow webserver -p 8080
 ```
 
-<!-- more --> 
 
 ## Problem：
 

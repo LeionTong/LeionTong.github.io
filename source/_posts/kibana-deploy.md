@@ -17,6 +17,7 @@ tags: null
 `su - deploy`
 
 ### 创建APP目录：
+<!-- more -->
 
 ```
 cd ~
@@ -29,7 +30,6 @@ mkdir -pv ./kibana
 
 `tar -xvf kibana-6.3.0-linux-x86_64.tar.gz -C /home/deploy/kibana`
 
-<!-- more --> 
 
 ### 修改配置 kibana.yml：
 

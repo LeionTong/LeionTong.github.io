@@ -18,6 +18,7 @@ tags: joplin
     -webkit-font-smoothing: antialiased;
 }
 ```
+<!-- more -->
 
 3. 调整markdown渲染字体大小，外观->显示高级选项->适用于已渲染 Markdown 的自定义样式表->编辑。
 

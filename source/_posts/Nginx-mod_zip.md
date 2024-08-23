@@ -18,8 +18,8 @@ yum install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel openssl openssl
 groupadd www
 useradd -g www www
 ```
+<!-- more -->
 
-<!-- more --> 
 
 ## Step 2： 编译安装nginx
 

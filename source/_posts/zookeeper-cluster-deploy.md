@@ -10,6 +10,7 @@ tar xvf /opt/zookeeper-3.4.12.tar.gz -C /opt/zookeeper/
 ```
 
 `cp /opt/zookeeper/zookeeper-3.4.12/conf/{zoo-example.cfg,zoo.cfg}`
+<!-- more -->
 
 ```
 vim /opt/zookeeper/zookeeper-3.4.12/conf/zoo.cfg
@@ -26,7 +27,6 @@ server.3=10.0.0.13:12888:13888
 ...
 ```
 
-<!-- more --> 
 
 ### 使用 ansible 将配置好的配置文件分发到三台主机上；
 ```

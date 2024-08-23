@@ -17,6 +17,7 @@ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-
 ```
 id deploy &>/dev/null ; if [[ $? != "0" ]]; then useradd deploy; fi
 ```
+<!-- more -->
 
 
 
@@ -26,7 +27,6 @@ id deploy &>/dev/null ; if [[ $? != "0" ]]; then useradd deploy; fi
 su - deploy
 ```
 
-<!-- more --> 
 
 ### 创建APP目录：
 

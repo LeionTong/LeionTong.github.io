@@ -17,6 +17,7 @@ tags: oneplus
 
 `fastboot boot twrp-3.2.1-0-enchilada.img`
 
+<!-- more -->
 ## 4. 推送 TWRP 安装包
 
 `adb push twrp-installer-enchilada-3.2.1-0.zip /sdcard`
@@ -27,7 +28,6 @@ tags: oneplus
 
 ## 6. 进入 TWRP recovery 模式
 
-<!-- more --> 
 
 执行命令`fastboot reboot recovery`，或者点击按钮 Reboot，Recovery，重启至recovery模式。
 

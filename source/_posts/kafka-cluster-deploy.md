@@ -17,6 +17,7 @@ tar xvf kafka_2.12-1.1.0.tgz -C ~/kafka
 
 #### 修改配置文件：
 
+<!-- more -->
     cp ~/kafka/kafka_2.12-1.1.0/config/server.properties{,.ori}
     vim ~/kafka/kafka_2.12-1.1.0/config/server.properties
     ...
@@ -27,7 +28,6 @@ tar xvf kafka_2.12-1.1.0.tgz -C ~/kafka
     auto.create.topics.enable=false # 关闭自动创建topic
     ...
 
-<!-- more --> 
 
 ## 后台启动Kafka集群（3台都需要启动）
 

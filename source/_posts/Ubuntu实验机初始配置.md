@@ -17,6 +17,7 @@ sudo systemctl start opensshd
 #设置默认启动目标
 sudo systemctl set-default multi-user.target  #默认为 graphical.target
 ```
+<!-- more -->
 
 ```sh
 #设置笔记本合上盖子不休眠

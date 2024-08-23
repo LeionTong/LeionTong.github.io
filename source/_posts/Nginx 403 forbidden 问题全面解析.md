@@ -17,6 +17,7 @@ tags:
 
 ## SELinux 状态
 
+<!-- more -->
 安全增强型 Linux（SELinux）是一种采用安全架构的 Linux® 系统，它能够让管理员更好地管控哪些人可以访问系统。它最初是作为 Linux 内核的一系列补丁，由美国国家安全局（NSA）利用 Linux 安全模块（LSM）开发而成。
 
 CentOS 系统默认启用 SELINUX。
@@ -29,7 +30,6 @@ getenforce
 grep '^SELINUX=' /etc/selinux/config
 ```
 
-<!-- more --> 
 
 关闭 SELINUX（更建议掌握 SELINUX 的工作原理和配置方法）
 

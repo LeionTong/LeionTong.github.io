@@ -17,11 +17,11 @@ cp themes/next/_config.yml _config.next.yml
 
 > <https://theme-next.js.org/docs/getting-started/configuration.html>
 
+<!-- more -->
 ## 修改主题
 
 > <https://theme-next.js.org/docs/theme-settings/>
 
-Use `<!-- more -->` in your article to break your article manually, which is recommended by Hexo.
 
 ## 修改主题后实时预览
 

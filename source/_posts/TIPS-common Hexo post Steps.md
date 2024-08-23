@@ -7,7 +7,7 @@ tags: hexo
 # common Hexo post Steps:
 
 ## Server preview:
-hexo server
+hexo clean && hexo g && hexo server
 
 ## Deploy to Gh-pages:
 hexo clean && hexo g -d && hexo clean
@@ -17,6 +17,7 @@ hexo clean && hexo g -d && hexo clean
 Hexo 向 Mardown 中插入图片
 
 > Refer: https://zhuanlan.zhihu.com/p/265077468
+<!-- more -->
 ## 安装插件
 
 ```shell

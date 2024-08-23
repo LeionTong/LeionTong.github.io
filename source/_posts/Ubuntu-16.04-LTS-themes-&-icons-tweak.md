@@ -17,6 +17,7 @@ If your Desktop Environment is Unity: `sudo apt-get install unity-tweak-tool`.
 ## Favoriate Themes, icons
 
 ### Arc
+<!-- more -->
 
 <http://www.noobslab.com/2017/01/arc-theme-light-dark-versions-and-arc.html>
 
@@ -29,7 +30,6 @@ sudo apt-get update
 sudo apt-get install arc-icons
 ```
 
-<!-- more --> 
 
 ### Flatabulous
 

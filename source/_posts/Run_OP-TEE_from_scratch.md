@@ -17,6 +17,7 @@ https://blog.csdn.net/zhuyong006/article/details/85282624
 ## 宿主环境
 - OS: Ubuntu 20.04 LTS Desktop
 - Disk_Size: 50GB
+<!-- more -->
 
 ## Get and build the solution
 > Refer：https://optee.readthedocs.io/en/latest/building/gits/build.html#get-and-build-the-solution

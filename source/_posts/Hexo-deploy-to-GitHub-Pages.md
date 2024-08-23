@@ -11,6 +11,7 @@ tags: hexo
 
 ## 1. Install Hexo
 
+<!-- more -->
 ```
 $ sudo npm install -g hexo-cli
 
@@ -27,8 +28,6 @@ icu: 50.1.2
 modules: 48
 openssl: 1.0.1e-fips
 ```
-
-<!-- more --> 
 
 ## 2. Create a project for your GitHub Pages
 

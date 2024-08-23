@@ -17,6 +17,7 @@ cp /usr/share/openssh/sshd_config /etc/ssh/
 PermitRootLogin yes
 X11Forwarding yes
 ```
+<!-- more -->
 方法2，卸载重装软件包：
 ```
 apt purge openssh-server

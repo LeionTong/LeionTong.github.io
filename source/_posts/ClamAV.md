@@ -17,6 +17,7 @@ sudo pacman -S clamav clamtk
 ## 更新数据库
 更新病毒定义库：
 
+<!-- more -->
 ```
 sudo freshclam
 

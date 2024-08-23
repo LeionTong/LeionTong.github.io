@@ -16,7 +16,7 @@ tags: null
 
 配置：
 
-
+<!-- more -->
 
 启动：
 `sudo systemctl start shadowsocks.service`
@@ -29,7 +29,6 @@ tags: null
 
 `sudo apt install shadowsocks`
 
-<!-- more --> 
 
 备份原配置文件：
 

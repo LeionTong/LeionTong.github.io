@@ -6,7 +6,6 @@ tags: KDE
 
 # KDE Beautify
 
-<!-- more -->
 
 ## 外观
 
@@ -18,6 +17,7 @@ tags: KDE
 
 ~/.local/share/plasma/look-and-feel/
 
+<!-- more -->
 * Plasma 样式
 
 ~/.local/share/plasma/desktoptheme/
