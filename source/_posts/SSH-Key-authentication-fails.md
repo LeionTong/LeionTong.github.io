@@ -10,6 +10,7 @@ tags: null
 
 
 ## 问题分析：
+<!-- more -->
 普通用户SSH秘钥登录没问题：
 ```
  ssh -vvv leion@lfs9.0 
@@ -17,7 +18,6 @@ OpenSSH_8.6p1, OpenSSL 1.1.1k  25 Mar 2021
 debug1: Reading configuration data /home/leion/.ssh/config
 debug1: /home/leion/.ssh/config line 1: Applying options for *
 debug1: Reading configuration data /etc/ssh/ssh_config
-<!-- more -->
 debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -> '/home/leion/.ssh/known_hosts'
 debug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -> '/home/leion/.ssh/known_hosts2'
 debug2: resolving "lfs9.0" port 22
