@@ -1,8 +1,9 @@
 .DS_Store
 Thumbs.db
 *.log
-# node_modules/
 .deploy*/
-db.json
+.github
+# node_modules/
 public/
-# themes/
+themes/
+db.json
