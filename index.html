@@ -272,6 +272,91 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2022/09/09/Manjaro%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/09/Manjaro%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">实验机初始化配置 Manjaro_xfce</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-09 23:39:26" itemprop="dateCreated datePublished" datetime="2022-09-09T23:39:26+08:00">2022-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-23 15:58:34" itemprop="dateModified" datetime="2024-08-23T15:58:34+08:00">2024-08-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="实验机初始化配置-Manjaro-xfce"><a href="#实验机初始化配置-Manjaro-xfce" class="headerlink" title="实验机初始化配置 Manjaro_xfce"></a>实验机初始化配置 Manjaro_xfce</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 sshd 服务</span></span><br><span class="line"><span class="comment"># sudo sh -c &quot;echo &#x27;PermitRootlogin yes&#x27; &gt;&gt; /etc/ssh/sshd_config&quot;</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> sshd</span><br><span class="line">sudo systemctl start sshd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置笔记本合上盖子不黑屏</span></span><br><span class="line">sudo sh -c <span class="string">&quot;sed -i &#x27;s/IgnoreLid=false/IgnoreLid=true/&#x27; /etc/UPower/UPower.conf&quot;</span></span><br><span class="line"></span><br><span class="line">sudo systemctl restart upower.service</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/09/Manjaro%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2022/04/01/ufw%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -926,91 +1011,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/20/%E5%A6%82%E4%BD%95%E6%AD%A3%E7%A1%AE%E4%BD%BF%E7%94%A8%20sudo%20%E8%B0%83%E7%94%A8%E5%A4%9A%E9%87%8D%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2021/08/20/Ubuntu%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar.gif">
-      <meta itemprop="name" content="LeionTong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leion-Sky">
-      <meta itemprop="description" content="LeionTong's personal blog!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Leion-Sky">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/20/Ubuntu%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Ubuntu_Desktop实验机初始配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-20 14:04:00" itemprop="dateCreated datePublished" datetime="2021-08-20T14:04:00+08:00">2021-08-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-23 10:48:02" itemprop="dateModified" datetime="2024-08-23T10:48:02+08:00">2024-08-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Ubuntu-Desktop实验机初始化配置"><a href="#Ubuntu-Desktop实验机初始化配置" class="headerlink" title="Ubuntu_Desktop实验机初始化配置"></a>Ubuntu_Desktop实验机初始化配置</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装 sshd 服务</span></span><br><span class="line">sudo apt install openssh-server -y</span><br><span class="line">sudo sh -c <span class="string">&quot;echo &#x27;PermitRootlogin yes&#x27; &gt;&gt; /etc/ssh/sshd_config&quot;</span></span><br><span class="line">sudo systemctl start opensshd</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#设置默认启动目标</span><br><span class="line">sudo systemctl set-default multi-user.target  #默认为 graphical.target</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/08/20/Ubuntu%E5%AE%9E%E9%AA%8C%E6%9C%BA%E5%88%9D%E5%A7%8B%E9%85%8D%E7%BD%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
