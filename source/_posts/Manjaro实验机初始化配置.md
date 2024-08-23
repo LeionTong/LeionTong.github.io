@@ -1,3 +1,9 @@
+---
+title: Manjaro_xfce实验机初始化配置
+date: 2012-09-09T23:39:26.000Z
+tags: hexo
+---
+
 # Manjaro_xfce实验机初始化配置
 
 ```sh

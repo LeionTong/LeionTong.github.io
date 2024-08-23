@@ -1,3 +1,9 @@
+---
+title: npm安装配置(淘宝源)
+date: 2020-05-17T19:39:26.000Z
+tags: Coding
+---
+
 # npm安装：
 官网下载nodejs安装包并安装：https://nodejs.org。nodejs自带npm，实际上npm是nodejs的包管理器。
 
