@@ -28,7 +28,7 @@
 <meta property="og:description" content="GRUB2引导启动项手动修复实战Pre 注意如果开机进入的是grub-rescue命令行需要先使用救急控制台修复到 normal 模式，具体修复方式参见https:&#x2F;&#x2F;wiki.archlinux.org&#x2F;title&#x2F;GRUB_(简体中文)#使用救急控制台，操作摘录如下：  GRUB 应急控制台里可用的命令有 insmod，ls，set 和 unset。这个例子里用了 set 和 insmod。s">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-20T10:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-20T07:41:45.000Z">
+<meta property="article:modified_time" content="2024-08-23T02:48:01.471Z">
 <meta property="article:author" content="LeionTong">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -155,7 +155,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+          <a href="https://leiontong.github.io/" title="https:&#x2F;&#x2F;LeionTong.github.io">https://LeionTong.github.io</a>
         </li>
     </ul>
   </div>
@@ -229,7 +229,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-20 15:41:45" itemprop="dateModified" datetime="2022-06-20T15:41:45+08:00">2022-06-20</time>
+      <time title="修改时间：2024-08-23 10:48:01" itemprop="dateModified" datetime="2024-08-23T10:48:01+08:00">2024-08-23</time>
     </span>
 
   
@@ -249,6 +249,8 @@
 <p>首先，用户必须知道启动分区 (<code>/boot</code>) 所在位置（是一个独立的分区或者是根目录下的子目录），然后设置：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; <span class="built_in">set</span> prefix=(hdX,Y)/boot/grub</span><br></pre></td></tr></table></figure>
 <p>其中 X 是物理驱动器的编号，而 Y 是分区的编号。<br><strong>注意：</strong> 如果启动分区是个独立的分区，要在路径中省略 <code>/boot</code>（例如键入 <code>set prefix=(hdX,Y)/grub</code>）。</p>
+<span id="more"></span>
+
 <p>通过加载 <code>linux</code> 模组来扩展命令行的功能：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub rescue&gt; insmod i386-pc/linux.mod</span><br></pre></td></tr></table></figure>
 <p>或者直接</p>
@@ -323,7 +325,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

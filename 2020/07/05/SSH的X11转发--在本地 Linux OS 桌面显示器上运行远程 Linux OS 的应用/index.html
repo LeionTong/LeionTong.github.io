@@ -28,7 +28,7 @@
 <meta property="og:description" content="SSH的X11转发–在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用原理 SSH的X11转发原理–来自ssh的manpage：     如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-05T11:39:26.000Z">
-<meta property="article:modified_time" content="2022-04-24T03:59:54.000Z">
+<meta property="article:modified_time" content="2024-08-23T02:48:02.377Z">
 <meta property="article:author" content="LeionTong">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -155,7 +155,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.leion.co/" title="https:&#x2F;&#x2F;www.leion.co" rel="noopener" target="_blank">Leion.co</a>
+          <a href="https://leiontong.github.io/" title="https:&#x2F;&#x2F;LeionTong.github.io">https://LeionTong.github.io</a>
         </li>
     </ul>
   </div>
@@ -229,7 +229,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-24 11:59:54" itemprop="dateModified" datetime="2022-04-24T11:59:54+08:00">2022-04-24</time>
+      <time title="修改时间：2024-08-23 10:48:02" itemprop="dateModified" datetime="2024-08-23T10:48:02+08:00">2024-08-23</time>
     </span>
 
   
@@ -247,7 +247,9 @@
 </blockquote>
 <p>从原理来讲，对于用户login来说，本地主机是客户端（SSH Client），远程主机是服务端（SSH Server）；对于X11程序来说，本地主机是服务端(X Server)，远程主机是客户端(X Client)。</p>
 <p>从实际使用体验来说，是用户在本地主机通过 SSH Client 登录到启用了 X11 转发功能的远程主机的 SSH Server 上执行 GUI 图形界面程序，此时本地主机的显示器(X Server DISPLAY)上会呈现远程主机的GUI程序的图形界面。</p>
-<h2 id="预准备"><a href="#预准备" class="headerlink" title="预准备"></a>预准备</h2><table>
+<h2 id="预准备"><a href="#预准备" class="headerlink" title="预准备"></a>预准备</h2><span id="more"></span>
+
+<table>
 <thead>
 <tr>
 <th>Linux</th>
@@ -275,8 +277,6 @@
 <h2 id="本地Linux操作系统-X-Server-操作"><a href="#本地Linux操作系统-X-Server-操作" class="headerlink" title="本地Linux操作系统(X Server)操作"></a>本地Linux操作系统(X Server)操作</h2><ol>
 <li>安装依赖：<br>xauth用于授权，fonts用于字体显示。<br>Arch系统，执行：<br><code>sudo pacman -S xorg-xauth xorg-fonts-*</code><br>其他发行版软件包名称可能是 <code>xorg-x11-xauth</code> 和 <code>xorg-x11-fonts-*</code>。</li>
 </ol>
-<span id="more"></span> 
-
 <h2 id="远程Linux操作系统-X-Client-操作"><a href="#远程Linux操作系统-X-Client-操作" class="headerlink" title="远程Linux操作系统(X Client)操作"></a>远程Linux操作系统(X Client)操作</h2><ol>
 <li><p>配置sshd</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line">...</span><br><span class="line">X11Forwarding yes	#允许X11转发</span><br><span class="line">X11UseLocalhost no	#禁止将X11转发请求绑定到本地回环地址上</span><br><span class="line">AddressFamily inet	#（可选）强制使用IPv4通道。</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
@@ -332,7 +332,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
