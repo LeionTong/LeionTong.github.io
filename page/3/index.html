@@ -446,93 +446,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar.gif">
-      <meta itemprop="name" content="LeionTong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leion-Sky">
-      <meta itemprop="description" content="LeionTong's personal blog!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Leion-Sky">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/16/elasticsearch-cluster-deploy/" class="post-title-link" itemprop="url">Elasticsearch cluster deploy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-16 09:00:00" itemprop="dateCreated datePublished" datetime="2018-08-16T09:00:00+08:00">2018-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-23 10:48:37" itemprop="dateModified" datetime="2024-08-23T10:48:37+08:00">2024-08-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="准备好deploy-APP二进制包文件："><a href="#准备好deploy-APP二进制包文件：" class="headerlink" title="准备好deploy APP二进制包文件："></a>准备好deploy APP二进制包文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https//artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="创建普通用户："><a href="#创建普通用户：" class="headerlink" title="创建普通用户："></a>创建普通用户：</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/16/elasticsearch-cluster-deploy/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/filebeat-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -621,6 +534,179 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/kibana-deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/16/kibana-deploy/" class="post-title-link" itemprop="url">Kibana deploy</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-16 09:00:00" itemprop="dateCreated datePublished" datetime="2018-08-16T09:00:00+08:00">2018-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-23 10:48:01" itemprop="dateModified" datetime="2024-08-23T10:48:01+08:00">2024-08-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="准备好APP二进制包文件："><a href="#准备好APP二进制包文件：" class="headerlink" title="准备好APP二进制包文件："></a>准备好APP二进制包文件：</h3><p><code>curl -L -O &lt;https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz&gt;</code></p>
+<h3 id="创建启动APP的用户："><a href="#创建启动APP的用户：" class="headerlink" title="创建启动APP的用户："></a>创建启动APP的用户：</h3><p><code>id deploy &amp;&gt;/dev/null ; if [[ $? != &quot;0&quot; ]]; then useradd deploy; fi</code></p>
+<h3 id="切换用户："><a href="#切换用户：" class="headerlink" title="切换用户："></a>切换用户：</h3><p><code>su - deploy</code></p>
+<h3 id="创建APP目录："><a href="#创建APP目录：" class="headerlink" title="创建APP目录："></a>创建APP目录：</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/16/kibana-deploy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/elasticsearch-cluster-deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/avatar.gif">
+      <meta itemprop="name" content="LeionTong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leion-Sky">
+      <meta itemprop="description" content="LeionTong's personal blog!">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Leion-Sky">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/08/16/elasticsearch-cluster-deploy/" class="post-title-link" itemprop="url">Elasticsearch cluster deploy</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-08-16 09:00:00" itemprop="dateCreated datePublished" datetime="2018-08-16T09:00:00+08:00">2018-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-23 10:48:37" itemprop="dateModified" datetime="2024-08-23T10:48:37+08:00">2024-08-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="准备好deploy-APP二进制包文件："><a href="#准备好deploy-APP二进制包文件：" class="headerlink" title="准备好deploy APP二进制包文件："></a>准备好deploy APP二进制包文件：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O https//artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-6.3.0.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz</span><br><span class="line">curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-linux-x86_64.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建普通用户："><a href="#创建普通用户：" class="headerlink" title="创建普通用户："></a>创建普通用户：</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/16/elasticsearch-cluster-deploy/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/kafka-cluster-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -678,92 +764,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2018/08/16/kafka-cluster-deploy/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://leiontong.github.io/2018/08/16/kibana-deploy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/avatar.gif">
-      <meta itemprop="name" content="LeionTong">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leion-Sky">
-      <meta itemprop="description" content="LeionTong's personal blog!">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Leion-Sky">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/16/kibana-deploy/" class="post-title-link" itemprop="url">Kibana deploy</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-08-16 09:00:00" itemprop="dateCreated datePublished" datetime="2018-08-16T09:00:00+08:00">2018-08-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-23 10:48:01" itemprop="dateModified" datetime="2024-08-23T10:48:01+08:00">2024-08-23</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="准备好APP二进制包文件："><a href="#准备好APP二进制包文件：" class="headerlink" title="准备好APP二进制包文件："></a>准备好APP二进制包文件：</h3><p><code>curl -L -O &lt;https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz&gt;</code></p>
-<h3 id="创建启动APP的用户："><a href="#创建启动APP的用户：" class="headerlink" title="创建启动APP的用户："></a>创建启动APP的用户：</h3><p><code>id deploy &amp;&gt;/dev/null ; if [[ $? != &quot;0&quot; ]]; then useradd deploy; fi</code></p>
-<h3 id="切换用户："><a href="#切换用户：" class="headerlink" title="切换用户："></a>切换用户：</h3><p><code>su - deploy</code></p>
-<h3 id="创建APP目录："><a href="#创建APP目录：" class="headerlink" title="创建APP目录："></a>创建APP目录：</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2018/08/16/kibana-deploy/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
