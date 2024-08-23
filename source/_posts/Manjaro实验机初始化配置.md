@@ -1,10 +1,10 @@
 ---
-title: Manjaro_xfce实验机初始化配置
-date: 2012-09-09T23:39:26.000Z
-tags: hexo
+title: 实验机初始化配置 Manjaro_xfce
+date: 2022-09-09T23:39:26.000Z
+tags: null
 ---
 
-# Manjaro_xfce实验机初始化配置
+# 实验机初始化配置 Manjaro_xfce
 
 ```sh
 # 启动 sshd 服务
