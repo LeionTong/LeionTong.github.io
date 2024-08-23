@@ -1,4 +1,7 @@
 ---
+title: vscode offline setup remote development environment
+date: 2024-08-23T10:22:00.000Z
+tags: IDE
 References:
   - https://blog.csdn.net/qq_43623902/article/details/136258880
   - https://git-scm.com/download/win

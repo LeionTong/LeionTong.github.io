@@ -185,7 +185,7 @@ A: .gitignore代码：
 # .deploy*/
 ## 上面是Hexo自带的gitignore内容，我注释掉了，换成了我自己的。
 ## 我这里只需要备份source文件夹下的Markdown笔记和配置信息。
-## 另外，我自定义的NexT主题配置项也在NexT官方指导下合并到了Hexo的_config.yml文件里。
+## 另外，我自定义的NexT主题配置项也在NexT官方指导下单独拆分到了Hexo根目录的_config.next.yml文件。
 ## 所以也不需要备份themes文件夹，如果主题改动较大建议将themes那两行取消注释。
 ## 注意：这里采用排除法，先忽略所有文件，然后再排除，这样就只留下了自己需要git版本控制的文件(夹)。
 *
@@ -194,6 +194,7 @@ A: .gitignore代码：
 #!/themes/
 #!/themes/**/*
 !/_config.yml
+!/_config.next.yml
 !/.gitignore
 !/README.md
 ```
@@ -202,8 +203,3 @@ Q：Github Pages要想自定义域名怎么办？
 
 在 source 目录下新建 CNAME 文本文件，写入购买的域名，然后在域名供应商管理后台配置好域名解析记录。
 
-Q：怎么创建软链接？
-使用 WSL，MobaXterm，GitforWindows 等 terminal 工具。
-```sh
-ln -sv "/mnt/c/Users/leion/OneDrive/Obsidian Vault/H.exo/source" "/mnt/c/Users/leion/Documents/Tong-Workspaces/Git/Hexo-Blog/source"
-```
