@@ -1,0 +1,49 @@
+baseURL = 'https://leiontong.github.io/'
+languageCode = 'zh-CN'
+title = "Leion'Log"
+theme = 'PaperMod'
+
+# 生成搜索索引（供 PaperMod 前端搜索使用）
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[params]
+  # auto | light | dark
+  defaultTheme = 'auto'
+  # 顶部左上角品牌名（独立于浏览器标签标题 site.Title）
+  label.text = "Leion'Log"
+
+  [params.profileMode]
+    enabled = true
+    imageUrl = '/avatar.gif'
+    title = "👋 Welcome to Leion'Log"
+    subtitle = "Hi, this is Leion Tong. I'm documenting my learning notes in this blog since 2016."
+
+  [params.social]
+    GitHub = 'https://github.com/leiontong'
+    Email = 'mailto:leion.tong@outlook.com'
+
+# 顶部导航菜单（英文）
+[[menu.main]]
+  identifier = 'posts'
+  name = 'Posts'
+  url = '/posts/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'archive'
+  name = 'Archive'
+  url = '/archives/'
+  weight = 20
+
+[[menu.main]]
+  identifier = 'search'
+  name = 'Search'
+  url = '/search/'
+  weight = 30
+
+[[menu.main]]
+  identifier = 'tags'
+  name = 'Tags'
+  url = '/tags/'
+  weight = 40
