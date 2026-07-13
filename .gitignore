@@ -1,0 +1,18 @@
+# Hugo 构建产物（部署由 Actions 生成，不入库）
+/public/
+/resources/
+/hugo_stats.json
+
+# 依赖缓存
+.hugo_build.lock
+.netlify/
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
