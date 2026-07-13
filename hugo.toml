@@ -19,9 +19,13 @@ theme = 'PaperMod'
     title = "👋 Welcome to Leion'Log"
     subtitle = "Hi, this is Leion Tong. I'm documenting my learning notes in this blog since 2016."
 
-  [params.social]
-    GitHub = 'https://github.com/leiontong'
-    Email = 'mailto:leion.tong@outlook.com'
+  # 首页社交图标（PaperMod 当前版本用 socialIcons 渲染 profile 区；旧 [params.social] 前台不显示）
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/LeionTong/LeionTong.github.io/'
+  [[params.socialIcons]]
+    name = 'email'
+    url = 'mailto:leion.tong@outlook.com'
 
 # 顶部导航菜单（英文）
 [[menu.main]]
