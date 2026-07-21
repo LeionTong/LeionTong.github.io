@@ -1,0 +1,12 @@
+{{- /* Google Analytics 4 (gtag.js)
+       PaperMod 的 head.html 期望站点提供此 partial，但本仓库 vendored 的主题副本缺失该文件。
+       此文件在站点层补齐（不改动主题），由主题 head.html 第 190 行在生产构建时调用。 */ -}}
+{{- with .Site.Params.googleAnalytics }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{- end }}

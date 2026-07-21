@@ -10,6 +10,13 @@ theme = 'PaperMod'
 [params]
   # auto | light | dark
   defaultTheme = 'auto'
+
+  # Google Analytics 4 测量 ID（形如 G-XXXXXXXXXX）
+  # 由站点层 layouts/partials/google_analytics.html 注入；vendored 主题缺失该文件，已在本仓库补齐。
+  googleAnalytics = 'G-43PK5HWLDX'
+  # 显式置 production，打开放置在 head.html 的 analytics / opengraph 区块
+  # （该区块仅靠 hugo.IsProduction 门控，本地与 CI 构建均未触发，故此处显式开启）
+  env = 'production'
   # 顶部左上角品牌名（独立于浏览器标签标题 site.Title）
   label.text = "Leion'Log"
 
