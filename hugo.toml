@@ -22,7 +22,7 @@ theme = 'PaperMod'
 
   [params.profileMode]
     enabled = true
-    imageUrl = '/avatar.gif'
+    imageUrl = '/avatar.jpg'
     title = "👋 Welcome to Leion'Log"
     subtitle = "Hi, this is Leion Tong. I'm documenting my learning notes in this blog since 2016."
 
