@@ -37,6 +37,11 @@ theme = 'PaperMod'
     name = 'rss'
     url = '/index.xml'
 
+  # Google Search Console 站外验证（HTML 标记法）
+  # 主题 head.html 无条件读取此 key 渲染 <meta name="google-site-verification">
+  [params.analytics.google]
+    SiteVerificationTag = 'G-VcPiDuhsdGz1ajWQ_d7o6GOkVjNNLONyhaWwy_gdg'
+
 # 顶部导航菜单（英文）
 [[menu.main]]
   identifier = 'posts'
