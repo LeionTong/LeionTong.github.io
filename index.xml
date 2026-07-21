@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Leion'Log</title><link>https://leiontong.github.io/</link><description>Recent content on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 23 Aug 2024 10:22:00 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode offline setup remote development environment</title><link>https://leiontong.github.io/posts/vscode-offline-remote-dev-setup/</link><pubDate>Fri, 23 Aug 2024 10:22:00 +0000</pubDate><guid>https://leiontong.github.io/posts/vscode-offline-remote-dev-setup/</guid><description>&lt;h1 id="vscode完全离线搭建远程开发环境离线安装gitsshvscode-server"&gt;VSCode完全离线搭建远程开发环境，离线安装Git、SSH、vscode-server&lt;/h1&gt;
+&lt;h2 id="环境背景"&gt;环境背景&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;时间：2024年8月。&lt;/li&gt;
+&lt;li&gt;客户端：Windows_Server_2016（经试验Windows_Server_2012无法启动pycharm2024.1.6和VSCode1.92.2，这是本文完成时的最新版）。&lt;/li&gt;
+&lt;li&gt;服务端：Linux，X86_64、ARM64 均可。&lt;/li&gt;
+&lt;li&gt;完全离线环境：Windows客户端和Linux服务端均在内网，Windows客户端可以直接访问Linux服务端，两者均无法访问互联网。笔者另有一台电脑可以通过零信任访问这两台内网机器，但对两者均无法直连。&lt;/li&gt;
+&lt;li&gt;用户受限：Windows客户端无 Administrator 管理员权限，即无法执行任何需要管理员权限的动作，比如无法安装全局软件、只能使用便携版软件；无法往Windows文件夹放dll；无法执行需要管理员权限的powershell或bat脚本、当然无法启动具有管理员权限的powershell或cmd。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安装-portablegit"&gt;安装 PortableGit&lt;/h2&gt;</description></item><item><title>实验机初始化配置 Manjaro_xfce</title><link>https://leiontong.github.io/posts/manjaro-test-machine-init-config/</link><pubDate>Fri, 09 Sep 2022 23:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/manjaro-test-machine-init-config/</guid><description>&lt;h1 id="实验机初始化配置-manjaro_xfce"&gt;实验机初始化配置 Manjaro_xfce&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 启动 sshd 服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# sudo sh -c &amp;#34;echo &amp;#39;PermitRootlogin yes&amp;#39; &amp;gt;&amp;gt; /etc/ssh/sshd_config&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl enable sshd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start sshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#设置笔记本合上盖子不黑屏&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo sh -c &lt;span style="color:#e6db74"&gt;&amp;#34;sed -i &amp;#39;s/IgnoreLid=false/IgnoreLid=true/&amp;#39; /etc/UPower/UPower.conf&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl restart upower.service
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Linux上的防火墙前端 - 配置 ufw 允许 KDE Connect</title><link>https://leiontong.github.io/posts/ufw-allow-kde-connect/</link><pubDate>Fri, 01 Apr 2022 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ufw-allow-kde-connect/</guid><description>&lt;h1 id="linux上的防火墙前端---简单配置-ufw-允许-kde-connect"&gt;Linux上的防火墙前端 - 简单配置 ufw 允许 KDE Connect&lt;/h1&gt;
+&lt;p&gt;Allow KDE Connect through firewall&lt;/p&gt;
+&lt;p&gt;Firewalld&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/udp
+sudo systemctl restart firewalld.service
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;UFW firewall&lt;/p&gt;</description></item><item><title>onedrive app on ArchLinux</title><link>https://leiontong.github.io/posts/onedrive_app_on_linux/</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/onedrive_app_on_linux/</guid><description>&lt;h1 id="onedrive_app_on_linux"&gt;onedrive_app_on_Linux&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo pacman -S archlinuxcn/onedrive-abraunegg
+yay -S aur/insync
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>ClamAV - Linux上的杀毒软件</title><link>https://leiontong.github.io/posts/clamav/</link><pubDate>Mon, 03 Jan 2022 15:33:00 +0000</pubDate><guid>https://leiontong.github.io/posts/clamav/</guid><description>&lt;h1 id="clamav---linux上的杀毒软件"&gt;ClamAV - Linux上的杀毒软件&lt;/h1&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wiki.archlinux.org/title/Install"&gt;安装&lt;/a&gt;&lt;a href="https://archlinux.org/packages/?name=clamav"&gt;ClamAV&lt;/a&gt;软件包。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo pacman -S clamav clamtk
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="更新数据库"&gt;更新数据库&lt;/h2&gt;
+&lt;p&gt;更新病毒定义库：&lt;/p&gt;</description></item><item><title>Obsidian_设置_文件与链接</title><link>https://leiontong.github.io/posts/obsidian-settings-files-and-links/</link><pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/obsidian-settings-files-and-links/</guid><description>&lt;h1 id="obsidian_设置_文件与链接"&gt;Obsidian_设置_文件与链接&lt;/h1&gt;
+&lt;p&gt;Obsidian 支持双向链接，再配合 Pandoc 导出功能。问题是插入图片路径默认会寻找Vault库的根路径，就会报错找不到插入的图片导致导出失败。
+那么需要修改 Obsidian 的配置：
+设置 -&amp;gt; 文件与链接：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;始终更新内部链接：开启
+内部链接类型：插入基于库的绝对路径
+使用 Wiki 链接：开启
+检测所有类型文件：开启
+新附件的默认位置：下方指定的文件夹
+子文件夹名称：β-Sources
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>KDE-Plasma panel widget config customization</title><link>https://leiontong.github.io/posts/kde-plasma-panel-widget/</link><pubDate>Wed, 01 Dec 2021 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/kde-plasma-panel-widget/</guid><description>&lt;h1 id="kde-plasma-panel-widget-config-customization"&gt;KDE-Plasma panel widget config customization&lt;/h1&gt;
+&lt;h2 id="configuration-file-location"&gt;configuration file location&lt;/h2&gt;
+&lt;p&gt;~/.config/plasma-org.kde.plasma.desktop-appletsrc&lt;/p&gt;
+&lt;h2 id="panel-and-widget-list"&gt;Panel and widget list&lt;/h2&gt;
+&lt;p&gt;Panel 1:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application Lancher&lt;/li&gt;
+&lt;li&gt;Global Menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Panel 2:&lt;/p&gt;</description></item><item><title>Run OP-TEE from scratch</title><link>https://leiontong.github.io/posts/run_op-tee_from_scratch/</link><pubDate>Tue, 24 Aug 2021 15:33:00 +0000</pubDate><guid>https://leiontong.github.io/posts/run_op-tee_from_scratch/</guid><description>&lt;h1 id="run-op-tee-from-scratch"&gt;Run OP-TEE from scratch&lt;/h1&gt;
+&lt;p&gt;OP-TEE的编译及运行&lt;/p&gt;
+&lt;p&gt;Reference_&amp;amp;_Useful_URL:
+&lt;a href="https://www.op-tee.org/"&gt;https://www.op-tee.org/&lt;/a&gt;
+&lt;a href="https://github.com/OP-TEE"&gt;https://github.com/OP-TEE&lt;/a&gt;
+&lt;a href="https://optee.readthedocs.io"&gt;https://optee.readthedocs.io&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/thanksgining/article/details/108848825"&gt;https://blog.csdn.net/thanksgining/article/details/108848825&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/zhuyong006/article/details/85282624"&gt;https://blog.csdn.net/zhuyong006/article/details/85282624&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="宿主环境"&gt;宿主环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 20.04 LTS Desktop&lt;/li&gt;
+&lt;li&gt;Disk_Size: 50GB&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>GRUB2引导启动项手动修复实战</title><link>https://leiontong.github.io/posts/grub2-boot-entry-manual-repair/</link><pubDate>Fri, 20 Aug 2021 18:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/grub2-boot-entry-manual-repair/</guid><description>&lt;h1 id="grub2引导启动项手动修复实战"&gt;GRUB2引导启动项手动修复实战&lt;/h1&gt;
+&lt;h3 id="pre"&gt;Pre&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意如果开机进入的是&lt;code&gt;grub-rescue&lt;/code&gt;命令行需要先使用救急控制台修复到 normal 模式，具体修复方式参见&lt;a href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%BD%BF%E7%94%A8%E6%95%91%E6%80%A5%E6%8E%A7%E5%88%B6%E5%8F%B0"&gt;https://wiki.archlinux.org/title/GRUB_(简体中文)#使用救急控制台&lt;/a&gt;，操作摘录如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GRUB 应急控制台里可用的命令有 &lt;code&gt;insmod&lt;/code&gt;，&lt;code&gt;ls&lt;/code&gt;，&lt;code&gt;set&lt;/code&gt; 和 &lt;code&gt;unset&lt;/code&gt;。这个例子里用了 &lt;code&gt;set&lt;/code&gt; 和 &lt;code&gt;insmod&lt;/code&gt;。&lt;code&gt;set&lt;/code&gt; 用来修改变量，&lt;code&gt;insmod&lt;/code&gt; 用来载入模组以添加功能。&lt;/p&gt;
+&lt;p&gt;首先，用户必须知道启动分区 (&lt;code&gt;/boot&lt;/code&gt;) 所在位置（是一个独立的分区或者是根目录下的子目录），然后设置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grub rescue&amp;gt; set prefix&lt;span style="color:#f92672"&gt;=(&lt;/span&gt;hdX,Y&lt;span style="color:#f92672"&gt;)&lt;/span&gt;/boot/grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中 X 是物理驱动器的编号，而 Y 是分区的编号。
+&lt;strong&gt;注意：&lt;/strong&gt; 如果启动分区是个独立的分区，要在路径中省略 &lt;code&gt;/boot&lt;/code&gt;（例如键入 &lt;code&gt;set prefix=(hdX,Y)/grub&lt;/code&gt;）。&lt;/p&gt;</description></item><item><title>如何正确使用 sudo 调用多重命令</title><link>https://leiontong.github.io/posts/sudo-run-multiple-commands/</link><pubDate>Fri, 20 Aug 2021 16:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/sudo-run-multiple-commands/</guid><description>&lt;h1 id="如何正确使用-sudo-调用多重命令"&gt;如何正确使用 sudo 调用多重命令&lt;/h1&gt;
+&lt;h2 id="问题现状problem"&gt;问题现状(Problem)&lt;/h2&gt;
+&lt;p&gt;执行命令 &lt;del&gt;&lt;code&gt;sudo echo xxx &amp;gt; txt&lt;/code&gt;&lt;/del&gt; 时 &lt;code&gt;Permission denied&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo echo &amp;#39;some_strings&amp;#39; &amp;gt; test.txt
+-bash: test.txt: Permission denied
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bash 拒绝这么做，说是权限不够.
+这是因为重定向符号 &lt;code&gt;&amp;gt;&lt;/code&gt; 也是 bash 的命令。sudo 只是让 echo 命令具有了 root 权限，
+但是没有让 &lt;code&gt;&amp;gt;&lt;/code&gt; 命令也具有 root 权限，所以 bash 会认为这个命令没有写入信息的权限。&lt;/p&gt;</description></item><item><title>Ubuntu_Desktop实验机初始配置</title><link>https://leiontong.github.io/posts/ubuntu-test-machine-init-config/</link><pubDate>Fri, 20 Aug 2021 14:04:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ubuntu-test-machine-init-config/</guid><description>&lt;h1 id="ubuntu_desktop实验机初始化配置"&gt;Ubuntu_Desktop实验机初始化配置&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#安装 sshd 服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install openssh-server -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo sh -c &lt;span style="color:#e6db74"&gt;&amp;#34;echo &amp;#39;PermitRootlogin yes&amp;#39; &amp;gt;&amp;gt; /etc/ssh/sshd_config&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start opensshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;#设置默认启动目标
+sudo systemctl set-default multi-user.target #默认为 graphical.target
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Hexo-Theme-Next-Configuration</title><link>https://leiontong.github.io/posts/hexo-theme-next-configuration/</link><pubDate>Mon, 16 Aug 2021 17:08:31 +0000</pubDate><guid>https://leiontong.github.io/posts/hexo-theme-next-configuration/</guid><description>&lt;h1 id="hexo-theme-next-configuration"&gt;Hexo Theme Next Configuration&lt;/h1&gt;
+&lt;h2 id="创建主题配置文件"&gt;创建主题配置文件&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# Installed through npm
+cp node_modules/hexo-theme-next/_config.yml _config.next.yml
+# Installed through Git
+cp themes/next/_config.yml _config.next.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://theme-next.js.org/docs/getting-started/configuration.html"&gt;https://theme-next.js.org/docs/getting-started/configuration.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>SSH-Key-authentication-fails</title><link>https://leiontong.github.io/posts/ssh-key-authentication-fails/</link><pubDate>Fri, 13 Aug 2021 16:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ssh-key-authentication-fails/</guid><description>&lt;h1 id="记一次root用户进行秘钥登录验证失败问题"&gt;记一次root用户进行秘钥登录验证失败问题&lt;/h1&gt;
+&lt;h2 id="现象描述"&gt;现象描述：&lt;/h2&gt;
+&lt;p&gt;在一次常规给 root 用户配置秘钥登录过程中，通过命令 &lt;code&gt;ssh-copy-id&lt;/code&gt; 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。&lt;/p&gt;
+&lt;h2 id="问题分析"&gt;问题分析：&lt;/h2&gt;</description></item><item><title>Git清理删除历史提交文件</title><link>https://leiontong.github.io/posts/git-remove-file-from-history/</link><pubDate>Sun, 01 Aug 2021 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/git-remove-file-from-history/</guid><description>&lt;h1 id="git清理删除历史提交文件"&gt;Git清理删除历史提交文件&lt;/h1&gt;
+&lt;h5 id="1垃圾回收"&gt;1.垃圾回收&lt;/h5&gt;
+&lt;p&gt;先进行垃圾回收，并压缩一些文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ git gc --prune&lt;span style="color:#f92672"&gt;=&lt;/span&gt;now
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Git最初向磁盘中存储对象使用&lt;code&gt;松散&lt;/code&gt;的格式，后续会将多个对象打包为一个二进制的&lt;code&gt;包文件&lt;/code&gt;（&lt;code&gt;packfile&lt;/code&gt;），以&lt;code&gt;节省磁盘空间&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.pack&lt;/code&gt;文件存储了&lt;code&gt;对象的内容&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.idx&lt;/code&gt;文件存储了&lt;code&gt;包文件&lt;/code&gt;的&lt;code&gt;偏移信息&lt;/code&gt;，用于`索引具体的对象&lt;/p&gt;
+&lt;p&gt;打包对象时，查找命名和大小相近的文件，保留文件&lt;code&gt;不同版本之间的差异&lt;/code&gt;（&lt;code&gt;最新一版保存完整内容&lt;/code&gt;，访问频率最高）&lt;/p&gt;
+&lt;h5 id="2查找大文件"&gt;2.查找大文件&lt;/h5&gt;</description></item><item><title>sshd_config误删除如何恢复？</title><link>https://leiontong.github.io/posts/sshd-config-accidental-deletion-recovery/</link><pubDate>Thu, 01 Apr 2021 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/sshd-config-accidental-deletion-recovery/</guid><description>&lt;h1 id="sshd_config误删除如何恢复"&gt;sshd_config误删除如何恢复？&lt;/h1&gt;
+&lt;p&gt;方法1，拷贝默认配置文件：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cp /usr/share/openssh/sshd_config /etc/ssh/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;记得校正配置，例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;#PermitRootLogin prohibit-password
+PermitRootLogin yes
+X11Forwarding yes
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用</title><link>https://leiontong.github.io/posts/ssh-x11-forwarding-run-remote-app-on-local-display/</link><pubDate>Sun, 05 Jul 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/ssh-x11-forwarding-run-remote-app-on-local-display/</guid><description>&lt;h1 id="ssh的x11转发在本地-linux-os-桌面显示器上运行远程-linux-os-的应用"&gt;SSH的X11转发&amp;ndash;在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用&lt;/h1&gt;
+&lt;h2 id="原理"&gt;原理&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SSH的X11转发原理&amp;ndash;来自ssh的manpage：
+如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或命令启动的 X11 程序将穿过加密的通道, 从本地机器连接真正的 X 服务器. 用户不应该手动设置 DISPLAY. 可以在命令行上, 也可以在配置文件中设置 X11 连接的转发.
+ssh 设置的 DISPLAY 值将指向服务器, 但是显示器号大于零. 这很自然, 因为 ssh 在服务器上创建了一个 “proxy” X 服务器,把连接通过加密通道转发出去.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;从原理来讲，对于用户login来说，本地主机是客户端（SSH Client），远程主机是服务端（SSH Server）；对于X11程序来说，本地主机是服务端(X Server)，远程主机是客户端(X Client)。&lt;/p&gt;
+&lt;p&gt;从实际使用体验来说，是用户在本地主机通过 SSH Client 登录到启用了 X11 转发功能的远程主机的 SSH Server 上执行 GUI 图形界面程序，此时本地主机的显示器(X Server DISPLAY)上会呈现远程主机的GUI程序的图形界面。&lt;/p&gt;
+&lt;h2 id="预准备"&gt;预准备&lt;/h2&gt;</description></item><item><title>joplin-cli_config</title><link>https://leiontong.github.io/posts/joplin-cli_config/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/joplin-cli_config/</guid><description>&lt;h1 id="joplin-cli_config"&gt;joplin-cli_config&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 配置joplin-cli&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config dateFormat YYYY-MM-DD
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config locale zh_CN
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config revisionService.enabled false
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config sync.target &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# joplin-cli config sync.2.path /home/leion/Nextcloud/Joplin/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config sync.2.path /home/leion/Nextcloud-nc.nl.tab.digital-leitong1990@gmail/Joplin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli sync
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小</title><link>https://leiontong.github.io/posts/joplin-desktop-change-editor-font-and-markdown-render/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/joplin-desktop-change-editor-font-and-markdown-render/</guid><description>&lt;h1 id="joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小"&gt;Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;打开设置-&amp;gt;外观-&amp;gt;高级选项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;适用于已渲染 Markdown 的自定义样式表 -&amp;gt; userstyle.css -&amp;gt; 影响展示区域字体样式。
+适用于 Joplin 全域应用样式的自定义样式表 -&amp;gt; userchrome.css -&amp;gt; 影响了除展示区域的字体样式。&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;从typera拷贝出来的CSS，可以直接放进userchrome.css 和 userstyle.css&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;*{font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>KDE-Plasma-Beautify-主题美化</title><link>https://leiontong.github.io/posts/kde-plasma-beautify-theme/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/kde-plasma-beautify-theme/</guid><description>&lt;h1 id="kde-beautify"&gt;KDE Beautify&lt;/h1&gt;
+&lt;h2 id="外观"&gt;外观&lt;/h2&gt;
+&lt;p&gt;主题存放在哪里？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全局主题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;/usr/share/plasma/look-and-feel/&lt;/p&gt;
+&lt;p&gt;~/.local/share/plasma/look-and-feel/&lt;/p&gt;</description></item><item><title>npm安装并配置国内镜像源(阿里云 npmmirror 镜像站)</title><link>https://leiontong.github.io/posts/npm-install-configure-taobao-mirror/</link><pubDate>Sun, 17 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/npm-install-configure-taobao-mirror/</guid><description>&lt;h1 id="npm安装并配置国内镜像源阿里云-npmmirror-镜像站"&gt;npm安装并配置国内镜像源(阿里云 npmmirror 镜像站)&lt;/h1&gt;
+&lt;h2 id="npm安装"&gt;npm安装&lt;/h2&gt;
+&lt;p&gt;官网下载nodejs安装包并安装：&lt;a href="https://nodejs.org"&gt;https://nodejs.org&lt;/a&gt;。nodejs自带npm，实际上npm是nodejs的包管理器。&lt;/p&gt;
+&lt;h2 id="npm国内镜像源阿里云-npmmirror-镜像站"&gt;npm国内镜像源(阿里云 npmmirror 镜像站)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://npmmirror.com/"&gt;npmmirror 中国镜像站&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="使用说明"&gt;使用说明&lt;/h3&gt;
+&lt;p&gt;你可以使用我们定制的 &lt;a href="https://github.com/cnpm/cnpm"&gt;cnpm&lt;/a&gt; (gzip 压缩支持) 命令行工具代替默认的 &lt;code&gt;npm&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ npm install -g cnpm --registry&lt;span style="color:#f92672"&gt;=&lt;/span&gt;https://registry.npmmirror.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>无效或已损坏的软件包 (PGP 签名)</title><link>https://leiontong.github.io/posts/invalid-or-corrupted-package/</link><pubDate>Sun, 17 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/invalid-or-corrupted-package/</guid><description>&lt;h1 id="无效或已损坏的软件包-pgp-签名"&gt;无效或已损坏的软件包 (PGP 签名)&lt;/h1&gt;
+&lt;h2 id="现象"&gt;现象&lt;/h2&gt;
+&lt;p&gt;提示：无效或已损坏的软件包 (PGP 签名)。出现Keys错误，签名失败，导致 ArchLinux/Manjaro 无法正常升级或者安装软件。&lt;/p&gt;
+&lt;p&gt;方法1：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sud vim /etc/pacman.conf
+...
+[archlinuxcn]
+SigLevel = Never #SigLevel的值改为 Never 或 Optional TrustAll
+...
+sudo pacman -Syu
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;方法2：
+1,移除旧的keys
+&lt;code&gt;sudo rm -rf /etc/pacman.d/gnupg&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Linux上的笔记软件和网盘--多平台同步解决方案</title><link>https://leiontong.github.io/posts/linux-note-app-and-cloud-drive-cross-platform-sync/</link><pubDate>Thu, 16 Aug 2018 16:22:01 +0000</pubDate><guid>https://leiontong.github.io/posts/linux-note-app-and-cloud-drive-cross-platform-sync/</guid><description>&lt;h1 id="linux上的笔记软件和网盘多平台同步解决方案"&gt;Linux上的笔记软件和网盘&amp;ndash;多平台同步解决方案&lt;/h1&gt;
+&lt;h2 id="支持云同步的笔记客户端"&gt;支持云同步的笔记客户端&lt;/h2&gt;
+&lt;h3 id="nixnote2"&gt;nixnote2&lt;/h3&gt;
+&lt;p&gt;Nixnote2是evernote的第三方客户端通过API接口实现同步，不会占用免费用户的同步设备数量。&lt;/p&gt;
+&lt;h3 id="wiznote"&gt;wiznote&lt;/h3&gt;
+&lt;p&gt;为知笔记，优良的跨平台笔记软件，支持多级目录和多标签，以及markdown，试用100天。&lt;/p&gt;
+&lt;h3 id="有道云笔记-ynote"&gt;有道云笔记 YNote&lt;/h3&gt;</description></item><item><title>Nginx 403 forbidden 问题全面解析</title><link>https://leiontong.github.io/posts/nginx-403-forbidden-troubleshooting/</link><pubDate>Thu, 16 Aug 2018 16:22:01 +0000</pubDate><guid>https://leiontong.github.io/posts/nginx-403-forbidden-troubleshooting/</guid><description>&lt;h1 id="nginx-403-forbidden-问题全面解析"&gt;Nginx 403 forbidden 问题全面解析&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;2020/07/16 15:48:34 [error] 2220#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.18.253.20, server: _, request: &amp;#34;GET / HTTP/1.1&amp;#34;, upstream: &amp;#34;http://[::1]:8001/&amp;#34;, host: &amp;#34;172.18.253.20&amp;#34;
+2020/07/16 15:48:34 [error] 2221#0: *4 &amp;#34;/home/leion/www/nginx_server_8001/index.html&amp;#34; is forbidden (13: Permission denied), client: 127.0.0.1, server: _, request: &amp;#34;GET / HTTP/1.0&amp;#34;, host: &amp;#34;172.18.253.20&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面的报错有两个问题，第一个是 nginx 负载均衡连接上游失败&lt;code&gt;connect() failed (111: Connection refused)&lt;/code&gt;也就是本地 IPv6 地址所在端口访问不通，在 server{} 块下启用&lt;code&gt;listen [::]:8001;&lt;/code&gt;即可。&lt;/p&gt;
+&lt;p&gt;第二个问题是本节的重点&lt;code&gt;403 forbidden (13: Permission denied)&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id="selinux-状态"&gt;SELinux 状态&lt;/h2&gt;</description></item><item><title>USTC-Mirror_CentOS源&amp;EPEL源</title><link>https://leiontong.github.io/posts/ustc-mirror-centos-epel/</link><pubDate>Thu, 16 Aug 2018 16:22:01 +0000</pubDate><guid>https://leiontong.github.io/posts/ustc-mirror-centos-epel/</guid><description>&lt;p&gt;USTC-Mirror_CentOS源&amp;amp;EPEL源&lt;/p&gt;
+&lt;p&gt;CentOS 源
+&lt;a href="https://mirrors.ustc.edu.cn/centos/"&gt;https://mirrors.ustc.edu.cn/centos/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;警告
+操作前请做好相应备份。&lt;/p&gt;
+&lt;p&gt;对于 CentOS 8，使用以下命令替换默认的配置&lt;/p&gt;</description></item><item><title>Elasticsearch cluster deploy</title><link>https://leiontong.github.io/posts/elasticsearch-cluster-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/elasticsearch-cluster-deploy/</guid><description>&lt;h3 id="准备好deploy-app二进制包文件"&gt;准备好deploy APP二进制包文件：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;curl -L -O https//artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.3.0.tar.gz
+curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-6.3.0.tar.gz
+curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-linux-x86_64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="创建普通用户"&gt;创建普通用户：&lt;/h3&gt;</description></item><item><title>Filebeat deploy</title><link>https://leiontong.github.io/posts/filebeat-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/filebeat-deploy/</guid><description>&lt;h3 id="准备好filebeat二进制包文件"&gt;准备好filebeat二进制包文件：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.3.0-linux-x86_64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="创建启动app的用户"&gt;创建启动APP的用户：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;id deploy &amp;amp;&amp;gt;/dev/null ; if [[ $? != &amp;#34;0&amp;#34; ]]; then useradd deploy; fi
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Kafka cluster deploy</title><link>https://leiontong.github.io/posts/kafka-cluster-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/kafka-cluster-deploy/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;cd ~
+mkdir -pv ~/kafka/kafka-logs
+curl -o kafka_2.12-1.1.0.tgz &amp;lt;https://mirrors.ustc.edu.cn/apache/kafka/1.1.0/kafka_2.12-1.1.0.tgz&amp;gt;
+tar xvf kafka_2.12-1.1.0.tgz -C ~/kafka
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id="修改配置文件"&gt;修改配置文件：&lt;/h4&gt;</description></item><item><title>Kibana deploy</title><link>https://leiontong.github.io/posts/kibana-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/kibana-deploy/</guid><description>&lt;h3 id="准备好app二进制包文件"&gt;准备好APP二进制包文件：&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;curl -L -O &amp;lt;https://artifacts.elastic.co/downloads/kibana/kibana-6.3.0-linux-x86_64.tar.gz&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="创建启动app的用户"&gt;创建启动APP的用户：&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;id deploy &amp;amp;&amp;gt;/dev/null ; if [[ $? != &amp;quot;0&amp;quot; ]]; then useradd deploy; fi&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="切换用户"&gt;切换用户：&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;su - deploy&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="创建app目录"&gt;创建APP目录：&lt;/h3&gt;</description></item><item><title>Logstash deploy</title><link>https://leiontong.github.io/posts/logstash-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/logstash-deploy/</guid><description>&lt;h3 id="准备好elk-app二进制包文件"&gt;准备好ELK APP二进制包文件：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;curl -L -O &amp;lt;https://artifacts.elastic.co/downloads/logstash/logstash-6.3.0.tar.gz&amp;gt;
+wget &amp;lt;https://download.elastic.co/demos/logstash/gettingstarted/logstash-tutorial.log.gz&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="创建普通用户"&gt;创建普通用户：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;id deploy &amp;amp;&amp;gt;/dev/null ; if \[[ $? != &amp;#34;0&amp;#34; ]]; then useradd deploy; fi
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="切换用户elk"&gt;切换用户elk：&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;su - deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="创建app目录和数据目录"&gt;创建APP目录和数据目录：&lt;/h3&gt;</description></item><item><title>Zookeeper cluster deploy</title><link>https://leiontong.github.io/posts/zookeeper-cluster-deploy/</link><pubDate>Thu, 16 Aug 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/zookeeper-cluster-deploy/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;mkdir -pv /opt/zookeeper/{zkdata,zkdatalog}
+curl -o /opt/zookeeper-3.4.12.tar.gz http://mirrors.ustc.edu.cn/apache/zookeeper/stable/zookeeper-3.4.12.tar.gz
+tar xvf /opt/zookeeper-3.4.12.tar.gz -C /opt/zookeeper/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;cp /opt/zookeeper/zookeeper-3.4.12/conf/{zoo-example.cfg,zoo.cfg}&lt;/code&gt;&lt;/p&gt;</description></item><item><title>installation guide for apache-airflow</title><link>https://leiontong.github.io/posts/apache-airflow_install-guide/</link><pubDate>Wed, 15 Aug 2018 16:05:00 +0000</pubDate><guid>https://leiontong.github.io/posts/apache-airflow_install-guide/</guid><description>&lt;h1 id="installation-guide-for-apache-airflow"&gt;installation guide for apache-airflow&lt;/h1&gt;
+&lt;h2 id="install-requisitions"&gt;install requisitions&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;yum install python python-pip python-setuptools python-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;or if you use python34:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum install python34 python34-pip python34-setuptools python34-dev&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;or python36:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;yum install python36 python36-pip python36-setuptools python36-dev&lt;/code&gt;&lt;/p&gt;</description></item><item><title>oneplus6解锁并root教程</title><link>https://leiontong.github.io/posts/oneplus6-unlockroot-manual/</link><pubDate>Thu, 17 May 2018 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/oneplus6-unlockroot-manual/</guid><description>&lt;h1 id="oneplus6解锁并root教程"&gt;oneplus6解锁并root教程&lt;/h1&gt;
+&lt;h2 id="1-打开开发者模式允许解锁设备"&gt;1. 打开开发者模式，允许解锁设备&lt;/h2&gt;
+&lt;p&gt;版本号连续点好多次，可以打开开发者模式，进入开发者模式，选中“允许OEM解锁设备”。&lt;/p&gt;
+&lt;h2 id="2-解锁"&gt;2. 解锁&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fastboot oem unlock&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="3-启动-twrp-321-0-enchiladaimg-临时recovery镜像"&gt;3. 启动 twrp-3.2.1-0-enchilada.img 临时recovery镜像&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fastboot boot twrp-3.2.1-0-enchilada.img&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Ubuntu-16.04-LTS-themes-&amp;-icons-tweak</title><link>https://leiontong.github.io/posts/ubuntu-16.04-lts-themes--icons-tweak/</link><pubDate>Fri, 16 Mar 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ubuntu-16.04-lts-themes--icons-tweak/</guid><description>&lt;h1 id="ubuntu-1604-lts-themes--icons-tweak"&gt;Ubuntu 16.04 LTS themes &amp;amp; icons tweak&lt;/h1&gt;
+&lt;h2 id="first-of-all-install-ubuntu-tweak-tool-or-unity-tweak-tool"&gt;First of all, install &amp;lsquo;ubuntu tweak tool&amp;rsquo; or &amp;lsquo;unity tweak tool&amp;rsquo;.&lt;/h2&gt;
+&lt;p&gt;If your Desktop Environment is Gnome: &lt;code&gt;sudo apt-get install gnome-tweak-tool&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;p&gt;If your Desktop Environment is Unity: &lt;code&gt;sudo apt-get install unity-tweak-tool&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="favoriate-themes-icons"&gt;Favoriate Themes, icons&lt;/h2&gt;
+&lt;h3 id="arc"&gt;Arc&lt;/h3&gt;</description></item><item><title>Nginx的mod_zip模块安装和使用</title><link>https://leiontong.github.io/posts/nginx-mod_zip/</link><pubDate>Sat, 03 Mar 2018 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/nginx-mod_zip/</guid><description>&lt;h1 id="nginx的mod_zip模块安装和使用"&gt;Nginx的mod_zip模块安装和使用&lt;/h1&gt;
+&lt;h2 id="step-1-安装nginx"&gt;Step 1： 安装Nginx&lt;/h2&gt;
+&lt;p&gt;预配置必要的环境&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;yum install gcc gcc-c++ automake pcre pcre-devel zlib zlib-devel openssl openssl-devel gd gd-devel
+&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;groupadd www
+useradd -g www www
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>shadowsocks-Manual-for-Server-&amp;-Client-Usage</title><link>https://leiontong.github.io/posts/shadowsocks-manual-for-server--client-usage/</link><pubDate>Mon, 16 Oct 2017 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/shadowsocks-manual-for-server--client-usage/</guid><description>&lt;h1 id="shadowsocks的cli客户端sslocal使用指南"&gt;shadowsocks的CLI客户端(sslocal)使用指南&lt;/h1&gt;
+&lt;h2 id="step1非必需"&gt;Step1（非必需）：&lt;/h2&gt;
+&lt;h3 id="服务端ssserver"&gt;服务端ssserver&lt;/h3&gt;
+&lt;p&gt;安装：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt install shadowsocks&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;配置：&lt;/p&gt;</description></item><item><title>How to use Hexo and deploy to GitHub Pages</title><link>https://leiontong.github.io/posts/hexo-deploy-to-github-pages/</link><pubDate>Wed, 17 May 2017 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/hexo-deploy-to-github-pages/</guid><description>&lt;h1 id="how-to-use-hexo-and-deploy-to-github-pages"&gt;How to use Hexo and deploy to GitHub Pages&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/hexojs/hexo"&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hexo.io/docs/"&gt;https://hexo.io/docs/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="1-install-hexo"&gt;1. Install Hexo&lt;/h2&gt;</description></item><item><title>MySQL</title><link>https://leiontong.github.io/posts/mysql-ddl-dml/</link><pubDate>Sun, 16 Apr 2017 09:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/mysql-ddl-dml/</guid><description>&lt;h1 id="sqlddldml"&gt;SQL：DDL，DML&lt;/h1&gt;
+&lt;h2 id="ddldata-defination-language-mysql-help-data-definition"&gt;DDL：Data Defination Language &lt;code&gt;mysql&amp;gt; HELP Data Definition&lt;/code&gt;&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;CREATE, ALTER, DROP
+DATABASE, TABLE
+INDEX, VIEW, USER
+FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="dml-data-manipulation-language-mysql-help-data-manipulation"&gt;DML: Data Manipulation Language &lt;code&gt;mysql&amp;gt; HELP Data Manipulation&lt;/code&gt;&lt;/h2&gt;</description></item><item><title>common Hexo post Steps</title><link>https://leiontong.github.io/posts/tips-common-hexo-post-steps/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/tips-common-hexo-post-steps/</guid><description>&lt;h1 id="common-hexo-post-steps"&gt;common Hexo post Steps:&lt;/h1&gt;
+&lt;h2 id="server-preview"&gt;Server preview:&lt;/h2&gt;
+&lt;p&gt;hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo server&lt;/p&gt;
+&lt;h2 id="deploy-to-gh-pages"&gt;Deploy to Gh-pages:&lt;/h2&gt;
+&lt;p&gt;hexo clean &amp;amp;&amp;amp; hexo g -d &amp;amp;&amp;amp; hexo clean&lt;/p&gt;
+&lt;h1 id="hexo-insert-images-into-mardown"&gt;Hexo insert images into Mardown&lt;/h1&gt;
+&lt;p&gt;Hexo 向 Mardown 中插入图片&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Refer: &lt;a href="https://zhuanlan.zhihu.com/p/265077468"&gt;https://zhuanlan.zhihu.com/p/265077468&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Hello World</title><link>https://leiontong.github.io/posts/hello-world/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/hello-world/</guid><description>&lt;p&gt;Welcome to &lt;a href="https://hexo.io/"&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href="https://hexo.io/docs/"&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href="https://hexo.io/docs/troubleshooting.html"&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href="https://github.com/hexojs/hexo/issues"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="quick-start"&gt;Quick Start&lt;/h2&gt;
+&lt;h3 id="create-a-new-post"&gt;Create a new post&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ hexo new &lt;span style="color:#e6db74"&gt;&amp;#34;My New Post&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;More info: &lt;a href="https://hexo.io/docs/writing.html"&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="run-server"&gt;Run server&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ hexo server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

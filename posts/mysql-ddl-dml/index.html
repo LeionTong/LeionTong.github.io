@@ -1,0 +1,373 @@
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>MySQL | Leion'Log</title><meta name=keywords content><meta name=description content="SQL：DDL，DML
+DDL：Data Defination Language mysql> HELP Data Definition
+CREATE, ALTER, DROP
+    DATABASE, TABLE
+    INDEX, VIEW, USER
+    FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER
+DML: Data Manipulation Language mysql> HELP Data Manipulation"><meta name=author content><link rel=canonical href=https://leiontong.github.io/posts/mysql-ddl-dml/><meta name=google-site-verification content="G-VcPiDuhsdGz1ajWQ_d7o6GOkVjNNLONyhaWwy_gdg"><link crossorigin=anonymous href=/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as=style><link rel=icon href=https://leiontong.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://leiontong.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://leiontong.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://leiontong.github.io/apple-touch-icon.png><link rel=mask-icon href=https://leiontong.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://leiontong.github.io/posts/mysql-ddl-dml/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-43PK5HWLDX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-43PK5HWLDX")</script><meta property="og:url" content="https://leiontong.github.io/posts/mysql-ddl-dml/"><meta property="og:site_name" content="Leion'Log"><meta property="og:title" content="MySQL"><meta property="og:description" content="SQL：DDL，DML DDL：Data Defination Language mysql> HELP Data Definition CREATE, ALTER, DROPDATABASE, TABLEINDEX, VIEW, USERFUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER DML: Data Manipulation Language mysql> HELP Data Manipulation"><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-04-16T09:00:00+00:00"><meta property="article:modified_time" content="2017-04-16T09:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="MySQL"><meta name=twitter:description content="SQL：DDL，DML DDL：Data Defination Language mysql> HELP Data Definition CREATE, ALTER, DROPDATABASE, TABLEINDEX, VIEW, USERFUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER DML: Data Manipulation Language mysql> HELP Data Manipulation"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://leiontong.github.io/posts/"},{"@type":"ListItem","position":2,"name":"MySQL","item":"https://leiontong.github.io/posts/mysql-ddl-dml/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MySQL","name":"MySQL","description":"SQL：DDL，DML DDL：Data Defination Language mysql\u0026gt; HELP Data Definition CREATE, ALTER, DROP\rDATABASE, TABLE\rINDEX, VIEW, USER\rFUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER DML: Data Manipulation Language mysql\u0026gt; HELP Data Manipulation","keywords":[],"articleBody":"SQL：DDL，DML DDL：Data Defination Language mysql\u003e HELP Data Definition CREATE, ALTER, DROP\rDATABASE, TABLE\rINDEX, VIEW, USER\rFUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER DML: Data Manipulation Language mysql\u003e HELP Data Manipulation INSERT/REPLACE, DELETE, SELECT, UPDATE 数据库： 对于MySQL而言，每个数据库（DATABASE）其实就是对应数据目录（datadir）下的一个目录（db_name），用于规定一个项目或者方案的集合，因此DATABASE也被称为SCHEMA；\nCREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name CHARACTER SET [=] charset_name COLLATE [=] collation_name\rALTER {DATABASE | SCHEMA} [db_name] CHARACTER SET [=] charset_name COLLATE [=] collation_name\rDROP {DATABASE | SCHEMA} [IF EXISTS] db_name 示例： 显示当前已存在的所有数据库;\nMariaDB [(none)]\u003e SHOW DATABASES;\r+--------------------+\r| Database |\r+--------------------+\r| information_schema |\r| mysql |\r| performance_schema |\r| test |\r+--------------------+\r4 rows in set (0.00 sec) 创建一个数据库 CREATE DATABASE;\nMariaDB [(none)]\u003e CREATE DATABASE mydb;\rQuery OK, 1 row affected (0.00 sec) 如果要创建的数据库已存在，就会报错；如果此时是一个sql脚本的话执行到这里就中断了；\nMariaDB [(none)]\u003e CREATE DATABASE mydb;\rERROR 1007 (HY000): Can't create database 'mydb'; database exists 创建数据库时可以加上条件判断 IF NOT EXISTS ；这样只会出现警告，而不会报错中断操作；可以使用命令 SHOW WARNINGS 查看；\nMariaDB [(none)]\u003e CREATE DATABASE IF NOT EXISTS mydb;\rQuery OK, 1 row affected, 1 warning (0.00 sec)\rMariaDB [(none)]\u003e CREATE DATABASE IF NOT EXISTS mydb;\rQuery OK, 1 row affected, 1 warning (0.00 sec)\rMariaDB [(none)]\u003e SHOW WARNINGS;\r+-------+------+-----------------------------------------------+\r| Level | Code | Message |\r+-------+------+-----------------------------------------------+\r| Note | 1007 | Can't create database 'mydb'; database exists |\r+-------+------+-----------------------------------------------+\r1 row in set (0.00 sec) 创建数据库时可以指定默认字符集 CHARATER SET；\nMariaDB [(none)]\u003e CREATE DATABASE IF NOT EXISTS testdb CHARACTER SET utf8;\rQuery OK, 1 row affected (0.00 sec) 如果要创建数据库时忘记指定字符集，可以使用ALTER DATABASE 修改；\nMariaDB [(none)]\u003e ALTER DATABASE mydb CHARATER SET utf8;\rQuery OK, 1 row affected (0.00 sec) 删除一个数据库 DROP DATABASE;\nMariaDB [(none)]\u003e DROP DATABASE testdb;\rQuery OK, 0 rows affected (0.00 sec) 同样，如果要删除的数据库不存在，就会报错；可以加上条件判断IF EXISTS 以避免报错；\nMariaDB [(none)]\u003e DROP DATABASE testdb;\rERROR 1008 (HY000): Can't drop database 'testdb'; database doesn't exist\rMariaDB [(none)]\u003e DROP DATABASE IF EXISTS testdb;\rQuery OK, 0 rows affected, 1 warning (0.00 sec) 表： 表名是否区分大小写取决于文件系统，强烈建议不要使用仅仅大小写不同的表名；\nCREATE： 语法1 CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name\r(create_definition,...)\r[table_options]\r[partition_options] 语法2 CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name\r[(create_definition,...)]\r[table_options]\r[partition_options]\rselect_statement 通过查询语句来创建表，直接将查询语句的结果插入到新创建的表中；只能复制字段名和类型，不能复制字段定义；\n语法3 CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name\r{ LIKE old_tbl_name | (LIKE old_tbl_name) } 复制某存在的表的结构来创建新的空表；\n选项 create_definition:\rcol_name column_definition column_definition:\rdata_type [NOT NULL | NULL] [DEFAULT default_value]\r[AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]\r[COMMENT 'string']\r[COLUMN_FORMAT {FIXED|DYNAMIC|DEFAULT}] table_options：\rENGINE [=] engine_name 查看支持的所有存储引擎： mysql\u003e SHOW ENGINES; 查看指定表的存储引擎： mysql\u003e SHOW TABLE STATUS LIKE clause; 查看使用指定存储引擎的表： mysql\u003e SHOW TABLE STATUS WHERE Engine='InnoDB'\\G\nDROP: DROP [TEMPORARY] TABLE [IF EXISTS] tbl_name [, tbl_name]; ALTER： ALTER TABLE tbl_name\r[alter_specification [, alter_specification] ...] 可修改内容：\n* table_options\r* 添加定义：ADD\r- 字段、字段集合、索引、约束\r* 修改字段：\r- CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name]\r- MODIFY [COLUMN] col_name column_definition [FIRST | AFTER col_name]\r* 删除操作：DROP\r- 字段、索引、约束 表重命名： RENAME [TO|AS] new_tbl_name\n查看表结构定义： DESC tbl_name； 查看表定义： SHOW CREATE TABLE tbl_name 查看表属性信息： SHOW TABLE STATUS [{FROM | IN} db_name] [LIKE 'pattern' | WHERE expr] 示例： 创建一张表\nCREATE TABLE tbl1;` 创建表tbl2，指定字段列数据类型、主键等信息；\nMariaDB [(none)]\u003e USE mydb;\rDatabase changed\rMariaDB [mydb]\u003e CREATE TABLE tbl2(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name CHAR(20));\rQuery OK, 0 rows affected (0.00 sec)\rMariaDB [mydb]\u003e DESC tbl2;\r+-------+---------------------+------+-----+---------+----------------+\r| Field | Type | Null | Key | Default | Extra |\r+-------+---------------------+------+-----+---------+----------------+\r| id | tinyint(3) unsigned | NO | PRI | NULL | auto_increment |\r| name | char(20) | YES | | NULL | |\r+-------+---------------------+------+-----+---------+----------------+\r2 rows in set (0.00 sec) 创建表tbl3，单独指定主键\nMariaDB [mydb]\u003e CREATE TABLE tbl3(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), PRIMARY KEY(id));\rQuery OK, 0 rows affected (0.01 sec)\rMariaDB [mydb]\u003e DESC tbl3;\r+-------+---------------------+------+-----+---------+----------------+\r| Field | Type | Null | Key | Default | Extra |\r+-------+---------------------+------+-----+---------+----------------+\r| id | tinyint(3) unsigned | NO | PRI | NULL | auto_increment |\r| name | char(20) | YES | | NULL | |\r+-------+---------------------+------+-----+---------+----------------+\r2 rows in set (0.00 sec) 创建表tbl4，同时给指定字段创建索引；\nMariaDB [mydb]\u003e CREATE TABLE tbl4(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), age TINYINT UNSIGNED, PRIMARY KEY(id), index(name));\rMariaDB [mydb]\u003e DESC tbl4;\r+-------+---------------------+------+-----+---------+----------------+\r| Field | Type | Null | Key | Default | Extra |\r+-------+---------------------+------+-----+---------+----------------+\r| id | tinyint(3) unsigned | NO | PRI | NULL | auto_increment |\r| name | char(20) | YES | MUL | NULL | |\r| age | tinyint(3) unsigned | YES | | NULL | |\r+-------+---------------------+------+-----+---------+----------------+\r3 rows in set (0.00 sec) 查看表tbl4的索引信息;注意到，这里有两行，第一行是主键索引 PRIMARY 针对 id 字段，第二行是自定义索引 name 针对 name 字段；由于自定义的索引未指定索引名，因此默认索引名与字段名一样；\nMariaDB [mydb]\u003e SHOW INDEXES FROM tbl4;\r+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+\r| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |\r+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+\r| tbl4 | 0 | PRIMARY | 1 | id | A | 0 | NULL | NULL | | BTREE | | |\r| tbl4 | 1 | name | 1 | name | A | 0 | NULL | NULL | YES | BTREE | | |\r+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+\r2 rows in set (0.00 sec)\rMariaDB [mydb]\u003e SHOW INDEXES FROM tbl4\\G\r*************************** 1\\. row ***************************\rTable: tbl4\rNon_unique: 0\rKey_name: PRIMARY\rSeq_in_index: 1\rColumn_name: id\rCollation: A\rCardinality: 0\rSub_part: NULL\rPacked: NULL\rNull:\rIndex_type: BTREE\rComment:\rIndex_comment:\r*************************** 2\\. row ***************************\rTable: tbl4\rNon_unique: 1\rKey_name: name\rSeq_in_index: 1\rColumn_name: name\rCollation: A\rCardinality: 0\rSub_part: NULL\rPacked: NULL\rNull: YES\rIndex_type: BTREE\rComment:\rIndex_comment:\r2 rows in set (0.00 sec) 查看表的索引信息；\nMariaDB [mydb]\u003e show table status;\r+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+\r| Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time | Update_time | Check_time | Collation | Checksum | Create_options | Comment |\r+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+\r| tbl2 | InnoDB | 10 | Compact | 0 | 0 | 16384 | 0 | 0 | 9437184 | 1 | 2017-06-03 22:24:47 | NULL | NULL | utf8_general_ci | NULL | | |\r| tbl3 | InnoDB | 10 | Compact | 0 | 0 | 16384 | 0 | 0 | 9437184 | 1 | 2017-06-03 22:29:15 | NULL | NULL | utf8_general_ci | NULL | | |\r| tbl4 | InnoDB | 10 | Compact | 0 | 0 | 16384 | 0 | 16384 | 9437184 | 1 | 2017-06-03 22:51:45 | NULL | NULL | utf8_general_ci | NULL | | |\r+------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+\r3 rows in set (0.00 sec)\rMariaDB [mydb]\u003e SHOW TABLE STATUS\\G\r*************************** 1\\. row ***************************\rName: tbl2\rEngine: InnoDB\rVersion: 10\rRow_format: Compact\rRows: 0\rAvg_row_length: 0\rData_length: 16384\rMax_data_length: 0\rIndex_length: 0\rData_free: 9437184\rAuto_increment: 1\rCreate_time: 2017-06-03 22:24:47\rUpdate_time: NULL\rCheck_time: NULL\rCollation: utf8_general_ci\rChecksum: NULL\rCreate_options:\rComment:\r*************************** 2\\. row ***************************\rName: tbl3\rEngine: InnoDB\rVersion: 10\rRow_format: Compact\rRows: 0\rAvg_row_length: 0\rData_length: 16384\rMax_data_length: 0\rIndex_length: 0\rData_free: 9437184\rAuto_increment: 1\rCreate_time: 2017-06-03 22:29:15\rUpdate_time: NULL\rCheck_time: NULL\rCollation: utf8_general_ci\rChecksum: NULL\rCreate_options:\rComment:\r*************************** 3\\. row ***************************\rName: tbl4\rEngine: InnoDB\rVersion: 10\rRow_format: Compact\rRows: 0\rAvg_row_length: 0\rData_length: 16384\rMax_data_length: 0\rIndex_length: 16384\rData_free: 9437184\rAuto_increment: 1\rCreate_time: 2017-06-03 22:51:45\rUpdate_time: NULL\rCheck_time: NULL\rCollation: utf8_general_ci\rChecksum: NULL\rCreate_options:\rComment:\r3 rows in set (0.01 sec)\rMariaDB [mydb]\u003e SHOW TABLE STATUS LIKE 'tbl4'\\G\r*************************** 1\\. row ***************************\rName: tbl4\rEngine: InnoDB\rVersion: 10\rRow_format: Compact\rRows: 0\rAvg_row_length: 0\rData_length: 16384\rMax_data_length: 0\rIndex_length: 16384\rData_free: 9437184\rAuto_increment: 1\rCreate_time: 2017-06-03 22:51:45\rUpdate_time: NULL\rCheck_time: NULL\rCollation: utf8_general_ci\rChecksum: NULL\rCreate_options:\rComment:\r1 row in set (0.00 sec) 创建表tbl5，表选项 table_options 指定存储引擎 ENGINE ；\nMariaDB [mydb]\u003e CREATE TABLE tbl5(id INT) ENGINE MyISAM;\rQuery OK, 0 rows affected (0.00 sec)\rMariaDB [mydb]\u003e DESC tbl5;\r+-------+---------+------+-----+---------+-------+\r| Field | Type | Null | Key | Default | Extra |\r+-------+---------+------+-----+---------+-------+\r| id | int(11) | YES | | NULL | |\r+-------+---------+------+-----+---------+-------+\r1 row in set (0.01 sec)\rMariaDB [mydb]\u003e SHOW TABLE STATUS WHERE ENGINE='MyISAM'\\G\r*************************** 1\\. row ***************************\rName: tbl5\rEngine: MyISAM\rVersion: 10\rRow_format: Fixed\rRows: 0\rAvg_row_length: 0\rData_length: 0\rMax_data_length: 1970324836974591\rIndex_length: 1024\rData_free: 0\rAuto_increment: NULL\rCreate_time: 2017-06-03 23:26:08\rUpdate_time: 2017-06-03 23:26:08\rCheck_time: NULL\rCollation: utf8_general_ci\rChecksum: NULL\rCreate_options:\rComment:\r1 row in set (0.00 sec) 使用SELECT语句查询获取的数据创建表tbl6；\nMariaDB [mydb]\u003e CREATE TABLE tbl6 SELECT Host,User,Password From mysql.user;\rQuery OK, 8 rows affected (0.02 sec)\rRecords: 8 Duplicates: 0 Warnings: 0\rMariaDB [mydb]\u003e DESC tbl6;\r+----------+----------+------+-----+---------+-------+\r| Field | Type | Null | Key | Default | Extra |\r+----------+----------+------+-----+---------+-------+\r| Host | char(60) | NO | | | |\r| User | char(16) | NO | | | |\r| Password | char(41) | NO | | | |\r+----------+----------+------+-----+---------+-------+\r3 rows in set (0.00 sec)\rMariaDB [mydb]\u003e SELECT * FROM tbl6;\r+-----------+------+-------------------------------------------+\r| Host | User | Password |\r+-----------+------+-------------------------------------------+\r| localhost | root | |\r| centos7 | root | |\r| 127.0.0.1 | root | |\r| ::1 | root | |\r| localhost | | |\r| centos7 | | |\r| % | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |\r| localhost | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |\r+-----------+------+-------------------------------------------+\r8 rows in set (0.00 sec) 复制表结构；\nMariaDB [mydb]\u003e CREATE TABLE tbl7 like mysql.user;\rQuery OK, 0 rows affected (0.02 sec)\rMariaDB [mydb]\u003e DESC tbl7;\r+------------------------+-----------------------------------+------+-----+----------+-------+\r| Field | Type | Null | Key | Default | Extra |\r+------------------------+-----------------------------------+------+-----+----------+-------+\r| Host | char(60) | NO | PRI | | |\r| User | char(80) | NO | PRI | | |\r| Password | char(41) | NO | | | |\r| Select_priv | enum('N','Y') | NO | | N | |\r| Insert_priv | enum('N','Y') | NO | | N | |\r| Update_priv | enum('N','Y') | NO | | N | |\r| Delete_priv | enum('N','Y') | NO | | N | |\r| Create_priv | enum('N','Y') | NO | | N | |\r| Drop_priv | enum('N','Y') | NO | | N | |\r| Reload_priv | enum('N','Y') | NO | | N | |\r| Shutdown_priv | enum('N','Y') | NO | | N | |\r| Process_priv | enum('N','Y') | NO | | N | |\r| File_priv | enum('N','Y') | NO | | N | |\r| Grant_priv | enum('N','Y') | NO | | N | |\r| References_priv | enum('N','Y') | NO | | N | |\r| Index_priv | enum('N','Y') | NO | | N | |\r| Alter_priv | enum('N','Y') | NO | | N | |\r| Show_db_priv | enum('N','Y') | NO | | N | |\r| Super_priv | enum('N','Y') | NO | | N | |\r| Create_tmp_table_priv | enum('N','Y') | NO | | N | |\r| Lock_tables_priv | enum('N','Y') | NO | | N | |\r| Execute_priv | enum('N','Y') | NO | | N | |\r| Repl_slave_priv | enum('N','Y') | NO | | N | |\r| Repl_client_priv | enum('N','Y') | NO | | N | |\r| Create_view_priv | enum('N','Y') | NO | | N | |\r| Show_view_priv | enum('N','Y') | NO | | N | |\r| Create_routine_priv | enum('N','Y') | NO | | N | |\r| Alter_routine_priv | enum('N','Y') | NO | | N | |\r| Create_user_priv | enum('N','Y') | NO | | N | |\r| Event_priv | enum('N','Y') | NO | | N | |\r| Trigger_priv | enum('N','Y') | NO | | N | |\r| Create_tablespace_priv | enum('N','Y') | NO | | N | |\r| ssl_type | enum('','ANY','X509','SPECIFIED') | NO | | | |\r| ssl_cipher | blob | NO | | NULL | |\r| x509_issuer | blob | NO | | NULL | |\r| x509_subject | blob | NO | | NULL | |\r| max_questions | int(11) unsigned | NO | | 0 | |\r| max_updates | int(11) unsigned | NO | | 0 | |\r| max_connections | int(11) unsigned | NO | | 0 | |\r| max_user_connections | int(11) | NO | | 0 | |\r| plugin | char(64) | NO | | | |\r| authentication_string | text | NO | | NULL | |\r| password_expired | enum('N','Y') | NO | | N | |\r| is_role | enum('N','Y') | NO | | N | |\r| default_role | char(80) | NO | | | |\r| max_statement_time | decimal(12,6) | NO | | 0.000000 | |\r+------------------------+-----------------------------------+------+-----+----------+-------+\r46 rows in set (0.02 sec) ","wordCount":"2004","inLanguage":"en","datePublished":"2017-04-16T09:00:00Z","dateModified":"2017-04-16T09:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://leiontong.github.io/posts/mysql-ddl-dml/"},"publisher":{"@type":"Organization","name":"Leion'Log","logo":{"@type":"ImageObject","url":"https://leiontong.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=header-nav><div class=logo><a href=https://leiontong.github.io/ accesskey=h title="Leion'Log (Alt + H)">Leion'Log</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://leiontong.github.io/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://leiontong.github.io/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://leiontong.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://leiontong.github.io/tags/ title=Tags><span>Tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">MySQL</h1><div class=post-meta><span title='2017-04-16 09:00:00 +0000 UTC'>April 16, 2017</span></div></header><div class="post-content md-content"><h1 id=sqlddldml>SQL：DDL，DML<a hidden class=anchor aria-hidden=true href=#sqlddldml>#</a></h1><h2 id=ddldata-defination-language-mysql-help-data-definition>DDL：Data Defination Language <code>mysql> HELP Data Definition</code><a hidden class=anchor aria-hidden=true href=#ddldata-defination-language-mysql-help-data-definition>#</a></h2><pre tabindex=0><code>CREATE, ALTER, DROP
+    DATABASE, TABLE
+    INDEX, VIEW, USER
+    FUNCTION, FUNCTION UDF, PROCEDURE, TABLESPACE, TRIGGER, SERVER
+</code></pre><h2 id=dml-data-manipulation-language-mysql-help-data-manipulation>DML: Data Manipulation Language <code>mysql> HELP Data Manipulation</code><a hidden class=anchor aria-hidden=true href=#dml-data-manipulation-language-mysql-help-data-manipulation>#</a></h2><pre tabindex=0><code>INSERT/REPLACE, DELETE, SELECT, UPDATE
+</code></pre><h2 id=数据库>数据库：<a hidden class=anchor aria-hidden=true href=#数据库>#</a></h2><blockquote><p>对于MySQL而言，每个数据库（DATABASE）其实就是对应数据目录（datadir）下的一个目录（db_name），用于规定一个项目或者方案的集合，因此DATABASE也被称为SCHEMA；</p></blockquote><pre tabindex=0><code>CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name CHARACTER SET [=] charset_name  COLLATE [=] collation_name
+ALTER {DATABASE | SCHEMA} [db_name] CHARACTER SET [=] charset_name  COLLATE [=] collation_name
+DROP {DATABASE | SCHEMA} [IF EXISTS] db_name
+</code></pre><h3></h3><p><strong>示例：</strong> 显示当前已存在的所有数据库;</p><pre tabindex=0><code>MariaDB [(none)]&gt; SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| test               |
++--------------------+
+4 rows in set (0.00 sec)
+</code></pre><p><strong>创建一个数据库 CREATE DATABASE;</strong></p><pre tabindex=0><code>MariaDB [(none)]&gt; CREATE DATABASE mydb;
+Query OK, 1 row affected (0.00 sec)
+</code></pre><p>如果要创建的数据库已存在，就会报错；如果此时是一个sql脚本的话执行到这里就中断了；</p><pre tabindex=0><code>MariaDB [(none)]&gt; CREATE DATABASE mydb;
+ERROR 1007 (HY000): Can&#39;t create database &#39;mydb&#39;; database exists
+</code></pre><p>创建数据库时可以加上条件判断 IF NOT EXISTS ；这样只会出现警告，而不会报错中断操作；可以使用命令 SHOW WARNINGS 查看；</p><pre tabindex=0><code>MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS mydb;
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS mydb;
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+MariaDB [(none)]&gt; SHOW WARNINGS;
++-------+------+-----------------------------------------------+
+| Level | Code | Message                                       |
++-------+------+-----------------------------------------------+
+| Note  | 1007 | Can&#39;t create database &#39;mydb&#39;; database exists |
++-------+------+-----------------------------------------------+
+1 row in set (0.00 sec)
+</code></pre><p>创建数据库时可以指定默认字符集 CHARATER SET；</p><pre tabindex=0><code>MariaDB [(none)]&gt; CREATE DATABASE IF NOT EXISTS testdb CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+</code></pre><p><strong>如果要创建数据库时忘记指定字符集，可以使用ALTER DATABASE 修改；</strong></p><pre tabindex=0><code>MariaDB [(none)]&gt; ALTER DATABASE mydb CHARATER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+</code></pre><p><strong>删除一个数据库 DROP DATABASE;</strong></p><pre tabindex=0><code>MariaDB [(none)]&gt; DROP DATABASE testdb;
+Query OK, 0 rows affected (0.00 sec)
+</code></pre><p>同样，如果要删除的数据库不存在，就会报错；可以加上条件判断IF EXISTS 以避免报错；</p><pre tabindex=0><code>MariaDB [(none)]&gt; DROP DATABASE testdb;
+ERROR 1008 (HY000): Can&#39;t drop database &#39;testdb&#39;; database doesn&#39;t exist
+
+MariaDB [(none)]&gt; DROP DATABASE IF EXISTS testdb;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+</code></pre><h3></h3><h2 id=表>表：<a hidden class=anchor aria-hidden=true href=#表>#</a></h2><blockquote><p>表名是否区分大小写取决于文件系统，强烈建议不要使用仅仅大小写不同的表名；</p></blockquote><h3 id=create>CREATE：<a hidden class=anchor aria-hidden=true href=#create>#</a></h3><h4 id=语法1>语法1<a hidden class=anchor aria-hidden=true href=#语法1>#</a></h4><pre tabindex=0><code>CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    (create_definition,...)
+    [table_options]
+    [partition_options]
+</code></pre><h4 id=语法2>语法2<a hidden class=anchor aria-hidden=true href=#语法2>#</a></h4><pre tabindex=0><code>CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    [(create_definition,...)]
+    [table_options]
+    [partition_options]
+    select_statement
+</code></pre><blockquote><p>通过查询语句来创建表，直接将查询语句的结果插入到新创建的表中；只能复制字段名和类型，不能复制字段定义；</p></blockquote><h4 id=语法3>语法3<a hidden class=anchor aria-hidden=true href=#语法3>#</a></h4><pre tabindex=0><code>CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
+    { LIKE old_tbl_name | (LIKE old_tbl_name) }
+</code></pre><blockquote><p>复制某存在的表的结构来创建新的空表；</p></blockquote><h4 id=选项>选项<a hidden class=anchor aria-hidden=true href=#选项>#</a></h4><pre tabindex=0><code>create_definition:
+    col_name column_definition
+</code></pre><pre tabindex=0><code>column_definition:
+    data_type [NOT NULL | NULL] [DEFAULT default_value]
+      [AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]
+      [COMMENT &#39;string&#39;]
+      [COLUMN_FORMAT {FIXED|DYNAMIC|DEFAULT}]
+</code></pre><pre tabindex=0><code>table_options：
+    ENGINE [=] engine_name
+</code></pre><p>查看支持的所有存储引擎： <code>mysql> SHOW ENGINES;</code> 查看指定表的存储引擎： <code>mysql> SHOW TABLE STATUS LIKE clause;</code> 查看使用指定存储引擎的表： <code>mysql> SHOW TABLE STATUS WHERE Engine='InnoDB'\G</code></p><h3 id=drop>DROP:<a hidden class=anchor aria-hidden=true href=#drop>#</a></h3><pre tabindex=0><code>DROP [TEMPORARY] TABLE [IF EXISTS] tbl_name [, tbl_name];
+</code></pre><h3 id=alter>ALTER：<a hidden class=anchor aria-hidden=true href=#alter>#</a></h3><pre tabindex=0><code>ALTER  TABLE tbl_name
+    [alter_specification [, alter_specification] ...]
+</code></pre><p>可修改内容：</p><pre tabindex=0><code>* table_options
+* 添加定义：ADD
+    - 字段、字段集合、索引、约束
+* 修改字段：
+    - CHANGE [COLUMN] old_col_name new_col_name column_definition [FIRST|AFTER col_name]
+    - MODIFY [COLUMN] col_name column_definition [FIRST | AFTER col_name]
+* 删除操作：DROP
+    - 字段、索引、约束
+</code></pre><p>表重命名： <code>RENAME [TO|AS] new_tbl_name</code></p><h3 id=查看表结构定义>查看表结构定义：<a hidden class=anchor aria-hidden=true href=#查看表结构定义>#</a></h3><pre tabindex=0><code>DESC tbl_name；
+</code></pre><h3 id=查看表定义>查看表定义：<a hidden class=anchor aria-hidden=true href=#查看表定义>#</a></h3><pre tabindex=0><code>SHOW CREATE TABLE tbl_name
+</code></pre><h3 id=查看表属性信息>查看表属性信息：<a hidden class=anchor aria-hidden=true href=#查看表属性信息>#</a></h3><pre tabindex=0><code>    SHOW TABLE STATUS [{FROM | IN} db_name] [LIKE &#39;pattern&#39; | WHERE expr]
+</code></pre><h4></h4><p><strong>示例：</strong> <strong>创建一张表</strong></p><pre tabindex=0><code>CREATE TABLE tbl1;`
+</code></pre><p>创建表tbl2，指定字段列数据类型、主键等信息；</p><pre tabindex=0><code>MariaDB [(none)]&gt; USE mydb;
+Database changed
+MariaDB [mydb]&gt; CREATE TABLE tbl2(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name CHAR(20));
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mydb]&gt; DESC tbl2;
++-------+---------------------+------+-----+---------+----------------+
+| Field | Type                | Null | Key | Default | Extra          |
++-------+---------------------+------+-----+---------+----------------+
+| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | char(20)            | YES  |     | NULL    |                |
++-------+---------------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+</code></pre><p>创建表tbl3，单独指定主键</p><pre tabindex=0><code>MariaDB [mydb]&gt; CREATE TABLE tbl3(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), PRIMARY KEY(id));
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [mydb]&gt; DESC tbl3;
++-------+---------------------+------+-----+---------+----------------+
+| Field | Type                | Null | Key | Default | Extra          |
++-------+---------------------+------+-----+---------+----------------+
+| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | char(20)            | YES  |     | NULL    |                |
++-------+---------------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+</code></pre><p>创建表tbl4，同时给指定字段创建索引；</p><pre tabindex=0><code>MariaDB [mydb]&gt; CREATE TABLE tbl4(id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT, name CHAR(20), age TINYINT UNSIGNED, PRIMARY KEY(id), index(name));
+MariaDB [mydb]&gt; DESC tbl4;
++-------+---------------------+------+-----+---------+----------------+
+| Field | Type                | Null | Key | Default | Extra          |
++-------+---------------------+------+-----+---------+----------------+
+| id    | tinyint(3) unsigned | NO   | PRI | NULL    | auto_increment |
+| name  | char(20)            | YES  | MUL | NULL    |                |
+| age   | tinyint(3) unsigned | YES  |     | NULL    |                |
++-------+---------------------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+</code></pre><p>查看表tbl4的索引信息;注意到，这里有两行，第一行是主键索引 PRIMARY 针对 id 字段，第二行是自定义索引 name 针对 name 字段；由于自定义的索引未指定索引名，因此默认索引名与字段名一样；</p><pre tabindex=0><code>MariaDB [mydb]&gt; SHOW INDEXES FROM tbl4;
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| tbl4  |          0 | PRIMARY  |            1 | id          | A         |           0 |     NULL | NULL   |      | BTREE      |         |               |
+| tbl4  |          1 | name     |            1 | name        | A         |           0 |     NULL | NULL   | YES  | BTREE      |         |               |
++-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+2 rows in set (0.00 sec)
+
+MariaDB [mydb]&gt; SHOW INDEXES FROM tbl4\G
+*************************** 1\. row ***************************
+        Table: tbl4
+   Non_unique: 0
+     Key_name: PRIMARY
+ Seq_in_index: 1
+  Column_name: id
+    Collation: A
+  Cardinality: 0
+     Sub_part: NULL
+       Packed: NULL
+         Null:
+   Index_type: BTREE
+      Comment:
+Index_comment:
+*************************** 2\. row ***************************
+        Table: tbl4
+   Non_unique: 1
+     Key_name: name
+ Seq_in_index: 1
+  Column_name: name
+    Collation: A
+  Cardinality: 0
+     Sub_part: NULL
+       Packed: NULL
+         Null: YES
+   Index_type: BTREE
+      Comment:
+Index_comment:
+2 rows in set (0.00 sec)
+</code></pre><p>查看表的索引信息；</p><pre tabindex=0><code>MariaDB [mydb]&gt; show table status;
++------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+| Name | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time         | Update_time | Check_time | Collation       | Checksum | Create_options | Comment |
++------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+| tbl2 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |            0 |   9437184 |              1 | 2017-06-03 22:24:47 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |
+| tbl3 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |            0 |   9437184 |              1 | 2017-06-03 22:29:15 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |
+| tbl4 | InnoDB |      10 | Compact    |    0 |              0 |       16384 |               0 |        16384 |   9437184 |              1 | 2017-06-03 22:51:45 | NULL        | NULL       | utf8_general_ci |     NULL |                |         |
++------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+-------------+------------+-----------------+----------+----------------+---------+
+3 rows in set (0.00 sec)
+
+MariaDB [mydb]&gt; SHOW TABLE STATUS\G
+*************************** 1\. row ***************************
+           Name: tbl2
+         Engine: InnoDB
+        Version: 10
+     Row_format: Compact
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 9437184
+ Auto_increment: 1
+    Create_time: 2017-06-03 22:24:47
+    Update_time: NULL
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+*************************** 2\. row ***************************
+           Name: tbl3
+         Engine: InnoDB
+        Version: 10
+     Row_format: Compact
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 0
+      Data_free: 9437184
+ Auto_increment: 1
+    Create_time: 2017-06-03 22:29:15
+    Update_time: NULL
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+*************************** 3\. row ***************************
+           Name: tbl4
+         Engine: InnoDB
+        Version: 10
+     Row_format: Compact
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 16384
+      Data_free: 9437184
+ Auto_increment: 1
+    Create_time: 2017-06-03 22:51:45
+    Update_time: NULL
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+3 rows in set (0.01 sec)
+
+MariaDB [mydb]&gt; SHOW TABLE STATUS LIKE &#39;tbl4&#39;\G
+*************************** 1\. row ***************************
+           Name: tbl4
+         Engine: InnoDB
+        Version: 10
+     Row_format: Compact
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 16384
+Max_data_length: 0
+   Index_length: 16384
+      Data_free: 9437184
+ Auto_increment: 1
+    Create_time: 2017-06-03 22:51:45
+    Update_time: NULL
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+</code></pre><p>创建表tbl5，表选项 table_options 指定存储引擎 ENGINE ；</p><pre tabindex=0><code>MariaDB [mydb]&gt;  CREATE TABLE tbl5(id INT) ENGINE MyISAM;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mydb]&gt; DESC tbl5;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| id    | int(11) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+1 row in set (0.01 sec)
+
+MariaDB [mydb]&gt; SHOW TABLE STATUS WHERE ENGINE=&#39;MyISAM&#39;\G
+*************************** 1\. row ***************************
+           Name: tbl5
+         Engine: MyISAM
+        Version: 10
+     Row_format: Fixed
+           Rows: 0
+ Avg_row_length: 0
+    Data_length: 0
+Max_data_length: 1970324836974591
+   Index_length: 1024
+      Data_free: 0
+ Auto_increment: NULL
+    Create_time: 2017-06-03 23:26:08
+    Update_time: 2017-06-03 23:26:08
+     Check_time: NULL
+      Collation: utf8_general_ci
+       Checksum: NULL
+ Create_options:
+        Comment:
+1 row in set (0.00 sec)
+</code></pre><p>使用SELECT语句查询获取的数据创建表tbl6；</p><pre tabindex=0><code>MariaDB [mydb]&gt; CREATE TABLE tbl6 SELECT Host,User,Password From mysql.user;
+Query OK, 8 rows affected (0.02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+MariaDB [mydb]&gt; DESC tbl6;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| Host     | char(60) | NO   |     |         |       |
+| User     | char(16) | NO   |     |         |       |
+| Password | char(41) | NO   |     |         |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+MariaDB [mydb]&gt; SELECT * FROM tbl6;
++-----------+------+-------------------------------------------+
+| Host      | User | Password                                  |
++-----------+------+-------------------------------------------+
+| localhost | root |                                           |
+| centos7   | root |                                           |
+| 127.0.0.1 | root |                                           |
+| ::1       | root |                                           |
+| localhost |      |                                           |
+| centos7   |      |                                           |
+| %         | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |
+| localhost | test | *00E247AC5F9AF26AE0194B41E1E769DEE1429A29 |
++-----------+------+-------------------------------------------+
+8 rows in set (0.00 sec)
+</code></pre><p>复制表结构；</p><pre tabindex=0><code>MariaDB [mydb]&gt; CREATE TABLE tbl7 like mysql.user;
+Query OK, 0 rows affected (0.02 sec)
+
+MariaDB [mydb]&gt; DESC tbl7;
++------------------------+-----------------------------------+------+-----+----------+-------+
+| Field                  | Type                              | Null | Key | Default  | Extra |
++------------------------+-----------------------------------+------+-----+----------+-------+
+| Host                   | char(60)                          | NO   | PRI |          |       |
+| User                   | char(80)                          | NO   | PRI |          |       |
+| Password               | char(41)                          | NO   |     |          |       |
+| Select_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Insert_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Update_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Delete_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Drop_priv              | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Reload_priv            | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Shutdown_priv          | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Process_priv           | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| File_priv              | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Grant_priv             | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| References_priv        | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Index_priv             | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Alter_priv             | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Show_db_priv           | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Super_priv             | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_tmp_table_priv  | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Lock_tables_priv       | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Execute_priv           | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Repl_slave_priv        | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Repl_client_priv       | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_view_priv       | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Show_view_priv         | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_routine_priv    | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Alter_routine_priv     | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_user_priv       | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Event_priv             | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Trigger_priv           | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| Create_tablespace_priv | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| ssl_type               | enum(&#39;&#39;,&#39;ANY&#39;,&#39;X509&#39;,&#39;SPECIFIED&#39;) | NO   |     |          |       |
+| ssl_cipher             | blob                              | NO   |     | NULL     |       |
+| x509_issuer            | blob                              | NO   |     | NULL     |       |
+| x509_subject           | blob                              | NO   |     | NULL     |       |
+| max_questions          | int(11) unsigned                  | NO   |     | 0        |       |
+| max_updates            | int(11) unsigned                  | NO   |     | 0        |       |
+| max_connections        | int(11) unsigned                  | NO   |     | 0        |       |
+| max_user_connections   | int(11)                           | NO   |     | 0        |       |
+| plugin                 | char(64)                          | NO   |     |          |       |
+| authentication_string  | text                              | NO   |     | NULL     |       |
+| password_expired       | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| is_role                | enum(&#39;N&#39;,&#39;Y&#39;)                     | NO   |     | N        |       |
+| default_role           | char(80)                          | NO   |     |          |       |
+| max_statement_time     | decimal(12,6)                     | NO   |     | 0.000000 |       |
++------------------------+-----------------------------------+------+-----+----------+-------+
+46 rows in set (0.02 sec)
+</code></pre><h4></h4></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://leiontong.github.io/>Leion'Log</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

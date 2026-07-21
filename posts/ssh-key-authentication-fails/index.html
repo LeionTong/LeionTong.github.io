@@ -1,0 +1,392 @@
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>SSH-Key-authentication-fails | Leion'Log</title><meta name=keywords content><meta name=description content="记一次root用户进行秘钥登录验证失败问题
+现象描述：
+在一次常规给 root 用户配置秘钥登录过程中，通过命令  ssh-copy-id 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。
+问题分析："><meta name=author content><link rel=canonical href=https://leiontong.github.io/posts/ssh-key-authentication-fails/><meta name=google-site-verification content="G-VcPiDuhsdGz1ajWQ_d7o6GOkVjNNLONyhaWwy_gdg"><link crossorigin=anonymous href=/assets/css/stylesheet.cd9298b33628769aa1bc1acebbbfd7aa11ce81dfe03484d479e1907760249a1d.css integrity="sha256-zZKYszYodpqhvBrOu7/XqhHOgd/gNITUeeGQd2Akmh0=" rel="preload stylesheet" as=style><link rel=icon href=https://leiontong.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://leiontong.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://leiontong.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://leiontong.github.io/apple-touch-icon.png><link rel=mask-icon href=https://leiontong.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://leiontong.github.io/posts/ssh-key-authentication-fails/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-43PK5HWLDX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-43PK5HWLDX")</script><meta property="og:url" content="https://leiontong.github.io/posts/ssh-key-authentication-fails/"><meta property="og:site_name" content="Leion'Log"><meta property="og:title" content="SSH-Key-authentication-fails"><meta property="og:description" content="记一次root用户进行秘钥登录验证失败问题 现象描述： 在一次常规给 root 用户配置秘钥登录过程中，通过命令 ssh-copy-id 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。
+问题分析："><meta property="og:locale" content="zh_CN"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-08-13T16:00:00+00:00"><meta property="article:modified_time" content="2021-08-13T16:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="SSH-Key-authentication-fails"><meta name=twitter:description content="记一次root用户进行秘钥登录验证失败问题 现象描述： 在一次常规给 root 用户配置秘钥登录过程中，通过命令 ssh-copy-id 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。
+问题分析："><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://leiontong.github.io/posts/"},{"@type":"ListItem","position":2,"name":"SSH-Key-authentication-fails","item":"https://leiontong.github.io/posts/ssh-key-authentication-fails/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"SSH-Key-authentication-fails","name":"SSH-Key-authentication-fails","description":"记一次root用户进行秘钥登录验证失败问题 现象描述： 在一次常规给 root 用户配置秘钥登录过程中，通过命令 ssh-copy-id 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。\n问题分析：","keywords":[],"articleBody":"记一次root用户进行秘钥登录验证失败问题 现象描述： 在一次常规给 root 用户配置秘钥登录过程中，通过命令 ssh-copy-id 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。\n问题分析： 普通用户SSH秘钥登录没问题：\nssh -vvv leion@lfs9.0 OpenSSH_8.6p1, OpenSSL 1.1.1k 25 Mar 2021\rdebug1: Reading configuration data /home/leion/.ssh/config\rdebug1: /home/leion/.ssh/config line 1: Applying options for *\rdebug1: Reading configuration data /etc/ssh/ssh_config\rdebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -\u003e '/home/leion/.ssh/known_hosts'\rdebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -\u003e '/home/leion/.ssh/known_hosts2'\rdebug2: resolving \"lfs9.0\" port 22\rdebug3: ssh_connect_direct: entering\rdebug1: Connecting to lfs9.0 [172.18.253.20] port 22.\rdebug3: set_sock_tos: set socket 3 IP_TOS 0x48\rdebug1: Connection established.\rdebug1: identity file /home/leion/.ssh/id_rsa type 0\rdebug1: identity file /home/leion/.ssh/id_rsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_dsa type -1\rdebug1: identity file /home/leion/.ssh/id_dsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa_sk type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa_sk-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519 type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519_sk type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519_sk-cert type -1\rdebug1: identity file /home/leion/.ssh/id_xmss type -1\rdebug1: identity file /home/leion/.ssh/id_xmss-cert type -1\rdebug1: Local version string SSH-2.0-OpenSSH_8.6\rdebug1: Remote protocol version 2.0, remote software version OpenSSH_8.0\rdebug1: compat_banner: match: OpenSSH_8.0 pat OpenSSH* compat 0x04000000\rdebug2: fd 3 setting O_NONBLOCK\rdebug1: Authenticating to lfs9.0:22 as 'leion'\rdebug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16\rdebug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17\rdebug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18\rdebug3: load_hostkeys_file: loaded 3 keys from lfs9.0\rdebug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\rdebug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim\rdebug3: send packet: type 20\rdebug1: SSH2_MSG_KEXINIT sent\rdebug3: receive packet: type 20\rdebug1: SSH2_MSG_KEXINIT received\rdebug2: local client KEXINIT proposal\rdebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c\rdebug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa\rdebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: compression ctos: none,zlib@openssh.com,zlib\rdebug2: compression stoc: none,zlib@openssh.com,zlib\rdebug2: languages ctos: debug2: languages stoc: debug2: first_kex_follows 0 debug2: reserved 0 debug2: peer server KEXINIT proposal\rdebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1\rdebug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519\rdebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: compression ctos: none,zlib@openssh.com\rdebug2: compression stoc: none,zlib@openssh.com\rdebug2: languages ctos: debug2: languages stoc: debug2: first_kex_follows 0 debug2: reserved 0 debug1: kex: algorithm: curve25519-sha256\rdebug1: kex: host key algorithm: ssh-ed25519\rdebug1: kex: server-\u003eclient cipher: chacha20-poly1305@openssh.com MAC: compression: none\rdebug1: kex: client-\u003eserver cipher: chacha20-poly1305@openssh.com MAC: compression: none\rdebug3: send packet: type 30\rdebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\rdebug3: receive packet: type 31\rdebug1: SSH2_MSG_KEX_ECDH_REPLY received\rdebug1: Server host key: ssh-ed25519 SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0\rdebug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16\rdebug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17\rdebug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18\rdebug3: load_hostkeys_file: loaded 3 keys from lfs9.0\rdebug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\rdebug1: Host 'lfs9.0' is known and matches the ED25519 host key.\rdebug1: Found key in /home/leion/.ssh/known_hosts:16\rdebug3: send packet: type 21\rdebug2: set_newkeys: mode 1\rdebug1: rekey out after 134217728 blocks\rdebug1: SSH2_MSG_NEWKEYS sent\rdebug1: expecting SSH2_MSG_NEWKEYS\rdebug3: receive packet: type 21\rdebug1: SSH2_MSG_NEWKEYS received\rdebug2: set_newkeys: mode 0\rdebug1: rekey in after 134217728 blocks\rdebug1: Will attempt key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug1: Will attempt key: /home/leion/.ssh/id_dsa debug1: Will attempt key: /home/leion/.ssh/id_ecdsa debug1: Will attempt key: /home/leion/.ssh/id_ecdsa_sk debug1: Will attempt key: /home/leion/.ssh/id_ed25519 debug1: Will attempt key: /home/leion/.ssh/id_ed25519_sk debug1: Will attempt key: /home/leion/.ssh/id_xmss debug2: pubkey_prepare: done\rdebug3: send packet: type 5\rdebug3: receive packet: type 7\rdebug1: SSH2_MSG_EXT_INFO received\rdebug1: kex_input_ext_info: server-sig-algs=\rdebug3: receive packet: type 6\rdebug2: service_accept: ssh-userauth\rdebug1: SSH2_MSG_SERVICE_ACCEPT received\rdebug3: send packet: type 50\rdebug3: receive packet: type 51\rdebug1: Authentications that can continue: publickey,password,keyboard-interactive\rdebug3: start over, passed a different list publickey,password,keyboard-interactive\rdebug3: preferred publickey,keyboard-interactive,password\rdebug3: authmethod_lookup publickey\rdebug3: remaining preferred: keyboard-interactive,password\rdebug3: authmethod_is_enabled publickey\rdebug1: Next authentication method: publickey\rdebug1: Offering public key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug3: send packet: type 50\rdebug2: we sent a publickey packet, wait for reply\rdebug3: receive packet: type 60\rdebug1: Server accepts key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug3: sign_and_send_pubkey: RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug3: sign_and_send_pubkey: signing using rsa-sha2-512 SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug3: send packet: type 50\rdebug3: receive packet: type 52\rdebug1: Authentication succeeded (publickey).\rAuthenticated to lfs9.0 ([172.18.253.20]:22).\rdebug1: channel 0: new [client-session]\rdebug3: ssh_session2_open: channel_new: 0\rdebug2: channel 0: send open\rdebug3: send packet: type 90\rdebug1: Requesting no-more-sessions@openssh.com\rdebug3: send packet: type 80\rdebug1: Entering interactive session.\rdebug1: pledge: filesystem full\rdebug3: receive packet: type 80\rdebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\rdebug3: client_input_hostkeys: received RSA key SHA256:y7j2+X0eDHrJjPT3yvtphPJn96f5zdWhJHd1NCR5KgE\rdebug3: client_input_hostkeys: received ECDSA key SHA256:94uXUkX1Dtv7EfbjJ5AtoJchht5DqI+6qv+K7Zo2WX0\rdebug3: client_input_hostkeys: received ED25519 key SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0\rdebug1: client_input_hostkeys: searching /home/leion/.ssh/known_hosts for lfs9.0 / (none)\rdebug3: hostkeys_foreach: reading file \"/home/leion/.ssh/known_hosts\"\rdebug3: hostkeys_find: found ssh-ed25519 key at /home/leion/.ssh/known_hosts:16\rdebug3: hostkeys_find: found ssh-rsa key at /home/leion/.ssh/known_hosts:17\rdebug3: hostkeys_find: found ecdsa-sha2-nistp256 key at /home/leion/.ssh/known_hosts:18\rdebug1: client_input_hostkeys: searching /home/leion/.ssh/known_hosts2 for lfs9.0 / (none)\rdebug1: client_input_hostkeys: hostkeys file /home/leion/.ssh/known_hosts2 does not exist\rdebug3: client_input_hostkeys: 3 server keys: 0 new, 3 retained, 0 incomplete match. 0 to remove\rdebug1: client_input_hostkeys: no new or deprecated keys from server\rdebug3: receive packet: type 4\rdebug1: Remote: /home/leion/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\rdebug3: receive packet: type 4\rdebug1: Remote: /home/leion/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\rdebug3: receive packet: type 91\rdebug2: channel_input_open_confirmation: channel 0: callback start\rdebug2: fd 3 setting TCP_NODELAY\rdebug3: set_sock_tos: set socket 3 IP_TOS 0x48\rdebug2: client_session2_setup: id 0\rdebug2: channel 0: request pty-req confirm 1\rdebug3: send packet: type 98\rdebug2: channel 0: request shell confirm 1\rdebug3: send packet: type 98\rdebug2: channel_input_open_confirmation: channel 0: callback done\rdebug2: channel 0: open confirm rwindow 0 rmax 32768\rdebug3: receive packet: type 99\rdebug2: channel_input_status_confirm: type 99 id 0\rdebug2: PTY allocation request accepted on channel 0\rdebug2: channel 0: rcvd adjust 2097152\rdebug3: receive packet: type 99\rdebug2: channel_input_status_confirm: type 99 id 0\rdebug2: shell request accepted on channel 0\rLast login: Fri Aug 13 03:25:05 2021 from 192.168.1.216\r-bash-5.0$ -bash-5.0$ -bash-5.0$ -bash-5.0$ sudo reboot^C\r-bash-5.0$ debug3: receive packet: type 98\rdebug1: client_input_channel_req: channel 0 rtype exit-status reply 0\rdebug3: receive packet: type 98\rdebug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0\rdebug2: channel 0: rcvd eow\rdebug2: chan_shutdown_read: channel 0: (i0 o0 sock -1 wfd 4 efd 6 [write])\rdebug2: channel 0: input open -\u003e closed\rlogout\rdebug3: receive packet: type 96\rdebug2: channel 0: rcvd eof\rdebug2: channel 0: output open -\u003e drain\rdebug2: channel 0: obuf empty\rdebug2: chan_shutdown_write: channel 0: (i3 o1 sock -1 wfd 5 efd 6 [write])\rdebug2: channel 0: output drain -\u003e closed\rdebug3: receive packet: type 97\rdebug2: channel 0: rcvd close\rdebug3: channel 0: will not send data after close\rdebug2: channel 0: almost dead\rdebug2: channel 0: gc: notify user\rdebug2: channel 0: gc: user detached\rdebug2: channel 0: send close\rdebug3: send packet: type 97\rdebug2: channel 0: is dead\rdebug2: channel 0: garbage collecting\rdebug1: channel 0: free: client-session, nchannels 1\rdebug3: channel 0: status: The following connections are open:\r#0 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/6 sock -1 cc -1)\rdebug3: send packet: type 1\rdebug3: fd 1 is not O_NONBLOCK\rConnection to lfs9.0 closed.\rTransferred: sent 3300, received 3324 bytes, in 15.3 seconds\rBytes per second: sent 215.3, received 216.8\rdebug1: Exit status 130 root用户SSH秘钥登录：\nssh -vvv root@lfs9.0 OpenSSH_8.6p1, OpenSSL 1.1.1k 25 Mar 2021\rdebug1: Reading configuration data /home/leion/.ssh/config\rdebug1: /home/leion/.ssh/config line 1: Applying options for *\rdebug1: Reading configuration data /etc/ssh/ssh_config\rdebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts' -\u003e '/home/leion/.ssh/known_hosts'\rdebug3: expanded UserKnownHostsFile '~/.ssh/known_hosts2' -\u003e '/home/leion/.ssh/known_hosts2'\rdebug2: resolving \"lfs9.0\" port 22\rdebug3: ssh_connect_direct: entering\rdebug1: Connecting to lfs9.0 [172.18.253.20] port 22.\rdebug3: set_sock_tos: set socket 3 IP_TOS 0x48\rdebug1: Connection established.\rdebug1: identity file /home/leion/.ssh/id_rsa type 0\rdebug1: identity file /home/leion/.ssh/id_rsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_dsa type -1\rdebug1: identity file /home/leion/.ssh/id_dsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa_sk type -1\rdebug1: identity file /home/leion/.ssh/id_ecdsa_sk-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519 type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519-cert type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519_sk type -1\rdebug1: identity file /home/leion/.ssh/id_ed25519_sk-cert type -1\rdebug1: identity file /home/leion/.ssh/id_xmss type -1\rdebug1: identity file /home/leion/.ssh/id_xmss-cert type -1\rdebug1: Local version string SSH-2.0-OpenSSH_8.6\rdebug1: Remote protocol version 2.0, remote software version OpenSSH_8.0\rdebug1: compat_banner: match: OpenSSH_8.0 pat OpenSSH* compat 0x04000000\rdebug2: fd 3 setting O_NONBLOCK\rdebug1: Authenticating to lfs9.0:22 as 'root'\rdebug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16\rdebug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17\rdebug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18\rdebug3: load_hostkeys_file: loaded 3 keys from lfs9.0\rdebug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\rdebug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim\rdebug3: send packet: type 20\rdebug1: SSH2_MSG_KEXINIT sent\rdebug3: receive packet: type 20\rdebug1: SSH2_MSG_KEXINIT received\rdebug2: local client KEXINIT proposal\rdebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c\rdebug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa\rdebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: compression ctos: none,zlib@openssh.com,zlib\rdebug2: compression stoc: none,zlib@openssh.com,zlib\rdebug2: languages ctos: debug2: languages stoc: debug2: first_kex_follows 0 debug2: reserved 0 debug2: peer server KEXINIT proposal\rdebug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1\rdebug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519\rdebug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com\rdebug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1\rdebug2: compression ctos: none,zlib@openssh.com\rdebug2: compression stoc: none,zlib@openssh.com\rdebug2: languages ctos: debug2: languages stoc: debug2: first_kex_follows 0 debug2: reserved 0 debug1: kex: algorithm: curve25519-sha256\rdebug1: kex: host key algorithm: ssh-ed25519\rdebug1: kex: server-\u003eclient cipher: chacha20-poly1305@openssh.com MAC: compression: none\rdebug1: kex: client-\u003eserver cipher: chacha20-poly1305@openssh.com MAC: compression: none\rdebug3: send packet: type 30\rdebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\rdebug3: receive packet: type 31\rdebug1: SSH2_MSG_KEX_ECDH_REPLY received\rdebug1: Server host key: ssh-ed25519 SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0\rdebug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16\rdebug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17\rdebug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18\rdebug3: load_hostkeys_file: loaded 3 keys from lfs9.0\rdebug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\rdebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\rdebug1: Host 'lfs9.0' is known and matches the ED25519 host key.\rdebug1: Found key in /home/leion/.ssh/known_hosts:16\rdebug3: send packet: type 21\rdebug2: set_newkeys: mode 1\rdebug1: rekey out after 134217728 blocks\rdebug1: SSH2_MSG_NEWKEYS sent\rdebug1: expecting SSH2_MSG_NEWKEYS\rdebug3: receive packet: type 21\rdebug1: SSH2_MSG_NEWKEYS received\rdebug2: set_newkeys: mode 0\rdebug1: rekey in after 134217728 blocks\rdebug1: Will attempt key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug1: Will attempt key: /home/leion/.ssh/id_dsa debug1: Will attempt key: /home/leion/.ssh/id_ecdsa debug1: Will attempt key: /home/leion/.ssh/id_ecdsa_sk debug1: Will attempt key: /home/leion/.ssh/id_ed25519 debug1: Will attempt key: /home/leion/.ssh/id_ed25519_sk debug1: Will attempt key: /home/leion/.ssh/id_xmss debug2: pubkey_prepare: done\rdebug3: send packet: type 5\rdebug3: receive packet: type 7\rdebug1: SSH2_MSG_EXT_INFO received\rdebug1: kex_input_ext_info: server-sig-algs=\rdebug3: receive packet: type 6\rdebug2: service_accept: ssh-userauth\rdebug1: SSH2_MSG_SERVICE_ACCEPT received\rdebug3: send packet: type 50\rdebug3: receive packet: type 51\rdebug1: Authentications that can continue: publickey,password,keyboard-interactive\rdebug3: start over, passed a different list publickey,password,keyboard-interactive\rdebug3: preferred publickey,keyboard-interactive,password\rdebug3: authmethod_lookup publickey\rdebug3: remaining preferred: keyboard-interactive,password\rdebug3: authmethod_is_enabled publickey\rdebug1: Next authentication method: publickey\rdebug1: Offering public key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU\rdebug3: send packet: type 50\rdebug2: we sent a publickey packet, wait for reply\rdebug3: receive packet: type 51\rdebug1: Authentications that can continue: publickey,password,keyboard-interactive\rdebug1: Trying private key: /home/leion/.ssh/id_dsa\rdebug3: no such identity: /home/leion/.ssh/id_dsa: No such file or directory\rdebug1: Trying private key: /home/leion/.ssh/id_ecdsa\rdebug3: no such identity: /home/leion/.ssh/id_ecdsa: No such file or directory\rdebug1: Trying private key: /home/leion/.ssh/id_ecdsa_sk\rdebug3: no such identity: /home/leion/.ssh/id_ecdsa_sk: No such file or directory\rdebug1: Trying private key: /home/leion/.ssh/id_ed25519\rdebug3: no such identity: /home/leion/.ssh/id_ed25519: No such file or directory\rdebug1: Trying private key: /home/leion/.ssh/id_ed25519_sk\rdebug3: no such identity: /home/leion/.ssh/id_ed25519_sk: No such file or directory\rdebug1: Trying private key: /home/leion/.ssh/id_xmss\rdebug3: no such identity: /home/leion/.ssh/id_xmss: No such file or directory\rdebug2: we did not send a packet, disable method\rdebug3: authmethod_lookup keyboard-interactive\rdebug3: remaining preferred: password\rdebug3: authmethod_is_enabled keyboard-interactive\rdebug1: Next authentication method: keyboard-interactive\rdebug2: userauth_kbdint\rdebug3: send packet: type 50\rdebug2: we sent a keyboard-interactive packet, wait for reply\rdebug3: receive packet: type 51\rdebug1: Authentications that can continue: publickey,password,keyboard-interactive\rdebug3: userauth_kbdint: disable: no info_req_seen\rdebug2: we did not send a packet, disable method\rdebug3: authmethod_lookup password\rdebug3: remaining preferred: debug3: authmethod_is_enabled password\rdebug1: Next authentication method: password\rroot@lfs9.0's password: diff 对比两者输出注意到在使用秘钥协商的时候root用户登录过程相比普通用户登录过程的不同之处的关键点在于：\n...\rdebug3: send packet: type 50\rdebug3: receive packet: type 51\r... 原因： 使用命令 ls -alh -d /root 发现 /root 目录的属主是 nobody。\nls -alh -d /root drwxr-x--- 8 nobody root 4.0K 8月 12 15:18 /root 解决方法： 修正权限问题：\nchown -R root.root /root\rchmod 0550 /root\rchmod 0700 /root/.ssh\rchmod 0600 /root/.ssh/authorized_keys 总结： 重新梳理错误原因：客户端在用秘钥协商认证方式后，服务端由于对 root 的家目录（/root）不正确的权限问题影响无法读取 /root/.ssh/authorized_keys 文件因此无法验证公钥信息，也就是说服务器端已经接受导入了客户端的公钥，但登录认证时无法使用该公钥加密ssh通讯信道，从而无法认证客户端的登录操作。\n参考： sshd - SSH-Key authentication fails - Super User centos7 - Unable to ssh with authorized keys, password always prompted - Server Fault Linux配置使用SSH Key登录并禁用root密码登录 - alterem - 博客园\n","wordCount":"2158","inLanguage":"en","datePublished":"2021-08-13T16:00:00Z","dateModified":"2021-08-13T16:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://leiontong.github.io/posts/ssh-key-authentication-fails/"},"publisher":{"@type":"Organization","name":"Leion'Log","logo":{"@type":"ImageObject","url":"https://leiontong.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=header-nav><div class=logo><a href=https://leiontong.github.io/ accesskey=h title="Leion'Log (Alt + H)">Leion'Log</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=https://leiontong.github.io/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://leiontong.github.io/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://leiontong.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://leiontong.github.io/tags/ title=Tags><span>Tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">SSH-Key-authentication-fails</h1><div class=post-meta><span title='2021-08-13 16:00:00 +0000 UTC'>August 13, 2021</span></div></header><div class="post-content md-content"><h1 id=记一次root用户进行秘钥登录验证失败问题>记一次root用户进行秘钥登录验证失败问题<a hidden class=anchor aria-hidden=true href=#记一次root用户进行秘钥登录验证失败问题>#</a></h1><h2 id=现象描述>现象描述：<a hidden class=anchor aria-hidden=true href=#现象描述>#</a></h2><p>在一次常规给 root 用户配置秘钥登录过程中，通过命令 <code>ssh-copy-id</code> 正常导入秘钥到服务器端，在服务器上的 authorized_keys 文件里也能查到客户端的公钥信息，但使用秘钥登录时候仍然提示输入密码。</p><h2 id=问题分析>问题分析：<a hidden class=anchor aria-hidden=true href=#问题分析>#</a></h2><p>普通用户SSH秘钥登录没问题：</p><pre tabindex=0><code> ssh -vvv leion@lfs9.0 
+OpenSSH_8.6p1, OpenSSL 1.1.1k  25 Mar 2021
+debug1: Reading configuration data /home/leion/.ssh/config
+debug1: /home/leion/.ssh/config line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts&#39; -&gt; &#39;/home/leion/.ssh/known_hosts&#39;
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts2&#39; -&gt; &#39;/home/leion/.ssh/known_hosts2&#39;
+debug2: resolving &#34;lfs9.0&#34; port 22
+debug3: ssh_connect_direct: entering
+debug1: Connecting to lfs9.0 [172.18.253.20] port 22.
+debug3: set_sock_tos: set socket 3 IP_TOS 0x48
+debug1: Connection established.
+debug1: identity file /home/leion/.ssh/id_rsa type 0
+debug1: identity file /home/leion/.ssh/id_rsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_dsa type -1
+debug1: identity file /home/leion/.ssh/id_dsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/leion/.ssh/id_ed25519 type -1
+debug1: identity file /home/leion/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/leion/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/leion/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/leion/.ssh/id_xmss type -1
+debug1: identity file /home/leion/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.6
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.0
+debug1: compat_banner: match: OpenSSH_8.0 pat OpenSSH* compat 0x04000000
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to lfs9.0:22 as &#39;leion&#39;
+debug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16
+debug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17
+debug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18
+debug3: load_hostkeys_file: loaded 3 keys from lfs9.0
+debug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c
+debug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1
+debug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0
+debug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16
+debug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17
+debug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18
+debug3: load_hostkeys_file: loaded 3 keys from lfs9.0
+debug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host &#39;lfs9.0&#39; is known and matches the ED25519 host key.
+debug1: Found key in /home/leion/.ssh/known_hosts:16
+debug3: send packet: type 21
+debug2: set_newkeys: mode 1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug1: SSH2_MSG_NEWKEYS received
+debug2: set_newkeys: mode 0
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug1: Will attempt key: /home/leion/.ssh/id_dsa 
+debug1: Will attempt key: /home/leion/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/leion/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/leion/.ssh/id_ed25519 
+debug1: Will attempt key: /home/leion/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/leion/.ssh/id_xmss 
+debug2: pubkey_prepare: done
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=&lt;ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521&gt;
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug3: start over, passed a different list publickey,password,keyboard-interactive
+debug3: preferred publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 60
+debug1: Server accepts key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug3: sign_and_send_pubkey: RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug3: sign_and_send_pubkey: signing using rsa-sha2-512 SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug3: send packet: type 50
+debug3: receive packet: type 52
+debug1: Authentication succeeded (publickey).
+Authenticated to lfs9.0 ([172.18.253.20]:22).
+debug1: channel 0: new [client-session]
+debug3: ssh_session2_open: channel_new: 0
+debug2: channel 0: send open
+debug3: send packet: type 90
+debug1: Requesting no-more-sessions@openssh.com
+debug3: send packet: type 80
+debug1: Entering interactive session.
+debug1: pledge: filesystem full
+debug3: receive packet: type 80
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug3: client_input_hostkeys: received RSA key SHA256:y7j2+X0eDHrJjPT3yvtphPJn96f5zdWhJHd1NCR5KgE
+debug3: client_input_hostkeys: received ECDSA key SHA256:94uXUkX1Dtv7EfbjJ5AtoJchht5DqI+6qv+K7Zo2WX0
+debug3: client_input_hostkeys: received ED25519 key SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0
+debug1: client_input_hostkeys: searching /home/leion/.ssh/known_hosts for lfs9.0 / (none)
+debug3: hostkeys_foreach: reading file &#34;/home/leion/.ssh/known_hosts&#34;
+debug3: hostkeys_find: found ssh-ed25519 key at /home/leion/.ssh/known_hosts:16
+debug3: hostkeys_find: found ssh-rsa key at /home/leion/.ssh/known_hosts:17
+debug3: hostkeys_find: found ecdsa-sha2-nistp256 key at /home/leion/.ssh/known_hosts:18
+debug1: client_input_hostkeys: searching /home/leion/.ssh/known_hosts2 for lfs9.0 / (none)
+debug1: client_input_hostkeys: hostkeys file /home/leion/.ssh/known_hosts2 does not exist
+debug3: client_input_hostkeys: 3 server keys: 0 new, 3 retained, 0 incomplete match. 0 to remove
+debug1: client_input_hostkeys: no new or deprecated keys from server
+debug3: receive packet: type 4
+debug1: Remote: /home/leion/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug3: receive packet: type 4
+debug1: Remote: /home/leion/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding
+debug3: receive packet: type 91
+debug2: channel_input_open_confirmation: channel 0: callback start
+debug2: fd 3 setting TCP_NODELAY
+debug3: set_sock_tos: set socket 3 IP_TOS 0x48
+debug2: client_session2_setup: id 0
+debug2: channel 0: request pty-req confirm 1
+debug3: send packet: type 98
+debug2: channel 0: request shell confirm 1
+debug3: send packet: type 98
+debug2: channel_input_open_confirmation: channel 0: callback done
+debug2: channel 0: open confirm rwindow 0 rmax 32768
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 0
+debug2: PTY allocation request accepted on channel 0
+debug2: channel 0: rcvd adjust 2097152
+debug3: receive packet: type 99
+debug2: channel_input_status_confirm: type 99 id 0
+debug2: shell request accepted on channel 0
+Last login: Fri Aug 13 03:25:05 2021 from 192.168.1.216
+-bash-5.0$ 
+-bash-5.0$ 
+-bash-5.0$ 
+-bash-5.0$ sudo reboot^C
+-bash-5.0$ debug3: receive packet: type 98
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug3: receive packet: type 98
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug2: channel 0: rcvd eow
+debug2: chan_shutdown_read: channel 0: (i0 o0 sock -1 wfd 4 efd 6 [write])
+debug2: channel 0: input open -&gt; closed
+logout
+debug3: receive packet: type 96
+debug2: channel 0: rcvd eof
+debug2: channel 0: output open -&gt; drain
+debug2: channel 0: obuf empty
+debug2: chan_shutdown_write: channel 0: (i3 o1 sock -1 wfd 5 efd 6 [write])
+debug2: channel 0: output drain -&gt; closed
+debug3: receive packet: type 97
+debug2: channel 0: rcvd close
+debug3: channel 0: will not send data after close
+debug2: channel 0: almost dead
+debug2: channel 0: gc: notify user
+debug2: channel 0: gc: user detached
+debug2: channel 0: send close
+debug3: send packet: type 97
+debug2: channel 0: is dead
+debug2: channel 0: garbage collecting
+debug1: channel 0: free: client-session, nchannels 1
+debug3: channel 0: status: The following connections are open:
+  #0 client-session (t4 r0 i3/0 o3/0 e[write]/0 fd -1/-1/6 sock -1 cc -1)
+
+debug3: send packet: type 1
+debug3: fd 1 is not O_NONBLOCK
+Connection to lfs9.0 closed.
+Transferred: sent 3300, received 3324 bytes, in 15.3 seconds
+Bytes per second: sent 215.3, received 216.8
+debug1: Exit status 130 
+</code></pre><p>root用户SSH秘钥登录：</p><pre tabindex=0><code>ssh -vvv root@lfs9.0 
+OpenSSH_8.6p1, OpenSSL 1.1.1k  25 Mar 2021
+debug1: Reading configuration data /home/leion/.ssh/config
+debug1: /home/leion/.ssh/config line 1: Applying options for *
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts&#39; -&gt; &#39;/home/leion/.ssh/known_hosts&#39;
+debug3: expanded UserKnownHostsFile &#39;~/.ssh/known_hosts2&#39; -&gt; &#39;/home/leion/.ssh/known_hosts2&#39;
+debug2: resolving &#34;lfs9.0&#34; port 22
+debug3: ssh_connect_direct: entering
+debug1: Connecting to lfs9.0 [172.18.253.20] port 22.
+debug3: set_sock_tos: set socket 3 IP_TOS 0x48
+debug1: Connection established.
+debug1: identity file /home/leion/.ssh/id_rsa type 0
+debug1: identity file /home/leion/.ssh/id_rsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_dsa type -1
+debug1: identity file /home/leion/.ssh/id_dsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/leion/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/leion/.ssh/id_ed25519 type -1
+debug1: identity file /home/leion/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/leion/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/leion/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/leion/.ssh/id_xmss type -1
+debug1: identity file /home/leion/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.6
+debug1: Remote protocol version 2.0, remote software version OpenSSH_8.0
+debug1: compat_banner: match: OpenSSH_8.0 pat OpenSSH* compat 0x04000000
+debug2: fd 3 setting O_NONBLOCK
+debug1: Authenticating to lfs9.0:22 as &#39;root&#39;
+debug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16
+debug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17
+debug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18
+debug3: load_hostkeys_file: loaded 3 keys from lfs9.0
+debug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug3: order_hostkeyalgs: have matching best-preference key type ssh-ed25519-cert-v01@openssh.com, using HostkeyAlgorithms verbatim
+debug3: send packet: type 20
+debug1: SSH2_MSG_KEXINIT sent
+debug3: receive packet: type 20
+debug1: SSH2_MSG_KEXINIT received
+debug2: local client KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,ext-info-c
+debug2: host key algorithms: ssh-ed25519-cert-v01@openssh.com,ecdsa-sha2-nistp256-cert-v01@openssh.com,ecdsa-sha2-nistp384-cert-v01@openssh.com,ecdsa-sha2-nistp521-cert-v01@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,sk-ecdsa-sha2-nistp256-cert-v01@openssh.com,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256-cert-v01@openssh.com,ssh-rsa-cert-v01@openssh.com,ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256,ssh-rsa
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com,zlib
+debug2: compression stoc: none,zlib@openssh.com,zlib
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug2: peer server KEXINIT proposal
+debug2: KEX algorithms: curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256,diffie-hellman-group14-sha1
+debug2: host key algorithms: rsa-sha2-512,rsa-sha2-256,ssh-rsa,ecdsa-sha2-nistp256,ssh-ed25519
+debug2: ciphers ctos: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: ciphers stoc: chacha20-poly1305@openssh.com,aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+debug2: MACs ctos: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: MACs stoc: umac-64-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha1-etm@openssh.com,umac-64@openssh.com,umac-128@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-sha1
+debug2: compression ctos: none,zlib@openssh.com
+debug2: compression stoc: none,zlib@openssh.com
+debug2: languages ctos: 
+debug2: languages stoc: 
+debug2: first_kex_follows 0 
+debug2: reserved 0 
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ssh-ed25519
+debug1: kex: server-&gt;client cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug1: kex: client-&gt;server cipher: chacha20-poly1305@openssh.com MAC: &lt;implicit&gt; compression: none
+debug3: send packet: type 30
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug3: receive packet: type 31
+debug1: SSH2_MSG_KEX_ECDH_REPLY received
+debug1: Server host key: ssh-ed25519 SHA256:5qgDoZ2wLmGrg8sg76UjOpuT8r7ZPU86K27MzyjdoU0
+debug3: record_hostkey: found key type ED25519 in file /home/leion/.ssh/known_hosts:16
+debug3: record_hostkey: found key type RSA in file /home/leion/.ssh/known_hosts:17
+debug3: record_hostkey: found key type ECDSA in file /home/leion/.ssh/known_hosts:18
+debug3: load_hostkeys_file: loaded 3 keys from lfs9.0
+debug1: load_hostkeys: fopen /home/leion/.ssh/known_hosts2: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory
+debug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory
+debug1: Host &#39;lfs9.0&#39; is known and matches the ED25519 host key.
+debug1: Found key in /home/leion/.ssh/known_hosts:16
+debug3: send packet: type 21
+debug2: set_newkeys: mode 1
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug3: receive packet: type 21
+debug1: SSH2_MSG_NEWKEYS received
+debug2: set_newkeys: mode 0
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug1: Will attempt key: /home/leion/.ssh/id_dsa 
+debug1: Will attempt key: /home/leion/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/leion/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/leion/.ssh/id_ed25519 
+debug1: Will attempt key: /home/leion/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/leion/.ssh/id_xmss 
+debug2: pubkey_prepare: done
+debug3: send packet: type 5
+debug3: receive packet: type 7
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=&lt;ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521&gt;
+debug3: receive packet: type 6
+debug2: service_accept: ssh-userauth
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug3: send packet: type 50
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug3: start over, passed a different list publickey,password,keyboard-interactive
+debug3: preferred publickey,keyboard-interactive,password
+debug3: authmethod_lookup publickey
+debug3: remaining preferred: keyboard-interactive,password
+debug3: authmethod_is_enabled publickey
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/leion/.ssh/id_rsa RSA SHA256:UXDMPHJtm3qgRkqPhOLEoGtkmpe1YeGshOPnfmLdIZU
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug1: Trying private key: /home/leion/.ssh/id_dsa
+debug3: no such identity: /home/leion/.ssh/id_dsa: No such file or directory
+debug1: Trying private key: /home/leion/.ssh/id_ecdsa
+debug3: no such identity: /home/leion/.ssh/id_ecdsa: No such file or directory
+debug1: Trying private key: /home/leion/.ssh/id_ecdsa_sk
+debug3: no such identity: /home/leion/.ssh/id_ecdsa_sk: No such file or directory
+debug1: Trying private key: /home/leion/.ssh/id_ed25519
+debug3: no such identity: /home/leion/.ssh/id_ed25519: No such file or directory
+debug1: Trying private key: /home/leion/.ssh/id_ed25519_sk
+debug3: no such identity: /home/leion/.ssh/id_ed25519_sk: No such file or directory
+debug1: Trying private key: /home/leion/.ssh/id_xmss
+debug3: no such identity: /home/leion/.ssh/id_xmss: No such file or directory
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup keyboard-interactive
+debug3: remaining preferred: password
+debug3: authmethod_is_enabled keyboard-interactive
+debug1: Next authentication method: keyboard-interactive
+debug2: userauth_kbdint
+debug3: send packet: type 50
+debug2: we sent a keyboard-interactive packet, wait for reply
+debug3: receive packet: type 51
+debug1: Authentications that can continue: publickey,password,keyboard-interactive
+debug3: userauth_kbdint: disable: no info_req_seen
+debug2: we did not send a packet, disable method
+debug3: authmethod_lookup password
+debug3: remaining preferred: 
+debug3: authmethod_is_enabled password
+debug1: Next authentication method: password
+root@lfs9.0&#39;s password: 
+</code></pre><p><code>diff</code> 对比两者输出注意到在使用秘钥协商的时候root用户登录过程相比普通用户登录过程的不同之处的关键点在于：</p><pre tabindex=0><code>...
+debug3: send packet: type 50
+debug3: receive packet: type 51
+...
+</code></pre><h2 id=原因>原因：<a hidden class=anchor aria-hidden=true href=#原因>#</a></h2><p>使用命令 <code>ls -alh -d /root</code> 发现 /root 目录的属主是 nobody。</p><pre tabindex=0><code>ls -alh -d /root  
+drwxr-x--- 8 nobody root 4.0K  8月 12 15:18 /root
+</code></pre><h2 id=解决方法>解决方法：<a hidden class=anchor aria-hidden=true href=#解决方法>#</a></h2><p>修正权限问题：</p><pre tabindex=0><code>chown -R root.root /root
+chmod 0550 /root
+chmod 0700 /root/.ssh
+chmod 0600 /root/.ssh/authorized_keys
+</code></pre><h2 id=总结>总结：<a hidden class=anchor aria-hidden=true href=#总结>#</a></h2><p>重新梳理错误原因：客户端在用秘钥协商认证方式后，服务端由于对 root 的家目录（/root）不正确的权限问题影响无法读取 /root/.ssh/authorized_keys 文件因此无法验证公钥信息，也就是说服务器端已经接受导入了客户端的公钥，但登录认证时无法使用该公钥加密ssh通讯信道，从而无法认证客户端的登录操作。</p><h2 id=参考>参考：<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2><p><a href=https://superuser.com/questions/1137438/ssh-key-authentication-fails>sshd - SSH-Key authentication fails - Super User</a>
+<a href=https://serverfault.com/questions/1041098/unable-to-ssh-with-authorized-keys-password-always-prompted>centos7 - Unable to ssh with authorized keys, password always prompted - Server Fault</a>
+<a href=https://www.cnblogs.com/alterem/p/11477843.html>Linux配置使用SSH Key登录并禁用root密码登录 - alterem - 博客园</a></p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2026 <a href=https://leiontong.github.io/>Leion'Log</a></span> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
