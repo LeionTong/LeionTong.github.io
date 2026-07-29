@@ -1,143 +1,239 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-把「每日 AI 新闻推送」自动化产出的 HTML 报告转换为 Hugo 文章，发布到 Daily AI 栏目。
+publish_daily_ai.py — 把自动化产出的「AI 领域每日动态」HTML 报告发布到
+Leion'Log 博客的 Daily AI 栏目。
 
-用法:
-  python publish_daily_ai.py <report.html>        # 转换单个报告
-  python publish_daily_ai.py --all                # 转换 automation 目录下全部 *_AI领域每日动态.html
-  python publish_daily_ai.py --all --since <日期> # 仅转换该日期(含)之后的报告
+设计要点（与通通 2026-07-29 的约定）：
+1. 不做内联嵌入：报告以独立 HTML 页面形式放在 static/daily-ai/，栏目页只放
+   「卡片索引」，卡片直接链接到对应 .html 页面。
+2. 每张卡片展示该报告「本期主线」段落内容。
+3. 剔除页首 branding：masthead 内的 .kicker（观测站夜值 / Daily AI / Nightwatch /
+   WAIC 等品牌行）与 .sub/.subtitle（侧重 AI Agent… 焦点行）一律移除；h1 标题与
+   本期主线 lead 保留；<title> 里的「观测站夜值」一并清掉。
+4. 各报告 masthead 结构不一（header/div 混用、sub 有的嵌在 h1 内），故用标准库
+   html.parser 做元素级剔除，零第三方依赖，保证自动化长期稳定。
 
-产出:
-  content/daily-ai/<YYYY-MM-DD>-<HHMM>.md         # 内嵌完整样式 + 正文的 Hugo 文章
-  static/daily-ai/<YYYY-MM-DD>-<HHMM>.html        # 原始 HTML(供"查看原始版本"链接)
-
-设计: 报告是自带深色主题/星图/SVG 动画的完整 HTML 文档。本脚本仅提取 <style> 与 <body> 正文，
-把 `body` 选择器改写为 `.dailyai-report` 包裹容器类,从而在不覆盖任何主题模板的前提下,
-完整保留星图背景、卡片配色与 SVG 星座图。Hugo 侧需开启 Goldmark unsafe=true 才能放行内联 HTML。
+用法：
+  publish_daily_ai.py --all            处理 SRC_DIR 下全部 *_AI领域每日动态.html
+  publish_daily_ai.py "<某报告.html>"   处理单个报告（同时仍按 SRC_DIR 全量重建 _index.md）
 """
-import sys
+import os
 import re
-import shutil
-import pathlib
-import datetime
+import sys
+import glob
+import html
+from html.parser import HTMLParser
 
-# ---- 路径常量(本机) ----
-HUGO_ROOT = pathlib.Path(r"C:\Users\Leion\T\LeionTong.github.io-hugo")
-CONTENT_DIR = HUGO_ROOT / "content" / "daily-ai"
-STATIC_DIR = HUGO_ROOT / "static" / "daily-ai"
-AUTOMATION_DIR = pathlib.Path(r"C:\Users\Leion\WorkBuddy\automation-2026-05-09-task-1")
+HERE = os.path.dirname(os.path.abspath(__file__))
+SITE_DIR = os.path.dirname(HERE)
+SRC_DIR = r"C:\Users\Leion\WorkBuddy\automation-2026-05-09-task-1"
+STATIC_DAILY = os.path.join(SITE_DIR, "static", "daily-ai")
+CONTENT_DAILY = os.path.join(SITE_DIR, "content", "daily-ai")
+INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
 
-REPORT_GLOB = "*_AI领域每日动态.html"
+DATE_RE = re.compile(r"(\d{4}-\d{2}-\d{2})_(\d{4})_AI领域每日动态\.html$", re.IGNORECASE)
 
 
-def parse_filename(path: pathlib.Path):
-    """从文件名提取 YYYY-MM-DD 与 HHMM,如 2026-07-29_1812_AI领域每日动态.html"""
-    m = re.search(r"(\d{4}-\d{2}-\d{2})_(\d{4})", path.name)
+# ---------------------------------------------------------------------------
+# 1) masthead branding 剔除
+# ---------------------------------------------------------------------------
+class MastheadCleaner(HTMLParser):
+    """元素级剔除 masthead 内的 .kicker / .sub / .subtitle，保留其余。"""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.out = []
+        self.stack = []            # [{tag, classes}]
+        self.drop_depth = None     # 进入 drop 子树时的 stack 深度
+
+    def _ancestor_masthead(self):
+        return any("masthead" in s["classes"] for s in self.stack)
+
+    def _render_start(self, tag, attrs, self_closing=False):
+        s = "<" + tag
+        for k, v in attrs:
+            s += f' {k}' if v is None else f' {k}="{v}"'
+        return s + ("/>" if self_closing else ">")
+
+    def handle_starttag(self, tag, attrs):
+        classes = set(dict(attrs).get("class", "").split())
+        depth = len(self.stack)
+        if (self.drop_depth is None and self._ancestor_masthead()
+                and ("kicker" in classes or "sub" in classes or "subtitle" in classes)):
+            self.drop_depth = depth
+            self.stack.append({"tag": tag, "classes": classes})
+            return
+        if self.drop_depth is None:
+            self.out.append(self._render_start(tag, attrs))
+        self.stack.append({"tag": tag, "classes": classes})
+
+    def handle_startendtag(self, tag, attrs):
+        if self.drop_depth is None:
+            self.out.append(self._render_start(tag, attrs, self_closing=True))
+
+    def handle_endtag(self, tag):
+        if not self.stack:
+            if self.drop_depth is None:
+                self.out.append(f"</{tag}>")
+            return
+        top = self.stack[-1]
+        if (self.drop_depth is not None
+                and len(self.stack) - 1 == self.drop_depth
+                and top["tag"] == tag):
+            self.drop_depth = None
+            self.stack.pop()
+            return
+        if self.drop_depth is None:
+            self.out.append(f"</{tag}>")
+        self.stack.pop()
+
+    def handle_data(self, data):
+        if self.drop_depth is None:
+            self.out.append(data)
+
+    def handle_entityref(self, name):
+        if self.drop_depth is None:
+            self.out.append(f"&{name};")
+
+    def handle_charref(self, name):
+        if self.drop_depth is None:
+            self.out.append(f"&#{name};")
+
+    def handle_comment(self, data):
+        if self.drop_depth is None:
+            self.out.append(f"<!--{data}-->")
+
+    def handle_decl(self, decl):
+        if self.drop_depth is None:
+            self.out.append(f"<!{decl}>")
+
+
+def clean_html(raw: str) -> str:
+    c = MastheadCleaner()
+    c.feed(raw)
+    cleaned = "".join(c.out)
+    # 清掉 <title> 里的 观测站夜值（品牌 token）
+    cleaned = re.sub(r"\s*·\s*观测站夜值", "", cleaned)
+    return cleaned
+
+
+# ---------------------------------------------------------------------------
+# 2) 抽取「本期主线」
+# ---------------------------------------------------------------------------
+def strip_tags(s: str) -> str:
+    s = re.sub(r"<[^>]+>", "", s)
+    return html.unescape(s).strip()
+
+
+def extract_lead(raw: str) -> str:
+    # 优先 lead 类，其次 summary 类；取文本后去掉「本期主线」标签
+    for cls in ("lead", "summary"):
+        m = re.search(
+            r'<(?:p|div|section)[^>]*class="[^"]*\b' + cls + r'\b[^"]*"[^>]*>([\s\S]*?)</(?:p|div|section)>',
+            raw)
+        if m:
+            return _clean_lead(strip_tags(m.group(1)))
+    # 兜底：取 masthead 之后的第一个 <p>
+    m = re.search(r"</header>\s*<p[^>]*>([\s\S]*?)</p>", raw, re.IGNORECASE)
+    if m:
+        return _clean_lead(strip_tags(m.group(1)))
+    return ""
+
+
+def _clean_lead(txt: str) -> str:
+    txt = re.sub(r"^本期主线\s*[：:　]?\s*", "", txt)
+    return re.sub(r"\s+", " ", txt).strip()
+
+
+# ---------------------------------------------------------------------------
+# 3) 文件名 -> (date, time, slug)
+# ---------------------------------------------------------------------------
+def parse_name(fname: str):
+    m = DATE_RE.search(os.path.basename(fname))
     if not m:
-        raise SystemExit(f"[✗] 无法从文件名解析日期/时间: {path.name}")
-    return m.group(1), m.group(2)
+        return None
+    date, hhmm = m.group(1), m.group(2)
+    time = f"{hhmm[:2]}:{hhmm[2:]}"
+    slug = f"{date}-{hhmm}"
+    return date, time, slug
 
 
-def extract(html_text: str):
-    """提取 <style>...</style> 与 <body>...</body> 内部内容"""
-    style_m = re.search(r"<style>(.*?)</style>", html_text, re.S)
-    style = style_m.group(1) if style_m else ""
-    body_m = re.search(r"<body[^>]*>(.*?)</body>", html_text, re.S)
-    body = body_m.group(1) if body_m else ""
-    # 提取在线字体 <link>(preconnect + stylesheet),保持观感
-    fonts = re.findall(r"<link[^>]*(?:fonts\.googleapis\.com|fonts\.gstatic\.com)[^>]*>", html_text)
-    return style, body, "\n".join(fonts)
+# ---------------------------------------------------------------------------
+# 4) 主流程
+# ---------------------------------------------------------------------------
+def process_file(path: str) -> dict | None:
+    meta = parse_name(path)
+    if not meta:
+        return None
+    date, time, slug = meta
+    with open(path, "r", encoding="utf-8") as f:
+        raw = f.read()
+    cleaned = clean_html(raw)
+    os.makedirs(STATIC_DAILY, exist_ok=True)
+    out_html = os.path.join(STATIC_DAILY, slug + ".html")
+    with open(out_html, "w", encoding="utf-8") as f:
+        f.write(cleaned)
+    lead = extract_lead(raw)
+    return {"date": date, "time": time, "slug": slug, "lead": lead}
 
 
-def adapt_style(style: str) -> str:
-    """把 body 选择器改写为 .dailyai-report,使星图/渐变在包裹容器内生效"""
-    style = re.sub(r"body\s*::before", ".dailyai-report::before", style)
-    style = re.sub(r"body\s*::after", ".dailyai-report::after", style)
-    style = re.sub(r"body\s*\{", ".dailyai-report{", style)
-    # 确保包裹容器自身定位/溢出正确,以便星图伪元素正确铺底
-    if ".dailyai-report{" in style:
-        style = style.replace(
-            ".dailyai-report{",
-            ".dailyai-report{position:relative;overflow:hidden;",
-            1,
+def build_index(records: list):
+    records = [r for r in records if r]
+    records.sort(key=lambda r: (r["date"], r["time"]), reverse=True)
+    cards = []
+    for r in records:
+        lead = r["lead"] or "（本期未标注主线摘要）"
+        cards.append(
+            f'  <a class="da-card" href="/daily-ai/{r["slug"]}.html">\n'
+            f'    <div class="da-card-date">{r["date"]} · {r["time"]}</div>\n'
+            f'    <div class="da-card-main">{lead}</div>\n'
+            f'    <div class="da-card-go">阅读完整报告 →</div>\n'
+            f'  </a>'
         )
-    return style
-
-
-def build_markdown(date: str, time: str, style: str, body: str, fonts: str, slug: str) -> str:
-    iso = f"{date}T{time[:2]}:{time[2:]}:00+08:00"
-    hhmm = f"{time[:2]}:{time[2:]}"
-    title = f"AI 领域每日动态 · {date} {hhmm}"
-    summary = f"每日 AI 观测站夜值 · {date} {hhmm} · 侧重 AI Agent / 终端与端侧 / 具身智能"
-    font_block = fonts if fonts else ""
-    return f"""---
-title: "{title}"
-date: {iso}
-slug: {slug}
-description: "{summary}"
-summary: "{summary}"
-tags: ["ai", "daily-ai"]
-draft: false
+    cards_html = "\n".join(cards)
+    md = f"""---
+title: "Daily AI"
 ---
 
-{font_block}
-<style>{style}</style>
+> 自动化「AI 领域每日动态」的归档栏目。每 3 小时一期，聚焦 **AI Agent / 终端与端侧 / 具身智能**。
+> 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
-<div class="dailyai-report">
-{body}
+<div class="da-cards">
+{cards_html}
 </div>
 
----
-
-[查看原始 HTML 版本](/daily-ai/{slug}.html) · 由「每日 AI 新闻推送」自动化生成
+<style>
+.da-cards{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin:26px 0 8px}}
+.da-card{{display:block;border:1px solid var(--card-edge,rgba(111,214,224,.18));border-radius:14px;
+  padding:18px 18px 14px;background:var(--card,rgba(20,28,48,.55));text-decoration:none;color:inherit;
+  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}}
+.da-card:hover{{transform:translateY(-3px);border-color:var(--cyan,#6fd6e0);
+  box-shadow:0 10px 30px rgba(0,0,0,.28)}}
+.da-card-date{{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.12em;
+  color:var(--cyan,#6fd6e0);margin-bottom:8px}}
+.da-card-main{{font-size:14.5px;line-height:1.7;color:var(--ink-soft,#a9b4cc)}}
+.da-card-go{{margin-top:12px;font-size:13px;color:var(--gold,#e9c46a)}}
+</style>
 """
-
-
-def process_file(src: pathlib.Path):
-    text = src.read_text(encoding="utf-8")
-    style, body, fonts = extract(text)
-    if not body:
-        print(f"[!] 跳过(无 <body> 正文): {src.name}")
-        return None
-    style = adapt_style(style)
-    date, time = parse_filename(src)
-    slug = f"{date}-{time}"
-    CONTENT_DIR.mkdir(parents=True, exist_ok=True)
-    STATIC_DIR.mkdir(parents=True, exist_ok=True)
-    md_path = CONTENT_DIR / f"{slug}.md"
-    md_path.write_text(build_markdown(date, time, style, body, fonts, slug), encoding="utf-8")
-    raw_path = STATIC_DIR / f"{slug}.html"
-    shutil.copy(src, raw_path)
-    print(f"[✓] {src.name}  ->  {md_path.relative_to(HUGO_ROOT)}  +  {raw_path.relative_to(HUGO_ROOT)}")
-    return md_path
+    os.makedirs(CONTENT_DAILY, exist_ok=True)
+    with open(INDEX_MD, "w", encoding="utf-8") as f:
+        f.write(md)
+    return len(records)
 
 
 def main():
     args = sys.argv[1:]
-    if args and args[0] != "--all":
-        # 单文件模式
-        src = pathlib.Path(args[0])
-        if not src.exists():
-            raise SystemExit(f"[✗] 源文件不存在: {src}")
-        process_file(src)
-        return
-
-    # --all 模式
-    since = None
-    if "--since" in args:
-        idx = args.index("--since")
-        if idx + 1 < len(args):
-            since = args[idx + 1]
-    files = sorted(AUTOMATION_DIR.glob(REPORT_GLOB), key=lambda p: p.name)
-    if since:
-        files = [f for f in files if f.name >= f"{since}_"]
+    if not args or args[0] == "--all":
+        files = sorted(glob.glob(os.path.join(SRC_DIR, "*_AI领域每日动态.html")))
+    else:
+        files = [a for a in args if os.path.isfile(a)]
     if not files:
-        print("[!] 未找到可转换的报告文件。")
-        return
-    print(f"[*] 待转换 {len(files)} 篇报告")
-    for f in files:
-        process_file(f)
+        print("没有找到待处理的报告 HTML。", file=sys.stderr)
+        sys.exit(1)
+    records = [process_file(p) for p in files]
+    n = build_index(records)
+    print(f"已处理 {len([r for r in records if r])} 篇报告，生成 {n} 张卡片到 {INDEX_MD}")
 
 
 if __name__ == "__main__":
