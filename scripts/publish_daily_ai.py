@@ -22,7 +22,6 @@ import os
 import re
 import sys
 import glob
-import html
 from html.parser import HTMLParser
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -119,31 +118,150 @@ def clean_html(raw: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# 2) 抽取「本期主线」
+# 2) 抽取「本期主线」（通用：覆盖各家报告五花八门的容器与标签写法）
 # ---------------------------------------------------------------------------
-def strip_tags(s: str) -> str:
-    s = re.sub(r"<[^>]+>", "", s)
-    return html.unescape(s).strip()
+# 各报告把"主线/摘要"挂在多种容器 class 下：lede / mainline / lead / thesis /
+# syn / summary / cross / observe / overview / three ……；标签写法也各异：
+# 本期主线 / 今日主线 / 今日三句话 / 横向观察 / 主线判断 / TODAY'S MAIN LINE /
+# THESIS / The Through-Line / 今日要览 / Today's Index / 今日摘要 / TL;DR ……
+# 故用 HTML 树（有序内容）找到正文里第一个"主线容器"，跳过其内部的标签元素
+# （span.tag / div.lbl / h2-h3 / 内联 <b>本期主线</b> 等），只保留正文文本。
+LEAD_CONTAINER_CLASSES = {
+    "lede", "mainline", "lead", "thesis", "syn", "summary",
+    "cross", "observe", "overview", "three", "lede-box", "main",
+}
+LABEL_CLASSES = {"tag", "lbl", "label", "sec-label", "h", "kicker", "sub", "subtitle"}
+LEAD_HEADING_RE = re.compile(
+    r"(本期主线|本期侧重|今日主线|今日摘要|今日三句话|今日一句话|横向观察|主线判断"
+    r"|TODAY'?S\s*MAIN\s*LINE|TL;?DR|THESIS|Through[\s-]?Line"
+    r"|今日要览|Today'?s\s*Index|MAIN\s*LINE)",
+    re.I)
+LEAD_WORD_RE = re.compile(
+    r"^(本期主线|本期侧重|今日主线|今日摘要|横向观察|今日三句话|今日一句话|主线判断"
+    r"|今日要览|TODAY'?S\s*MAIN\s*LINE|THESIS|Through[\s-]?Line)\b",
+    re.I)
+VOID = {"img", "br", "hr", "meta", "link", "input", "area", "base",
+        "col", "embed", "source", "track", "wbr"}
+SEP = r"[\s:：·\-—–·、|｜/]+"
+
+
+class TreeNode:
+    __slots__ = ("tag", "classes", "content", "parent")
+
+    def __init__(self, tag, classes):
+        self.tag = tag
+        self.classes = classes
+        self.content = []          # 有序：字符串文本 或 子 TreeNode
+        self.parent = None
+
+    def text_strip(self):
+        txt = []
+        for it in self.content:
+            txt.append(it if isinstance(it, str) else it.text_strip())
+        return "".join(txt).strip()
+
+    def content_children(self):
+        return [c for c in self.content if isinstance(c, TreeNode)]
+
+
+class _TreeBuilder(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.root = TreeNode("root", set())
+        self.cur = self.root
+
+    def handle_starttag(self, tag, attrs):
+        if tag in VOID:
+            n = TreeNode(tag, set(dict(attrs).get("class", "").split()))
+            n.parent = self.cur
+            self.cur.content.append(n)
+            return
+        n = TreeNode(tag, set(dict(attrs).get("class", "").split()))
+        n.parent = self.cur
+        self.cur.content.append(n)
+        self.cur = n
+
+    def handle_startendtag(self, tag, attrs):
+        n = TreeNode(tag, set(dict(attrs).get("class", "").split()))
+        n.parent = self.cur
+        self.cur.content.append(n)
+
+    def handle_endtag(self, tag):
+        node = self.cur
+        while node is not self.root and node.tag != tag:
+            node = node.parent
+        if node is not self.root and node.tag == tag:
+            self.cur = node.parent
+
+    def handle_data(self, data):
+        self.cur.content.append(data)
+
+
+def _is_label(node: TreeNode) -> bool:
+    if node.classes & LABEL_CLASSES:
+        return True
+    if node.tag in ("h1", "h2", "h3", "h4", "h5", "h6"):
+        t = node.text_strip()
+        if LEAD_HEADING_RE.search(t) and len(t) < 60:
+            return True
+    t = node.text_strip()
+    if LEAD_HEADING_RE.search(t) and len(t) < 60:
+        return True
+    return False
+
+
+def _node_text(node: TreeNode) -> str:
+    if _is_label(node):
+        return ""
+    parts = []
+    for item in node.content:
+        if isinstance(item, str):
+            parts.append(item)
+        elif not _is_label(item):
+            parts.append(_node_text(item))
+    return "".join(parts)
+
+
+def _overview_titles(node: TreeNode) -> str:
+    out = []
+    for item in node.content:
+        if not isinstance(item, TreeNode) or "ov-item" not in item.classes:
+            continue
+        for c in item.content:
+            if isinstance(c, TreeNode) and "ov-title" in c.classes:
+                t = c.text_strip().strip()
+                if t:
+                    out.append(t)
+    return " ｜ ".join(out)
+
+
+def _find_first_lead(root: TreeNode):
+    stack = [root]
+    while stack:
+        n = stack.pop()
+        if "masthead" in n.classes:
+            continue
+        if n.classes & LEAD_CONTAINER_CLASSES:
+            return n
+        stack.extend(reversed(n.content_children()))
+    return None
 
 
 def extract_lead(raw: str) -> str:
-    # 优先 lead 类，其次 summary 类；取文本后去掉「本期主线」标签
-    for cls in ("lead", "summary"):
-        m = re.search(
-            r'<(?:p|div|section)[^>]*class="[^"]*\b' + cls + r'\b[^"]*"[^>]*>([\s\S]*?)</(?:p|div|section)>',
-            raw)
-        if m:
-            return _clean_lead(strip_tags(m.group(1)))
-    # 兜底：取 masthead 之后的第一个 <p>
-    m = re.search(r"</header>\s*<p[^>]*>([\s\S]*?)</p>", raw, re.IGNORECASE)
-    if m:
-        return _clean_lead(strip_tags(m.group(1)))
-    return ""
-
-
-def _clean_lead(txt: str) -> str:
-    txt = re.sub(r"^本期主线\s*[：:　]?\s*", "", txt)
-    return re.sub(r"\s+", " ", txt).strip()
+    body = re.sub(r"<head[\s\S]*?</head>", "", raw, flags=re.I)
+    body = re.sub(r"<style[\s\S]*?</style>", "", body, flags=re.I)
+    tb = _TreeBuilder()
+    tb.feed(body)
+    node = _find_first_lead(tb.root)
+    if not node:
+        return ""
+    txt = _overview_titles(node) if "overview" in node.classes else _node_text(node)
+    txt = re.sub(r"\s+", " ", txt).strip()
+    txt = re.sub(r"^" + SEP, "", txt)
+    txt = re.sub(LEAD_WORD_RE, "", txt)      # 去残留的"本期主线/今日摘要…"等标签词
+    txt = re.sub(r"^" + SEP, "", txt)
+    txt = re.sub(SEP + r"$", "", txt)
+    return txt
 
 
 # ---------------------------------------------------------------------------
@@ -224,10 +342,12 @@ title: "Daily AI"
 
 def main():
     args = sys.argv[1:]
-    if not args or args[0] == "--all":
-        files = sorted(glob.glob(os.path.join(SRC_DIR, "*_AI领域每日动态.html")))
-    else:
-        files = [a for a in args if os.path.isfile(a)]
+    # _index.md 始终按 SRC_DIR 全量重建：即使只传入单个报告，也不丢失历史卡片。
+    files = sorted(glob.glob(os.path.join(SRC_DIR, "*_AI领域每日动态.html")))
+    if args and args[0] != "--all":
+        known = {os.path.abspath(f) for f in files}
+        extras = [a for a in args if os.path.isfile(a) and os.path.abspath(a) not in known]
+        files += extras
     if not files:
         print("没有找到待处理的报告 HTML。", file=sys.stderr)
         sys.exit(1)

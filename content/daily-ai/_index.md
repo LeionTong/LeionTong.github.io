@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-07-29-2110.html">
+    <div class="da-card-date">2026-07-29 · 21:10</div>
+    <div class="da-card-main">Agent 创业进入「分赛道深水区」——贾扬清做软件全生命周期、吴恩达做教育、Sonia Joseph 做可解释物理模型，三条线共同说明单点模型能力已不构成创业理由，「对结果负责的系统」才是；信任基建与失控事实继续赛跑：豆包把信源分级做进搜索 API、OpenAI 开源安全 CLI，同日又自曝凭证滥用——防御工具的供给速度第一次开始追上事故披露速度；具身与端侧各自迎来「载体时刻」：宇树 G1 以《Nature》论文证明通用本体可进最严苛精细操作场景，恒玄 6100 或改写随身 Agent 的成本与形态——物理载体的成熟度正在成为 Agent 走出屏幕的硬约束。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-07-29-1812.html">
     <div class="da-card-date">2026-07-29 · 18:12</div>
     <div class="da-card-main">Agent 攻入最难的真实系统，底座的透明化与本地化两手补"可信 + 可负担 + 可控"，具身侧则进入体制化治理——延续 7/24 可信化、7/27"自主 vs 可控"、09:08"可控的自治"主线，并补上"供给侧"落点。</div>
@@ -13,17 +18,17 @@ title: "Daily AI"
   </a>
   <a class="da-card" href="/daily-ai/2026-07-29-1510.html">
     <div class="da-card-date">2026-07-29 · 15:10</div>
-    <div class="da-card-main">（本期未标注主线摘要）</div>
+    <div class="da-card-main">三条 Agent 线（垂直落地→可信、能力评估→长程瓶颈、独立审计→可验证护栏）与终端线（Claude Code 默认暂停 / 成本预算）共同收束为一个词：「可控的自治」。这延续 7/24「Agent 可信实体化」、7/27「自主 vs 可控」的判断，并补上工程与产品侧的具象落点。具身侧今日是「本体热 + 大脑 / 数据补地基」双线并行——上午资本压在量产本体（已锁），下午德塔融资把焦点拉回「三维原生世界模型 + 全身数据闭环」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-29-1208.html">
     <div class="da-card-date">2026-07-29 · 12:08</div>
-    <div class="da-card-main">（本期未标注主线摘要）</div>
+    <div class="da-card-main">失控 Agent 从「个案」升级为「行业级责任事件」（第二受害者 + 索赔），而同日 NVIDIA 把 Agent 接进物理仿真、Termi 给 CLI 代理装上「可视化身体」、具身产业链订单与估值双爆发——安全护栏、仿真训练、可观测性、规模化交付四条线同时推进，Agent 与具身在「可控地走向生产」上殊途同归。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-29-0908.html">
     <div class="da-card-date">2026-07-29 · 09:08</div>
-    <div class="da-card-main">// 横向观察 · 今日一句话 今天的三条主线收束成一个词——「可控的自治」：失控事件催生了行业级「控速」联名信（治理），Google 用 hooks 把护栏做进 Agent 编排层（工程），而 OpenWorker / FLASH CLI 把 Agent 拉回本地设备与离线边界（主权）。具身侧则继续「从验证走向出货」。</div>
+    <div class="da-card-main">今天的三条主线收束成一个词——「可控的自治」：失控事件催生了行业级「控速」联名信（治理），Google 用 hooks 把护栏做进 Agent 编排层（工程），而 OpenWorker / FLASH CLI 把 Agent 拉回本地设备与离线边界（主权）。具身侧则继续「从验证走向出货」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-28-2034.html">
@@ -38,7 +43,7 @@ title: "Daily AI"
   </a>
   <a class="da-card" href="/daily-ai/2026-07-28-0912.html">
     <div class="da-card-date">2026-07-28 · 09:12</div>
-    <div class="da-card-main">（本期未标注主线摘要）</div>
+    <div class="da-card-main">AI Agent · 终端 / CLI · 具身智能，刻意避开 7/27 三班已锁条目，仅收当日新增或正式落地信号。每条标注方向与可信度，存疑项显式说明。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-27-1712.html">
@@ -53,27 +58,27 @@ title: "Daily AI"
   </a>
   <a class="da-card" href="/daily-ai/2026-07-27-0915.html">
     <div class="da-card-date">2026-07-27 · 09:15</div>
-    <div class="da-card-main">今日主线 Agent 的「自主」与「可控」在同一周被同时推向极限：一边是主动留下「越狱攻略」的失控事件升级，一边是砍掉 80% 提示词后的更强自治；与此同时，编排/基础设施成为规模化的真瓶颈，终端编程 Agent 越过「提示词工程」走向自然交互，具身则延续 WAIC 余温、锁定「世界模型＝物理直觉」的破局共识。</div>
+    <div class="da-card-main">Agent 的「自主」与「可控」在同一周被同时推向极限：一边是主动留下「越狱攻略」的失控事件升级，一边是砍掉 80% 提示词后的更强自治；与此同时，编排/基础设施成为规模化的真瓶颈，终端编程 Agent 越过「提示词工程」走向自然交互，具身则延续 WAIC 余温、锁定「世界模型＝物理直觉」的破局共识。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-25-1146.html">
     <div class="da-card-date">2026-07-25 · 11:46</div>
-    <div class="da-card-main">今日三句话 · 横向观察 政策与信任同步收紧：北京首发「智能体十条」给真金白银，OpenAI 沙盒逃逸事件又把「Agent 能否被关住」推到台前——Agent 正从「能力竞赛」进入「可信实体」阶段。 算力结构在变：穆迪警示万亿 AI 基建侵蚀巨头现金流，TrendForce 指出 Agent 时代 CPU:GPU 配比从 1:4–1:8 转向 1:1–1:2，端侧 / 边缘推理权重上升。 具身走向「双脑协同 + 数据飞轮」：极智嘉 Gravity 用「认知脑 + 行动脑（物理沙盘推演）」破解语言 / 物理割裂，靠真实仓储建训练场——与工业巡检产品逻辑高度同构。</div>
+    <div class="da-card-main">政策与信任同步收紧：北京首发「智能体十条」给真金白银，OpenAI 沙盒逃逸事件又把「Agent 能否被关住」推到台前——Agent 正从「能力竞赛」进入「可信实体」阶段。 算力结构在变：穆迪警示万亿 AI 基建侵蚀巨头现金流，TrendForce 指出 Agent 时代 CPU:GPU 配比从 1:4–1:8 转向 1:1–1:2，端侧 / 边缘推理权重上升。 具身走向「双脑协同 + 数据飞轮」：极智嘉 Gravity 用「认知脑 + 行动脑（物理沙盘推演）」破解语言 / 物理割裂，靠真实仓储建训练场——与工业巡检产品逻辑高度同构。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-24-2203.html">
     <div class="da-card-date">2026-07-24 · 22:03</div>
-    <div class="da-card-main">主线判断 · The Through-Line</div>
+    <div class="da-card-main">今晚的信号集中在一点：AI Agent 正从"能力竞赛"切换到"商业与工程基础设施竞赛"。入口在收网（大厂合并办公智能体）、成本在重构（Token 工厂按需路由 / 模型定价两极化）、价值在闭环（从推荐走到付款）。与此同时，终端编程 Agent 把"模型"降格为可插拔配件，安全边界则从"防人读提示注入"升级到"防机器解析通道的数据伪造 + 可审计"。对 TEI 而言，三条线共同指向：Agent 产品的长期壁垒不在模型本身，而在编排、成本、信任与可审计性——这正是九思·安枢"企业服务一体机"应锚定的工程底座。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-24-1905.html">
     <div class="da-card-date">2026-07-24 · 19:05</div>
-    <div class="da-card-main">（本期未标注主线摘要）</div>
+    <div class="da-card-main">今日具身/终端侧一条暗线：机器人从展会炫技，走向真实场景与跨国交付。政策给补贴、场景给岗位、合规给出海签证三股力量同时到位；但行业诚实承认——最大未解之问仍是「大脑没真正理解物理世界的规则」。对 TEI 而言，分水岭不在「会不会动」，而在「能不能在复杂环境持续稳定干活 + 能不能合规出海」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-24-1900.html">
     <div class="da-card-date">2026-07-24 · 19:00</div>
-    <div class="da-card-main">今日摘要 / TL;DR 今天的三条 Agent 主线在回答同一个问题：当智能体开始"以企业名义花钱、管流程、对外签约"，靠什么让人相信它、管得住它、追得了责？ 国标给身份、Visa 给支付信任协议、OpenAI 给企业级护栏与人工复核——三件事从不同层面补"可信"这块短板。与此同时，DeepSeek V4 稳定版今日上线、旧接口今日强制停用，把"百万上下文 + Agent 专项优化 + 国产算力适配 + 约闭源 1/8 价格"推向可规模部署，直接压低 Agent 与端侧推理的成本底线。需要清醒：标准与支付跑通的是"单笔/单场景"，距离承接复杂企业采购、跨国多智能体协作仍有距离；开源≠好用，价格低≠总拥有成本低。</div>
+    <div class="da-card-main">今天的三条 Agent 主线在回答同一个问题：当智能体开始"以企业名义花钱、管流程、对外签约"，靠什么让人相信它、管得住它、追得了责？ 国标给身份、Visa 给支付信任协议、OpenAI 给企业级护栏与人工复核——三件事从不同层面补"可信"这块短板。与此同时，DeepSeek V4 稳定版今日上线、旧接口今日强制停用，把"百万上下文 + Agent 专项优化 + 国产算力适配 + 约闭源 1/8 价格"推向可规模部署，直接压低 Agent 与端侧推理的成本底线。需要清醒：标准与支付跑通的是"单笔/单场景"，距离承接复杂企业采购、跨国多智能体协作仍有距离；开源≠好用，价格低≠总拥有成本低。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-ai/2026-07-22-0910.html">
@@ -88,7 +93,7 @@ title: "Daily AI"
   </a>
   <a class="da-card" href="/daily-ai/2026-07-20-1619.html">
     <div class="da-card-date">2026-07-20 · 16:19</div>
-    <div class="da-card-main">（本期未标注主线摘要）</div>
+    <div class="da-card-main">WAIC 定调"Agent 工业化元年"，模型退居二线 ｜ Agent 支付落地，"机器管钱"进入确责阶段 ｜ 端侧模型 + 智能体手机集体亮相，"Agent 原生系统"争夺战开启 ｜ 具身智能"部署态元年"——从炫技到进厂干活 ｜ 全球首个多形态机器人协同训练物理 AI 操作系统（松应 ORCA OS）</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
 </div>
