@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PR #729 · 每日 AI 动态 — 自主 vs 可控 · 2026-07-29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#f3f1ea;
+    --panel:#fbfaf6;
+    --ink:#1b1a17;
+    --muted:#6e6a60;
+    --line:#e2ddd0;
+    --line-strong:#cdc6b4;
+    --agent:#cf4438;      /* AI Agent — 警示红 */
+    --edge:#2f5bd6;       /* 终端·端侧 — 靛蓝 */
+    --emb:#2f9e6f;        /* 具身 — 翠绿 */
+    --amber:#d99a16;
+    --green-soft:#e8f3ec;
+    --shadow:0 1px 0 rgba(27,26,23,.04), 0 14px 30px -18px rgba(27,26,23,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(207,68,56,.05), transparent 42%),
+      radial-gradient(circle at 82% 8%, rgba(47,91,214,.05), transparent 40%),
+      radial-gradient(circle at 60% 96%, rgba(47,158,111,.05), transparent 45%),
+      var(--paper);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:"Noto Sans SC","Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:34px 22px 80px;}
+
+  /* ---------- PR header bar ---------- */
+  .prbar{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    background:linear-gradient(180deg,#fff,#fbfaf6);
+    border:1px solid var(--line-strong);
+    border-radius:14px 14px 0 0;
+    padding:16px 20px;
+    box-shadow:var(--shadow);
+  }
+  .avatar{
+    width:34px;height:34px;border-radius:9px;flex:none;
+    background:conic-gradient(from 210deg,var(--agent),var(--amber),var(--emb),var(--edge),var(--agent));
+    display:grid;place-items:center;color:#fff;font-family:"Geist",sans-serif;font-weight:800;font-size:15px;
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.45);
+  }
+  .prtitle{font-family:"Geist",sans-serif;font-weight:700;font-size:16px;letter-spacing:.2px;margin:0;}
+  .prtitle b{color:var(--ink);}
+  .prhash{color:var(--muted);font-family:"Geist Mono",monospace;font-size:13px;}
+  .pill{
+    margin-left:auto;display:inline-flex;align-items:center;gap:7px;
+    background:var(--green-soft);color:#1c6b46;border:1px solid #bfe0cd;
+    font-family:"Geist Mono",monospace;font-size:11.5px;font-weight:600;
+    padding:5px 11px;border-radius:999px;text-transform:uppercase;letter-spacing:.6px;
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--emb);animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.7);}}
+
+  .meta{
+    border:1px solid var(--line-strong);border-top:none;
+    background:repeating-linear-gradient(90deg,transparent,transparent 26px,rgba(205,198,180,.18) 26px,rgba(205,198,180,.18) 27px);
+    padding:11px 20px;font-family:"Geist Mono",monospace;font-size:12px;color:var(--muted);
+    display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+  }
+  .meta b{color:var(--ink);font-weight:600;}
+
+  /* ---------- review summary callout ---------- */
+  .summary{
+    margin:26px 0 8px;border:1px solid var(--line-strong);border-left:4px solid var(--amber);
+    background:linear-gradient(180deg,#fffdf6,#fbfaf6);border-radius:0 12px 12px 0;
+    padding:18px 22px;box-shadow:var(--shadow);
+  }
+  .summary h2{
+    margin:0 0 8px;font-family:"Geist",sans-serif;font-size:13px;letter-spacing:1.4px;
+    text-transform:uppercase;color:var(--amber);font-weight:700;
+  }
+  .summary p{margin:0;font-size:15.5px;}
+  .summary .quote{font-family:"Geist",sans-serif;font-weight:700;color:var(--ink);}
+
+  /* ---------- cards ---------- */
+  .card{
+    position:relative;margin-top:18px;border:1px solid var(--line-strong);
+    border-radius:14px;background:var(--panel);box-shadow:var(--shadow);overflow:hidden;
+    opacity:0;transform:translateY(14px);
+    animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  .card:nth-of-type(1){animation-delay:.05s}
+  .card:nth-of-type(2){animation-delay:.13s}
+  .card:nth-of-type(3){animation-delay:.21s}
+  .card:nth-of-type(4){animation-delay:.29s}
+  .card:nth-of-type(5){animation-delay:.37s}
+  @keyframes rise{to{opacity:1;transform:none;}}
+
+  .cbar{height:5px;width:100%;}
+  .cbar.agent{background:var(--agent);}
+  .cbar.edge{background:var(--edge);}
+  .cbar.emb{background:var(--emb);}
+
+  .chead{display:flex;align-items:center;gap:12px;padding:15px 20px 6px;flex-wrap:wrap;}
+  .num{
+    font-family:"Geist Mono",monospace;font-weight:700;font-size:13px;color:#fff;
+    width:28px;height:28px;border-radius:8px;display:grid;place-items:center;flex:none;
+  }
+  .num.agent{background:var(--agent);}
+  .num.edge{background:var(--edge);}
+  .num.emb{background:var(--emb);}
+  .tag{
+    font-family:"Geist Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.5px;
+    padding:4px 9px;border-radius:6px;text-transform:uppercase;
+  }
+  .tag.agent{color:var(--agent);background:#fbe9e7;}
+  .tag.edge{color:var(--edge);background:#e9eefb;}
+  .tag.emb{color:var(--emb);background:var(--green-soft);}
+  .ctitle{font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:16.5px;margin:0;flex:1;min-width:200px;}
+
+  .cbody{padding:4px 20px 18px;}
+  .cbody h4{
+    margin:14px 0 5px;font-family:"Geist",sans-serif;font-size:11px;letter-spacing:1.2px;
+    text-transform:uppercase;color:var(--muted);font-weight:600;
+  }
+  .cbody p{margin:0;font-size:14.5px;color:#33312c;}
+  .why{
+    margin-top:14px;padding:13px 15px;border-radius:10px;background:#f6f8f4;
+    border:1px solid #dce7df;border-left:4px solid var(--emb);
+  }
+  .why h4{margin:0 0 6px;color:var(--emb);}
+  .why p{color:#2b332c;}
+
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;margin-top:14px;
+    font-family:"Geist Mono",monospace;font-size:11px;font-weight:600;
+    padding:4px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted);
+    background:#fff;
+  }
+  .badge .lv{width:7px;height:7px;border-radius:50%;}
+  .lv.high{background:#1c8a4f;}
+  .lv.midhigh{background:#2f9e6f;}
+  .lv.mid{background:var(--amber);}
+
+  /* ---------- footer ---------- */
+  .foot{
+    margin-top:30px;border-top:1px dashed var(--line-strong);padding-top:18px;
+    font-size:12.5px;color:var(--muted);
+  }
+  .foot p{margin:6px 0;}
+  .foot .k{font-family:"Geist Mono",monospace;color:var(--ink);font-weight:600;}
+
+  .sig{font-family:"Geist Mono",monospace;font-size:11.5px;color:var(--muted);margin-top:14px;text-align:right;}
+  .sig .cur{display:inline-block;width:8px;height:14px;background:var(--ink);margin-left:4px;vertical-align:-2px;animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  @media(max-width:560px){
+    .meta{gap:10px;font-size:11px;}
+    .ctitle{font-size:15px;min-width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- PR header -->
+  <div class="prbar">
+    <div class="avatar">⚡</div>
+    <div>
+      <p class="prtitle"><b>Daily AI Dispatch</b> <span class="prhash">#729</span></p>
+    </div>
+    <span class="pill"><span class="dot"></span>MERGED INTO ARCHIVE</span>
+  </div>
+  <div class="meta">
+    <span>branch&nbsp;→&nbsp;<b>focus/agent·terminal·embodied</b></span>
+    <span>date&nbsp;→&nbsp;<b>2026-07-29 09:08 GMT+8</b></span>
+    <span>reviewer&nbsp;→&nbsp;<b>雷雷</b></span>
+    <span>files&nbsp;→&nbsp;<b>5 changed</b></span>
+  </div>
+
+  <!-- review summary -->
+  <div class="summary">
+    <h2>// 横向观察 · 今日一句话</h2>
+    <p>今天的三条主线收束成一个词——<span class="quote">「可控的自治」</span>：失控事件催生了行业级「控速」联名信（治理），Google 用 hooks 把护栏做进 Agent 编排层（工程），而 OpenWorker / FLASH CLI 把 Agent 拉回本地设备与离线边界（主权）。具身侧则继续「从验证走向出货」。</p>
+  </div>
+
+  <!-- 1 -->
+  <article class="card">
+    <div class="cbar agent"></div>
+    <div class="chead">
+      <span class="num agent">1</span>
+      <span class="tag agent">AI Agent · 治理</span>
+      <h3 class="ctitle">1100+ AI 从业者联名呼吁「有意调节前沿研发速度」</h3>
+    </div>
+    <div class="cbody">
+      <h4>// 事件</h4>
+      <p>7/29，超 1100 名（官网 1134 人）来自 OpenAI、Anthropic、Google、Meta 等的在职员工签署联名信，要求美国政府支持建立「能有意调节自动化 AI 研发前沿速度」的国际协调、监测与核验机制。签署者含 Anthropic CEO Dario Amodei、OpenAI 首席科学家 Jakub Pachocki、Meta AI 首席科学家赵晟佳等。Anthropic 官方账号公开支持。</p>
+      <div class="why">
+        <h4>// 为什么值得关注</h4>
+        <p>直接由近期失控智能体入侵事件催化，但把问题从「单点安全」升级为「行业自组织 + 国际治理机制」。它触碰 AI 研发「可信减速」的核心难题——AI 训练比导弹发射井更易隐藏，单边减速等于把领先位让给对手。这是 Agent 从「能力竞赛」转向「可信实体」主线上最顶层的信号。</p>
+      </div>
+      <span class="badge"><span class="lv high"></span>可信度：高 · 一级信源（联名信官网可查 / 彭博·网易智能）</span>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="card">
+    <div class="cbar agent"></div>
+    <div class="chead">
+      <span class="num agent">2</span>
+      <span class="tag agent">AI Agent · 工程护栏</span>
+      <h3 class="ctitle">Google Managed Agents API 新增 environment hooks</h3>
+    </div>
+    <div class="cbody">
+      <h4>// 事件</h4>
+      <p>7/29，Google 更新 Gemini Managed Agents API，核心新增 <b>environment hooks</b>——可在沙箱（sandbox）内对工具调用做<b>阻断 / lint / 审计</b>；同时加入 Gemini 3.6 Flash 作为可选模型，并上线 UI 与 API 侧的免费层。</p>
+      <div class="why">
+        <h4>// 为什么值得关注</h4>
+        <p>与今日「失控事件 → 控速联名」形成「问题—解法」的精准呼应。hooks 意味着<b>护栏被写进编排层本身</b>，而非依赖模型自觉——这正是对「自主 vs 可控」争议的具体工程回答，也延续 7/24 以来「Agent 从工具变可信商业实体」的判断。</p>
+      </div>
+      <span class="badge"><span class="lv midhigh"></span>可信度：中高 · Google 官方更新（建议以官方文档二次核实）</span>
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="card">
+    <div class="cbar edge"></div>
+    <div class="chead">
+      <span class="num edge">3</span>
+      <span class="tag edge">终端 · 端侧</span>
+      <h3 class="ctitle">Agent 回落本地：OpenWorker 开源 · FLASH CLI 离线 · BrowserAct 降复杂度</h3>
+    </div>
+    <div class="cbody">
+      <h4>// 事件</h4>
+      <p>① 吴恩达开源本地优先桌面 Agent <b>OpenWorker</b>（macOS 已上线、Windows 测试版开放，7/29）；② <b>FLASH CLI</b> 发布——彻底离线、对接本机 Ollama、代码永不上传（「No keys, no bill」）；③ <b>BrowserAct</b> 登 Hacker News，把浏览器操作从「配 MCP 服务器」降为「装一个 skill 即可」，兼容 Claude Code/Cursor/Codex 等任意 SKILL.md 智能体。</p>
+      <div class="why">
+        <h4>// 为什么值得关注</h4>
+        <p>三条线共同指向一个转向——Agent 正从「云端编排」回落到<b>本地设备 + 离线边界 + 即装即用的 skill</b>。这是对「失控 / 隐私 / 成本」三重焦虑的供给侧回应：主权在用户手里、数据不出本机、工具接入成本降到最低。与 7/22 面壁 MiniCPM-Robot、7/28 MCP final 形成「端侧 Agent 基础设施」连续谱。</p>
+      </div>
+      <span class="badge"><span class="lv mid"></span>可信度：中 · 混合信源（厂商/社区披露 + 自媒体，含二级信源）</span>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="card">
+    <div class="cbar emb"></div>
+    <div class="chead">
+      <span class="num emb">4</span>
+      <span class="tag emb">具身 · 工业智能体</span>
+      <h3 class="ctitle">派迅智能两款物理 AI 工业智能体正式交付</h3>
+    </div>
+    <div class="cbody">
+      <h4>// 事件</h4>
+      <p>7/29，派迅智能举行出机交付仪式，两台搭载自研物理 AI 与具身智能技术的工业智能体——<b>全自动 AI 芯片高精度返修智能体、AI 芯片散热材料复合工艺智能体</b>——完成调试质检、装车发运核心客户。标志其「线-边-仓」三位一体全域智造战略落地，工业 AI 从「虚拟算力赋能」走向「物理实体场景落地」。</p>
+      <div class="why">
+        <h4>// 为什么值得关注</h4>
+        <p>这是「物理 AI / 工业智能体」从 PoC 走向<b>规模化商用</b>的又一个样本——和 7/28 星炽动力千台级量产、7/24 极智嘉「双脑协同」同属一条暗线：具身智能的价值标尺正从「秀参数」转为「真能干活、真能交付」。其「边」侧强调工业专属物理世界模型（热传导/材料力学/精密运动控制），恰好回应了 WAIC 余温中「大脑未懂物理规则仍是最门槛」的判断。</p>
+      </div>
+      <span class="badge"><span class="lv mid"></span>可信度：中 · 厂商官方披露 + 媒体转载</span>
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article class="card">
+    <div class="cbar agent"></div>
+    <div class="chead">
+      <span class="num agent">5</span>
+      <span class="tag agent">AI Agent · 消费级</span>
+      <h3 class="ctitle">谷歌/苹果让 AI「替你打电话」对接 200 万商家</h3>
+    </div>
+    <div class="cbody">
+      <h4>// 事件</h4>
+      <p>7/29 报道，谷歌新功能允许 AI 代理以购物者身份致电实体店确认库存/完成购买；同步发布的 Gemini Spark 个人代理运行在云端虚拟机、不因关盖停止；苹果 WWDC 2026 重构 Siri 获屏幕感知 + 应用内执行；7 月语音 Agent 创业公司融资约 18 亿美元。</p>
+      <div class="why">
+        <h4>// 为什么值得关注</h4>
+        <p>消费者端 Agent 首次真正「动手」——从「接电话」（企业侧）跨越到「打电话 / 下单」（用户侧），闭环从「推荐」走到「执行」。这与 7/24 Visa 企业支付、7/27 Agentic Commerce 互补：当 Agent 能替你对外发生真实世界动作（且涉及金钱），「可控 / 可审计 / 确责」立刻从工程问题变成<b>用户权益问题</b>——恰好回扣今日 #1 / #2 的主线。</p>
+      </div>
+      <span class="badge"><span class="lv midhigh"></span>可信度：中高 · 厂商官方叙事（I/O·WWDC）+ 行业媒体</span>
+    </div>
+  </article>
+
+  <!-- footer -->
+  <div class="foot">
+    <p><span class="k">备注 ·</span> 本期刻意避开 7/27–7/28 各班已锁条目（千问办公 / 企业微信大圆 / 美团 CatPaw / Kimi K3 / OpenAI×HF 首曝 / MCP final / 微软 MAI-Cyber / 星炽动力 / 智元 IPO / 宇树出货 等），仅收当日新增或当日发酵信号。</p>
+    <p><span class="k">声明 ·</span> 信源等级为本助手基于公开报道的主观标注，不构成投资建议。</p>
+    <p class="sig">整理：雷雷 · 2026-07-29 09:08 GMT+8<span class="cur"></span></p>
+  </div>
+
+</div>
+</body>
+</html>
