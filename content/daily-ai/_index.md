@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-07-30-1528.html">
+    <div class="da-card-date">2026-07-30 · 15:28</div>
+    <div class="da-card-main">厂商推广散文式治理的同一周，自己给它加上了确定性护栏 就在 GitHub 把 SKILL.md 推上每一个 Pull Request、Google 给 Gemini Managed Agents 加钩子的同一周，一份 65 任务的基准给「把规则写进上下文」这套范式打出的最高分是 36.2%，而一个协同披露 144 天仍未修复的 Word 蠕虫证明：模型连「哪些字是指令、哪些字是内容」都分不清。真正在起作用的从来不是散文，而是只读权限、工具调用前置钩子、沙箱这些确定性护栏——当 Agent 从改文档走向进家门，这道落差的代价开始变得不可撤销。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-07-30-1221.html">
     <div class="da-card-date">2026-07-30 · 12:21</div>
     <div class="da-card-main">入口收拢，账本亮相 上午的边界（协议／地缘／政策）划完之后，中午的信号转向两本"账"：一本是组织账——字节把飞书并入豆包、销售并入火山，与阿里千问办公、腾讯 QClaw 并入 WorkBuddy 形成三家同夏收敛，赛马制正式让位于"单一入口"总攻；另一本是资本账——Meta 一边许诺"数十亿人拥有个人 Agent"，一边自由现金流同比锐减 91%，而具身赛道上半年 935 亿融资正加速流向"卖铲子"的数据基建。Agent 的叙事红利期结束了：接下来拼的是入口集中度、交互的真实延迟、以及现金流能撑多久。</div>
