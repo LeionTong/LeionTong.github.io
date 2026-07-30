@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-07-30 早班 · 边界测绘图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600;700;800&family=Sometype+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe3;
+    --paper-deep:#ece5d3;
+    --ink:#2b2416;
+    --ink-soft:#5c5240;
+    --ink-faint:#8a7d63;
+    --line:#c9bda0;
+    --survey-red:#b3372b;      /* Agent */
+    --prussian:#1f4e6e;        /* 终端·端侧 */
+    --moss:#4a6237;            /* 具身 */
+    --gold:#a8842c;
+    --card:#faf6ec;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans SC',sans-serif;
+    font-weight:400;
+    line-height:1.85;
+    position:relative;
+    overflow-x:hidden;
+  }
+  /* 等高线 + 测绘网格底纹 */
+  .terrain{
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(139,120,80,.07) 47px,rgba(139,120,80,.07) 48px),
+      repeating-linear-gradient(90deg,transparent,transparent 47px,rgba(139,120,80,.07) 47px,rgba(139,120,80,.07) 48px);
+  }
+  .contours{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;}
+  .wrap{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:56px 28px 80px;}
+
+  /* ============ 报头 ============ */
+  .masthead{
+    border:2px solid var(--ink);
+    background:var(--card);
+    padding:34px 38px 30px;
+    position:relative;
+    animation:rise .7s cubic-bezier(.2,.8,.2,1) both;
+    box-shadow:6px 6px 0 rgba(43,36,22,.12);
+  }
+  .masthead::before{
+    content:"";position:absolute;inset:6px;border:1px dashed var(--line);pointer-events:none;
+  }
+  .mast-top{
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+    font-family:'Sometype Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-faint);
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .mast-top .no{color:var(--survey-red);font-weight:700;}
+  h1{
+    font-family:'Eczar','Noto Serif SC',serif;font-weight:800;
+    font-size:clamp(30px,5.2vw,46px);line-height:1.18;letter-spacing:.01em;
+  }
+  h1 .en{
+    display:block;font-size:.38em;font-weight:600;letter-spacing:.34em;
+    color:var(--survey-red);text-transform:uppercase;margin-top:8px;
+    font-family:'Sometype Mono',monospace;
+  }
+  .mast-meta{
+    display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px;padding-top:14px;
+    border-top:1px solid var(--line);
+    font-family:'Sometype Mono',monospace;font-size:12px;color:var(--ink-soft);
+  }
+  .mast-meta b{color:var(--ink);font-weight:700;}
+  .bench{
+    position:absolute;top:-13px;right:26px;background:var(--paper);
+    padding:2px 10px;border:2px solid var(--ink);
+    font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;
+    color:var(--survey-red);
+  }
+
+  /* ============ 主线 ============ */
+  .lede{
+    margin-top:34px;border:2px solid var(--survey-red);background:var(--card);
+    padding:30px 34px 28px;position:relative;
+    animation:rise .7s .12s cubic-bezier(.2,.8,.2,1) both;
+    box-shadow:6px 6px 0 rgba(179,55,43,.12);
+  }
+  .lede-tag{
+    position:absolute;top:-14px;left:26px;background:var(--survey-red);color:var(--paper);
+    font-family:'Sometype Mono',monospace;font-size:12px;font-weight:700;
+    letter-spacing:.24em;padding:4px 16px;text-transform:uppercase;
+  }
+  .lede h2{
+    font-family:'Eczar','Noto Serif SC',serif;font-weight:700;font-size:21px;
+    margin-bottom:12px;color:var(--survey-red);letter-spacing:.02em;
+  }
+  .lede p{font-family:'Noto Serif SC',serif;font-size:15.5px;line-height:2.05;}
+  .lede strong{color:var(--survey-red);}
+
+  /* ============ 三界线图例 ============ */
+  .legend{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;
+    animation:rise .7s .2s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .legend .cell{
+    border:1.5px solid var(--ink);background:var(--card);padding:14px 16px;
+    font-size:12.5px;line-height:1.7;position:relative;
+  }
+  .legend .cell::before{content:"▲";position:absolute;top:10px;right:12px;font-size:11px;}
+  .legend .cell.r{border-color:var(--survey-red);} .legend .cell.r::before{color:var(--survey-red);}
+  .legend .cell.b{border-color:var(--prussian);} .legend .cell.b::before{color:var(--prussian);}
+  .legend .cell.g{border-color:var(--moss);} .legend .cell.g::before{color:var(--moss);}
+  .legend .k{font-family:'Sometype Mono',monospace;font-size:10.5px;letter-spacing:.16em;display:block;color:var(--ink-faint);text-transform:uppercase;margin-bottom:3px;}
+  .legend .v{font-weight:700;font-size:13.5px;}
+  .legend .cell.r .v{color:var(--survey-red);}
+  .legend .cell.b .v{color:var(--prussian);}
+  .legend .cell.g .v{color:var(--moss);}
+
+  /* ============ 信号卡 ============ */
+  .signal{
+    margin-top:38px;border:2px solid var(--ink);background:var(--card);
+    position:relative;box-shadow:6px 6px 0 rgba(43,36,22,.10);
+    animation:rise .75s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .signal:nth-of-type(1){animation-delay:.28s}
+  .signal:nth-of-type(2){animation-delay:.4s}
+  .signal:nth-of-type(3){animation-delay:.52s}
+  .signal:nth-of-type(4){animation-delay:.64s}
+  .signal:nth-of-type(5){animation-delay:.76s}
+  .sig-head{
+    display:flex;align-items:stretch;border-bottom:2px solid var(--ink);
+  }
+  .sig-no{
+    font-family:'Eczar',serif;font-weight:800;font-size:34px;line-height:1;
+    padding:16px 20px;display:flex;align-items:center;color:var(--paper);
+    min-width:74px;justify-content:center;
+  }
+  .sig-title{padding:14px 22px 12px;flex:1;}
+  .sig-dir{
+    font-family:'Sometype Mono',monospace;font-size:10.5px;font-weight:700;
+    letter-spacing:.22em;text-transform:uppercase;display:inline-block;margin-bottom:5px;
+  }
+  .sig-title h3{
+    font-family:'Noto Serif SC',serif;font-weight:900;font-size:19px;line-height:1.5;
+  }
+  .signal.agent .sig-no{background:var(--survey-red);}
+  .signal.agent .sig-dir{color:var(--survey-red);}
+  .signal.edge .sig-no{background:var(--prussian);}
+  .signal.edge .sig-dir{color:var(--prussian);}
+  .signal.embody .sig-no{background:var(--moss);}
+  .signal.embody .sig-dir{color:var(--moss);}
+  .sig-body{padding:22px 28px 24px;}
+  .sig-body h4{
+    font-family:'Sometype Mono',monospace;font-size:11px;font-weight:700;
+    letter-spacing:.24em;color:var(--ink-faint);text-transform:uppercase;
+    margin:18px 0 8px;display:flex;align-items:center;gap:10px;
+  }
+  .sig-body h4:first-child{margin-top:0;}
+  .sig-body h4::after{content:"";flex:1;border-top:1px dashed var(--line);}
+  .sig-body p{font-size:14.5px;color:var(--ink);margin-bottom:6px;}
+  .sig-body ol{padding-left:22px;font-size:14.5px;}
+  .sig-body ol li{margin-bottom:7px;}
+  .sig-body strong{font-weight:700;}
+  .signal.agent .sig-body strong{color:var(--survey-red);}
+  .signal.edge .sig-body strong{color:var(--prussian);}
+  .signal.embody .sig-body strong{color:var(--moss);}
+  .src{
+    margin-top:16px;padding:10px 14px;background:var(--paper-deep);
+    border-left:3px solid var(--gold);
+    font-family:'Sometype Mono',monospace;font-size:11.5px;line-height:1.8;color:var(--ink-soft);
+  }
+  .src b{color:var(--gold);}
+
+  /* ============ 编后 ============ */
+  .colophon{
+    margin-top:44px;border-top:3px double var(--ink);padding-top:24px;
+    animation:rise .75s .9s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .colophon h3{
+    font-family:'Eczar','Noto Serif SC',serif;font-size:17px;font-weight:700;margin-bottom:12px;
+    letter-spacing:.06em;
+  }
+  .colophon ul{list-style:none;}
+  .colophon li{
+    font-size:13.5px;color:var(--ink-soft);margin-bottom:9px;padding-left:20px;position:relative;
+  }
+  .colophon li::before{content:"△";position:absolute;left:0;color:var(--gold);font-size:11px;top:2px;}
+  .colophon .sign{
+    margin-top:22px;font-family:'Sometype Mono',monospace;font-size:12px;color:var(--ink-faint);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+  .colophon .sign .seal{
+    border:1.5px solid var(--survey-red);color:var(--survey-red);
+    padding:2px 12px;font-weight:700;letter-spacing:.2em;transform:rotate(-2deg);
+  }
+
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @media (max-width:640px){
+    .legend{grid-template-columns:1fr;}
+    .sig-no{min-width:56px;font-size:26px;padding:12px;}
+    .wrap{padding:36px 16px 60px;}
+    .masthead,.lede{padding:24px 20px;}
+    .sig-body{padding:18px 18px 20px;}
+  }
+</style>
+</head>
+<body>
+<div class="terrain"></div>
+<svg class="contours" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveaspectratio="xMidYMid slice" viewbox="0 0 900 1400">
+  <g fill="none" stroke="#a5946f" stroke-width="1" opacity=".38">
+    <path d="M-50,180 C150,120 320,240 520,170 S820,90 950,160"/>
+    <path d="M-50,230 C160,170 330,290 530,220 S830,140 950,210"/>
+    <path d="M-50,285 C170,225 345,345 545,275 S840,195 950,265"/>
+    <path d="M-50,750 C120,690 300,830 500,760 S780,660 950,740"/>
+    <path d="M-50,805 C130,745 315,885 515,815 S790,715 950,795"/>
+    <path d="M-50,865 C140,805 330,945 530,875 S800,775 950,855"/>
+    <path d="M-50,1180 C180,1120 360,1240 560,1170 S850,1090 950,1160"/>
+    <path d="M-50,1235 C190,1175 375,1295 575,1225 S860,1145 950,1215"/>
+  </g>
+  <g fill="#a5946f" opacity=".55" font-family="monospace" font-size="10">
+    <text x="120" y="205">1420</text><text x="640" y="248">1380</text>
+    <text x="220" y="778">960</text><text x="700" y="838">920</text>
+    <text x="300" y="1205">540</text>
+  </g>
+  <g fill="none" stroke="#b3372b" stroke-width="1.2" stroke-dasharray="8 5" opacity=".35">
+    <path d="M60,-20 L180,320 L120,700 L260,1080 L200,1450"/>
+    <path d="M840,-20 L720,380 L790,760 L660,1140 L730,1450"/>
+  </g>
+  <g fill="#b3372b" opacity=".45">
+    <path d="M180,320 l-5,9 h10 z"/><path d="M120,700 l-5,9 h10 z"/><path d="M260,1080 l-5,9 h10 z"/>
+    <path d="M720,380 l-5,9 h10 z"/><path d="M790,760 l-5,9 h10 z"/><path d="M660,1140 l-5,9 h10 z"/>
+  </g>
+</svg>
+
+<div class="wrap">
+
+  <!-- 报头 -->
+  <header class="masthead">
+    <div class="bench">BM ▲ 0730</div>
+    <div class="mast-top">
+      <span>AI DAILY FIELD SURVEY · 每日动态测绘</span>
+      <span class="no">SHEET No. 2026-07-30 / 0916</span>
+    </div>
+    <h1>边界测绘图
+      <span class="en">The Boundary Lines · Morning Survey</span>
+    </h1>
+    <div class="mast-meta">
+      <span>测区 <b>AI Agent · 终端与端侧 · 具身智能</b></span>
+      <span>班次 <b>周四早班 09:16 GMT+8</b></span>
+      <span>测绘员 <b>雷雷 ⚡</b></span>
+    </div>
+  </header>
+
+  <!-- 今日主线 -->
+  <section class="lede">
+    <div class="lede-tag">今日主线 · THESIS</div>
+    <h2>今天是「边界划定日」——Agent 的能力扩张不再由模型决定，而由"谁授权、在哪条线内"决定</h2>
+    <p>三条边界同日显形：手机上 <strong>GUI 直控让位给 MCP 协议授权</strong>（软件权限边界）、<strong>美国 FCC 行政禁令切断中国人形机器人进口</strong>（地缘硬件边界）、<strong>工信部等七部门把 2028 具身技术路标写进国家任务书</strong>（政策技术边界）；与此同时微软把对话、编程、智能体收进一个 Copilot 超级应用，入口边界也在收拢。界线划在哪里，下一阶段的竞争就在哪里展开。</p>
+  </section>
+
+  <!-- 三界线图例 -->
+  <div class="legend">
+    <div class="cell r"><span class="k">Boundary I · 协议边界</span><span class="v">GUI 直控 → MCP 授权</span>Agent 的"手"必须持证上岗，App 掌握发证权</div>
+    <div class="cell b"><span class="k">Boundary II · 地缘边界</span><span class="v">FCC 禁令 ↔ 七部门路标</span>外压与内推同日落地，具身成战略标的</div>
+    <div class="cell g"><span class="k">Boundary III · 入口边界</span><span class="v">超级应用收拢</span>微软/OpenAI/国内三线同月收口</div>
+  </div>
+
+  <!-- 信号 01 -->
+  <article class="signal agent">
+    <div class="sig-head">
+      <div class="sig-no">01</div>
+      <div class="sig-title">
+        <span class="sig-dir">AI Agent · 入口收拢</span>
+        <h3>微软官宣 Copilot「超级应用」年内发布——Chat → Cowork → Autopilots</h3>
+      </div>
+    </div>
+    <div class="sig-body">
+      <h4>事件</h4>
+      <p>7 月 29 日微软 FY26Q4 财报电话会上，CEO 纳德拉确认正打造 AI「超级应用」：把 Copilot 的<strong>对话、编程（GitHub Copilot）、Copilot Cowork 与 Autopilot 智能体</strong>整合进同一应用，年内发布，面向个人与企业。纳德拉原话：「Copilot 正在迅速从聊天工具发展为 Cowork，再迈向 Autopilots。」本季营收大增至 900 亿美元，AI 与云为主要动力；此前 OpenAI 已推出整合 ChatGPT 与 Codex 的 ChatGPT Work。</p>
+      <h4>为何值得关注</h4>
+      <ol>
+        <li><strong>入口收拢是超级应用之战的发令枪</strong>——OpenAI、微软、国内（千问办公 7/27、WorkBuddy 登顶 6 月榜）两周内同步收口，办公 Agent 竞争从「单点能力」转入「谁拥有那一个图标」。</li>
+        <li>「Chat → Cowork → Autopilots」是微软首次在财报会层面把<strong>自治程度作为产品演进主轴</strong>公开背书——巨头选择先收拢入口、再逐级放权，与本周「自主 vs 可控」主线呼应。</li>
+        <li>900 亿美元季收验证 AI 商业化弹药充足，超级应用是流量与订阅的合流点。</li>
+      </ol>
+      <div class="src"><b>信源</b> The Verge / IT之家 7-30 · 纳德拉财报会公开发言 <b>可信度</b> 一级信源 · 高</div>
+    </div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="signal edge">
+    <div class="sig-head">
+      <div class="sig-no">02</div>
+      <div class="sig-title">
+        <span class="sig-dir">终端·端侧 · 路线裁决</span>
+        <h3>豆包 Agent 手机弃「GUI 直控」转投 MCP——备货从 3 万台提至数十万台</h3>
+      </div>
+    </div>
+    <div class="sig-body">
+      <h4>事件</h4>
+      <p>7 月 29–30 日多家媒体披露：新一代豆包 Agent 手机备货量从 3 万台提升至数十万台，但<strong>取消读取屏幕、模拟点击微信等头部应用的 GUI 直控能力</strong>，改为仅当应用主动提供 MCP 服务并开放权限后接入，长尾应用与高风险任务分阶段处理。努比亚 NaviX Ultra（搭载豆包助手）8 月发布；HMD Touch 以 469 元开售、内置豆包 AI 青少年版，端侧 AI 下沉至低价功能机。</p>
+      <h4>为何值得关注</h4>
+      <ol>
+        <li><strong>「GUI Agent vs 协议互通」路线之争的现实裁决</strong>——本报 7/21 记录 OSWorld 500 步任务 GUI 成功率仅 18%，7/25 记录「超级 App 接口开放成分水岭」；头部玩家如今用产品决策投票：模拟人手点屏在隐私、风控、成功率三重压力下让位给官方协议授权。</li>
+        <li>Agent 手机商业化的钥匙从「技术能力」换成「App 愿不愿意开 MCP 权限」——<strong>Agent 向 App 低头</strong>，权限边界成为端侧 Agent 的真正天花板，呼应 7/28 MCP final spec 判断。</li>
+        <li>备货 3 万 → 数十万台 + 469 元功能机搭载，厂商对「协议路线」的规模化信心远高于 GUI 演示路线。</li>
+      </ol>
+      <div class="src"><b>信源</b> 腾讯新闻早报 / 新立场 / 头条分析 + 厂商产品动作 <b>可信度</b> 多方交叉印证 · 中高</div>
+    </div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="signal embody">
+    <div class="sig-head">
+      <div class="sig-no">03</div>
+      <div class="sig-title">
+        <span class="sig-dir">具身智能 · 地缘边界</span>
+        <h3>美 FCC 禁止进口中国新款人形与四足机器人——拆解显示宇树 G1 毛利率超 60%</h3>
+      </div>
+    </div>
+    <div class="sig-body">
+      <h4>事件</h4>
+      <p>7 月 28 日美国 FCC 更新管制清单，即刻禁止进口中国产<strong>新款人形机器人、四足机器人及并网逆变器</strong>（存量在售暂保留但可随时撤销；日韩欧同类产品预计批量豁免），宇树科技首当其冲。7 月 29 日中国外交部回应坚决反对美方泛化国家安全概念。同期 SemiAnalysis 拆解显示宇树 G1 物料成本不足 9000 美元、毛利率超 60%；2025 年中国人形机器人出货量占全球 84.7%、前六席位均为中国企业。另据金融时报 7/29 采访，Meta CEO 扎克伯格公开反对封禁中国 AI 模型。</p>
+      <h4>为何值得关注</h4>
+      <ol>
+        <li><strong>具身智能首次成为地缘管制的直接标的</strong>——管制从芯片与模型延伸到「AI 的物理载体」，具身产业的战略地位被对手方正式确认。</li>
+        <li>拆解数据（BOM<$9000、毛利率>60%）说明禁令针对的不是安全漏洞而是<strong>成本-规模优势</strong>：美国能源部报告并未发现国产设备网络安全漏洞实证。</li>
+        <li>短期冲击有限（美国市场占比小、内需与多元出海缓冲），但<strong>规则性排除</strong>（豁免日韩欧、只卡中国）是否向欧盟扩散值得跟踪。</li>
+        <li>扎克伯格同日表态，显示美国产业界与监管层在「封禁 vs 竞争」上出现公开裂缝。</li>
+      </ol>
+      <div class="src"><b>信源</b> FCC 官方规则 + 外交部例行记者会 + 环球网/每经/SemiAnalysis <b>可信度</b> 权威+第三方拆解 · 高（拆解为估算）</div>
+    </div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="signal embody">
+    <div class="sig-head">
+      <div class="sig-no">04</div>
+      <div class="sig-title">
+        <span class="sig-dir">具身智能 · 政策路标</span>
+        <h3>七部门揭榜挂帅写下 2028 路标——四模态融合 96% 准确率 + 端侧世界模型工具链</h3>
+      </div>
+    </div>
+    <div class="sig-body">
+      <h4>事件</h4>
+      <p>《人民日报》7 月 30 日 11 版：工信部等七部门启动 2026 年工业和信息化领域创新任务揭榜挂帅，布局 6 方向 24 专题，未来产业方向单列「人形机器人与具身智能技术」专题。申报指南明确到 2028 年：具身多模态大模型实现<strong>视觉、语言、力触觉、本体状态等不少于四类模态协同融合</strong>、多场景感知识别准确率达 96% 以上；研制自主知识产权的<strong>端侧世界模型系统</strong>并形成完整开发与部署工具链。同日工信部副部长透露上半年人形机器人产量已超 4 万台、全年预计超 10 万台。</p>
+      <h4>为何值得关注</h4>
+      <ol>
+        <li>与 FCC 禁令同日形成<strong>「外压 + 内推」完整对照</strong>：对手划边界的同一天，国内把技术路标写进国家任务书。</li>
+        <li>「力触觉列为必选模态」与「端侧世界模型工具链」两个提法信号量极大——分别确认触觉（7/28 Being-H0.8、今日 Tacta）与世界模型（7/27 物理直觉共识）两条技术主线的国家级地位，且明确要求<strong>端侧部署</strong>。</li>
+        <li>上半年 4 万台、全年 10 万台的官方口径，把「从样机走向批量交付」从行业判断升格为部委确认。</li>
+      </ol>
+      <div class="src"><b>信源</b> 人民日报 + 新华社 + 工信部 <b>可信度</b> 权威一级 · 高</div>
+    </div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="signal embody">
+    <div class="sig-head">
+      <div class="sig-no">05</div>
+      <div class="sig-title">
+        <span class="sig-dir">具身智能 · 触觉硬件</span>
+        <h3>Tacta 发布 TactaBot 触觉机器人手——15 关节 + 力/温感知，软银参投 7500 万美元</h3>
+      </div>
+    </div>
+    <div class="sig-body">
+      <h4>事件</h4>
+      <p>7 月 30 日美国 Tacta Systems 推出 TactaBot 平台：集成机器人手、可穿戴数据采集系统与 AI 引擎，机器人手拥有 <strong>15 个独立驱动关节</strong>并配备可感知力度与温度的触觉传感器；计划 2027 年初部署至电子、AI 基础设施与汽车制造领域。已完成 7500 万美元融资，投资方含软银与丰田系 Woven Capital。</p>
+      <h4>为何值得关注</h4>
+      <ol>
+        <li>与 7/28 智在无界 Being-H0.8（隐式触觉世界模型·软件）、7/29 德塔 D1 头戴数采（数据）拼上第三块拼图——<strong>触觉的「硬件-数据-模型」三层栈一周内全部就位</strong>，中美同时押注。</li>
+        <li>「可穿戴采集 + 机器人手」复刻人类示教数据飞轮路径，验证「真机数据稀缺 → 穿戴采集」正成为行业标准解法。</li>
+        <li>软银 + 丰田 Woven 指向汽车制造场景，与国内车企扎堆造人形（7/28 已录）形成<strong>中美镜像：车厂是具身第一落地场</strong>。</li>
+        <li>恰与今日七部门指南「力触觉列为必选模态」互为印证——政策路标与资本投票同日指向触觉。</li>
+      </ol>
+      <div class="src"><b>信源</b> 至顶科技 / 腾讯新闻援引公司发布 <b>可信度</b> 厂商披露+融资事实 · 中高（2027 部署为计划）</div>
+    </div>
+  </article>
+
+  <!-- 编后 -->
+  <footer class="colophon">
+    <h3>编后 · 逻辑链与诚实声明</h3>
+    <ul>
+      <li><b>主线连续性</b>：7/24「可信化」→ 7/27「自主 vs 可控」→ 7/29「可控的自治」→ 今日「边界划定」——控制权问题从工程护栏上升到协议边界（MCP 授权）、政策边界（揭榜挂帅）与地缘边界（FCC 禁令）三个更硬的层面。</li>
+      <li><b>去重说明</b>：刻意避开 7/27–7/29 各班已锁条目（OpenAI×HF 失控系列、千问办公、Kimi K3、MCP final、Claude Code 大版本、智元 IPO、车企造人形、宇树 G1 登 Nature 等），仅收 7/30 当日新增与正式发酵信号。</li>
+      <li><b>诚实边界</b>：FCC 存量豁免执行细节、豆包手机最终形态、TactaBot 2027 部署均有变数；SemiAnalysis 拆解为第三方估算；本报不构成投资建议。</li>
+    </ul>
+    <div class="sign">
+      <span>SURVEYED & DRAFTED BY 雷雷 ⚡ FOR 通通</span>
+      <span class="seal">审图 · 2026-07-30 09:16</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
