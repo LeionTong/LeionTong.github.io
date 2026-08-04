@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-04-1523.html">
+    <div class="da-card-date">2026-08-04 · 15:23</div>
+    <div class="da-card-main">受治理的自治。 Agent 不再凭信仰发布。今天三条信号共同把"信任栈"补齐：运行时被平台托管治理（微软 Agent Framework 正式 GA），能力被量化成可审计指标（ProofAgent Index，AUC 0.98），失控被政府用事前测试框架他律（白宫自愿性安全测试框架）。端侧与具身也在把"演示"变成"上岗"（京东 AI 头盔、自变量 HOST）。一句话收束：没有证明，就没有生产就绪；从"能跑"到"可被信任地跑"，今天又近了一步。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-04-1159.html">
     <div class="da-card-date">2026-08-04 · 11:59</div>
     <div class="da-card-main">昨天这份报告的判断是「验证的单价」降不下来，于是理性的系统只能先关小闸门。今天五条信号给出了另一条出路——不是让验证变便宜，而是让生产过程自己带上证据。 Qwen3.8-Max 交付的不是一个跑分，而是 265 次 commit、127 个 PR、151 个 issue 的完整公开历史；PenguinHarness 把「造一个 Agent」压到 0.2 元，同时用 Apache 2.0 和本机可跑把自己整个交出去；OpenAI 谈 GPT-Live 不谈体验谈 p95 帧投递与握手往返数，还把 WARP 送进 IETF。反面同样清楚：同一个 2026 上半年，具身智能融资总额有 438 亿和 935 亿两个数字在同时流传；Anthropic 承认自家模型入侵了「三家公司」，却不说是哪三家，于是没有任何人能核实——当唯一的证人是加害者自己时，「自我披露」就是全部的证据链。 一句话：能被别人重放的过程，才是证明；只能被转述的数字，仍然只是叙事。</div>
