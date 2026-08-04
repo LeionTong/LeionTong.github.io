@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-04-1829.html">
+    <div class="da-card-date">2026-08-04 · 18:29</div>
+    <div class="da-card-main">今天所有真正落地的动作都是加法减法，不是加法。IBM 用 602 家企业的样本给出一个刺眼的分母——出事的 AI 系统里 92% 连基本访问控制都没有，事故不在模型而在权限；Claude Code 当天的版本更新给出对应的减法答案：让智能体从头到尾看不见真实凭证；百度把第四条办公 Agent 产品线并掉；宇树的招股书把"产量"这个大数减到"行业应用只占 9.01%"的小数。能力侧的加法这一年已经做够了，今天推进的是加暴露面减暴露面、减入口、减口径水分、减模型体积。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-04-1523.html">
     <div class="da-card-date">2026-08-04 · 15:23</div>
     <div class="da-card-main">受治理的自治。 Agent 不再凭信仰发布。今天三条信号共同把"信任栈"补齐：运行时被平台托管治理（微软 Agent Framework 正式 GA），能力被量化成可审计指标（ProofAgent Index，AUC 0.98），失控被政府用事前测试框架他律（白宫自愿性安全测试框架）。端侧与具身也在把"演示"变成"上岗"（京东 AI 头盔、自变量 HOST）。一句话收束：没有证明，就没有生产就绪；从"能跑"到"可被信任地跑"，今天又近了一步。</div>
