@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-05 下午班 · 谁替机器签字</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1416;
+  --panel:#151E20;
+  --panel2:#1B2528;
+  --panel3:#212C2F;
+  --rule:#2B3A3D;
+  --seal:#C0492F;
+  --seal-lt:#E0593E;
+  --seal-dk:#82311E;
+  --sig-red:#D6483B;
+  --sig-amber:#E3A22C;
+  --sig-green:#43A96D;
+  --sig-blue:#4F8FB8;
+  --ivory:#EFE9DC;
+  --muted:#8E9C9A;
+  --dim:#63736F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:
+    radial-gradient(1100px 600px at 10% -8%, rgba(192,73,47,.10), transparent 60%),
+    radial-gradient(900px 520px at 92% 6%, rgba(79,143,184,.07), transparent 60%),
+    var(--ink);
+  color:var(--ivory);
+  font-family:"Noto Sans SC",sans-serif;
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 90px;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 26px}
+
+/* ============ 落款台页首 ============ */
+.plate{
+  position:relative;
+  margin-top:44px;
+  background:linear-gradient(178deg,var(--panel2) 0%, var(--panel) 100%);
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:34px 40px 30px;
+  box-shadow:0 26px 60px -30px rgba(0,0,0,.9), inset 0 1px 0 rgba(224,89,62,.07);
+  overflow:hidden;
+  animation:rise .8s cubic-bezier(.2,.7,.3,1) both;
+}
+.plate::before{
+  content:"";position:absolute;inset:9px;border:1px solid rgba(192,73,47,.22);border-radius:2px;pointer-events:none;
+}
+.plate::after{
+  content:"印";position:absolute;right:26px;top:22px;width:62px;height:62px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif SC",serif;font-weight:700;font-size:30px;color:rgba(224,89,62,.30);
+  border:2px solid rgba(224,89,62,.28);
+  transform:rotate(-8deg);
+  pointer-events:none;
+}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.34em;
+  color:var(--seal-lt);text-transform:uppercase;margin-bottom:14px;
+}
+h1{
+  font-family:"Big Shoulders Display","Noto Sans SC",sans-serif;
+  font-weight:900;font-size:clamp(40px,7.2vw,74px);line-height:.94;
+  letter-spacing:.012em;color:var(--ivory);text-transform:uppercase;
+}
+h1 .cn{display:block;font-family:"Noto Sans SC",sans-serif;font-weight:700;
+  font-size:clamp(19px,2.5vw,26px);letter-spacing:.14em;line-height:1.5;
+  color:var(--seal-lt);margin-top:12px;text-transform:none;}
+.meta{
+  display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;color:var(--muted);
+}
+.meta span{border:1px solid var(--rule);padding:4px 11px;border-radius:2px;background:rgba(0,0,0,.22)}
+.meta span b{color:var(--seal-lt);font-weight:500}
+
+/* ============ 主线：落款裁定 ============ */
+.lede{
+  position:relative;margin-top:26px;
+  background:linear-gradient(172deg,rgba(192,73,47,.11),rgba(192,73,47,.03) 55%,transparent);
+  border:1px solid rgba(192,73,47,.42);
+  border-left:5px solid var(--seal);
+  border-radius:3px;padding:28px 34px 30px;
+  animation:rise .9s .1s cubic-bezier(.2,.7,.3,1) both;
+}
+.lede .lbl{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  letter-spacing:.28em;color:#fff;background:var(--seal);
+  padding:4px 12px;border-radius:2px;margin-bottom:16px;font-weight:600;
+}
+.lede p{
+  font-size:16.5px;line-height:2.02;color:#F3EFE4;font-weight:400;
+}
+.lede p b{color:var(--seal-lt);font-weight:700}
+.lede::after{
+  content:"章";position:absolute;right:22px;top:22px;width:40px;height:40px;border-radius:5px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif SC",serif;font-weight:700;font-size:21px;color:rgba(224,89,62,.55);
+  border:2px solid rgba(224,89,62,.30);transform:rotate(-7deg);
+  animation:stamp 3.6s ease-in-out infinite;
+}
+@keyframes stamp{0%,100%{opacity:.4;transform:rotate(-7deg) scale(.96)}50%{opacity:1;transform:rotate(-7deg) scale(1)}}
+
+/* ============ 签章带 ============ */
+.frame{
+  margin-top:30px;background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:24px 26px 18px;animation:rise .9s .2s cubic-bezier(.2,.7,.3,1) both;
+}
+.frame-hd{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.24em;color:var(--dim);
+  text-transform:uppercase;margin-bottom:6px;
+}
+.frame-hd b{color:var(--seal-lt);font-weight:600}
+.frame svg{width:100%;height:auto;display:block}
+.frame-ft{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;color:var(--dim);
+  margin-top:8px;text-align:center;
+}
+
+/* ============ 信号卡片 ============ */
+.sec-label{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.3em;color:var(--dim);
+  text-transform:uppercase;margin:46px 0 16px;display:flex;align-items:center;gap:14px;
+}
+.sec-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--rule),transparent)}
+
+.card{
+  position:relative;background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  margin-bottom:22px;padding:30px 34px 28px;overflow:hidden;
+  animation:rise .85s cubic-bezier(.2,.7,.3,1) both;
+}
+.card:nth-of-type(1){animation-delay:.06s}
+.card:nth-of-type(2){animation-delay:.14s}
+.card:nth-of-type(3){animation-delay:.22s}
+.card:nth-of-type(4){animation-delay:.30s}
+.card:nth-of-type(5){animation-delay:.38s}
+.card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--seal));
+}
+.card::after{
+  content:"";position:absolute;right:-70px;top:-70px;width:190px;height:190px;border-radius:50%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--c,var(--seal)) 16%, transparent), transparent 68%);
+  pointer-events:none;
+}
+.c-red{--c:var(--sig-red)}
+.c-amber{--c:var(--sig-amber)}
+.c-brass{--c:var(--seal)}
+.c-green{--c:var(--sig-green)}
+.c-blue{--c:var(--sig-blue)}
+
+.chd{display:flex;align-items:flex-start;gap:18px;margin-bottom:6px}
+.seal-no{
+  flex:none;width:52px;height:52px;border-radius:6px;
+  background:linear-gradient(178deg,var(--panel3),var(--panel2));
+  border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif SC",serif;font-weight:700;font-size:25px;color:var(--c,var(--seal));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  transform:rotate(-3deg);
+}
+.ctitle{flex:1}
+.tagrow{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:9px}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  padding:3px 9px;border-radius:2px;border:1px solid color-mix(in srgb, var(--c,var(--seal)) 45%, var(--rule));
+  color:var(--c,var(--seal));background:color-mix(in srgb, var(--c,var(--seal)) 9%, transparent);
+}
+.tag.plain{color:var(--muted);border-color:var(--rule);background:rgba(0,0,0,.2)}
+h2{
+  font-family:"Noto Sans SC",sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,23.5px);
+  line-height:1.5;color:var(--ivory);letter-spacing:.005em;
+}
+.sign-cell{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.14em;
+  color:#fff;background:var(--c,var(--seal));padding:2px 8px;border-radius:2px;
+  margin-top:12px;font-weight:600;
+}
+
+.body{margin-top:18px}
+.body h3{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--c,var(--seal));margin:20px 0 9px;display:flex;align-items:center;gap:10px;
+}
+.body h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb, var(--c,var(--seal)) 32%, transparent),transparent)}
+.body p{font-size:14.6px;line-height:1.95;color:#DCD7CB;margin-bottom:11px}
+.body ul{list-style:none;margin:0 0 11px}
+.body li{
+  font-size:14.4px;line-height:1.92;color:#D3CEC2;padding-left:19px;position:relative;margin-bottom:8px;
+}
+.body li::before{
+  content:"";position:absolute;left:2px;top:11px;width:7px;height:1px;background:var(--c,var(--seal));
+}
+.body b{color:var(--seal-lt);font-weight:600}
+.body em{font-style:normal;color:var(--sig-amber);font-weight:500}
+.num{font-family:"IBM Plex Mono",monospace;font-size:13.4px;color:#F0EADC;font-weight:500}
+
+.caution{
+  margin-top:16px;background:rgba(214,72,59,.055);border:1px solid rgba(214,72,59,.3);
+  border-radius:3px;padding:16px 20px 14px;
+}
+.caution h3{color:var(--sig-red);margin-top:0}
+.caution h3::after{background:linear-gradient(90deg,rgba(214,72,59,.3),transparent)}
+.caution li::before{background:var(--sig-red)}
+
+.src{
+  margin-top:16px;padding-top:13px;border-top:1px dashed var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:11px;line-height:1.8;color:var(--dim);
+  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+}
+.src .lbl{color:var(--seal-lt);letter-spacing:.18em}
+.src .grade{
+  margin-left:auto;border:1px solid var(--rule);padding:2px 9px;border-radius:2px;
+  color:var(--ivory);background:rgba(0,0,0,.28);letter-spacing:.1em;
+}
+
+/* ============ 链条 ============ */
+.chain{
+  margin-top:44px;background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:30px 34px;
+}
+.chain h3{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.26em;color:var(--seal-lt);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.chain p{font-size:14.6px;line-height:1.95;color:#DCD7CB;margin-bottom:12px}
+.chain b{color:var(--seal-lt);font-weight:600}
+.track{
+  display:flex;flex-wrap:wrap;gap:0;align-items:center;margin:18px 0 20px;
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+}
+.blk{
+  border:1px solid var(--rule);padding:5px 10px;color:var(--dim);background:rgba(0,0,0,.2);
+  border-radius:2px;margin:3px 0;
+}
+.blk.now{border-color:var(--seal);color:#fff;background:var(--seal);font-weight:600}
+.jnt{width:14px;height:1px;background:var(--rule)}
+
+footer{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;line-height:2;color:var(--dim);
+  text-align:center;letter-spacing:.06em;
+}
+
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes drop{
+  0%{transform:translateY(-30px) scale(1.25);opacity:0}
+  60%{transform:translateY(0) scale(1);opacity:1}
+  100%{transform:translateY(0) scale(1);opacity:1}
+}
+.seal-drop{transform-box:fill-box;transform-origin:center;animation:drop .9s cubic-bezier(.34,1.4,.5,1) both}
+
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .plate{padding:26px 22px 24px}
+  .lede{padding:22px 20px 24px}
+  .card{padding:24px 20px 22px}
+  .chd{gap:13px}
+  .src .grade{margin-left:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="plate">
+    <div class="kicker">Signing Desk · 落款事务所　//　WHO SIGNS FOR THE MACHINE</div>
+    <h1>Who Signs<br>for the Machine
+      <span class="cn">AI 领域每日动态 · 2026-08-05 下午班</span>
+    </h1>
+    <div class="meta">
+      <span>发车 <b>15:09 GMT+8</b></span>
+      <span>信号 <b>5 条</b></span>
+      <span>方向 <b>AI Agent / 终端与端侧 / 具身智能</b></span>
+      <span>收录窗口 <b>08-05 晨 → 08-05 午后</b></span>
+      <span>已避重 <b>早班 5 条 + 8/04 三班 15 条</b></span>
+    </div>
+  </header>
+
+  <section class="lede">
+    <span class="lbl">今日主线 · WHO SIGNS FOR THE MACHINE</span>
+    <p>今天五条信号问的是同一个问题：<b>机器行动之后，签字的人是谁</b>。中消协给出中国监管侧迄今最明确的一次定性——AI 客服不具备独立承担民事责任的主体资格，但它说出口的话属于经营者提供服务的组成部分，所以经营者签字，并且必须留一条畅通的人工通道；Cloudflare 从工程侧给出另一个答案——给 Agent 发一个"委托身份"和一只带硬额度的虚拟钱包，签字权仍留在账户主人手里，而额度在网络层强制、不在提示词层劝阻。与之相对的两端是：Liquid AI 让 2.6B 模型完整跑在手机上，索性没有第三方在场可签；具身赛道则集体排队走向招股书——那是必须签字担责的文件。而 Snyk 的普查数据给出了这一切的分母：一半企业连自己模型的数据从哪来都说不清，真要签字时，笔下是空白。</p>
+  </section>
+
+  <section class="frame">
+    <div class="frame-hd">
+      <span>Wax-Seal Strip · 签章带　//　五条信号，五种落款</span>
+      <span><b>05 号章已落 · IPO 招股书</b></span>
+    </div>
+    <svg viewbox="0 0 1000 250" role="img" aria-label="签章带示意图：五枚朱砂印章分别代表五条信号的落款状态">
+      <defs>
+        <radialgradient id="waxG" cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stop-color="#E0593E"/><stop offset="52%" stop-color="#C0492F"/><stop offset="100%" stop-color="#6E2818"/>
+        </radialgradient>
+        <radialgradient id="waxB" cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stop-color="#6FB0D6"/><stop offset="52%" stop-color="#4F8FB8"/><stop offset="100%" stop-color="#2C5570"/>
+        </radialgradient>
+        <radialgradient id="waxG2" cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stop-color="#73C79A"/><stop offset="52%" stop-color="#43A96D"/><stop offset="100%" stop-color="#246B45"/>
+        </radialgradient>
+        <radialgradient id="waxA" cx="38%" cy="32%" r="72%">
+          <stop offset="0%" stop-color="#F0BE5C"/><stop offset="52%" stop-color="#E3A22C"/><stop offset="100%" stop-color="#9A6B12"/>
+        </radialgradient>
+      </defs>
+
+      <line x1="40" y1="40" x2="960" y2="40" stroke="#2B3A3D" stroke-width="1"/>
+      <text x="40" y="28" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="2" fill="#63736F">FIVE ACTS · FIVE SIGNATORIES</text>
+
+      <!-- 1 经营者担责 · 红 -->
+      <g class="seal-drop" style="animation-delay:.3s">
+        <circle cx="110" cy="120" r="36" fill="url(#waxG)" stroke="#E0593E" stroke-width="1.5"/>
+        <circle cx="110" cy="120" r="27" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+        <text x="110" y="130" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="26" font-weight="700" fill="#fff">责</text>
+      </g>
+      <!-- 2 账户主人委托 · 蓝 -->
+      <g class="seal-drop" style="animation-delay:.45s">
+        <circle cx="290" cy="120" r="36" fill="url(#waxB)" stroke="#6FB0D6" stroke-width="1.5"/>
+        <circle cx="290" cy="120" r="27" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+        <text x="290" y="130" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="26" font-weight="700" fill="#fff">委</text>
+      </g>
+      <!-- 3 笔下空白 · 朱（哑） -->
+      <g class="seal-drop" style="animation-delay:.6s">
+        <circle cx="470" cy="120" r="36" fill="url(#waxG)" stroke="#E0593E" stroke-width="1.5" opacity=".55"/>
+        <circle cx="470" cy="120" r="27" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <text x="470" y="130" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="26" font-weight="700" fill="rgba(255,255,255,.7)">空</text>
+      </g>
+      <!-- 4 无第三方 · 绿 -->
+      <g class="seal-drop" style="animation-delay:.75s">
+        <circle cx="650" cy="120" r="36" fill="url(#waxG2)" stroke="#73C79A" stroke-width="1.5"/>
+        <circle cx="650" cy="120" r="27" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+        <text x="650" y="130" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="26" font-weight="700" fill="#fff">无</text>
+      </g>
+      <!-- 5 招股书必须签 · 琥珀（已落章） -->
+      <g class="seal-drop" style="animation-delay:.9s">
+        <circle cx="830" cy="120" r="38" fill="url(#waxA)" stroke="#F0BE5C" stroke-width="2"/>
+        <circle cx="830" cy="120" r="28" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+        <text x="830" y="130" text-anchor="middle" font-family="Noto Serif SC, serif" font-size="26" font-weight="700" fill="#fff">签</text>
+      </g>
+
+      <!-- 铭牌 -->
+      <g font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle" letter-spacing="1">
+        <rect x="58" y="186" width="104" height="24" rx="2" fill="#1B2528" stroke="#2B3A3D"/>
+        <text x="110" y="202" fill="#D6483B">经营者签字</text>
+        <rect x="238" y="186" width="104" height="24" rx="2" fill="#1B2528" stroke="#2B3A3D"/>
+        <text x="290" y="202" fill="#4F8FB8">账户主人委托</text>
+        <rect x="418" y="186" width="104" height="24" rx="2" fill="#1B2528" stroke="#2B3A3D"/>
+        <text x="470" y="202" fill="#E0593E">笔下空白</text>
+        <rect x="598" y="186" width="104" height="24" rx="2" fill="#1B2528" stroke="#2B3A3D"/>
+        <text x="650" y="202" fill="#43A96D">无第三方在场</text>
+        <rect x="778" y="186" width="104" height="24" rx="2" fill="#C0492F" stroke="#E0593E"/>
+        <text x="830" y="202" fill="#fff" font-weight="600">招股书必签</text>
+      </g>
+    </svg>
+    <div class="frame-ft">同一条「谁签字」主线，落款处却写着五种答案——有的已落章，有的还空着</div>
+  </section>
+
+  <div class="sec-label">Signals of the Day · 当班信号</div>
+
+  <article class="card c-red">
+    <div class="chd">
+      <div class="seal-no">责</div>
+      <div class="ctitle">
+        <div class="tagrow">
+          <span class="tag">AI Agent · 责任归属</span>
+          <span class="tag plain">一级官方</span>
+          <span class="tag plain">可信度 高</span>
+        </div>
+        <h2>中消协点名 AI 客服三大问题，并首次明确"机器说的话由经营者担责"</h2>
+        <span class="sign-cell">落款状态：经营者签字 + 必须留人工通道</span>
+      </div>
+    </div>
+    <div class="body">
+      <h3>事件内容</h3>
+      <p>中国消费者协会 <span class="num">8 月 5 日</span>发布《2026 年上半年全国消协组织受理投诉情况分析》。总量：上半年共受理投诉 <span class="num">985,928 件</span>（同比 −1.01%），解决 567,926 件，挽回经济损失 <span class="num">4.47 亿元</span>。在五大投诉热点中，"AI 客服应用场景扩大，服务承诺和人工接入问题突出"列首位，归纳为三类：</p>
+      <ul>
+        <li><b>转人工机制不畅</b>——以循环应答、多层跳转延缓或阻碍进入人工，退货退款、责任认定等复杂问题无法及时处理；</li>
+        <li><b>不实承诺</b>——AI 就费用、优惠、售后明确承诺，经营者事后以"AI 回答不代表公司立场""算法生成内容无法律效力"拒履；</li>
+        <li><b>生成内容失准</b>——在机票退改、法律维权、金融服务等场景误导决策。</li>
+      </ul>
+      <p><b>最关键的法律定性：</b>AI 客服本身虽不具独立民事责任主体资格，但其系经营者部署并应用于经营服务的重要工具，输出内容属于经营者提供服务的组成部分；提供 AI 客服的经营者应同时建立畅通、便捷的人工客服转接机制。刺目案例：6 月 23 日一家三口被智能门锁锁在门外（含 6 月大婴儿需进屋喝奶），始终只能接 AI 客服、等约 50 分钟自付 100 元请人开锁；二手车平台"小瓜"承诺 28,700 元已含过户费，付款后销售仍要求另付 1,000 元。</p>
+      <h3>值得关注的原因</h3>
+      <ul>
+        <li><b>中国消保体系第一次把"AI 输出的责任归属"作为热点正面定性</b>，而非停在技术伦理讨论。两条硬边界：Agent 的承诺等于企业的承诺（"AI 说的不算数"的免责话术被明确否定）；人工出口从体验问题升格为合规要求。</li>
+        <li><b>与早班主线"人类还在的那一格"在相反方向上撞车</b>：产业侧想拆掉人工客服省成本，监管侧正把它钉回去。</li>
+        <li>门锁案例揭示被低估的风险面：当 AI 客服部署在<b>端侧/具身硬件</b>售后链路上，故障往往是物理的、有时限的——被锁门外的婴儿等不了多层菜单。</li>
+      </ul>
+      <div class="caution">
+        <h3>需要冷静的地方</h3>
+        <ul>
+          <li>这是消协投诉分析与意见，<b>不是司法解释、也没有罚则</b>，执行力依赖后续监管跟进与个案裁判；"畅通、便捷"无量化标准（几秒接入、几层菜单、是否必须人工电话）。</li>
+          <li>投诉总量同比还降 1.01%，通报<b>未披露</b> AI 客服细分投诉的绝对数量与占比，只能判断"趋势增多"，无法判断分位。</li>
+        </ul>
+      </div>
+      <div class="src">
+        <span class="lbl">SOURCE</span>
+        <span>中国消费者协会 8/5 通报 · 中新网 / 北京日报 / 中国消费者报多源一致</span>
+        <span class="grade">一级官方</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card c-blue">
+    <div class="chd">
+      <div class="seal-no">委</div>
+      <div class="ctitle">
+        <div class="tagrow">
+          <span class="tag">AI Agent · 身份与支付基建</span>
+          <span class="tag plain">一级官方首发</span>
+          <span class="tag plain">可信度 高</span>
+        </div>
+        <h2>Cloudflare 发布 Wallets 与 cloudflare.pay：给 Agent 发"委托身份"和带硬额度的钱包</h2>
+        <span class="sign-cell">落款状态：账户主人委托签字（额度网络层强制）</span>
+      </div>
+    </div>
+    <div class="body">
+      <h3>事件内容</h3>
+      <p>Cloudflare 于 <span class="num">8 月 4 日</span>发布 <b>Cloudflare Wallets</b> 与 <b>cloudflare.pay</b>。官方描述很直白：Agent 想试用新 API，常要穿过为人类设计的登录页、找人类加支付方式、生成 Key——因为它既无稳定身份标识、也无原生支付能力，于是干脆把注册付款交还人类。结构分两层：</p>
+      <ul>
+        <li><b>Account Wallet（账户钱包）：</b>给持有 Cloudflare 账户的人类，负责充值、提现、向下委托额度、设定策略；</li>
+        <li><b>Virtual Wallet（虚拟钱包）：</b>发给 Agent，靠 API Key 运作，只能在账户主人授予权限内花钱。护栏三硬约束：<b>额度上限（allowance）、商户白名单（allow list）、单笔上限（max transaction size）</b>，超限需向有权限的人类申请人工放行。</li>
+      </ul>
+      <p>支付轨道是 <b>x402</b>——借 HTTP 402 把付款要求附在请求上、以稳定币结算的开放协议（Coinbase 主导，Cloudflare 2025/9 与其共发起 x402 Foundation），与 7/1 卖方侧 <b>Monetization Gateway</b> 配套，凑齐机器对机器双边市场。身份侧，cloudflare.pay 让 Agent 选择性披露替谁行动（如 <span class="num">research.example.cloudflare.pay</span>），其身份本质是"账户的委托（delegate）"。现状：即日起抢注 handle，充值/收款/虚拟钱包等"后续数月陆续开放"。</p>
+      <h3>值得关注的原因</h3>
+      <ul>
+        <li><b>额度约束落网络层，而非提示词层。</b>这是对今年一连串 Agent 越界事故（含早班 AISI 122 测 19 起越权）最直接的架构回应：提示词会被注入/越狱/社会工程，但一只余额 10 美元的钱包在 CDN 层被强制，Agent 再会说服人也变不出第 11 美元。<em>把治理从"劝阻"改成"物理上做不到"，是今年 Agent 安全最重要的思路转向之一。</em></li>
+        <li><b>用"委托链"给"谁签字"提供工程答案</b>：身份不是发给 Agent 的独立护照，而是账户主人印章的分身——追责天然回到人类账户。与中消协那条"AI 输出属经营者服务组成部分"在法理与工程两侧同构。</li>
+        <li><b>咽喉位置的软性合规压力</b>：Cloudflare 处约 20% 全球流量前，若商户对"披露身份的 Agent"给更宽速率/更好价格，未披露者会结构性吃亏。</li>
+      </ul>
+      <div class="caution">
+        <h3>需要冷静的地方</h3>
+        <ul>
+          <li><b>路线图先行</b>：目前真正开放的只有 handle 抢注，实际支付能力未上线，宣传能力与可用能力要分开看；稳定币结算各地监管差异大，中国大陆用户尤需注意合规边界。</li>
+          <li><b>新的集中化风险</b>：为解决 Agent 信任，正把其身份与商业信誉托付给单一网络中介——而这次的中介恰好也是能看到你全部流量的那一个。</li>
+          <li><b>如实标注</b>：Cloudflare 本日第二次进入本报告（早班为 ADLC / Agent Traces），属不同产品线，仍予收录，但提醒其"Birthday Week 式集中发布"节奏因素，非行业均匀分布。</li>
+        </ul>
+      </div>
+      <div class="src">
+        <span class="lbl">SOURCE</span>
+        <span>blog.cloudflare.com（官方）· 8/4 发布 · 含 x402 Foundation / Monetization Gateway 配套说明</span>
+        <span class="grade">一级 · 官方</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card c-brass">
+    <div class="chd">
+      <div class="seal-no">空</div>
+      <div class="ctitle">
+        <div class="tagrow">
+          <span class="tag">AI Agent · 治理与可审计</span>
+          <span class="tag plain">一级厂商报告</span>
+          <span class="tag plain">可信度 中高</span>
+        </div>
+        <h2>Snyk 普查 139 万个仓库：企业只看得见自己 AI 足迹的三分之一</h2>
+        <span class="sign-cell">落款状态：笔下空白，连签什么都还不知道</span>
+      </div>
+    </div>
+    <div class="body">
+      <h3>事件内容</h3>
+      <p>Snyk 于 <span class="num">8 月 3 日</span>发布《2026 State of Agentic AI Adoption》第二卷。与多数问卷式报告不同，数据来自 <b>3,044 个企业账户、约 139 万个代码仓库的 AI-BOM 扫描</b>（2026/6 分析），测的是代码里实际有什么，而非安全负责人相信自己有什么。核心发现：</p>
+      <ul>
+        <li><b>模型清单仅覆盖真实 AI 足迹约 1/3</b>：仓库均值模型 0.080/仓库，全部 AI 组件 0.241/仓库，真实足迹约 <b>3 倍</b>（差额是 agent 框架、MCP server、检索系统、向量库、数据集与配套工具），该倍数在每区域均成立；</li>
+        <li><b>智能体架构加速下沉</b>：组织渗透率 28.4% → <b>33.0%</b>（"有任何 AI 资产"的组织中达 46.9%）；采纳者内"agent 框架 + MCP server 全栈"比例 36% → <b>50.3%</b>；</li>
+        <li><b>数据血缘最弱</b>：至少部署一个模型的账户中，仅 <b>50.8%</b> 在仓库声明数据集（约 0.36 数据集/模型），即约一半组织无法把生产模型与训练数据在代码层连起来；</li>
+        <li>供应链高度外部化：77.4% AI 工具来自第三方（第三方:自建 ≈ 3.4:1）；OpenAI 占比 43.6% → 34.0%，Anthropic 3.5% → 10.5%，前四仍约 71%。</li>
+      </ul>
+      <p>CTO Manoj Nair 原话："模型是可见的尖端，组合才是冰山。每个安全负责人都能告诉我们哪些模型被批准了，几乎没人能告诉我们<b>是什么在调用这些模型、那些系统能到哪些数据、它们拿权限在做什么</b>。"</p>
+      <h3>值得关注的原因</h3>
+      <ul>
+        <li><b>这条是今天另外四条的分母。</b> Cloudflare 可发委托身份、中消协可判经营者担责、Liquid AI 可让模型下沉手机——但落到具体组织，若连"我有多少个非人类执行体在跑、能碰什么数据"都差着三倍，那么无论法理还是工程的"签字"，签的都是内容不明的文件。<em>签字的前提是知道自己签的是什么。</em></li>
+        <li>那个 <b>50.8% 血缘数字</b>尤其值得留意：它意味着一半组织被问"你这模型为何这么答"时，代码层给不出溯源路径，在审计/事故响应/合规三场景都会变成不可回答的问题。合理推论：AI-BOM 很可能沿 Log4Shell 后 SBOM 的轨迹，从"看板"变采购硬门槛——先能盘点，才谈得上治理。</li>
+      </ul>
+      <div class="caution">
+        <h3>需要冷静的地方</h3>
+        <ul>
+          <li><b>安全厂商基于自家客户数据的研究</b>，商业动机客观存在（服务于其 AI-BOM 与 Evo 平台叙事）；样本天然偏向"已在做安全扫描"的组织，百分比不宜直接外推全行业。</li>
+          <li>"3 倍"是<b>组件计数口径</b>，不等于风险量级 3 倍：向量库与前沿模型风险权重不同；"财富 500 强非人类身份半年增长约 480%"由厂商单方给出、未公布方法论，本报告不予采信。</li>
+        </ul>
+      </div>
+      <div class="src">
+        <span class="lbl">SOURCE</span>
+        <span>Snyk 官方 PDF 全文 · 8/3 发布 · 含 3,044 账户 / 139 万仓库 AI-BOM 扫描口径</span>
+        <span class="grade">一级 · 厂商报告</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card c-green">
+    <div class="chd">
+      <div class="seal-no">无</div>
+      <div class="ctitle">
+        <div class="tagrow">
+          <span class="tag">终端与端侧</span>
+          <span class="tag plain">一级官方首发</span>
+          <span class="tag plain">可信度 高</span>
+        </div>
+        <h2>Liquid AI 发布 LFM2.5-2.6B：一台手机就能跑完整 Agent 回路</h2>
+        <span class="sign-cell">落款状态：无第三方在场，无可签</span>
+      </div>
+    </div>
+    <div class="body">
+      <h3>事件内容</h3>
+      <p>Liquid AI 于 <span class="num">8 月 4 日</span>发布 <b>LFM2.5-2.6B</b>（同时开放 Base），开源权重上架 Hugging Face，标题即《Deploy Agents Everywhere》。</p>
+      <ul>
+        <li><b>训练：</b>约 <b>34 万亿 token</b> 预训练 + 128K 长上下文扩展；后训四步（教师 SFT、教师特化学习、多域 on-policy 蒸馏、<b>真实 agent harness 内强化学习</b>），官方点名 harness：<b>OpenClaw、Hermes Agent</b>——在真实工具调用环境里训，而非喂合成轨迹；</li>
+        <li><b>架构：</b>以短卷积为主、辅以选择性注意力（LIV convolutions），每 token 维持常数状态，<b>消除 KV cache 开销</b>——小内存设备稳定长跑的关键；</li>
+        <li><b>速度/体积：</b>Apple M5 Max <b>220 tok/s</b>、Ryzen AI Max+ 395 113 tok/s、<b>手机 30 tok/s</b>，内存 <b>< 2.5 GB</b>；H100 单卡高并发近 <b>15,000 output tok/s</b>（约每天 13 亿 token）；</li>
+        <li><b>基准：</b>对手为 5.1B–9.7B 模型，它是最小但指令遵循（IFBench 59.17 / Multi-IF 80.07 / IFStruct 85.49）与工具使用（ToolSandbox 77.83、BFCLv4 56.88 仅次 Qwen3.5-9B）全线第一；<b>编程是唯一仍由更大模型保持优势的领域</b>（LiveCodeBench v6 59.41 落后 Qwen3.5-9B 的 69.86）。HF 近月下载 47,393。</li>
+      </ul>
+      <h3>值得关注的原因</h3>
+      <ul>
+        <li><b>它把"谁签字"绕开了。</b> 当够用的 Agent 完全跑在设备上、不连任何云 API，就既不需 Cloudflare 发钱包，也不产生可供第三方审计的云端账本——<em>没有第三方在场，也就没有第三方可签字</em>。既是隐私解放，也是治理盲区，恰好呼应 Snyk"看不见的三分之二"：端侧 Agent 天然不在任何人的清单里。</li>
+        <li><b>成本模型翻转：</b>约束从"每 token 花多少"变成"本地跑多快"，后台常驻 Agent 边际成本趋零——可让它一直醒着、反复重试、大量并行思考，而不必为每次调用心疼。</li>
+        <li><b>训练环境选择本身是个信号：</b>在 OpenClaw、Hermes Agent 这类真实 harness 里做 RL，意味着厂商开始把"能否在真实工具链跑通"当训练目标而非事后评测——对本机已在用 OpenClaw 一类工具链的人，这条有直试性。</li>
+      </ul>
+      <div class="caution">
+        <h3>需要冷静的地方</h3>
+        <ul>
+          <li><b>所有性能数字均来自厂商自测</b>，且对手采样参数由 Liquid AI 自设（脚注承认对 Qwen 用 temperature 0.6，因贪心解码会触发其 doom looping），跨厂商对比天然有利于发布方，待第三方复现更稳。</li>
+          <li>"手机 30 tok/s"未标机型/散热/续航代价；<b>功耗与发热恰恰是端侧常驻 Agent 真实瓶颈</b>——今日《科创板日报》同题报道中，业内给的三大未跨越障碍正是续航、隐私安全、生态协同。</li>
+          <li>编程能力明显落后更大模型，决定它目前更适合工具调用与流程编排，而非把 coding agent 整体搬本地。</li>
+        </ul>
+      </div>
+      <div class="src">
+        <span class="lbl">SOURCE</span>
+        <span>liquid.ai/blog/lfm2-5-2-6b（官方）+ Hugging Face 模型卡 · 8/4 · 数据交叉核实</span>
+        <span class="grade">一级 · 官方</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card c-amber">
+    <div class="chd">
+      <div class="seal-no">签</div>
+      <div class="ctitle">
+        <div class="tagrow">
+          <span class="tag">具身智能 · 资本化</span>
+          <span class="tag plain">二级彭博 + 一级公开</span>
+          <span class="tag plain">可信度 中</span>
+        </div>
+        <h2>具身智能集体走向招股书：智平方传赴港 IPO，同日宇树开启科创板询价</h2>
+        <span class="sign-cell">落款状态：招股书必须签字担责（本期落点）</span>
+      </div>
+    </div>
+    <div class="body">
+      <h3>事件内容</h3>
+      <p><span class="num">8 月 5 日</span>，据彭博援引知情人士，具身智能公司<b>智平方</b>正考虑赴港 IPO，已聘投行顾问筹备，最快可能 <b>2027 年</b>启动；<b>智平方官方暂未回应</b>。智平方 2023 成立，创始人兼 CEO 郭彦东（微软 AI → 小鹏 → OPPO 首席科学家）；融资极快：2026/2 B 轮超 10 亿、投后估值超百亿，6 月再获近 50 亿、估值超 200 亿；技术侧自研 AlphaBrain / GOVLA，与北大推 Video2Act，4 月开源 NeuroVLA；产能侧单月百台、称年产千台、2026 扩产万台，与惠科签 3 年 1000 台订单（摩通称全球最大单一订单）。</p>
+      <p><b>同日其他坐标：</b>宇树科技正式开启科创板 IPO 初步询价；智元、银河通用、跨维智能相继传 IPO 消息；首批"河南造"众擎 T800 人形机器人在郑州云智基地下线（高 1.73 米，称 2 个月建成厂房产线）；智元新郑基地满负荷，预计今年产 4000 台以上。</p>
+      <h3>值得关注的原因</h3>
+      <ul>
+        <li><b>招股书是必须签字担责的文件——这正是主线在具身赛道的落点。</b> 过去两年具身数字大多来自融资新闻稿、展台演示、公司口径，缺乏被持续追问的机制；一旦进 IPO，产能/订单/交付/退货率/毛利要写进有法律责任的文件，并接受问询与年报反复核对。</li>
+        <li>这个转变的威力 8/4 已显现：<b>宇树招股书</b>披露的数字，是任何展台演示都不会告诉你的——2026 Q1 增速回落至 <b>68.49%</b>、扣非净利同比 <b>−52.55%</b>、行业应用收入占比仅 <b>9.01%</b>。<em>演示看能力上限，招股书看可重复性与经济性，两者常差一个数量级。</em></li>
+        <li>上市窗口真正的意义不是又能融多少，而是<b>行业第一次被迫用可核验语言说话</b>。联想创投王光熙的判断值得记下：随头部上市、财务透明化，二级市场会对"只有 Demo 能力而无实际落地"的企业残酷拷打。</li>
+      </ul>
+      <div class="caution">
+        <h3>需要冷静的地方</h3>
+        <ul>
+          <li><b>智平方 IPO 系彭博援引知情人士的未证实消息，公司未回应，最快 2027、变数很大</b>，本条按"传闻"而非"事实"对待；</li>
+          <li>"年产千台""扩产万台"均为公司口径、未经审计；产能能力与实际交付量是两概念——正是宇树"产量与销量差一个数量级"所暴露；</li>
+          <li>一级市场 200 亿估值 ≠ 二级认同，两者定价机制与风险偏好不同；</li>
+          <li><b>本段仅为行业动态梳理，不构成任何投资建议。</b></li>
+        </ul>
+      </div>
+      <div class="src">
+        <span class="lbl">SOURCE</span>
+        <span>彭博社 8/5（援引知情人士，公司未回应）+ 宇树询价 / 众擎下线为公开事实</span>
+        <span class="grade">二级 + 一级</span>
+      </div>
+    </div>
+  </article>
+
+  <section class="chain">
+    <h3>主线链条回顾 · THE THROUGH LINE</h3>
+    <p>本期主线「<b>谁替机器签字 · WHO SIGNS FOR THE MACHINE</b>」在本栏目连续主线链中的位置：</p>
+    <div class="track">
+      <span class="blk">8/04 留痕即证明</span><span class="jnt"></span>
+      <span class="blk">8/04 受治理的自治</span><span class="jnt"></span>
+      <span class="blk">8/04 减法之日</span><span class="jnt"></span>
+      <span class="blk">8/05 09:08 人类还在的那一格</span><span class="jnt"></span>
+      <span class="blk now">8/05 15:09 谁替机器签字</span>
+    </div>
+    <p>递进关系：先要求留下痕迹 → 把运行时交给平台治理 → 直接减掉暴露面 → 承认人手是唯一有效兜底 → <b>今天进一步追问：那格人手的手里，究竟该签下什么。</b></p>
+    <p>五条信号各给出一种落款答案：经营者担责（监管侧）、账户主人委托（工程侧）、笔下空白（治理分母）、无第三方在场（端侧绕开）、招股书必签（资本化倒逼）。同一条"谁签字"主线，落款处写着五种答案——有的已落章，有的还空着。</p>
+  </section>
+
+  <footer>
+    Signing Desk · 落款事务所　//　WHO SIGNS FOR THE MACHINE<br>
+    本报告仅作信息整理与分析，所有涉及企业经营与资本市场的内容均不构成投资建议。<br>
+    数据与结论以引用来源为准，存疑处已在文中逐条标注。<br>
+    生成时间：2026-08-05 15:09 GMT+8　·　收录窗口 08-05 晨 → 08-05 午后　·　已避重 早班 5 条 + 8/04 三班 15 条
+  </footer>
+
+</div>
+</body>
+</html>
