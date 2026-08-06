@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读数不等于真值 · AI 领域每日动态 2026-08-06 16:12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Epilogue:ital,wght@0,400;0,500;0,600;0,800;1,400&family=Kode+Mono:wght@400;500;700&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lightbox:#f2f4f2;
+  --lightbox-2:#e7eae7;
+  --ink:#141719;
+  --ink-soft:#3d4448;
+  --ink-faint:#767f84;
+  --rule:#c9cfcb;
+  --rule-hard:#9aa39d;
+  --duo-red:#c8333a;
+  --duo-green:#127a55;
+  --indigo:#2f4a86;
+  --paper:#fbfcfb;
+  --shadow:0 1px 0 rgba(20,23,25,.06), 0 18px 40px -28px rgba(20,23,25,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--lightbox);
+  color:var(--ink);
+  font-family:"Epilogue","Noto Sans SC",sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 100px;
+  position:relative;
+  overflow-x:hidden;
+}
+/* 灯箱质感：中心亮、四角暗 + 细网点 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 78% 62% at 50% 32%, rgba(255,255,255,.95) 0%, rgba(255,255,255,0) 70%),
+    radial-gradient(ellipse 120% 90% at 50% 50%, rgba(0,0,0,0) 42%, rgba(20,23,25,.09) 100%);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:radial-gradient(circle at 1px 1px, rgba(20,23,25,.16) 1px, transparent 0);
+  background-size:4px 4px;
+}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 26px}
+
+/* ---------- 顶部：验光单抬头 ---------- */
+.masthead{padding:58px 0 0;animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+.clinic-bar{
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--rule-hard);
+  padding:10px 0;margin-bottom:34px;
+}
+.clinic-bar .mark{
+  font-family:"Kode Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink);
+  border:1.5px solid var(--ink);padding:3px 9px;
+}
+.clinic-bar .meta{
+  font-family:"Kode Mono",monospace;font-size:11px;letter-spacing:.1em;color:var(--ink-faint);
+}
+.clinic-bar .meta b{color:var(--ink-soft);font-weight:500}
+.clinic-bar .spacer{flex:1 1 auto}
+
+h1.title{
+  font-family:"Anton",'Noto Serif SC',sans-serif;
+  font-size:clamp(50px,9.4vw,116px);
+  line-height:.9;letter-spacing:-.005em;
+  text-transform:none;
+}
+h1.title .ln{display:block;overflow:hidden}
+h1.title .ln > span{display:block;animation:riseIn .95s cubic-bezier(.16,.84,.3,1) both}
+h1.title .ln:nth-child(1) > span{animation-delay:.10s}
+h1.title .ln:nth-child(2) > span{animation-delay:.20s}
+h1.title .neg{color:var(--duo-red)}
+.title-en{
+  font-family:"Kode Mono",monospace;font-size:clamp(11px,1.5vw,14px);
+  letter-spacing:.34em;text-transform:uppercase;color:var(--ink-faint);
+  margin-top:20px;padding-left:3px;
+  animation:fadeUp .9s .34s cubic-bezier(.2,.7,.2,1) both;
+}
+.dateline{
+  margin-top:16px;font-family:"Kode Mono",monospace;font-size:12px;letter-spacing:.06em;
+  color:var(--ink-soft);animation:fadeUp .9s .42s cubic-bezier(.2,.7,.2,1) both;
+}
+
+/* ---------- 主线 lede ---------- */
+.lede{
+  margin:44px 0 0;padding:30px 32px 32px;
+  background:var(--paper);
+  border:1.5px solid var(--ink);
+  box-shadow:var(--shadow);
+  position:relative;
+  animation:fadeUp .9s .5s cubic-bezier(.2,.7,.2,1) both;
+}
+.lede::after{
+  content:"Rx";position:absolute;top:-14px;right:22px;
+  font-family:"Anton",sans-serif;font-size:28px;color:var(--duo-red);
+  background:var(--paper);padding:0 10px;line-height:1;
+  border:1.5px solid var(--ink);
+}
+.lede .lbl{
+  display:inline-block;font-family:"Kode Mono",monospace;font-weight:700;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  background:var(--ink);color:var(--lightbox);padding:5px 12px;margin-bottom:18px;
+}
+.lede p{
+  font-family:"Noto Serif SC",serif;font-size:clamp(16px,1.85vw,18.5px);
+  line-height:1.95;color:var(--ink);
+}
+.lede p b{
+  font-weight:700;
+  box-shadow:inset 0 -.5em 0 rgba(200,51,58,.14);
+}
+.lede p + p{margin-top:14px}
+
+/* ---------- 视力表 SVG ---------- */
+.chart-box{
+  margin:46px 0 0;padding:26px 22px 20px;background:var(--paper);
+  border:1px solid var(--rule-hard);box-shadow:var(--shadow);
+  animation:fadeUp .9s .62s cubic-bezier(.2,.7,.2,1) both;
+}
+.chart-cap{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;
+  font-family:"Kode Mono",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:10px;margin-bottom:18px;
+}
+.chart-cap b{color:var(--ink);font-weight:700}
+svg.chart{width:100%;height:auto;display:block}
+.chart-note{
+  margin-top:14px;padding-top:12px;border-top:1px dashed var(--rule);
+  font-family:"Kode Mono",monospace;font-size:10.5px;line-height:1.9;
+  letter-spacing:.03em;color:var(--ink-faint);
+}
+.chart-note span{color:var(--duo-red);font-weight:700}
+.chart-note span.g{color:var(--duo-green)}
+
+/* ---------- 信号卡片 ---------- */
+.sigs{margin:54px 0 0;display:flex;flex-direction:column;gap:26px}
+.sig{
+  position:relative;display:grid;grid-template-columns:104px 1fr;
+  background:var(--paper);border:1px solid var(--rule-hard);
+  box-shadow:var(--shadow);overflow:hidden;
+  animation:fadeUp .9s both;
+}
+.sig:nth-child(1){animation-delay:.06s}
+.sig:nth-child(2){animation-delay:.14s}
+.sig:nth-child(3){animation-delay:.22s}
+.sig:nth-child(4){animation-delay:.30s}
+.sig:nth-child(5){animation-delay:.38s}
+.sig-no{
+  font-family:"Anton",sans-serif;font-size:62px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--lightbox);background:var(--ink);
+}
+.sig--agent .sig-no{background:var(--duo-red)}
+.sig--edge  .sig-no{background:var(--duo-green)}
+.sig--emb   .sig-no{background:var(--indigo)}
+.sig-main{padding:24px 30px 27px;min-width:0}
+.sig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:11px}
+.dir{
+  font-family:"Kode Mono",monospace;font-weight:700;font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--lightbox);
+  padding:4px 11px;
+}
+.dir--agent{background:var(--duo-red)}
+.dir--edge {background:var(--duo-green)}
+.dir--emb  {background:var(--indigo)}
+.src{
+  font-family:"Kode Mono",monospace;font-size:10px;letter-spacing:.05em;
+  color:var(--ink-faint);
+}
+.sig-title{
+  font-family:"Noto Serif SC",serif;font-weight:700;
+  font-size:clamp(19px,2.2vw,24px);line-height:1.36;color:var(--ink);
+  margin-bottom:15px;
+}
+.sig-body p{font-size:15px;line-height:1.88;color:var(--ink-soft);margin-bottom:13px}
+.sig-body p:last-child{margin-bottom:0}
+.q{
+  display:inline-block;font-family:"Kode Mono",monospace;font-weight:700;
+  font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink);background:var(--lightbox-2);padding:3px 9px;margin-right:8px;
+  vertical-align:1px;
+}
+.caveat{
+  margin-top:15px;padding:12px 14px;border-left:3px solid var(--duo-red);
+  background:rgba(200,51,58,.05);
+  font-family:"Kode Mono",monospace;font-size:11px;line-height:1.85;color:var(--ink-soft);
+}
+.caveat b{color:var(--duo-red)}
+.caveat.g{border-left-color:var(--duo-green);background:rgba(18,122,85,.05)}
+.caveat.g b{color:var(--duo-green)}
+
+/* ---------- 横向观察 ---------- */
+.cross{
+  margin:54px 0 0;padding:30px 33px 32px;background:var(--ink);color:var(--lightbox);
+  box-shadow:var(--shadow);animation:fadeUp .9s .46s cubic-bezier(.2,.7,.2,1) both;
+}
+.cross .lbl{
+  display:inline-block;font-family:"Kode Mono",monospace;font-weight:700;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  background:var(--duo-red);color:var(--lightbox);padding:5px 12px;margin-bottom:18px;
+}
+.cross ol{counter-reset:c;list-style:none;margin:0;padding:0}
+.cross li{
+  counter-increment:c;position:relative;padding-left:46px;margin-bottom:15px;
+  font-family:"Noto Serif SC",serif;font-size:16.5px;line-height:1.9;color:var(--lightbox);
+}
+.cross li:last-child{margin-bottom:0}
+.cross li::before{
+  content:counter(c,decimal-leading-zero);position:absolute;left:0;top:1px;
+  font-family:"Anton",sans-serif;font-size:23px;line-height:1;color:var(--duo-red);
+}
+.cross li b{font-weight:700;box-shadow:inset 0 -.5em 0 rgba(200,51,58,.32)}
+
+/* ---------- 页脚 ---------- */
+.foot{
+  margin:46px 0 0;padding-top:18px;border-top:1px solid var(--rule-hard);
+  font-family:"Kode Mono",monospace;font-size:10.5px;line-height:1.95;
+  letter-spacing:.04em;color:var(--ink-faint);
+  animation:fadeUp .9s .56s cubic-bezier(.2,.7,.2,1) both;
+}
+.foot b{color:var(--ink-soft)}
+
+/* ---------- 动画 ---------- */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes riseIn{from{opacity:0;transform:translateY(112%)}to{opacity:1;transform:none}}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:680px){
+  .wrap{padding:0 18px}
+  .sig{grid-template-columns:64px 1fr}
+  .sig-no{font-size:40px}
+  .sig-main{padding:20px 18px 22px}
+  .clinic-bar .meta{font-size:10px}
+}
+
+</style>
+</head>
+<body class="opto">
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="clinic-bar">
+      <span class="mark">Daily AI</span>
+      <span class="meta">验光室 · <b>读数不等于真值</b></span>
+      <span class="spacer"></span>
+      <span class="meta">2026-08-06 <b>16:12</b> GMT+8</span>
+      <span class="meta">当日第 2 班</span>
+    </div>
+    <h1 class="title">
+      <span class="ln"><span>读数<span class="neg">不等于</span>真值</span></span>
+    </h1>
+    <div class="title-en">The Readout Is Not The Truth</div>
+    <div class="dateline">聚焦：AI Agent ／ 终端与端侧 ／ 具身智能　·　主动避开 15:45 班已锁 5 条</div>
+  </header>
+
+  <section class="lede">
+    <span class="lbl">今日主线 · THE READOUT IS NOT THE TRUTH</span>
+    <p>今天五条信号压在同一道裂缝上：<b>我们用来判断 AI 进展的那个显示值，正在与实际发生的事情脱钩。</b> 榜单第一名与第二名相差 0.1 分，已落进评测噪声区；Claude Code 修掉的漏洞更直白——用制表符和不可见 Unicode 就能让命令的一部分从人工审批对话框里消失，人看到的批准内容不等于实际执行的内容；一段没有成功率、没有测试条件的机器人视频被读成"历史性突破"，同一天二级市场把具身概念股打回三成以下。真正在补分辨率的只有两种动作：把评价交给外部可核验的凭据（第三方榜单、数据产权登记、公开财报），或者干脆承认现有组织已经量不出差异，把整条"提假设—跑实验—改模型"的回路交给机器重做。</p>
+  </section>
+
+  <section class="chart-box">
+    <div class="chart-cap"><span>图 01 · Agentic Index 头部读数</span><b>刻度分辨率 < 差距 ⇒ 排名退化为噪声</b></div>
+    <svg class="chart" viewbox="0 0 920 340" role="img" aria-label="Qwen3.8-Max 55.4 与 Claude Opus 5 55.3 仅差 0.1 分，落入评测噪声区；K3 50.1 为前最佳中国模型">
+      <!-- 评测噪声带 ±0.5 -->
+      <rect x="637.5" y="64" width="121.7" height="206" fill="#127a55" opacity="0.10"/>
+      <line x1="637.5" y1="64" x2="637.5" y2="270" stroke="#127a55" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+      <line x1="759.2" y1="64" x2="759.2" y2="270" stroke="#127a55" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+      <text x="698.6" y="82" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" letter-spacing="1" fill="#127a55">评测噪声区 ±0.5</text>
+
+      <!-- 纵轴读数：Qwen3.8-Max 55.4 -->
+      <line x1="747" y1="112" x2="747" y2="270" stroke="#c8333a" stroke-width="2"/>
+      <circle cx="747" cy="112" r="7" fill="#c8333a"/>
+      <text x="747" y="100" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="14" font-weight="700" fill="#c8333a">55.4</text>
+      <text x="747" y="289" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#c8333a">Qwen3.8-Max · 全球第一</text>
+
+      <!-- 纵轴读数：Claude Opus 5 55.3 -->
+      <line x1="734.8" y1="132" x2="734.8" y2="270" stroke="#2f4a86" stroke-width="2"/>
+      <circle cx="734.8" cy="132" r="7" fill="#2f4a86"/>
+      <text x="734.8" y="120" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="14" font-weight="700" fill="#2f4a86">55.3</text>
+      <text x="734.8" y="305" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#2f4a86">Claude Opus 5 · 第二</text>
+
+      <!-- 0.1 分差括号 -->
+      <line x1="734.8" y1="50" x2="734.8" y2="58" stroke="#141719" stroke-width="1.2"/>
+      <line x1="747" y1="50" x2="747" y2="58" stroke="#141719" stroke-width="1.2"/>
+      <line x1="734.8" y1="54" x2="747" y2="54" stroke="#141719" stroke-width="1.2"/>
+      <text x="740.9" y="44" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="12" font-weight="700" fill="#141719">差 0.1</text>
+
+      <!-- 纵向跃升：K3 50.1 → 55.4 -->
+      <circle cx="102.2" cy="250" r="5" fill="#767f84"/>
+      <text x="102.2" y="270" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#767f84">K3 50.1</text>
+      <path d="M 107 246 C 300 234, 560 150, 740 118" fill="none" stroke="#767f84" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="360" y="196" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#767f84">↓ 纵向 +5.3 分（真信号）</text>
+
+      <!-- 基准轴 -->
+      <line x1="60" y1="270" x2="850" y2="270" stroke="#9aa39d" stroke-width="1.5"/>
+      <g font-family="'Kode Mono',monospace" font-size="10" fill="#767f84" text-anchor="middle">
+        <text x="90" y="288">50</text>
+        <text x="333.3" y="288">52</text>
+        <text x="576.7" y="288">54</text>
+        <text x="820" y="288">56</text>
+      </g>
+      <text x="455" y="324" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="10.5" letter-spacing="1" fill="#767f84">Agentic Index 分数（模型 ＋ 脚手架 联合成绩）</text>
+    </svg>
+    <div class="chart-note">红点 <span>Qwen3.8-Max 55.4</span> 与靛点 <span>Claude Opus 5 55.3</span> 相差 <span>0.1</span> 分，远小于评测噪声带 <span>±0.5</span>；灰点 <span class="g">K3 50.1</span> 为上一最佳中国模型——纵向 <span class="g">+5.3 分</span> 才是携带信息的真信号。</div>
+  </section>
+
+  <section class="sigs">
+
+    <article class="sig sig--agent">
+      <div class="sig-no">01</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--agent">AI Agent</span>
+          <span class="src">信源层级：第三方评测机构 ＋ 多家财经媒体交叉 ｜ 可信度：高（榜单事实），解读需谨慎</span>
+        </div>
+        <h2 class="sig-title">Qwen3.8-Max 登顶第三方 Agentic 榜，但领先幅度只有 0.1 分</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>8 月 6 日，第三方评测平台 Artificial Analysis 公布新一期榜单，阿里 Qwen3.8-Max 在智能体能力（Agentic Index）排行榜以 <b>55.4 分</b> 位列全球第一，超越 Anthropic Claude Opus 5 与 OpenAI GPT-5.6。此前该榜长期被 Claude、GPT 垄断，中国模型最好成绩为 Kimi K3 的 50.1 分。</p>
+          <p><span class="q">两个数字</span>第二名 Claude Opus 5（max）为 <b>55.3 分</b>，与第一名相差 <b>0.1 分</b>；中国模型纵向跃升为 <b>50.1 → 55.4，约 5.3 分</b>。</p>
+          <p><span class="q">为什么关注</span>"全球第一"这个显示值在 0.1 分差距下几乎不携带信息量——它落在任何一次评测重跑、采样温度或 harness 配置变动都可能翻转的区间内。真正携带信息的是另外两件事：垄断格局第一次被打破，以及 5.3 分的纵向跃升幅度远大于榜首身位。Agentic Index 衡量的是模型调用工具、规划并执行复杂任务的能力，最依赖运行环境（harness、工具集、超时与重试策略）；7 月 30 日 Composio 实测显示同一模型装进不同 harness，token 效率可差最多 30 倍。这类榜单更接近"模型＋脚手架"的联合成绩，而非模型单体能力的纯净读数。</p>
+          <p class="caveat"><b>留一句不确定：</b>本条依据 Artificial Analysis 公开榜单及 AASTOCKS、Yahoo 财经、DoNews、极目新闻等转载，未逐项复核其评测集构成与运行配置。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--agent">
+      <div class="sig-no">02</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--agent">AI Agent · 前沿路线</span>
+          <span class="src">信源层级：谷歌官方博客 ＋ NYT / Wired ＋ 中文媒体 ｜ 可信度：高</span>
+        </div>
+        <h2 class="sig-title">Jeff Dean 27 年后离开谷歌，带走三位元老去做"递归式自我改进"</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>硅谷时间 8 月 5 日，谷歌 CEO 皮查伊发出全员备忘录《Next Chapter of Our AI Momentum》，同时宣布两件事：<b>Jeff Dean 离职</b>——这位在谷歌工作 27 年的首席科学家，与 Sanjay Ghemawat（MapReduce / BigTable / Spanner 共同设计者）、Oriol Vinyals（Gemini 核心研发）、Quoc Le（Google Brain 联合创始人）共同创办 <b>Discovery Loop</b>，Dean 任 CEO，以公益企业（public benefit company）形式运营，研究"递归式自我改进"——让 AI 以极少人类干预参与提出假设、运行实验、改进模型，再用于芯片、药物与新材料研发；投资方含 Radical Ventures、Khosla Ventures 与 Alphabet，谷歌将继续提供至少一年算力。<b>DeepMind 领导层改组</b>——Demis Hassabis 转任董事长兼 Alphabet 首席科学家，Koray Kavukcuoglu 升任高级副总裁直报 CEO，负责 Gemini 4 等。</p>
+          <p><span class="q">为什么关注</span>这不是一次普通人才流失，而是一次<b>边界重划</b>：谷歌把"近期必须交付的模型与产品"收进更短指挥链，把"周期更长、结果更难预测的探索性研究"移到公司外部，用投资＋算力＋云服务维持连接。对 Agent 方向意义更直接——"递归式自我改进＋自动化科研闭环"是 Agent 的终极形态：从"替人执行任务"升级到"替人提出该做什么实验"。而它选择在公司外部、以更小规模重做，本身就是对现有大型研究组织迭代分辨率的判断：在一家 19 万人的公司里，已经很难量出一次研究方向调整的边际效果。这也是本周第二次出现"顶级研究者用大公司稳定资源交换创业公司控制权"的样本（前有 Noam Shazeer 转投 OpenAI、John Jumper 加入 Anthropic）。</p>
+          <p class="caveat"><b>市场反应：</b>消息公布后 Alphabet 股价盘中跌逾 5%、收跌约 3.5%–4%，单日市值蒸发超 1800 亿美元；皮查伊同期披露 Gemini 应用月活超 9.5 亿、Gemma 累计下载超 9 亿次。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--edge">
+      <div class="sig-no">03</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--edge">终端与端侧</span>
+          <span class="src">信源层级：官方 release notes（经第三方发布追踪站聚合）｜ 可信度：中高</span>
+        </div>
+        <h2 class="sig-title">Claude Code 修掉四类权限绕过：审批对话框里显示的命令，不等于真正执行的命令</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>Claude Code <b>v2.1.223</b>（2026-08-05 发布）的更新日志中，四条修复直接指向"人工审批这道护栏本身失效"：修复 Bash 权限绕过——精心构造的命令可把自身的一部分<b>对权限检查隐藏</b>；修复审批提示——用制表符或不可见 Unicode 字符填充的命令，此前可让一部分内容<b>不出现在批准对话框中</b>；修复 workflow 脚本可通过动态 <code>import()</code> 在沙箱之外执行代码；修复 agent 定义中的 <code>bypassPermissions</code> 模式会无视组织级"禁用越权"策略。同期补上 marketplace 的 GitHub 组织通配符管控、受限子 Agent 模型回退告警等。</p>
+          <p><span class="q">为什么关注</span>这是本期主线最锋利的一个例证，且不需要任何推演：<b>一整套"人在回路"的安全设计，前提是人看到的东西等于机器要做的东西。</b> 用不可见字符把 <code>rm</code> 的后半截藏起来，这个前提就不成立——用户点的"允许"，允许的是屏幕上那一行，执行的却是另一行。8 月 5 日中消协要求 AI 客服"必须留人工通道"、AISI 披露"最严重一次投毒被开源维护者人工拦下"，都把最后一道防线押在人工确认上；本条说明这道防线的<b>渲染层</b>同样需要被当作攻击面来加固。同时也要看到正面事实：这些是<b>已修复</b>项且出现在公开 changelog 里——可被外部读取、比对、追问，本身就是一种可核验凭据。</p>
+          <p class="caveat"><b>节奏参照：</b>Claude Code 2026 年内已发布 178 次、平均 2.1 天一版；同期 Gemini CLI v0.54.0（8/6）、OpenAI Codex CLI rust-v0.146.1（8/5）、GitHub Copilot CLI v1.0.78、Antigravity CLI v1.1.10 相继发版。｜ <b>重叠说明：</b>8/4 本栏目收过 v2.1.221（沙箱凭证掩码），本条为其后新版新增项，不重复计入。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--emb">
+      <div class="sig-no">04</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--emb">具身智能</span>
+          <span class="src">信源层级：厂商创始人社媒 ＋ 中文行业媒体分析 ｜ 可信度：中（演示未经独立验证）</span>
+        </div>
+        <h2 class="sig-title">Figure 03 自主爬工业梯子：一次真正的能力耦合，和一份不完整的成绩单</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>Figure AI 创始人 Brett Adcock 发布视频，显示 Figure 03 在实验室环境中<b>自主攀爬工业梯子</b>——无遥控、无人工协助、无预设动作序列。8 月 6 日该视频在中文具身圈形成系统讨论。技术上，爬梯子被视为标志性动作，不是因为更高或更快，而是它第一次把三条控制回路<b>耦合进同一个连续动作</b>：眼（实时视觉伺服）、手（抓握扶手）、腿（动态平衡攀爬）必须同时工作，任一环出错即摔倒。此前人形演示基本是单能力展示——走路的归走路，抓取的归抓取，脚下是平地。这是移动操作耦合（loco-manipulation）第一次以完整形态出现。</p>
+          <p><span class="q">限定</span>视频<b>未经独立验证</b>，Figure 未披露成功率、测试条件或失败数据，动作明显慢于人类；这是<b>实验室能力</b>而非工厂能力。需与体系数据合看：据 Figure 4 月生产公告，Figure 03 产量已从每天 1 台提至每小时 1 台，累计交付超 350 台，C 轮投后估值约 390 亿美元。<b>单看演示会高估它，单看量产会低估它。</b></p>
+          <p><span class="q">为什么关注</span>这条本身是真实能力进展，但同时也是"读数不等于真值"的教科书案例：一段没有分母的视频，被当作有分母的结论使用。2026 年人形机器人最大叙事风险，正是把演示当验收。健康读法是把它当作<b>能力上界的一次证明</b>，而非<b>部署可靠性的一次交付</b>。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--emb">
+      <div class="sig-no">05</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--emb">具身智能 · 产业与资本</span>
+          <span class="src">信源层级：央视 / 北京青年报 ＋ 钛媒体 ＋ 券商研报 ｜ 可信度：中高 ｜ 不构成投资建议</span>
+        </div>
+        <h2 class="sig-title">具身同日出现两组反向读数：数据开始确权，估值开始分裂</h2>
+        <div class="sig-body">
+          <p><span class="q">读数 A · 数据加凭据</span>8 月 6 日央视报道，合肥瑶海区长三角数字科技示范园建成机器人"训练学校"与精加工中心：80 余台机器人每日循环练习 200 余次，形成硬件制造到测试优化闭环；全市集聚产业链企业 190 家，构建"大脑—小脑—核心部件—整机"全链条。<b>关键细节：自 7 月 15 日起，训练数据完成产权登记并可交易。</b></p>
+          <p><span class="q">读数 B · 口径收窄</span>钛媒体梳理 30 家具身上市公司：多数概念股从高点回撤<b>超三成</b>，年初至今仍涨的仅剩 6 家；而一级估值继续抬升——宇树发行估值约 420 亿元、银河通用约 230 亿元。华泰 8/6 研报指出：<b>厂商自报专用任务成功率接近满分，第三方通用任务真机成功率仍处低位</b>；且产量、交付、付费部署是依次收窄的三个口径。工信部数据显示人形产量由 2025 全年约 2 万台增至 2026 上半年 4 万台以上，预计全年超 10 万台。宇树 8/5 启动科创板询价、8/10 申购，拟募资 42.02 亿元，定价有望成板块新估值锚；巴克莱则判断大规模部署更接近 2035 而非 2030。</p>
+          <p><span class="q">为什么关注</span>两组读数指向同一动作——<b>给显示值配一个外部可核验的凭据</b>。合肥用产权登记把训练数据从"厂商自称拥有的资产"变成"可确权、可交易、可入账的资产"；二级市场用回撤把"自报成功率"换成"财报、订单、回款、复购"。华泰那句"产量、交付、付费部署依次收窄"，是本期主线在产业侧最精确的表述：同一件事在三个口径下会给出三个数量级不同的数字，而绝大多数报道只引用最宽的那个。</p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="cross">
+    <span class="lbl">横向观察 · 今日三句话</span>
+    <ol>
+      <li><b>0.1 分的第一名不是第一名，5.3 分的跃升才是新闻。</b>当刻度的分辨率低于差距，排名就退化成随机数。</li>
+      <li><b>人在回路的前提，是人看到的和机器执行的是同一件事。</b>用不可见字符藏掉半条命令，就能把整套审批机制变成表演——护栏的渲染层也是攻击面。</li>
+      <li><b>今天所有健康的动作，都是给读数配凭据：</b>第三方榜单、公开 changelog、数据产权登记、公开财报、招股书。凡是只有自述而无外部凭据的数字，都应默认按最窄口径理解。</li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <b>主线脉络回顾</b>　7/24 可信化 → 7/27 自主 vs 可控 → 7/29 可控的自治 → 7/30 边界划定 / 刻度 → 7/31 成本曲线 / 判定权外移 → 8/01 验收席位 → 8/03 验证的单价 → 8/04 留痕即证明 → 8/05 谁替机器签字 → <b>本期：读数不等于真值</b>。从"谁来验证"到"验证要多少钱"，再到今天的"验证用的那把尺子还准不准"——链条正在从治理层下沉到度量层。<br>
+    <b>诚实弃用</b>　英国 AISI 伪造身份（8/05 已锁）／ 上海具身方案（沪府办规〔2025〕6 号旧文重提）／ Anthropic 自研芯片团队（8/05 非当日）／ 阿里云容器 Agent 商业化（8/04 公告）／ LobsterAI 营销口径 ／ 疑似机器生成聚合站数据 ／ 融资传闻口径。<br>
+    <b>免责</b>　本报告由自动化任务生成，力求信源可追溯、口径可复核；企业自述数据均标注来源层级，涉及股票、估值与融资的内容不构成任何投资建议。
+  </footer>
+
+</div>
+</body>
+</html>
