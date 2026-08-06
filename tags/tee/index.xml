@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Tee on Leion'Log</title><link>https://leiontong.github.io/tags/tee/</link><description>Recent content in Tee on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Tue, 24 Aug 2021 15:33:00 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/tee/index.xml" rel="self" type="application/rss+xml"/><item><title>Run OP-TEE from scratch</title><link>https://leiontong.github.io/posts/run_op-tee_from_scratch/</link><pubDate>Tue, 24 Aug 2021 15:33:00 +0000</pubDate><guid>https://leiontong.github.io/posts/run_op-tee_from_scratch/</guid><description>&lt;h1 id="run-op-tee-from-scratch"&gt;Run OP-TEE from scratch&lt;/h1&gt;
+&lt;p&gt;OP-TEE的编译及运行&lt;/p&gt;
+&lt;p&gt;Reference_&amp;amp;_Useful_URL:
+&lt;a href="https://www.op-tee.org/"&gt;https://www.op-tee.org/&lt;/a&gt;
+&lt;a href="https://github.com/OP-TEE"&gt;https://github.com/OP-TEE&lt;/a&gt;
+&lt;a href="https://optee.readthedocs.io"&gt;https://optee.readthedocs.io&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/thanksgining/article/details/108848825"&gt;https://blog.csdn.net/thanksgining/article/details/108848825&lt;/a&gt;
+&lt;a href="https://blog.csdn.net/zhuyong006/article/details/85282624"&gt;https://blog.csdn.net/zhuyong006/article/details/85282624&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="宿主环境"&gt;宿主环境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OS: Ubuntu 20.04 LTS Desktop&lt;/li&gt;
+&lt;li&gt;Disk_Size: 50GB&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

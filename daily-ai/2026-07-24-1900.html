@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI 领域每日动态｜2026-07-24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --paper: #e9edf2;
+    --card: #fbfcfd;
+    --ink: #122236;
+    --muted: #5d6b7e;
+    --line: #d3dae3;
+    --agent: #d9540d;     /* AI Agent — 朱红 */
+    --edge: #1d4ed8;      /* 终端·边缘 — 钴蓝 */
+    --infra: #0f766e;     /* 基础设施·模型 — 墨绿 */
+    --embodied: #4d7c0f;  /* 具身 — 橄榄（仅横向观察） */
+    --accent-soft: rgba(217,84,13,.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      linear-gradient(transparent 0, transparent 31px, var(--line) 32px),
+      linear-gradient(90deg, transparent 0, transparent 31px, var(--line) 32px),
+      var(--paper);
+    background-size: 32px 32px, 32px 32px, 100% 100%;
+    color: var(--ink);
+    font-family: 'Spectral', Georgia, serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    padding: 0 0 64px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header {
+    background: var(--ink);
+    color: #f4f7fb;
+    border-bottom: 4px solid var(--agent);
+    padding: 38px 0 30px;
+    margin-bottom: 8px;
+  }
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: #9fb0c4;
+    text-transform: uppercase;
+    display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;
+  }
+  .meta b { color: #ffd9c4; font-weight: 500; }
+  h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 800;
+    font-size: clamp(30px, 6vw, 50px);
+    line-height: 1.04;
+    letter-spacing: -.02em;
+  }
+  h1 .sub { display:block; font-size: .42em; font-weight: 400; color:#cdd8e6; margin-top: 10px; letter-spacing: 0; font-family:'Spectral',serif; }
+  .focus {
+    margin-top: 20px; display:flex; gap:8px; flex-wrap:wrap;
+  }
+  .focus span {
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.05em;
+    padding:4px 10px; border:1px solid #3a4d68; border-radius:2px; color:#bcd0e6;
+  }
+
+  /* ---------- Summary ---------- */
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--ink);
+    padding: 24px 26px;
+    margin: 30px 0 8px;
+    font-size: 17px;
+  }
+  .summary h2 {
+    font-family:'Bricolage Grotesque',sans-serif; font-size: 16px; font-weight:700;
+    letter-spacing:.02em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
+  }
+  .summary p { color: #243348; }
+
+  /* ---------- Item card ---------- */
+  .item {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 26px 28px 28px;
+    margin-top: 18px;
+    position: relative;
+    opacity: 0; transform: translateY(18px);
+    animation: rise .7s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  .item::before {
+    content:''; position:absolute; left:-1px; top:-1px; bottom:-1px; width:4px;
+    background: var(--c, var(--agent));
+  }
+  @keyframes rise { to { opacity:1; transform: none; } }
+
+  .item .top {
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom: 6px;
+  }
+  .num {
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size: 26px;
+    color: var(--c, var(--agent)); line-height:1; min-width: 30px;
+  }
+  .tag {
+    font-family:'JetBrains Mono',monospace; font-size: 11px; font-weight:700; letter-spacing:.05em;
+    padding:4px 9px; border-radius:2px; color:#fff; background: var(--c, var(--agent));
+    text-transform: uppercase;
+  }
+  .item h3 {
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 21px;
+    letter-spacing:-.01em; margin: 8px 0 16px; line-height:1.25;
+  }
+  .item .ev { font-size: 16px; color:#22303f; }
+  .item .ev b { font-weight: 500; }
+  .why, .obj { margin-top: 16px; padding-left: 16px; border-left: 2px dashed var(--line); }
+  .why .lbl, .obj .lbl {
+    font-family:'JetBrains Mono',monospace; font-size: 11px; font-weight:700; letter-spacing:.06em;
+    text-transform: uppercase; display:block; margin-bottom: 6px;
+  }
+  .why .lbl { color: var(--c, var(--agent)); }
+  .obj .lbl { color: var(--muted); }
+  .why { color:#1f2c3b; }
+  .obj { color:#46586c; font-size:15px; }
+  .why ul, .obj ul { padding-left: 18px; }
+  .why li, .obj li { margin: 5px 0; }
+
+  /* ---------- Horizontal ---------- */
+  .cross {
+    background: var(--ink); color:#e7eef7; margin-top: 26px; padding: 28px 28px 30px;
+    border-top: 4px solid var(--embodied);
+  }
+  .cross h2 {
+    font-family:'Bricolage Grotesque',sans-serif; font-size: 18px; font-weight:700; letter-spacing:.02em;
+    color:#cfe0cf; margin-bottom: 16px; text-transform: uppercase;
+  }
+  .cross .line { display:flex; gap:14px; margin:14px 0; align-items:flex-start; }
+  .cross .n {
+    font-family:'JetBrains Mono',monospace; font-weight:700; color: var(--embodied);
+    flex:0 0 auto; min-width: 18px;
+  }
+  .cross p { font-size: 16px; color:#dbe6f2; }
+  .cross b { color:#fff; font-weight:500; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 26px; font-family:'JetBrains Mono',monospace; font-size: 12px;
+    color: var(--muted); line-height:1.9; padding: 0 4px;
+  }
+  footer h4 { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:6px; }
+  @media (max-width: 560px){ .item, .summary, .cross { padding-left:18px; padding-right:18px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="meta">
+      <span>FILE <b>2026-07-24_1900</b></span>
+      <span>GMT+8 <b>19:00</b></span>
+      <span>SIGNAL <b>AI / AGENT / EDGE / EMBODIED</b></span>
+    </div>
+    <h1>AI 领域每日动态
+      <span class="sub">Daily AI Brief — 智能体走向"可信商业实体"的一天</span>
+    </h1>
+    <div class="focus">
+      <span>AI AGENT</span><span>终端·端侧</span><span>具身智能</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="summary">
+    <h2>今日摘要 / TL;DR</h2>
+    <p>今天的三条 Agent 主线在回答同一个问题：<b>当智能体开始"以企业名义花钱、管流程、对外签约"，靠什么让人相信它、管得住它、追得了责？</b> 国标给身份、Visa 给支付信任协议、OpenAI 给企业级护栏与人工复核——三件事从不同层面补"可信"这块短板。与此同时，DeepSeek V4 稳定版今日上线、旧接口今日强制停用，把"百万上下文 + Agent 专项优化 + 国产算力适配 + 约闭源 1/8 价格"推向可规模部署，直接压低 Agent 与端侧推理的成本底线。需要清醒：标准与支付跑通的是"单笔/单场景"，距离承接复杂企业采购、跨国多智能体协作仍有距离；开源≠好用，价格低≠总拥有成本低。</p>
+  </section>
+
+  <!-- 1 -->
+  <article class="item" style="--c:var(--agent); animation-delay:.05s">
+    <div class="top"><span class="num">01</span><span class="tag">AI Agent</span></div>
+    <h3>国内首套 AI 智能体互联国家标准 GB/Z185-2026 发布</h3>
+    <p class="ev">据同花顺 7/24 综叙、中关村发布，中关村发布 <b>GB/Z185-2026 七项智能体互联指导性国家标准</b>，被报道为"全球首个系统性智能体互联标准体系"。核心设计：为每一个 AI 智能体分配唯一数字身份码，打通不同厂商智能体"孤岛"，实现跨平台可信协同；现场完成 2000 余个行业智能体身份首批发放，标准外文版本同步推进对外输出。</p>
+    <div class="why"><span class="lbl">为什么值得关注</span>
+      <ul>
+        <li>把"智能体互操作"从企业私有协议（如各家 MCP/A2A）抬升到<b>国家指导性标准</b>层面，给跨厂商、跨平台协作提供身份与协议底座。</li>
+        <li>对做企业服务/一体机的团队（如安枢类研发能力背书方向）是直接利好信号：未来"可信智能体身份"可能成为招投标与集成的硬门槛。</li>
+      </ul>
+    </div>
+    <div class="obj"><span class="lbl">客观提示</span>
+      <ul>
+        <li>该信息目前主要来自财经媒体综叙，"全球首个"为信源表述；GB/Z 为指导性国家标准（非强制），实际约束力、落地节奏与跨厂商采纳度仍待观察，不宜高估短期产业影响。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article class="item" style="--c:var(--agent); animation-delay:.15s">
+    <div class="top"><span class="num">02</span><span class="tag">AI Agent</span></div>
+    <h3>Visa×连连完成大中华区首笔 B2B 智能体真实交易</h3>
+    <p class="ev">据腾讯新闻 7/24，Visa 与连连数字宣布，由连连 AI 智能体 <b>LoopXPay</b> 执行的首笔真实 B2B 智能体交易完成，系大中华区公开披露的首笔。流程上，LoopXPay 在单一工作流内完成供应商寻源、方案比较、下单与支付，全程运行在企业预设的支出控制与审批参数内。LoopXPay 已注册进入 <b>Visa 可信智能体名录（Agentic Directory）</b>，并配合 <b>Visa 可信智能体协议（Trusted Agent Protocol）</b> 提供身份、透明度与支出控制机制。</p>
+    <div class="why"><span class="lbl">为什么值得关注</span>
+      <ul>
+        <li>这是 Agentic Commerce 从"推荐/比价"走到"真正付款"的硬证据——智能体开始以企业名义调动资金，支付关注点转向"它是谁、能花多少、谁负责"。</li>
+        <li>与 7/22 关注的"蚂蚁 Agentar 区块链补信任"同源：行业正用<b>身份登记 + 协议约束 + 名录审计</b>三件套解决自主交易的"信任/确责"难题。</li>
+      </ul>
+    </div>
+    <div class="obj"><span class="lbl">客观提示</span>
+      <ul>
+        <li>公开信息未披露交易金额、品类、支付工具及人工确认节点；单笔跑通不等于能承接含合同、验收、发票、跨境合规的复杂 B2B 采购，机制仍处早期，复制成本暂无法判断。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article class="item" style="--c:var(--agent); animation-delay:.25s">
+    <div class="top"><span class="num">03</span><span class="tag">AI Agent</span></div>
+    <h3>OpenAI 发布 Presence 企业级智能体管理平台</h3>
+    <p class="ev">据 OpenAI 官方 7/22、环球网/钛媒体 7/23 发酵，OpenAI 推出 <b>Presence</b>——将 AI 智能体与企业内部数据、现有软件和工作流连接的企业级平台，覆盖客服、销售、IT 工单、理赔等场景，支持语音与聊天。提供政策管控（Guardrails）、人工审核、模拟测试与自动评分；Codex 驱动的持续改进会就生产信号提出更新建议，经版本对比后由人工批准受控上线。已在 BBVA、SoftBank 等试点，OpenAI 自身客服验证 <b>75% 诉求由 AI 独立闭环</b>。部署不走自助开通，须由 OpenAI 工程团队或授权集成商实施（有限 GA）。</p>
+    <div class="why"><span class="lbl">为什么值得关注</span>
+      <ul>
+        <li>标志 OpenAI 从"卖模型 API"向"卖企业软件/高触达工程服务"战略转身，直接对标 Salesforce/Oracle；在模型商品化背景下，是其抢"Agent 落地最后一公里"的关键拼图（呼应 5 月 ODC 与 1.5 亿伙伴网络）。</li>
+        <li>"护栏先行 + 人工复核 + 受控灰度"的工程范式，是规模化部署 Agent 的稳妥样板，对国内企业级 Agent 产品有方法论借鉴价值。</li>
+      </ul>
+    </div>
+    <div class="obj"><span class="lbl">客观提示</span>
+      <ul>
+        <li>Presence 目前非自助产品、交付重度依赖 OpenAI 工程团队，服务能力与生态规模是短板；"75% 独立闭环"为 OpenAI 自身客服场景数字，跨行业泛化性不可直接外推。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article class="item" style="--c:var(--edge); animation-delay:.35s">
+    <div class="top"><span class="num">04</span><span class="tag">终端·边缘算力</span></div>
+    <h3>力箭一号一箭五星，多颗星载 AI 试验卫星入轨</h3>
+    <p class="ev">据同花顺 7/24 早间综叙，力箭一号遥十五一箭五星发射成功，多颗卫星搭载国产 GPU 与在轨 AI 推理系统，开展空间碎片 AI 识别、太空算力验证、高光谱影像星上实时解译，推进<b>"算力上天、在轨跑模型"</b>技术路线落地。</p>
+    <div class="why"><span class="lbl">为什么值得关注</span>
+      <ul>
+        <li>把"端侧/边缘 AI"的边界推到太空——在轨实时推理意味着<b>模型不必回传地面、星上即可完成识别与解译</b>，是极端边缘"感知-决策本地化"的极致形态，与面壁 MiniCPM-Robot 的"纯无网部署"思路一脉相通。</li>
+        <li>推理载荷轻量化、低功耗、抗辐照的共性技术，会反哺地面机器人/车载端侧的本地智能。</li>
+      </ul>
+    </div>
+    <div class="obj"><span class="lbl">客观提示</span>
+      <ul>
+        <li>属试验验证性质，距离业务化遥感/在轨训练尚有距离；对民用 Agent/具身的直接拉动短期有限，更多是技术储备与路线信号。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article class="item" style="--c:var(--infra); animation-delay:.45s">
+    <div class="top"><span class="num">05</span><span class="tag">基础设施·模型</span></div>
+    <h3>DeepSeek V4 稳定版今日上线，旧接口今日强制停用</h3>
+    <p class="ev">据 DeepSeek 官方及多家媒体 7/24，DeepSeek-V4 稳定版（含 V4-Pro 1.6T 参数、V4-Flash 2840 亿参数两档）于 7/24 上线；旧 API 名 <b>deepseek-chat、deepseek-reasoner 于 7/24 15:59 UTC 永久停用，无宽限期</b>。两档均原生 1M（百万 token）上下文、支持思考模式；V4 对 Claude Code、OpenClaw、OpenCode、CodeBuddy 等主流 Agent 产品做专项适配，并适配华为昇腾（脱离 CUDA）。定价约闭源 1/8（V4-Flash 输出 $0.28/百万 token、V4-Pro $0.87/百万 token，据 theneuralfeed / freeai.help 整理）。</p>
+    <div class="why"><span class="lbl">为什么值得关注</span>
+      <ul>
+        <li><b>长上下文 + Agent 专项优化 + 国产算力适配 + 低价</b>叠加，直接压低"多轮长程 Agent 工作流"与"端侧/本地部署"的成本与门槛——对做 Agent 产品、企业服务一体机（如安枢类）是确定性利好。</li>
+        <li>"开源超级周"（DeepSeek V4 7/24、Kimi K3 7/27 开源权重）被多家分析称为史上最密集开源周，国产开源模型在成本与性能上快速逼近闭源前沿。</li>
+      </ul>
+    </div>
+    <div class="obj"><span class="lbl">客观提示</span>
+      <ul>
+        <li>迁移有"隐性降档"陷阱——<b>deepseek-reasoner 当前指向 V4-Flash 思考模式而非 V4-Pro</b>，直接改名会导致推理质量静默下降，须显式切到 V4-Pro 并改用 thinking 参数；价格低≠总拥有成本低，企业需重估路由策略与 Pro/Flash 配比。</li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- Horizontal -->
+  <section class="cross">
+    <h2>横向观察 · 今日三句话</h2>
+    <div class="line"><span class="n">1</span><p><b>Agent 今天的主线只有一个词：可信。</b> 国标给"身份"、Visa 给"支付信任协议"、OpenAI 给"企业护栏与人工复核"——三件事一起把智能体从"会聊的工具"推向"能被审计、可担责的商业实体"，恰延续我们 7/22 关注的"信任是规模化协作瓶颈"判断。</p></div>
+    <div class="line"><span class="n">2</span><p><b>具身方向进入 WAIC 余温消化期，当日无独立重磅。</b> 当日可查具身信号多为 7/17–7/20 延续："从表演到干活""部署态元年""端侧具身模型开源"。端侧备案 AI 手机集中亮相、面壁/小米/腾讯端侧具身模型开源，仍是"本地脑"暗线的确定性增量。</p></div>
+    <div class="line"><span class="n">3</span><p><b>成本曲线是底层最确定的变量。</b> DeepSeek V4 把长上下文与 Agent 能力压到约闭源 1/8 价格、且适配国产算力，叠加"开源超级周"，Agent 与端侧推理门槛正被结构性拉低——但"便宜好用"取决于路由、评测与人工兜底是否到位，技术红利≠商业兑现。</p></div>
+  </section>
+
+  <footer>
+    <h4>方法说明 / Method</h4>
+    筛选标准：① 与 AI Agent / 终端·端侧 / 具身智能强相关；② 优先采用 7/22–7/24 一手或可靠媒体；③ 具备产业信号意义或技术转折价值；④ 覆盖三方向并附"客观提示"指出未证实/待观察环节。<br/>
+    客观性原则：区分"事件事实"与"价值判断"，对来源单一或存在信源表述（如"全球首个"）的条目明确标注；不夸大单点突破，对企业试点数字标注适用边界。<br/>
+    信息时效：以 2026-07-24 为基准；具身方向因当日无独立重磅，按"WAIC 余温"如实单列，未强行凑条。
+  </footer>
+
+</div>
+</body>
+</html>
