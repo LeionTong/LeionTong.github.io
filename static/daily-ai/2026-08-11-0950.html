@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-11 09:50 · 口径与实数</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --substrate:#0b1310;
+    --substrate-2:#0e1a15;
+    --panel:#101d18;
+    --panel-2:#0c1611;
+    --copper:#e0a458;
+    --copper-dim:#a9773c;
+    --mint:#5fd0b0;
+    --ink:#dce8e1;
+    --muted:#8aa39a;
+    --line:#1d3329;
+    --agent:#ff8c42;
+    --edge:#36c5d0;
+    --body-c:#b18cff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(224,164,88,.08), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(54,197,208,.07), transparent 60%),
+      var(--substrate);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:"Noto Sans SC","Space Grotesk",system-ui,sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:38px 38px;
+    opacity:.35;
+    mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
+  }
+  .wrap{position:relative; z-index:1; max-width:980px; margin:0 auto; padding:46px 24px 70px;}
+
+  .masthead{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    padding:28px 30px 24px;
+    position:relative; overflow:hidden;
+  }
+  .masthead .corner{position:absolute; width:12px; height:12px; border:2px solid var(--copper-dim); border-radius:50%;}
+  .masthead .c1{top:14px; left:14px;} .masthead .c2{top:14px; right:14px;}
+  .masthead .c3{bottom:14px; left:14px;} .masthead .c4{bottom:14px; right:14px;}
+  .kicker{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.32em;
+    color:var(--copper); text-transform:uppercase; margin:0 0 8px;
+  }
+  .masthead h1{
+    font-family:"Oxanium",sans-serif; font-weight:800; letter-spacing:.02em;
+    font-size:30px; margin:0 0 6px; color:var(--ink);
+  }
+  .masthead .en{font-family:"Oxanium",sans-serif; font-weight:600; font-size:13px; letter-spacing:.18em; color:var(--muted);}
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:16px;
+    font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--muted);
+  }
+  .meta-row b{color:var(--mint); font-weight:500;}
+
+  .lede{
+    margin:30px 0 8px; padding:24px 26px; position:relative;
+    border:1.5px dashed var(--copper-dim);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(224,164,88,.06), rgba(224,164,88,.02));
+  }
+  .lede .tag{
+    position:absolute; top:-13px; left:22px;
+    background:var(--substrate); padding:0 10px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.22em;
+    color:var(--copper); text-transform:uppercase;
+  }
+  .lede h2{
+    font-family:"Oxanium",sans-serif; font-weight:700; font-size:18px; margin:2px 0 10px;
+    color:var(--copper); letter-spacing:.04em;
+  }
+  .lede p{margin:0; font-size:15px; color:var(--ink); font-weight:400;}
+
+  .bus{display:block; width:100%; height:54px; margin:14px 0 6px;}
+
+  .card{
+    position:relative; margin:18px 0; padding:22px 24px 20px;
+    border:1px solid var(--line); border-left-width:4px; border-radius:12px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;
+    animation-delay:var(--d,0s);
+  }
+  .card.agent{border-left-color:var(--agent);}
+  .card.edge{border-left-color:var(--edge);}
+  .card.body-c{border-left-color:var(--body-c);}
+  @keyframes rise{to{opacity:1; transform:translateY(0);}}
+
+  .card .desig{
+    position:absolute; top:16px; right:20px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.12em;
+    color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:3px 8px;
+  }
+  .card .dir{
+    display:inline-block; font-family:"JetBrains Mono",monospace; font-size:11px;
+    letter-spacing:.1em; padding:3px 10px; border-radius:20px; margin-bottom:10px;
+  }
+  .card.agent .dir{color:var(--agent); background:rgba(255,140,66,.12); border:1px solid rgba(255,140,66,.35);}
+  .card.edge .dir{color:var(--edge); background:rgba(54,197,208,.12); border:1px solid rgba(54,197,208,.35);}
+  .card.body-c .dir{color:var(--body-c); background:rgba(177,140,255,.12); border:1px solid rgba(177,140,255,.35);}
+
+  .card h3{
+    font-family:"Space Grotesk","Noto Sans SC",sans-serif; font-weight:700;
+    font-size:18.5px; line-height:1.5; margin:0 0 14px; color:var(--ink);
+  }
+  .card h3 .date{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--copper); font-weight:500; margin-left:8px;}
+  .sec{margin:0 0 12px;}
+  .sec .lbl{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em;
+    color:var(--mint); text-transform:uppercase; display:block; margin-bottom:3px;
+  }
+  .sec p{margin:0; font-size:14.5px; color:#c9d8d0; font-weight:300;}
+  .sec.note p{color:var(--muted);}
+  .src{
+    margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); border-top:1px dashed var(--line); padding-top:10px;
+  }
+  .src b{color:var(--copper); font-weight:500;}
+
+  .foot{
+    margin-top:30px; padding:22px 24px; border:1px solid var(--line); border-radius:12px;
+    background:var(--panel-2); opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:1.2s;
+  }
+  .foot h4{font-family:"Oxanium",sans-serif; font-weight:700; font-size:15px; color:var(--mint); margin:0 0 12px; letter-spacing:.04em;}
+  .foot ul{margin:0; padding-left:18px;}
+  .foot li{font-size:13.5px; color:var(--muted); margin-bottom:8px; font-weight:300;}
+  .foot li b{color:var(--ink); font-weight:500;}
+  .chain{
+    margin-top:14px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); line-height:1.9;
+  }
+  .chain b{color:var(--copper);}
+  .colophon{
+    text-align:center; margin-top:26px; font-family:"JetBrains Mono",monospace;
+    font-size:10.5px; letter-spacing:.18em; color:var(--line); text-transform:uppercase;
+  }
+  a{color:var(--edge); text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="corner c1"></span><span class="corner c2"></span>
+    <span class="corner c3"></span><span class="corner c4"></span>
+    
+    <h1>AI 领域每日动态</h1>
+    <div class="en">AGENT / TERMINAL-EDGE / EMBODIED · SIGNAL BOARD REV.2026-08-11</div>
+    <div class="meta-row">
+      <span>生成时间 <b>2026-08-11 09:50 GMT+8</b></span>
+      <span>信号数 <b>05</b></span>
+      <span>焦点 <b>AI Coding · 具身智能</b></span>
+      <span>本期主题 <b>口径与实数</b></span>
+    </div>
+  </header>
+
+  <div class="lede mainline">
+    <span class="tag">今日主线 · TODAY'S MAIN LINE</span>
+    <h2>口径与实数</h2>
+    <p>今天五条信号做的是同一个动作：把宣发口径换算成可结算的实数。Codex 的上下文不是模型页上的 105 万 token，而是 harness 实际调度的 27.2 万——只有标称值的 26%，且越过这条线，输入按 2 倍计费；Claude Code 五天连发五个版本，其中三个在补「审批框里看到的」与「实际执行的」之间那道缝，而 8 月 14 日 Auto Mode 就要成为默认；Codex 0.147.0 则把密钥从会话记录里抹掉，顺手把 Cursor 的技能导进来，让积累不再是锁定。具身侧交出的是另一张口径表：宇树以 0.0181% 的中签率、219 倍发行市盈率把「量产元年」一次性折现，978 万户申购、8288 倍认购是市场愿意付的价；而同一个赛道的另一张账单写着，一台已上岗机器人光换件一年就要约 71 万元。能被计费、被审计、被招股书披露的那个数，才是真数；剩下的都是标称值。</p>
+  </div>
+
+  <svg class="bus" viewbox="0 0 980 54" preserveaspectratio="none" aria-hidden="true">
+    <path d="M10,27 H300" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M300,27 H520" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M520,27 H740" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M740,27 H970" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M10,27 H970" stroke="#e0a458" stroke-width="1.5" fill="none" stroke-dasharray="980" stroke-dashoffset="980">
+      <animate attributename="stroke-dashoffset" from="980" to="0" dur="1.6s" begin=".2s" fill="freeze"/>
+    </path>
+    <g fill="#5fd0b0">
+      <circle cx="150" cy="27" r="3"/><circle cx="410" cy="27" r="3"/>
+      <circle cx="630" cy="27" r="3"/><circle cx="855" cy="27" r="3"/>
+    </g>
+  </svg>
+
+  <!-- 信号 01 -->
+  <article class="card agent" style="--d:.25s">
+    <span class="desig">U1 · NOMINAL</span>
+    <span class="dir">AI CODING · 上下文口径</span>
+    <h3>你买的不是 105 万上下文：Codex CLI 实际只调度 27.2 万<span class="date">口径核对 8/9–8/11</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>同一个「上下文窗口」，在 Codex 上有两个数字。模型侧：GPT-5.6 家族 API 上下文 1,050,000 token。harness 侧：Codex CLI 在 v0.144.6（7/18）把自身 bundled context 明确修正为 272,000 token，适用于 Sol / Terra / Luna——写在 CLI changelog，不在模型页上。两者之比约 26%。更关键的是这条线同时是价格台阶：按 8/7–8/9 观察到的 OpenAI 费率卡，单次请求输入超过 272,000 token 后，输入与缓存输入按 2 倍、输出按 1.5 倍计费（整个请求全额适用）。一个 100 万输入 + 10 万输出的 Sol 任务，从 8 美元跳到 14 美元。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>这是「宣发口径 vs 可结算实数」最干净的一个样本，也是最容易踩的坑：按模型页的 105 万规划整仓扫描，实际会被 harness 默认裁到四分之一；真把预算调上去，成本不是线性上升而是断层跳变。对做 agent 工程的人，有两条可直接落地的判据——一、任何人报「某 CLI 支持 X token 上下文」，先问是模型窗口还是 harness 预算；二、把 272K 当作显式的架构分界线来设计上下文压缩，而不是当作可以随手突破的软上限。它也解释了 harness 层为什么正在成为壁垒：模型能装多少，和工具愿意喂多少、按什么价喂，是两件事。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>OpenAI developers changelog（CLI v0.144.6）+ Luna 模型页费率（8/9 抓取）+ 企业费率卡（8/7 观察），经第三方横评与费率分析文交叉复核；数值口径「高」，但费率卡随时可变，落地前请以官方页为准。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="card agent" style="--d:.45s">
+    <span class="desig">U2 · BOUNDARY</span>
+    <span class="dir">AI CODING · 权限边界</span>
+    <h3>Claude Code 五天五版，三类权限绕过被补：默认自治前的补丁窗口<span class="date">8/4–8/8</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8 月 4 日至 8 日，Claude Code 连发 v2.1.222–226，多数是安全面，集中在三类绕过：<b>v2.1.222</b> 修复 worktree 隔离缺陷——本应被隔离的子代理可对主 checkout 执行破坏性 git 操作，同时堵住 PreToolUse 自动放行钩子被后台任务借道绕过工具限制；<b>v2.1.223</b> 修复 bash 权限绕过——命令用制表符与不可见字符把自己的一部分藏出权限检查视野，并对「请求了你已限制的模型」的工作流代理加告警；<b>v2.1.224–226</b> 增加自托管执行 runner、支持从 HTTPS zip 安装插件（可选 SHA-256 校验）、Claude Code 实例间跨会话消息、网关额度提示，并修复 macOS 上 MCP OAuth 认证。而 8 月 14 日起，Pro / Max / Team 新会话的 Auto Mode 将成为默认。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>五天里出现三类彼此独立的绕过，说明的不是某个 bug，而是一个结构性事实：<b>审批对话框从来就不是安全边界</b>。人看到的批准内容可以不等于实际执行的内容（v2.1.223），隔离标签可以不等于真的隔离（v2.1.222）。把这条放在 8/14 默认自治的前面看，顺序就很清楚——分类器替换的是那个本来就不可靠的人工关卡，而真正兜底的仍然是沙箱、只读挂载、凭证不进会话。对跑无人值守任务的人（定时任务、后台代理），这是「本周必须打」的窗口，而不是可选升级；升级之后仍要按最坏假设收紧 shell。顺带一提，自托管 runner 让个人开发者可以把执行放到自己的便宜算力上，这是这批更新里少见的成本项利好。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>Claude Code GitHub releases / CHANGELOG（一级）+ 版本追踪站与独立周报交叉复核；版本号与修复类别「高」，Auto Mode 默认时间为 Anthropic 官方公告「高」，其 89% 危险命令拦截率为厂商自测「中高（第三方未复现）」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="card agent" style="--d:.65s">
+    <span class="desig">U3 · PORTABILITY</span>
+    <span class="dir">AI CODING · 协议与迁移成本</span>
+    <h3>Codex 0.147.0：密钥脱敏、无状态 MCP 落地、Cursor 技能可直接导入<span class="date">8/7</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>OpenAI Codex CLI rust-v0.147.0 于 8 月 7 日发布，内容密度较高：支持 MCP 2026-07-28 协议（含分页式工具发现）；引入可跨 local / personal / workspace / remote 四类目录检索的 Agent Plugins；支持导入 Cursor 技能并同步会话；新增 <code>--approve-for-me</code> 自动批准开关；<b>在展示命令与会话历史两处对密钥做脱敏</b>。前一版 0.146.1（8/5）已收紧了具备网络攻击能力模型的自动 review 默认值。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>三件事分别对应三层。<b>安全层：</b>密钥脱敏值得单独升级——过去泄漏在 scrollback 里的 API key，会一路进到日志、进到录屏、进到贴给同事的终端截图；同一周 Claude Code 也在做凭证屏蔽，两家同向动作说明「会话记录即泄漏面」已成共识。<b>协议层：</b>无状态 MCP 从一份规范文档变成两家 CLI 的实际依赖，分页式工具发现是给未来的大工具目录留的余量。<b>生态层：</b>Cursor 技能导入把切换成本压到接近零，意味着你积累的 skill 资产不再构成厂商锁定——这对个人和小团队是实打实的议价权。反向看，<code>--approve-for-me</code> 与 U2 是同一枚硬币：自动批准越普及，沙箱越是唯一真边界。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>OpenAI Codex GitHub releases（一级）+ 独立周报复核；版本内容「高」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="card body-c" style="--d:.85s">
+    <span class="desig">U4 · DISCOUNTED</span>
+    <span class="dir">具身智能 · 招股书上的实数</span>
+    <h3>宇树中签率 0.0181% 创科创板历史新低，智元启动赴港<span class="date">8/10–8/11</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8 月 10 日，宇树科技（688836.SH）科创板网上网下同步申购，发行价 150.80 元/股，发行 4044.6434 万股，募资近 61 亿元，发行后总市值约 609.93 亿元，发行摊薄市盈率 219 倍（行业均值 38.56 倍）。当晚公告：网上有效申购户数约 978.46 万户，创科创板历史新高；有效申购倍数约 8288.82 倍，触发回拨；最终中签率 0.01809759%，为科创板历史最低。基本面：2023–2025 营收 1.59 亿 → 16.99 亿元，扣非归母净利 −1801.91 万 → +5.91 亿元；2025 年人形机器人出货超 5500 台（纯人形，不含轮式双臂）居全球第一，四足三年累计销量超 3.3 万台。同期智元创新确认启动赴港上市，目标估值 400–500 亿港元，6 月 28 日累计下线 1.5 万台（距 1 万台仅 3 个月）。行业侧：上半年赛道融资 935 亿元、为去年同期 5 倍；百亿估值企业已达 26 家，其中 16 家为今年上半年新晋；超 20 家人形机器人核心企业进入 IPO 辅导 / 申报 / 发行阶段，港股排队机器人相关企业 46 家。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>判据换了。过去两年具身赛道的裁判是 demo 视频与融资额，从今天起是招股书、中签率和发行市盈率——这些数字有人真金白银在背后签字，也有人会为它们后续兑现不了而承担损失。219 倍 PE 与 8288 倍认购是一次性折现：市场把「量产元年 + 稀缺标的」的全部想象放进了发行价。注意两个观察量而非结论——一是首日涨幅的历史方差极大（今年科创板首日涨幅均值 466%、中位数 289%，但最低仅 58.93%），低中签率并不等价于高回报；二是宇树是目前少数已实现量产出货且整体盈利的机器人企业，这份盈利来自什么结构（科研教育 vs 工业），仍是后续每一份定期报告需要盯的东西。对产业观察者来说，真正的看点是：证券化把「持续披露」变成了强制项，此后这个赛道每一句话都要对着报表核。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>宇树科技发行公告 / 招股资料（一级）+ 证券时报、21 世纪经济报道、上观新闻、腾讯新闻（权威媒体）；发行数据与财务数据「高」，估值目标与排队家数为不完全统计「中高」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="card body-c" style="--d:1.05s">
+    <span class="desig">U5 · UNIT-COST</span>
+    <span class="dir">具身智能 · 单位经济</span>
+    <h3>灵巧手成「奢侈品」：一台上岗机器人年换件成本约 71 万元<span class="date">8/10</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>IT 桔子数据：上半年国内具身智能 322 起融资、935 亿元，为 2025 年同期 5 倍。机构口径显示，其中绝大多数流向「大脑」即模型端，尤以世界模型为最；零部件投资热度前三依次为关节模组、灵巧手、大脑控制器。近期案例：触觉感知公司一目科技完成 E 轮超 10 亿元融资，投后估值突破 100 亿元；核心零部件公司灵心巧手计划 2027 年在港交所申报 IPO。而成本侧的数字相当刺眼——一只高性能五指灵巧手单价最高可达几十万元，约占人形机器人整机成本的 14%–18%；被广泛引用的一个例子是，特斯拉 Optimus 的灵巧手在分拣快递训练中使用寿命仅约 6 周，单只成本超 6000 美元，叠加其他易损件后，一台已投用机器人每年仅更换零部件成本就接近 10 万美元（约 71 万元人民币）。摩根士丹利的判断是，市场正从「技术突破」转向「投资回报率评估」。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>这是 U4 的对冲面，两条放一起才是完整账本。IPO 折现的是出货量和产能，而年约 71 万元的换件成本决定客户第二年还续不续费——后者才是「上岗」与「摆展」的分水岭。三年前投资人问机器人跳得好不好，两年前问有没有工厂愿意试用，今年只问你赚到钱了吗、客户续费了吗。同时要对「71 万」这个数保持诚实：它来自单一场景（高频分拣）的极端磨损案例外推，并非行业平均值，真实数字会因场景、占空比、维护策略差异巨大——但它给出了一个此前被忽略的量级坐标。可跟踪的领先指标有两个：一是灵巧手与触觉方案的单价 / 寿命曲线（这决定整机 TCO 能否下探），二是本体厂商是否开始在合同里承诺换件成本上限——那才是「敢对结果负责」的真实信号。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>Tech 星球（引 IT 桔子数据 + 金鼎资本投资总监访谈 + 第三方研报）；融资总额与轮次「高」，灵巧手单价区间与整机成本占比为研报口径「中高」，Optimus 寿命 / 年换件成本为广泛引用的个案外推「中（未经厂商确认，勿当行业均值）」。不构成投资建议。</div>
+  </article>
+
+  <section class="foot">
+    <h4>诚实标注与弃用清单</h4>
+    <ul>
+      <li><b>主动弃用：</b>Meta Muse Code（8/5 发布，Terminal-Bench 2.1 82.9%、贡献者层 0.10 美元/M 输入换训练授权）为上周信号，8/06 期已作为「可审计架构」收录，今日不重复单列；Cloudflare Kitesurf（8/6，无 Chromium 的 agent 浏览器，V8 isolate + Rust/WASM，通过 21.5 万+ Web Platform Tests）属 agent 基建、与本期「口径」主线弱相关，仅作观察项。</li>
+      <li><b>并入主线：</b>「递归自我改进的壁垒长在 harness 层而非模型权重」这一判断已并入信号 01 / 03 的分析，不单列为事实条目——它是观点，不是事件。</li>
+      <li><b>存疑未采：</b>面壁 MiniCPM-Robot（1.5B VLA + 0.9B 跟踪模型，端侧 180ms 延迟）与蚂蚁灵波 LingBot 系列均为 7 月 WAIC 期间发布，非当日新增，本期未计入；GLM-5.5、Qwen3.8-Max 开放权重等「本周将发」类消息在核验时点仍未确认落地，一律不采。</li>
+      <li><b>数值降级标注：</b>信号 05 的「年换件约 71 万元」为个案外推、非行业均值，已在信源栏降级为「中」；信号 01 的费率结构为观察时点快照，可能变动。</li>
+      <li><b>不构成投资建议：</b>信号 04 / 05 涉及一级与二级市场数据，仅供产业观察，不作任何申购或持有建议。</li>
+    </ul>
+    <div class="chain">
+      <b>主线链条回顾（近期）：</b><br>
+      8/06 底座与边界之日 → 8/10 自治与红线 → <b>8/11 口径与实数</b><br>
+      逻辑：从「稀缺的是可控可跑可负担的底座」→「自主体的克制成为新稀缺」→「克制与能力都要能被换算成可结算的数」。昨天问的是该不该放手，今天问的是放手之后，账单和招股书上写的是多少。
+    </div>
+  </section>
+
+  <div class="colophon">— End of Board · Substrate Rev.2026-08-11 —</div>
+
+</div>
+</body>
+</html>
