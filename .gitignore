@@ -16,3 +16,6 @@ desktop.ini
 .idea/
 .vscode/
 *.swp
+
+# Python 脚本缓存
+__pycache__/
