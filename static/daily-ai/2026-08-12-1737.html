@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-12 17:37 · 自主交付与上岗潮</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --substrate:#0b1310;
+    --substrate-2:#0e1a15;
+    --panel:#101d18;
+    --panel-2:#0c1611;
+    --copper:#e0a458;
+    --copper-dim:#a9773c;
+    --mint:#5fd0b0;
+    --ink:#dce8e1;
+    --muted:#8aa39a;
+    --line:#1d3329;
+    --agent:#ff8c42;
+    --edge:#36c5d0;
+    --body-c:#b18cff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(224,164,88,.08), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(54,197,208,.07), transparent 60%),
+      var(--substrate);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:"Noto Sans SC","Space Grotesk",system-ui,sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:38px 38px;
+    opacity:.35;
+    mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
+  }
+  .wrap{position:relative; z-index:1; max-width:980px; margin:0 auto; padding:46px 24px 70px;}
+
+  .masthead{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    padding:28px 30px 24px;
+    position:relative; overflow:hidden;
+  }
+  .masthead .corner{position:absolute; width:12px; height:12px; border:2px solid var(--copper-dim); border-radius:50%;}
+  .masthead .c1{top:14px; left:14px;} .masthead .c2{top:14px; right:14px;}
+  .masthead .c3{bottom:14px; left:14px;} .masthead .c4{bottom:14px; right:14px;}
+  .kicker{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.32em;
+    color:var(--copper); text-transform:uppercase; margin:0 0 8px;
+  }
+  .masthead h1{
+    font-family:"Oxanium",sans-serif; font-weight:800; letter-spacing:.02em;
+    font-size:30px; margin:0 0 6px; color:var(--ink);
+  }
+  .masthead .en{font-family:"Oxanium",sans-serif; font-weight:600; font-size:13px; letter-spacing:.18em; color:var(--muted);}
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:16px;
+    font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--muted);
+  }
+  .meta-row b{color:var(--mint); font-weight:500;}
+
+  .lede{
+    margin:30px 0 8px; padding:24px 26px; position:relative;
+    border:1.5px dashed var(--copper-dim);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(224,164,88,.06), rgba(224,164,88,.02));
+  }
+  .lede .tag{
+    position:absolute; top:-13px; left:22px;
+    background:var(--substrate); padding:0 10px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.22em;
+    color:var(--copper); text-transform:uppercase;
+  }
+  .lede h2{
+    font-family:"Oxanium",sans-serif; font-weight:700; font-size:18px; margin:2px 0 10px;
+    color:var(--copper); letter-spacing:.04em;
+  }
+  .lede p{margin:0; font-size:15px; color:var(--ink); font-weight:400;}
+
+  .bus{display:block; width:100%; height:54px; margin:14px 0 6px;}
+
+  .card{
+    position:relative; margin:18px 0; padding:22px 24px 20px;
+    border:1px solid var(--line); border-left-width:4px; border-radius:12px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;
+    animation-delay:var(--d,0s);
+  }
+  .card.agent{border-left-color:var(--agent);}
+  .card.edge{border-left-color:var(--edge);}
+  .card.body-c{border-left-color:var(--body-c);}
+  @keyframes rise{to{opacity:1; transform:translateY(0);}}
+
+  .card .desig{
+    position:absolute; top:16px; right:20px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.12em;
+    color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:3px 8px;
+  }
+  .card .dir{
+    display:inline-block; font-family:"JetBrains Mono",monospace; font-size:11px;
+    letter-spacing:.1em; padding:3px 10px; border-radius:20px; margin-bottom:10px;
+  }
+  .card.agent .dir{color:var(--agent); background:rgba(255,140,66,.12); border:1px solid rgba(255,140,66,.35);}
+  .card.edge .dir{color:var(--edge); background:rgba(54,197,208,.12); border:1px solid rgba(54,197,208,.35);}
+  .card.body-c .dir{color:var(--body-c); background:rgba(177,140,255,.12); border:1px solid rgba(177,140,255,.35);}
+
+  .card h3{
+    font-family:"Space Grotesk","Noto Sans SC",sans-serif; font-weight:700;
+    font-size:18.5px; line-height:1.5; margin:0 0 14px; color:var(--ink);
+  }
+  .card h3 .date{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--copper); font-weight:500; margin-left:8px;}
+  .sec{margin:0 0 12px;}
+  .sec .lbl{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em;
+    color:var(--mint); text-transform:uppercase; display:block; margin-bottom:3px;
+  }
+  .sec p{margin:0; font-size:14.5px; color:#c9d8d0; font-weight:300;}
+  .sec.note p{color:var(--muted);}
+  .src{
+    margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); border-top:1px dashed var(--line); padding-top:10px;
+  }
+  .src b{color:var(--copper); font-weight:500;}
+
+  .foot{
+    margin-top:30px; padding:22px 24px; border:1px solid var(--line); border-radius:12px;
+    background:var(--panel-2); opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:1.2s;
+  }
+  .foot h4{font-family:"Oxanium",sans-serif; font-weight:700; font-size:15px; color:var(--mint); margin:0 0 12px; letter-spacing:.04em;}
+  .foot ul{margin:0; padding-left:18px;}
+  .foot li{font-size:13.5px; color:var(--muted); margin-bottom:8px; font-weight:300;}
+  .foot li b{color:var(--ink); font-weight:500;}
+  .chain{
+    margin-top:14px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); line-height:1.9;
+  }
+  .chain b{color:var(--copper);}
+  .colophon{
+    text-align:center; margin-top:26px; font-family:"JetBrains Mono",monospace;
+    font-size:10.5px; letter-spacing:.18em; color:var(--line); text-transform:uppercase;
+  }
+  a{color:var(--edge); text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="corner c1"></span><span class="corner c2"></span>
+    <span class="corner c3"></span><span class="corner c4"></span>
+
+    <h1>AI 领域每日动态</h1>
+    <div class="en">AGENT / TERMINAL-EDGE / EMBODIED · SIGNAL BOARD REV.2026-08-12</div>
+    <div class="meta-row">
+      <span>生成时间 <b>2026-08-12 17:37 GMT+8</b></span>
+      <span>信号数 <b>05</b></span>
+      <span>焦点 <b>AI Coding · 具身智能</b></span>
+      <span>本期主题 <b>自主交付与上岗潮</b></span>
+    </div>
+  </header>
+
+  <div class="lede mainline">
+    <span class="tag">今日主线 · TODAY'S MAIN LINE</span>
+    <h2>自主交付与上岗潮</h2>
+    <p>今天五条信号分两条主线收束。AI 编程侧，竞争从「模型能力」下沉到「价格 + 自主交付 + 可靠性」：智谱 ZCode 用户破百万并走向复杂任务自主交付、Meta 以低价多智能体 Muse Code 切入、中科院则量化出编程智能体在用户干扰下的失效盲区。具身侧，8 月「机器人超级月」把产业从 Demo 推向量产与上岗，小米开源 Xiaomi-Robotics-1、Daimon 触觉世界模型则把「具身大脑」的门槛与「动态环境」的短板同步往前推。一句话：两端都在把「能不能用」换成「能不能稳定地跑、便宜地跑、可靠地跑」。</p>
+  </div>
+
+  <svg class="bus" viewbox="0 0 980 54" preserveaspectratio="none" aria-hidden="true">
+    <path d="M10,27 H300" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M300,27 H520" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M520,27 H740" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M740,27 H970" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M10,27 H970" stroke="#e0a458" stroke-width="1.5" fill="none" stroke-dasharray="980" stroke-dashoffset="980">
+      <animate attributename="stroke-dashoffset" from="980" to="0" dur="1.6s" begin=".2s" fill="freeze"/>
+    </path>
+    <g fill="#5fd0b0">
+      <circle cx="150" cy="27" r="3"/><circle cx="410" cy="27" r="3"/>
+      <circle cx="630" cy="27" r="3"/><circle cx="855" cy="27" r="3"/>
+    </g>
+  </svg>
+
+  <!-- 信号 01 -->
+  <article class="card agent" style="--d:.25s">
+    <span class="desig">C1 · DELIVER</span>
+    <span class="dir">AI CODING · 自主交付</span>
+    <h3>智谱 ZCode 用户破百万，Coding Agent 走向「复杂任务自主交付」<span class="date">8/11</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8/11 智谱宣布 ZCode 全面升级，上线 Goal（目标驱动）、Subagents（子智能体）、Remote Control（远程控制）、闲时任务四项功能，把 Coding Agent 从「对话辅助」推向「复杂任务自主交付」；用户数突破 100 万，GLM Coding Plan 全体额度于当日 13:00 统一重置回满。同日 MaaS 平台 API 用户逼近 700 万（含 2.3 万家企业客户），年内 ARR 增长约 15 倍；并点亮 1GW 级国产 AI 算力中心（5 万块国产芯片、无英伟达），以缓解调用量增长后的算力瓶颈。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>这是国产 AI 编程产品首个明确跨过「百万用户 + 自主交付」节点的信号，且叠加国产算力自给，形成「模型—产品—算力」闭环。对国内团队，ZCode 正成为可替代 Codex / Claude Code 的本土选项；额度重置 + 1.5 倍限时加成意味着本周使用量会冲高，是观察国产 Coding Agent 真实负载、稳定性与 harness 适配（「A good harness makes smart models smarter」）的窗口。算力去英伟达化也提示：国产 Coding 生态的护城河正从单模型转向「模型 + 编排 + 算力」三位一体。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>新京报 / 智猩猩 / 三言科技（一级）+ 多方周报交叉复核；用户数与功能上线「高」，1GW 算力与 ARR 为厂商口径「中（未独立证实）」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="card agent" style="--d:.45s">
+    <span class="desig">C2 · PRICE</span>
+    <span class="dir">AI CODING · 价格战</span>
+    <h3>Meta 推出低价多智能体编程智能体 Muse Code 测试版<span class="date">8/11</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8/11 Meta 发布首款 AI 编程智能体产品 Muse Code（测试版），基于 Muse Spark 1.2，主打低价与多智能体编排：输入 $1.25 / 百万 token、输出 $4.25 / 百万 token，另有「贡献者层级」便宜 10 倍以上，支持零数据保留，一条命令即可安装并管理多个智能体，直接对标 Anthropic（Claude Code）与 OpenAI（Codex）。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>继 Claude Code、Codex 后，Meta 以「价格 + 多智能体编排」切入，标志编程智能体的竞争焦点从「能力」转向「成本与编排」。对中小团队，低价 + 零数据保留同时降低了合规与采购门槛；也预示赛道将进入价格战，倒逼闭源对手调整费率结构。值得跟踪的是：低价能否换来可比的编码表现——目前实测仍待第三方评测，定价格局变化快于能力差距收敛。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>三易生活 / 多家科技媒体（一级）；版本与定价「高」，实测编码表现待第三方评测「中」。</div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="card agent" style="--d:.65s">
+    <span class="desig">C3 · RELIABILITY</span>
+    <span class="dir">AI CODING · 可靠性盲区</span>
+    <h3>中科院 SWE-Touch 量化编程智能体在「用户干扰」下的失效盲区<span class="date">8/11</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8/11 中国科学院团队构建 SWE-Touch 框架，模拟用户反向编辑代码（人在环中中途改动），测试九款主流 AI 编程模型，揭示多数编程智能体在用户干扰下易失效——自主迭代会覆盖或误解人工改动，引发回归。此前编程智能体评测多假设「无人干预」，该框架补上最现实也最危险的盲区。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>它把「高自主编程」的可靠性从定性担忧变成可量化指标。真实研发中人类会随时介入，而当前智能体普遍假设工作区静态。结论直接指向工程护栏：在推向无人值守 / 后台代理前，必须配可验证机制（沙箱、diff 复核、冲突检测、写权限最小化），而非依赖模型自觉。与近期 Claude Code 默认 Auto Mode 的节奏对照看，能力上行与可靠性验证必须并行，否则「自主」会变成「自主制造回归」。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>至顶科技 / 团队论文（一级）；框架与测试结论「高」，覆盖模型的泛化性待更多复现「中」。</div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="card edge" style="--d:.85s">
+    <span class="desig">E1 · DEPLOY</span>
+    <span class="dir">具身智能 · 量产催化</span>
+    <h3>8 月「机器人超级月」开启：从 Demo 走向量产与上岗<span class="date">8/12–8/26</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>8/12–14 第四届上海具身智能机器人产业大会召开，整机、核心零部件、算法企业与汽车 / 3C 终端用户一对一对接，上海具身企业首次以区域展团集中亮相；此后 8/19–23 世界机器人大会（WRC，北京，300+ 企业、150+ 首发新品）、8/22–26 第二届世界人形机器人运动会接棒。同期宇树科技科创板 IPO（拟募 42 亿、估值约 420 亿）进入打新，比亚迪首款人形机器人将于 8 月亮相。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>技术、资本、政策、会议在 8 月集中共振，是具身产业从「演示级」跨向「量产 / 上岗」的关键催化窗口。衡量标准已从「会不会动」转为「能否稳定量产、持续在岗、落地真实场景」。对关注产业链（本体、零部件、控制系统、场景集成）的人，这是集中验证成色的月份；摩根士丹利已把 2026 年中国市场出货预测从 2.8 万台上调至 5 万台。需冷静：估值与量产节奏仍多为厂商 / 机构口径，警惕「量产元年」叙事透支。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>行业会议公告 / 招股书 / 多家财经媒体（一级）；会议与 IPO 日程「高」，量产与营收预测「中（厂商 / 机构口径）」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="card edge" style="--d:1.05s">
+    <span class="desig">E2 · BRAIN</span>
+    <span class="dir">具身智能 · 大脑开源 + 触觉闭环</span>
+    <h3>具身大脑开源化 + 触觉闭环：Xiaomi-Robotics-1 与 Daimon 触觉世界模型<span class="date">8/5 · 8/10</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>小米于 8/5 开源新一代具身基础模型 Xiaomi-Robotics-1（Hugging Face / GitHub），VLA 架构，基于 10 万+ 小时 Universal Manipulation Interface 轨迹预训练、1 万+ 小时跨本体后训练，RoboCasa365 成功率 57.4%。同期 Daimon Robotics（8/10）发布触觉世界模型 Daimon-TWM，让机器人在扰动下不停止、不碰撞，平均成功率 64.0%（无扰动）/ 53.5%（有扰动），把触觉反馈纳入「感知—预测—控制」统一框架。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>两条线分别补上具身智能的两块短板：小米把「通用运动控制软件」开源、标准化，降低中小团队自研门槛，把创新焦点从硬件转向可插拔神经网络；Daimon 则把触觉从「稀疏力觉」升级为「全臂闭环」，补齐动态 / 非结构化环境下的自适应。开源大脑 + 触觉闭环结合，预示具身 Agent 的可复现基线正在形成——谁能把这套「开源 VLA + 触觉反馈」跑通到产线，谁就拿到下一阶段入场券。跨本体泛化仍有待真实工厂验证。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>小米官方仓库 / zubnet / RobotToday（一级）；模型权重与基准为官方口径「中高」，跨本体泛化待产线验证「中」。</div>
+  </article>
+
+  <div class="foot">
+    <h4>本期判读 · READ</h4>
+    <ul>
+      <li><b>AI Coding：</b>战场从「谁更聪明」移向「谁更便宜、更能自主交付、更可靠」——ZCode 的自主交付、Muse Code 的低价、SWE-Touch 的可靠性量化，是同一条主线三端。</li>
+      <li><b>具身智能：</b>8 月是「量产 / 上岗」的集中验证月；开源大脑与触觉闭环则在补「大脑」与「动态环境」两块地基。</li>
+      <li><b>共同命题：</b>两端都在把「能不能用」换算成「能不能稳定地跑、便宜地跑、可靠地跑」——可被计费、被审计、被复现的那个数，才是真数。</li>
+    </ul>
+    <div class="chain">
+      <b>线索链：</b> ZCode 自主交付 → Muse Code 低价 → 价格战挤压闭源 → SWE-Touch 可靠性补位 ｜ 上海大会 + WRC + 宇树 IPO → 量产兑现 → 小米 / Daimon 补大脑与触觉
+    </div>
+  </div>
+
+  <div class="colophon">Leion'Log · Daily AI Signal Board · Auto-generated 2026-08-12</div>
+
+</div>
+</body>
+</html>
