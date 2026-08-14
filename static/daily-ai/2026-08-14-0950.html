@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 领域每日动态 · 2026-08-14</title>
+<style>
+  :root{
+    --bg:#0d1424; --panel:rgba(20,28,48,.66); --panel-edge:rgba(111,214,224,.20);
+    --cyan:#6fd6e0; --gold:#e9c46a; --ink:#e6edf3; --ink-soft:#a9b4cc;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;font-size:16px}
+  .wrap{max-width:840px;margin:0 auto;padding:40px 22px 64px}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:.01em}
+  h1 .accent{color:var(--cyan)}
+  .meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;
+    letter-spacing:.08em;color:var(--cyan);margin-bottom:26px}
+  .lede{border-left:3px solid var(--cyan);background:var(--panel);
+    border:1px solid var(--panel-edge);border-left:3px solid var(--cyan);
+    border-radius:10px;padding:16px 20px;margin:0 0 30px;color:var(--ink-soft);font-size:15px}
+  .lede b{color:var(--ink)}
+  .item{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:20px 22px;margin:0 0 16px;transition:border-color .15s ease,box-shadow .15s ease}
+  .item:hover{border-color:var(--cyan);box-shadow:0 10px 30px rgba(0,0,0,.28)}
+  .item h2{font-size:18px;margin:0 0 12px;color:var(--gold);line-height:1.4}
+  .row{margin:0 0 10px}
+  .row .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;
+    color:var(--cyan);border:1px solid var(--panel-edge);border-radius:6px;
+    padding:2px 8px;margin-right:10px;vertical-align:middle}
+  .row p{display:inline;color:var(--ink-soft)}
+  .row.why p{color:#cdd6e8}
+  footer{margin-top:34px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--panel-edge);padding-top:16px}
+  a{color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AI 领域每日动态 · <span class="accent">2026-08-14</span></h1>
+  <div class="meta">观测窗 2026-08-14 09:50 · 侧重 AI Coding / 具身智能 · 每日 3–5 条</div>
+
+  <div class="lede">
+    <b>本期主线：</b>AI 编程侧，竞争从「模型能力」下沉到「开源执行层 + 检索基础设施」——DeepSeek 以 MIT 协议开源 Harness，直接争夺 Claude Code / Codex 之上的开发者入口；Voyage 把代码语义检索做成独立刚需层。具身侧，焦点从 Demo 转向「能否稳定量产与交付」——中试平台落成、1 亿美元订单发往欧洲，标志具身智能进入交付纪元；月底的机器人运动会则把它推上「公开考场」。两端共同信号：稀缺的不再是能力演示，而是可复用的入口（开源生态）与可结算的交付（产线 + 订单）。
+  </div>
+
+  <div class="item">
+    <h2>① DeepSeek 开源智能体框架 Harness（DSH）+ DeepSeek-V4-Pro-0813</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 13 日晚，DeepSeek 正式开源（MIT 协议）首款智能体运行框架 DeepSeek Harness v0.1 开发者预览版，同步放出 DeepSeek-V4-Pro-0813（MoE，总参 1.6T / 激活 490 亿，100 万 token 上下文）。Harness 采用「一切皆插件」架构，模型、工具、UI、沙箱皆为可替换插件，内置标准 / PTC / 极简 / 创造四种模式，支持多 Agent 协作与 Trajectory 回放；内测用户称其「对标 Claude Cowork」。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>DeepSeek 从「卖模型 / API」正式进入 Claude Code、Codex 所在的 AI 编程执行层，争夺模型之上的开发者入口。MIT 开源 + 插件化意味着模型只是技术栈中可替换的一环，或将重塑「封闭产品（iPhone 式）vs 开源生态（安卓式）」的编码智能体格局；对普通算力卡的私有化部署也是一记降本。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>② Voyage 发布 voyage-code-4 代码嵌入模型</h2>
+    <div class="row"><span class="tag">事件内容</span><p>MongoDB 子公司 Voyage AI 于 8 月 13 日发布 voyage-code-4，定价 $0.12 / 百万 token（较上代降 33%）。在 Agentic 代码检索基准上平均超越 OpenAI text-embedding-3-large 达 48.58%、超越 Cohere Embed v4 达 28.25%。训练数据来自 GitHub 真实 PR 的 issue-fix 配对，使 Agent 能从「邮箱为空会崩溃」这类模糊描述而非函数名出发做语义检索。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>编程 Agent 生态正从「模型能力竞争」进入「基础设施精细化竞争」——检索层成为刚需。当智能体要在大代码库里定位 bug，全文搜索的根本瓶颈被语义检索补上；但也需留意，开源 Qwen3-Embedding-8B 已在 MTEB 上超越所有商业 API，商业嵌入模型的精度壁垒正被追赶。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>③ 北京无界动力具身智能中试平台落成，1 亿美元订单发往欧洲</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 13 日，中关村（海淀）具身智能创新产业园的「无界动力中试平台」落成，覆盖原材料质检、模块装配、整机合装到测试全流程六大功能区；主要承担第二代 K15 及双足 / 轮臂第三代本体的生产验证。其轮式半人形 K15 已于 7 月获全球首个工业级 CE 全指令认证，此前签下的 1 亿美元全球订单全面进入交付周期，首批已发往欧洲。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>这是具身智能从「技术演示」向「规模量产」跨越的关键基础设施——它要回答的核心命题是「产品能否被稳定生产出来」。中试平台 + 真实海外订单交付，意味着行业焦点已从参数与 Demo 转向「产线节拍 + 可结算交付」，与上半年 935 亿融资共同把赛道推入「交付时代」。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>④ 第二届世界人形机器人运动会 8/22 在北京「冰丝带」开幕</h2>
+    <div class="row"><span class="tag">事件内容</span><p>由北京市政府、总台等联合主办，吸引六大洲 16 国 666 支队伍、2056 台机器人同台，队伍总量同比 +138%、机器人数量翻两番；赛项扩至 50 个，以推动人形机器人融入社会为目标。同期众擎机器人等在上海成立新公司，加速产业链整合。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>运动会是具身智能的「公开考场」与实景试验场，集中检验运动控制、多机协同与复杂环境适应；但需冷静——竞技表现与真实工业 / 商业场景的复杂需求仍有差距，资本应区分「会上拿奖」与「能上岗赚钱」两件事，审慎审视技术成熟度与商业化节奏。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>⑤ Anthropic 估值或破 2 万亿美元、最快 10 月上市，Claude 文本水印落地</h2>
+    <div class="row"><span class="tag">事件内容</span><p>多方投资方人士称 Anthropic 最快 10 月上市，估值预期达 2 万亿美元甚至更高（或超 SpaceX 成史上最大 IPO）；其年化营收由 2025 年初 10 亿增至今年 5 月 470 亿。同时，Claude 文本水印自 8 月 2 日起全球落地，以难以察觉的水印标识 AI 生成文本，系为遵守欧盟《人工智能法》，引发版权与隐私争议。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>若 2 万亿估值落地，市场交易的已不只是当前业绩，而是 Anthropic「能否长期占据企业 AI 与 AI Coding 核心入口」。编码智能体作为企业 AI 的刚需入口，其入口价值正被资本市场重估；而水印合规则预示：高自主编码 Agent 进入生产环境，将越来越被「可识别、可溯源、可监管」的硬约束所框定。</p></div>
+  </div>
+
+  <footer>
+    来源：每经 / 钛媒体 Edge AI Daily / 第一财经 / 量子位 / 央广网 / 北京日报 / 新浪财经 等公开报道（2026-08-13 ~ 08-14）。本页为自动化「每日 AI 动态」栏目之一期，仅供速览，不构成任何投资建议。
+  </footer>
+</div>
+</body>
+</html>
