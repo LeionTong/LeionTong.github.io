@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-15-1150.html">
+    <div class="da-card-date">2026-08-15 · 11:50</div>
+    <div class="da-card-main">AI 编程侧，8/14 是一道分水岭：Anthropic 把 Claude Code 的默认安全模型从「人审批」切到「分类器」——auto mode 当日生效，并附上一份残酷的人因数据集（1053 名测试者中 86.4% 批准了明显危险的命令，auto mode 拦截 89%，且人类在疲劳后识别率从 17% 跌到 5%）；同日智谱 GLM-5.3 以开放权重在 CyberGym 上超越 OpenAI、Anthropic 闭源对手，与 DeepSeek 开源 Harness 形成「开放权重 coding 双响」；Cursor 被 SpaceX 收购则把编码智能体推进大厂垂直整合。具身侧，8/15 是「资本定锚日」：宇树以 609.93 亿市值、219 倍 PE 冲刺人形第一股，上半年具身智能融资破 935 亿、同比增 5 倍；法奥把工业力控臂压到 2.38 万元、原力无限拿近 10 亿押注具身大脑。两端共同信号：稀缺的不再是能力演示，而是「可信的自治」（coding 侧）与「用得起 + 真上岗」（具身侧）。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-14-0950.html">
     <div class="da-card-date">2026-08-14 · 09:50</div>
     <div class="da-card-main">本期主线：AI 编程侧，竞争从「模型能力」下沉到「开源执行层 + 检索基础设施」——DeepSeek 以 MIT 协议开源 Harness，直接争夺 Claude Code / Codex 之上的开发者入口；Voyage 把代码语义检索做成独立刚需层。具身侧，焦点从 Demo 转向「能否稳定量产与交付」——中试平台落成、1 亿美元订单发往欧洲，标志具身智能进入交付纪元；月底的机器人运动会则把它推上「公开考场」。两端共同信号：稀缺的不再是能力演示，而是可复用的入口（开源生态）与可结算的交付（产线 + 订单）。</div>
