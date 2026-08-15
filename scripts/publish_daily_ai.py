@@ -290,14 +290,46 @@ def process_file(path: str) -> dict | None:
     cleaned = clean_html(raw)
     os.makedirs(STATIC_DAILY, exist_ok=True)
     out_html = os.path.join(STATIC_DAILY, slug + ".html")
-    with open(out_html, "w", encoding="utf-8") as f:
+    with open(out_html, "w", encoding="utf-8", newline="\n") as f:
         f.write(cleaned)
     lead = extract_lead(raw)
     return {"date": date, "time": time, "slug": slug, "lead": lead}
 
 
+SLUG_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{4})\.html$")
+
+
+def collect_published(known_slugs: set) -> list:
+    """补齐「已发布但源报告已不在 SRC_DIR」的期次。
+
+    _index.md 每次全量重建，仅靠 SRC_DIR 会在源文件被清理后丢卡片。
+    static/daily-ai/ 下的页面是发布后的权威副本，从中回填即可保证
+    栏目索引单调不减（幂等，可反复执行）。
+    """
+    out = []
+    if not os.path.isdir(STATIC_DAILY):
+        return out
+    for name in sorted(os.listdir(STATIC_DAILY)):
+        m = SLUG_RE.match(name)
+        if not m:
+            continue
+        slug = name[:-5]
+        if slug in known_slugs:
+            continue
+        date, hhmm = m.group(1), m.group(2)
+        try:
+            with open(os.path.join(STATIC_DAILY, name), "r", encoding="utf-8") as f:
+                raw = f.read()
+        except OSError:
+            continue
+        out.append({"date": date, "time": f"{hhmm[:2]}:{hhmm[2:]}",
+                    "slug": slug, "lead": extract_lead(raw)})
+    return out
+
+
 def build_index(records: list):
     records = [r for r in records if r]
+    records += collect_published({r["slug"] for r in records})
     records.sort(key=lambda r: (r["date"], r["time"]), reverse=True)
     cards = []
     for r in records:
@@ -335,7 +367,7 @@ title: "Daily AI"
 </style>
 """
     os.makedirs(CONTENT_DAILY, exist_ok=True)
-    with open(INDEX_MD, "w", encoding="utf-8") as f:
+    with open(INDEX_MD, "w", encoding="utf-8", newline="\n") as f:
         f.write(md)
     return len(records)
 
