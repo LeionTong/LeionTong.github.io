@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-16 09:50 · 装配层图纸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.kicker{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--ochre);margin:0 0 14px}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.sub{font-size:14px;color:var(--ink-soft);margin:0;letter-spacing:.04em}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0 0;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--rule-soft);padding:9px 12px;text-align:left;vertical-align:top}
+.tbl th{background:rgba(29,78,120,.09);font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.tbl td{color:var(--ink)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.44</b></span>
+    <span>2026-08-16  09:50  GMT+8</span>
+  </div>
+  
+  <h1>模型之外<em>那一层</em></h1>
+  
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 零重复</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">Harness · Skill · 数据</span></div>
+    <div class="spec-cell"><span class="spec-k">冷水</span><span class="spec-v">skill 缺陷率 91.8%</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">世界机器人大会 8/19</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">竞争重心从「模型有多大」，挪到「模型之外那一层」</div>
+  <p>模型更像 CPU——它决定推理上限，却不会自动长出文件系统、工具、权限、会话、沙箱与协作协议。今天的五条信号指向同一处：<strong>Harness、Skill、数据基建</strong>成了产品差异的主战场。但同一周内，两套新基准与两篇论文同时浇下冷水——插件好写，质量不可自动保证：<strong>91.8% 的 skill 存在缺陷</strong>，头部模型在长程生活任务基准上<strong>集体不及格</strong>。这一周真正发生的不是能力跃升，而是<em class="hl">评价体系的重建</em>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>装配层剖面</b>  |  五条信号在栈中的位置与今日受力方向</div>
+  <svg viewbox="0 0 872 424" width="100%" role="img" aria-label="AI 技术栈分层剖面图，标注五条信号位置">
+    <defs>
+      <marker id="ar" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+      <marker id="ab" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#1d4e78"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="16" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">STACK CROSS-SECTION / 2026-08-16</text>
+
+    <!-- Layer 4: 落地层 -->
+    <rect x="8" y="330" width="856" height="76" fill="rgba(47,107,107,.09)" stroke="#2f6b6b" stroke-width="1"/>
+    <text x="22" y="352" font-family="Courier Prime,monospace" font-size="10" fill="#2f6b6b" letter-spacing="1.8">LAYER 4 · 落地层</text>
+    <text x="22" y="374" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">终端智能 · 具身智能 · 产线与利润表</text>
+    <text x="22" y="394" font-family="Courier Prime,monospace" font-size="10.5" fill="#4d5c6c">信号 04 端侧进入财报验证 · 信号 05 具身路线未收敛</text>
+
+    <!-- Layer 3: 评测层 -->
+    <rect x="8" y="242" width="856" height="76" fill="rgba(150,115,28,.10)" stroke="#96731c" stroke-width="1"/>
+    <text x="22" y="264" font-family="Courier Prime,monospace" font-size="10" fill="#96731c" letter-spacing="1.8">LAYER 3 · 评测层</text>
+    <text x="22" y="286" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">从「单点难度」转向「长程稳定性」</text>
+    <text x="22" y="306" font-family="Courier Prime,monospace" font-size="10.5" fill="#4d5c6c">信号 03 VibeLifeBench 1247 项 atomic checks · 头部模型不及格</text>
+
+    <!-- Layer 2: Harness 层 -->
+    <rect x="8" y="122" width="856" height="108" fill="rgba(29,78,120,.13)" stroke="#1d4e78" stroke-width="1.6"/>
+    <text x="22" y="144" font-family="Courier Prime,monospace" font-size="10" fill="#1d4e78" letter-spacing="1.8">LAYER 2 · HARNESS 层 — 今日主战场</text>
+    <text x="22" y="167" font-family="Cormorant Garamond,serif" font-size="18" font-weight="700" fill="#1d4e78">Everything is a Plugin</text>
+
+    <!-- plugin cells -->
+    <g font-family="Courier Prime,monospace" font-size="9.5" fill="#1b2733">
+      <rect x="22" y="180" width="96" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="70" y="197" text-anchor="middle">模型适配器</text>
+      <rect x="126" y="180" width="96" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="174" y="197" text-anchor="middle">工具 / 沙箱</text>
+      <rect x="230" y="180" width="96" height="26" fill="rgba(164,68,42,.14)" stroke="#a4442a" stroke-width="1.2"/>
+      <text x="278" y="197" text-anchor="middle" fill="#a4442a">技能 SKILL</text>
+      <rect x="334" y="180" width="112" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="390" y="197" text-anchor="middle">会话日志 append-only</text>
+      <rect x="454" y="180" width="96" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="502" y="197" text-anchor="middle">Agent 循环</text>
+      <rect x="558" y="180" width="88" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="602" y="197" text-anchor="middle">存储 / 调度</text>
+      <rect x="654" y="180" width="88" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="698" y="197" text-anchor="middle">Web UI</text>
+      <rect x="750" y="180" width="98" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="799" y="197" text-anchor="middle">四种运行模式</text>
+    </g>
+    <text x="640" y="167" font-family="Courier Prime,monospace" font-size="10.5" fill="#1d4e78">信号 01 DSH v0.1 · MIT · 93k★</text>
+
+    <!-- Layer 1: 模型层 -->
+    <rect x="8" y="34" width="856" height="76" fill="rgba(27,39,51,.07)" stroke="#1b2733" stroke-width="1"/>
+    <text x="22" y="56" font-family="Courier Prime,monospace" font-size="10" fill="#4d5c6c" letter-spacing="1.8">LAYER 1 · 模型层（= CPU，不再是差异来源）</text>
+    <text x="22" y="79" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">V4-Pro-0813 · dots3-note 280B/16B · 开源权重持续下沉</text>
+    <text x="22" y="99" font-family="Courier Prime,monospace" font-size="10.5" fill="#4d5c6c">Terminal Bench 2.1：V4-Pro 87.9  |  dots3-note 75.1（领先美系开放权重 4.9）</text>
+
+    <!-- 冷水箭头：信号 02 指向 SKILL -->
+    <path d="M278,258 L278,214" stroke="#a4442a" stroke-width="1.6" marker-end="url(#ar)" stroke-dasharray="5,3"/>
+    <text x="288" y="242" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a">信号 02 · 91.8% 缺陷率</text>
+
+    <!-- 开源下沉箭头 -->
+    <path d="M812,116 L812,238" stroke="#1d4e78" stroke-width="1.4" marker-end="url(#ab)" stroke-dasharray="4,3"/>
+    <text x="700" y="232" font-family="Courier Prime,monospace" font-size="10" fill="#1d4e78">开源下沉 →</text>
+  </svg>
+  <div class="fig-note">
+    读法：模型层（CPU）已非差异来源，竞争上移到 Harness 层；评测层今日把考题从「单点难度」改为「长程稳定性」；落地层的验证标尺换成利润表与产线换型时间。红色虚箭头是本期唯一的反向作用力——skill 质量问题正从评测层反噬装配层。
+  </div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS</span>
+  <span class="t">五条信号 · 逐条解读</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI CODING · AGENT 基础设施</span>
+  <h2 class="c-title">DeepSeek 开源 Harness，把「模型之外那一层」摆上桌面</h2>
+  <p class="c-tags"><span class="chip b">MIT 协议</span><span class="chip o">93,000+ stars</span><span class="chip t">Terminal Bench 87.9</span><span class="chip">8/16 新价目生效</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>DeepSeek 发布 <strong>DeepSeek Harness v0.1</strong> 开发者预览版，以 MIT 协议开源，底层以 vendor 方式引入 Cordis 元框架。核心宣言是 <em class="hl">"Everything is a Plugin"</em>——模型适配器、工具、技能、会话、沙箱、存储、Agent 循环乃至整个 Web 界面，全部作为独立插件由内核挂载、卸载与解析依赖。</p>
+    <ul>
+      <li><strong>append-only 会话日志</strong>：模型看到的一切都被记录，会话可恢复、分叉、检索、重放，而非从聊天历史重建。</li>
+      <li><strong>四种运行模式</strong>：Standard（全工具集）、Code（用 TypeScript 编排操作）、Minimal（为跑基准精简）、Creator（构建自定义预设）。</li>
+      <li><strong>安装路径</strong>：<code>npx @deepseek-ai/dsh web</code> 或从源码运行，仓库已突破 93,000 stars。</li>
+    </ul>
+    <p style="margin-top:12px">同步 GA 的 <strong>V4-Pro-0813</strong> 几乎全部围绕 agentic 负载。经 Harness minimal 模式测得：Terminal Bench 2.1 <strong>87.9</strong>、DeepSWE 62.7、Toolathlon-Verified 74.1、CyberGym 83.3、公开 AutomationBench 31.8。原生支持 OpenAI Responses API，可一键配置 Codex，模型名不变、既有集成不破。新 API 价目 <strong>8 月 16 日生效</strong>，闲时价较峰时低 50%。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>Claude Code 与 Codex CLI 的走红从来不只是模型之胜。模型决定推理上限，但不会自动长出文件系统、工具、权限、会话、持久化、沙箱与协作协议——把这些组织成产品的正是模型外面的 Harness 层，那里才是产品差异的真正战场。</p>
+    <p>DeepSeek 把这一层<em class="hl">直接开源</em>，等于主动放弃 harness 侧的护城河。对自建 Agent 平台的团队是明确利好：可自托管、可审计、免供应商锁定；对靠 harness 收租的闭源产品则是直接压力。值得注意的是 append-only 会话日志的设计——它把「可重放」变成一等公民，这对任何需要审计留痕的企业内部部署都有直接借鉴价值。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>MIT</b> 协议  |  <b>93,000+</b> stars  |  Terminal Bench 2.1 = <b>87.9</b>  |  DeepSWE <b>62.7</b>  |  峰谷价差 <b>50%</b>（8/16 生效）
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI AGENT · 工程质量</span>
+  <h2 class="c-title">两项研究给「一切皆插件」浇冷水：91.8% 的 skill 存在缺陷</h2>
+  <p class="c-tags"><span class="chip o">arXiv:2608.09096</span><span class="chip b">9 个模型受测</span><span class="chip t">Office 域失灵</span><span class="chip">缺陷率 91.8%</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p><strong>Evo-Bench</strong>（arXiv:2608.09096）是首个评测「模型能否自主进化自己的 Harness」的基准，覆盖 Search / Office / General 三个 Agent 域。它用 harness-guided 构造框架——先靠辅助任务演化筛出真正对框架改进敏感的任务，再做敏感度分层切分——把 harness 提升与基座模型强度<em class="hl">剥离</em>开。9 个前沿与开源权重模型的评测结果：</p>
+    <ul>
+      <li>顶级模型自主进化的绝对增益最高达 <strong>16.6 分</strong>，已逼近人工工程基线（Artificial Harness 总分 47.5，自主进化最优约 41.4）。</li>
+      <li>自主进化在 General 与 Search 域<strong>超过</strong>人工 harness，但在需要高度特定处理流程的 <strong>Office 域失灵</strong>。</li>
+      <li>暴露「早饱和」等时间异常；合成出的 harness 具备高可迁移性，能稳定提升不同策略模型。</li>
+    </ul>
+    <p style="margin-top:12px">同期 AI Agents Weekly 汇总的另一项研究，发现 <strong>91.8% 的 skill 存在缺陷</strong>。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这两条把「一切皆插件」的叙事拽回工程现实。插件与 skill 好写，但质量不能自动保证——九成以上带缺陷，意味着 skill 数量的增长可能是<em class="hl">负债而非资产</em>。</p>
+    <p>Evo-Bench 的 Office 失灵进一步划出边界：流程越是高度特定，越依赖人工工程，自动进化帮不上忙。对维护 skill 库的团队，直接结论是需要建立 skill 层的审校与回归测试机制，而不是无限堆数量。这与信号 01 构成一组张力——开源降低了造 harness 的门槛，却没有降低造<em class="hl">好</em> harness 的门槛。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  arXiv:<b>2608.09096</b>  |  <b>9</b> 个模型  |  最高绝对增益 <b>16.6</b> 分  |  人工基线 <b>47.5</b> vs 自主最优 <b>41.4</b>  |  skill 缺陷率 <b>91.8%</b>
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI AGENT · 长程能力与评测</span>
+  <h2 class="c-title">小红书开源 dots3-note，并放出让头部模型集体不及格的长程基准</h2>
+  <p class="c-tags"><span class="chip b">280B / 16B 激活</span><span class="chip">512K 上下文</span><span class="chip t">Terminal-Bench 75.1</span><span class="chip o">Apache 2.0</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>小红书 dots.studio 开源 <strong>dots3-note preview</strong>（Apache 2.0，BF16 与 FP8 两版）。280B 总参 / 16B 激活的 MoE 架构，512K 上下文，首次同时具备文本、视觉与语音理解能力。Terminal-Bench 2.1 得分 <strong>75.1</strong>，据 SemiAnalysis 图表较其中表现最好的美国开放权重模型高 4.9 分。</p>
+    <p>方法层提出 <strong>TEMPO</strong>（Test-time-scaled Value Estimation with Macro-step Policy Optimization）：把长轨迹切分为多个 macro-step，每个 macro-step 结束时<em class="hl">同一个 Agent 从 actor 切换为 critic</em>，通过 test-time scaling 推理估计剩余回报，从而在单次运行需数十小时的任务上做有效强化学习。ARC-AGI-3 上平均分较 baseline checkpoint 提升 <strong>31.5%</strong>、较 GRPO 提升 20.6%。同系列分支版本在 IMO 2026 取得官方认证 42/42 满分。</p>
+    <p>同时开源两套基准：</p>
+    <table class="tbl">
+      <tr><th>基准</th><th>规模</th><th>考什么</th></tr>
+      <tr><td>VibeSearchBench</td><td>20 领域 / 200 任务</td><td>用户没一次说清需求时，Agent 能否在多轮对话中问明白</td></tr>
+      <tr><td>VibeLifeBench</td><td>10 领域 / 20 任务，每任务 20–30 阶段，1247 项 atomic checks</td><td>天气、价格、库存等外部条件异步变化后，Agent 还跟不跟得住</td></tr>
+    </table>
+    <p style="margin-top:14px">结果：<strong>Claude Opus 5、GPT-5.5 等头部模型均未达到设定及格水平</strong>。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>两点信号价值高于榜单排名。其一，「<em class="hl">评价比生成更简单</em>」这一假设被实证支持——即使 Agent 尚解不出某问题，作为 critic 时仍能从两个表面相似的中间状态里识别出真正突破规律的那个。这意味着递归自我评价可能是缺乏可验证奖励场景的解法路径。</p>
+    <p>其二，新基准的集体不及格明确划出了当前 Agent 的真实边界：<strong>单点高难任务已足够强，但把这种能力稳定维持数小时以上，仍是力所不及处</strong>。对任何计划把 Agent 投入长周期真实业务流程的团队，这比参数对比更有决策价值——它告诉你风险出现在第几小时，而不是第几个 benchmark。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>280B</b>/<b>16B</b> 激活  |  <b>512K</b> 上下文  |  Terminal-Bench 2.1 = <b>75.1</b>（领先 4.9） |  TEMPO 较 baseline <b>+31.5%</b>  |  VibeLifeBench <b>1247</b> 项 atomic checks
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 商业验证</span>
+  <h2 class="c-title">终端智能从叙事进入财报：星宸科技预计净利同比 +583%~650%</h2>
+  <p class="c-tags"><span class="chip o">14 家预告 / 12 家预喜</span><span class="chip b">星宸 +583.72%~650.42%</span><span class="chip t">LPDDR 涨约 2 倍</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>据 Wind 数据统计，截至 8 月 13 日，4 家端侧 AI 产业链上市公司披露 2026 年半年报或业绩快报，净利润<strong>均实现同比增长</strong>；另有 14 家披露半年报业绩预告，其中 <strong>12 家预喜</strong>。</p>
+    <p>星宸科技预计上半年归母净利润同比增长 <strong>583.72% 至 650.42%</strong>。公司表述：报告期内端边侧 AI 应用进入规模化落地爆发期，具身智能、服务机器人、家庭智能体、车载边缘计算、激光雷达等下游核心赛道需求集中放量。</p>
+    <p>产业链另一面是成本挤压：2026 年第二季度 LPDDR4/5 价格较 2025 年第四季度上涨<strong>约两倍</strong>，存储与散热模块单机价值量上移，成为 2026 年全球智能手机大盘下滑的核心诱因之一，并迫使低端机型退出市场。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>终端智能的验证标尺已从「发布会参数」换成「<em class="hl">利润表</em>」，这是叙事阶段结束的标志。但同一产业链内出现明显分化——芯片端吃到红利，整机端被存储成本反噬。</p>
+    <p>三个未解问题仍在：消费者是否愿为 AI 付溢价（换机周期仍在 36 个月以上）；端侧体验受 NPU 算力、内存带宽、系统调度与散热设计的硬约束；Agent 绕过 App 流量入口后，手机厂商、互联网平台与模型提供商之间的利益如何重新分配。</p>
+    <p><strong>客观判断</strong>：端侧渗透方向的确定性高于纯云端赛道，但增长是<em class="hl">非线性</em>的——若 2026 下半年至 2027 上半年仍无「非换不可」的场景，高增长可能迅速回落至行业大盘的下行通道，届时靠概念撑起的估值将面临业绩考验。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>4</b> 家已披露净利均增  |  <b>14</b> 家预告中 <b>12</b> 家预喜  |  星宸 <b>+583.72%~650.42%</b>  |  LPDDR4/5 涨约 <b>2 倍</b>  |  换机周期 <b>>36</b> 个月
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身智能 · 路线分叉</span>
+  <h2 class="c-title">具身智能：两条相反的技术路线，在同一周各自拿到钱</h2>
+  <p class="c-tags"><span class="chip b">艾欧智能数亿元</span><span class="chip o">橡木果零数据路线</span><span class="chip t">世界机器人大会 8/19</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <table class="tbl">
+      <tr><th>路线</th><th>数据即持续资产</th><th>本能优先 / 零数据</th></tr>
+      <tr>
+        <td><b>公司</b></td>
+        <td>艾欧智能 IO-AI Tech</td>
+        <td>橡木果机器人 Acorn Robot</td>
+      </tr>
+      <tr>
+        <td><b>本轮</b></td>
+        <td>数亿元；顺为资本、松禾资本、深创投联合投资，并获头部机器人本体企业战略投资</td>
+        <td>天使轮；招商局创投、蔚来资本领投</td>
+      </tr>
+      <tr>
+        <td><b>技术主张</b></td>
+        <td>遥操作数据采集（Telexperience）、真实世界人类数据采集（Sensexperience，Ego/Wrist/UMI/Compute 四模块）、具身数据管理平台（EmbodiFlow），做采集→管理→训练→反馈闭环</td>
+        <td>Natus AGE-0 具身本能模型：以触觉感知与接触力学为第一性原理，<b>明确摒弃 VLA 数据预训练范式</b>，主张零样本冷启动、毫秒级自适应、跨本体/物料/工况泛化</td>
+      </tr>
+      <tr>
+        <td><b>已验证</b></td>
+        <td>服务全球 150 余家本体企业与模型公司，累计适配 80 余款机器人；团队来自腾讯 Robotics X、小鹏、字节、亚马逊、百度</td>
+        <td>在某国际头部化妆品 ODM 产线跑通 POC，换型时间从约一周压缩至分钟级，已产生商业收入</td>
+      </tr>
+    </table>
+    <p style="margin-top:14px"><strong>时间锚点</strong>：2026 世界机器人大会 8 月 19 日在北京开幕。主论坛将发布《2026 人形机器人产业发展报告》、启动「全球机器人应用探索计划」、成立世界模型专家委员会；宇树科技王兴兴 8 月 20 日出席，展望人形机器人产业的下一个十年。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是一次<em class="hl">真正的路线分叉</em>，而非同一路线上的快慢之争。「数据即持续资产」与「本能优先、零数据冷启动」在同一周各自拿到资本背书，说明具身智能的技术共识<strong>尚未收敛</strong>——这与大语言模型早已收敛到 Transformer + Scaling 的状态截然不同。共识未收敛的赛道，估值分歧会持续放大。</p>
+    <p>对观察者而言，可核验的判据是<strong>换型时间、冷启动耗时与跨本体泛化率</strong>，而不是演示视频。橡木果的分钟级换型若能在第二、第三家产线复现，才构成对数据驱动路线的实质挑战；反之，艾欧智能「适配 80 余款机器人」的横向覆盖，恰恰是数据路线难以被绕开的证据。两者都不必然错——更可能的结局是分层：本能层解决实时接触控制，数据层解决任务级泛化。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  艾欧智能 <b>数亿元</b>  |  服务 <b>150+</b> 客户 / 适配 <b>80+</b> 款机器人  |  橡木果换型 <b>~1 周 → 分钟级</b>  |  世界机器人大会 <b>8/19</b> 开幕
+  </div>
+</div>
+
+<div class="cross">
+  <h3>交叉观察 · 三层同时发出信号，方向一致</h3>
+  <ol>
+    <li><strong>Harness 层</strong>（信号 01 / 02）：从闭源护城河变为开源公共品，但质量验证机制缺位——91.8% 的 skill 带缺陷，自动进化在高度特定流程域失灵。</li>
+    <li><strong>评测层</strong>（信号 03）：新基准把「长程稳定性」而非「单点难度」立为考题，头部模型集体不及格，能力边界被清晰标出。</li>
+    <li><strong>落地层</strong>（信号 04 / 05）：终端侧进入利润表验证阶段，具身侧技术路线仍未收敛。</li>
+  </ol>
+
+  <div class="verdict">
+    <strong>一句话判断</strong>：这一周的共同主题不是能力跃升，而是<em class="hl">评价体系的重建</em>。当参数榜单失效、Harness 开源、skill 质量存疑，唯一可靠的判据回到可核验的工程指标——换型时间、atomic checks 通过率、利润表。谁先建立这套内部度量，谁就先脱离「看发布会做决策」的阶段。
+  </div>
+
+  <div class="risk">
+    <b>风险与反证</b>
+    本期多条数据来自公司自述或单一媒体转述，需注意：星宸业绩为<em>预告</em>而非终报；橡木果 POC 的换型时间与良率数据来自公司披露，未见第三方复现；「91.8% skill 缺陷率」的样本范围与缺陷判定标准需查原文核实。Evo-Bench 的「逼近人工基线」结论限于其自身三域样本与九个受测模型，跨域外推需谨慎；其 Office 域失灵也可能源于任务构造偏差而非能力本质缺陷。
+  </div>
+</div>
+
+<footer>
+  <span>Leion'Log · Daily AI · NO.44</span>
+  <span>Generated 2026-08-16 09:50 GMT+8</span>
+</footer>
+
+</div>
+</body>
+</html>
