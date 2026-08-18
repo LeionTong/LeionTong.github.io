@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-18-0950.html">
+    <div class="da-card-date">2026-08-18 · 09:50</div>
+    <div class="da-card-main">从一个 Agent 到一支舰队，代价浮现在模型之外的四处 今天的五条信号有一个共同前提：智能体已经不再是「单点调用」，而是成规模的舰队。而规模化的账单，没有落在模型能力上——落在算力结构（AMD 实测：真实智能体流水线 8 个阶段有 7 个完全跑在 CPU 上，AWS 已下令不惜代价节省 CPU）、治理形态（ABC Legal 把 agent 当代码管，50+ 个在产、改动只走 PR）、交付面（Claude Code /design 让评审从读计划变成看画布）、端侧硅与制造底座（瑞芯微净利 +61.73%；三星硬性规定新出厂设备预装 AI-Agent）、以及具身数据（京东两年 1000 万小时真实场景数据）。一句话：「会不会做」早已不是问题，「摊得起多少」才是。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-18-0916.html">
     <div class="da-card-date">2026-08-18 · 09:16</div>
     <div class="da-card-main">模型之外，执行与溯源成为新护城河 模型能力已不再是瓶颈。今天五条信号把竞争推到模型之外：Cursor 给 AI 原生代码库 Origin 的每一行代码加结构化溯源元数据，Cloudflare 开源持久运行时 Computer 给 Agent 一台「自己的电脑」承担执行，Wiz 的红队智能体证明 AI 生成代码已成可被另一 AI 自主利用的攻击面，联发科把 Qwen3.8 做到 Day-0 端侧落地，宇树与 RoboColiseum 则在同一周给具身智能同时递上资本锚与评测尺。共同指向一句话：当「能不能」被解决，真正稀缺的是可运行、可追溯、可信、可结算的底座。</div>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-18 09:50 · 舰队化的账单</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0 0;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--rule-soft);padding:9px 12px;text-align:left;vertical-align:top}
+.tbl th{background:rgba(29,78,120,.09);font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.tbl td{color:var(--ink)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.46</b></span>
+    <span>2026-08-18  09:50  GMT+8</span>
+  </div>
+
+  <h1>舰队化之后，<em>账单在别处</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 与 09:16 零重复</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">CPU · 治理 · 硅 · 数据</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">8 阶段 7 个跑在 CPU</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">WRC 8/19 开幕</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">从一个 Agent 到一支舰队，代价浮现在模型之外的四处</div>
+  <p>今天的五条信号有一个共同前提：智能体已经不再是「单点调用」，而是成规模的<strong>舰队</strong>。而规模化的账单，没有落在模型能力上——落在<strong>算力结构</strong>（AMD 实测：真实智能体流水线 8 个阶段有 7 个完全跑在 CPU 上，AWS 已下令不惜代价节省 CPU）、<strong>治理形态</strong>（ABC Legal 把 agent 当代码管，50+ 个在产、改动只走 PR）、<strong>交付面</strong>（Claude Code <code>/design</code> 让评审从读计划变成看画布）、<strong>端侧硅与制造底座</strong>（瑞芯微净利 +61.73%；三星硬性规定新出厂设备预装 AI-Agent）、以及<strong>具身数据</strong>（京东两年 1000 万小时真实场景数据）。一句话：<em class="hl">「会不会做」早已不是问题，「摊得起多少」才是</em>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>舰队化的成本落点</b>  |  规模轴 × 四个成本中心，今日五条信号的位置</div>
+  <svg viewbox="0 0 872 404" width="100%" role="img" aria-label="智能体舰队化成本落点图：上方为规模轴从单个 Agent 到数百万子 Agent，下方为算力结构、治理形态、端侧硅、具身数据四个成本中心">
+    <defs>
+      <marker id="ao" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">FLEET SCALING / COST INCIDENCE / 2026-08-18</text>
+
+    <!-- 规模轴 -->
+    <rect x="8" y="26" width="856" height="82" fill="rgba(27,39,51,.06)" stroke="#1b2733" stroke-width="1"/>
+    <text x="22" y="45" font-family="Courier Prime,monospace" font-size="10" fill="#4d5c6c" letter-spacing="1.8">SCALE AXIS · 单点 → 舰队（Moor Insights 数据中心首席分析师 Kimball 口径）</text>
+
+    <rect x="26" y="58" width="150" height="36" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+    <text x="101" y="74" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="12.5" fill="#1b2733">1 个 Agent</text>
+    <text x="101" y="88" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">单次调用</text>
+
+    <path d="M182,76 L226,76" stroke="#a4442a" stroke-width="1.3" marker-end="url(#ao)"/>
+
+    <rect x="232" y="58" width="182" height="36" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+    <text x="323" y="74" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="12.5" fill="#1b2733">100 个（单工作负载）</text>
+    <text x="323" y="88" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">派生子 Agent + 工具调用</text>
+
+    <path d="M420,76 L464,76" stroke="#a4442a" stroke-width="1.3" marker-end="url(#ao)"/>
+
+    <rect x="470" y="58" width="238" height="36" fill="rgba(164,68,42,.14)" stroke="#a4442a" stroke-width="1.3"/>
+    <text x="589" y="74" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="12.5" fill="#1b2733">数万 → 数十万 → 数百万</text>
+    <text x="589" y="88" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#a4442a">企业级规模：账单在此显形</text>
+
+    <text x="726" y="72" font-family="Courier Prime,monospace" font-size="10" fill="#4d5c6c">MCP 互联 /</text>
+    <text x="726" y="88" font-family="Courier Prime,monospace" font-size="10" fill="#4d5c6c">API 调用叠加</text>
+
+    <!-- 分隔说明 -->
+    <text x="436" y="128" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10.5" fill="#a4442a" letter-spacing="1.6">↓  成本不落在模型能力上，落在以下四处  ↓</text>
+
+    <!-- 成本中心 01 算力结构 -->
+    <rect x="8" y="140" width="208" height="150" fill="rgba(29,78,120,.13)" stroke="#1d4e78" stroke-width="1.6"/>
+    <text x="20" y="158" font-family="Courier Prime,monospace" font-size="9.5" fill="#1d4e78" letter-spacing="1.4">COST 01 · 算力结构</text>
+    <text x="20" y="178" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#1d4e78">CPU，不是 GPU</text>
+    <text x="20" y="199" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">工具调用 / 解析输出 /</text>
+    <text x="20" y="215" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">Token 化 / 安全策略检查</text>
+    <rect x="20" y="226" width="184" height="24" fill="rgba(255,255,255,.72)" stroke="#356b96" stroke-width=".8"/>
+    <text x="112" y="242" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a">8 阶段中 7 个在 CPU</text>
+    <text x="20" y="266" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">AWS 收紧 · Intel 排至年底</text>
+    <text x="20" y="281" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">信号 01</text>
+
+    <!-- 成本中心 02 治理 -->
+    <rect x="224" y="140" width="208" height="150" fill="rgba(29,78,120,.13)" stroke="#1d4e78" stroke-width="1.6"/>
+    <text x="236" y="158" font-family="Courier Prime,monospace" font-size="9.5" fill="#1d4e78" letter-spacing="1.4">COST 02 · 治理形态</text>
+    <text x="236" y="178" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#1d4e78">Agent as Code</text>
+    <text x="236" y="199" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">prompt + 配置进 git，</text>
+    <text x="236" y="215" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">改动只走 PR 审批</text>
+    <rect x="236" y="226" width="184" height="24" fill="rgba(255,255,255,.72)" stroke="#356b96" stroke-width=".8"/>
+    <text x="328" y="242" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a">50+ 在产 / 成本降 ~50%</text>
+    <text x="236" y="266" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">版本 / 审计 / 回滚齐全</text>
+    <text x="236" y="281" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">信号 02 · 03（交付面）</text>
+
+    <!-- 成本中心 03 端侧硅 -->
+    <rect x="440" y="140" width="208" height="150" fill="rgba(47,107,107,.11)" stroke="#2f6b6b" stroke-width="1.3"/>
+    <text x="452" y="158" font-family="Courier Prime,monospace" font-size="9.5" fill="#2f6b6b" letter-spacing="1.4">COST 03 · 端侧硅与底座</text>
+    <text x="452" y="178" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#2f6b6b">主芯片 + 协处理器</text>
+    <text x="452" y="199" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">推理下沉到机器人 /</text>
+    <text x="452" y="215" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">车载 / 工业终端与产线</text>
+    <rect x="452" y="226" width="184" height="24" fill="rgba(255,255,255,.72)" stroke="#2f6b6b" stroke-width=".8"/>
+    <text x="544" y="242" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a">净利 +61.73% / 毛利 45.79%</text>
+    <text x="452" y="266" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">三星：设备出厂即带 Agent</text>
+    <text x="452" y="281" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">信号 04</text>
+
+    <!-- 成本中心 04 具身数据 -->
+    <rect x="656" y="140" width="208" height="150" fill="rgba(47,107,107,.11)" stroke="#2f6b6b" stroke-width="1.3"/>
+    <text x="668" y="158" font-family="Courier Prime,monospace" font-size="9.5" fill="#2f6b6b" letter-spacing="1.4">COST 04 · 具身数据</text>
+    <text x="668" y="178" font-family="Cormorant Garamond,serif" font-size="16" font-weight="700" fill="#2f6b6b">真实场景小时数</text>
+    <text x="668" y="199" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">采集中心 / 采集社区 /</text>
+    <text x="668" y="215" font-family="Noto Serif SC,serif" font-size="11.5" fill="#1b2733">第一视角开源数据集</text>
+    <rect x="668" y="226" width="184" height="24" fill="rgba(255,255,255,.72)" stroke="#2f6b6b" stroke-width=".8"/>
+    <text x="760" y="242" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a">两年 1000 万小时</text>
+    <text x="668" y="266" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">EgoLive 开源 · 百余院校申请</text>
+    <text x="668" y="281" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">信号 05</text>
+
+    <!-- 底部结论条 -->
+    <rect x="8" y="302" width="856" height="94" fill="rgba(255,255,255,.5)" stroke="#1b2733" stroke-width="1"/>
+    <text x="22" y="322" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a" letter-spacing="1.8">READ · 共同机制</text>
+    <text x="22" y="345" font-family="Noto Serif SC,serif" font-size="13" fill="#1b2733">四处成本中心的共同点：都是「单个 Agent 可忽略、乘以舰队规模后无法忽略」的<tspan font-weight="700" fill="#a4442a">线性乃至超线性开销</tspan>。</text>
+    <text x="22" y="367" font-family="Noto Serif SC,serif" font-size="13" fill="#1b2733">Token 化每次工具调用重算一遍、每个 agent 都要一条审计轨迹、每台产线设备都要一份 Agent、每小时数据都要人真实采一遍。</text>
+    <text x="22" y="388" font-family="Courier Prime,monospace" font-size="10.5" fill="#1d4e78">结论：规模化的约束条件是「摊薄单位成本」，而不是「提升单点能力」——这决定了今天的采购与选型判据。</text>
+  </svg>
+  <div class="fig-note">
+    读法：上半部是规模轴——Agent 从单次调用扩到企业级的数十万乃至数百万个子 Agent；下半部是账单落点。请注意四个成本中心都不在「模型层」：算力结构错配（CPU 而非 GPU）、治理形态（agent 必须像代码一样被 review）、端侧硅与制造底座、具身真实数据供给。今日五条信号分别落在这四处。
+  </div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS</span>
+  <span class="t">五条信号 · 逐条解读</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI AGENT · 算力结构</span>
+  <h2 class="c-title">智能体崛起，瓶颈从 GPU 移到 CPU：AMD 实测 8 阶段中 7 个跑在 CPU</h2>
+  <p class="c-tags"><span class="chip b">AWS 收紧 CPU</span><span class="chip o">工具调用 / Token 化</span><span class="chip t">Intel 订单排至年底</span><span class="chip">英伟达 Vera</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>多家芯片厂商与研究者指出：随着智能体 AI 让模型自主派生子 Agent、发起工具调用，<em class="hl">CPU 而非 GPU</em> 正在成为新瓶颈。年初 AWS 已向工程师下令「不惜代价节省 CPU 算力」，其 CPU 服务器容量的等待时间出现爆炸式增长。</p>
+    <ul>
+      <li><strong>为什么压在 CPU 上</strong>：模型推理仍在 GPU，但模型发起的工具调用被推到 CPU——解析输出、判断调哪个工具、发起 API 调用或运行代码、收集结果再回灌。AMD 计算与企业 AI 副总裁称：「真实智能体 AI 流水线的<strong>8 个阶段中有 7 个完全运行在 CPU 上</strong>。」</li>
+      <li><strong>Token 化的隐性税</strong>：每次工具调用都要对整个上下文序列重新 Token 化。当序列达 10 万 Token、工具返回 1000 Token，也要整段重算；Claude 场景轻松到 50 万–100 万 Token。佐治亚理工实测：长序列下增加 CPU 核心数可把首 Token 延迟降低约 <strong>1.5–7 倍</strong>。</li>
+      <li><strong>安全防护也吃 CPU</strong>：对 Agent 行为的策略检查、参数量不足 10 亿的小护栏模型，因追求低延迟通常留在 CPU 上。</li>
+      <li><strong>产业已在用钱投票</strong>：Intel 服务器 CPU 订单排至年底、缩减消费级产能保服务器；AMD 服务器 CPU 出货预期上调一倍；Arm、高通已发布智能体专用新款 CPU；英伟达把基于 Arm 的智能体专用 CPU <strong>Vera</strong>（Vera Rubin 平台组件）列为优先项。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这直接推翻了「GPU 即一切」的算力叙事。GPU 解决的是「模型算得快」，而智能体真正的时间开销散布在工具调用、Token 化、安全检查这些<em class="hl">串行、分支多、数据依赖</em>的「脏活」上——它们天然属于 CPU。当 Agent 从一次性调用变成成千上万常驻进程，CPU 会先于 GPU 触顶。</p>
+    <p>对企业 IT 与 SecOps 的直接含义：<strong>智能体规模化后，服务器选型要重估 CPU 核心数，而不是只盯 GPU</strong>；若「CPU 荒」重演 GPU 剧本，将直接推高算力总成本，甚至蔓延到消费级市场。这也解释了为什么 09:16 那条「Cloudflare 持久运行时」是同一枚硬币的另一面——运行时要托管的，正是这些 CPU 密集的常驻负载。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  AMD：<b>8 阶段 7 个在 CPU</b>  |  首 Token 延迟随核心数降 <b>1.5–7×</b>  |  调度优化端到端延迟降 <b>1.8×</b>  |  Intel 订单排至年底 / AMD 出货预期 <b>×2</b>  |  来源：至顶科技转述 Moor Insights · Intel · AMD · 佐治亚理工
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI AGENT · 企业治理</span>
+  <h2 class="c-title">ABC Legal 用 Claude Managed Agents 把「每个员工变成建造者」：50+ Agent 在产，改动只走 PR</h2>
+  <p class="c-tags"><span class="chip b">Agent as Code</span><span class="chip o">50+ 在产</span><span class="chip t">成本降 ~50%</span><span class="chip">~310 人日用</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>美国法律文书送达公司 ABC Legal（1100 名员工）公布用 <strong>Claude Managed Agents</strong> 的治理实践：把 agent 当软件管理，<em class="hl">prompt + 配置全部进 git 仓库</em>，任何改动只能通过一次被审批的 Pull Request 生效——由此每个 agent 都有版本历史、代码评审、回滚与审计轨迹。</p>
+    <ul>
+      <li><strong>把 agent 定义为代码</strong>：一个 agent 就是「结构化文本」——prompt 加配置，连同工具清单、调度、凭据、记忆都放进配置文件。合并到主分支即自动部署。</li>
+      <li><strong>非开发者也能造</strong>：CTO 用一周做了两套模板（事件驱动 / 定时），15 人指导委员会（财务、市场、运营，均非程序员）克隆仓库、用 Claude Code 填配置和 prompt，一周内全部产出可用 agent；一个月内全公司跑起 <strong>50+ 个</strong>。</li>
+      <li><strong>已在产的样例</strong>：AI 代码评审员横跨 4 个代码库多模型分析（工程师合并前先等它审）；EvidenceChain 交付 agent 接管了客户经理原本手工的周报任务。</li>
+    </ul>
+    <p style="margin-top:12px">截至 2026 年 7 月的追踪：<strong>50+</strong> 个 Managed Agents 在产；部分 agent 覆盖的人工任务成本在未深度优化前即降 <strong>约 50%</strong>；<strong>约 310 名</strong>员工每日使用 Claude。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是「舰队治理」的一份可复制样本。当 agent 从个人桌面上的定时任务，变成公司级、常驻云端、可观测的队伍，真正的门槛不是模型能力，而是<em class="hl">谁建的、花了多少、昨晚跑没跑</em>这三个运营问题。ABC Legal 的答案是把 GitOps 那套（PR 审批、版本、回滚、审计）平移到 agent——这与 09:16 的「代码逐行溯源」在治理逻辑上完全同构：<strong>凡要规模化，先要可审计</strong>。</p>
+    <p>对我方（企业安全运营）尤其对味：agent 舰队一旦铺开，最大的风险恰恰是「谁都能在自己机器上起一个、没人知道它有什么权限」。把 agent 收进 git + PR 审批，等于给智能体接入了变更管理与最小权限审计——这正是 SecOps 该主张的治理姿态，而非事后封堵。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  员工总数 <b>1100</b>  |  在产 agent <b>50+</b>  |  覆盖任务成本降 <b>~50%</b>  |  日活用户 <b>~310</b>  |  治理：prompt+配置进 git，改动仅走 PR  |  来源：claude.com 官方博客 · frontiernews.ai
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI CODING · 交付面</span>
+  <h2 class="c-title">Claude Code 上线 /design 研究预览：评审从「读计划」变成「看画布」</h2>
+  <p class="c-tags"><span class="chip b">研究预览</span><span class="chip o">可视化 artboard</span><span class="chip t">先设计后写码</span><span class="chip">面向非设计师</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Anthropic 为 Claude Code 上线 <strong>/design</strong> 命令（研究预览）：运行后在单张画布上生成一组 <em class="hl">artboard</em>（每张是你所描述界面的一个版本），你直接在可视化编辑器里调整选中的方案，再交回 Claude 在代码库中实现。它把 Claude Design（独立视觉设计产品）的画布工作流带进了 Claude Code 的命令行与桌面端，构建在 artifacts 系统上、可在浏览器打开。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>它改变的是「人机协作的交付面」。过去 coding agent 的评审是<em class="hl">读一段计划或直接看跑出来的结果</em>；/design 把这一步前移成「先看几个可视方案、选一个再写码」。对能描述需求却画不出来的非设计师，「看布局」比「读计划」更快、返工更少——本质是给 agent 的输出装了一个人类低成本介入的检查点。</p>
+    <p>放在本期主线里看：信号 01/02 讲舰队的算力与治理成本，这条讲<strong>人如何低成本地校准舰队产出</strong>。当写码接近零成本，「评审与方向纠偏」成了新的稀缺环节；把它做成可视、可交互，就是在压低人对 agent 的监督开销。（同日 Anthropic 设计师亦预告该命令早期预览，属官方节奏。）</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  形态：一张画布多个 artboard  |  工作流：描述 → 生成方案 → 可视编辑 → 交回实现  |  状态：research preview（预期会变）  |  来源：chasingnext.com · Claude 开发者渠道预告
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 端侧硅与制造底座</span>
+  <h2 class="c-title">端侧硅两个信号：瑞芯微净利 +61.73%，三星硬性规定新设备出厂预装 AI-Agent</h2>
+  <p class="c-tags"><span class="chip b">主芯片 + 协处理器双轨</span><span class="chip o">毛利 45.79%</span><span class="chip t">RK182X 量产</span><span class="chip">设备智能化</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>端侧硅当天两条相互印证的信号：</p>
+    <ul>
+      <li><strong>需求侧（芯片厂）</strong>：瑞芯微 2026 上半年营收 <strong>28.77 亿元</strong>（+40.60%）、归母净利 <strong>8.59 亿元</strong>（<strong>+61.73%</strong>），在存储超级涨价、成本承压逆风下毛利率逆势升至 <strong>45.79%</strong>。首颗协处理器 <strong>RK182X</strong> 顺利量产，已覆盖数百客户、几十行业，落地机器人、车载 AI BOX、机器视觉、工业终端；新品 RK3572（8 核 CPU + 4TOPS NPU）、RK3538 导入核心客户。走的是<em class="hl">「主芯片 + 协处理器」双轨</em>，把 AI 推理从数据中心下沉到摄像头、机器人、车载 BOX。</li>
+      <li><strong>供给侧（制造底座）</strong>：三星电子、SK 海力士在半导体<strong>生产设备</strong>引入 AI 智能代理——三星硬性规定<strong>全新出厂设备须预装 AI-Agent</strong> 作为基础配置；SK 海力士分步推进清州后道产线搭载 AI 代理，量产性能与可靠性评估将于年内收尾。消息带动中科飞测、长川科技、拓荆科技等设备板块盘中走强。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这两条一起看，勾勒出端侧智能的「硅底座」：一端是<em class="hl">推理下沉</em>——瑞芯微用财报证明「不拼峰值算力、拼场景覆盖率」的路线跑得通，端侧 AI（AIoT 2.0）从概念验证进入规模化落地；另一端是<em class="hl">Agent 下沉到实体制造设备</em>——当 AI-Agent 从软件层沉到出厂设备这一实体底座，等于把良率优化、故障预判封装进硬件，设备厂商的商业模式从「卖机器」转向「卖持续智能服务」。</p>
+    <p>与信号 01 的呼应值得注意：CPU 荒的根源之一是「智能体把脏活压到通用算力」；而端侧路线用专用协处理器把这部分负载本地化、专用化，正是对「通用算力紧缺」的一种结构性对冲。对国产芯片，这是少有的、能用真实出货与利润数字讲的故事。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  瑞芯微营收 <b>28.77 亿</b>（+40.60%）  |  净利 <b>8.59 亿</b>（+61.73%）  |  毛利率 <b>45.79%</b>  |  RK182X 数百客户量产  |  三星：新设备出厂预装 AI-Agent  |  来源：上海证券报 · cninfo 半年报 · 财闻
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身智能 · 数据底座</span>
+  <h2 class="c-title">WRC 2026 前夜：京东建「全球最大具身数据采集中心」，两年 1000 万小时真实数据</h2>
+  <p class="c-tags"><span class="chip b">8/19 开幕</span><span class="chip o">1000 万小时</span><span class="chip t">EgoLive 开源</span><span class="chip">数据即壁垒</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>2026 世界机器人大会（WRC）<strong>8 月 19 日</strong>在北京开幕。会前京东宣布出任全球战略合作伙伴，并披露具身<em class="hl">数据底座</em>布局：正建设「全球最大具身数据采集中心」，计划<strong>两年内完成 1000 万小时</strong>人类真实场景数据积累；全国首个具身数据采集社区已在宿迁落地运营；并开源了「行业最大人类第一视角数据集 <strong>EgoLive</strong>」，已收到超百所高校与科研院所的使用申请。大会主论坛还将发布《2026 人形机器人产业发展报告》、启动「全球机器人应用探索计划」，宇树王兴兴等将于 8/20 登台。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能的竞争焦点正从「本体炫技」转向「<em class="hl">数据供给</em>」。人形机器人本体、运控算法逐渐同质化，真正稀缺的是「人在真实场景里怎么做事」的第一视角数据——这决定了具身大脑能否泛化到工厂、家庭、服务场景。京东的动作把「1000 万小时」明码标价成一个可比的规模指标，等于给具身数据竞赛立了一个公开锚点。</p>
+    <p>与本期主线一致：这仍是「模型之外的账单」——具身智能规模化的约束不在模型结构，而在<strong>数据的采集、标注、供给成本</strong>。谁能把「每小时真实数据」的单位成本压下来（采集中心 + 采集社区 + 开源共建），谁就握住具身落地的上游。这也与 09:16 的「宇树上市 + RoboColiseum 评测尺」构成完整闭环：资本锚定价、评测尺量化、数据底座供给——三者齐了，具身才从 Demo 走向可结算。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  WRC <b>8/19</b> 开幕  |  京东两年 <b>1000 万小时</b>真实数据  |  宿迁首个采集社区运营  |  开源 <b>EgoLive</b> 第一视角数据集 / 百余院校申请  |  合作机器人品牌 <b>200+</b>  |  来源：新华 / 腾讯新闻 · 山西省政府转载 WRC 通稿
+  </div>
+</div>
+
+<div class="cross">
+  <h3>交叉观察 · 舰队化之后，账单落在模型之外的四处</h3>
+  <ol>
+    <li><strong>算力结构</strong>（信号 01）：GPU 管推理，CPU 扛工具调用 / Token 化 / 安全检查——8 阶段 7 个在 CPU，规模化后 CPU 先触顶。</li>
+    <li><strong>治理形态</strong>（信号 02 / 03）：agent 当代码管，改动走 PR；/design 把人对产出的校准做成可视检查点——舰队要「可审计 + 可低成本纠偏」。</li>
+    <li><strong>端侧硅与制造底座</strong>（信号 04）：主芯片 + 协处理器把推理本地化、专用化，对冲通用算力紧缺；Agent 沉进出厂设备。</li>
+    <li><strong>数据供给</strong>（信号 05）：具身的壁垒是「每小时真实数据」的单位成本，京东用 1000 万小时立公开锚点。</li>
+  </ol>
+
+  <div class="verdict">
+    <strong>一句话判断</strong>：当模型「会不会做」不再稀缺，智能体成规模后的真正约束是<em class="hl">「摊得起多少」</em>——把单位成本摊薄的能力，正在四处显形：CPU 供给（算力）、GitOps 治理（可审计）、端侧专用硅（本地化）、真实数据（供给）。今天五条信号分别在这四处按下同一个逻辑：稀缺的从来不是「能做一次」，而是「能做一百万次还查得清、摊得起」。
+  </div>
+
+  <div class="risk">
+    <b>风险与反证</b>
+    多条数据为公司自述、招股/半年报口径或媒体转述，需注意：CPU 瓶颈论据部分来自芯片厂（Intel/AMD）与咨询机构，存在为自家产品叙事的动机，佐治亚理工实测仅覆盖 Qwen3-30B、Llama3.1-70B 等较小模型；ABC Legal 的「成本降 ~50%」为单一客户自述、未经第三方审计；/design 为 research preview，功能预期会变；瑞芯微高增长部分受存储涨价周期与低基数影响，可持续性待观察；京东「1000 万小时」为两年规划目标而非既成事实，数据质量与可用性仍需检验。凡不能被外部量化验证者，均以「待复现」视之。
+  </div>
+</div>
+
+<footer>
+  <span>Leion'Log · Daily AI · NO.46</span>
+  <span>Generated 2026-08-18 09:50 GMT+8</span>
+</footer>
+
+</div>
+</body>
+</html>
