@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-18-0916.html">
+    <div class="da-card-date">2026-08-18 · 09:16</div>
+    <div class="da-card-main">模型之外，执行与溯源成为新护城河 模型能力已不再是瓶颈。今天五条信号把竞争推到模型之外：Cursor 给 AI 原生代码库 Origin 的每一行代码加结构化溯源元数据，Cloudflare 开源持久运行时 Computer 给 Agent 一台「自己的电脑」承担执行，Wiz 的红队智能体证明 AI 生成代码已成可被另一 AI 自主利用的攻击面，联发科把 Qwen3.8 做到 Day-0 端侧落地，宇树与 RoboColiseum 则在同一周给具身智能同时递上资本锚与评测尺。共同指向一句话：当「能不能」被解决，真正稀缺的是可运行、可追溯、可信、可结算的底座。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-16-0950.html">
     <div class="da-card-date">2026-08-16 · 09:50</div>
     <div class="da-card-main">竞争重心从「模型有多大」，挪到「模型之外那一层」 模型更像 CPU——它决定推理上限，却不会自动长出文件系统、工具、权限、会话、沙箱与协作协议。今天的五条信号指向同一处：Harness、Skill、数据基建成了产品差异的主战场。但同一周内，两套新基准与两篇论文同时浇下冷水——插件好写，质量不可自动保证：91.8% 的 skill 存在缺陷，头部模型在长程生活任务基准上集体不及格。这一周真正发生的不是能力跃升，而是评价体系的重建。</div>

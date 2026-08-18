@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-18 09:16 · 可审计的执行层</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.sub{font-size:14px;color:var(--ink-soft);margin:0;letter-spacing:.04em}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.tbl{width:100%;border-collapse:collapse;margin:18px 0 0;font-size:14px}
+.tbl th,.tbl td{border:1px solid var(--rule-soft);padding:9px 12px;text-align:left;vertical-align:top}
+.tbl th{background:rgba(29,78,120,.09);font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.tbl td{color:var(--ink)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.45</b></span>
+    <span>2026-08-18  09:16  GMT+8</span>
+  </div>
+
+  <h1>把自治装进<em>可审计的执行层</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 零重复</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">溯源 · 运行时 · 安全</span></div>
+    <div class="spec-cell"><span class="spec-k">终端</span><span class="spec-v">联发科 Day-0 端侧</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">宇树 8/19 上市</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">模型之外，执行与溯源成为新护城河</div>
+  <p>模型能力已不再是瓶颈。今天五条信号把竞争推到模型之外：Cursor 给 AI 原生代码库 Origin 的每一行代码加结构化<strong>溯源</strong>元数据，Cloudflare 开源持久运行时 Computer 给 Agent 一台「自己的电脑」承担<strong>执行</strong>，Wiz 的红队智能体证明 AI 生成代码已成可被另一 AI 自主利用的<strong>攻击面</strong>，联发科把 Qwen3.8 做到 Day-0 <strong>端侧</strong>落地，宇树与 RoboColiseum 则在同一周给具身智能同时递上资本锚与评测尺。共同指向一句话：当「能不能」被解决，真正稀缺的是<em class="hl">可运行、可追溯、可信、可结算</em>的底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>模型之外的三层底座</b>  |  五条信号在栈中的位置与今日受力方向</div>
+  <svg viewbox="0 0 872 360" width="100%" role="img" aria-label="AI 技术栈剖面图，标注五条信号在溯源层、执行层、信任层的位置">
+    <defs>
+      <marker id="ar" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+      <marker id="ab" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#1d4e78"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="16" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">STACK CROSS-SECTION / 2026-08-18</text>
+
+    <!-- Layer 3: 信任层 -->
+    <rect x="8" y="262" width="856" height="84" fill="rgba(47,107,107,.09)" stroke="#2f6b6b" stroke-width="1"/>
+    <text x="22" y="284" font-family="Courier Prime,monospace" font-size="10" fill="#2f6b6b" letter-spacing="1.8">LAYER 3 · 信任层（可信 / 可结算）</text>
+    <text x="22" y="307" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">审计边界 · 资本锚 · 评测尺</text>
+    <text x="22" y="329" font-family="Courier Prime,monospace" font-size="10.5" fill="#4d5c6c">信号 03 AI 代码成攻击面需独立审计 · 信号 05 宇树上市 + RoboColiseum 量化</text>
+
+    <!-- Layer 2: 执行层 -->
+    <rect x="8" y="142" width="856" height="108" fill="rgba(29,78,120,.13)" stroke="#1d4e78" stroke-width="1.6"/>
+    <text x="22" y="164" font-family="Courier Prime,monospace" font-size="10" fill="#1d4e78" letter-spacing="1.8">LAYER 2 · 执行层 — 今日主战场</text>
+    <text x="22" y="188" font-family="Cormorant Garamond,serif" font-size="18" font-weight="700" fill="#1d4e78">Runtime · Provenance · Edge</text>
+    <g font-family="Courier Prime,monospace" font-size="9.5" fill="#1b2733">
+      <rect x="22" y="200" width="150" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="97" y="217" text-anchor="middle">持久运行时（信号02）</text>
+      <rect x="186" y="200" width="150" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="261" y="217" text-anchor="middle">逐行溯源（信号01）</text>
+      <rect x="350" y="200" width="150" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="425" y="217" text-anchor="middle">端侧 Day-0（信号04）</text>
+      <rect x="514" y="200" width="190" height="26" fill="rgba(164,68,42,.14)" stroke="#a4442a" stroke-width="1.2"/>
+      <text x="609" y="217" text-anchor="middle">结构化元数据 / 审计基线</text>
+      <rect x="718" y="200" width="130" height="26" fill="rgba(255,255,255,.66)" stroke="#356b96" stroke-width=".8"/>
+      <text x="783" y="217" text-anchor="middle">自动冲突修复</text>
+    </g>
+    <text x="600" y="188" font-family="Courier Prime,monospace" font-size="10.5" fill="#1d4e78">信号 01/02/04 落点</text>
+
+    <!-- Layer 1: 模型层 -->
+    <rect x="8" y="34" width="856" height="96" fill="rgba(27,39,51,.07)" stroke="#1b2733" stroke-width="1"/>
+    <text x="22" y="56" font-family="Courier Prime,monospace" font-size="10" fill="#4d5c6c" letter-spacing="1.8">LAYER 1 · 模型层（= CPU，已非差异来源）</text>
+    <text x="22" y="80" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">Qwen3.8-27B · Claude Opus 5 · 开放权重持续下沉</text>
+    <text x="22" y="102" font-family="Courier Prime,monospace" font-size="10.5" fill="#4d5c6c">能力足够强；竞争上移到模型之外的三层底座</text>
+    <text x="22" y="122" font-family="Courier Prime,monospace" font-size="10.5" fill="#7f8d9c">终端侧：Pixel 11 / Robot Phone 同期密集发布</text>
+
+    <!-- 上升箭头：执行层吸收模型能力 -->
+    <path d="M812,130 L812,248" stroke="#1d4e78" stroke-width="1.4" marker-end="url(#ab)" stroke-dasharray="4,3"/>
+    <text x="690" y="244" font-family="Courier Prime,monospace" font-size="10" fill="#1d4e78">能力上移 →</text>
+  </svg>
+  <div class="fig-note">
+    读法：模型层（CPU）已非差异来源；竞争上移到执行层——持久运行时、逐行溯源、端侧 Day-0 三件事让 Agent「能持续跑、能定位责任、能本地跑」；信任层把「可审计、可结算」补上。今天五条信号分别在代码库、运行时、安全、端侧、具身五个位置补齐同一块短板。
+  </div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS</span>
+  <span class="t">五条信号 · 逐条解读</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI CODING · AGENT 基础设施</span>
+  <h2 class="c-title">Cursor 推出 AI 原生代码库 Origin，正面挑战 GitHub</h2>
+  <p class="c-tags"><span class="chip b">SpaceX 收购后</span><span class="chip o">8/18 亮相</span><span class="chip t">限量测试</span><span class="chip">逐行溯源</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>SpaceX 完成对 Anysphere（Cursor）收购后，8 月 18 日携 <strong>Origin</strong> 高调亮相——一个为 AI 编码智能体设计的<em class="hl">原生代码库</em>。与 GitHub 的本质差异在四处：</p>
+    <ul>
+      <li><strong>并发</strong>：数百个 Agent 同步提交、测试多种代码版本，代码库不卡死（GitHub 在此场景下几乎停滞）。</li>
+      <li><strong>冲突解决</strong>：CI 失败时调度次级 Agent 后台自动修复，仅无法自解时通知人，大幅减少人工介入。</li>
+      <li><strong>原生整合 Graphite 的 stacked PR</strong>：多依赖分支无缝串联，不必等人工审完第一个 PR 才能开始第二个。</li>
+      <li><strong>溯源</strong>：每一行 AI 注入的代码都留<strong>结构化元数据</strong>——所用模型、提示逻辑、上下文窗口配置，审计穿透到人/机混合代码。</li>
+    </ul>
+    <p style="margin-top:12px">GitHub 年营收约 20 亿美元，是微软现金牛；Origin 仍处限量测试版，短期难撼其企业客户基本盘，但 AI 原生开发体验的差异已埋下伏笔。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>代码库的「版本控制」范式正从「人协作」转向「人 + 机协作」。GitHub 的 merge 冲突中断、PR 串行等待人工审核，本质是为人设计的流程；当数百个 Agent 并行劳作时，这些流程成了瓶颈。Origin 的<em class="hl">自动冲突修复 + 逐行溯源</em>，把「谁写的、为何这么写、用的哪个模型」变成一等公民——这既是工程效率，也是 AI 生成代码的审计与责任基线。</p>
+    <p>对自建内部 Agent 编码平台的团队，这是明确参照：当编码主体从人扩展到 Agent，代码库本身需要为「机器协作者」重新设计，而非把 Agent 硬塞进为人设计的 Git 工作流。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  并发不卡死  |  自动 merge 修复  |  stacked PR  |  逐行溯源（模型 / 提示 / 上下文）  |  GitHub 年营收 <b>~$2B</b>
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI AGENT 基础设施 · 运行时</span>
+  <h2 class="c-title">Cloudflare 开源 Agent 持久运行时 Computer</h2>
+  <p class="c-tags"><span class="chip b">开源</span><span class="chip o">持久运行时</span><span class="chip t">isolate/容器/浏览器</span><span class="chip">数亿并发</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Cloudflare 开源 <strong>Cloudflare Computer</strong>，给 AI Agent 一个真实、<em class="hl">持久</em>的计算环境，而非临时容器。官方判断仅靠临时容器撑不住数亿并发 Agent 任务：代码可在 isolate、容器或浏览器中执行，由平台统一调度，每个 Agent 相当于有「自己的电脑」，适合需状态保持的长周期流程。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>「执行层」是今天第二条暗线（与信号 01 的溯源层并列）。当前大多数 Agent 跑在 ephemeral 容器里，长周期、需保活状态、需持久文件系统的任务难以为继。Cloudflare 把「持久运行时」开源，等于把 Agent 的操作系统层外置。</p>
+    <p>它与信号 01（给代码加溯源）、信号 03（给攻击面做审计）共同构成模型之外的三层底座：<strong>运行时 + 溯源 + 安全</strong>。对自建 Agent 平台的团队，这是可直接复用的执行骨架——不必再从容器编排起步。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  开源  |  持久运行时（非临时容器）  |  <b>isolate / 容器 / 浏览器</b> 三态  |  数亿并发调度  |  状态保持长周期
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI CODING · 安全</span>
+  <h2 class="c-title">Wiz 红队智能体自主攻破 Copilot 引入的漏洞，Snowflake 中招</h2>
+  <p class="c-tags"><span class="chip o">Copilot Autofix</span><span class="chip b">Red Agent 自主</span><span class="chip t">Jira token</span><span class="chip">首例攻击面演示</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>安全公司 Wiz 的自主 AI 安全代理 <strong>Red Agent</strong>，在 Snowflake 公开仓库中独立发现并利用了一个 GitHub Actions 脚本注入漏洞——该漏洞由 <strong>GitHub Copilot 的 Autofix 功能审核通过的 PR 引入</strong>。Red Agent 在漏洞公开仅五天内，自主完成「发现 → 利用 → 影响评估」全流程，验证了对 Snowflake 内部 Jira 系统的访问。</p>
+    <p style="margin-top:10px">这是首次完整演示<em class="hl">AI 生成代码成为可被另一 AI 自主利用的攻击面</em>。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是 AI 编程安全的一个转折性样本。过去担心「AI 写错代码」，现在证实「AI 写的代码会被另一 AI 当作跳板」——AI 代码审查没拦住，AI 红队却自主攻破。直接结论：依赖 AI 做代码评审不足以构成安全边界，<strong>CI/CD 必须把独立安全审计节点重新写回规范</strong>。</p>
+    <p>它也给信号 01（Origin 的溯源元数据）提供了现实必要性——没有逐行溯源，出事后无法定位是模型、提示还是上下文的锅。安全不再是「模型更聪明」能解决的，而是工程护栏问题。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  Copilot Autofix 引入漏洞  |  Red Agent <b>5 天</b> 自主发现 + 利用  |  窃取 Jira token  |  首例「AI 代码 → AI 攻击面」完整演示
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 端云协同</span>
+  <h2 class="c-title">联发科 Day-0 适配 Qwen3.8，端侧 Agent 模型加速落地</h2>
+  <p class="c-tags"><span class="chip b">Day-0 适配</span><span class="chip o">400 TOPS 座舱</span><span class="chip t">部署 -90%</span><span class="chip">手机 → 汽车</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>阿里 8/14 开源 <strong>Qwen3.8-27B</strong> 原生多模态稠密模型；8/15 联发科即在天玑汽车座舱 C-X1（3nm，<strong>400 TOPS</strong>）与天玑旗舰移动芯片完成 <em class="hl">Day-0 支持</em>——发布当天即可在联发科全平台端侧部署运行，从手机到汽车。其底层 AI 算力架构针对 Transformer / MoE 定制，端侧 LLM 部署耗时可节省高达 <strong>90%</strong>。</p>
+    <p style="margin-top:10px">结合本周 Google Pixel 11（Tensor G6，端侧实时翻译 / 配音）、荣耀 Robot Phone（Agentic OS + YOYO 百步任务）的密集发布，端侧 AI 已从「外挂工具」进入「系统原生 + 端云协同」阶段。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>终端智能方向今日的关键信号是「<strong>模型感知型芯片 + Day-0 适配</strong>」把端侧 Agent 的落地时延压到极限。对终端厂商，竞争焦点从 NPU TOPS 数字转向「模型-芯片协同优化 + 端云任务切分」；对用户，高频低延迟任务（翻译、语音、感知）正持续向本地迁移，隐私与离线可用性同步提升。</p>
+    <p><strong>客观判断</strong>：换机周期仍 >36 个月，端侧体验受 NPU / 带宽 / 散热硬约束，需有「非换不可」的杀手场景才能把叙事变成销量；否则高增长可能回落至行业大盘下行通道。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  Day-0 适配  |  <b>400 TOPS</b> 座舱  |  部署耗时 <b>-90%</b>  |  Pixel 11 / Robot Phone 同期  |  换机周期 <b>>36</b> 个月
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身智能 · 资本锚 + 评测尺</span>
+  <h2 class="c-title">宇树 8/19 科创板上市、RoboColiseum 开放：具身从 demo 走向量化</h2>
+  <p class="c-tags"><span class="chip b">人形第一股</span><span class="chip o">市值 ~610 亿</span><span class="chip t">RoboColiseum</span><span class="chip">30 分钟测可靠度</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p><strong>宇树科技</strong>公告股票 8/19 在上交所科创板上市，发行价 <strong>150.80 元/股</strong>，募资约 61 亿元，对应市值约 610 亿元，称「A 股人形机器人第一股」；预计 2026 上半年营收 10.52–11.28 亿元。同日（8/17）开放的 <strong>RoboColiseum</strong> 仿真评测平台，构建与真机对齐的多维体系，约 30 分钟测出模型在真实任务中的可靠度与短板，试图补上具身长期缺位的统一标尺。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能本周同时拿到「<em class="hl">资本锚</em>」与「<em class="hl">评测尺</em>」，是把「能不能演示」换成「能不能结算、能不能量化」的两块基石。宇树上市为一级市场机器人资产提供首个公开定价标尺，融资 / 并购定价有了参照；RoboColiseum 则把「采购方怎么比」从主观演示拉到可量化对比。</p>
+    <p>这与信号 03（攻击面审计）、信号 01（代码溯源）同构：<strong>凡是不能被外部量化验证的，终将停在 Demo</strong>。对具身赛道，可核验判据回到换型时间、可靠度指标与公开财报，而非演示视频。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  宇树市值 <b>~610 亿</b>  |  发行价 <b>150.80</b>  |  募资 <b>~61 亿</b>  |  RoboColiseum <b>30 分钟</b> 测可靠度  |  8/19 上市
+  </div>
+</div>
+
+<div class="cross">
+  <h3>交叉观察 · 模型之外的三层底座，今日同时到位</h3>
+  <ol>
+    <li><strong>溯源层</strong>（信号 01）：代码逐行溯源，责任可定位——为 AI 生成代码补上审计基线。</li>
+    <li><strong>执行层</strong>（信号 02 / 04）：持久运行时让 Agent 持续跑，端侧 Day-0 让模型本地跑，Agent 从「一次性调用」变为「常驻进程」。</li>
+    <li><strong>信任层</strong>（信号 03 / 05）：AI 代码成攻击面需独立审计；具身用资本锚 + 评测尺做量化结算。</li>
+  </ol>
+
+  <div class="verdict">
+    <strong>一句话判断</strong>：当模型能力不再稀缺，竞争上移到「可运行、可追溯、可信、可结算」的底座。今天五条信号分别在代码库（溯源）、运行时（执行）、安全（审计）、端侧（协同）、具身（资本 + 标尺）五个位置补齐同一块短板——稀缺的从来不是「会做」，而是「能托管、能查账、能交付」。
+  </div>
+
+  <div class="risk">
+    <b>风险与反证</b>
+    多条数据来自公司自述或媒体转述，需注意：Origin 仍限量测试、短期难撼 GitHub 企业客户；Wiz 漏洞为单一厂商红队样本，不代表所有 AI 代码审查均失效；宇树业绩为招股书口径、RoboColiseum 仿真-真机对齐度仍待第三方复现；联发科 Day-0 为厂商适配声明，真机体验待实测；端侧换机周期 >36 个月，叙事转销量仍存不确定性。
+  </div>
+</div>
+
+<footer>
+  <span>Leion'Log · Daily AI · NO.45</span>
+  <span>Generated 2026-08-18 09:16 GMT+8</span>
+</footer>
+
+</div>
+</body>
+</html>
