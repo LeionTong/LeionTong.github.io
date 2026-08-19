@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-19-1000.html">
+    <div class="da-card-date">2026-08-19 · 10:00</div>
+    <div class="da-card-main">智能下沉与互联：端侧 Agent 模型、具身垂直整合与 Agent 协议标准化 今天的五条信号锚定同一个转向——智能正在「往下走、向外连」：当云端 Frontier 模型能力趋于同质，竞争焦点下移到端侧 Agent 模型（分层执行、边缘可跑）与具身垂直整合（本体＋算力＋数据＋制造），并向外连到Agent 协议标准化（MCP）。端侧侧，Meta Muse Glimmer 与 NVIDIA Nemotron Lightning 把 Agent 拆成「强模型规划、小模型执行」的分层，Liquid AI 把 2.6B 级 agent 模型压进手机；具身侧，LG×NVIDIA 以全栈制造伙伴模式落地双足人形、小米 my16 以单模型多任务破 40.89% 拿下 CVPR/ICRA 双冠；研发侧，终端原生 Agent 成主界面、MCP 成互联标准、自愈 CI/CD 把评审变 agent 对 agent 的闸。一句话：模型「会不会做」不再是稀缺资源，谁能把智能沉到终端/具身、并能跨厂商互联治理，谁握下一程。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-19-0950.html">
     <div class="da-card-date">2026-08-19 · 09:50</div>
     <div class="da-card-main">自治已就位，底座与治理成为新护城河 今天的五条信号指向同一个拐点——「能不能做」早已不是问题，「敢不敢上、摊不摊得起、管不管得住」才是。具身智能借 WRC 2026 开幕、央企机器人创新联合体揭牌与首部数据合规指南，从融资热度迈入规范与规模化落地；AI coding 被 Meta Muse Code 拉入三极混战、贡献者档价格打穿到约 1/12；终端智能从芯片（NPU 模型感知）一路 Agentic 化到 OS（连续 100+ 步任务）；而 Agent 自身裂出两条补完路线——Hermes 的编队协调层与 Synthesized 的部署前可信层。一句话：竞争从「谁模型强」全面迁移到「谁把自治装进可落地、可协调、可信的底座」。</div>
