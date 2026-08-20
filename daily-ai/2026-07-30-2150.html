@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夜校准室 · AI 领域每日动态 2026-07-30 夜班</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800&family=Share+Tech+Mono&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0e0d;
+  --panel:#131715;
+  --panel2:#171b19;
+  --rule:#2b322e;
+  --rule-soft:#1f2522;
+  --chalk:#e9e6dc;
+  --chalk-dim:#b3b7ae;
+  --muted:#7d857e;
+  --cal:#ff7a33;
+  --cyan:#45d1c5;
+  --chrome:#f2c14e;
+  --mag:#e8508d;
+  --violet:#9d8cf0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--chalk);
+  font-family:"Noto Sans SC",sans-serif;
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+/* ruler tick texture + vignette */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    repeating-linear-gradient(90deg,rgba(233,230,220,.055) 0 1px,transparent 1px 14px),
+    repeating-linear-gradient(90deg,rgba(233,230,220,.09) 0 1px,transparent 1px 70px);
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.18) 42%,rgba(0,0,0,.28));
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 90% 60% at 50% -10%,rgba(255,122,51,.09),transparent 62%),
+             radial-gradient(ellipse 70% 50% at 100% 100%,rgba(69,209,197,.06),transparent 60%);
+}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 30px 110px}
+
+/* ── masthead ─────────────────────── */
+.mast{padding:52px 0 0;animation:fade .8s ease both}
+.mast-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:20px;flex-wrap:wrap;
+  border-bottom:1px solid var(--rule);padding-bottom:14px;
+}
+.lab-id{
+  font-family:"Share Tech Mono",monospace;font-size:11.5px;letter-spacing:.22em;
+  color:var(--muted);text-transform:uppercase;
+}
+.lab-id b{color:var(--cal);font-weight:400}
+.stamp{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.18em;
+  color:var(--chalk-dim);border:1px solid var(--rule);
+  padding:5px 11px;display:inline-flex;align-items:center;gap:8px;
+}
+.stamp .dot{width:6px;height:6px;background:var(--cal);border-radius:50%;animation:blip 2.2s infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.22}}
+
+h1{
+  font-family:"Big Shoulders Display","Noto Sans SC",sans-serif;
+  font-weight:800;font-size:clamp(60px,12.5vw,142px);
+  line-height:.84;letter-spacing:-.012em;
+  margin:30px 0 6px;color:var(--chalk);
+  text-transform:uppercase;
+}
+h1 .sub{display:block;font-size:clamp(21px,3.4vw,34px);color:var(--cal);letter-spacing:.02em;margin-top:10px;font-weight:600}
+.zh-title{
+  font-family:"Noto Serif SC",serif;font-weight:600;
+  font-size:clamp(19px,2.6vw,26px);color:var(--chalk-dim);
+  letter-spacing:.16em;margin-top:16px;
+}
+.meta-row{
+  display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;padding-top:16px;
+  border-top:1px solid var(--rule-soft);
+  font-family:"Share Tech Mono",monospace;font-size:11.5px;
+  letter-spacing:.13em;color:var(--muted);text-transform:uppercase;
+}
+.meta-row span b{color:var(--chalk-dim);font-weight:400}
+
+/* ── vernier scale hero ───────────── */
+.scale-box{
+  margin:40px 0 8px;border:1px solid var(--rule);background:var(--panel);
+  padding:26px 24px 18px;position:relative;overflow:hidden;
+  animation:fade .9s .12s ease both;
+}
+.scale-box .cap{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:6px;
+}
+svg.vernier{width:100%;height:auto;display:block}
+.tick{stroke:#3c443f;stroke-width:1}
+.tick.maj{stroke:#5b655e}
+.tickdraw{stroke-dasharray:14;stroke-dashoffset:14;animation:drawtick .5s ease forwards}
+@keyframes drawtick{to{stroke-dashoffset:0}}
+.slider{opacity:0;animation:slidein 1.05s cubic-bezier(.22,.9,.28,1) .55s forwards}
+@keyframes slidein{from{opacity:0;transform:translateX(-46px)}to{opacity:1;transform:translateX(0)}}
+.mkr{opacity:0;animation:pop .5s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+.mlbl{font-family:"Share Tech Mono",monospace;font-size:9.5px;letter-spacing:.08em;fill:var(--muted)}
+
+/* ── lede / main line ─────────────── */
+.lede{
+  margin:34px 0 6px;border:1px solid var(--cal);background:linear-gradient(180deg,rgba(255,122,51,.09),rgba(255,122,51,.02));
+  padding:30px 32px 30px;position:relative;
+  animation:fade .9s .2s ease both;
+}
+.lede::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cal);
+}
+.lede-h{
+  font-family:"Big Shoulders Display",sans-serif;font-weight:800;
+  font-size:clamp(24px,3.6vw,36px);letter-spacing:.03em;color:var(--cal);
+  text-transform:uppercase;line-height:1;
+}
+.lede-zh{
+  font-family:"Noto Serif SC",serif;font-weight:600;font-size:15px;
+  letter-spacing:.2em;color:var(--chrome);margin-top:9px;
+}
+.lede p{
+  font-family:"Noto Serif SC",serif;font-size:17.5px;line-height:1.95;
+  color:var(--chalk);margin-top:18px;
+}
+.lede p strong{color:var(--cal);font-weight:600}
+.lede .kicker{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;margin-top:20px;padding-top:14px;
+  border-top:1px dashed var(--rule);display:block;
+}
+
+/* ── section label ────────────────── */
+.sec-label{
+  display:flex;align-items:center;gap:16px;margin:56px 0 24px;
+  font-family:"Share Tech Mono",monospace;font-size:11px;letter-spacing:.24em;
+  color:var(--muted);text-transform:uppercase;
+}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+/* ── cards ────────────────────────── */
+.card{
+  border:1px solid var(--rule);background:var(--panel);
+  margin-bottom:24px;position:relative;
+  opacity:0;transform:translateY(26px);
+  animation:rise .8s cubic-bezier(.22,.9,.28,1) forwards;
+}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.card:nth-child(1){animation-delay:.30s}
+.card:nth-child(2){animation-delay:.40s}
+.card:nth-child(3){animation-delay:.50s}
+.card:nth-child(4){animation-delay:.60s}
+.card:nth-child(5){animation-delay:.70s}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c,var(--cal))}
+.card.c1{--c:var(--cal)} .card.c2{--c:var(--mag)} .card.c3{--c:var(--chrome)}
+.card.c4{--c:var(--chrome)} .card.c5{--c:var(--cyan)}
+
+.chead{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:14px 26px;border-bottom:1px solid var(--rule-soft);
+  background:var(--panel2);
+}
+.cno{
+  font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:34px;
+  line-height:1;color:var(--c);letter-spacing:.02em;
+}
+.chead-l{display:flex;align-items:center;gap:14px}
+.dirtag{
+  font-family:"Share Tech Mono",monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--c);border:1px solid var(--c);
+  padding:3px 9px;opacity:.92;
+}
+.unc{
+  font-family:"Share Tech Mono",monospace;font-size:10px;letter-spacing:.14em;
+  color:var(--muted);text-transform:uppercase;text-align:right;
+}
+.unc b{color:var(--chalk-dim);font-weight:400}
+
+.cbody{padding:26px 30px 28px}
+h2{
+  font-family:"Noto Serif SC",serif;font-weight:600;
+  font-size:clamp(20px,2.7vw,26px);line-height:1.5;color:var(--chalk);
+  letter-spacing:.01em;margin-bottom:6px;
+}
+.h2-en{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:20px;
+}
+.cbody p{font-size:15.3px;color:var(--chalk-dim);margin-bottom:15px;line-height:1.92}
+.cbody p strong{color:var(--chalk);font-weight:500}
+.cbody em{font-style:normal;color:var(--c);font-weight:500}
+.k{
+  font-family:"Share Tech Mono",monospace;font-size:13.5px;color:var(--c);
+  background:rgba(255,255,255,.035);padding:1px 6px;border-bottom:1px solid rgba(255,255,255,.09);
+}
+.blk{
+  margin:20px 0 4px;padding:16px 20px;border-left:2px solid var(--rule);
+  background:rgba(255,255,255,.017);
+}
+.blk .bh{
+  font-family:"Share Tech Mono",monospace;font-size:10px;letter-spacing:.2em;
+  color:var(--c);text-transform:uppercase;margin-bottom:8px;
+}
+.blk p{margin-bottom:0;font-size:14.6px}
+.conf{
+  margin-top:18px;padding-top:14px;border-top:1px dashed var(--rule);
+  font-size:13.4px;color:var(--muted);line-height:1.8;
+}
+.conf b{
+  font-family:"Share Tech Mono",monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--chalk-dim);text-transform:uppercase;font-weight:400;
+  display:inline-block;margin-right:8px;
+}
+
+/* ── three lines ──────────────────── */
+.three{border:1px solid var(--rule);background:var(--panel);padding:30px 32px;margin-top:10px;
+  opacity:0;transform:translateY(24px);animation:rise .8s cubic-bezier(.22,.9,.28,1) .8s forwards}
+.three ol{list-style:none;counter-reset:t}
+.three li{
+  counter-increment:t;position:relative;padding-left:46px;margin-bottom:18px;
+  font-size:15.2px;color:var(--chalk-dim);line-height:1.9;
+}
+.three li:last-child{margin-bottom:0}
+.three li::before{
+  content:"0" counter(t);position:absolute;left:0;top:1px;
+  font-family:"Big Shoulders Display",sans-serif;font-weight:800;font-size:24px;
+  color:var(--rule);letter-spacing:.04em;
+}
+.three li strong{color:var(--chalk);font-weight:500}
+
+/* ── thread ───────────────────────── */
+.thread{margin-top:26px;border:1px solid var(--rule-soft);padding:26px 30px;background:rgba(255,255,255,.012);
+  opacity:0;transform:translateY(24px);animation:rise .8s cubic-bezier(.22,.9,.28,1) .88s forwards}
+.thread .t{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.22em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:18px;
+}
+.tl{display:flex;flex-direction:column;gap:0}
+.ti{display:flex;gap:16px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--rule-soft)}
+.ti:last-child{border-bottom:none}
+.ti .d{font-family:"Share Tech Mono",monospace;font-size:11.5px;color:var(--muted);min-width:62px;letter-spacing:.08em}
+.ti .v{font-size:14.4px;color:var(--chalk-dim)}
+.ti.now .d{color:var(--cal)}
+.ti.now .v{color:var(--chalk)}
+.ti.now .v b{color:var(--cal);font-weight:500}
+
+footer{
+  margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);
+  font-size:12.6px;color:var(--muted);line-height:1.85;
+}
+footer .sig{
+  font-family:"Share Tech Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--rule);margin-top:14px;
+}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+  .wrap{padding:0 18px 70px}
+  .cbody{padding:22px 20px 24px}
+  .chead{padding:12px 18px}
+  .lede{padding:24px 20px}
+  .three,.thread{padding:24px 20px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div class="lab-id">CALIBRATION LOG <b>/ NO.2026-0730-N5</b> · AI DAILY SIGNALS</div>
+      <div class="stamp"><span class="dot"></span>21:50 GMT+8 · SHIFT 5 / 5</div>
+    </div>
+
+    <h1>NIGHT<br>CALIBRATION<span class="sub">Lab · 夜校准室</span></h1>
+    <div class="zh-title">AI 领域每日动态 · 2026 年 7 月 30 日 夜班</div>
+
+    <div class="meta-row">
+      <span>方向 <b>AI AGENT</b></span>
+      <span>方向 <b>终端与端侧</b></span>
+      <span>方向 <b>具身智能</b></span>
+      <span>信号数 <b>05</b></span>
+      <span>去重 <b>已避开当日前 4 班约 20 条</b></span>
+    </div>
+  </header>
+
+  <section class="scale-box">
+    <div class="cap">MEASURING RANGE — 今晚五条信号在「可信度刻度」上的落点</div>
+    <svg class="vernier" viewbox="0 0 940 132" role="img" aria-label="游标卡尺刻度，标注五条信号的可信度落点">
+      <!-- main rule -->
+      <line x1="20" y1="52" x2="920" y2="52" stroke="#5b655e" stroke-width="1.2"/>
+      <!-- ticks -->
+      <g>
+        <line class="tick maj tickdraw" x1="20" y1="52" x2="20" y2="30" style="animation-delay:.30s"/>
+        <line class="tick tickdraw" x1="65" y1="52" x2="65" y2="41" style="animation-delay:.33s"/>
+        <line class="tick tickdraw" x1="110" y1="52" x2="110" y2="41" style="animation-delay:.36s"/>
+        <line class="tick tickdraw" x1="155" y1="52" x2="155" y2="41" style="animation-delay:.39s"/>
+        <line class="tick tickdraw" x1="200" y1="52" x2="200" y2="41" style="animation-delay:.42s"/>
+        <line class="tick maj tickdraw" x1="245" y1="52" x2="245" y2="30" style="animation-delay:.45s"/>
+        <line class="tick tickdraw" x1="290" y1="52" x2="290" y2="41" style="animation-delay:.48s"/>
+        <line class="tick tickdraw" x1="335" y1="52" x2="335" y2="41" style="animation-delay:.51s"/>
+        <line class="tick tickdraw" x1="380" y1="52" x2="380" y2="41" style="animation-delay:.54s"/>
+        <line class="tick tickdraw" x1="425" y1="52" x2="425" y2="41" style="animation-delay:.57s"/>
+        <line class="tick maj tickdraw" x1="470" y1="52" x2="470" y2="30" style="animation-delay:.60s"/>
+        <line class="tick tickdraw" x1="515" y1="52" x2="515" y2="41" style="animation-delay:.63s"/>
+        <line class="tick tickdraw" x1="560" y1="52" x2="560" y2="41" style="animation-delay:.66s"/>
+        <line class="tick tickdraw" x1="605" y1="52" x2="605" y2="41" style="animation-delay:.69s"/>
+        <line class="tick tickdraw" x1="650" y1="52" x2="650" y2="41" style="animation-delay:.72s"/>
+        <line class="tick maj tickdraw" x1="695" y1="52" x2="695" y2="30" style="animation-delay:.75s"/>
+        <line class="tick tickdraw" x1="740" y1="52" x2="740" y2="41" style="animation-delay:.78s"/>
+        <line class="tick tickdraw" x1="785" y1="52" x2="785" y2="41" style="animation-delay:.81s"/>
+        <line class="tick tickdraw" x1="830" y1="52" x2="830" y2="41" style="animation-delay:.84s"/>
+        <line class="tick tickdraw" x1="875" y1="52" x2="875" y2="41" style="animation-delay:.87s"/>
+        <line class="tick maj tickdraw" x1="920" y1="52" x2="920" y2="30" style="animation-delay:.90s"/>
+      </g>
+      <text class="mlbl" x="20" y="22">社区自述</text>
+      <text class="mlbl" x="245" y="22">媒体报道</text>
+      <text class="mlbl" x="470" y="22">厂商披露</text>
+      <text class="mlbl" x="695" y="22">官方/开源</text>
+      <text class="mlbl" x="852" y="22">同行评审</text>
+
+      <!-- vernier slider -->
+      <g class="slider">
+        <rect x="600" y="58" width="180" height="26" fill="rgba(255,122,51,.10)" stroke="#ff7a33" stroke-width="1"/>
+        <line x1="690" y1="46" x2="690" y2="90" stroke="#ff7a33" stroke-width="1.6"/>
+        <text class="mlbl" x="608" y="76" fill="#ff7a33">VERNIER · 本期主证据带</text>
+      </g>
+
+      <!-- markers -->
+      <g class="mkr" style="animation-delay:1.35s">
+        <circle cx="742" cy="52" r="5" fill="#ff7a33"/>
+        <line x1="742" y1="52" x2="742" y2="104" stroke="#ff7a33" stroke-width="1" stroke-dasharray="2 3"/>
+        <text class="mlbl" x="716" y="118" fill="#ff7a33">01 记忆账本</text>
+      </g>
+      <g class="mkr" style="animation-delay:1.48s">
+        <circle cx="352" cy="52" r="5" fill="#e8508d"/>
+        <line x1="352" y1="52" x2="352" y2="104" stroke="#e8508d" stroke-width="1" stroke-dasharray="2 3"/>
+        <text class="mlbl" x="322" y="118" fill="#e8508d">02 尺子失准</text>
+      </g>
+      <g class="mkr" style="animation-delay:1.61s">
+        <circle cx="530" cy="52" r="5" fill="#f2c14e"/>
+        <line x1="530" y1="52" x2="530" y2="104" stroke="#f2c14e" stroke-width="1" stroke-dasharray="2 3"/>
+        <text class="mlbl" x="500" y="118" fill="#f2c14e">03 确定性架构</text>
+      </g>
+      <g class="mkr" style="animation-delay:1.74s">
+        <circle cx="418" cy="52" r="5" fill="#f2c14e"/>
+        <line x1="418" y1="52" x2="418" y2="88" stroke="#f2c14e" stroke-width="1" stroke-dasharray="2 3"/>
+        <text class="mlbl" x="392" y="100" fill="#f2c14e">04 新评测轴</text>
+      </g>
+      <g class="mkr" style="animation-delay:1.87s">
+        <circle cx="128" cy="52" r="5" fill="#45d1c5"/>
+        <line x1="128" y1="52" x2="128" y2="104" stroke="#45d1c5" stroke-width="1" stroke-dasharray="2 3"/>
+        <text class="mlbl" x="100" y="118" fill="#45d1c5">05 物理下限</text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="lede">
+    <div class="lede-h">Today's Main Line</div>
+    <div class="lede-zh">今日主线 · 刻度之夜</div>
+    <p>白天讲的是边界、入口和围栏，夜里露出的是更根上的一件事：<strong>我们手里没有可信的刻度</strong>。今晚五条信号，四条在补刻度或绕开刻度——腾讯把 Agent 记忆做成带 ACL、版本与审计的资产账本；ITSMBench 给企业任务出了一把更难的新尺子，并顺带暴露「判官本身有多不准」；优艾智合干脆不信概率输出，把确定性蒸馏进模型结构；智元则把评测轴从静态图文挪到真实场景的声画同步。第五条把地基向下压到 8 美元的单片机与 2GB 内存里。</p>
+    <p><strong>可信不是声明出来的，是被测量和结构约束出来的</strong>；量不准，就谈不上放手。</p>
+    <span class="kicker">Thesis — trust is measured & structurally enforced, not declared.</span>
+  </section>
+
+  <div class="sec-label">Signals · 五条信号</div>
+
+  <article class="card c1">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">01</span><span class="dirtag">AI Agent</span></div>
+      <div class="unc">量具 <b>厂商发布 + 开源可验证</b> ／ 不确定度 <b>± 低</b></div>
+    </div>
+    <div class="cbody">
+      <h2>记忆层第一次有了产权与账本</h2>
+      <div class="h2-en">TencentDB Agent Memory 2.0.0 beta — open sourced</div>
+
+      <p>腾讯云 <span class="k">TencentDB Agent Memory</span> 于 2026 年 7 月发布 <strong>2.0.0 beta 并首次公开开源</strong>，7 月 30 日出现体系化解读。它不做「更大的上下文窗口」，而是把团队记忆拆成四类可继承资产：<em>Memory</em>（对话异步提炼的长期画像）、<em>LLM-Wiki</em>（PRD／接口说明／运维手册／知识索引）、<em>Code Graph</em>（文件、符号、函数、调用链与影响范围）、<em>Skill</em>（团队 SOP、工具链、检查项封装为执行单元）。</p>
+
+      <p>工程核心是<strong>资产目录</strong>，为每份资产标注 <span class="k">identity / scope / trust / lifecycle / governance / usage</span>——这是什么、属于哪个团队与仓库、来源证据是什么、谁能看谁能改、在哪些任务里被引用过。三个组件分工明确：<strong>Memory Core</strong> 作为事实源承载 ACL、版本、审计与绑定关系；<strong>Memory Hub</strong>（Panel + Knowledge）做管理面；<strong>Memory Proxy</strong> 站在 Agent 与资产之间，按 team／agent／task／role 做召回、上下文编排、<em>权限过滤、token 预算控制与审计</em>——不是把资产全塞进上下文，而是按任务相关性和预算做选择。Core / Hub / Proxy 及 TypeScript、Python SDK 均已开源，可一键拉起三件套。公开评测 PersonaMem 上，启用后总回答准确率由 <span class="k">48% → 76%</span>（相对提升约 59%）。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>过去一周的主线一直是「给 Agent 装护栏」，但护栏几乎都装在<strong>动作层</strong>（只读权限、pre-tool hook、沙箱）。这是第一次有人把同一套逻辑装进<strong>记忆层</strong>：谁写入、谁修改、何时引用、是否过期、能不能撤回，全部要有记录。它解决的是一个被长期低估的风险——Agent 引用过期经验、错误结论或越权信息时，动作层护栏完全看不见，因为动作本身合法。把记忆变成有产权、有生命周期、有预算的资产，等于给「上下文」补上会计制度。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>一级信源（厂商公开发布 + 代码开源可自行验证）。PersonaMem 的 48%→76% 为厂商自测口径，尚待第三方独立复现；提升幅度高度依赖任务分布，不宜外推为「接入即涨 59%」。</div>
+    </div>
+  </article>
+
+  <article class="card c2">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">02</span><span class="dirtag">AI Agent · 评测</span></div>
+      <div class="unc">量具 <b>二级汇总 + 6 月论文重提</b> ／ 不确定度 <b>± 中</b></div>
+    </div>
+    <div class="cbody">
+      <h2>新基准出炉，同时暴露「判官」本身的分层</h2>
+      <div class="h2-en">ITSMBench & the judge-reliability problem</div>
+
+      <p>7 月 30 日流通的 <span class="k">ITSMBench</span> 是一套面向企业 IT 服务管理场景的 Agent 基准，覆盖 <strong>93 种类型的工具</strong>，结果显示前沿模型在真实企业流程中的<strong>可靠性显著下滑</strong>；同时暴露文化偏置——受测 8 个模型中有 6 个的处置风格倾向「日本式」。同日社区还在讨论两件相关的事：有团队用约 <span class="k">$77.81</span> 的自动评测替代原本约 <span class="k">$7,500</span> 的人工评测；以及「Agent 循环烧评测集」的警告——反复在同一评测集上跑并保留高分，本质是在拟合噪声。</p>
+
+      <p>这些讨论引用的判官硬数据来自更早的两篇论文，需要如实标注时间：arXiv <span class="k">2606.13685</span> 测得成对判决平均 <em>13.6% 翻转率</em>、GPT-4o-mini 有显著首位偏好（72% 选 A，p=0.024）、跨判官一致率仅 76%（<em>κ = 0.51</em>），并指出需重复约 11 次投票才能以 95% 概率还原 50 次参考判决；但 arXiv <span class="k">2606.19544</span> 的大规模审计（21 个模型、约 54.1 万次判断）又显示头部判官 κ 可达 <em>0.88–0.90</em>。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>把两组数字放在一起，正确结论不是「LLM 判官全废」，而是<strong>判官质量严重分层，且便宜判官不足以做生产门禁</strong>。这恰好卡在 Agent 当下最要命的位置——从演示走向生产，唯一的通行证是「我们凭什么说它变好了」。今日 15:28 班那条 HANDBOOK.md 基准（最高仅 36.2% 遵守率）是「规则约束不住」，这条则是「结果衡量不准」：一个管输入，一个管输出，两头同时漏气。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>ITSMBench 与社区成本对比为二级汇总，未见完整论文与榜单原文，数字应视为方向性参考；两篇 arXiv 为一级来源但发表于 6 月，属今日被重新引用而非今日新发——此处不作「今日突破」包装。</div>
+    </div>
+  </article>
+
+  <article class="card c3">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">03</span><span class="dirtag">具身智能</span></div>
+      <div class="unc">量具 <b>厂商发布会</b> ／ 不确定度 <b>± 中</b></div>
+    </div>
+    <div class="cbody">
+      <h2>工业界的答案：不修提示词，改架构</h2>
+      <div class="h2-en">UBTRobot / 优艾智合 FabriX — determinism distilled into the model</div>
+
+      <p>7 月 30 日，优艾智合发布工业具身智能大模型<strong>「智合」（FabriX）</strong>，自述为「全球首个可规模化应用的工业具身智能大模型」，同场发布工业原生人形机器人<strong>「隙锋」</strong>。技术路径与通用 VLA 明显分岔：采用<em>边端侧双重架构</em>，以工业真机数据训练的多模态 MoE 为基座，并把<strong>机理控制的确定性结果转化为先验引导知识</strong>注入模型。</p>
+
+      <p>核心手段包括<span class="k">确定性先验蒸馏</span>、<span class="k">约束锚定智能体</span>、<strong>先验引导层</strong>（把复杂数据蒸馏为确定性信息，为动作扩散指明方向）与<strong>双回路逻辑校验层</strong>（对输出做全流程确定性约束与核验，支撑自主诊断与故障恢复）。联合创始人兼 CTO 边旭的表述很直白：要解决通用具身大模型<em>概率性输出难以适配工业场景</em>的问题。同步启动生态伙伴计划，目标三年赋能 <span class="k">10,000</span> 个工业现场。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>这是今天下午那条判断的正面回应。15:28 班的结论是「写下来的规则不是控制」——散文式治理文档管不住模型；工业界给出的方案不是把文档写得更长，而是<strong>把确定性做进架构</strong>：先验层限定动作方向、双回路层核验输出、机理控制提供不可协商的物理约束。工业场景不接受「大概率对」，于是它用结构把概率分布的尾部裁掉。这也解释了为什么工业现场反而是具身最先跑通商业闭环的地方——<em>约束越硬的场景，越容易用工程手段兑现可靠性</em>。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>「全球首个可规模化」为企业自述，缺乏第三方口径；「三年 10,000 个工业现场」是目标而非已交付量，不应计入产能。技术描述来自官方通稿，尚无独立复现或第三方产线实测数据。</div>
+    </div>
+  </article>
+
+  <article class="card c4">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">04</span><span class="dirtag">具身智能 · 评测</span></div>
+      <div class="unc">量具 <b>企业口径 + 自媒体解读</b> ／ 不确定度 <b>± 中偏高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>换一把更接近物理世界的尺子</h2>
+      <div class="h2-en">AgiBot WITA-OmniPreview tops DailyOmni at 85.21</div>
+
+      <p>7 月 30 日消息，智元自研<strong>具身原生全模态大模型 WITA-OmniPreview</strong> 在全球具身全模态理解榜单 <span class="k">DailyOmni</span> 上以 <strong>85.21 分</strong>取得综合第一，八项细分评测中六项居首，成绩位于千问、Gemini、豆包、NVIDIA 等通用大模型之上。</p>
+
+      <p>DailyOmni 的取材方式是关键：全程使用商场、展厅、居家等开放空间的<strong>原生音视频素材</strong>，环境中存在多人交谈杂音、背景响动与连续发生的琐事，考察三项能力——<em>把说话人与画面声源精准匹配、理清事件的先后时序、结合画面与声音做综合推理</em>。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>绝大多数多模态评测停留在静态图文问答或剪辑短片解读，适配的是「人在手机上刷内容」的场景。DailyOmni 换的是坐标系——机器人站在嘈杂展厅里，第一道坎不是识别物体，而是<strong>分清谁在叫它</strong>。榜单前列几乎都是互联网大厂的通用全模态模型，唯一的纯具身玩家反而登顶，说明真实物理环境的声画同步理解是一条<em>通用模型没有专门优化过的独立能力轴</em>。它也标注了具身的重心迁移：过去一年在拼「动得了」，接下来要拼「听懂现场」。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>来源为企业侧口径与自媒体解读，未见官方技术报告或 DailyOmni 榜单页面直连；DailyOmni 的行业认可度弱于 OSWorld、SWE-bench 等成熟基准，单一榜单第一不宜外推为「全模态能力全面领先」。结合信号 02——榜单本身也是一把待校准的尺子。</div>
+    </div>
+  </article>
+
+  <article class="card c5">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">05</span><span class="dirtag">终端与端侧</span></div>
+      <div class="unc">量具 <b>社区自述 / 个人项目</b> ／ 不确定度 <b>± 高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>把可用智能压进 8 美元和 2GB</h2>
+      <div class="h2-en">The floor keeps dropping — MCU-class inference & local wake word</div>
+
+      <p>7 月 30 日社区侧出现一组同向信号。其一，有人把约 <span class="k">2,890 万参数</span>的 LLM 跑在 <strong>ESP32-S3</strong> 上——约 8 美元的单片机、完全离线、功耗接近一颗 LED，活跃工作集约 <em>450 字节/token</em>；同日另有在 ESP-32 上做本地 AI 运动追踪的项目。其二，<strong>TurboFieldfare</strong> 是 Swift + Metal 编写的 M 系 Mac 推理引擎，宣称约 <span class="k">2GB 内存</span>即可跑 Gemma 4 26B-A4B-IT。其三，<strong>Hermes Agent 新增本地语音唤醒</strong>：唤醒检测完全在本地运行、默认关闭，支持 openWakeWord / sherpa / Porcupine 多引擎。作为反向坐标，同日有 NVIDIA RTX GPU 最高<strong>涨价 30%</strong> 的报道。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>这组信号的意义不在性能，而在<strong>下限</strong>。一边是数据中心侧的成本与硬件价格继续上抬，一边是「可用智能」的物理门槛被压到 8 美元的芯片和 2GB 的内存里。对具身与终端 Agent 而言这是现实底盘问题——真正要装进机器人关节、传感器节点与随身设备的，从来不是最强模型，而是<em>在功耗、成本、离线三重约束下仍能工作的那一档</em>。Hermes 的本地唤醒补的是入口侧：唤醒词不上云，意味着「常驻监听」第一次可以在隐私上说得通。端侧竞争的本质不是跑分，而是<strong>主权与下限</strong>。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>三项均为个人项目或社区自述，参数规模、内存占用与实际可用性（生成质量、上下文长度、持续吞吐）均未经独立复现。「2GB 跑 26B」一类表述通常隐含激进量化与 MoE 稀疏激活前提，不能等同于常规部署体验。GPU 涨价为媒体报道。</div>
+    </div>
+  </article>
+
+  <div class="sec-label">Cross-reading · 横向观察</div>
+
+  <section class="three">
+    <ol>
+      <li><strong>护栏正在从动作层向记忆层与架构层扩散。</strong>只读权限和沙箱管得住「这一步能不能做」，管不住「它凭什么这么想」——腾讯给记忆加账本、优艾智合把确定性蒸馏进模型，走的是同一方向的两条路。</li>
+      <li><strong>尺子问题第一次比模型问题更紧迫。</strong>HANDBOOK.md 基准最高 36.2%、ITSMBench 企业场景可靠性骤降、判官 κ 从 0.51 到 0.90 分层严重——在这种情况下，任何「能力又提升了」的说法都需要先问一句：用什么量的。</li>
+      <li><strong>两端同时下沉。</strong>具身往工业现场沉（约束硬、可交付），算力往 8 美元芯片沉（成本硬、可自持）。Agent 的下一段增长可能不在中间层的通用能力，而在这两个被约束逼出来的边缘。</li>
+    </ol>
+  </section>
+
+  <section class="thread">
+    <div class="t">Continuity · 与近期主线的衔接</div>
+    <div class="tl">
+      <div class="ti"><span class="d">07 / 24</span><span class="v">可信化 —— 国标身份、支付信任、企业护栏</span></div>
+      <div class="ti"><span class="d">07 / 27</span><span class="v">自主 vs 可控 —— 失控事件 ↔ 更强自治</span></div>
+      <div class="ti"><span class="d">07 / 29</span><span class="v">可控的自治 —— 治理联名、编排层 hooks、本地化回落</span></div>
+      <div class="ti"><span class="d">07 / 30</span><span class="v">早班 边界划定 → 午班 入口收拢·账本亮相 → 午后 围栏而非文本规则 → 傍晚 主体交接的底座工程</span></div>
+      <div class="ti now"><span class="d">今夜</span><span class="v"><b>刻度之夜</b> —— 护栏与底座都在建，但衡量它们是否有效的尺子仍未校准；今晚的补丁分别落在记忆账本、企业基准、模型结构与物理下限上。</span></div>
+    </div>
+  </section>
+
+  <footer>
+    本文为公开信息整理与个人观察，各条已标注信源层级与不确定度，不构成投资建议。涉及企业自述数据（「全球首个」、榜单第一、目标产能等）均已注明口径，请以官方最终披露为准。
+    <div class="sig">END OF CALIBRATION LOG · NO.2026-0730-N5 · 05 SIGNALS RECORDED</div>
+  </footer>
+
+</div>
+</body>
+</html>

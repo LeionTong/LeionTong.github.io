@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-19 10:00 · 智能下沉与互联：端侧 Agent 模型、具身垂直整合、协议标准化</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.48</b></span>
+    <span>2026-08-19  10:00  GMT+8</span>
+  </div>
+
+  <h1>智能<em>下沉与互联</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日第二推</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">终端 · 具身 · Agent · Coding</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">my16 40.89% · LFM2.5 2.6B</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">端侧 Agent 模型密集周</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">智能下沉与互联：端侧 Agent 模型、具身垂直整合与 Agent 协议标准化</div>
+  <p>今天的五条信号锚定同一个转向——<strong>智能正在「往下走、向外连」</strong>：当云端 Frontier 模型能力趋于同质，竞争焦点下移到<strong>端侧 Agent 模型</strong>（分层执行、边缘可跑）与<strong>具身垂直整合</strong>（本体＋算力＋数据＋制造），并向外连到<strong>Agent 协议标准化</strong>（MCP）。端侧侧，Meta Muse Glimmer 与 NVIDIA Nemotron Lightning 把 Agent 拆成「强模型规划、小模型执行」的分层，Liquid AI 把 <strong>2.6B</strong> 级 agent 模型压进手机；具身侧，LG×NVIDIA 以全栈制造伙伴模式落地双足人形、小米 <strong>my16</strong> 以单模型多任务破 <strong>40.89%</strong> 拿下 CVPR/ICRA 双冠；研发侧，终端原生 Agent 成主界面、MCP 成互联标准、自愈 CI/CD 把评审变 agent 对 agent 的闸。一句话：模型「会不会做」不再是稀缺资源，<strong>谁能把智能沉到终端/具身、并能跨厂商互联治理，谁握下一程</strong>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  云侧能力就位轴 × 下沉(端侧/具身) 与 互联(MCP) 落点，今日信号的分布</div>
+  <svg viewbox="0 0 872 332" width="100%" role="img" aria-label="信号星图：左侧为已就位的云侧 Frontier 模型，右侧为下沉与互联落点——端侧 Agent 模型分层、边缘 Agent 模型、具身垂直整合、具身操作拐点、研发范式迁移">
+    <defs>
+      <marker id="ao" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">FRONTIER READY / SINK & CONNECT GATES / 2026-08-19</text>
+
+    <!-- 左：云侧就位 -->
+    <rect x="8" y="34" width="250" height="54" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="133" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">云侧 Frontier 就位</text>
+    <text x="133" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">模型「会不会做」已不再稀缺</text>
+
+    <!-- 右：落点 -->
+    <rect x="614" y="34" width="250" height="54" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="739" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">下沉 · 互联 落点</text>
+    <text x="739" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">往终端/具身沉 · 跨厂商连</text>
+
+    <path d="M262,61 L610,61" stroke="#a4442a" stroke-width="1.4" marker-end="url(#ao)"/>
+
+    <!-- 五个节点 -->
+    <g font-family="Courier Prime,monospace">
+      <rect x="20" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="100" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">01</text>
+      <text x="100" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">端侧 · 分层</text>
+      <text x="100" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Glimmer 30B</text>
+      <text x="100" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Nemotron Lightning</text>
+      <text x="100" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">强规划·小执行</text>
+
+      <rect x="192" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="272" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">02</text>
+      <text x="272" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">边缘 · 模型</text>
+      <text x="272" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">LFM2.5 2.6B</text>
+      <text x="272" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">手机本地跑 Agent</text>
+      <text x="272" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">220/30 tok/s</text>
+
+      <rect x="364" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="444" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">03</text>
+      <text x="444" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">具身 · 整合</text>
+      <text x="444" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">LG×NVIDIA</text>
+      <text x="444" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">GR00T+Jetson Thor</text>
+      <text x="444" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">全栈制造伙伴</text>
+
+      <rect x="536" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="616" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">04</text>
+      <text x="616" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">具身 · 操作</text>
+      <text x="616" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">小米 my16</text>
+      <text x="616" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">CVPR/ICRA 双冠</text>
+      <text x="616" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">单模型 40.89%</text>
+
+      <rect x="708" y="120" width="156" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="786" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">05</text>
+      <text x="786" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">研发 · 范式</text>
+      <text x="786" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端 Agent+MCP</text>
+      <text x="786" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">自愈 CI/CD</text>
+      <text x="786" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">agent 对 agent 闸</text>
+    </g>
+
+    <text x="436" y="312" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a" letter-spacing="1.4">云侧就位 → 竞争落在「下沉到终端/具身」与「跨厂商互联治理」</text>
+  </svg>
+  <div class="fig-note">信号 01–05 分别落在「端侧分层 / 边缘模型 / 具身整合 / 具身操作 / 研发范式」五处落点；横轴 = 云侧 Frontier 模型能力已就位，纵轴无。制图依据今日公开报道梳理。</div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  终端智能 · 端侧 Agent 模型分层</span>
+  <h2 class="c-title">Meta Muse Glimmer 30B 与 NVIDIA Nemotron 3.5 Lightning 落地：端侧 Agent 进入「强模型规划、小模型执行」分层时代</h2>
+  <p class="c-tags"><span class="chip b">端侧 Agent</span><span class="chip o">模型分层</span><span class="chip t">消费级 GPU</span><span class="chip">端云协同</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p><strong>8/10</strong> Meta 发布约 <strong>300 亿参数</strong>开源多模态模型 <strong>Muse Glimmer</strong>，定位「可长期运行在个人设备上的本地 Agent」，单张消费级 GPU 即可运行；Dense 结构，BF16 模式 KV Cache 仅约 <em class="hl">52KiB/token</em>，低于 Qwen3.6-27B 的 64KiB，机器学习研究者 Sebastian Raschka 指其突出点在「低内存占用 + 快 Prefill/Decode + 较完整 Agent 能力」的组合。</p>
+    <ul>
+      <li><strong>8/11</strong> NVIDIA 推 <em class="hl">Nemotron 3.5 Lightning 30B-A3B</em>（Mamba-2＋MoE＋Attention 混合，支持最长 1M 上下文，可跑 RTX 5090 / DGX Spark / Jetson），定位 Agent 系统的<strong>高频执行层</strong>；配合 NeMo Switchyard 按任务复杂度动态调度大模型/小模型，避免 Agent 每步都调高成本 Frontier。</li>
+      <li>Artificial Analysis 评测：Lightning 输出速度中位数约 <strong>301 tok/s</strong>，显著高于同尺寸开放权重模型约 106 tok/s 的中位水平。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>端侧 Agent 模型从「一个模型全包」转向<em class="hl">分层</em>——云端 Frontier 负责复杂规划，本地小模型负责高频执行。这正切主人岗调的<strong>终端智能</strong>：推理成本与延迟的约束，靠「模型分层＋端云协同」解，而非无限堆参数。</p>
+    <p>对 SecOps：本地 Agent <strong>长期驻留个人设备</strong>，凭据/数据不出端，攻击面从「云→端」反转为「端内自循环」，终端管控（进程、模型沙箱、数据出域）需重新评估，不能再只盯云端边界。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/10</b> Muse Glimmer ~30B 开源  |  KV 52KiB vs Qwen3.6-27B 64KiB  |  <b>8/11</b> Nemotron 3.5 Lightning 30B-A3B  |  中位 <b>301 tok/s</b> vs ~106  |  来源：东吴证券端侧AI周跟踪 · Sebastian Raschka · Artificial Analysis
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  终端智能 · 边缘 Agent 模型开源</span>
+  <h2 class="c-title">Liquid AI 发布 LFM2.5-2.6B 边缘智能模型：2.6B 参数、手机本地跑 Agent、220 tok/s（M5 Max）/ 30 tok/s（移动端）</h2>
+  <p class="c-tags"><span class="chip b">2.6B</span><span class="chip o">完全本地</span><span class="chip t">Agent RL</span><span class="chip">已开源</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p><strong>8/5</strong> Liquid AI 发布 <strong>LFM2.5-2.6B</strong>，专为 agent 工作流设计，2.6B 参数，可完全本地运行于手机等终端、不依赖云 API；约 34T token 预训练、词表扩至 128K，后训练含<em class="hl">SFT＋教师专精＋多域策略蒸馏＋Agent RL</em>四阶段，具备规划、工具调用与多步任务能力。</p>
+    <ul>
+      <li><strong>性能与兼容</strong>：M5 Max 上推理 <strong>220 tok/s</strong>、移动端稳定 <strong>30 tok/s</strong>；已在 Hugging Face 开源，原生支持 llama.cpp / MLX / vLLM。</li>
+      <li>指令遵循与工具使用能力据称可比近四倍规模的大模型，把「端侧 Agent」从旗舰芯片专属下放到 2.6B 级别。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>中参数量 + <em class="hl">Agent RL 后训练</em>即可在手机跑多步任务，印证端侧「不可能三角（智能-功耗-成本）」的<strong>减法路线</strong>：不求跑分最高，求高频刚需稳定。与面壁 MiniCPM 系列下沉到汽车/手机/具身/航天的范式同路。</p>
+    <p>对终端智能方向，这是「把 agent 装进千元机/B 端设备」的工程样本——也是主人企业安全里「端内智能可控」命题的具象参照：本地模型开源可审计，比黑盒云 API 更易纳入终端管控。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/5</b> LFM2.5-2.6B 开源  |  <b>2.6B</b> 参数  |  <b>220</b> tok/s(M5Max) / <b>30</b> tok/s(移动)  |  4 阶段后训练含 Agent RL  |  来源：aibase · Hugging Face
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  具身智能 · 产业垂直整合</span>
+  <h2 class="c-title">LG × NVIDIA 具身合作：以 Isaac GR00T + Jetson Thor + Halos 打造双足人形，定位「韩版富士康＋广达」</h2>
+  <p class="c-tags"><span class="chip b">LG×NVIDIA</span><span class="chip o">GR00T</span><span class="chip t">垂直整合</span><span class="chip">MOU</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>LG 与 NVIDIA 达成合作（MOU），三大支柱：① <strong>机器人</strong>——LG 用 NVIDIA 开源 <em class="hl">Isaac GR00T</em> 基座、<em class="hl">Jetson Thor</em> 车载算力、<em class="hl">Halos</em> 全栈安全系统开发下一代双足人形，目标 <strong>2027 Q1</strong> 亮相；年内先在 LG 田纳西洗衣机产线部署轮式 CLOiD 做 POC，再扩至全球工厂/家庭/商业。② AI 工厂、③ 移动出行。</p>
+    <ul>
+      <li><strong>整合逻辑</strong>：LG 以执行器（LG 电子）/ 传感器（LG Innotek）/ 电池（LG Energy）/ 软件集成（LG CNS）做垂直整合，NVIDIA 提供技术栈——定位「韩国版富士康＋广达」的全栈物理 AI 制造伙伴。</li>
+      <li>对 NVIDIA：每个 LG 品牌人形与 AI 工厂都把其技术栈带入韩/全球市场，单厂商难以复制。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身落地的关键变量从「本体炫技」转向<em class="hl">产业垂直整合＋仿真训练</em>。LG 把机器人当「物理 AI 的全栈制造伙伴」而非单点产品，借 NVIDIA 仿真（Isaac Sim）与 GR00T 缩短真机学习曲线。</p>
+    <p>对主人具身方向：这印证「具身＝本体＋算力＋数据＋制造」四位一体，<strong>纯算法团队需补制造/供应链短板</strong>才不会卡在量产。注：MOU 非产品发布，年内唯一在市的是田纳西轮式 POC，双足商业化兑现待 2027 检验。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  LG×NVIDIA <b>MOU</b>  |  GR00T + Jetson Thor + Halos  |  双足 <b>2027 Q1</b> 亮相  |  CLOiD 轮式 POC 年内田纳西  |  来源：PRNewswire · Korea JoongAng Daily
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  具身智能 · 操作技术拐点</span>
+  <h2 class="c-title">小米机器人 CVPR/ICRA 双冠：匿名模型 my16 单模型多任务 40.89%，「VLM 大脑 + 世界模型小脑」双系统</h2>
+  <p class="c-tags"><span class="chip b">双冠</span><span class="chip o">单模型多任务</span><span class="chip t">40.89%</span><span class="chip">VLM+世界模型</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>小米机器人团队在 <strong>CVPR 2026 Workshops-GigaBrain Challenge-RoboChallenge</strong> 与 <strong>ICRA 2026 Whole Body Control</strong> 两大顶赛夺冠。GigaBrain 考验单模型多任务真机复杂操作，小米匿名模型 <em class="hl">my16</em> 以 <strong>40.89%</strong> 成功率登顶（今届唯一破 40%）；采用「<strong>VLM 大脑 + 世界模型小脑</strong>」双系统，长程任务理解 + 精细操作兼得。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>真机复杂操作是具身从 Demo 到可用的<em class="hl">分水岭</em>。my16「单模型多任务破 40%」说明端到端大模型路线在真机操作上开始收敛，而非靠脚本堆叠。世界模型（小脑）补足 VLM（大脑）的实时控制短板，是当下最值得跟进的架构范式之一。</p>
+    <p>对具身方向：这也提示国内厂商在具身操作上的研发水位已到<strong>国际顶赛第一梯队</strong>。与信号 03 互补——03 是「制造/整合」侧，04 是「算法/操作」侧，具身落地两端都要硬。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  CVPR2026 GigaBrain + ICRA2026 WBC <b>双冠</b>  |  my16 <b>40.89%</b>（唯一破40%）  |  VLM + 世界模型双系统  |  来源：AAStocks · 小米
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  AI CODING · AGENT · 范式迁移</span>
+  <h2 class="c-title">开发范式迁移：终端原生 Agent 成主界面，MCP 成行业互联标准，自愈式 CI/CD 评审闸上线</h2>
+  <p class="c-tags"><span class="chip b">终端 Agent</span><span class="chip o">MCP 标准</span><span class="chip t">自愈 CI/CD</span><span class="chip">agent 对 agent</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p><strong>终端原生 Agent 普及</strong>：Anthropic Claude Code / OpenAI Codex CLI 企业级部署，开源 <em class="hl">OpenCode 破 14 万 GitHub Star</em>；开发者从 GUI 侧栏转向 CLI 原生 agent，读 1M+ token 仓库上下文、自跑测试、直接开 PR。</p>
+    <ul>
+      <li><strong>MCP 正式成行业级开放标准</strong>（Anthropic / Linux Foundation / Cloudflare / Block / Sourcegraph），统一 agent 接入生产遥测/工单/数据库/CI 的方式，消除厂商锁定。</li>
+      <li><strong>自愈式 CI/CD</strong>：GitHub Copilot Agent Mode、CodeRabbit、Aviator Verify、GitLab 集成 agentic review 回路，在临时沙箱跑测试、自提修复补丁，代码评审从人工瓶颈变 <em class="hl">agent 对 agent 校验闸</em>。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>软件创造的核心架构已变——AI 不再是补全行的助手，而是<strong>端到端执行循环</strong>（仓库级推理→多文件规划→自测→PR 编排）的 owner。MCP 标准化意味着「合规 agent 可跨厂商导航私有研发栈」。</p>
+    <p>直接利好主人企业安全里「<strong>终端/研发管控</strong>」的诉求：agent 接入生产前需要可审计的 tool 边界与沙箱。一句话：竞争从「谁补全快」移到「谁拥有端到端执行循环 + 可治理的 tool 互联」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  OpenCode <b>>140k</b> stars  |  MCP 行业标准(LF/Cloudflare/Block/Sourcegraph)  |  自愈 CI/CD(GitHub/CodeRabbit/Aviator/GitLab)  |  来源：The CODEW · markaicode
+  </div>
+</div>
+
+<div class="cross">
+  <h3>交叉观察 · 智能下沉与互联：竞争从云侧模型移到终端、具身与协议三处落点</h3>
+  <ol>
+    <li><strong>端侧分层</strong>（信号 01）：Glimmer 30B 与 Nemotron Lightning 把 Agent 拆成「强规划·小执行」，推理成本靠模型分层＋端云协解——终端智能的主战场样本。</li>
+    <li><strong>边缘模型</strong>（信号 02）：LFM2.5-2.6B 把 agent 模型压进手机，印证端侧「减法路线」——中参数＋Agent RL 即可本地多步任务。</li>
+    <li><strong>具身整合</strong>（信号 03）：LG×NVIDIA 以全栈制造伙伴模式落地双足人形，具身竞争从本体炫技→本体＋算力＋数据＋制造四位一体。</li>
+    <li><strong>具身操作</strong>（信号 04）：小米 my16 单模型多任务破 40.89% 夺双冠，VLM＋世界模型双系统，真机操作成具身分水岭。</li>
+    <li><strong>研发范式</strong>（信号 05）：终端原生 Agent 成主界面、MCP 成互联标准、自愈 CI/CD 把评审变 agent 对 agent 闸——开发从补全助手→端到端执行循环 owner。</li>
+  </ol>
+
+  <div class="verdict">
+    <strong>一句话判断</strong>：当云侧 Frontier 模型「会不会做」不再稀缺，智能正在<em class="hl">往下走、向外连</em>——端侧 Agent 模型（分层/边缘）与具身（垂直整合/操作拐点）是「下沉」的两极，MCP 标准化是「互联」的关节。对主人新岗的<strong>终端/具身智能</strong>方向，这意味着：真正稀缺的不是更大的模型，而是把智能沉到终端与具身、并能跨厂商互联治理的<strong>工程化底座与制造/数据能力</strong>。
+  </div>
+
+  <div class="risk">
+    <b>风险与反证</b>
+    多条为厂商发布、研报转述或单点赛事，需注意：Muse Glimmer / Nemotron Lightning 的 KV 与 tok/s 数为研究者与 Artificial Analysis 口径，实际端侧体验受芯片/散热/功耗刚性约束；LFM2.5-2.6B 的「可比四倍大模型」为厂商表述，端侧多步任务稳定性待第三方实测；LG×NVIDIA 为 MOU 非产品发布，双足商业化待 2027 检验，年内仅田纳西轮式 POC；小米 my16 为匿名参赛模型，40.89% 为单赛事成功率，泛化到工业场景未经验证；MCP「行业标准」仍处采纳早期，跨厂商 tool 安全边界与治理尚未定型。凡不能被外部量化验证者，均以「待复现」视之。
+  </div>
+</div>
+
+<footer>
+  <span>Leion'Log · Daily AI · NO.48</span>
+  <span>Generated 2026-08-19 10:00 GMT+8</span>
+</footer>
+
+</div>
+</body>
+</html>

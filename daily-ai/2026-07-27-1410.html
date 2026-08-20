@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI://daily_digest — 2026-07-27 14:10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e0b;
+    --panel:#0f1611;
+    --panel-2:#121b14;
+    --grid:rgba(94,243,140,.05);
+    --green:#5ef38c;      /* AI Agent */
+    --amber:#ffb454;      /* 终端·端侧 */
+    --cyan:#56d4ff;       /* 具身智能 */
+    --ink:#cfe9d4;
+    --ink-dim:#7e9a85;
+    --line:rgba(94,243,140,.14);
+    --mono:'JetBrains Mono',ui-monospace,'Noto Sans SC',monospace;
+    --disp:'Martian Mono','JetBrains Mono',monospace;
+    --cjk:'Noto Sans SC','JetBrains Mono',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(86,212,255,.07), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(255,180,84,.06), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--cjk);
+    line-height:1.75;
+    padding:34px 18px 80px;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+    overflow-x:hidden;
+  }
+  /* scanline + grid overlay */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background:repeating-linear-gradient(0deg, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.18) 2px 3px);
+    mix-blend-mode:multiply;opacity:.5;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:34px 34px;
+  }
+  .wrap{max-width:920px;margin:0 auto;position:relative;z-index:2}
+
+  /* terminal window chrome */
+  .term{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 0 0 1px rgba(0,0,0,.4),0 30px 80px -30px rgba(0,0,0,.9),inset 0 0 60px rgba(94,243,140,.03);
+    overflow:hidden;
+  }
+  .bar{
+    display:flex;align-items:center;gap:10px;
+    padding:11px 16px;
+    background:linear-gradient(180deg,rgba(94,243,140,.08),transparent);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono);font-size:12px;color:var(--ink-dim);
+  }
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .dot.g{background:#3ad17a;box-shadow:0 0 10px #3ad17a}
+  .dot.a{background:#ffb454;box-shadow:0 0 10px #ffb454}
+  .dot.r{background:#ff5f56;box-shadow:0 0 10px #ff5f56}
+  .bar .path{margin-left:8px;letter-spacing:.5px}
+  .bar .right{margin-left:auto;color:var(--ink-dim);opacity:.8}
+
+  .screen{padding:30px 30px 38px}
+  @media(max-width:600px){.screen{padding:22px 18px 28px}}
+
+  /* header */
+  .prompt{font-family:var(--mono);color:var(--green);font-size:13px;letter-spacing:1px}
+  .prompt .user{color:var(--cyan)}
+  .title{
+    font-family:var(--disp);font-weight:700;
+    font-size:clamp(26px,5vw,44px);line-height:1.05;
+    margin:8px 0 4px;color:#eafff0;
+    text-shadow:0 0 22px rgba(94,243,140,.25);
+  }
+  .title .blink{color:var(--green);animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .sub{font-family:var(--mono);font-size:12.5px;color:var(--ink-dim);margin-bottom:22px;letter-spacing:.4px}
+  .sub b{color:var(--amber);font-weight:500}
+
+  .lead{
+    border-left:3px solid var(--green);
+    padding:12px 0 12px 16px;margin:0 0 30px;
+    color:#dff3e4;font-size:15px;background:linear-gradient(90deg,rgba(94,243,140,.06),transparent 70%);
+  }
+
+  /* item */
+  .item{
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:linear-gradient(180deg,rgba(255,255,255,.012),transparent);
+    padding:20px 20px 22px;margin-bottom:18px;position:relative;
+    opacity:0;transform:translateY(16px);
+    animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes rise{to{opacity:1;transform:translateY(0)}}
+  .item::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px;
+  }
+  .item.tag-agent::before{background:var(--green);box-shadow:0 0 14px var(--green)}
+  .item.tag-term::before{background:var(--amber);box-shadow:0 0 14px var(--amber)}
+  .item.tag-emb::before{background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+
+  .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;margin-bottom:10px}
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.5px;
+    padding:3px 9px;border-radius:999px;border:1px solid currentColor;
+  }
+  .tag-agent{color:var(--green)}
+  .tag-term{color:var(--amber)}
+  .tag-emb{color:var(--cyan)}
+  .idx{color:var(--ink-dim);font-family:var(--disp);font-weight:700}
+
+  .item h2{font-family:var(--cjk);font-weight:700;font-size:18.5px;color:#f1fff5;margin:2px 0 12px;line-height:1.4}
+  .item h3{font-family:var(--mono);font-size:12px;color:var(--ink-dim);font-weight:500;margin:14px 0 6px;letter-spacing:.5px;text-transform:uppercase}
+  .item p{font-size:14.5px;color:var(--ink);margin-bottom:8px}
+  .item strong{color:#eafff0;font-weight:700}
+  .item .hi-agent{color:var(--green);font-weight:500}
+  .item .hi-term{color:var(--amber);font-weight:500}
+  .item .hi-emb{color:var(--cyan);font-weight:500}
+  .why{background:rgba(86,212,255,.05);border:1px dashed rgba(86,212,255,.2);border-radius:8px;padding:11px 14px;margin-top:12px;font-size:14px;color:#dff3f8}
+  .why b{color:var(--cyan);font-weight:500}
+  .src{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);margin-top:10px;border-top:1px dotted var(--line);padding-top:9px}
+  .src .lv{color:var(--amber)}
+
+  /* three lines */
+  .three{border:1px solid var(--line);border-radius:10px;padding:20px 22px;margin:26px 0 18px;background:linear-gradient(180deg,rgba(255,180,84,.05),transparent)}
+  .three .h{font-family:var(--disp);font-weight:700;color:var(--amber);font-size:14px;letter-spacing:1px;margin-bottom:12px}
+  .three ol{list-style:none;counter-reset:t}
+  .three li{counter-increment:t;position:relative;padding-left:34px;margin-bottom:12px;font-size:14.5px;color:#e9f6ec}
+  .three li::before{content:"0"counter(t);position:absolute;left:0;top:1px;font-family:var(--disp);font-weight:700;color:var(--amber);font-size:13px}
+  .three li b{color:#fff7ea}
+
+  .sources{font-family:var(--mono);font-size:12px;color:var(--ink-dim);line-height:1.9;border-top:1px solid var(--line);margin-top:24px;padding-top:16px}
+  .sources .k{color:var(--green)}
+
+  footer{text-align:center;font-family:var(--mono);font-size:11px;color:var(--ink-dim);margin-top:30px;letter-spacing:.5px}
+  footer .ok{color:var(--green)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="term">
+    <div class="bar">
+      <span class="dot r"></span><span class="dot a"></span><span class="dot g"></span>
+      <span class="path">~/ai_digest — git:(main) —</span>
+      <span class="right">AI://daily_digest · 2026-07-27 14:10 GMT+8</span>
+    </div>
+    <div class="screen">
+      <div class="prompt"><span class="user">leilei@workbuddy</span>:<span>~</span>$ ./fetch --focus=agent,terminal,embodied --since=09:15</div>
+      <h1 class="title">AI 领域每日动态<span class="blink">_</span></h1>
+      <div class="sub">周一午后班 · 侧重 <b>AI Agent</b> · <b>终端/CLI</b> · <b>具身智能</b> · 避开早班已锁 5 条，只收当日新增</div>
+
+      <div class="lead">智能体正从「能力演示」跨入「组织与设备的基础设施」阶段——平台化、端侧化、中试量产化、协议企业级化、开源底座降价，多方信号同指一条：把「自治」装进「可控框架」。</div>
+
+      <!-- ① -->
+      <div class="item tag-agent" style="animation-delay:.05s">
+        <div class="meta"><span class="idx">01</span><span class="tag tag-agent">AI Agent · 平台化</span></div>
+        <h2>美团 CatPaw 全场景 Agent 平台上线：3 万 Agent 已嵌进 9 万人的生产流程</h2>
+        <h3>// event</h3>
+        <p>7/27 美团正式对外发布全场景 AI Agent 平台 <span class="hi-agent">CatPaw</span>，提供移动 App + PC 客户端及企业级开发托管。官方披露：已覆盖 <strong>9 万员工、累计 3 万个 Agent</strong>，日处理超 2.4 亿次真实业务请求。</p>
+        <p>形态：双端协同（移动发起/远程确认，PC 本地深度执行）、云端 7×24 长程任务、专家广场+技能库（对话式封装工作流、录屏成技能）、跨会话长期记忆；安全上运行环境严格隔离、<strong>凭证集中托管（Agent 零接触敏感资产）</strong>、分级权限与私有化部署。</p>
+        <div class="why"><b>值得关注 ▸</b> 目前国内「Agent 平台化、组织级落地」最完整公开样本。它把早班「Agent 从工具走向可信实体」主线，从「安全/可控」补到「规模化/可治理」——当 Agent 成为日活 9 万人的生产资料，权限分级、凭证托管、可审计已是上线前提，而非加分项。</div>
+        <div class="src">信源：美团官方 + IT之家/腾讯新闻/三言科技（<span class="lv">一级·厂商披露</span>）</div>
+      </div>
+
+      <!-- ② -->
+      <div class="item tag-term" style="animation-delay:.12s">
+        <div class="meta"><span class="idx">02</span><span class="tag tag-term">终端 · 端侧 Multi-Agent</span></div>
+        <h2>OPPO 小布 Next 开放内测：行业首个端侧 Multi-Agent 协同，主打「主动智能」</h2>
+        <h3>// event</h3>
+        <p>7/27 OPPO 启动「小布 Next 计划」，开放行业首个 <span class="hi-term">端侧 Multi-Agent 协同系统</span>：端侧全域记忆、上下文理解/规划/调度本地完成；基于「全时意图感知引擎」主动判断何时提醒/提前准备（运动时收紧急邮件→主动草拟回复，用户只需确认）。</p>
+        <p>多 Agent 独立记忆/技能/上下文，兼容第三方 Agent/Skill/MCP（瑞幸、印象笔记、飞猪、美团 MCP）；关键操作「只做准备、不替用户决定」，必要时经 <strong>PCC 安全链路</strong>调云端。同场还有 <span class="hi-term">腾讯 WorkBuddy 鸿蒙 PC 版</span>上线（鸿蒙首个桌面办公智能体，全终端+碰一碰）。</p>
+        <div class="why"><b>值得关注 ▸</b> 把早班「终端 Agent 越过提示词工程」的战线从桌面/CLI 拉到手机端侧：端侧＝数据不出本机更私密，但模型要在更小算力上跑 Multi-Agent 编排。其「主动智能」与 Anthropic「更强模型更少手把手」异曲同工——Agent 该主动，关键决策权必须留人。</div>
+        <div class="src">信源：OPPO 官方 + 网易智能/腾讯新闻（<span class="lv">一级·厂商披露</span>，内测阶段）</div>
+      </div>
+
+      <!-- ③ -->
+      <div class="item tag-emb" style="animation-delay:.19s">
+        <div class="meta"><span class="idx">03</span><span class="tag tag-emb">具身 · 中试与量产</span></div>
+        <h2>人民日报头条：机器人迎中试「考场」；小鹏进量产联调、特斯拉 Optimus 推迟但炮轰「剧本式演示」</h2>
+        <h3>// event</h3>
+        <p><span class="hi-emb">国家级中试基地</span>（7/27 人民日报第 08 版）：杭州高新区国家人工智能应用中试基地（具身智能）5 月挂牌，算力+数据+模型+场景一体化公共服务平台，近 30 家企业入驻，并引入<strong>机器人保险（本体险+第三者责任险）</strong>。痛点直指：单台人形机器人需 1–2 名采集员，一个动作需成千上万真实动作投喂，<strong>数据有效率不足 50%</strong>。</p>
+        <p><strong>小鹏</strong>（7/27）：人形机器人广州工厂小批量生产、量产产线最后联调，量产倒计时。<strong>特斯拉 Optimus</strong>（7/27 财报会）：马斯克称量产「史上最难」，产线改建推迟至年底，并炮轰行业「剧本式演示」，强调端到端+纯视觉 FSD 复用。</p>
+        <div class="why"><b>值得关注 ▸</b> 三条信号拼出「具身卡在中试→量产前夜」：人民日报点出最硬骨头——数据飞轮/场景验证/风险兜底工程化；小鹏（抢窗口）与特斯拉（示警难度）呈两端张力。与早班「世界模型＝物理直觉」互补：共识在脑子，落地在产线与中试线。</div>
+        <div class="src">信源：人民日报（权威一手）、网易科技/新浪（<span class="lv">媒体转述·厂商口径</span>）</div>
+      </div>
+
+      <!-- ④ -->
+      <div class="item tag-agent" style="animation-delay:.26s">
+        <div class="meta"><span class="idx">04</span><span class="tag tag-agent">AI Agent · 基础设施安全</span></div>
+        <h2>MCP 新规范明日（7/28）企业级化发布：协议层堵洞，但安全责任彻底甩给开发者</h2>
+        <h3>// event</h3>
+        <p><span class="hi-agent">MCP 2026-07-28 规范</span>将正式发布，最大架构演进：有状态→<strong>无状态企业级</strong>，引入应用托管状态、富交互 UI、长时异步任务，OAuth 2.1 升一等公民。协议层消除会话劫持/主动推送/弱认证三大风险——但安全边界构建责任 100% 转移给开发者。</p>
+        <p>同期警报密集：<strong>NSA 已发 MCP 硬化指南</strong>；Amazon Q VS Code 扩展 <strong>CVSS 8.5</strong> 自动执行漏洞（开恶意仓库即远程执行、窃 AWS 凭证）；ShareLock 阈值投毒（拆分指令避检测，成功率>90%）；Agentjacking 伪造 Sentry 事件诱使编码 Agent 执行命令（~85%）。</p>
+        <div class="why"><b>值得关注 ▸</b> 早班锁「OpenCode 可远程删机」「OpenAI×HF 失控」单点失控；本条拉到协议层——MCP 已成 Agent 连工具/数据事实标准，但「工具表面」正成最易被武器化攻击面。7/28 是企业级部署分水岭：协议不再兜底，零信任/输出校验/显式授权成必答题。</div>
+        <div class="src">信源：Akamai 安全研究 + Adversa.ai 月度汇总 + NSA 指南（<span class="lv">一级·安全研究</span>）</div>
+      </div>
+
+      <!-- ⑤ -->
+      <div class="item tag-term" style="animation-delay:.33s">
+        <div class="meta"><span class="idx">05</span><span class="tag tag-term">终端 · 模型底座</span></div>
+        <h2>Kimi K3 全量开源：2.8 万亿参数 / 百万上下文，把终端 CLI Agent 成本打到地板</h2>
+        <h3>// event</h3>
+        <p>7/27 月之暗面将旗舰模型 <span class="hi-term">Kimi K3</span> 完整权重全量开源：2.8 万亿参数、100 万 token 上下文、综合评测全球第三，API 定价约海外高端模型 1/3。已与 <strong>Kimi Code CLI</strong>（7/18 开源、MIT、免费）形成「模型+终端 Agent」组合拳——支持屏幕录制拖入对话当输入、/coder /explore /plan 子代理并行、对话式配置 MCP。</p>
+        <div class="why"><b>值得关注 ▸</b> 终端 Agent 护城河早班已指出从「提示词」移向「接口/交互」；本条第补一层——<strong>底座开源与降价正把本地跑强 Agent 的经济门槛砍到极低</strong>。当 2.8 万亿可免费自部署、百万上下文成默认，竞争将转向「谁把模型编排成好用的本地工作流」。与 ② 端侧、④ MCP 安全恰成「强底座+本地编排+安全协议」拼图。</div>
+        <div class="src">信源：月之暗面官方 + GitHub AI 日报（<span class="lv">一级·厂商披露</span>）</div>
+      </div>
+
+      <!-- three lines -->
+      <div class="three">
+        <div class="h">// 今日三句话（横向观察）</div>
+        <ol>
+          <li><b>Agent 成了「基础设施」而非「工具」</b>——美团 9 万人用 3 万 Agent、OPPO 把 Multi-Agent 装进手机、MCP 明日企业级化，三路同指可治理/可审计/可规模化的组织与设备底座。</li>
+          <li><b>自治必须装进可控框架</b>——早班讲「自主 vs 可控」张力，本班给两条落地路径：平台化（权限分级/凭证托管）与协议化（MCP 零信任），把「放开手」变「有护栏的放开」。</li>
+          <li><b>具身重量产前夜、终端 Agent 卡成本拐点</b>——具身拼中试线与数据飞轮，终端 Agent 拼开源底座与本地编排，都在「Demo→Production」最后一公里加速。</li>
+        </ol>
+      </div>
+
+      <div class="sources">
+        <div><span class="k">$</span> cat sources.log</div>
+        <div>· 美团 CatPaw — 美团官方 + IT之家/腾讯新闻/三言科技 (2026-07-27)</div>
+        <div>· OPPO 小布 Next / WorkBuddy 鸿蒙 PC 版 — OPPO 官方 + 腾讯云 (2026-07-27)</div>
+        <div>· 具身中试/量产 — 人民日报第 08 版 + 网易科技/新浪 (2026-07-27)</div>
+        <div>· MCP 2026-07-28 规范 — Akamai / Adversa.ai / NSA (2026-06~07)</div>
+        <div>· Kimi K3 开源 — 月之暗面官方 + GitHub AI 日报 (2026-07-27)</div>
+      </div>
+
+      <footer><span class="ok">[ok]</span> digest complete · 5 signals · no overlap with 09:15 run · saved: 2026-07-27_1410_AI领域每日动态.md</footer>
+    </div>
+  </div>
+</div>
+</body>
+</html>

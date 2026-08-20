@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 领域每日动态 · 2026-08-15</title>
+<style>
+  :root{
+    --bg:#0d1424; --panel:rgba(20,28,48,.66); --panel-edge:rgba(111,214,224,.20);
+    --cyan:#6fd6e0; --gold:#e9c46a; --ink:#e6edf3; --ink-soft:#a9b4cc;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.75;font-size:16px}
+  .wrap{max-width:840px;margin:0 auto;padding:40px 22px 64px}
+  h1{font-size:26px;margin:0 0 6px;letter-spacing:.01em}
+  h1 .accent{color:var(--cyan)}
+  .meta{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;
+    letter-spacing:.08em;color:var(--cyan);margin-bottom:26px}
+  .lede{border-left:3px solid var(--cyan);background:var(--panel);
+    border:1px solid var(--panel-edge);border-left:3px solid var(--cyan);
+    border-radius:10px;padding:16px 20px;margin:0 0 30px;color:var(--ink-soft);font-size:15px}
+  .lede b{color:var(--ink)}
+  .item{background:var(--panel);border:1px solid var(--panel-edge);border-radius:14px;
+    padding:20px 22px;margin:0 0 16px;transition:border-color .15s ease,box-shadow .15s ease}
+  .item:hover{border-color:var(--cyan);box-shadow:0 10px 30px rgba(0,0,0,.28)}
+  .item h2{font-size:18px;margin:0 0 12px;color:var(--gold);line-height:1.4}
+  .row{margin:0 0 10px}
+  .row .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.1em;
+    color:var(--cyan);border:1px solid var(--panel-edge);border-radius:6px;
+    padding:2px 8px;margin-right:10px;vertical-align:middle}
+  .row p{display:inline;color:var(--ink-soft)}
+  .row.why p{color:#cdd6e8}
+  footer{margin-top:34px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--panel-edge);padding-top:16px}
+  a{color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>AI 领域每日动态 · <span class="accent">2026-08-15</span></h1>
+  <div class="meta">观测窗 2026-08-15 11:50 · 侧重 AI Coding / 具身智能 · 每日 3–5 条</div>
+
+  <div class="lede">
+    <b>本期主线：</b>AI 编程侧，8/14 是一道分水岭：Anthropic 把 Claude Code 的默认安全模型从「人审批」切到「分类器」——auto mode 当日生效，并附上一份残酷的人因数据集（1053 名测试者中 86.4% 批准了明显危险的命令，auto mode 拦截 89%，且人类在疲劳后识别率从 17% 跌到 5%）；同日智谱 GLM-5.3 以开放权重在 CyberGym 上超越 OpenAI、Anthropic 闭源对手，与 DeepSeek 开源 Harness 形成「开放权重 coding 双响」；Cursor 被 SpaceX 收购则把编码智能体推进大厂垂直整合。具身侧，8/15 是「资本定锚日」：宇树以 609.93 亿市值、219 倍 PE 冲刺人形第一股，上半年具身智能融资破 935 亿、同比增 5 倍；法奥把工业力控臂压到 2.38 万元、原力无限拿近 10 亿押注具身大脑。两端共同信号：稀缺的不再是能力演示，而是「可信的自治」（coding 侧）与「用得起 + 真上岗」（具身侧）。
+  </div>
+
+  <div class="item">
+    <h2>① Claude Code 将 Auto Mode 设为默认，附人因失败数据集</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 14 日起，Anthropic 对新开 Claude Code 会话（Pro/Max/Team）默认启用 auto mode：权限由安全分类器判定是否需人工确认，分类器开销 token 不再计费；Enterprise/Bedrock/Vertex/Foundry 仍 opt-in（承诺一个月内跟进）。配套公布一项人因实验：1053 名付费测试者中 86.4% 批准了被暗中替换的危险命令，auto mode 拦截 89%；人类识别率随疲劳从约 17% 跌到约 5%，auto mode 始终稳定；第三方 Trajectory Labs 72 个间接提示注入场景零成功对抗 auto mode。Anthropic 称 auto mode 用户多交付约 25% PR。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>最主流的编码智能体把默认安全模型从「人审批」切到「分类器」，且用一份可复现的数据集论证「这比现状更安全」。这把「高自主 vs 可控」从理念之争变成可量化的工程选择题——每个厂商都必须用同样的数据集为自己的权限 UX 辩护；但也需冷静：分类器无法防御执行不可信来源代码的系统，沙箱仍是底线。本栏目长期主线的「可信的自治」，今天被钉上了一颗最硬的钉子。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>② 智谱 GLM-5.3 + DeepSeek 开源 Harness：开放权重 coding 双响</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 14 日前后，智谱发布 GLM-5.3，在 CyberGym 智能体安全评测上超过 OpenAI、Anthropic 的闭源对手；此前一天 DeepSeek 开源 Harness v0.1（MIT，24 小时内 GitHub 星标破 2.4 万）并 GA 其 V4 Pro。两家开放权重实验室在约 24 小时窗口内密集放出 coding agent 能力，直接对标 Claude Code / Codex 的执行层。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>中国开放权重实验室正与西方前沿实验室在 agentic coding 基准上正面对抗，且价格仅为零头。当「模型」降格为可插拔配件、执行层（harness）开源，开发者入口之争从「谁的模型强」转向「谁的运行时可自托管、可替换、可被审计」——这正是本栏目反复判断的「能力不再稀缺，入口与可信才稀缺」的又一注脚。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>③ Cursor 被 SpaceX 收购，编码智能体进入大厂垂直整合</h2>
+    <div class="row"><span class="tag">事件内容</span><p>据多家科技媒体 8 月 14 日报道，AI 编程助手 Cursor 已被 SpaceX 收购，意图以 SpaceX 的 GPU 资源训练自有模型。此前一周编码智能体赛道并购与整合明显升温（Adobe Workfront AI Collaborators GA、AWS Bedrock AgentCore 推浏览器工具自动化遗留系统、Cloudflare 发布面向 agent 的 Kitesurf 浏览器）。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>编码智能体从「独立 SaaS 工具」进入大厂垂直整合——模型、算力、产品被同一主体收编，可能加速能力跃迁，但也给采购方带来供应商集中度与「模型训练用不用我的代码」的合规新问题；Cursor 用户需重新评估供应商锁定与数据边界。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>④ 宇树冲刺人形第一股，具身智能融资破 935 亿</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 15 日，中国经营报等深度拆解宇树科技资本棋局：发行市值 609.93 亿元、市盈率 219 倍，拟募资 42.02 亿元（近半投向智能机器人模型研发）；2025 年人形机器人出货超 5500 台、全球市占率 32.4% 居首，但商业化高度集中于科研教育（73.6%）。同日央视报道，2026 年上半年国内具身智能赛道融资总额突破 935 亿元、同比增 5 倍；工信部、国资委要求年底形成百个高价值场景、万台级规模落地能力。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>行业从「炫技」转向「实干」，资本为人形第一股定下锚点；但需清醒区分两件事——「上市拿的估值」与「能上岗赚的钱」。宇树自身数据已暴露真问题：出货量全球第一，商业化却集中在科研教育、AI「大脑」短板待补。估值锚定的是预期，单位经济与真实场景泛化才是交付纪元的硬通货。</p></div>
+  </div>
+
+  <div class="item">
+    <h2>⑤ 法奥万元级力控臂 + 原力无限近 10 亿押注具身大脑</h2>
+    <div class="row"><span class="tag">事件内容</span><p>8 月 14 日，法奥发布 ART 系列工业级人形力控臂，ART7 单臂含税 2.38 万元起，依托协作机器人万台级制造体系把谐波减速机 SKU 收敛至 10 款，打破具身硬件高价桎梏；同日原力无限完成近 10 亿元 A 轮及 A+ 轮融资打造 AtomBrain 具身大脑，亮源新创、恒璇科技分获数亿 / 数千万元布局旋转关节与执行器。</p></div>
+    <div class="row why"><span class="tag">值得关注</span><p>具身智能的瓶颈正被两端同时撬动——硬件侧把「用得起」做成现实（万元级力控臂让中小企业也能部署），大脑侧资本集中下注「世界模型 / 具身大脑」。当硬件成本下探与大脑投入同步发生，行业竞争焦点进一步从「能不能动」收敛到「能不能在真实场景稳定、便宜地干活」。</p></div>
+  </div>
+
+  <footer>
+    来源：Anthropic 官方 / developersdigest / n8nlab / 中国经营报 / 央视新闻 / 蓝鲨硬科技 / 中国机器人网 / 机器人大讲堂 等公开报道（2026-08-14 ~ 08-15）。本页为自动化「每日 AI 动态」栏目之一期，仅供速览，不构成任何投资建议。
+  </footer>
+</div>
+</body>
+</html>

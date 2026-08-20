@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Joplin on Leion'Log</title><link>https://leiontong.github.io/tags/joplin/</link><description>Recent content in Joplin on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 18 May 2020 19:39:26 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/joplin/index.xml" rel="self" type="application/rss+xml"/><item><title>joplin-cli_config</title><link>https://leiontong.github.io/posts/joplin-cli_config/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/joplin-cli_config/</guid><description>&lt;h1 id="joplin-cli_config"&gt;joplin-cli_config&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 配置joplin-cli&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config dateFormat YYYY-MM-DD
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config locale zh_CN
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config revisionService.enabled false
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config sync.target &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# joplin-cli config sync.2.path /home/leion/Nextcloud/Joplin/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli config sync.2.path /home/leion/Nextcloud-nc.nl.tab.digital-leitong1990@gmail/Joplin/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;joplin-cli sync
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小</title><link>https://leiontong.github.io/posts/joplin-desktop-change-editor-font-and-markdown-render/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/joplin-desktop-change-editor-font-and-markdown-render/</guid><description>&lt;h1 id="joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小"&gt;Joplin-desktop_改变编辑字体样式和调整markdown渲染效果字体大小&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;打开设置-&amp;gt;外观-&amp;gt;高级选项&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;适用于已渲染 Markdown 的自定义样式表 -&amp;gt; userstyle.css -&amp;gt; 影响展示区域字体样式。
+适用于 Joplin 全域应用样式的自定义样式表 -&amp;gt; userchrome.css -&amp;gt; 影响了除展示区域的字体样式。&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;从typera拷贝出来的CSS，可以直接放进userchrome.css 和 userstyle.css&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;*{font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+&lt;/code&gt;&lt;/pre&gt;</description></item></channel></rss>

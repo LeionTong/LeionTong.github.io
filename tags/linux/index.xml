@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Linux on Leion'Log</title><link>https://leiontong.github.io/tags/linux/</link><description>Recent content in Linux on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 01 Apr 2022 15:30:00 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux上的防火墙前端 - 配置 ufw 允许 KDE Connect</title><link>https://leiontong.github.io/posts/ufw-allow-kde-connect/</link><pubDate>Fri, 01 Apr 2022 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ufw-allow-kde-connect/</guid><description>&lt;h1 id="linux上的防火墙前端---简单配置-ufw-允许-kde-connect"&gt;Linux上的防火墙前端 - 简单配置 ufw 允许 KDE Connect&lt;/h1&gt;
+&lt;p&gt;Allow KDE Connect through firewall&lt;/p&gt;
+&lt;p&gt;Firewalld&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=1714-1764/udp
+sudo systemctl restart firewalld.service
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;UFW firewall&lt;/p&gt;</description></item><item><title>onedrive app on ArchLinux</title><link>https://leiontong.github.io/posts/onedrive_app_on_linux/</link><pubDate>Tue, 01 Mar 2022 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/onedrive_app_on_linux/</guid><description>&lt;h1 id="onedrive_app_on_linux"&gt;onedrive_app_on_Linux&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo pacman -S archlinuxcn/onedrive-abraunegg
+yay -S aur/insync
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>ClamAV - Linux上的杀毒软件</title><link>https://leiontong.github.io/posts/clamav/</link><pubDate>Mon, 03 Jan 2022 15:33:00 +0000</pubDate><guid>https://leiontong.github.io/posts/clamav/</guid><description>&lt;h1 id="clamav---linux上的杀毒软件"&gt;ClamAV - Linux上的杀毒软件&lt;/h1&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wiki.archlinux.org/title/Install"&gt;安装&lt;/a&gt;&lt;a href="https://archlinux.org/packages/?name=clamav"&gt;ClamAV&lt;/a&gt;软件包。&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo pacman -S clamav clamtk
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="更新数据库"&gt;更新数据库&lt;/h2&gt;
+&lt;p&gt;更新病毒定义库：&lt;/p&gt;</description></item><item><title>KDE-Plasma panel widget config customization</title><link>https://leiontong.github.io/posts/kde-plasma-panel-widget/</link><pubDate>Wed, 01 Dec 2021 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/kde-plasma-panel-widget/</guid><description>&lt;h1 id="kde-plasma-panel-widget-config-customization"&gt;KDE-Plasma panel widget config customization&lt;/h1&gt;
+&lt;h2 id="configuration-file-location"&gt;configuration file location&lt;/h2&gt;
+&lt;p&gt;~/.config/plasma-org.kde.plasma.desktop-appletsrc&lt;/p&gt;
+&lt;h2 id="panel-and-widget-list"&gt;Panel and widget list&lt;/h2&gt;
+&lt;p&gt;Panel 1:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Application Lancher&lt;/li&gt;
+&lt;li&gt;Global Menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Panel 2:&lt;/p&gt;</description></item><item><title>GRUB2引导启动项手动修复实战</title><link>https://leiontong.github.io/posts/grub2-boot-entry-manual-repair/</link><pubDate>Fri, 20 Aug 2021 18:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/grub2-boot-entry-manual-repair/</guid><description>&lt;h1 id="grub2引导启动项手动修复实战"&gt;GRUB2引导启动项手动修复实战&lt;/h1&gt;
+&lt;h3 id="pre"&gt;Pre&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意如果开机进入的是&lt;code&gt;grub-rescue&lt;/code&gt;命令行需要先使用救急控制台修复到 normal 模式，具体修复方式参见&lt;a href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%BD%BF%E7%94%A8%E6%95%91%E6%80%A5%E6%8E%A7%E5%88%B6%E5%8F%B0"&gt;https://wiki.archlinux.org/title/GRUB_(简体中文)#使用救急控制台&lt;/a&gt;，操作摘录如下：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;GRUB 应急控制台里可用的命令有 &lt;code&gt;insmod&lt;/code&gt;，&lt;code&gt;ls&lt;/code&gt;，&lt;code&gt;set&lt;/code&gt; 和 &lt;code&gt;unset&lt;/code&gt;。这个例子里用了 &lt;code&gt;set&lt;/code&gt; 和 &lt;code&gt;insmod&lt;/code&gt;。&lt;code&gt;set&lt;/code&gt; 用来修改变量，&lt;code&gt;insmod&lt;/code&gt; 用来载入模组以添加功能。&lt;/p&gt;
+&lt;p&gt;首先，用户必须知道启动分区 (&lt;code&gt;/boot&lt;/code&gt;) 所在位置（是一个独立的分区或者是根目录下的子目录），然后设置：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grub rescue&amp;gt; set prefix&lt;span style="color:#f92672"&gt;=(&lt;/span&gt;hdX,Y&lt;span style="color:#f92672"&gt;)&lt;/span&gt;/boot/grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中 X 是物理驱动器的编号，而 Y 是分区的编号。
+&lt;strong&gt;注意：&lt;/strong&gt; 如果启动分区是个独立的分区，要在路径中省略 &lt;code&gt;/boot&lt;/code&gt;（例如键入 &lt;code&gt;set prefix=(hdX,Y)/grub&lt;/code&gt;）。&lt;/p&gt;</description></item><item><title>如何正确使用 sudo 调用多重命令</title><link>https://leiontong.github.io/posts/sudo-run-multiple-commands/</link><pubDate>Fri, 20 Aug 2021 16:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/sudo-run-multiple-commands/</guid><description>&lt;h1 id="如何正确使用-sudo-调用多重命令"&gt;如何正确使用 sudo 调用多重命令&lt;/h1&gt;
+&lt;h2 id="问题现状problem"&gt;问题现状(Problem)&lt;/h2&gt;
+&lt;p&gt;执行命令 &lt;del&gt;&lt;code&gt;sudo echo xxx &amp;gt; txt&lt;/code&gt;&lt;/del&gt; 时 &lt;code&gt;Permission denied&lt;/code&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sudo echo &amp;#39;some_strings&amp;#39; &amp;gt; test.txt
+-bash: test.txt: Permission denied
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bash 拒绝这么做，说是权限不够.
+这是因为重定向符号 &lt;code&gt;&amp;gt;&lt;/code&gt; 也是 bash 的命令。sudo 只是让 echo 命令具有了 root 权限，
+但是没有让 &lt;code&gt;&amp;gt;&lt;/code&gt; 命令也具有 root 权限，所以 bash 会认为这个命令没有写入信息的权限。&lt;/p&gt;</description></item><item><title>Ubuntu_Desktop实验机初始配置</title><link>https://leiontong.github.io/posts/ubuntu-test-machine-init-config/</link><pubDate>Fri, 20 Aug 2021 14:04:00 +0000</pubDate><guid>https://leiontong.github.io/posts/ubuntu-test-machine-init-config/</guid><description>&lt;h1 id="ubuntu_desktop实验机初始化配置"&gt;Ubuntu_Desktop实验机初始化配置&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#安装 sshd 服务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt install openssh-server -y
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo sh -c &lt;span style="color:#e6db74"&gt;&amp;#34;echo &amp;#39;PermitRootlogin yes&amp;#39; &amp;gt;&amp;gt; /etc/ssh/sshd_config&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo systemctl start opensshd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;pre tabindex="0"&gt;&lt;code&gt;#设置默认启动目标
+sudo systemctl set-default multi-user.target #默认为 graphical.target
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Git清理删除历史提交文件</title><link>https://leiontong.github.io/posts/git-remove-file-from-history/</link><pubDate>Sun, 01 Aug 2021 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/git-remove-file-from-history/</guid><description>&lt;h1 id="git清理删除历史提交文件"&gt;Git清理删除历史提交文件&lt;/h1&gt;
+&lt;h5 id="1垃圾回收"&gt;1.垃圾回收&lt;/h5&gt;
+&lt;p&gt;先进行垃圾回收，并压缩一些文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ git gc --prune&lt;span style="color:#f92672"&gt;=&lt;/span&gt;now
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Git最初向磁盘中存储对象使用&lt;code&gt;松散&lt;/code&gt;的格式，后续会将多个对象打包为一个二进制的&lt;code&gt;包文件&lt;/code&gt;（&lt;code&gt;packfile&lt;/code&gt;），以&lt;code&gt;节省磁盘空间&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.pack&lt;/code&gt;文件存储了&lt;code&gt;对象的内容&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.idx&lt;/code&gt;文件存储了&lt;code&gt;包文件&lt;/code&gt;的&lt;code&gt;偏移信息&lt;/code&gt;，用于`索引具体的对象&lt;/p&gt;
+&lt;p&gt;打包对象时，查找命名和大小相近的文件，保留文件&lt;code&gt;不同版本之间的差异&lt;/code&gt;（&lt;code&gt;最新一版保存完整内容&lt;/code&gt;，访问频率最高）&lt;/p&gt;
+&lt;h5 id="2查找大文件"&gt;2.查找大文件&lt;/h5&gt;</description></item><item><title>sshd_config误删除如何恢复？</title><link>https://leiontong.github.io/posts/sshd-config-accidental-deletion-recovery/</link><pubDate>Thu, 01 Apr 2021 15:30:00 +0000</pubDate><guid>https://leiontong.github.io/posts/sshd-config-accidental-deletion-recovery/</guid><description>&lt;h1 id="sshd_config误删除如何恢复"&gt;sshd_config误删除如何恢复？&lt;/h1&gt;
+&lt;p&gt;方法1，拷贝默认配置文件：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;cp /usr/share/openssh/sshd_config /etc/ssh/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;记得校正配置，例如：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;#PermitRootLogin prohibit-password
+PermitRootLogin yes
+X11Forwarding yes
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>SSH的X11转发--在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用</title><link>https://leiontong.github.io/posts/ssh-x11-forwarding-run-remote-app-on-local-display/</link><pubDate>Sun, 05 Jul 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/ssh-x11-forwarding-run-remote-app-on-local-display/</guid><description>&lt;h1 id="ssh的x11转发在本地-linux-os-桌面显示器上运行远程-linux-os-的应用"&gt;SSH的X11转发&amp;ndash;在本地 Linux OS 桌面显示器上运行远程 Linux OS 的应用&lt;/h1&gt;
+&lt;h2 id="原理"&gt;原理&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SSH的X11转发原理&amp;ndash;来自ssh的manpage：
+如果 ForwardX11 变量设为 “yes” (或参见后面对 -X 和 -x 选项的描述), 并且用户正在使用 X11 (设置了 DISPLAY 环境变量), 和 X11 显示器的连接将自动以这种形式转发到远端: 任何用 shell 或命令启动的 X11 程序将穿过加密的通道, 从本地机器连接真正的 X 服务器. 用户不应该手动设置 DISPLAY. 可以在命令行上, 也可以在配置文件中设置 X11 连接的转发.
+ssh 设置的 DISPLAY 值将指向服务器, 但是显示器号大于零. 这很自然, 因为 ssh 在服务器上创建了一个 “proxy” X 服务器,把连接通过加密通道转发出去.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;从原理来讲，对于用户login来说，本地主机是客户端（SSH Client），远程主机是服务端（SSH Server）；对于X11程序来说，本地主机是服务端(X Server)，远程主机是客户端(X Client)。&lt;/p&gt;
+&lt;p&gt;从实际使用体验来说，是用户在本地主机通过 SSH Client 登录到启用了 X11 转发功能的远程主机的 SSH Server 上执行 GUI 图形界面程序，此时本地主机的显示器(X Server DISPLAY)上会呈现远程主机的GUI程序的图形界面。&lt;/p&gt;
+&lt;h2 id="预准备"&gt;预准备&lt;/h2&gt;</description></item><item><title>Linux上的笔记软件和网盘--多平台同步解决方案</title><link>https://leiontong.github.io/posts/linux-note-app-and-cloud-drive-cross-platform-sync/</link><pubDate>Thu, 16 Aug 2018 16:22:01 +0000</pubDate><guid>https://leiontong.github.io/posts/linux-note-app-and-cloud-drive-cross-platform-sync/</guid><description>&lt;h1 id="linux上的笔记软件和网盘多平台同步解决方案"&gt;Linux上的笔记软件和网盘&amp;ndash;多平台同步解决方案&lt;/h1&gt;
+&lt;h2 id="支持云同步的笔记客户端"&gt;支持云同步的笔记客户端&lt;/h2&gt;
+&lt;h3 id="nixnote2"&gt;nixnote2&lt;/h3&gt;
+&lt;p&gt;Nixnote2是evernote的第三方客户端通过API接口实现同步，不会占用免费用户的同步设备数量。&lt;/p&gt;
+&lt;h3 id="wiznote"&gt;wiznote&lt;/h3&gt;
+&lt;p&gt;为知笔记，优良的跨平台笔记软件，支持多级目录和多标签，以及markdown，试用100天。&lt;/p&gt;
+&lt;h3 id="有道云笔记-ynote"&gt;有道云笔记 YNote&lt;/h3&gt;</description></item></channel></rss>
