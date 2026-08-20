@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-20-1000.html">
+    <div class="da-card-date">2026-08-20 · 10:00</div>
+    <div class="da-card-main">Agent 从「写代码」走向「管生产」：分发全栈化、标准与可回滚、资本确认、全链路、数据接口五层底座就位 今天的五条信号锚定同一个转向——AI 编码 / Agent 的竞争，已从「模型能不能写代码」上移到更硬的底座层：分发入口全栈自研（Copilot/Polaris 把推理从 OpenAI 搬到微软自研模型＋Maia 芯片）、工程标准化与可回滚（Agent Plugins 1.0 写一次跨工具用、/rewind 无需 git 还原）、资本确认企业预算线（Devin 估值冲 $40B、ARR 破 $1B）、外溢到全 DevOps 生命周期（GitLab Duo / Amazon Q Pro 管 issue、安全补丁、部署、运维）、数据接口标准化（MongoDB Managed MCP Server 把 Agent 接进真实生产库）。这五层，正是终端 Agent 与具身智能落地的上游：当编码 Agent 把「写—测—部署—数据」打通，端侧与具身 Agent 才能复用同一套工程范式。今日第 05 条即落回主人新岗的终端方向——端侧 Agent 规模拐点已至。一句话：写代码的仗打完了，下一程在「谁能把 Agent 装进生产系统并管得住」。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-19-1000.html">
     <div class="da-card-date">2026-08-19 · 10:00</div>
     <div class="da-card-main">智能下沉与互联：端侧 Agent 模型、具身垂直整合与 Agent 协议标准化 今天的五条信号锚定同一个转向——智能正在「往下走、向外连」：当云端 Frontier 模型能力趋于同质，竞争焦点下移到端侧 Agent 模型（分层执行、边缘可跑）与具身垂直整合（本体＋算力＋数据＋制造），并向外连到Agent 协议标准化（MCP）。端侧侧，Meta Muse Glimmer 与 NVIDIA Nemotron Lightning 把 Agent 拆成「强模型规划、小模型执行」的分层，Liquid AI 把 2.6B 级 agent 模型压进手机；具身侧，LG×NVIDIA 以全栈制造伙伴模式落地双足人形、小米 my16 以单模型多任务破 40.89% 拿下 CVPR/ICRA 双冠；研发侧，终端原生 Agent 成主界面、MCP 成互联标准、自愈 CI/CD 把评审变 agent 对 agent 的闸。一句话：模型「会不会做」不再是稀缺资源，谁能把智能沉到终端/具身、并能跨厂商互联治理，谁握下一程。</div>
