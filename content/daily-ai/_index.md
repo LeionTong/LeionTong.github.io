@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-23-1800.html">
+    <div class="da-card-date">2026-08-23 · 18:00</div>
+    <div class="da-card-main">自治的下一程落在「可持久、可信、可跨本体」的底座：编码 Agent 常驻化、Agent 与具身在编排层合流、端侧为常驻重做算力、具身借大会与运动会跨进规模化前夜 今天的五条信号锚定同一个转向——单体智能体的「会不会」早已不是问题，竞争焦点全面压到能长期、可信、跨本体地跑的底座层：AI coding 把 Agent 从一次性会话做成跨会话常驻＋用量上限自动续跑＋防凭证泄漏，从「问答工具」长成「工程实体」；AI Agent 与具身在编排层合流——NVIDIA Isaac 次世代集成 MOQ 流式与 ruflo 式编排，意图用统一控制面管住异构机器人编队，把 Agent 范式直接搬进具身软件栈；终端智能为常驻 Agent 重做计算底座，Acrab GΞLIX 1 把焦点从「单 NPU 算力」挪到 CPU/NPU/内存/编排协同的异构系统题；具身智能借 WRC 2026「一脑多能、跨本体」实证与第二届世界人形机器人运动会，从 demo 跨进「通用大脑部署＋真实物理评测」的规模化前夜，HOST/GOAG 等零样本学习研究则把「少示教快部署」往前推。一句话：稀缺的不再是能力演示，而是「可持久运行、可信约束、跨本体部署」三件套同时就位——这正是主人新岗（终端/具身智能）要亲手补的底座。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-20-1000.html">
     <div class="da-card-date">2026-08-20 · 10:00</div>
     <div class="da-card-main">Agent 从「写代码」走向「管生产」：分发全栈化、标准与可回滚、资本确认、全链路、数据接口五层底座就位 今天的五条信号锚定同一个转向——AI 编码 / Agent 的竞争，已从「模型能不能写代码」上移到更硬的底座层：分发入口全栈自研（Copilot/Polaris 把推理从 OpenAI 搬到微软自研模型＋Maia 芯片）、工程标准化与可回滚（Agent Plugins 1.0 写一次跨工具用、/rewind 无需 git 还原）、资本确认企业预算线（Devin 估值冲 $40B、ARR 破 $1B）、外溢到全 DevOps 生命周期（GitLab Duo / Amazon Q Pro 管 issue、安全补丁、部署、运维）、数据接口标准化（MongoDB Managed MCP Server 把 Agent 接进真实生产库）。这五层，正是终端 Agent 与具身智能落地的上游：当编码 Agent 把「写—测—部署—数据」打通，端侧与具身 Agent 才能复用同一套工程范式。今日第 05 条即落回主人新岗的终端方向——端侧 Agent 规模拐点已至。一句话：写代码的仗打完了，下一程在「谁能把 Agent 装进生产系统并管得住」。</div>
