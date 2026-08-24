@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-24 10:00 · 自治智能的下一程：被谁整合、按什么标准互通、能否长期自主、能否少示教量产</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.51</b></span>
+    <span>2026-08-24  10:00  GMT+8</span>
+  </div>
+
+  <h1>自治智能的下一程：<em>被谁整合 · 按什么标准互通 · 能否长期自主 · 能否少示教量产</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日梳理</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">$60B · 47% · 100% · 59% · 4万台</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">体系层收敛周</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">单体智能体的「会不会」早已不是问题，竞争全面压到体系层——被谁整合、按什么标准互通、能否长期自主、能否少示教量产</div>
+  <p>今天的五条信号锚定同一个转向：<strong>AI coding、AI Agent、终端与具身智能的单体能力都已就位</strong>，下一程的稀缺资源不再是「又强一点的模型」，而是四件体系层的事——<strong>入口被谁整合</strong>（SpaceX 拟 $60B 收 Cursor、Claude Code 反超 Copilot 成最常用编码工具，开发者工作流成最高战略要地）；<strong>智能体按什么标准互通</strong>（Google A2A 入 Linux Foundation 旗下 AAIF，与 Anthropic MCP 同栈中立治理，250+ 成员）；<strong>Agent 能否长期自主</strong>（NVIDIA AVO 100% 攻克 ARC-AGI-3 交互推理，6624 步环境动作、持久记忆＋监督，证明系统级架构能把模型能力焊成持续自主进展）；<strong>具身能否少示教量产</strong>（Generalist GEN-1.5 演示 3–12 秒即学会、one-shot 59%、5 分钟数据 10 步达 83%；WRC 2026 收官，中国 H1 人形机器人出货超 4 万台、全球占 97%，世界模型/OS/国产底座密集亮相）。一句话：<strong>稀缺的不是能力演示，而是「被谁整合、按什么标准互通、能否长期自主、能否少示教量产」四件套同时就位</strong>——这正是主人新岗（终端/具身智能）要亲手补的体系底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  单体能力就位轴 × 体系层四收敛（整合入口 / 互通标准 / 长期自主 / 少示教量产），今日信号分布</div>
+  <svg viewbox="0 0 872 332" width="100%" role="img" aria-label="信号星图：左侧为已就位的单体智能体能力，右侧为体系层四收敛（整合入口/互通标准/长期自主/少示教量产）与量产拐点——SpaceX收Cursor、A2A入AAIF、AVO攻ARC-AGI-3、GEN-1.5秒级学习、WRC量产">
+    <defs>
+      <marker id="ao" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">AGENT READY / SYSTEM-LAYER CONVERGENCE / 2026-08-24</text>
+
+    <!-- 左：单体能力就位 -->
+    <rect x="8" y="34" width="250" height="54" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="133" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">单体智能体能力就位</text>
+    <text x="133" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">「会不会做」已不再稀缺</text>
+
+    <!-- 右：体系层落点 -->
+    <rect x="614" y="34" width="250" height="54" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="739" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">体系层四收敛 + 量产拐点</text>
+    <text x="739" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">整合·标准·自主·少示教</text>
+
+    <path d="M262,61 L610,61" stroke="#a4442a" stroke-width="1.4" marker-end="url(#ao)"/>
+
+    <!-- 五个节点 -->
+    <g font-family="Courier Prime,monospace">
+      <rect x="20" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="100" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">01</text>
+      <text x="100" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">编码 · 整合</text>
+      <text x="100" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">SpaceX 收 Cursor</text>
+      <text x="100" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Claude Code 47%</text>
+      <text x="100" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">入口即议价权</text>
+
+      <rect x="192" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="272" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">02</text>
+      <text x="272" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">标准 · 互通</text>
+      <text x="272" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">A2A 入 AAIF</text>
+      <text x="272" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">+MCP 同栈</text>
+      <text x="272" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">250+ 成员</text>
+
+      <rect x="364" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="444" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">03</text>
+      <text x="444" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">自主 · 推理</text>
+      <text x="444" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AVO 攻 ARC-AGI-3</text>
+      <text x="444" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">100% / 6624 步</text>
+      <text x="444" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">持久记忆+监督</text>
+
+      <rect x="536" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="616" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">04</text>
+      <text x="616" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">具身 · 少示教</text>
+      <text x="616" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">GEN-1.5</text>
+      <text x="616" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">秒级学会</text>
+      <text x="616" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">one-shot 59%</text>
+
+      <rect x="708" y="120" width="156" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="786" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">05</text>
+      <text x="786" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">终端×具身 · 量产</text>
+      <text x="786" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">WRC 收官</text>
+      <text x="786" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">4万台/97%</text>
+      <text x="786" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">世界模型/OS</text>
+    </g>
+
+    <text x="436" y="312" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a" letter-spacing="1.4">能力就位 → 竞争落在「整合·标准·自主·少示教」体系层 + 量产拐点</text>
+  </svg>
+  <div class="fig-note">信号 01–05 分别落在「编码整合 / 互通标准 / 长期自主 / 具身少示教 / 终端×具身量产」五处落点；横轴 = 单体智能体能力已就位，纵轴无。制图依据今日公开报道梳理。</div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 资本整合与格局重排</span>
+  <h2 class="c-title">SpaceX 拟以约 $60B 全股票收购 Cursor，Claude Code 反超 Copilot 成最常用 AI 编码工具</h2>
+  <p class="c-tags"><span class="chip b">SpaceX</span><span class="chip o">$60B 收购</span><span class="chip t">Claude Code 47%</span><span class="chip">工作流入口</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Developer Tools Watch（8/20）：AI 原生开发栈正从「代码写手」转向「AI 编排者」，一轮 <strong>$600B 量级的整合潮</strong>正在扫过开发者工作流：</p>
+    <ul>
+      <li><strong>SpaceX 拟 $60B 收购 Cursor</strong>（全股票，预计 Q3 2026 完成；源于 4 月合作赋予的收购期权）。Cursor（2022 创，4 名 MIT 毕业生）2026 年 6 月年化收入达 <em class="hl">$40B</em>（2 月为 $20B），长时自主编程的 Cloud Agents 是增长主引擎。</li>
+      <li><strong>同期整合</strong>：Stripe $7.5B 收购 OpenRouter（8/22 官宣，5× 溢价）；OpenAI $3B 收购 Windsurf。开发者工作流成最高战略要地。</li>
+      <li><strong>采用率反转</strong>：JetBrains 2026 开发者生态调查（15,509 名专业开发者，5–7 月）——Claude Code <em class="hl">39%</em>（1 月 18%），Copilot 21%（一年前 29%）；<strong>美国 Claude Code 47%</strong>；OpenAI Codex 5× 增长（3%→16%）；Cursor 12%（从 18% 降）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>编码 Agent 的竞争从「谁模型强」转为「<strong>谁掌握开发者工作流入口 + 谁提供编排层</strong>」。SpaceX 把 Cursor 与 xAI Grok + Colossus 超算垂直整合，预示「编码工具—模型—算力」一体栈——与主人新岗高度同构：<strong>终端/具身智能的「本地 Agent 工作流入口 + 编排层」同样会是生态卡位点</strong>。提前想清「谁的运行时、谁的 Agent 编排标准」归属，避免未来被单一入口绑定。</p>
+    <p>同周横向印证：Replit 推 Free Mode（GPT-5.6 Luna 驱动，去除日常任务用量积分）；Vercel Labs 开源 <em class="hl">fx</em>（Zig 写的极简原生编码 Agent，7.8 MiB，面向嵌入）；OpenAI 本周报 2,000 万 Codex 活跃用户。编码 Agent 正从 IDE 插件长成独立运行时。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>SpaceX 拟 $60B 收 Cursor</b>(预计 Q3 2026 完成) · Cursor 年化 $40B(6月) · <b>Claude Code 39%/美国47% vs Copilot 21%</b>(JetBrains 15,509 受访者,5–7月) · Codex 3%→16% · Stripe $7.5B 收 OpenRouter / OpenAI $3B 收 Windsurf  |  来源：The CodeW Developer Tools Watch 8/20 · JetBrains Ecosystem Survey 2026
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Agent · 互操作标准化里程碑</span>
+  <h2 class="c-title">Google A2A 协议正式加入 Agentic AI Foundation（Linux Foundation 治理），与 Anthropic MCP 同栈中立治理，AAIF 成员超 250</h2>
+  <p class="c-tags"><span class="chip b">A2A</span><span class="chip o">AAIF</span><span class="chip t">MCP 同栈</span><span class="chip">中立治理</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>AI Agent Store Daily（8/23）：<strong>8/20 Google 的 A2A（Agent-to-Agent）协议正式加入由 Linux Foundation 主导的 Agentic AI Foundation（AAIF）</strong>，与 Anthropic 的 MCP 置于同一中立治理之下。</p>
+    <ul>
+      <li><strong>AAIF 现 250+ 成员</strong>：AWS、Anthropic、Block、Bloomberg、Cloudflare、Google、Microsoft、OpenAI 等——把智能体关键标准收敛到同一栈。</li>
+      <li><strong>意义</strong>：智能体「如何连工具/数据源/彼此」的标准被统一到中立栈，降低多厂商架构集成摩擦；安全补丁与数据流校验跨部署传播也更顺，降低运维与安全风控成本。</li>
+      <li>同期平台化：AWS Bedrock AgentCore <em class="hl">Web Search</em> 8/21 GA（托管服务端工具，数据不出 AWS 账户，先美东）；Google <em class="hl">Gemini Enterprise</em> 整合 Vertex AI + Agentspace 单一平台。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>Agent 生态从「各自为政」走向「标准栈」。<strong>A2A（智能体互操作）＋ MCP（工具/数据接入）同归中立治理，是「智能体互联网」的 TCP/IP 时刻</strong>——企业可拼多厂商 Agent 而不被单家锁定。对主人新岗：终端/具身智能若要做「多本体协同 + 多 Agent 调度」，应<em class="hl">优先押注 AAIF 系标准（A2A/MCP）</em>，降低未来集成与互操作成本，规避私有协议孤岛。</p>
+    <p>风险视角：标准「入会」不等于「生产可用」——各云/框架何时暴露生产级支持、跨厂商一致性如何，仍需持续跟踪。押注标准方向正确，但落地节奏要看厂商兑现。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>A2A 入 AAIF(8/20)</b> · 250+ 成员(AWS/Anthropic/Google/Microsoft/OpenAI/Cloudflare…) · Bedrock AgentCore Web Search GA(8/21) · Gemini Enterprise(Vertex+Agentspace 整合)  |  来源：AI Agent Store Daily 8/23 · Linux Foundation AAIF
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 长期自主推理系统级突破</span>
+  <h2 class="c-title">NVIDIA AVO Agent 100% 攻克 ARC-AGI-3 交互推理基准（183 关全通，6624 步环境动作，持久记忆＋监督）</h2>
+  <p class="c-tags"><span class="chip b">NVIDIA AVO</span><span class="chip o">ARC-AGI-3</span><span class="chip t">100%</span><span class="chip">持久记忆</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>HeadsUpAI（8/22）：<strong>NVIDIA AVO agent 架构在 ARC-AGI-3 上取得 100.00 RHAE</strong>，通关全部 183 关（25 个环境），用 <em class="hl">6,624 步环境动作</em>完成。系统采用持久记忆＋监督，支撑长程任务持续自主推进。</p>
+    <ul>
+      <li><strong>解读</strong>：结果证明「系统级架构」能把模型能力有效转化为持续的自主进展——不是单模型更强，而是<em class="hl">架构（记忆 / 监督 / 长程规划）更强</em>。</li>
+      <li><strong>对标</strong>：ARC-AGI-3 是流体智能/交互推理试金石，要求智能体在真实环境反馈中持续适配，远超静态问答。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>Agent 的「<strong>长期自主推理</strong>」从玩具基准走向硬核交互推理。对主人新岗：具身/终端 Agent 同样面临「长程任务 + 真实环境反馈 + 持续自主」的架构题——AVO 的「持久记忆＋监督」范式可直接借鉴到本体自主作业（机器人连续多步任务、端侧长会话 Agent）。<strong>稀缺的不再只是模型，而是把模型焊进「能持续跑」的系统</strong>。这恰是 C→B→A→D 里 B（具身平台/OS）要补的运行时底座。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>NVIDIA AVO 100% ARC-AGI-3(8/22)</b> · 183 关/25 环境 · 6624 环境动作 · 持久记忆+监督  |  来源：HeadsUpAI / NVIDIA
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  具身智能 · 秒级物理学习基础模型</span>
+  <h2 class="c-title">Generalist AI 发布 GEN-1.5 具身基础模型：演示 3–12 秒即学会，one-shot 59%、5 分钟数据 10 步达 83%</h2>
+  <p class="c-tags"><span class="chip b">Generalist AI</span><span class="chip o">GEN-1.5</span><span class="chip t">秒级学习</span><span class="chip">少示教</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>HeadsUpAI（约 8/23）：Generalist AI 发布 <strong>GEN-1.5 具身基础模型</strong>，物理任务<em class="hl">秒级学会</em>：</p>
+    <ul>
+      <li><strong>性能</strong>：3–12 秒演示的 <em class="hl">one-shot 上下文学习成功率 59%</em>；5 分钟数据 + 10 步梯度达 <em class="hl">83%</em>。</li>
+      <li><strong>基础</strong>：8 个月在大规模物理交互数据上连续预训练，无显式任务专项训练即得此能力——从演示到上岗的边际成本极低。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>直击具身规模化「<strong>少示教、快部署</strong>」核心瓶颈——把「部署一个新技能要多少数据与人工」打到极低。与 08-23 的 HOST/GOAG 零样本学习同方向，但 GEN-1.5 是<em class="hl">商业发布的具身基础模型</em>，意味「低数据泛化」从论文走向产品。对主人新岗：具身大脑选型要把「<strong>少示教学习率</strong>」列为核心指标——它决定交付客户场景的边际成本与回本周期。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Generalist AI GEN-1.5(约8/23)</b> · one-shot 59%(3–12s 演示) · 10 步梯度 83%(5 分钟数据) · 8 个月物理交互预训练  |  来源：HeadsUpAI / Generalist AI
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  终端 × 具身 · 从窗口期到量产拐点</span>
+  <h2 class="c-title">WRC 2026 收官（8/19–23）：中国 H1 人形机器人出货超 4 万台、全球占 97%，星海图 Nexo / Pelican-Unify 大一统世界模型 / 星尘 Lumo2 家庭隐式世界动作模型密集亮相</h2>
+  <p class="c-tags"><span class="chip b">WRC 2026</span><span class="chip o">4万台/97%</span><span class="chip t">世界模型</span><span class="chip">国产底座</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>新华社/环球网/中新网：2026 世界机器人大会 8/19–23 北京，<strong>373 家企业、3000+ 产品、150+ 首发新品</strong>。</p>
+    <ul>
+      <li><strong>硬数据</strong>：中国 H1 人形机器人出货 <em class="hl">>4 万台，全球占比 97%</em>；2030 中国市场规模有望 ~8700 亿元；7 月重点平台具身智能销售额同比 +95.1%。</li>
+      <li><strong>新品潮指向「底座成比拼核心」</strong>：星海图 <em class="hl">Nexo</em>（30 自由度轮臂人形，双臂 20kg 负载，前置仓全自动闭环履约）；北京人形 <em class="hl">Pelican-Unify</em> 大一统具身世界模型（统一表征 + 端到端闭环，Pelican-VL 2.0 长程/工具调用跃升）；星尘智能 <em class="hl">Lumo2</em> 家庭隐式世界动作模型（收拾收纳等家务真机亮相）+ AOS 具身 OS（一句话生成机器人 APP）+ T1 人形 8.99 万起（下探消费电子）；灵境智源 致境 T300 具身大脑 / T81 具身小脑（全栈国产化）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能从「窗口期」跨进「<strong>量产拐点</strong>」——量（4 万台/97%）+ 价（8.99 万消费级）+ 底座（世界模型/OS/国产芯片）三信号同时到位。对主人新岗（终端/具身）：这是「<em class="hl">具身大脑标准化 + 国产底座自主</em>」的历史窗口——C→B→A→D 战略里，B（具身平台/OS）的国产替代机会正在具象化。须清醒：复杂场景作业效率仍不及人工、AI 与物理世界适配偏差仍是短板，宇树王兴兴直言「未来 2–10 年物理 AI 自进化突破方迎爆发临界」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>WRC 2026(8/19–23, 373 企业/3000+ 产品/150+ 首发)</b> · 中国 H1 人形出货>4万/全球97% · 2030 市场~8700亿 · 星海图Nexo(30DoF) · Pelican-Unify 大一统世界模型 · 星尘Lumo2+AOS+T1(8.99万) · 灵境智源致境T300/T81  |  来源：新华社/环球网/中新网/科技日报
+  </div>
+</div>
+
+<div class="cross">
+  <h3>横向观察 · 从「会不会」到「被谁整合、按什么标准互通、能否长期自主、能否少示教量产」</h3>
+  <ol>
+    <li><strong>资本＋标准（01＋02）</strong>说明：Agent 竞争层次在抬升——从「产品能力」上移到「入口整合（谁买下工作流）」与「互操作标准（A2A/MCP 中立治理）」。谁定义标准、谁掌握入口，谁握长期议价权。</li>
+    <li><strong>自主栈（03＋04）</strong>说明：Agent 从「会答」到「持续自主」、具身从「多数据训练」到「秒级少示教」，两处都指向「系统架构 + 学习范式」而非单模型——稀缺的是把能力焊进可运行系统的工程。</li>
+    <li><strong>量产拐点（05）</strong>说明：终端×具身在中国正从窗口期跨进量产，底座（世界模型/OS/国产芯片）成比拼核心，国产替代窗口具象化；但效率与物理适配仍是真实短板。</li>
+  </ol>
+  <div class="verdict">一句话：单体能力就位的仗打完了；下一程在「被谁整合、按什么标准互通、能否长期自主、能否少示教量产」——竞争全面压到体系层，这正是主人新岗（终端/具身智能）要亲手补的底座。</div>
+  <div class="risk">
+    <b>注 / Caveat</b>
+    01 SpaceX 收购为「拟收购/宣布」（预计 Q3 完成），仍有监管与股东变数；Claude Code 反超数据来自 JetBrains 自填问卷，样本偏专业开发者。02 A2A 入 AAIF 是治理归属动作，不等于各厂商已提供生产级互操作实现，落地节奏待跟踪。03 AVO 的 100% 为特定基准结果，真实工程泛化待验证。04 GEN-1.5 的「秒级学习」为厂商/论文口径，需第三方复现。05 的 97% 全球占比基于中国电子学会口径（含出口），8.99 万 T1 为起售价，家庭场景实用性与安全认证仍待市场检验。
+  </div>
+</div>
+
+<footer>
+  <span>Leion · Daily AI · NO.51 · 2026-08-24 10:00 GMT+8</span>
+  <span>信号来源：The CodeW / JetBrains / AI Agent Store / HeadsUpAI / 新华社 等公开报道</span>
+</footer>
+
+</div>
+</body>
+</html>
