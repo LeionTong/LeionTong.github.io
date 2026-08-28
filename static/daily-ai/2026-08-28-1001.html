@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-28 10:01 · 工程化兑现期：工作台化 · 开源逼近 frontier · 标准化与可信评测 · 终端主动化 · 具身量产上岗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.54</b></span>
+    <span>2026-08-28  10:01  GMT+8</span>
+  </div>
+
+  <h1>工程化兑现期：<em>工作台化 · 开源逼近 frontier · 标准化与可信评测 · 终端主动化 · 具身量产上岗</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日梳理</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">2万+技能 · 1M · 150+机构 · +244% · >$9亿</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">从能力到兑现</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">单体能力叙事已就位，本周信号集体压向「工程化兑现」——把自治从演示 / 概念推进到可交付工作台、可互操作标准、可量化评测、可量产上岗</div>
+  <p>今天的五条信号锚定同一转向：能力（基座模型 + 08-27 的约束底座）已经就位，竞争焦点迁移到「能不能真正交付」。<strong>AI coding 侧</strong>，阿里把编程 Agent 做成产品级工作台 Qoder、智谱把开源模型 GLM-5.3-Flash 推到逼近闭源 frontier 且价格约 1/10；<strong>Agent 侧</strong>，A2A 协议进入 150+ 机构生产部署、Tricentis 把 agent 本身当测试对象给出 AgentScore，互操作与可信评测两端补齐；<strong>终端侧</strong>，Gemini Live 学会主动规划多步任务、网易把 Agent 塞进耳机，去屏幕化与新硬件形态落地；<strong>具身侧</strong>，智元量产版机器人不做赛事改装即入驻产线、小鹏超 9 亿美元融资、AI 智能体人才需求同比 +244%，资本与人力正真实涌入「工程化落地」侧。一句话：<strong>稀缺资源从「会不会做」换成「能不能交付」</strong>——这正是 TEI 路线 C→B→A→D 当下要亲手补的工程化地基。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  能力就位轴 × 工程化兑现五维（工作台化 / 开源逼近 frontier / 标准化与可信评测 / 终端主动化 / 具身量产上岗），今日信号分布</div>
+  <svg viewbox="0 0 872 308" width="100%" role="img" aria-label="信号星图：左侧为已就位的能力基座与约束底座，右侧为工程化兑现五维——阿里Qoder工作台化、智谱GLM-5.3-Flash开源逼近frontier、A2A生产部署加AgentScore可信评测、Gemini Live主动化加OpenPods耳机、智元量产上岗加小鹏融资加人才需求上涨">
+    <defs>
+      <marker id="ao4" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">CAPABILITY READY / ENGINEERING DELIVERY / 2026-08-28</text>
+
+    <rect x="8" y="34" width="232" height="50" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="124" y="55" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">能力就位（基座 + 约束）</text>
+    <text x="124" y="75" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">08-27 约束纪元四件套已备</text>
+
+    <rect x="632" y="34" width="232" height="50" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="748" y="55" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">工程化兑现</text>
+    <text x="748" y="75" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">可交付·可互操作·可评测·可量产</text>
+
+    <path d="M242,59 L628,59" stroke="#a4442a" stroke-width="1.4" marker-end="url(#ao4)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="12" y="108" width="164" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="94" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="17" fill="#1d4e78" font-weight="700">工作台化</text>
+      <text x="94" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI coding 产品级入口</text>
+      <text x="94" y="178" text-anchor="middle" font-size="9.5" fill="#1d4e78">01 阿里 Qoder</text>
+      <text x="94" y="196" text-anchor="middle" font-size="9.5" fill="#1d4e78">自然语言→工具/技能</text>
+      <text x="94" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">2万+ 技能 · Qwen3.8-Max</text>
+      <text x="94" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">大厂同台 WorkBuddy</text>
+
+      <rect x="186" y="108" width="164" height="150" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="268" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="17" fill="#a4442a" font-weight="700">逼近 frontier</text>
+      <text x="268" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">开源权重 + 低成本</text>
+      <text x="268" y="178" text-anchor="middle" font-size="9.5" fill="#a4442a">02 GLM-5.3-Flash</text>
+      <text x="268" y="196" text-anchor="middle" font-size="9.5" fill="#a4442a">MIT·1M·接近 Opus4.8</text>
+      <text x="268" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">价格约 1/10</text>
+      <text x="268" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">HN #1 / 972 分</text>
+
+      <rect x="360" y="108" width="164" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="442" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="17" fill="#1d4e78" font-weight="700">标准 + 评测</text>
+      <text x="442" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">互操作 · 可信准入</text>
+      <text x="442" y="178" text-anchor="middle" font-size="9.5" fill="#1d4e78">03 A2A 生产 + AgentScore</text>
+      <text x="442" y="196" text-anchor="middle" font-size="9.5" fill="#1d4e78">150+ 机构生产部署</text>
+      <text x="442" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">agent 当测试对象</text>
+      <text x="442" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">行为概率评分</text>
+
+      <rect x="534" y="108" width="164" height="150" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="616" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="17" fill="#a4442a" font-weight="700">终端主动化</text>
+      <text x="616" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">去屏幕化 · 新形态</text>
+      <text x="616" y="178" text-anchor="middle" font-size="9.5" fill="#a4442a">04 Gemini Live + OpenPods</text>
+      <text x="616" y="196" text-anchor="middle" font-size="9.5" fill="#a4442a">自主多步 + 耳机入口</text>
+      <text x="616" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">本地习惯学习</text>
+      <text x="616" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">MFi / 1499 元</text>
+
+      <rect x="708" y="108" width="164" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="790" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="17" fill="#1d4e78" font-weight="700">具身量产</text>
+      <text x="790" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">生产态 · 资本人才</text>
+      <text x="790" y="178" text-anchor="middle" font-size="9.5" fill="#1d4e78">05 智元 + 小鹏 + 人才</text>
+      <text x="790" y="196" text-anchor="middle" font-size="9.5" fill="#1d4e78">量产版入驻产线</text>
+      <text x="790" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">>$9亿 · 人才 +244%</text>
+      <text x="790" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">产线在岗 · 上万件</text>
+    </g>
+
+    <line x1="12" y1="278" x2="860" y2="278" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+    <text x="12" y="298" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">TEI 映射 →</text>
+    <text x="96" y="298" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C：Qoder工作台→行业方案现金流  |  B：开源/A2A/AgentScore→平台底座  |  A：终端主动化→端侧生态  |  D：资本/标准卡位窗口</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「能力就位 → 工程化兑现」的转向。五维中，01/02 落在 AI coding（工作台化 / 开源逼近 frontier），03 是 Agent 标准化与可信评测，04 是终端主动化与新形态，05 是具身量产与资本/人才双验证。五件事共同把「自治」从演示态推进到可交付、可互操作、可评测、可量产的生产态。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">当日五条信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 大厂工作台化</span>
+  <h2 class="c-title">阿里发布 Qoder：以 Coding 为核心的 AI Agent 工作台，自然语言驱动开发，内置 Qwen3.8-Max、2 万+ 技能</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">工作台</span><span class="chip t">Qwen3.8-Max</span><span class="chip">2万+技能</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>8 月 27 日阿里云发布全新 AI 智能体 <strong>Qoder</strong>，定位「以 Coding 为核心能力、面向所有人的智能体工作台」：</p>
+    <ul>
+      <li><strong>自然语言驱动</strong>：用户不必从代码开始，用自然语言描述目标，Qoder 即调用 Coding 与工具能力完成开发、原型制作、数据处理等任务。</li>
+      <li><strong>底座与调度</strong>：内置 Qwen3.8-Max 等多款模型 + Auto 智能调度；支持 <em class="hl">40+ 连接器、70+ 插件、2 万+ 技能</em>，提供编程 / 通用两种模式。</li>
+      <li><strong>同台竞速</strong>：与腾讯 WorkBuddy / 百度搭子 / 金山灵犀等同台，国内大厂集体把「AI 编程」从 IDE 插件升级为「工作台级入口」，背后是给大幅扩张的算力投入找可信变现路径。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>AI coding 从「补全 / 对话」进入「<strong>产品化为可交付工作台</strong>」阶段——工具形态从插件跃迁到操作系统级入口，开发者工作台成为大厂争夺开发者生态的关键战场。这对通通 TEI 的 C 阶段（行业方案做现金流）意味着「给行业客户的 Agent 工作台」范式已现成。</p>
+    <p><strong>对 TEI 的映射</strong>：B 阶段平台若要做「可私有化部署的 coding / agent 工作台」，Qoder 的产品定义（自然语言 → 调用工具 / 技能 → 交付）是直接参考；C 阶段行业方案里「交付一个工作台而非一段代码」正成为主流形态。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/27 阿里云发布</b> · Qoder · 自然语言驱动 · 内置 Qwen3.8-Max · <b>40+ 连接器 / 70+ 插件 / 2万+ 技能</b> · 编程 + 通用双模式 · 同台：WorkBuddy / 百度搭子 / 金山灵犀  |  冷静点：Qoder 实际编码基准与多 agent 协作能力待独立评测；「工作台」赛道同质化，护城河在生态 / 私有化而非单点能力
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Coding · 开源模型逼近 frontier</span>
+  <h2 class="c-title">智谱 GLM-5.3-Flash（Ox Alpha）开源：320B(18B active) MoE、原生多模态、1M 上下文、MIT 许可，编码逼近 Opus 4.8 而价格约 1/10</h2>
+  <p class="c-tags"><span class="chip b">开源</span><span class="chip o">MIT</span><span class="chip t">1M 上下文</span><span class="chip">接近 Opus 4.8</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>智谱 Z.ai 发布 <strong>GLM-5.3-Flash</strong>（此前预告为 "Ox Alpha"）：</p>
+    <ul>
+      <li><strong>架构</strong>：320B 参数、18B 激活的 MoE，<em class="hl">原生多模态</em>（文本 + 视觉早期融合），<strong>1,048,576 token</strong> 上下文。</li>
+      <li><strong>开放与定价</strong>：<em class="hl">MIT 许可</em>，权重已上 Hugging Face；API 定价 <strong>$0.075 / $0.25</strong> 每百万输入 / 输出 token。</li>
+      <li><strong>能力声称</strong>：智谱称其内部编码基准<em class="hl">接近 Claude Opus 4.8</em>（半个百分点内），整体较 GLM-5.2 提升、价格约 1/10。</li>
+      <li><strong>社区反响</strong>：登 Hacker News 头条（<strong>972 分</strong>），r/LocalLLaMA 多帖热议；社区对其缓存效率声称有分歧。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>开源权重在「编码 + 多模态」上逼近闭源 frontier、且价格约 1/10，等于把「高能力 coding agent 的底座成本」再砍一刀——与 DeepSeek Harness / 开源路线合流，持续压缩闭源模型的溢价空间。</p>
+    <p><strong>对 TEI 的映射</strong>：B 阶段（具身平台 / OS）选型时，「可私有化、可本地、成本低」的开源模型权重已能覆盖大部分编码 / agent 场景，自建平台的底座选择更宽；A 阶段端侧长期生态合作里，「开源 + MIT」意味着可深度定制而非被闭源锁定。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  320B(18B active) MoE · 原生多模态 · <b>1M ctx</b> · MIT · HF 权重 · API <b>$0.075/$0.25 per M</b> · 内部编码接近 Opus 4.8 · <b>HN #1 (972)</b>  |  冷静点：编码对比为智谱自测基准；real-world token 成本与缓存效率社区有争议；「逼近 frontier」指编码单点，非全能力对齐
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 标准化与可信评测</span>
+  <h2 class="c-title">Agent 基础设施成熟：A2A 协议进入 150+ 机构生产部署，Tricentis 把 Agent 当测试对象给出 AgentScore</h2>
+  <p class="c-tags"><span class="chip b">A2A</span><span class="chip o">150+ 机构</span><span class="chip t">AgentScore</span><span class="chip">互操作</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <ul>
+      <li><strong>A2A 进入生产部署</strong>：Agent-to-Agent 协议已有 <em class="hl">150+ 机构支持并落地生产</em>（与 MCP 同栈中立治理），agent 间互操作从标准讨论走向实际调用。</li>
+      <li><strong>Tricentis 把 agent 当测试对象</strong>：Aida 自主探索 web / Windows 桌面应用找缺陷、无需现成测试脚本；<em class="hl">AgentScore</em> 按真实工作流概率评估 agent 行为；Release Risk Intelligence 标注发布级覆盖缺口。</li>
+      <li><strong>配套底座</strong>：AWS Bedrock AgentCore <strong>Payments GA</strong>（agent 自主付费）+ 持久运行时实例；Cloudflare <strong>WriteGuard</strong> 私测（细粒度写权限控制，不止读权限）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是「agent 从聊天机器人 + 脚本」走向「<strong>分布式系统平台</strong>」的关键补件：互操作（A2A 生产部署）解决「能不能一起干活」，可信评测（AgentScore）解决「敢不敢让它上岗」，支付 / 持久运行时 / 写护栏解决「能不能长期、可控地跑」。</p>
+    <p><strong>对 TEI 的映射</strong>：B 阶段具身平台 / OS 一旦进企业部署，最先撞上的就是 agent 互操作与可信准入——把 A2A（跨本体协作）与 AgentScore（可靠性准入指标）纳入平台设计，比事后补墙成本低一个数量级；与 08-27 治理主线（Agent Identity / Registry）形成互补：身份解决「谁」，AgentScore 解决「靠不靠谱」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  A2A <b>150+ 机构生产部署</b>（与 MCP 同栈中立治理） · Tricentis Aida / AgentScore / Release Risk Intelligence · AWS AgentCore Payments GA + 持久运行时 · Cloudflare WriteGuard 私测（写权限护栏）  |  冷静点：A2A 生产部署口径来自厂商 / 社区；AgentScore 为新指标、尚无统一标准；写护栏仍私测，跨厂商互操作依赖标准落地
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 主动化与新形态</span>
+  <h2 class="c-title">终端 Agent 主动化落地：Gemini Live 学会自主规划多步任务 + 网易 OpenPods 把 Agent 塞进耳机</h2>
+  <p class="c-tags"><span class="chip b">终端 Agent</span><span class="chip o">主动执行</span><span class="chip t">去屏幕化</span><span class="chip">耳机形态</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <ul>
+      <li><strong>Google Gemini Live 大升级</strong>：① <em class="hl">Agentic Tasks</em>——对话中自主规划并执行多步任务（跨应用查日历 / 邮件 / 建提醒 / 搜索），无需逐条指令；② <strong>Voice Inbox Control</strong>——语音批量管收件箱（「把未读广告邮件标已读归档」）；③ <strong>Personal Intelligence</strong>——本地设备学用户习惯后给个性化建议。</li>
+      <li><strong>网易有道 OpenPods</strong>（HICOOL 2026）：首款 AI Agent 耳机（iPhone 专属、<em class="hl">MFi 认证</em>），支持通话录音、实时翻译、自动生成会议纪要 / 待办；首发补贴价 <strong>1499 元</strong>，9/10 发售。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>终端 Agent 从「被动问答」走向「<strong>主动执行 + 常驻感知 + 新硬件形态</strong>」：Gemini Live 让助手自己规划多步任务、语音管信息流；OpenPods 把 Agent 入口从手机屏扩散到最贴身的耳机。呼应 08-27 面壁「三重跃迁 / 去屏幕化」，且给出更具体的产品落点。</p>
+    <p><strong>对 TEI 的映射</strong>：终端方向（A 阶段长期生态合作）的入口正在多元化——手机 / 耳机 / 常驻助手三路并进；C 阶段行业方案里「终端侧主动服务」不再是远期功能，Gemini Live 的 Agentic Tasks 范式可直接借鉴到行业助手的「主动巡检 / 主动提醒」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  Gemini Live：Agentic Tasks / Voice Inbox / Personal Intelligence（本地习惯） · 网易 OpenPods：<b>MFi</b> / 实时翻译 + 会议纪要 + 待办 / <b>1499 元</b> / 9·10 发售  |  冷静点：Personal Intelligence 本地习惯学习涉及隐私边界；耳机 Agent 续航 / 误触发 / 嘈杂环境识别待验证；主动执行仍需强人工监督闸
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身智能 · 量产版上岗 + 资本/人才双验证</span>
+  <h2 class="c-title">具身跨过「展示态」：智元量产版机器人入驻产线长期在岗，小鹏超 9 亿美元融资、AI 智能体人才需求同比 +244%</h2>
+  <p class="c-tags"><span class="chip b">具身量产</span><span class="chip o">智元</span><span class="chip t">小鹏 >$9亿</span><span class="chip">人才 +244%</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <ul>
+      <li><strong>浦东具身量产提速（8/27）</strong>：智元机器人代表队第二届世界人形机器人运动会以 <em class="hl">46 枚奖牌</em>登顶，参赛的精灵 G2 / 远征 A3 / 灵犀 X2 / OmniHand 灵巧手均为<em class="hl">量产落地版本、未做赛事特制改装</em>；其已正式入驻龙旗科技南昌工厂 3C 平板质检产线，长期稳定在岗，承担抓取入柜 / 多项目质检 / 成品分流，<em class="hl">累计完成上万件</em>作业、适配真实生产节拍，成产线「机器人工友」。</li>
+      <li><strong>小鹏机器人融资（8/24）</strong>：完成首轮私募股权融资，金额<em class="hl">超 9 亿美元</em>、投后估值超 63 亿美元，IDG / 高榕 / 腾讯 / 阿里入局，资本押注其「物理 AI 数据闭环」。</li>
+      <li><strong>人才需求（8/28）</strong>：AI 智能体开发岗位需求同比<em class="hl">激增 244%</em>，企业侧 agent 工程化落地人才争夺白热化。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身从「展示态」跨进「<strong>生产态</strong>」有了可复刻样本——智元量产版不做改装即上岗产线、与工人同线，证明「赛场技术 → 产业一线」的工程路径成立；小鹏 >$9 亿融资与人才 +244% 说明资本与人力正真实涌入「工程化落地」侧（不是演示侧）。</p>
+    <p><strong>对 TEI 的映射</strong>：C 阶段首发客户（制造业 / 工业）的「上下料、质检、分拣」通用场景，正从概念转常态，现金流可行性再添背书；但落地硬约束仍是数据闭环（小鹏押注的「物理 AI 数据闭环」）而非单点硬件——这与 08-27 信号 03（终端数据主权）、信号 04（实景实训万台级）共同构成 C→B→A→D 的现实地基。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  智元 <b>46 奖牌（量产版参赛）</b> / 龙旗南昌工厂 3C 质检长期在岗 / 累计上万件 / 小鹏 <b>>$9亿 · 估值 >$63亿</b> · IDG·高榕·腾讯·阿里 · AI 智能体人才需求 <b>同比 +244%</b>  |  冷静点：泛化能力不足仍是最大瓶颈（经济日报）；「能干活」依赖数据闭环而非单点硬件；家庭 / 医疗深度场景仍试点；融资热不等于商业化兑现
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：8 月中「模型之外那一层 / 可持久可信可跨本体」→ 8/25「自治三落地面（就地训练 / 就近推理 / 就绪量产）」→ 08-27「约束纪元四象限（本地化 / 货币化 / 规模化 / 治理化）」→ 今日「工程化兑现期（工作台化 / 开源逼近 frontier / 标准化与可信评测 / 终端主动化 / 具身量产上岗）」。叙事从「能力 → 底座 → 约束内运行」再推进到「在约束内真正交付」。</li>
+    <li><strong>交叉验证</strong>：01（阿里云官方 / 封面新闻）、02（智谱 Z.ai 官方 / Hacker News / 智源 aibase）、03（A2A 社区 / Tricentis 官方 / AWS / Cloudflare）、04（Google 官方 / 北京商报）、05（中国新闻网 / 钛媒体 / 热点中台）均为一级或权威信源，中高可信。</li>
+    <li><strong>与历史卡片零重复</strong>：本期补的是 8/27–8/28 增量——阿里 Qoder 工作台、智谱 GLM-5.3-Flash 开源、A2A 生产部署 + AgentScore 可信评测、Gemini Live 主动化 + OpenPods 耳机、智元量产版上岗 + 小鹏融资 + 人才 +244%。此前各期未覆盖（08-27 为约束纪元四件套，未涉及工作台化 / 开源 frontier / 标准化评测 / 终端主动化 / 具身量产上岗）。</li>
+    <li><strong>诚实边界</strong>：智谱编码对比为自测基准；AgentScore / A2A 生产部署口径来自厂商或社区；小鹏融资为已完成交割口径（钛媒体）；人才 +244% 为热点中台早间数据。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：当「会不会做」被解决、约束底座（08-27）就位之后，下一程真正稀缺的是<strong>「能不能交付」</strong>——工作台化、开源逼近 frontier、标准化与可信评测、终端主动化、具身量产上岗五件事同时就位，才是 AI coding / Agent / 终端 / 具身从演示态走进生产态的真地基。</div>
+  <div class="risk"><b>风险与未决</b>开源「逼近 frontier」多为单点编码基准、全能力对齐待验；A2A / AgentScore 仍处早期、互操作与评测标准未统一；终端主动化涉及隐私边界与人工监督闸；具身泛化能力与数据闭环仍是最大瓶颈，融资 / 人才热不等于商业化兑现。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.54</span>
+  <span>2026-08-28 10:01 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>

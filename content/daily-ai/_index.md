@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-28-1001.html">
+    <div class="da-card-date">2026-08-28 · 10:01</div>
+    <div class="da-card-main">单体能力叙事已就位，本周信号集体压向「工程化兑现」——把自治从演示 / 概念推进到可交付工作台、可互操作标准、可量化评测、可量产上岗 今天的五条信号锚定同一转向：能力（基座模型 + 08-27 的约束底座）已经就位，竞争焦点迁移到「能不能真正交付」。AI coding 侧，阿里把编程 Agent 做成产品级工作台 Qoder、智谱把开源模型 GLM-5.3-Flash 推到逼近闭源 frontier 且价格约 1/10；Agent 侧，A2A 协议进入 150+ 机构生产部署、Tricentis 把 agent 本身当测试对象给出 AgentScore，互操作与可信评测两端补齐；终端侧，Gemini Live 学会主动规划多步任务、网易把 Agent 塞进耳机，去屏幕化与新硬件形态落地；具身侧，智元量产版机器人不做赛事改装即入驻产线、小鹏超 9 亿美元融资、AI 智能体人才需求同比 +244%，资本与人力正真实涌入「工程化落地」侧。一句话：稀缺资源从「会不会做」换成「能不能交付」——这正是 TEI 路线 C→B→A→D 当下要亲手补的工程化地基。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-27-1000.html">
     <div class="da-card-date">2026-08-27 · 10:00</div>
     <div class="da-card-main">单体能力的叙事仗已经打完，竞争转向「能在约束内长期、可信、可结算地跑」的四件事：本地化（数据不出设备）、货币化（机器自己付钱）、规模化（进产线/进团队）、治理化（身份与审计） 今天的五条信号锚定同一个转向——Agent 不再比「谁更会做」，而比「谁能在边界内持续运转」。本地端，Perplexity 把整套 Agent 运行时（编排器 + 子代理 + harness）压到本地 DGX Spark，离云前先过 PII 分类器与用户授权，把「数据主权」做成默认；货币端，Cloudflare 用 Kitesurf（无头浏览器）+ Wallets（封顶额度委托）+ x402（稳定币按请求计费）给 Agent 配齐「自己浏览、自己付钱」闭环，20+ 公司已跑通 agent 发起支付；规模端，具身智能从 WRC 的「演示者」跨进工信部「作业模式」——年底百个以上高价值场景、万台级落地能力；治理端，GitHub Copilot 进 Slack/Teams、Gartner 称 45% FTSE100 关键职能由多智能体系统管理、Google Agent Identity 与 AWS AgentCore 注册表把 agent 身份与权限做成平台原语。一句话：稀缺资源从「能力」换成「约束内运行」的四件套——这正是终端 / 具身落地前要亲手补的底座。</div>
