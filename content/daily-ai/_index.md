@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-30-1730.html">
+    <div class="da-card-date">2026-08-30 · 17:30</div>
+    <div class="da-card-main">能力就位之后，稀缺资源从「能不能」下沉到「建 / 管 / 跑 / 训」四件工程层实事：① McKinsey 显示 32% 组织因 AI coding agents 放弃外购软件转自研（科技业 41%），coding agent 从提效工具升为技术主权变量；② Copilot 思考强度档 + 组织级 agent 与 Codex CLI 让扩展改写 MCP 结果，把战场压到 harness / 客户端控制面，Perplexity Portable Computer 把整套 agent 运行时压到本地；③ Uber 称 &gt;70% PR 已归属 AI agents、Hyr 上线 agent 雇 agent 市场，agent 进真实吞吐并长出承包商经济；④ SAP LeanIX 调研 98% 企业已部署 / 计划 agent 仅 13% 治理就绪、Gartner 估 Fortune 500 到 2028 年有 15 万+ agent，治理成董事会级议题；⑤ WALL-SS 世界模型 60 秒连续推理、虚实相关性 0.926，StreamPI 给 VLA 加时间维度，补上仿真到落地的训练基建。一句话：稀缺资源从「能力」换成「建 / 管 / 跑 / 训」四件套——正是 TEI C→B→A→D 当下要亲手补的底座。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-29-2048.html">
     <div class="da-card-date">2026-08-29 · 20:48</div>
     <div class="da-card-main">上午各期把「能不能交付」「交付后风险」讲完，今日五条信号一起把那张图推向「怎么规模用」 能力就位已成共识，竞争从「能不能」压到「怎么整合着用」：① 腾讯 Hy4 preview 不只是又一个开源大模型，而是把模型放进改进自身的闭环（参与训练方法 / 数据 / 评估 / 算子优化，吞吐 +31.8%）；② Temporal 报告给出硬数字——80.8% 工程师每天跑 Agent，一年涨了七成，JetBrains 生态里 Claude Code 已反超 Copilot，战场移到 Harness / 客户端；③ Skild S1 把具身训练成本从数周遥操压到「一段视频」，看一遍就会；④ 优必选中报 + 发改委确认具身从演示秀场切到真实作业与量利齐升；⑤ Anthropic MHS 给「agent 操控物理设备」一套统一驱动协议，像 Agent 世界的 USB。一句话：模型、Agent、具身、物理设备四层同时长出「可整合、可标准、可规模」的接口——这正是 TEI 把 C→B→A→D 串成一块地基的当下证据。</div>

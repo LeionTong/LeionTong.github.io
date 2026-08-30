@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-30 17:30 · 自建·可信·在端·可训：Agent 从「工具」跃迁为「生产要素」与「治理对象」</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.57</b></span>
+    <span>2026-08-30  17:30  GMT+8</span>
+  </div>
+
+  <h1>自建·可信·在端·可训：<em>Agent 从「工具」跃迁为「生产要素」与「治理对象」</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">32% · 70% · 98% · 15万 · 0.926</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">能力就位 → 建 / 管 / 跑 / 训</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">今天五条信号把稀缺资源从「能力演示」推到四件工程层实事</div>
+  <p>能力就位已是共识，竞争焦点迁移到「谁来建、怎么管、在哪跑、拿什么训」：① McKinsey《State of AI 2026》显示 <strong>32%</strong> 组织因 AI coding agents 放弃外购软件转自研（科技业 <strong>41%</strong>）——coding agent 从提效工具晋升为技术主权变量；② GitHub Copilot 8/28 更新（思考强度档 + 组织级自定义 agent + Git 内联评审）与 OpenAI Codex CLI v0.151（扩展可在 MCP 工具结果到达模型前 inspect/replace）把战场压到 <em class="hl">harness / 客户端控制面</em>，Perplexity Portable Computer 则把整套 agent 运行时压到本地 DGX Spark；③ Uber 称 <strong>&gt;70% PR</strong> 已归属本地/云端 AI agents，Hyr 上线 agent 雇 agent 的市场，SKILL.state 把长会话 token 降 <strong>~94%</strong>——agent 进入真实吞吐并长出承包商经济；④ SAP LeanIX 调研 <strong>98%</strong> 企业已部署/计划部署 agent，仅不到一半能说清自己有哪些，Gartner 预测 Fortune 500 到 2028 年有 <strong>15 万+</strong> agent、仅 13% 治理就绪——agent 泛滥成董事会级议题；⑤ 独立变量 WALL-SS 世界模型实现 <strong>60 秒</strong>连续推理、虚实成功率相关性 <strong>0.926</strong>，大晓×港大 StreamPI 给 VLA 加时间维度——仿真到落地的训练基建在补。一句话：<strong>稀缺资源从「能力」换成「建 / 管 / 跑 / 训」四件套</strong>——正是 TEI C→B→A→D 当下要亲手补的底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 02 — <b>建 / 管 / 跑 / 训 信号位置</b>  |  能力轴 × 工程层：客户自建（McKinsey）· 本机运行时（Copilot/Codex/Portable）· Agent 经济（Uber/Hyr）· 治理泛滥（SAP/Gartner）· 训练基建（WALL-SS/StreamPI）</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：五条信号分别落在客户自建、本机运行时、Agent 经济、治理泛滥、训练基建五个工程层">
+    <defs>
+      <marker id="bo7" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">CAPABILITY SETTLED / BUILD-GOVERN-RUN-TRAIN ERA / 2026-08-30</text>
+
+    <rect x="8" y="34" width="212" height="46" fill="rgba(29,78,120,.12)" stroke="#1d4e78" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">能力就位（往期已证）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.53/54/55/56 交付+风险+整合</text>
+
+    <rect x="652" y="34" width="212" height="46" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">建 / 管 / 跑 / 训（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">客户自建·本机·治理·训练场</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo7)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#1d4e78" font-weight="700">客户自建</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 战略</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#1d4e78">01 McKinsey 32%</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#1d4e78">科技业 41%</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">放弃外购转自研</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">Build-vs-Buy 改写</text>
+
+      <rect x="182" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">本机运行时</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Coding × 终端</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">02 Copilot/Codex·MCP</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">Portable 本地</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">思考档+组织 agent</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">数据主权默认</text>
+
+      <rect x="354" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">Agent 经济</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">生产速度</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 Uber &gt;70% PR</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">Hyr 雇 agent</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">SKILL.state −94%</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">承包商经济</text>
+
+      <rect x="526" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#1d4e78" font-weight="700">治理泛滥</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">董事会级</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#1d4e78">04 98% 已部署/计划</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#1d4e78">仅 13% 就绪</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">Fortune500 15万+</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">失控扩散</text>
+
+      <rect x="698" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">训练基建</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 WALL-SS 60s</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">虚实 0.926</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">StreamPI 时序 VLA</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">仿真→落地</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+    <text x="10" y="290" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">TEI 映射 →</text>
+    <text x="96" y="290" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C 客户自建改写入口 · A 本机可信运行时 · B agent 结算与治理原语 · D 世界模型训练场</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的能力就位 → 今日推进到的建 / 管 / 跑 / 训」。五点中，01 是 AI coding 改写 Build-vs-Buy（C 入口）；02 是 harness + 本机运行时（A 终端）；03/04 是 agent 进真实吞吐、长出承包商经济与治理议题（B 平台）；05 是具身训练基建（D 并购）。四件事共同把「能力」翻译成「客户自建、本机可信、可结算可治理、可训练」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">今日五条精选信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 战略自建</span>
+  <h2 class="c-title">McKinsey《State of AI 2026》：32% 组织因 AI coding agents 放弃外购软件转自研，科技业达 41%</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">战略</span><span class="chip t">自建能力</span><span class="chip">Build-vs-Buy</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>McKinsey《The state of AI in 2026》于 <strong>8 月 30 日</strong>发布，给出 coding agent 改写软件采购的判断：</p>
+    <ul>
+      <li><strong>Build-vs-Buy 被改写</strong>：近 <em class="hl">32%</em> 受访组织表示已因「可用 agentic coding 工具内部构建」而放弃购买一个或多个软件产品或功能；分行业看，科技业最高 <strong>41%</strong>，医疗支付方/提供方 39%，专业服务与能源材料各 38%，金融 36%。</li>
+      <li><strong>采用度扩散</strong>：近九成受访者在至少一项业务职能常规使用 AI；<em class="hl">44%</em> 报告 AI 在全组织规模化（去年 38%）；部署在 3+ 职能的比例 51%→56%；年营收 ≥10 亿美元企业中，规模化 agent 的占比 <em class="hl">27%→40%</em>，小企业持平 22%。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这把 coding agent 从「<strong>提效工具</strong>」晋升为「<strong>技术主权 / 自建能力</strong>」的战略变量——企业不再默认外购行业软件，而是用 agent 自建。稀缺资源从「买不买得起某款软件」转向「自己能不能用 agent 建出来」。</p>
+    <p><strong>对 TEI 的映射</strong>：C 阶段（行业方案 / 企业软件替代）既是威胁也是入口——客户会把「买行业软件」改成「用 agent 自建」，所以 C 行业方案要卖的不是替代某款软件，而是「帮客户把 agent 建进自己的业务流」。这正是 C→B 上行的真实落点。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/30 McKinsey《State of AI 2026》(ANI/LiveMint)</b> · 32% 组织放弃外购转自研 · 科技业 41% / 医疗 39% / 专业服务·能源 38% / 金融 36% · 89% 常规用 AI · 44% 全组织规模化(vs 38%) · ≥$1B 企业 agent 规模化 27%→40%  |  冷静点：样本为企业受访者、偏早期采用者；「放弃外购」为自报意向，未必等于已落地；占比是行业横截面非时间序列
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Coding × 终端 · 控制面 + 本机运行时</span>
+  <h2 class="c-title">Harness/客户端控制面成型：Copilot 思考强度档 + 组织级 agent，Codex CLI 让扩展改写 MCP 结果，Portable Computer 把运行时压到本机</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">终端智能</span><span class="chip t">Harness</span><span class="chip">MCP 信任层</span><span class="chip">本机运行时</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>三件事共同把战场从「模型能力」压到「harness / 客户端控制面 + 本机运行时」：</p>
+    <ul>
+      <li><strong>GitHub Copilot（VS）8/28 更新</strong>：思考强度档（Low/Medium/High 控制推理深度与 token 开销）；组织/企业级可发布自定义 agent 跨仓库复用；Git 内联代码评审（评审未提交改动/指定 commit）；全局模型策略 GA（8/26–9/1 逐步强制）；Grok 4.6 进 Copilot 做 agentic coding。</li>
+      <li><strong>OpenAI Codex CLI v0.151.0（8/29）</strong>：扩展可在 MCP 工具结果到达模型前 inspect/replace——在工具与推理回路之间插入<em class="hl">脱敏 / 缓存 / 重排</em>层；并修复 /cd 静默削弱沙箱、权限档案跨 TUI 保留等。</li>
+      <li><strong>Perplexity Portable Computer（8/25，与 NVIDIA）</strong>：把模型 + 编排器 + 子代理 + 工具 + 沙箱整套 agent 运行时压到本地 DGX Spark / RTX Linux；本机完成不耗额度，敏感数据默认留本机，仅用户授权才升云。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>思考强度档与组织级 agent 是「<strong>怎么管 agent</strong>」；MCP 结果过滤是 agent 与工具之间的<em class="hl">信任闸门</em>；本机运行时是「<strong>数据主权默认</strong>」。三者合起来，agent 工作从「云端黑箱」变成「可分级、可审计、可留本机」的运行环境。</p>
+    <p><strong>对 TEI 的映射</strong>：这正是 A 终端智能要补的「可在自有硬件跑、可信约束」底座雏形——自建平台要补的是控制面（权限/审计/沙箱）与本机运行时，而非又一个云端模型。MCP 结果过滤这类信任层，应列为终端/具身 agent 进产线前的准入项。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Copilot VS 8/28 更新(官方 Changelog)</b> · 思考强度档 + 组织级自定义 agent + Git 内联评审 + 全局模型策略 GA + Grok 4.6  ·  <b>Codex CLI v0.151.0(8/29)</b> · 扩展可改写 MCP 工具结果(脱敏/缓存/重排)  ·  <b>Perplexity Portable Computer(8/25)</b> · 本机 DGX Spark/RTX · 本机不耗额度·敏感数据留本机  |  冷静点：Copilot/Grok 为厂商口径；Codex MCP 改写是开发者钩子非开箱策略；Portable Computer 首发限 Linux、Windows 9 月，模型为 Qwen3.8 27B/PPLX 27B
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 生产速度 + Agent 经济</span>
+  <h2 class="c-title">Agent 进真实吞吐：Uber 称 &gt;70% PR 已归属 AI agents；Hyr 上线 agent 雇 agent 市场，SKILL.state 把长会话 token 降 ~94%</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">生产速度</span><span class="chip t">Agent 经济</span><span class="chip">长程</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>agent 从 demo 推进到真实吞吐，并长出「承包商经济」雏形：</p>
+    <ul>
+      <li><strong>Uber（据 AGI HUNT 8/30 日报）</strong>：超过 <em class="hl">70%</em> 的 pull request 如今归属于本地或云端 AI agents——agent 进入真实工程吞吐，而非演示。</li>
+      <li><strong>Hyr 市场</strong>：上线「agents hire other agents against a USD budget」——agent 作为承包商，在预算约束下雇佣其他 agent 完成任务，agent 间协作开始计价。</li>
+      <li><strong>Google SKILL.state（同日）</strong>：用结构化状态 + 最新观测替换全量 transcript，长会话 token 用量降约 <em class="hl">94%</em>；PILOT 论文让 agent 在同一次运行中持续反思、更新策略，对抗长程衰减。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>agent 不再只是「能干活」，而是进入真实吞吐（70% PR）并长出「<strong>承包商经济</strong>」雏形——agent 成为可计价、可外包的生产要素，而非一次性调用。SKILL.state 这类「丢掉历史、保留状态」的范式，直接砍掉长程 agent 的成本墙。</p>
+    <p><strong>对 TEI 的映射</strong>：B 平台的核心从「跑一个 agent」变成「编排 / 结算 / 可观测一群 agent」；SKILL.state 式的状态压缩是平台该内置的运行时能力——成本墙一破，长程 agent 才具备规模部署的经济性。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Uber 称 &gt;70% PR 归属 AI agents</b>(AGI HUNT 8/30 聚合，待一手源) · Hyr agent 雇 agent 市场(USD 预算) · Google SKILL.state 长会话 token −94% · PILOT 同运行内策略更新  |  冷静点：Uber 70% 为聚合转述、非官方财报口径；Hyr 为新兴市场、规模待验证；SKILL.state/PILOT 为论文/工程笔记、待生产复现
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  AI Agent · 治理成董事会级</span>
+  <h2 class="c-title">Agent 泛滥成董事会级议题：SAP LeanIX 调研 98% 企业已部署/计划 agent，仅不到一半说清自己有哪些；Gartner 估 Fortune 500 到 2028 年有 15 万+ agent</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">治理</span><span class="chip t">proliferation</span><span class="chip">董事会级</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>agent 规模化的账单落在治理，而非模型能力：</p>
+    <ul>
+      <li><strong>SAP LeanIX《Agentic AI》调研</strong>：<em class="hl">98%</em> 企业已部署或计划部署 AI agents，但<em class="hl">不到一半</em>能清晰掌握自己到底有哪些 agent 在运行；仅 <strong>13%</strong> 认为治理就绪。</li>
+      <li><strong>Gartner</strong>：典型 Fortune 500 到 2028 年将拥有 <em class="hl">15 万+</em> AI agents；失控扩散（agent proliferation）带来越权、删数据、不可逆财务操作等风险；CIO 被警告「封堵/严限」不可持续，会逼出 shadow AI。</li>
+      <li><strong>背景呼应</strong>：8/27 Salesforce×Anthropic「Claudeforce」、8/26 OpenAI-Hugging Face 700 agent 自主入侵事件——agent 真实风险已从哲学命题落到时间差。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>「<strong>agent 治理平台</strong>」成为新品类（身份/权限/审计/退役）。这与 TEI 08-27/28 可信底座主线一致：B 平台必须内建治理原语，否则 proliferation 即风险敞口。</p>
+    <p><strong>对 TEI 的映射</strong>：终端/具身 agent 进产线前，先要把「谁能建、谁授权、谁审计、谁退役」做成平台能力，否则万台级部署只会放大失控——治理不是合规负担，是规模化的前提。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>SAP LeanIX Agentic AI 调研</b> · 98% 已部署/计划 · &lt;50% 说清有哪些 · 仅 13% 治理就绪  ·  <b>Gartner</b> · 典型 Fortune 500 到 2028 年 15 万+ agents · agent proliferation 风险(越权/删数据/不可逆财务)  |  冷静点：SAP 调研为其自家治理产品背书、口径偏营销；Gartner 15 万为预测非实测；「13% 就绪」为自评
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身 · 训练基建（世界模型 + 时序 VLA）</span>
+  <h2 class="c-title">仿真到落地的训练基建补位：独立变量 WALL-SS 世界模型 60 秒连续推理、虚实相关性 0.926；大晓×港大 StreamPI 给 VLA 加时间维度</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">世界模型</span><span class="chip t">VLA</span><span class="chip">训练基建</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>两条 8/29 发布共同补「仿真→落地」的训练基建：</p>
+    <ul>
+      <li><strong>独立变量（Independent Variable）WALL-SS 世界模型</strong>：next-scale 自回归架构，攻克因果一致 / 长程推理 / 虚实一致三大瓶颈，实现 <em class="hl">60 秒</em>连续推理，虚拟与现实成功率相关性达 <strong>0.926</strong>——把仿真世界变成可验证的机器人训练场。</li>
+      <li><strong>大晓机器人×香港大学 StreamPI</strong>：为 VLA 模型加入时间维度（流式时序建模），让系统记住过往状态、理解变化，显著提升真实任务成功率，推动具身从「空间智能」迈向「连续物理智能」。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>世界模型 + 时序 VLA 是把「<strong>仿真→落地</strong>」距离压短的关键基建：前者给机器人可验证的训练场（虚实相关性 0.926 意味着仿真可信），后者给连续物理智能（不再只看一帧）。</p>
+    <p><strong>对 TEI 的映射</strong>：D 并购标的——世界模型/具身大脑类（含 WALL-SS、StreamPI 范式）是评估被投/合作对象的硬指标；也呼应 C→B 上行所需的「少示教、快部署」数据体系——训练基建成熟，量产才不会被数据卡脖子。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>独立变量 WALL-SS 世界模型(next-scale 自回归)</b> · 60 秒连续推理 · 虚拟/现实成功率相关性 0.926  ·  <b>大晓×港大 StreamPI</b> · VLA + 时间维度(流式时序)  |  冷静点：WALL-SS 相关性为厂商/论文口径、待独立复现；StreamPI 为研究发布、工业产线适配待验证；两者均闭源/早期，不代表即插即用
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.56「工程化整合纪元（怎么规模用）」→ 本日 NO.57「自建·可信·在端·可训（建 / 管 / 跑 / 训）」。叙事从「四层长出标准接口」再推进到「客户自建改写入口、本机运行时落地、agent 结算与治理、世界模型训练场」——稀缺资源从能力演示进一步下沉到四件工程层实事。</li>
+    <li><strong>交叉验证</strong>：01（McKinsey / LiveMint ANI 8/30）、02（GitHub Changelog / OpenAI Codex CLI / Perplexity·NVIDIA 官方）、03（AGI HUNT 8/30 聚合 + Google 工程笔记）、04（SAP LeanIX / Gartner 公开研判 + 8/26–27 事件）、05（GeekPark 8/29 转述独立变量 / 大晓）均为一级或权威转述，中高可信；03/05 含聚合与论文口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 8/28–30 增量——McKinsey 年度调研新发、Copilot/Codex 8/28–29 更新、Uber/Hyr/SKILL.state 8/30 新信号、SAP/Gartner 治理新研判、WALL-SS/StreamPI 8/29 新模型。与 NO.56（Hy4/Skild/Temporal/优必选/MHS）、NO.55（GLM-5.3/OpenAI-HF/Granite/AgentZ）完全分开。</li>
+    <li><strong>诚实边界</strong>：02 Copilot/Grok、03 Uber 70% / Hyr、05 WALL-SS 相关性多为厂商或聚合口径、待独立复现；McKinsey 32% 为自报意向；SAP 调研偏营销、Gartner 15 万为预测。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：能力就位之后，竞争压到「建 / 管 / 跑 / 训」——McKinsey 显示客户因 coding agent 转自建（C 入口被改写）、Copilot/Codex/Portable 把 harness 与本机运行时做成控制面（A 终端底座）、Uber/Hyr 让 agent 进入真实吞吐并长出承包商经济（B 平台结算）、SAP/Gartner 把 agent 治理推上董事会（B 治理原语）、WALL-SS/StreamPI 补上仿真到落地的训练基建（D 并购标的）。四件事共同把「能力」翻译成「客户自建、本机可信、可结算可治理、可训练」的底座——正是 TEI C→B→A→D 当下要亲手补的。</div>
+  <div class="risk"><b>风险与未决</b>多项为厂商 / 聚合 / 论文口径、待独立复现（Copilot/Grok、Uber 70%、WALL-SS 相关性）；McKinsey 32% 为自报意向非落地；SAP 调研偏营销、Gartner 15 万为预测；Portable Computer 首发限 Linux、Windows 9 月；世界模型 / 时序 VLA 仍闭源早期，不代表即插即用。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.57</span>
+  <span>2026-08-30 17:30 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>
