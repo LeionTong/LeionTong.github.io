@@ -6,6 +6,11 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告（含信号星图与逐条解读）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-08-31-1000.html">
+    <div class="da-card-date">2026-08-31 · 10:00</div>
+    <div class="da-card-main">能力就位之后，稀缺资源进一步下沉到「被委托、被使用、真上岗」——自治体（Agent 与机器人）周末集体跨过「演示 → 受托 → 上岗」三道坎：① OpenAI 测试 Codex「持久模式」，复杂任务最长连续运行 25 小时、跨会话保存上下文、自主规划子任务，coding agent 从「一轮对话」变「常驻委托对象」；② JetBrains《2026 开发者生态调查》显示 90% 专业开发者每周用 AI coding agent、68% 每天，Claude Code 七个月 18%→39%（美国 47%）反超 Copilot（21%），竞争焦点从「AI IDE 好用」转向「agent 能否把任务做完」；③ 华为云 828 企业节：智果 AgentArts 端到端任务完成率 80%、码道 CodeArts 升级 Agent Team 内置 16 个专家智能体，企业 agent 从「试了试」进入「装进真实生产系统」；④ 摩盖 MOG V1 AI 工作手机 8/26 首批交付，端侧 VLM + 云端决策协同的 Sales Agent 跨 App 读屏/执行，终端原生 agent 从概念走到货架；⑤ 第二届世界人形机器人运动会全自主（去遥控）破人类纪录（100m 9.39s、高跳 2.88m、400m 38.15s、1500m 2:21.63），H1 中国出货 4 万+ 占全球 97%、工信部估全年 10 万+，王兴兴量化人形 ChatGPT 时刻＝80% 陌生场景完成 80% 任务，浙江均普机器人赴欧车企产线、2000 台服装场景批量交付、特定场景 99% 成功率。一句话：稀缺资源从「能不能演示」换到「能不能被委托、能不能真上岗」——正是 TEI C→B→A→D 当下要亲手补的「受托 / 上岗」底座。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-08-30-1730.html">
     <div class="da-card-date">2026-08-30 · 17:30</div>
     <div class="da-card-main">能力就位之后，稀缺资源从「能不能」下沉到「建 / 管 / 跑 / 训」四件工程层实事：① McKinsey 显示 32% 组织因 AI coding agents 放弃外购软件转自研（科技业 41%），coding agent 从提效工具升为技术主权变量；② Copilot 思考强度档 + 组织级 agent 与 Codex CLI 让扩展改写 MCP 结果，把战场压到 harness / 客户端控制面，Perplexity Portable Computer 把整套 agent 运行时压到本地；③ Uber 称 &gt;70% PR 已归属 AI agents、Hyr 上线 agent 雇 agent 市场，agent 进真实吞吐并长出承包商经济；④ SAP LeanIX 调研 98% 企业已部署 / 计划 agent 仅 13% 治理就绪、Gartner 估 Fortune 500 到 2028 年有 15 万+ agent，治理成董事会级议题；⑤ WALL-SS 世界模型 60 秒连续推理、虚实相关性 0.926，StreamPI 给 VLA 加时间维度，补上仿真到落地的训练基建。一句话：稀缺资源从「能力」换成「建 / 管 / 跑 / 训」四件套——正是 TEI C→B→A→D 当下要亲手补的底座。</div>
