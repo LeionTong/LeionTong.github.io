@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Daily Github · 2026-09-02 14:34 · 五维加权筛选：商业化 / 规模化 / 边际成本 / 验证速度 / 成熟度</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap' rel='stylesheet'>
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.mh-sub{font-size:15.6px;color:var(--ink-soft);margin:0;line-height:1.9}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 14px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:5px}
+.blk p{margin:0 0 9px;font-size:15.2px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+code{font-family:'Courier Prime',ui-monospace,monospace;font-size:12.6px;
+  background:rgba(29,78,120,.07);border:1px solid var(--rule-soft);
+  padding:2px 6px;border-radius:3px;color:var(--blue-soft);word-break:break-all}
+.run{margin:0 0 16px;padding:12px 15px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',ui-monospace,monospace;
+  font-size:12.8px;line-height:1.85;color:var(--ink-soft);word-break:break-all}
+.run b{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+.risk{margin:0 0 16px;padding:13px 16px;border:1px dashed var(--rule);
+  font-size:14.3px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:4px;
+  padding:11px 14px;border:1px solid var(--rule);background:rgba(255,255,255,.5)}
+.sc-item{display:flex;align-items:center;gap:7px}
+.sc-k{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-faint)}
+.pips{display:inline-flex;gap:3px}
+.pip{width:9px;height:9px;border:1px solid var(--rule);background:transparent}
+.pip.on{background:var(--blue);border-color:var(--blue)}
+.sc-total{margin-left:auto;font-family:'Courier Prime',monospace;font-size:15px;
+  font-weight:700;color:var(--blue)}
+.sc-total span{font-size:10px;letter-spacing:.16em;color:var(--ink-faint);font-weight:400}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.skip{margin-top:30px;padding:22px 24px;border:1px dashed var(--ink);
+  background:rgba(255,255,255,.42)}
+.skip h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;font-weight:700;
+  color:var(--ink);margin:0 0 12px}
+.skip li{margin-bottom:11px;font-size:15px;color:var(--ink);list-style:none;
+  padding-left:0;border-left:3px solid var(--ochre);padding-left:13px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross,.skip{padding:22px 20px}
+  .c-title{font-size:22px}
+  .sc-total{margin-left:0}
+}
+@media print{
+  body{background:#fff;padding:0;font-size:11.5pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:none}
+  .masthead:before{display:none}
+  .lede,.cross,.skip{box-shadow:none;break-inside:avoid}
+  .card{break-inside:avoid}
+  .run{background:none}
+}
+</style>
+</head>
+<body>
+<div class='sheet'>
+
+<div class='masthead'>
+  <div class='mh-top'>
+    <span>Leion · <b>Daily Github · NO.01</b></span>
+    <span>2026-09-02 &nbsp; 14:34 &nbsp; GMT+8</span>
+  </div>
+  <h1>今日五仓：<em>把 AI 的账算清楚</em></h1>
+  <p class='mh-sub'>五维加权筛选（商业化 30% / 规模化 25% / 边际成本 20% / 验证速度 15% / 成熟度 10%），加权 ≥ 3.5 方可入册。主流 2 条 + 小众 3 条，全部经 GitHub REST API 逐仓核验。</p>
+  <div class='spec-strip'>
+    <div class='spec-cell'><span class='spec-k'>数据源</span><span class='spec-v'>Trending · Search API · HN · REST 核验</span></div>
+    <div class='spec-cell'><span class='spec-k'>时间窗</span><span class='spec-v'>近 7 天增速 / 近 30 天有提交</span></div>
+    <div class='spec-cell'><span class='spec-k'>一票否决</span><span class='spec-v'>停更 6 月 · 禁商用 · 重硬件 · 强本地化</span></div>
+    <div class='spec-cell'><span class='spec-k'>本期入册</span><span class='spec-v'>5 / 加权 4.2 – 4.6</span></div>
+  </div>
+</div>
+
+<div class='lede'>
+  <span class='tag'>今日首选 · Workweave Router</span>
+  <div class='lede-title'>一条命令能验完，且切的是账上已经存在的钱</div>
+  <p>加权 <strong>4.6</strong> 与 OpenSEO 并列最高，但它是唯一一条命令即可验证的项——<code>npx @workweave/router --claude</code> 直接改写 Claude Code 配置，30 分钟内能看到路由前后的成本对比。它切的是企业账上已经存在、且正在失控的 LLM 开支，ROI 可量化到百分比，销售话术最短。注意 <strong>ELv2 锁死了转售托管</strong>这条路，只能做内部降本或咨询交付。</p>
+</div>
+
+<div class='sec-head'><span class='n'>SECTION 01</span><span class='t'>主流两条 · 拥挤度与差异化切口</span></div>
+
+<div class='card'>
+  <span class='c-num'>No.01 · 主流 · <b>加权 4.6</b></span>
+  <h2 class='c-title'>OpenSEO</h2>
+  <div class='c-tags'>
+    <span class='chip b'>every-app/open-seo</span>
+    <span class='chip'>⭐ 16,201</span>
+    <span class='chip o'>本周 +2,625</span>
+    <span class='chip'>TypeScript</span>
+    <span class='chip t'>MIT</span>
+    <span class='chip'>最近提交 2026-09-02</span>
+  </div>
+  <div class='blk'><span class='blk-k'>一句话定位</span><p>开源版 Semrush / Ahrefs，自带 MCP 与 Agent Skills。</p></div>
+  <div class='blk'><span class='blk-k'>解决什么痛点</span><p>SEO 套件年费高、功能臃肿，中小团队只为 20% 的功能付全价。</p></div>
+  <div class='blk'><span class='blk-k'>谁会付钱 / 怎么收费</span><p>官方托管 <em class='hl'>$10/月</em> 已验证付费；自托管需自带 DataForSEO key 按量计费，第三方可收「代部署 + 代运营」费。</p></div>
+  <div class='blk'><span class='blk-k'>规模化判断</span><p>关键词研究 / 排名追踪 / 外链 / 站点审计跨行业通用，Docker 一键交付，可标准化。</p></div>
+  <div class='blk'><span class='blk-k'>边际成本</span><p><strong>低</strong>。纯软件，API 成本由客户自付，新增客户只多一个容器。</p></div>
+  <div class='run'><b>快速验证 · ≤ 30 分钟</b>git clone https://github.com/every-app/open-seo &amp;&amp; cd open-seo &amp;&amp; docker compose up<br>（先备 DataForSEO API key，见 docs/DATAFORSEO_API_KEY.md）</div>
+  <div class='risk'><b>风险与坑</b>SEO 数据强依赖 DataForSEO，成本不可绕过；官方 $10/月托管压制独立收费空间。</div>
+  <div class='score'>
+    <span class='sc-item'><span class='sc-k'>商业化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>规模化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>边际成本</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>验证速度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>成熟度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-total'>4.6 <span>/ 5.0</span></span>
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>No.02 · 主流 · <b>加权 4.3</b></span>
+  <h2 class='c-title'>WeKnora</h2>
+  <div class='c-tags'>
+    <span class='chip b'>Tencent/WeKnora</span>
+    <span class='chip'>⭐ 21,151</span>
+    <span class='chip o'>本周 +529</span>
+    <span class='chip'>Go</span>
+    <span class='chip t'>MIT（第三方组件除外）</span>
+    <span class='chip'>最近提交 2026-09-02</span>
+  </div>
+  <div class='blk'><span class='blk-k'>一句话定位</span><p>企业级文档 RAG 知识框架，含 ReAct Agent 与自维护 Wiki。</p></div>
+  <div class='blk'><span class='blk-k'>解决什么痛点</span><p>企业文档问答要同时搞定解析、切分、检索、权限、审计，自建周期长、商用 SaaS 按席位贵。</p></div>
+  <div class='blk'><span class='blk-k'>谁会付钱 / 怎么收费</span><p>制造业、政企、金融的知识库与智能问答预算；本体免费，收费落在<em class='hl'>私有化部署、数据源对接与调优</em>。</p></div>
+  <div class='blk'><span class='blk-k'>规模化判断</span><p>多租户、RBAC、审计日志、IM 与 MCP 接入已内置，文档问答需求跨行业通用。</p></div>
+  <div class='blk'><span class='blk-k'>边际成本</span><p><strong>中</strong>。纯软件且多租户就绪，但每客户仍需向量库与解析链路的部署调优。</p></div>
+  <div class='run'><b>快速验证 · ≤ 30 分钟</b>git clone https://github.com/Tencent/WeKnora &amp;&amp; cd WeKnora &amp;&amp; docker compose up -d<br>（按 README「Getting Started」填入模型 API 即可建第一个知识库）</div>
+  <div class='risk'><b>风险与坑</b>644 个 open issue，国产模型与解析后端组合多、坑分散；腾讯自有云产品可能存在边界重叠。</div>
+  <div class='score'>
+    <span class='sc-item'><span class='sc-k'>商业化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>规模化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>边际成本</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>验证速度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>成熟度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-total'>4.3 <span>/ 5.0</span></span>
+  </div>
+</div>
+
+<div class='sec-head'><span class='n'>SECTION 02</span><span class='t'>小众三条 · 窄痛点与高付费意愿</span></div>
+
+<div class='card'>
+  <span class='c-num'>No.03 · 小众 · <b>加权 4.6</b></span>
+  <h2 class='c-title'>Workweave Router</h2>
+  <div class='c-tags'>
+    <span class='chip b'>workweave/router</span>
+    <span class='chip'>⭐ 3,553</span>
+    <span class='chip o'>本周 +2,510</span>
+    <span class='chip'>Go</span>
+    <span class='chip t'>Elastic License 2.0</span>
+    <span class='chip'>最近提交 2026-09-02</span>
+  </div>
+  <div class='blk'><span class='blk-k'>一句话定位</span><p>按每个请求路由到最优模型的代理，宣称降 LLM 成本 <em class='hl'>40–70%</em>。</p></div>
+  <div class='blk'><span class='blk-k'>解决什么痛点</span><p>Claude Code / Codex 全面订阅化后账单失控，却没人知道哪些请求该走便宜模型。</p></div>
+  <div class='blk'><span class='blk-k'>谁会付钱 / 怎么收费</span><p>AI 编码重度团队与 AI 应用公司，按<em class='hl'>节省额分成</em>或咨询交付；上游 Weave 已有 Robinhood、PostHog 等客户。</p></div>
+  <div class='blk'><span class='blk-k'>规模化判断</span><p>改一个 endpoint 即接入，适配 Anthropic / OpenAI / Gemini 协议，需求跨行业通用。</p></div>
+  <div class='blk'><span class='blk-k'>边际成本</span><p><strong>低</strong>。Go 单二进制代理，无硬件、无重人力，OTLP 可观测开箱可用。</p></div>
+  <div class='run'><b>快速验证 · ≤ 30 分钟</b>npx @workweave/router --claude<br>（交互式选工具与作用域，自动改写配置；自托管用 --local）</div>
+  <div class='risk'><b>风险与坑</b>ELv2 明确禁止转售托管服务，只能做内部降本或咨询交付；与 OpenRouter、vLLM semantic-router 正面重叠。</div>
+  <div class='score'>
+    <span class='sc-item'><span class='sc-k'>商业化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>规模化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>边际成本</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>验证速度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>成熟度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-total'>4.6 <span>/ 5.0</span></span>
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>No.04 · 小众 · <b>加权 4.2</b></span>
+  <h2 class='c-title'>AgentField</h2>
+  <div class='c-tags'>
+    <span class='chip b'>Agent-Field/agentfield</span>
+    <span class='chip'>⭐ 2,545</span>
+    <span class='chip'>近 30 天 未获取到</span>
+    <span class='chip'>Go</span>
+    <span class='chip t'>Apache-2.0</span>
+    <span class='chip'>最近提交 2026-09-01</span>
+  </div>
+  <div class='blk'><span class='blk-k'>一句话定位</span><p>把 Agent 变成可被任何服务调用的 API 的开源控制平面。</p></div>
+  <div class='blk'><span class='blk-k'>解决什么痛点</span><p>Agent 从 demo 走向生产时缺路由、重试、状态、身份、审计，团队只能自己糊胶水代码。</p></div>
+  <div class='blk'><span class='blk-k'>谁会付钱 / 怎么收费</span><p>官方提供 <em class='hl'>Enterprise 版</em>（审计、溯源、组织边界，需预约、无公开价）；第三方可做行业 Agent 底座交付。</p></div>
+  <div class='blk'><span class='blk-k'>规模化判断</span><p>Agent 后端属通用基础设施，但需求成立前提是客户已有 Agent，早期需一定集成。</p></div>
+  <div class='blk'><span class='blk-k'>边际成本</span><p><strong>中低</strong>。控制平面纯软件，但客户环境对接与治理配置仍有实施量。</p></div>
+  <div class='run'><b>快速验证 · ≤ 30 分钟</b>curl -fsSL https://agentfield.ai/install.sh | bash<br>（随后在 Claude Code / Codex 中粘贴 /agentfield Build a claims processor with risk scoring...）</div>
+  <div class='risk'><b>风险与坑</b>版本号仍为 0.1.x-rc，API 不稳定；与 LangGraph、Temporal、Agent 网关赛道拥挤，独立切口在「治理与证明」。</div>
+  <div class='score'>
+    <span class='sc-item'><span class='sc-k'>商业化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>规模化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>边际成本</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>验证速度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>成熟度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-total'>4.2 <span>/ 5.0</span></span>
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>No.05 · 小众 · <b>加权 4.2</b></span>
+  <h2 class='c-title'>OpenOutreach</h2>
+  <div class='c-tags'>
+    <span class='chip b'>eracle/OpenOutreach</span>
+    <span class='chip'>⭐ 2,877</span>
+    <span class='chip'>近 30 天 未获取到</span>
+    <span class='chip'>Python</span>
+    <span class='chip t'>GPL-3.0</span>
+    <span class='chip'>最近提交 2026-09-01</span>
+  </div>
+  <div class='blk'><span class='blk-k'>一句话定位</span><p>自托管 B2B 线索挖掘 Agent，从一句话产品描述到合格线索并发出邮件。</p></div>
+  <div class='blk'><span class='blk-k'>解决什么痛点</span><p>Apollo / Clay 订阅加 SDR 人力成本高，多数团队只需要「小批量、高质量、可解释」的线索。</p></div>
+  <div class='blk'><span class='blk-k'>谁会付钱 / 怎么收费</span><p>B2B 中小企业的获客预算；可收<em class='hl'>「线索代运营」月费</em>，模型与邮箱数据 key 由客户自带。</p></div>
+  <div class='blk'><span class='blk-k'>规模化判断</span><p>获客需求跨行业通用，但每个客户都要调 ICP 与话术，属轻度定制而非纯标准化。</p></div>
+  <div class='blk'><span class='blk-k'>边际成本</span><p><strong>低</strong>。软件零成本，但邮箱富化按条计费（BetterContact 1 credit/条），随用量线性增长。</p></div>
+  <div class='run'><b>快速验证 · ≤ 30 分钟</b>uv tool install openoutreach &amp;&amp; openoutreach find 10<br>（find 不消耗额度，注册 BetterContact 送 40 credits）</div>
+  <div class='risk'><b>风险与坑</b>GPL-3.0，对外交付需开源改动；仓库创建于 2016-10-07 疑为旧仓改造，且无正式 release。</div>
+  <div class='score'>
+    <span class='sc-item'><span class='sc-k'>商业化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>规模化</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>边际成本</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>验证速度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i></span></span>
+    <span class='sc-item'><span class='sc-k'>成熟度</span><span class='pips'><i class='pip on'></i><i class='pip on'></i><i class='pip on'></i><i class='pip'></i><i class='pip'></i></span></span>
+    <span class='sc-total'>4.2 <span>/ 5.0</span></span>
+  </div>
+</div>
+
+<div class='cross'>
+  <h3>组合观察 · 今日五仓共同反映的趋势信号</h3>
+  <ol>
+    <li>五条里有四条落在<strong>「AI 运行期的成本与治理层」</strong>——模型路由、Agent 用量与花费审计、Agent 控制平面、线索获取成本，说明 AI 商业化的主战场已从「能不能做」转向「这笔账划不划算」。</li>
+    <li>全部属于<strong>「替代已有付费 SaaS」</strong>型项目（Semrush/Ahrefs、Glean 类知识库、OpenRouter/E2B、Apollo/Clay），差异化切口不在功能多寡，而在「自带钥匙 + 自托管」带来的成本差与数据主权。</li>
+    <li>具身智能与机器人方向当日无合格标的：入榜的要么是论文配套代码与 awesome 清单，要么核心价值必须依赖机器人本体才能验证（如 OpenMind/OM1 的机器人 HAL，2,901★），触发重硬件一票否决。</li>
+  </ol>
+  <div class='verdict'><strong>一句话结论：</strong>这一批项目的共同卖点不是「AI 能干什么」，而是「把已经在烧的钱省下来、管起来」。对 TEI 的 C 阶段行业方案而言，成本可量化是拿单最短的话术路径。</div>
+</div>
+
+<div class='skip'>
+  <h3>暂不建议碰 · 当日高热但不合规</h3>
+  <ul style='margin:0;padding:0;list-style:none'>
+    <li><strong>tt-a1i/archify</strong>（42,403★，本周 +25,469，当日增速第一）——交付物是给编码 Agent 用的 skill 提示词与图表模板，无独立工程化代码、无护城河，fork 一次即同质化，且无收费路径。</li>
+    <li><strong>freestylefly/awesome-gpt-image-2</strong>（27,074★，本周 +10,669）——图像提示词模板库，本质是内容集合而非可交付产品，边际成本虽低但商业化清晰度不足。</li>
+  </ul>
+</div>
+
+<footer>
+  <span>Leion'Log · Daily Github · NO.01</span>
+  <span>数据口径：GitHub Trending / Search API / HN Algolia / REST 逐仓核验 · 2026-09-02</span>
+</footer>
+
+</div>
+</body>
+</html>
