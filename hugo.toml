@@ -1,5 +1,5 @@
 baseURL = 'https://leiontong.github.io/'
-languageCode = 'zh-CN'
+locale = 'zh-CN'
 title = "Leion'Log"
 theme = 'PaperMod'
 
@@ -54,6 +54,12 @@ theme = 'PaperMod'
   name = 'Daily AI'
   url = '/daily-ai/'
   weight = 15
+
+[[menu.main]]
+  identifier = 'daily-github'
+  name = 'Daily Github'
+  url = '/daily-github/'
+  weight = 18
 
 [[menu.main]]
   identifier = 'archive'
