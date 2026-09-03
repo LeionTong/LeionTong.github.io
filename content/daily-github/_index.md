@@ -8,6 +8,11 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分条与逐条拆解）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-03-1000.html">
+    <div class="da-card-date">2026-09-03 · 10:00 · NO.02</div>
+    <div class="da-card-main">今日五条里有四条在做同一件事——把原本按月付费的能力搬回自己可控的机房。<b>Needle 2</b>（10,109★，月增 +6,771）14MB 端侧工具调用模型、28MB 内存跑完整会话，一条 <code>pip install cactus-needle</code> 即可验证，正对端侧与机器人方向——今日首选；<b>VoiceStudio</b>（14,860★，月增 +5,159）全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎、646 语言；<b>Laminar</b>（3,219★，YC S24）Agent 专用开源可观测，托管云收费、自托管免费；<b>Tracecat</b>（3,784★）开源 SOAR，替代 Tines/Torq/XSOAR；<b>Utopia</b>（2,372★，Apache-2.0）带时间感知与本体层的企业知识底座，离线部署数据不出网。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-02-1434.html">
     <div class="da-card-date">2026-09-02 · 14:34 · NO.01</div>
     <div class="da-card-main">首期五仓，共同卖点不是「AI 能干什么」，而是「把已经在烧的钱省下来、管起来」。<b>Workweave Router</b>（3,553★，本周 +2,510）按请求路由最优模型、宣称降 LLM 成本 40–70%，一条 <code>npx @workweave/router --claude</code> 即可验证，切成数可量化——今日首选；<b>OpenSEO</b>（16,201★）开源版 Semrush/Ahrefs，官方 $10/月托管已验证付费；<b>WeKnora</b>（21,151★）腾讯企业级文档 RAG 框架，多租户 + RBAC + 审计内置；<b>AgentField</b>（2,545★）把 Agent 变成可调用 API 的控制平面，切口在治理与证明；<b>OpenOutreach</b>（2,877★）自托管 B2B 线索挖掘 Agent，替代 Apollo/Clay。</div>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Daily Github · 2026-09-03 10:00 · 五维加权筛选：商业化 / 规模化 / 边际成本 / 验证速度 / 成熟度</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap' rel='stylesheet'>
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.mh-sub{font-size:15.6px;color:var(--ink-soft);margin:0;line-height:1.9}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+
+.lede{margin:0 0 30px;padding:18px 22px;border-left:3px solid var(--blue);
+  background:rgba(29,78,120,.05);font-size:15px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+
+.entry{position:relative;margin:0 0 42px;padding:26px 26px 22px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.52);
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+.entry:before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-1.4deg);
+  width:86px;height:19px;background:var(--tape);border-left:1px dashed rgba(27,39,51,.16);
+  border-right:1px dashed rgba(27,39,51,.16)}
+.entry-no{position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:52px;line-height:1;color:rgba(29,78,120,.13);font-weight:700}
+.e-head{border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:16px}
+.e-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:31px;font-weight:700;margin:0 0 6px;color:var(--ink)}
+.e-name span{font-family:'Courier Prime',monospace;font-size:14px;font-weight:400;color:var(--blue-soft);letter-spacing:.04em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin:8px 0 0}
+.tag{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.08em;
+  padding:3px 8px;border:1px solid var(--rule);background:rgba(255,255,255,.6);color:var(--ink-soft)}
+.tag.star{color:var(--ochre);border-color:rgba(164,68,42,.35);background:rgba(164,68,42,.06)}
+.tag.up{color:var(--teal);border-color:rgba(47,107,107,.35);background:rgba(47,107,107,.07)}
+.e-line{font-size:15.2px;margin:0 0 10px;color:var(--ink-soft)}
+.e-line b{display:inline-block;min-width:5.6em;color:var(--ink);font-weight:700;
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.e-line em{font-style:normal;color:var(--ink)}
+pre{font-family:'Courier Prime',ui-monospace,monospace;font-size:13px;line-height:1.7;
+  background:rgba(27,39,51,.05);border:1px solid var(--rule-soft);border-left:3px solid var(--teal);
+  padding:12px 14px;margin:8px 0 4px;overflow-x:auto;color:var(--ink)}
+code{font-family:'Courier Prime',ui-monospace,monospace;font-size:13px}
+p code{background:rgba(47,107,107,.1);padding:1px 5px;border-radius:3px}
+.risk{color:var(--ochre)}
+
+.scores{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--rule)}
+.sc{flex:1 1 118px}
+.sc-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px}
+.bar{height:5px;background:rgba(27,39,51,.1);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue-soft),var(--teal))}
+.sc-v{font-family:'Courier Prime',monospace;font-size:12px;color:var(--blue);margin-top:3px;display:block}
+.wsum{margin-top:16px;padding:9px 14px;border:1px solid var(--rule);background:rgba(150,115,28,.08);
+  font-family:'Courier Prime',monospace;font-size:13px;color:var(--ink);display:inline-block}
+.wsum b{color:var(--ochre);font-size:15px}
+
+.tail{border:1px solid var(--rule);background:rgba(255,255,255,.5);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;margin:0 0 12px;
+  color:var(--ink);border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:italic;color:var(--blue)}
+.tail p{margin:0 0 10px;font-size:15.2px;color:var(--ink-soft);line-height:1.9}
+.tail ol{margin:0;padding-left:1.3em;font-size:15.2px;color:var(--ink-soft);line-height:1.9}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon{margin-top:38px;padding-top:16px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:640px){
+  body{font-size:15.4px;padding:0 12px 60px}
+  .masthead{margin:0 -12px 26px;padding:30px 18px 22px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:38px;top:12px;right:14px}
+}
+@media print{
+  body{background:#fff;padding:0;font-size:11.5pt}
+  .entry,.tail{break-inside:avoid;box-shadow:none}
+  .masthead{margin:0 0 18px}
+  pre{white-space:pre-wrap}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top">
+    <span>LeionTong · <b>Daily Github</b> · NO.02</span>
+    <span>2026-09-03 · 10:00 GMT+8</span>
+  </div>
+  <h1>五仓入库：<em>把烧钱的能力</em><br>搬回自己的基础设施</h1>
+  <p class="mh-sub">今日五条里有四条在做同一件事——把原本按月付费的能力（语音、可观测、安全自动化、知识底座）搬回自己可控的机房；第五条把这条逻辑推到了设备端。采购的第一理由，正在从「模型能干什么」转向「省下多少、数据归谁」。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Date</span><span class="spec-v">2026-09-03</span></div>
+    <div class="spec-cell"><span class="spec-k">Picks</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">Gate</span><span class="spec-v">加权 ≥ 3.5 / 5.0</span></div>
+    <div class="spec-cell"><span class="spec-k">Sources</span><span class="spec-v">Trending · Search · HN</span></div>
+  </div>
+</header>
+
+<p class="lede"><b>数据口径：</b>star 数、License、最近提交均取自 2026-09-03 当日 GitHub API 实检；「近 30 天 +X」取自当日 GitHub Trending 月榜，未上榜者标注「未获取到」，<b>不作估算</b>。评分权重：商业化 30% · 规模化 25% · 边际成本 20% · 验证速度 15% · 成熟度 10%。</p>
+
+<!-- 1 -->
+<article class="entry">
+  <div class="entry-no">01</div>
+  <div class="e-head">
+    <h2 class="e-name">Needle 2 <span>cactus-compute/needle</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 10,109</span>
+      <span class="tag up">近 30 天 +6,771</span>
+      <span class="tag">Python</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">最近提交 2026-09-02</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>14MB 的端侧工具调用模型，28MB 内存跑完一整个会话。</em></p>
+  <p class="e-line"><b>痛点</b>设备端 Agent 现在几乎只能回连云端，延迟、token 费、数据出网三重卡点同时压着。</p>
+  <p class="e-line"><b>谁付钱</b>可穿戴、智能家居、机器人与工业边缘设备厂商；省下的是云端 tool-calling 调用费。模型开源免费，可变现的是企业授权 + LoRA 微调与集成交付。</p>
+  <p class="e-line"><b>规模化</b>覆盖消费电子、家居、工业、机器人四类场景，交付物就是一个 pip 包加一份权重，可标准化。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件分发，客户自带硬件，无服务端要养。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>pip install cactus-needle</pre>
+  <p class="e-line">再按 README 用 <code>@needle.tool</code> 装饰一个函数跑通一次调用 → <a href="https://github.com/cactus-compute/needle#quickstart">github.com/cactus-compute/needle#quickstart</a></p>
+  <p class="e-line risk"><b>风险</b>仓库目前无 GitHub Release（未获取到版本标签）；45M 参数能力边界有限，复杂任务必须靠置信度阈值兜底后上抛云端；CQ2-bit 量化精度损失要在自己场景重测。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.35</b> / 5.00</div>
+</article>
+
+<!-- 2 -->
+<article class="entry">
+  <div class="entry-no">02</div>
+  <div class="e-head">
+    <h2 class="e-name">VoiceStudio <span>debpalash/VoiceStudio</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 14,860</span>
+      <span class="tag up">近 30 天 +5,159</span>
+      <span class="tag">Python</span>
+      <span class="tag">AGPL-3.0</span>
+      <span class="tag">v0.5.1 · 2026-08-28</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>全本地的 ElevenLabs 替代，16 个 TTS 引擎 + 11 个 ASR 引擎、646 种语言。</em></p>
+  <p class="e-line"><b>痛点</b>语音克隆与配音按字符计费，且声音样本与文本必须出网。</p>
+  <p class="e-line"><b>谁付钱</b>出版、教育、电商、客服、自媒体；直接替代 ElevenLabs 订阅，可变现的是自托管部署与音色定制。</p>
+  <p class="e-line"><b>规模化</b>配音、有声书、译制、听写需求跨行业通用，桌面版与 Docker 已是标准化分发。</p>
+  <p class="e-line"><b>边际成本</b><em>中</em> —— 软件复制零成本，但客户需自备 GPU，且多引擎编排带来支持成本。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：从 Releases 页下载 macOS / Windows / Linux 安装包，启动后进 <code>Voice Cloning</code>，3 秒干净样本即可生成第一条语音。</p>
+  <p class="e-line risk"><b>风险</b>AGPL-3.0，若包装成对外 SaaS 需开源衍生代码；仍处 Active beta；引擎多、模型体积大，首启下载慢。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.30</b> / 5.00</div>
+</article>
+
+<!-- 3 -->
+<article class="entry">
+  <div class="entry-no">03</div>
+  <div class="e-head">
+    <h2 class="e-name">Laminar <span>lmnr-ai/lmnr</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,219</span>
+      <span class="tag">近 30 天 +未获取到</span>
+      <span class="tag">TypeScript / Rust</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.2.3 · 2026-08-30</span>
+      <span class="tag">YC S24</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>专为 AI Agent 做的开源可观测平台，追踪 + Signals + Evals + 数据集一体。</em></p>
+  <p class="e-line"><b>痛点</b>Agent 上生产之后跑了什么、在哪一步卡死，缺少统一的追踪与评估面。</p>
+  <p class="e-line"><b>谁付钱</b>任何把 Agent 上生产的团队；托管云 laminar.sh 收费、自托管免费，对标 LangSmith / Braintrust。</p>
+  <p class="e-line"><b>规模化</b>是所有 Agent 团队的通用刚需，SDK 一行接入，不挑框架。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件；自托管要带 ClickHouse 与 Postgres，有一定运维。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>pip install --upgrade 'lmnr[all]'   # 用 @observe() 装饰一个函数即可看到 trace
+git clone https://github.com/lmnr-ai/lmnr &amp;&amp; cd lmnr &amp;&amp; docker compose up -d
+# UI: http://localhost:5667</pre>
+  <p class="e-line risk"><b>风险</b>版本 0.2.x 未 GA；关键指标与告警需自行配置；托管版定价未公开（未获取到）。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.25</b> / 5.00</div>
+</article>
+
+<!-- 4 -->
+<article class="entry">
+  <div class="entry-no">04</div>
+  <div class="e-head">
+    <h2 class="e-name">Tracecat <span>TracecatHQ/tracecat</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,784</span>
+      <span class="tag">近 30 天 +未获取到</span>
+      <span class="tag">Python</span>
+      <span class="tag">AGPL-3.0</span>
+      <span class="tag">1.0.0-beta.52-rc.21 · 2026-09-02</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>面向安全团队与 AI Agent 的开源自动化（SOAR）平台。</em></p>
+  <p class="e-line"><b>痛点</b>Tines / Torq / XSOAR 这类 SOAR 按席位与动作数收费，中小企业够不着。</p>
+  <p class="e-line"><b>谁付钱</b>有 SOC 或告警处置流程的企业；官方提供 Enterprise License 与托管云，Docker / Fargate / Helm 自托管免费。</p>
+  <p class="e-line"><b>规模化</b>告警分级、事件处置、工单流转跨行业通用，自带 100+ 企业工具连接器。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件自托管，Temporal 与 nsjail 沙箱已在栈内。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/TracecatHQ/tracecat &amp;&amp; cd tracecat
+cp .env.example .env &amp;&amp; docker compose up -d</pre>
+  <p class="e-line risk"><b>风险</b>AGPL-3.0；1.0 仍在 beta-rc（当日即 rc.20 → rc.21 两次发布），生产落地必须锁版本；安全场景对审计与合规要求高，售卖周期长。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.30</b> / 5.00</div>
+</article>
+
+<!-- 5 -->
+<article class="entry">
+  <div class="entry-no">05</div>
+  <div class="e-head">
+    <h2 class="e-name">Utopia <span>deeplethe/utopia</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,372</span>
+      <span class="tag">近 30 天 +未获取到</span>
+      <span class="tag">Rust</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.1.0-rc2 · 2026-09-02</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>带时间感知与本体层的企业知识 / 决策底座，官方自称「开源企业世界模型」。</em></p>
+  <p class="e-line"><b>痛点</b>知识图谱与向量库只装得下「当下知识」，冲突检测、推理与决策缺统一底座。</p>
+  <p class="e-line"><b>谁付钱</b>政企、制造、金融的知识治理与合规审计需求；离线部署、数据不出网，对标 Palantir 类交付。</p>
+  <p class="e-line"><b>规模化</b>知识治理跨行业通用，但本体需要一次性梳理配置。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件，Docker 一条命令即起。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/deeplethe/utopia &amp;&amp; cd utopia
+docker compose --profile app up -d
+# 打开 http://localhost:1516 注册，首个账号自动成为管理员</pre>
+  <p class="e-line risk"><b>风险</b>仓库仅 27 天、仍在 rc2，成熟度是五条里最弱一环；企业落地常被拖入驻场定制（本次按「软件可独立跑通」未触发强本地化否决，但需持续盯）；商业化模式未公开。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.10</b> / 5.00</div>
+</article>
+
+<section class="tail">
+  <h2>一、<em>今日首选</em></h2>
+  <p><b>cactus-compute/needle。</b>它是今天唯一同时满足「边际成本趋零 + 30 分钟可验证 + 客户自带硬件」的标的，且正对端侧与机器人方向。14MB 的体量意味着，验证失败的成本也几乎为零。</p>
+</section>
+
+<section class="tail">
+  <h2>二、<em>组合观察</em></h2>
+  <p>五条里有四条在做同一件事——把原本按月付费的能力搬回自己可控的基础设施：语音（VoiceStudio）、可观测（Laminar）、安全自动化（Tracecat）、知识底座（Utopia）；Needle 则把这条逻辑推到了设备端。</p>
+  <p>今日信号很清楚：<b>AI 采购的第一理由正在从「模型能力」转向「成本与数据主权」</b>，谁能给出可量化的替代账，谁就容易成交。</p>
+</section>
+
+<section class="tail">
+  <h2>三、<em>暂不建议碰</em></h2>
+  <ol>
+    <li><b>cloudflare/computer</b>（⭐ 8,913，近 30 天 +8,868）— README 明写 <code>PREVIEW ONLY</code>、<code>NOT suitable for production use at this time</code>，API 与架构仍在变，不能作为交付底座。</li>
+    <li><b>Agent Skills 合集类</b>（mattpocock/skills ⭐ 245,286；ComposioHQ/awesome-claude-skills ⭐ 74,323）— 纯提示词与技能包集合，无产品形态、无收费模式，复制成本为零，形不成可防守的商业化路径。</li>
+  </ol>
+</section>
+
+<div class="colophon">
+  <span>LeionTong · Daily Github · NO.02</span>
+  <span>2026-09-03 · 10:00 GMT+8</span>
+</div>
+
+</div>
+</body>
+</html>
