@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-04 18:29 · 减法之日</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
+
+:root{
+  --marble:#F4F1EA;
+  --marble-2:#ECE7DB;
+  --marble-3:#E2DBCB;
+  --ink:#211F1B;
+  --ink-soft:#56524A;
+  --ink-faint:#8A8478;
+  --line:#CFC7B6;
+  --chalk:#9E2B25;     /* 朱砂红 · 凿掉/减暴露面 */
+  --slate:#2E5A6E;     /* 石墨青 · 终端·减入口 */
+  --verd:#3E7C6B;      /* 铜绿 · 具身·减口径水分 */
+  --ochre:#9A7433;     /* 赭石 · 端侧·减模型体积 */
+  --shadow:0 1px 0 rgba(255,255,255,.6), 0 18px 40px -28px rgba(33,31,27,.45);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(120% 80% at 12% -8%, #FBF9F3 0%, rgba(251,249,243,0) 55%),
+    radial-gradient(90% 70% at 92% 4%, #F7F3EA 0%, rgba(247,243,234,0) 60%),
+    radial-gradient(140% 120% at 50% 120%, #E6DFCF 0%, rgba(230,223,207,0) 60%),
+    var(--marble);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Noto Sans SC",Georgia,serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+/* 大理石纹理：细颗粒 + 隐约脉络 */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/></svg>");
+  mix-blend-mode:multiply;
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.35;
+  background-image:
+    linear-gradient(115deg, transparent 0 39%, rgba(120,110,90,.05) 40% 41%, transparent 42%),
+    linear-gradient(72deg, transparent 0 66%, rgba(120,110,90,.045) 67% 68%, transparent 69%),
+    linear-gradient(20deg, transparent 0 22%, rgba(120,110,90,.04) 23% 24%, transparent 25%);
+}
+
+.wrap{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:64px 32px 96px}
+
+/* 页眉 */
+.masthead{border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:8px}
+.kicker{font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 14px}
+.title{
+  font-family:"GFS Didot","Noto Serif SC",serif;font-weight:400;
+  font-size:clamp(40px,7vw,68px);line-height:1.02;margin:0;letter-spacing:.01em;
+}
+.title em{font-style:italic;color:var(--chalk)}
+.dateline{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;font-family:"Spline Sans Mono",monospace;font-size:12px;color:var(--ink-soft);letter-spacing:.04em}
+.dateline b{color:var(--ink);font-weight:600}
+.runnote{margin-top:14px;font-family:"Noto Sans SC",sans-serif;font-size:12.5px;color:var(--ink-faint);border-left:2px solid var(--chalk);padding-left:12px;line-height:1.6}
+
+/* 凿石印记：页眉角落的小凿痕 */
+.chisel-mark{display:inline-block;vertical-align:middle;margin-right:10px}
+
+/* 今日主线 · .lede */
+.lede{
+  position:relative;margin:46px 0 54px;padding:30px 34px 30px 38px;
+  background:linear-gradient(180deg,#FBF8F1 0%, #F1ECDF 100%);
+  border:1px solid var(--line);border-left:4px solid var(--ink);
+  box-shadow:var(--shadow);
+}
+.lede::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:repeating-linear-gradient(180deg,var(--ink) 0 9px, transparent 9px 18px);
+  opacity:.25;
+}
+.lede-label{font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--chalk);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.lede-label .en{color:var(--ink-faint);letter-spacing:.18em}
+.lede p{font-family:"Noto Serif SC",serif;font-size:18px;line-height:1.85;margin:0;color:var(--ink)}
+.lede p .strike{color:var(--chalk);text-decoration:line-through;text-decoration-thickness:1.5px;opacity:.85}
+
+/* 信号卡 */
+.signals{display:flex;flex-direction:column;gap:30px;margin-bottom:18px}
+.card{
+  position:relative;background:linear-gradient(180deg,#FCFAF4 0%, #F3EEE2 100%);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  padding:30px 34px 32px;
+  opacity:0;transform:translateY(14px) scale(.995);
+  animation:carve .7s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.card:nth-child(1){animation-delay:.05s}
+.card:nth-child(2){animation-delay:.13s}
+.card:nth-child(3){animation-delay:.21s}
+.card:nth-child(4){animation-delay:.29s}
+.card:nth-child(5){animation-delay:.37s}
+@keyframes carve{to{opacity:1;transform:none}}
+
+/* 卡头编号 + 凿痕 + 方向 */
+.card-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:14px}
+.card-no{font-family:"GFS Didot",serif;font-size:46px;line-height:.9;color:var(--ink);opacity:.22;min-width:54px}
+.card-meta{flex:1}
+.dir{
+  display:inline-flex;align-items:center;gap:8px;font-family:"Spline Sans Mono",monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;padding:4px 11px;border:1px solid currentColor;
+  border-radius:2px;margin-bottom:10px;
+}
+.dir .minus{font-weight:600}
+.dir.agent{color:var(--chalk)}
+.dir.term{color:var(--slate)}
+.dir.emb{color:var(--verd)}
+.dir.edge{color:var(--ochre)}
+.card-title{font-family:"Noto Serif SC",serif;font-weight:900;font-size:21px;line-height:1.4;margin:0;color:var(--ink)}
+.card-title .red{color:var(--chalk)}
+
+.card .ev{margin:16px 0 0;font-family:"Noto Serif SC",serif;font-size:15.5px;line-height:1.85;color:#332f29}
+.card .ev b{color:var(--ink);font-weight:600;background:linear-gradient(transparent 62%, rgba(158,43,37,.16) 62% 92%);padding:0 1px}
+.card .why{margin:16px 0 0;padding-top:14px;border-top:1px dashed var(--line);font-family:"Noto Sans SC",sans-serif;font-size:14px;line-height:1.8;color:var(--ink-soft)}
+.card .why .lbl{font-family:"Spline Sans Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--ink-faint);display:block;margin-bottom:6px;text-transform:uppercase}
+.card .why b{color:var(--ink);font-weight:600}
+
+.cred{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.04em;color:var(--ink-faint)}
+.cred .lv{color:var(--ink)}
+.cred .tag{border:1px solid var(--line);padding:3px 9px;border-radius:2px}
+.note{margin-top:12px;font-family:"Noto Sans SC",sans-serif;font-size:12.5px;line-height:1.7;color:var(--ink-faint);font-style:normal}
+.note::before{content:"⚠ ";color:var(--chalk)}
+
+/* 横向观察 */
+.horiz{margin:54px 0 0;padding-top:30px;border-top:2px solid var(--ink)}
+.horiz h2,.chain h2,.dropped h2{
+  font-family:"GFS Didot","Noto Serif SC",serif;font-weight:400;font-size:26px;margin:0 0 6px;letter-spacing:.01em;
+}
+.horiz .sub{font-family:"Spline Sans Mono",monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:0 0 22px}
+.horiz ol{margin:0;padding:0;list-style:none;counter-reset:h;display:flex;flex-direction:column;gap:18px}
+.horiz li{counter-increment:h;position:relative;padding-left:46px;font-family:"Noto Serif SC",serif;font-size:16px;line-height:1.8;color:#2c2820}
+.horiz li::before{
+  content:counter(h,decimal-leading-zero);position:absolute;left:0;top:2px;
+  font-family:"GFS Didot",serif;font-size:22px;color:var(--chalk);
+}
+.horiz li b{color:var(--ink)}
+
+/* 主线脉络 */
+.chain{margin:54px 0 0;padding:26px 30px;background:linear-gradient(180deg,#F1EBDE,#E9E2D2);border:1px solid var(--line)}
+.chain .flow{font-family:"Spline Sans Mono",monospace;font-size:12px;line-height:2.1;color:var(--ink-soft);margin:14px 0 0;word-break:break-word}
+.chain .flow .now{color:var(--chalk);font-weight:600}
+.chain .prog{font-family:"Noto Sans SC",sans-serif;font-size:13.5px;line-height:1.8;color:var(--ink-soft);margin:14px 0 0}
+
+/* 主动弃用 */
+.dropped{margin:54px 0 0}
+.dropped ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+.dropped li{position:relative;padding:14px 16px 14px 18px;border:1px solid var(--line);background:#EFE9DC;font-family:"Noto Sans SC",sans-serif;font-size:13.5px;line-height:1.75;color:var(--ink-soft)}
+.dropped li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:repeating-linear-gradient(180deg,var(--ink-faint) 0 6px,transparent 6px 12px);opacity:.5}
+.dropped li b{color:var(--ink);font-weight:600}
+.dropped li .kill{color:var(--chalk);font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.1em}
+
+.footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-family:"Spline Sans Mono",monospace;font-size:11px;line-height:1.9;color:var(--ink-faint);letter-spacing:.03em}
+.footer .disc{font-family:"Noto Sans SC",sans-serif;font-size:12px;color:var(--ink-faint);margin-top:8px;line-height:1.7}
+
+@media(max-width:620px){
+  .wrap{padding:42px 18px 70px}
+  .card{padding:24px 20px 26px}
+  .lede{padding:24px 20px 24px 24px}
+  .card-no{font-size:38px;min-width:44px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <svg class="chisel-mark" width="22" height="22" viewbox="0 0 22 22" aria-hidden="true">
+      <path d="M3 19 L11 3 L14 9 L19 11 Z" fill="none" stroke="#9E2B25" stroke-width="1.4" stroke-linejoin="round"/>
+      <line x1="3" y1="19" x2="11" y2="3" stroke="#211F1B" stroke-width="1.2" opacity=".5"/>
+    </svg>
+    
+    <h1 class="title">减法<em>之日</em></h1>
+    <div class="dateline">
+      <span><b>2026-08-04</b> · 18:29 GMT+8</span>
+      <span>侧重：AI Agent / 终端与端侧 / 具身智能</span>
+      <span>8 月 4 日 · 第 3 班</span>
+    </div>
+    <p class="runnote">本班刻意避开当日 11:59（Qwen3.8-Max+oh-my-cli、PenguinHarness、GPT-Live 工程账本、具身融资两口径、自主 Agent 入侵无人可诉）与 15:23（微软 Agent Framework GA、白宫自愿性测试框架、ProofAgent Index、自变量 HOST、京东 AI 头盔）已锁条目，仅收当日新增或首次可交叉验证信号。</p>
+  </header>
+
+  <!-- 今日主线 · 供 publish_daily_ai.py 提取卡片摘要 -->
+  <section class="lede">
+    <p class="lede-label">今日主线 · <span class="en">TODAY'S MAIN LINE</span></p>
+    <p>今天所有真正落地的动作都是<span class="strike">加法</span>减法，不是加法。IBM 用 602 家企业的样本给出一个刺眼的分母——出事的 AI 系统里 92% 连基本访问控制都没有，事故不在模型而在权限；Claude Code 当天的版本更新给出对应的减法答案：让智能体从头到尾看不见真实凭证；百度把第四条办公 Agent 产品线并掉；宇树的招股书把"产量"这个大数减到"行业应用只占 9.01%"的小数。能力侧的加法这一年已经做够了，今天推进的是<span class="strike">加暴露面</span>减暴露面、减入口、减口径水分、减模型体积。</p>
+  </section>
+
+  <div class="signals">
+
+    <!-- 1 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">01</div>
+        <div class="card-meta">
+          <span class="dir agent"><span class="minus">−</span> AI AGENT · 减暴露面</span>
+          <h3 class="card-title">IBM《2026 数据泄露成本报告》：92% 的 AI 安全事件，栽在没做访问控制</h3>
+        </div>
+      </div>
+      <p class="ev">IBM 与 Ponemon Institute 发布《2026 Cost of a Data Breach Report》（8/4 进入中文安全媒体扩散）。样本为 2025-03 至 2026-02 间泄露的 <b>602 家组织</b>，覆盖 16 国 17 行业。全球单次泄露平均成本升至 <b>499 万美元</b>（+12%，新高）；四分之一恶意泄露为"AI 参与型"，平均 <b>600 万美元</b>。关键分母：发生 AI 相关事件的组织中，<b>92% 未部署基本 AI 访问控制</b>，仅 40% 管控模型查询入口；损失最高的两类都属权限问题——<b>模型逆向 607 万、提示注入 589 万</b>。<b>影子 AI</b> 出现在 43% 事件中（较上年翻倍），平均识别遏制升至 <b>247 天</b>，逆转此前五年改善；不足半数（46%）保护支撑 AI 的非人类身份。</p>
+      <p class="why"><span class="lbl">Why it matters</span>这份报告第一次用大样本、可比口径把"Agent 安全"从叙事拉回会计。过去一个月的失控事件（OpenAI 凭证滥用、Anthropic 三次未授权入侵、Modal Labs 端点被跳板）曾被解读为"模型太强"，IBM 给出相反答案——<b>能力不是变量，权限才是</b>。247 天识别时长与 43% 影子 AI 说明：企业还没把 Agent 当一类需登记造册的身份来管。优先级很清楚：先盘点并最小化机器身份，再限模型查询入口，最后才是买工具。</p>
+      <div class="cred"><span class="lv">可信度：高</span><span class="tag">一级研究报告</span><span class="tag">多源独立交叉</span></div>
+      <p class="note">统计窗口为 2025-03 至 2026-02，不覆盖 7 月以来失控事件；描述的是"事故前普遍状态"，非对上月复盘。</p>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">02</div>
+        <div class="card-meta">
+          <span class="dir term"><span class="minus">−</span> 终端 · CLI · 减入口</span>
+          <h3 class="card-title">Claude Code v2.1.221：沙箱凭证掩码上线，让智能体"永远看不到真值"</h3>
+        </div>
+      </div>
+      <p class="ev">Anthropic 8/4 发布 Claude Code v2.1.221（距 v2.1.220 十天，约 45 项变更）。三项与主线相关：① <b>Sandbox credential file masking（Linux/WSL）</b> 新增 <code>mask</code> 模式——沙箱命令读到的是<b>哨兵副本</b>，可整文件替换或只替换正则命中片段，真实凭证由<b>沙箱代理在出口（egress）处替换回去</b>；macOS 上文件掩码降级为 <code>deny</code>。② <b>prompt-audit 子命令</b>：扫描为旧模型写的提示词与工具描述（Opus 5 已于 7/24 成默认，Opus 4.1 于 8/5 退役）。③ 后台会话改为 commit 并 push 以保全成果，<code>/fork</code> 分叉改为创建独立 worktree。</p>
+      <p class="why"><span class="lbl">Why it matters</span>与第一条并排——一天之内出现"问题的统计"与"对策的代码"。凭证掩码的设计画了第三条线：此前防线是<b>缩短凭证有效期</b>（Tailscale 事件后通行做法，某智能体曾从生产密钥库读走 136 个 key），掩码则<b>不缩短有效期，而是让智能体从头到尾没见过真值</b>。这是把"信任模型自律"替换为"结构上不可能"的典型减法，是本周最该复查的一项。</p>
+      <div class="cred"><span class="lv">可信度：中高</span><span class="tag">官方 CLI changelog</span><span class="tag">两独立追踪站交叉</span></div>
+      <p class="note">事实全部位于 CLI changelog（产品更新非公司公告）；macOS 与 Linux 行为不一致，跨平台迁移需实测。</p>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">03</div>
+        <div class="card-meta">
+          <span class="dir agent"><span class="minus">−</span> AI AGENT · 收口入口</span>
+          <h3 class="card-title">百度把 dodo 并入"百度搭子"，四家大厂办公 Agent 收口完成</h3>
+        </div>
+      </div>
+      <p class="ev">8/4 百度启动内部办公智能体 <b>dodo</b> 与 <b>百度搭子</b> 团队整合，dodo 研发与资源全部并入搭子，内外部办公 Agent 完全统一。搭子今年 3 月上线、7 月发企业版，支持企业共享 Skill、项目上下文与成果，搜索/网盘/地图/秒哒/伐谋等能力已通过 Skill 接入，官方口径：日均提问增长 20 倍、先后登顶 PinchBench 与 DeepResearchBench。至此四家路径一致——阿里 <b>千问办公</b>（QoderWork/悟空/MuleRun）、腾讯 <b>WorkBuddy</b>（QClaw 归拢）、字节 <b>豆包×飞书×火山</b>、百度是第四家。</p>
+      <p class="why"><span class="lbl">Why it matters</span>这不是产品发布，而是<b>赛马制的集体终结</b>：多团队并行→方向明确→分散能力收拢进单一主出口。减掉的是产品线数量，换来的是入口集中度与"企业上下文"这一真正壁垒的集中。阿里对千问办公定位直白：个人 Agent 只调个人上下文，企业场景里企业上下文同样重要。悬念在下一段：办公 Agent 仍以员工自发使用为主，能否读内部库、循组织权限、跨员工推任务尚未大规模验证。</p>
+      <div class="cred"><span class="lv">可信度：中高</span><span class="tag">环球网科技 8/4 17:58</span><span class="tag">钛媒体/界面交叉背景</span></div>
+      <p class="note">"日均提问 20 倍"与榜单登顶均企业自述口径，无第三方审计。</p>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">04</div>
+        <div class="card-meta">
+          <span class="dir emb"><span class="minus">−</span> 具身 · 减口径水分</span>
+          <h3 class="card-title">宇树 IPO 定档，招股书把"产量神话"减成三个不同的数</h3>
+        </div>
+      </div>
+      <p class="ev">宇树科创板 IPO 落定：<b>8/5 初步询价、8/10 申购、8/12 缴款</b>（代码 688836）。发行 4044.6 万股占 10%，拟募 42.02 亿，对应市值约 <b>420 亿</b>、发行价约 104 元/股。结构性数字更值得看：营收 2023 年 1.59 亿→2024 年 3.93 亿→2025 年 <b>16.99 亿</b>；但 <b>2026 Q1 营收 4.23 亿，增速从上年度 332.64% 回落至 68.49%，扣非净利同比 −52.55%</b>；2025 前三季度人形销售收入中<b>科研教育占 73.6%，真正进工厂的行业应用仅 9.01%</b>。配合口径看落差：工信部全年整机产量有望破 10 万台，大摩对 2026 销量预测仅 2.8–5 万台。</p>
+      <p class="why"><span class="lbl">Why it matters</span>这是"减法"在物理侧最诚实的一次演示。<b>产量、出货、上岗是三个数，不是一个数</b>——十万台产量、几万台销量、其中真进产线干活不足一成。营收翻四倍而扣非转跌，说明规模化正在吃掉毛利。宇树作为少数已规模化盈利的整机厂，把这些写进公开披露后，二级市场估值锚将首次建立在<b>审计过的报表</b>而非演示视频上。8 月中报季是"订单催化是否转化为财务数字"的首次集中验证。</p>
+      <div class="cred"><span class="lv">可信度：高</span><span class="tag">招股意向书公开披露</span><span class="tag">每经/界面/21 世纪交叉</span></div>
+      <p class="note">市值预测（建银国际 1090 亿等）为卖方观点分歧大。<b>本条为事实梳理，不构成任何投资建议。</b></p>
+    </article>
+
+    <!-- 5 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">05</div>
+        <div class="card-meta">
+          <span class="dir edge"><span class="minus">−</span> 端侧 · 减模型体积</span>
+          <h3 class="card-title">晶心科技 AnDLA I370 v2.0：把 ViT / VLM / SLM 压进受限边缘</h3>
+        </div>
+      </div>
+      <p class="ev">RISC-V IP 厂商晶心科技（Andes，RISC-V 创始白金会员）升级 AI 产品线：<b>AndesAIRE AnDLA I370 v2.0</b> 加速器 IP + <b>NN SDK v1.2.0</b>（8/3 发布，8/4 中文扩散）。硬件：MAC 阵列可配 <b>32→2048</b>，AXI 总线位宽扩至 <b>512 bit</b> 并增强 DMA 未完成请求处理（针对重负载内存带宽瓶颈）；基于可编程张量算子集架构，原生支持 Transformer，集成 DIV/SQRT 与算子融合。软件：SDK 原生支持注意力，通过 <b>SLM 预填充/解码拆分</b>优化 KV 缓存放置与内存调度；提供内核态驱动与用户态运行时，RTOS 下支持任务抢占。</p>
+      <p class="why"><span class="lbl">Why it matters</span>端侧 Agent 这一年的瓶颈从不是参数不够小，而是<b>内存带宽不够宽、KV 缓存放不下</b>。这次升级把手术刀架在这两处：512 bit AXI 针对带宽，prefill/decode 拆分针对 KV 调度。这是"减法"在硅层的表达——<b>不是把模型做大再压缩，而是把执行过程拆开，让每段只占它该占的资源</b>。判断端侧 Agent 何时常驻，IP 层算子支持比又一次跑分更有指示意义。</p>
+      <div class="cred"><span class="lv">可信度：中</span><span class="tag">厂商官方发布</span><span class="tag">规格自述·待第三方实测</span></div>
+      <p class="note">IP 授权→流片→终端落地通常 12–24 个月，不宜按"明天就能用"理解。</p>
+    </article>
+
+  </div>
+
+  <!-- 横向观察 -->
+  <section class="horiz">
+    <h2>横向观察 · 今日三句话</h2>
+    <p class="sub">Three Lines Across Today</p>
+    <ol>
+      <li><b>事故不在模型，在权限。</b> IBM 的 92% 与 Claude Code 的凭证掩码，是同一枚硬币的正反面——一个是分母，一个是对策。护栏有效形态正从"约束模型行为"迁向"结构上让它够不着"。</li>
+      <li><b>收口的尽头是账本。</b> 四家大厂办公 Agent 产品线收敛完成，宇树把产量/出货/上岗拆成三个数写进招股书。叙事红利期结束后，剩下的比较项只有入口集中度与审计过的报表。</li>
+      <li><b>端侧的瓶颈已经很具体。</b> 不再是"模型太大"的抽象说法，而是 512 bit 总线位宽、KV 缓存放置策略、prefill 与 decode 的拆分时机。问题变具体，通常意味着离解决不远了。</li>
+    </ol>
+  </section>
+
+  <!-- 主线脉络 -->
+  <section class="chain">
+    <h2>主线脉络（近期链条）</h2>
+    <p class="flow">7/24 可信化 → 7/27 自主 vs 可控 → 7/29 可控的自治 → 7/30 边界/入口/围栏/底座/刻度 → 7/31 成本曲线/判定权外移/演习结束 → 8/01 验收席位 → 8/03 验证的单价 → 8/04 11:59 留痕即证明 → 8/04 15:23 受治理的自治 → <span class="now">8/04 18:29 减法之日</span></p>
+    <p class="prog">递进关系：先想办法<b>留下证据</b>（留痕即证明），再把运行时<b>套进治理框架</b>（受治理的自治），今天走到第三步——发现最有效的一招其实是<b>把不该暴露的东西直接减掉</b>。</p>
+  </section>
+
+  <!-- 主动弃用 -->
+  <section class="dropped">
+    <h2>本期主动弃用（诚实记录）</h2>
+    <ul>
+      <li><b>"腾讯混元开源 0.5B/1.8B/4B/7B 四款小模型"</b>：多个中文站点 8/4 以"今日发布"推送，完全贴合端侧方向。核查确认为 <b>2025-08-04 旧闻</b>（科创板日报/财联社 2025-08-04 原始报道可查），系年度同日重复扩散。 <span class="kill">→ 弃用</span></li>
+      <li><b>蚂蚁灵波拟募 15 亿 / 破壳机器人 Pre-A / 求之科技 1 亿美元</b>：同属融资簇，已在本日 11:59 班以"钱流向大脑（>50% vs 本体 12.8%）"整体锁定，不重复。 <span class="kill">→ 弃用</span></li>
+      <li><b>RoboParty 近 5 亿元（宁德时代独家投 Pre-A）</b>：事实可靠且创始人背景有话题性，但同上条同属"具身融资"主题，本期已有宇树占具身席位，为避免方向失衡割爱。 <span class="kill">→ 弃用</span></li>
+      <li><b>新思 × 英伟达自主智能体 EDA（DAC 2026）</b>：与 7/28 已锁 Nemotron 3 Ultra Agentic RTL 高度重叠，且核心能力"预计 2026 下半年推出"属未来时，不计入当日事实。 <span class="kill">→ 弃用</span></li>
+      <li><b>Stripe 内部 Agent「Kai」四周 5000 名员工使用</b>：信号质量不错，但仅见于二级英文汇总站，未找到 Stripe 官方一手披露，暂不入选。 <span class="kill">→ 弃用</span></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <div>生成时间：2026-08-04 18:29 GMT+8 · 每日 AI 新闻推送（自动化）</div>
+    <div class="disc">方法说明：全部条目标注信源层级与可信度；企业自述与第三方验证分开标记；对未能交叉验证的信号宁可弃用不凑数。涉及资本市场的内容仅为事实梳理，不构成投资建议。</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-09-05 10:00 · 降本·组网·整合·终端原生·量产生态：自治体从「上岗底座」进入「规模清算」</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:'Courier Prime',monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.60</b></span>
+    <span>2026-09-05  10:00  GMT+8</span>
+  </div>
+
+  <h1>降本·组网·整合·终端原生·量产生态：<em>自治体从「上岗底座」进入「规模清算」</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 早班车精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">-75% · 百余家 · $500M · 13键 · 10亿台</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">降本·组网·整合·终端原生·量产生态</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">今天五条信号把竞争焦点从「能不能上岗」推进到「算得过账、组得成网、并得动资本」</div>
+  <p>上岗底座（NO.59 的可信·可控·可交付·端侧·定标）刚就位，市场立刻进入下一程——把能力摊开成规模化的<em class="hl">成本账、生态网、资本局</em>：① Anthropic 9/3 发 <strong>Claude Fable 5.1</strong>，缓存读取价从每百万 token $1 砍到 <strong>$0.25（-75%）</strong>，典型任务成本降约 25%、高度 Agent 化任务最高降 45%；同模型拆出 <strong>Mythos 5.1</strong> 仅向可信网络安全/生命科学伙伴开放——"能力—护栏"解耦；Meta <strong>Muse Spark 1.3</strong> 工具调用 -20%、Token -25%，Google 发 <strong>Gemini 3.8 Flash + Flash Cyber</strong>（促销价不变，Cyber 漏洞发现率 >70%、CWE-Bench Pass@1 47.2%）——<strong>tokenomics 成了 coding agent 能否铺开的决定性工程题</strong>；② 腾讯 <strong>WorkBuddy 开放平台</strong> 9/2 上线（open.WorkBuddy.cn，首批百余家生态伙伴，开放 Skill/Expert/Connector、MCP+CLI 双向接入，定位"Aget 底座"），阿里云 <strong>万有无界</strong> 公测（多角色 Agent 协作工作台）——Agent 从单点进<em class="hl">组网</em>；③ agent 赛道进<em class="hl">资本整合期</em>：Salesforce×Anthropic 推 Claudeforce、ServiceNow 数亿美元收 Sweep、Palo Alto <strong>$500M</strong> 收 Console、Wonderful $550M 融资（Salesforce 战略入股）——估值向"能进生产系统的 agent"集中；④ 终端原生形态冒头：OpenAI <strong>Codex Micro</strong> 是 13 键小终端（旋钮/触摸/摇杆/状态灯）远程控 Codex 工作流，ZG×腾讯 WorkBuddy 推 <strong>NextB2B</strong>（首个 B2B 全流程 AI Agent + A2A 交易能力）——agent 不只活在软件，开始有专属硬件与跨企业交易网；⑤ 具身进<em class="hl">量产生态</em>：广东机器人"十骏"9/4 中博会成军（逐际/自变量/智平方/乐聚/众擎/美的/小鹏/荣耀/优必选/越疆，近 70 家产业链同台），马斯克 9/1 预言 2036 年全球人形 <strong>10 亿台</strong>、总生产力超人类，北京 RoboMIND 数据集下载破 2000 万、年产能 18 万小时，近 20 家车企下场造机器人。一句话：<strong>稀缺资源从「上岗底座」下沉到「算得过账（tokenomics）· 组得成网（Agent 底座）· 并得动资本（并购整合）· 终端原生（硬件闭环）· 量产生态（具身成军）」五件套</strong>——正是 TEI C→B→A→D 当下要亲手做的"规模化清算"。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>上岗底座 → 规模清算 信号位置</b>  |  2026-09-05：从「能上岗」推进到「算账 / 组网 / 整合 / 终端 / 量产」</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：五条信号分别落在降本、组网、整合、终端原生、量产生态五个规模清算档位">
+    <defs>
+      <marker id="bo9" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">ONBOARD BASE → SCALE SETTLEMENT / 2026-09-05</text>
+
+    <rect x="8" y="34" width="212" height="46" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">上岗底座（往期）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.59 可信·可控·可交付·端侧·定标</text>
+
+    <rect x="652" y="34" width="212" height="46" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">规模清算（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">降本·组网·整合·终端原生·量产</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo9)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">降本</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · tokenomics</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">01 Fable 5.1</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">缓存 -75%·-45%</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">长时域 agent</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">算得过账</text>
+
+      <rect x="182" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">组网</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Agent · 底座</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">02 WorkBuddy</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">开放平台·百余家</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">MCP+CLI 双向</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">组得成网</text>
+
+      <rect x="354" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">整合</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Agent · 并购</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 Claudeforce</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">Sweep·Console $500M</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">资本进生产系统</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">并得动资本</text>
+
+      <rect x="526" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">终端原生</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端智能 · 硬件</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">04 Codex Micro</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">13键·NextB2B</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">硬件闭环+A2A</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">终端原生体</text>
+
+      <rect x="698" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">量产生态</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身 · 成军</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 广东十骏</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">2000万·10亿台</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">集群+数据工厂</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">量产成军</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+    <text x="10" y="290" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">TEI 映射 →</text>
+    <text x="96" y="290" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C 行业方案(按 token 算账) · B 平台(组 Agent 网+私有化) · D 并购(agent 安全/治理资产) · A 终端(原生硬件闭环) · 量产(具身生态伙伴)</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的上岗底座 → 今日推进到的规模清算」。01 是 coding agent 被规模使用前先过的「成本关」（C 行业方案按 token 算账的底层）；02/03 是 agent 进生态与资本（B 平台组网、D 并购评估）；04 是终端原生硬件闭环（A 终端）；05 是具身量产生态（D 标的 + C 首发客户伙伴）。五件事共同把「上岗底座」翻译成「算得过账、组得成网、并得动资本、终端原生、量产成军」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">今日五条精选信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 降本（tokenomics）</span>
+  <h2 class="c-title">Claude Fable 5.1 缓存读取价 -75%、Muse Spark 1.3 工具调用 -20%、Gemini 3.8 Flash 发布：长时域 coding agent 的成本从「烧钱」变「可规模」</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">降本</span><span class="chip t">tokenomics</span><span class="chip">Fable 5.1</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/3 各家密集把 coding agent 的单位成本往下推，核心是把<strong>长时域、多轮、高缓存</strong>场景的价格打下来：</p>
+    <ul>
+      <li><strong>Anthropic</strong>：发 <em class="hl">Claude Fable 5.1</em>，输入输出价不变，<strong>缓存读取价从每百万 token $1 降至 $0.25（-75%）</strong>，典型任务整体成本降约 25%、高度 Agent 化任务最高降 45%；同期基准翻倍并在生产级安全护栏开启下评测。同模型拆出 <strong>Mythos 5.1</strong>，仅向可信网络安全/生命科学伙伴开放——"<strong>能力—护栏</strong>"解耦。</li>
+      <li><strong>Meta</strong>：发 <strong>Muse Spark 1.3</strong> 编程智能体，同等任务工具调用次数 <strong>-20%</strong>、输出 Token <strong>-25%</strong>，面向企业级批量代码开发。</li>
+      <li><strong>Google</strong>：发 <strong>Gemini 3.8 Flash + Gemini 3.8 Flash Cyber</strong>，保持 3.7 Flash 促销价（输入/输出 $0.75/$3.75 每百万 token），强化软件工程/Agent/多步推理；Flash Cyber 内部漏洞发现成功率 >70%、CWE-Bench Pass@1 47.2%。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>长时域 agent（常驻、跨会话、反复读上下文）的最大瓶颈不是能力，是<strong>token 账单</strong>。缓存读取 -75% 直接把"agent 跑一整天"从烧钱变可负担，tokenomics 成为 coding agent 能否真正铺开的决定性工程题。Mythos 把前沿能力走可信伙伴白名单，预示"能力解锁"将与"安全可信"挂钩。</p>
+    <p><strong>对 TEI 的映射</strong>：C 行业方案要按 token 给客户算账，B 平台必须把缓存/批处理/私有化推理做成默认降本面——这是 C→B 毛利结构里最硬的一道工序。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>钛媒体 9/3</b> · Claude Fable 5.1 缓存读取 $1→$0.25(-75%)·典型任务 -25%·高 Agent 任务最高 -45%·Mythos 5.1 限可信伙伴  ·  <b>网易/前沿在线 9/3</b> · Meta Muse Spark 1.3 工具调用 -20%/Token -25%  ·  <b>一财 9/3</b> · Gemini 3.8 Flash 促销价不变·Flash Cyber 漏洞发现 >70%·CWE-Bench Pass@1 47.2%  |  冷静点:降价为厂商定价、实际账单依赖用量结构;Mythos 白名单范围未明;基准含厂商自测
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Agent · 组网（Agent 底座）</span>
+  <h2 class="c-title">腾讯 WorkBuddy 开放平台 9/2 上线（MCP+CLI 双向接入、百余家伙伴）+ 阿里云「万有无界」公测：Agent 从单点工具进「组网底座」</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">组网</span><span class="chip t">底座</span><span class="chip">WorkBuddy</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/2 两件事把 agent 的竞争位从「单个好用的工具」抬到「能组网的平台」：</p>
+    <ul>
+      <li><strong>腾讯 WorkBuddy 开放平台</strong>（open.WorkBuddy.cn）正式上线，首批引入<em class="hl">超百家生态伙伴</em>，打通硬件/应用/开发者三层生态，开放 Skill/Expert/Connector 能力；Connector 支持 <strong>MCP 与 CLI 双方案双向接入</strong>，定位"Aget 底座"，统一管理上下文、记忆与任务状态，解决单点/场景/供给/产业四类割裂。</li>
+      <li><strong>阿里云「万有无界」</strong>开启公测：企业/个人可注册，调用最新 Qwen3.8-Max；定位<em class="hl">多角色 Agent 协作工作台</em>——把复杂任务拆解给不同职责的 Agent，在「项目空间」组织成员与资产，通过群聊让多位 Agent 围绕同一任务接力推进，产出沉淀到资产库成为企业可复用数字资产。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>生态位从「工具」转向「<strong>底座/平台</strong>」：谁能统一管上下文、记忆、任务状态、连接器，谁就占据 agent 经济的入口。MCP+CLI 双向接入意味着"模型无关 + 既有系统可接"，直接对标 NO.59 信号 02 的「多 Agent 工作台 + 私有化」控制面。</p>
+    <p><strong>对 TEI 的映射</strong>：B 平台阶段要亲手补的正是这套「Agent 底座」——WorkBuddy 的开放范式（Skill/Expert/Connector + MCP/CLI）是可直接复用的样板，也是评估外部底座是否可托管的标尺。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>字母榜 9/3</b> · 腾讯 WorkBuddy 开放平台 9/2 上线·百余家伙伴·Skill/Expert/Connector·MCP+CLI 双向接入·"Agent 底座"  ·  <b>证券时报/e公司 9/2</b> · 阿里云「万有无界」公测·多角色 Agent 协作工作台·调用 Qwen3.8-Max  |  冷静点:开放平台为厂商发布、伙伴规模待验证;「底座」定位含营销表述;双向接入的工程成熟度未公开实测
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 整合（并购）</span>
+  <h2 class="c-title">Claudeforce + ServiceNow 收 Sweep + Palo Alto $500M 收 Console + Wonderful $550M：agent 赛道从工具竞赛进资本整合期</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">整合</span><span class="chip t">并购</span><span class="chip">Console</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/3 前后，agent 赛道密集发生平台级并购与结盟，估值向「能进生产系统」的 agent 集中：</p>
+    <ul>
+      <li><strong>Salesforce × Anthropic</strong> 推 <em class="hl">Claudeforce</em>，把 Anthropic 的 AI 能力接入 Salesforce CRM，AI 与企业管理软件进一步合流。</li>
+      <li><strong>ServiceNow</strong> 以<strong>数亿美元</strong>收购以色列 agent 初创 <strong>Sweep</strong>（跨 ServiceNow/Salesforce 等多平台运行），补全企业 agent 集成能力。</li>
+      <li><strong>Palo Alto Networks</strong> 以 <strong>$500M</strong> 收购 agent 安全初创 <strong>Console</strong>，并入 Cortex——安全面成为 agent 平台的标准配置。</li>
+      <li><strong>Wonderful</strong>（企业 AI OS）融资 <strong>$550M</strong>，Salesforce 战略入股，夯实 agent 基础设施层。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>agent 从「工具竞赛」进「<strong>资本整合期</strong>」：平台商通过并购快速补全 agent 能力与安全/治理面，行业估值向"能进生产系统、能被审计"的 agent 集中。Console 类「agent 安全」被 $500M 买单，说明 NO.59 的「可信边界」已是真金白银的并购标的。</p>
+    <p><strong>对 TEI 的映射</strong>：D 并购评估要把 agent 安全/治理资产（Console 类）列为硬指标；C 行业方案选型要盯供应商的生态归属——今天还是独立工具，明天可能被平台商收编、路线随之变。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>aiagentsdirectory 9/3</b> · Salesforce×Anthropic Claudeforce·ServiceNow 数亿收 Sweep·Palo Alto $500M 收 Console(并入 Cortex)·Wonderful $550M(Salesforce 战略入股)  |  冷静点:金额为媒体报道/未完全披露;"数亿美元"口径;并购后整合效果待观察;部分为公司新闻稿表述
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 终端原生（硬件闭环）</span>
+  <h2 class="c-title">OpenAI Codex Micro（13 键小终端远程控 Codex）+ ZG×WorkBuddy NextB2B（首个 B2B 全流程 AI Agent + A2A 交易）：agent 从软件长出专属硬件与跨企业交易网</h2>
+  <p class="c-tags"><span class="chip b">终端智能</span><span class="chip o">终端原生</span><span class="chip t">硬件闭环</span><span class="chip">Codex Micro</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>两件事把 agent 的执行形态从「屏幕里的对话框」往前推到「原生可执行体」：</p>
+    <ul>
+      <li><strong>OpenAI Codex Micro</strong>：一台 <em class="hl">13 键小终端</em>（旋钮编码器、触摸传感器、摇杆、状态灯），用于远程控制 Codex 工作流，暗示语音控制——把 coding agent 从屏幕解耦成「随身可执行体」，不在电脑前也能推进任务。</li>
+      <li><strong>ZG Group × 腾讯 WorkBuddy 推 NextB2B</strong>（9/2）：定位<em class="hl">首个 B2B 全流程 AI Agent</em>，含采购/销售/风控/后台 4 个专家模块，计划内嵌 <strong>A2A（Agent-to-Agent）交易能力</strong>（统一 ATP 协议），让企业 agent 自动发现、匹配、连接跨行业商机——agent 经济从"单点执行"进"跨企业交易网"。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>agent 不再只活在软件：开始有<strong>专属硬件形态</strong>（Codex Micro）与<strong>跨企业交易网络</strong>（NextB2B 的 A2A/ATP）。"终端原生可执行体 + agent 经济协议"初成，呼应 NO.59 信号 04 的「端侧闭环」但更进一步——不只是一台手机，而是一台专用 agent 终端 + 企业间自动交易。</p>
+    <p><strong>对 TEI 的映射</strong>：A 终端硬件的「原生可执行体」外延被拓宽——除了智能体手机，也可是一台专用 agent 终端；B2B 的 <strong>A2A 交易协议</strong>是 B 平台要亲手定义的硬标准，也是 C 行业方案未来"企业间自动协同"的地基。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>O'Reilly Radar Sept 2026</b> · OpenAI Codex Micro·13键·旋钮/触摸/摇杆/状态灯·远程控 Codex·暗示语音  ·  <b>ZG Group 公告 9/2</b> · NextB2B 首个 B2B 全流程 AI Agent·4 模块·A2A 交易(ATP 协议)·三层收费(基础¥2万/增值/token)  |  冷静点:Codex Micro 为雷达报道、未官宣量产;NextB2B A2A 为"计划内嵌"非已上线;跨企业交易依赖网络效应、落地待验证
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身 · 量产生态（成军）</span>
+  <h2 class="c-title">广东机器人「十骏」中博会成军 + 马斯克预言 2036 年人形 10 亿台 + RoboMIND 下载破 2000 万：具身从「演示/参赛」进「量产/生态」</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">量产</span><span class="chip t">生态</span><span class="chip">十骏</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/4 起，具身智能从"单机炫技"跨进"区域集群 + 数据工厂 + 跨界资本"的量产生态：</p>
+    <ul>
+      <li><strong>广东机器人「十骏」</strong>集结中博会（逐际动力、自变量、智平方、乐聚、众擎、美的、小鹏、荣耀、优必选、越疆），近 <em class="hl">70 家</em>产业链企业同台，从「整机竞赛」到「生态成军」，关注点从"能做什么动作"转向"能在哪些产线/园区真干活"。</li>
+      <li><strong>马斯克 9/1 预言</strong>：到 <strong>2036 年全球人形机器人破 10 亿台</strong>、总生产力超全人类，AI 促全球经济年增 20%-30%（约 20-30 万亿美元增量）。</li>
+      <li><strong>北京 RoboMIND 数据集</strong> 9/2 全球下载破 <strong>2000 万</strong>次，数据基地部署 150+ 机器人、年产能 18 万小时——具身「数据超级工厂」成型；近 <strong>20 家</strong>车企（小鹏首轮 >9 亿美元、IRON 年底量产）下场造机器人，借汽车制造与供应链同源优势挖第二增长曲线。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身从"演示/参赛"（NO.59 的运动会/标准）再往前，进「<strong>量产/生态</strong>」：区域产业集群（广东十骏）+ 数据超级工厂（RoboMIND）+ 跨界资本（车企）共同把成本与供给曲线往下推。王兴兴「身体达标≠大脑成熟」的冷提示仍在，但"能上岗、能交付"的整机伙伴已经成军。</p>
+    <p><strong>对 TEI 的映射</strong>：D 并购标的（具身大脑/世界模型/少示教快部署）要评估"生态位与量产能力"两项硬指标；C→B 制造业/政企首发客户，正对应广东「十骏」这类已能落地的整机伙伴——从选型到共建产线，是 C 阶段现金流的最短路径。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>南方+ 9/4</b> · 广东机器人十骏中博会(逐际/自变量/智平方/乐聚/众擎/美的/小鹏/荣耀/优必选/越疆)·近70家产业链同台  ·  <b>机器人行业日报 9/3</b> · 马斯克 9/1 预言 2036 人形 10亿台·RoboMIND 下载破 2000万·150+机器人·年产能18万小时·近20家车企下场  |  冷静点:马斯克预言为远景、非承诺;十骏为区域集群非全国;量产规模/价格未定;"成军"仍处早期、商业闭环在形成
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.59「上岗底座（可信·可控·可交付·端侧·定标）」→ 本日 NO.60「规模清算（降本·组网·整合·终端原生·量产生态）」。稀缺资源从「能不能上岗」再推进到「算得过账、组得成网、并得动资本」——能力摊开后，市场开始清算成本、生态与资本。</li>
+    <li><strong>交叉验证</strong>：01（钛媒体/网易/一财 9/3）、02（字母榜 9/3 + 证券时报 9/2）、03（aiagentsdirectory 9/3）、04（O'Reilly Radar + ZG 公告 9/2）、05（南方+ 9/4 + 机器人行业日报 9/3）均为权威媒体或公司公告转述，中高可信；02/03/04/05 含厂商与赛事口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 9/2–9/4 增量——Fable 5.1/Mythos 5.1 + Muse Spark 1.3 + Gemini 3.8 Flash（新成本拐点）、WorkBuddy 开放平台 + 万有无界（新组网底座）、Claudeforce/Sweep/Console/Wonderful（新并购整合）、Codex Micro + NextB2B（新终端原生 + A2A）、广东十骏 + 马斯克预言 + RoboMIND（新量产生态）。与 NO.59（GitSpawn/OpenAI断供Cursor/Orca/WorkBuddy@晶科/NaviX Ultra/运动会）完全分开。</li>
+    <li><strong>诚实边界</strong>：01 降价为厂商定价、实际账单依赖用量结构；02 开放平台伙伴规模待验证、「底座」含营销；03 并购金额多未完全披露；04 Codex Micro 未官宣量产、NextB2B A2A 为计划内嵌；05 马斯克预言为远景、十骏仍处早期、商业闭环在形成。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：自治体（Agent + 机器人）从「上岗底座」进入「规模清算」——Anthropic Fable 5.1 把缓存读取砍 75%、Muse Spark 1.3 / Gemini 3.8 Flash 把 coding agent 成本压到可规模（降本）、腾讯 WorkBuddy 开放平台 + 阿里万有无界把 Agent 组进生态网（组网）、Claudeforce/Sweep/Console/Wonderful 把赛道推进资本整合（整合）、Codex Micro + NextB2B 让 agent 长出专属硬件与跨企业交易网（终端原生）、广东十骏 + 马斯克预言 + RoboMIND 把具身推进量产生态（量产）。五件事共同把「上岗底座」翻译成「算得过账、组得成网、并得动资本、终端原生、量产成军」——正是 TEI C→B→A→D 当下要亲手做的规模化清算。</div>
+  <div class="risk"><b>风险与未决</b>coding agent 降价多为厂商定价、真实 ROI 依赖用量结构、且"能力—护栏"解耦（Mythos）可能拉大前沿能力获取门槛；Agent 底座「组网」仍处发布早期、双向接入工程成熟度未公开；并购金额多未完全披露、整合效果待观察；Codex Micro 未官宣量产、NextB2B A2A 为计划内嵌、跨企业交易依赖网络效应；具身「十骏」仍处早期、量产规模/价格未定、王兴兴「身体达标≠大脑成熟」的冷提示未解。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.60</span>
+  <span>2026-09-05 10:00 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>

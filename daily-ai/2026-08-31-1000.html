@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>AI 领域每日动态 · 2026-08-31 10:00 · 受托·上岗：AI Agent 与机器人集体跨过「演示 → 常驻委托 → 进产线 / 进终端」</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap' rel='stylesheet'>
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:'Courier Prime',monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class='sheet'>
+
+<div class='masthead'>
+  <div class='mh-top'>
+    <span>Leion · <b>NO.58</b></span>
+    <span>2026-08-31  10:00  GMT+8</span>
+  </div>
+
+  <h1>受托·上岗：<em>AI Agent 与机器人集体跨过「演示 → 常驻委托 → 进产线 / 进终端」</em></h1>
+
+  <div class='spec-strip'>
+    <div class='spec-cell'><span class='spec-k'>Signals</span><span class='spec-v'>5 条 / 周末精选</span></div>
+    <div class='spec-cell'><span class='spec-k'>主战场</span><span class='spec-v'>AI Coding · Agent · 终端 · 具身</span></div>
+    <div class='spec-cell'><span class='spec-k'>硬数字</span><span class='spec-v'>25h · 90% · 80% · 4万 · 80×80</span></div>
+    <div class='spec-cell'><span class='spec-k'>时间锚</span><span class='spec-v'>演示 → 受托 → 上岗</span></div>
+  </div>
+</div>
+
+<div class='lede'>
+  <span class='tag'>本期主线</span>
+  <div class='lede-title'>今天五条信号把自治体共同推过「演示 → 受托 → 上岗」三道坎</div>
+  <p>能力就位已是共识，竞争焦点迁移到「能不能被委托、能不能真上岗」：① OpenAI 测试 Codex「<strong>持久模式</strong>」，复杂任务最长连续运行 <strong>25 小时</strong>、跨会话保存上下文、自主规划子任务——coding agent 从「一轮对话」变「常驻委托对象」；② JetBrains《2026 开发者生态调查》显示 <strong>90%</strong> 专业开发者每周用 AI coding agent、<strong>68%</strong> 每天，Claude Code 七个月内 18%→<strong>39%</strong>（美国 47%）反超 Copilot（21%），Codex 16%、Cursor 12% 下滑——coding agent 已成日常开发环境，竞争从「AI IDE 好不好用」转向「agent 能否把任务做完」；③ 华为云 828 B2B 企业节：智果 AgentArts 端到端任务完成率 <strong>80%</strong>、码道 CodeArts 升级 Agent Team 内置 <strong>16</strong> 个专家智能体——企业 agent 从「试了试」进入「装进真实生产系统」；④ 摩盖 MOG V1 AI 工作手机 <strong>8/26</strong> 首批交付，端侧 VLM + 云端决策协同的 Sales Agent 跨 App 读屏/执行，终端原生 agent 从概念走到货架；⑤ 第二届世界人形机器人运动会全自主（去遥控）破人类纪录（100m 9.39s、高跳 2.88m、400m 38.15s、1500m 2:21.63），H1 中国出货 <strong>4 万+</strong> 占全球 97%、工信部估全年 10 万+，王兴兴量化人形 ChatGPT 时刻＝<strong>80%</strong> 陌生场景完成 80% 任务，浙江均普机器人赴欧车企产线、2000 台服装场景批量交付、特定场景 <strong>99%</strong> 成功率——具身从秀场跨进考场与产线。一句话：<strong>稀缺资源从「能不能演示」进一步到「能不能被委托、能不能真上岗」</strong>——正是 TEI C→B→A→D 当下要亲手补的「受托 / 上岗」底座。</p>
+</div>
+
+<div class='figure'>
+  <div class='fig-cap'>图 02 — <b>演示 → 受托 → 上岗 信号位置</b>  |  自治程度轴：长程自主（Codex 持久）· 日常环境（Claude Code 反超）· 企业落地（华为 80%）· 终端原生（MOG V1）· 具身上岗（运动会/浙江出海）</div>
+  <svg viewBox='0 0 872 300' width='100%' role='img' aria-label='信号星图：五条信号分别落在长程自主、日常环境、企业落地、终端原生、具身上岗五个进阶档位'>
+    <defs>
+      <marker id='bo8' markerwidth='9' markerheight='9' refx='7' refy='3.2' orient='auto'>
+        <path d='M0,0 L7,3.2 L0,6.4 z' fill='#a4442a'/>
+      </marker>
+    </defs>
+
+    <text x='8' y='15' font-family='Courier Prime,monospace' font-size='10' fill='#7f8d9c' letter-spacing='1.6'>DEMO → DELEGATED → DEPLOYED / 2026-08-31</text>
+
+    <rect x='8' y='34' width='212' height='46' fill='rgba(47,107,107,.12)' stroke='#2f6b6b' stroke-width='1.1'/>
+    <text x='114' y='54' text-anchor='middle' font-family='Noto Serif SC,serif' font-size='13.5' fill='#1b2733'>演示（往期已证）</text>
+    <text x='114' y='73' text-anchor='middle' font-family='Courier Prime,monospace' font-size='9.5' fill='#4d5c6c'>NO.53/54/55/56/57 能力交付</text>
+
+    <rect x='652' y='34' width='212' height='46' fill='rgba(164,68,42,.12)' stroke='#a4442a' stroke-width='1.1'/>
+    <text x='758' y='54' text-anchor='middle' font-family='Noto Serif SC,serif' font-size='13.5' fill='#1b2733'>受托 · 上岗（今日）</text>
+    <text x='758' y='73' text-anchor='middle' font-family='Courier Prime,monospace' font-size='9.5' fill='#4d5c6c'>常驻委托·进产线·进终端</text>
+
+    <path d='M222,57 L648,57' stroke='#a4442a' stroke-width='1.4' marker-end='url(#bo8)'/>
+
+    <g font-family='Courier Prime,monospace'>
+      <rect x='10' y='102' width='162' height='148' fill='rgba(255,255,255,.7)' stroke='#2f6b6b' stroke-width='.9'/>
+      <text x='91' y='126' text-anchor='middle' font-family='Cormorant Garamond,Georgia,serif' font-size='16' fill='#2f6b6b' font-weight='700'>长程自主</text>
+      <text x='91' y='146' text-anchor='middle' font-size='9.5' fill='#4d5c6c'>AI Coding · 受托</text>
+      <text x='91' y='172' text-anchor='middle' font-size='9.5' fill='#2f6b6b'>01 Codex 持久模式</text>
+      <text x='91' y='190' text-anchor='middle' font-size='9.5' fill='#2f6b6b'>最长 25h 连续</text>
+      <text x='91' y='218' text-anchor='middle' font-size='9' fill='#7f8d9c'>跨会话存上下文</text>
+      <text x='91' y='240' text-anchor='middle' font-size='9' fill='#7f8d9c'>自主规划子任务</text>
+
+      <rect x='182' y='102' width='162' height='148' fill='rgba(255,255,255,.7)' stroke='#356b96' stroke-width='.9'/>
+      <text x='263' y='126' text-anchor='middle' font-family='Cormorant Garamond,Georgia,serif' font-size='16' fill='#356b96' font-weight='700'>日常环境</text>
+      <text x='263' y='146' text-anchor='middle' font-size='9.5' fill='#4d5c6c'>AI Coding · 格局</text>
+      <text x='263' y='172' text-anchor='middle' font-size='9.5' fill='#356b96'>02 JetBrains 调查</text>
+      <text x='263' y='190' text-anchor='middle' font-size='9.5' fill='#356b96'>90% 周用/68% 日</text>
+      <text x='263' y='218' text-anchor='middle' font-size='9' fill='#7f8d9c'>Claude Code 39%</text>
+      <text x='263' y='240' text-anchor='middle' font-size='9' fill='#7f8d9c'>反超 Copilot 21%</text>
+
+      <rect x='354' y='102' width='162' height='148' fill='rgba(255,255,255,.7)' stroke='#a4442a' stroke-width='.9'/>
+      <text x='435' y='126' text-anchor='middle' font-family='Cormorant Garamond,Georgia,serif' font-size='16' fill='#a4442a' font-weight='700'>企业落地</text>
+      <text x='435' y='146' text-anchor='middle' font-size='9.5' fill='#4d5c6c'>AI Agent · 上岗</text>
+      <text x='435' y='172' text-anchor='middle' font-size='9.5' fill='#a4442a'>03 华为 828</text>
+      <text x='435' y='190' text-anchor='middle' font-size='9.5' fill='#a4442a'>端到端 80%</text>
+      <text x='435' y='218' text-anchor='middle' font-size='9' fill='#7f8d9c'>Agent Team 16 专家</text>
+      <text x='435' y='240' text-anchor='middle' font-size='9' fill='#7f8d9c'>装进生产系统</text>
+
+      <rect x='526' y='102' width='162' height='148' fill='rgba(255,255,255,.7)' stroke='#356b96' stroke-width='.9'/>
+      <text x='607' y='126' text-anchor='middle' font-family='Cormorant Garamond,Georgia,serif' font-size='16' fill='#356b96' font-weight='700'>终端原生</text>
+      <text x='607' y='146' text-anchor='middle' font-size='9.5' fill='#4d5c6c'>终端智能 · 上岗</text>
+      <text x='607' y='172' text-anchor='middle' font-size='9.5' fill='#356b96'>04 MOG V1 交付</text>
+      <text x='607' y='190' text-anchor='middle' font-size='9.5' fill='#356b96'>8/26 首批商用</text>
+      <text x='607' y='218' text-anchor='middle' font-size='9' fill='#7f8d9c'>端侧 VLM+云端</text>
+      <text x='607' y='240' text-anchor='middle' font-size='9' fill='#7f8d9c'>Sales Agent 跨 App</text>
+
+      <rect x='698' y='102' width='162' height='148' fill='rgba(255,255,255,.7)' stroke='#a4442a' stroke-width='.9'/>
+      <text x='779' y='126' text-anchor='middle' font-family='Cormorant Garamond,Georgia,serif' font-size='16' fill='#a4442a' font-weight='700'>具身上岗</text>
+      <text x='779' y='146' text-anchor='middle' font-size='9.5' fill='#4d5c6c'>具身 · 考场/产线</text>
+      <text x='779' y='172' text-anchor='middle' font-size='9.5' fill='#a4442a'>05 运动会/浙江</text>
+      <text x='779' y='190' text-anchor='middle' font-size='9.5' fill='#a4442a'>H1 4万/97%</text>
+      <text x='779' y='218' text-anchor='middle' font-size='9' fill='#7f8d9c'>全自主破纪录</text>
+      <text x='779' y='240' text-anchor='middle' font-size='9' fill='#7f8d9c'>出海+批量交付</text>
+    </g>
+
+    <line x1='10' y1='270' x2='860' y2='270' stroke='#1b2733' stroke-width='1' opacity='.35'/>
+    <text x='10' y='290' font-family='Courier Prime,monospace' font-size='9.5' fill='#7f8d9c'>TEI 映射 →</text>
+    <text x='96' y='290' font-family='Noto Serif SC,serif' font-size='11' fill='#4d5c6c'>C 客户委托 coding agent · B 企业 agent 进生产+终端原生执行 · A 本机/端侧可信运行 · D 具身上岗与出海交付</text>
+  </svg>
+  <div class='fig-note'>读法：横轴是「往期已证的演示 → 今日推进到的受托 / 上岗」。五点中，01/02 是 coding agent 变成「被长期委托的对象」（C 入口被日常化）；03/04 是 agent 进生产系统与终端原生执行（B 平台 + A 终端）；05 是具身进考场与产线（D 上岗与出海）。四件事共同把「能力」翻译成「被委托、被使用、真上岗」。</div>
+</div>
+
+<div class='sec-head'>
+  <span class='n'>SIGNALS / 05</span>
+  <span class='t'>今日五条精选信号</span>
+</div>
+
+<div class='card'>
+  <span class='c-num'>信号 <b>01</b>  /  AI Coding · 长程自主</span>
+  <h2 class='c-title'>OpenAI 测试 Codex「持久模式」：复杂任务最长连续运行 25 小时，跨会话保存上下文、自主规划子任务</h2>
+  <p class='c-tags'><span class='chip b'>AI Coding</span><span class='chip o'>长程自主</span><span class='chip t'>持久模式</span><span class='chip'>受托</span></p>
+
+  <div class='blk'>
+    <span class='blk-k'>事件</span>
+    <p>据 WIRED 8/28 报道，通过查阅产品代码发现，OpenAI 正在为代码智能体 Codex 测试「持久模式（persistent mode）」新特性：</p>
+    <ul>
+      <li><strong>从一轮对话到常驻委托</strong>：现有 Codex 完成一轮交互后即便任务未做完也会在运行一段时间后自动终止；持久模式下，AI 能主动规划后续子任务、<em class='hl'>跨会话保存项目上下文</em>，无需用户反复下发指令，持续向设定目标迭代推进。</li>
+      <li><strong>实测时长</strong>：测试环境中处理复杂开发任务时，该智能体最长可<em class='hl'>连续运行 25 小时</em>。</li>
+      <li><strong>官方定性</strong>：OpenAI 确认该功能处于内部实验测试阶段，暂无近期上线安排；高算力消耗，出现在推理强度配置菜单中。</li>
+    </ul>
+  </div>
+
+  <div class='blk why'>
+    <span class='blk-k'>为什么值得关注</span>
+    <p>这把 coding agent 从「<strong>一轮问答工具</strong>」推向「<strong>被长期委托的工程实体</strong>」——人下发一次目标，agent 自己拆解、续跑、保住上下文。它和 NO.57 的 SKILL.state（长会话 token −94%）是同一方向的两条补完：一个解决「跑得久」，一个解决「跑得省」。</p>
+    <p><strong>对 TEI 的映射</strong>：C 行业方案要交付的不是一个「回答问题的助手」，而是「接了目标就自己干到底的受托体」；而这要求平台层补上 NO.57 已点名的控制面（权限/审计/沙箱）+ 本机运行时——否则 25 小时无人看护的自主体就是 25 小时的风险敞口。</p>
+  </div>
+
+  <div class='datum'>
+    可核验数据点  ·  <b>WIRED 8/28 报道（据产品代码逆向）</b> · Codex 持久模式:跨会话存上下文·自主规划子任务·最长连续 25h · 高算力消耗·推理强度菜单 · 官方:内部实验·暂无上线安排  |  冷静点:消息源为媒体据代码逆向+官方确认,非正式发布;25h 为测试环境极值非常态;功能未上线,时间表不明
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>信号 <b>02</b>  /  AI Coding · 格局重排</span>
+  <h2 class='c-title'>JetBrains《2026 开发者生态调查》：90% 专业开发者周用 AI coding agent、68% 每天；Claude Code 七个月 18%→39% 反超 Copilot</h2>
+  <p class='c-tags'><span class='chip b'>AI Coding</span><span class='chip o'>日常环境</span><span class='chip t'>格局</span><span class='chip'>Claude Code</span></p>
+
+  <div class='blk'>
+    <span class='blk-k'>事件</span>
+    <p>JetBrains Research 8 月发布第十版《开发者生态系统调查》（5–7 月，1.5 万+ 专业开发者），给出 coding agent 已成「日常开发环境」的硬证据：</p>
+    <ul>
+      <li><strong>渗透率</strong>：<em class='hl'>90%</em> 专业开发者每周至少用一次 AI 编程 agent，<em class='hl'>68%</em> 每天使用。</li>
+      <li><strong>七个月格局重排</strong>：Claude Code 从 1 月的 18% 飙升至 <strong>39%</strong>（美国市场 47%），登顶职场使用最广的 AI 编码工具；GitHub Copilot 由 29% 降至 <strong>21%</strong>；OpenAI Codex 由 3% 增至 <strong>16%</strong>（约 5 倍）；曾经风头最劲的 Cursor 反向下滑，18%→<strong>12%</strong>（「知道的人更多、用的人更少」）。</li>
+      <li><strong>开源与标准</strong>：无厂商开源编码 Agent OpenCode 工作使用率 7%、认知度 42%；配置标准之争持续——Copilot 已能读仓库根目录 AGENTS.md 并调用仓库定义的 agent skills，被视为最接近「可移植配置标准」。</li>
+    </ul>
+  </div>
+
+  <div class='blk why'>
+    <span class='blk-k'>为什么值得关注</span>
+    <p>这是 AI 编程从「尝鲜工具」变为「<strong>日常基础设施</strong>」的最硬证据，竞争焦点已从「谁的 AI IDE 更好用」转向「<strong>谁的 agent 能真正把任务做完</strong>」。Claude Code 反超说明分发渠道（预装 IDE）不再是护城河，能否接管端到端开发工作流才是。</p>
+    <p><strong>对 TEI 的映射</strong>：C 阶段面向企业的 coding/行业方案，要卖的是「把 agent 接进客户真实工作流、可被委托完成端到端任务」的能力，而非又一个聊天框；AGENTS.md / CLAUDE.md 这类<em class='hl'>可移植配置标准</em>之争，正是平台该提前卡位的入口（NO.57 已点出「跨工具配置标准成新战场」）。</p>
+  </div>
+
+  <div class='datum'>
+    可核验数据点  ·  <b>JetBrains Research《2026 开发者生态系统调查》</b>(8月,5–7月,1.5万+开发者) · 90% 周用·68% 日 · Claude Code 18%→39%(美47%)·Copilot 29%→21%·Codex 3%→16%·Cursor 18%→12% · OpenCode 7%/认知42% · AGENTS.md 可移植配置  |  冷静点:样本为 JetBrains 生态开发者、偏早期采用者;使用率为自报;认知度≠使用率;横截面非时间序列因果
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>信号 <b>03</b>  /  AI Agent · 企业级落地</span>
+  <h2 class='c-title'>华为云 828 B2B 企业节：智果 AgentArts 端到端任务完成率 80%，码道 CodeArts 升级 Agent Team 内置 16 个专家智能体</h2>
+  <p class='c-tags'><span class='chip b'>AI Agent</span><span class='chip o'>企业落地</span><span class='chip t'>上岗</span><span class='chip'>Agent 团队</span></p>
+
+  <div class='blk'>
+    <span class='blk-k'>事件</span>
+    <p>8/27 第五届 828 B2B 企业节（2026 数博会期间）聚焦 Agent 时代企业落地，华为云联合中软国际、软通动力、金山办公、科大讯飞等 16 家伙伴启动「企业 AI 百场景落地」行动，释放明确信号——AI 价值正从技术参数转向实际产出：</p>
+    <ul>
+      <li><strong>端到端完成率</strong>：智果 AgentArts 企业级智能体平台全面践行 Harness 工程（生产级长程任务/企业级安全/行业知识深度/全链路可观测），将<em class='hl'>端到端任务完成率提升至 80%</em> 的业界高水平，实现开发-运行-运维全生命周期闭环。</li>
+      <li><strong>多智能体协同</strong>：码道 CodeArts 代码智能体升级 Agent Team，<em class='hl'>内置 16 个专家智能体</em>实现多角色并行协同开发；果办 OfficeAce 对接企业已有 IT 系统与知识库。</li>
+      <li><strong>生态卡位</strong>：软通动力天璇 AgentOS、北明软件灵零九企业智能体平台基于 openJiuwen 发布；华为云称 AI 正从「辅助工具」变为能自主作业的「数字员工」。</li>
+    </ul>
+  </div>
+
+  <div class='blk why'>
+    <span class='blk-k'>为什么值得关注</span>
+    <p>企业级 agent 从「试了试」进入「<strong>装进真实生产系统</strong>」——80% 端到端完成率 + 16 专家 Agent Team 是「能不能干完真实业务」的硬指标，呼应 NO.57 的 agent 治理议题：规模化上岗必须以可观测、可审计、可退役为前提。</p>
+    <p><strong>对 TEI 的映射</strong>：B 平台要补的不是单 agent，而是「多智能体协同 + 端到端完成率可核算 + 全链路可观测」的企业级底座；这也正是 C→B 上行时客户真正愿意付费的落点——把 agent 装进产线而非演示。</p>
+  </div>
+
+  <div class='datum'>
+    可核验数据点  ·  <b>第五届 828 B2B 企业节(8/27,数博会)</b> · 华为云 AgentArts 端到端完成率 80% · CodeArts Agent Team 16 专家 · 16 家伙伴·企业AI百场景落地 · 周跃峰/刘杰发言  |  冷静点:80% 为厂商口径、场景与口径未公开;「数字员工」为营销表述;AgentArts 完成率依赖华为自家 Harness 定义,非第三方基准
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>信号 <b>04</b>  /  终端智能 · 原生商用交付</span>
+  <h2 class='c-title'>摩盖 MOG V1 AI 工作手机 8/26 首批交付：端侧 VLM + 云端决策协同的 Sales Agent 跨 App 读屏/执行，终端原生 agent 从概念走到货架</h2>
+  <p class='c-tags'><span class='chip b'>终端智能</span><span class='chip o'>原生商用</span><span class='chip t'>上岗</span><span class='chip'>端侧 VLM</span></p>
+
+  <div class='blk'>
+    <span class='blk-k'>事件</span>
+    <p>8/26 上海，摩盖软件完成 MOG V1 AI 工作手机首批正式交付，标志业内首款面向一线员工、<em class='hl'>终端原生运行的 AI 工作智能体</em>走向商用落地：</p>
+    <ul>
+      <li><strong>架构</strong>：端侧 VLM 视觉大模型 + 云端决策协同，把完整 AI 智能体运行在手机终端之上；以销售人员智能体（Sales Agent）为核心，打通手机内多应用数据孤岛。</li>
+      <li><strong>能力</strong>：具备<em class='hl'>跨 App 读取记录、识别手机界面、自动执行操作</em>的端侧原生能力；可语音调取设备状态、读业务聊天、代拟客户回复、自动生成工作复盘、执行设备底层管控指令。</li>
+      <li><strong>合规与适配</strong>：继承 MDM/MAM/MCM 移动设备管控能力，合规留存通话、短信、微信全链路业务沟通数据，完成敏感行为风控、企业客户资产沉淀；深度适配主流商用机型，企业无需更换特殊定制硬件即可获得端侧 AI 智能体全套能力，兼顾采购成本与落地兼容性，适配政企、销售型与私域运营团队。</li>
+    </ul>
+  </div>
+
+  <div class='blk why'>
+    <span class='blk-k'>为什么值得关注</span>
+    <p>这是<strong>终端原生 agent 从概念走到货架</strong>的实锤——不是云端助手套壳，而是把视觉理解 + 决策 + 跨 App 执行真正压到手机终端，且面向政企合规场景（通话/微信全链路留存、敏感行为风控）。它把 NO.57 的「本机运行时 / 数据主权默认」从个人生产力推进到企业移动办公。</p>
+    <p><strong>对 TEI 的映射</strong>：A 终端智能的商业化样板——端侧 VLM（看屏）+ 云端决策（想）+ 跨 App 执行（干）的三段式，正是 C→B→A 里「终端原生可执行体」的最小可用形态；政企合规（MDM/风控/资产沉淀）是它敢上岗的前提，也该是 TEI 终端方案的默认底座。</p>
+  </div>
+
+  <div class='datum'>
+    可核验数据点  ·  <b>摩盖软件 MOG V1 AI 工作手机 首批交付(8/26,上海)</b> · 终端原生 AI 工作智能体·端侧 VLM+云端决策·Sales Agent 跨 App 读屏/执行 · MDM/MAM/MCM 管控·通话短信微信全链路留存·深度适配主流机型  |  冷静点:厂商发布口径、首批交付规模未披露;端侧 VLM 具体模型/性能未公开;跨 App 自动执行依赖系统授权,真实稳定性待验证
+  </div>
+</div>
+
+<div class='card'>
+  <span class='c-num'>信号 <b>05</b>  /  具身 · 上岗 / 出海</span>
+  <h2 class='c-title'>具身从秀场跨进考场与产线：第二届世界人形机器人运动会全自主破人类纪录，H1 中国出货 4 万+ 占全球 97%，浙江机器人赴欧车企产线批量交付</h2>
+  <p class='c-tags'><span class='chip b'>具身智能</span><span class='chip o'>上岗</span><span class='chip t'>出海</span><span class='chip'>量产</span></p>
+
+  <div class='blk'>
+    <span class='blk-k'>事件</span>
+    <p>周末两场盛会 + 一线落地，共同把具身从「演示」推到「考场 / 产线 / 出海」：</p>
+    <ul>
+      <li><strong>运动会全自主破纪录</strong>：第二届世界人形机器人运动会（8/22–26，北京）2056 台机器人、666 队、51 项目；最大变化是<em class='hl'>去遥控、全自主</em>——100m 跑 9.39s（破博尔特 9.58s）、站立跳高 2.88m（破人类 2.45m）、400m 38.15s、1500m 2:21.63，均超人类世界纪录。</li>
+      <li><strong>量产与占比</strong>：工信部预计全年产量破 10 万；H1 中国出货 <em class='hl'>4 万+</em> 占全球 97%（中国电子学会）；宇树王兴兴给出人形「ChatGPT 时刻」量化定义＝<strong>80%</strong> 陌生场景通过语音/文字指令完成约 80% 任务，临界点最快 2–3 年、最慢 5–10 年。</li>
+      <li><strong>出海与批量交付</strong>：浙江均普智能机器人赴欧洲头部车企生产车间「上岗」；2000 台服装场景定制机器人进入批量交付，特定测试场景作业成功率 <strong>99%</strong>；云深处行业级全天候人形机器人落地变电站巡检等复杂场景。</li>
+    </ul>
+  </div>
+
+  <div class='blk why'>
+    <span class='blk-k'>为什么值得关注</span>
+    <p>具身智能的稀缺资源从「能不能动」换成「<strong>能不能在全自主下干活、能不能真进产线、能不能出海交付</strong>」。全自主（去遥控）是能力拐点，99% 特定场景成功率 + 赴欧车企产线是「上岗」硬证据——呼应 NO.56/57 的「交付纪元 / 价值兑现」主线。</p>
+    <p><strong>对 TEI 的映射</strong>：D 并购标的中「具身大脑 / 世界模型 / 少示教快部署」类公司的评估，应把「全自主率、特定场景成功率、出海交付能力」列为硬指标；C→B 上行时，制造业/政企首发客户要的正是「能上岗、能交付、能出海」的具身方案，而非展台炫技。</p>
+  </div>
+
+  <div class='datum'>
+    可核验数据点  ·  <b>第二届世界人形机器人运动会(8/22–26,北京)</b> · 2056 台/666 队/51 项·全自主·100m 9.39s·高跳 2.88m·400m 38.15s·1500m 2:21.63  ·  <b>中国电子学会/工信部</b> · H1 出货 4万+ 占全球 97%·全年预计 10万+  ·  <b>王兴兴</b> · 人形 ChatGPT 时刻=80%场景完成80%任务(2–3年/5–10年)  ·  <b>浙江均普</b> · 赴欧车企产线·2000台服装场景批量交付·特定场景 99%  |  冷静点:运动会为标准化赛项非真实工况;97% 为全球产量占比含消费/教育类;99% 为特定测试场景非通用;出海交付规模与合同时长未披露
+  </div>
+</div>
+
+<div class='cross'>
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.57「自建·可信·在端·可训（建 / 管 / 跑 / 训）」→ 本日 NO.58「受托·上岗（演示 → 受托 → 上岗）」。叙事从「客户自建改写入口、本机运行时、agent 结算治理、世界模型训练场」再推进到「coding agent 被长期委托、企业 agent 进生产系统、终端原生 agent 商用交付、具身进考场与产线」——稀缺资源从能力演示进一步下沉到「被委托、被使用、真上岗」。</li>
+    <li><strong>交叉验证</strong>：01（WIRED 8/28 据代码逆向 + OpenAI 确认）、02（JetBrains Research 8 月调查，1.5 万+ 样本）、03（华为云 828 企业节 8/27 多家媒体验证）、04（摩盖软件 8/26 发布）、05（China Daily / 证券时报 / 中新网 8/27–29 报道）均为一级或权威转述，中高可信；05 含赛事与厂商口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 8/26–29 增量——Codex 持久模式（新特性）、JetBrains 年度调查（新数据）、华为 828（新落地）、MOG V1 交付（新商用）、运动会纪录 + 王兴兴定义 + 浙江出海（新上岗证据）。与 NO.57（McKinsey/Copilot-Codex-Portable/Uber-Hyr-SAP-Gartner/WALL-SS-StreamPI）、NO.56（Hy4/Skild/Temporal/优必选/MHS）完全分开。</li>
+    <li><strong>诚实边界</strong>：01 为媒体据代码逆向、功能未上线；03 的 80% 完成率为华为口径、非第三方基准；04 首批交付规模未披露；05 运动会为标准化赛项、97% 含消费/教育类、99% 为特定场景。本报不构成投资建议。</li>
+  </ol>
+  <div class='verdict'>本期一句话：自治体（Agent + 机器人）集体跨过「演示 → 受托 → 上岗」三道坎——Codex 持久模式让 coding agent 被长期委托（25h 连续、跨会话存上下文）、JetBrains 调查证明 coding agent 已成日常环境（Claude Code 39% 反超 Copilot）、华为 828 把企业 agent 装进生产系统（端到端 80% + 16 专家 Agent Team）、MOG V1 让终端原生 agent 商用交付（端侧 VLM 跨 App 执行）、具身从秀场进考场与产线（全自主破纪录 + 4 万+ 出货 + 浙江出海 99%）。四件事共同把「能力」翻译成「被委托、被使用、真上岗」的底座——正是 TEI C→B→A→D 当下要亲手补的「受托 / 上岗」地基。</div>
+  <div class='risk'><b>风险与未决</b>Codex 持久模式为内部实验、未上线、25h 为测试极值；华为 80% 完成率依赖自家 Harness 定义、非第三方基准；MOG V1 首批交付规模与端侧 VLM 性能未公开、跨 App 执行依赖系统授权；具身运动会为标准化赛项非真实工况、97% 全球占比含消费/教育类、99% 为特定测试场景。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.58</span>
+  <span>2026-08-31 10:00 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>

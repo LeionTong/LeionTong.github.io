@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-27 10:00 · 自治进入约束纪元：本地化 · 货币化 · 规模化 · 治理化</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.53</b></span>
+    <span>2026-08-27  10:00  GMT+8</span>
+  </div>
+
+  <h1>自治进入约束纪元：<em>本地化 · 货币化 · 规模化 · 治理化</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日梳理</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">85.4% · 45% · 3.5月 · 万台级</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">从能力到约束</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">单体能力的叙事仗已经打完，竞争转向「能在约束内长期、可信、可结算地跑」的四件事：本地化（数据不出设备）、货币化（机器自己付钱）、规模化（进产线/进团队）、治理化（身份与审计）</div>
+  <p>今天的五条信号锚定同一个转向——Agent 不再比「谁更会做」，而比「谁能在边界内持续运转」。<strong>本地端</strong>，Perplexity 把整套 Agent 运行时（编排器 + 子代理 + harness）压到本地 DGX Spark，离云前先过 PII 分类器与用户授权，把「数据主权」做成默认；<strong>货币端</strong>，Cloudflare 用 Kitesurf（无头浏览器）+ Wallets（封顶额度委托）+ x402（稳定币按请求计费）给 Agent 配齐「自己浏览、自己付钱」闭环，20+ 公司已跑通 agent 发起支付；<strong>规模端</strong>，具身智能从 WRC 的「演示者」跨进工信部「作业模式」——年底百个以上高价值场景、万台级落地能力；<strong>治理端</strong>，GitHub Copilot 进 Slack/Teams、Gartner 称 45% FTSE100 关键职能由多智能体系统管理、Google Agent Identity 与 AWS AgentCore 注册表把 agent 身份与权限做成平台原语。一句话：<strong>稀缺资源从「能力」换成「约束内运行」的四件套</strong>——这正是终端 / 具身落地前要亲手补的底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  能力已就位轴 × 约束纪元四象限（本地化 / 货币化 / 规模化 / 治理化），今日信号分布</div>
+  <svg viewbox="0 0 872 322" width="100%" role="img" aria-label="信号星图：左侧为已就位的单体智能体能力，右侧为约束纪元四象限（本地化/货币化/规模化/治理化）——Perplexity 本地运行时、面壁三重跃迁落本地化，Cloudflare x402 落货币化，具身作业模式落规模化，Agent 治理企业化落治理化">
+    <defs>
+      <marker id="ao3" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">CAPABILITY READY / FOUR CONSTRAINTS / 2026-08-27</text>
+
+    <rect x="8" y="34" width="232" height="50" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="124" y="55" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">单体能力叙事已就位</text>
+    <text x="124" y="75" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">「会不会做」不再稀缺</text>
+
+    <rect x="632" y="34" width="232" height="50" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="748" y="55" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">约束纪元 · 四象限</text>
+    <text x="748" y="75" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">本地化·货币化·规模化·治理化</text>
+
+    <path d="M242,59 L628,59" stroke="#a4442a" stroke-width="1.4" marker-end="url(#ao3)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="20" y="108" width="196" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="118" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#1d4e78" font-weight="700">本地化</text>
+      <text x="118" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">数据不出设备 · 常驻</text>
+      <text x="118" y="178" text-anchor="middle" font-size="9.5" fill="#1d4e78">01 Perplexity 本地运行时</text>
+      <text x="118" y="196" text-anchor="middle" font-size="9.5" fill="#1d4e78">03 终端三重跃迁/密度定律</text>
+      <text x="118" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">PII 分类器 + 用户授权离云</text>
+      <text x="118" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">能力密度约每 3.5 月翻倍</text>
+
+      <rect x="228" y="108" width="196" height="150" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="436" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#a4442a" font-weight="700">货币化</text>
+      <text x="436" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">机器自己浏览 + 付钱</text>
+      <text x="436" y="178" text-anchor="middle" font-size="9.5" fill="#a4442a">02 Cloudflare x402/Wallets</text>
+      <text x="436" y="196" text-anchor="middle" font-size="9.5" fill="#a4442a">Kitesurf + 封顶额度委托</text>
+      <text x="436" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">稳定币按请求边缘结算</text>
+      <text x="436" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">20+ 公司已跑通支付流</text>
+
+      <rect x="436" y="108" width="196" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="534" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#1d4e78" font-weight="700">规模化</text>
+      <text x="534" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">进产线 · 进团队</text>
+      <text x="534" y="178" text-anchor="middle" font-size="9.5" fill="#1d4e78">04 具身作业模式</text>
+      <text x="534" y="196" text-anchor="middle" font-size="9.5" fill="#1d4e78">年底百场景/万台级</text>
+      <text x="534" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">近 10 家车企产线验证</text>
+      <text x="534" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">优必选/乐聚/星动纪元落地</text>
+
+      <rect x="644" y="108" width="196" height="150" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="742" y="132" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#a4442a" font-weight="700">治理化</text>
+      <text x="742" y="152" text-anchor="middle" font-size="9.5" fill="#4d5c6c">身份 · 权限 · 审计</text>
+      <text x="742" y="178" text-anchor="middle" font-size="9.5" fill="#a4442a">05 Agent 治理企业化</text>
+      <text x="742" y="196" text-anchor="middle" font-size="9.5" fill="#a4442a">Agent Identity/Registry</text>
+      <text x="742" y="224" text-anchor="middle" font-size="9" fill="#7f8d9c">Copilot 进 Slack/Teams</text>
+      <text x="742" y="246" text-anchor="middle" font-size="9" fill="#7f8d9c">Gartner 45% FTSE100</text>
+    </g>
+
+    <line x1="20" y1="286" x2="840" y2="286" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+    <text x="20" y="306" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">TEI 映射 →</text>
+    <text x="96" y="306" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C：具身作业模式→行业方案现金流  |  B：本地/治理底座=平台资产  |  A：端侧算力+数据主权复用  |  D：货币化/治理标准卡位窗口</text>
+    <text x="20" y="320" font-family="Courier Prime,monospace" font-size="9" fill="#7f8d9c">01/03 本地化 · 02 货币化 · 04 规模化 · 05 治理化</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「单体能力就位 → 约束内运行」的转向。01 与 03 落在本地化（数据主权与常驻）；02 是货币化（机器自主付费）；04 是规模化（进产线/进团队）；05 是治理化（身份与审计）。四件事共同把「自治」从演示态推进到可长期、可信、可结算的生产态。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">当日五条信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  终端智能 · 本地 Agent 运行时</span>
+  <h2 class="c-title">Perplexity Portable Computer：把整套 Agent 运行时压到本地 DGX Spark，离云前先过 PII 分类器与用户授权</h2>
+  <p class="c-tags"><span class="chip b">Agent Locality</span><span class="chip o">本地零 token 费</span><span class="chip t">85.4% LKWB</span><span class="chip">本地优先</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>8 月 25 日 Perplexity 发布 <strong>Portable Computer</strong>——其自主 Agent 平台 Computer 的<em class="hl">完全本地版</em>：</p>
+    <ul>
+      <li><strong>运行时全本地</strong>：编排器 LLM、子代理 LLM、Agent harness 全部跑在用户自己的硬件上，<em class="hl">默认无云端依赖</em>。首发支持 Nvidia DGX Spark（GB10 superchip / 128GB / 1TB）与装有 RTX ≥24GB 的 Linux 机器。</li>
+      <li><strong>本地任务零费用</strong>：凡是本机可处理的任务，不产生任何 per-token 计费；模型可选阿里 <strong>Qwen3.8-27B</strong> 或 Perplexity 自训的 <strong>PPLX 27B</strong>，Nvidia <strong>Nemotron 3.5 Lightning</strong> 随后接入，并支持自带模型与推理服务器。</li>
+      <li><strong>离云前的护栏</strong>：仅当任务需要联网或超出本地模型推理能力时，orchestrator 才<em class="hl">暂停并请求用户授权</em>；上云前先经 PII 分类器筛选上下文、只共享必要片段，云模型仅返回指导、不直接触碰本地文件/工具/对话其余部分。</li>
+      <li><strong>系统级沙箱</strong>：代码与工具调用在 OS 强制沙箱内执行（限制进程、文件路径、网络）；沙箱不可用时直接禁用工具执行，而非放行。</li>
+      <li><strong>实测</strong>：PPLX 27B 在 DGX Spark 上跑自家 53 任务 <strong>Local Knowledge Work Bench 得 85.4%</strong>，高于同硬件开源替代；混合任务开云升级后大幅收窄与顶级云模型的差距，成本仅为零头。</li>
+      <li><strong>生态连接</strong>：演示中 agent 把数据分析结果直接发到用户 Slack 频道，并支持经本地 orchestrator 连 Google Drive / Gmail / GitHub。Windows 9 月、macOS 暂不在路线。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是「<strong>Agent Locality</strong>」（智能在本地设备与云之间按需分布，而非集中于远端数据中心）从概念到可装产品的标志——Agent 不再默认住在数据中心，而是住在用户自己的硬件里，且<em class="hl">隐私护栏是架构而非提示词</em>。</p>
+    <p><strong>对 TEI 路线的映射</strong>：直接呼应 A 阶段（端侧硬件长期生态合作）与终端方向。终端 Agent 的护城河正在变成「数据不出设备 + 常驻 + 可负担」三件套；当 Perplexity 把这套本地运行时做成商品，B 阶段平台选型时「端云协同」的本地一侧就有了现成范式可参考，但 Apple Silicon / macOS 缺席也提示跨芯片适配仍是真门槛。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/25 发布</b> · DGX Spark GB10/128GB/1TB · RTX ≥24GB · 本地零 token 费 · PII 分类器 + 用户授权离云 · <b>Local Knowledge Work Bench 85.4%（53 任务）</b> · Qwen3.8-27B / PPLX 27B / Nemotron 3.5 Lightning · Windows 9 月 / macOS 暂无  |  冷静点：仅 Nvidia Linux 桌面，Apple Silicon 缺席；85.4% 为 Perplexity 自测 53 任务基准；重推理仍需云端升级，本地优先 ≠ 本地唯一
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Agent · 机器经济基础设施</span>
+  <h2 class="c-title">Cloudflare Kitesurf + Wallets + x402：给 Agent 配齐「浏览器 + 钱包 + 支付轨」，20+ 公司已跑通 agent 发起支付</h2>
+  <p class="c-tags"><span class="chip b">Agent 经济</span><span class="chip o">无人在环付费</span><span class="chip t">稳定币结算</span><span class="chip">20+ 公司</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Cloudflare 在跨三周的三次发布里，给出 Agent 自主经济的完整三件套（8/24 被多家媒体作为「Agent 首次能无人在环地浏览与付费」合并同类项）：</p>
+    <ul>
+      <li><strong>Kitesurf</strong>：用 Rust 写、跑在 Workers V8 isolates 上的<em class="hl">无 Chromium 无头浏览器</em>，截图与 HTML 抽取比传统方案省 <strong>3–7× CPU 与内存</strong>；讲 Chrome DevTools Protocol，故现有 Playwright / Puppeteer 客户端可直接用。免费 beta。</li>
+      <li><strong>Wallets</strong>：人类注资账户、把<em class="hl">封顶额度委托</em>给 Agent，让机器在额度内自主支配。</li>
+      <li><strong>x402 协议</strong>：让任意站点 / API 按请求向 Agent 收<strong>稳定币</strong>，在边缘节点即时结算，无需传统支付对账。</li>
+      <li><strong>采用度</strong>：已有 <strong>20+ 家公司</strong>进入 agent 发起支付的真实流程。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>Agent 第一次同时拿到「<strong>浏览器（感知外部世界）+ 钱包（支配资金）+ 支付轨（结算）</strong>」三件套，能无人在环地浏览与付费——这是「机器管钱 / 签字」长期主线的工程兑现（此前 08-05 仅为架构设想）。对 AI coding / Agent 赛道，这意味着 agent 不只是「写代码」，而是能「自己采购依赖、自己付 API 费、自己结算任务」。</p>
+    <p><strong>风险面也正是治理面</strong>：谁来为 Agent 的采购签字、封顶额度能否在网络层真正硬约束、稳定币收付费的责权框架，目前仍缺位——这与本期信号 05 的治理化互为表里。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/24 三周连发被合并报道</b> · Kitesurf Rust/Workers V8/省 3–7× 资源/讲 CDP · Wallets 注资 + 封顶委托 · x402 稳定币按请求边缘结算 · <b>20+ 公司</b> agent 支付流  |  冷静点：支付闭环依赖稳定币与边缘结算生态成熟度；「无人在环付费」的责权法律框架仍空白，属高价值但高风险的基础设施
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  终端智能 · 三重跃迁与密度定律</span>
+  <h2 class="c-title">面壁智能周树峰：终端智能进入「三重跃迁」，底层是「密度定律」——能力密度约每 3.5 个月翻一番</h2>
+  <p class="c-tags"><span class="chip b">密度定律</span><span class="chip o">每 3.5 月翻倍</span><span class="chip t">去屏幕化</span><span class="chip">全模态闭环</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>8 月 26 日人民网财经研究院金台圆桌，面壁智能商业化副总裁周树峰系统表述终端智能的新阶段：</p>
+    <ul>
+      <li><strong>密度定律</strong>：大模型最大能力密度约<em class="hl">每 3.5 个月翻一番</em>，同等性能所需算力与资源呈指数级下降——这意味着高效模型可部署到手机、汽车、PC 与各类物联网设备承载真实应用。</li>
+      <li><strong>三重跃迁</strong>：① 交互从屏幕操作转向<em class="hl">语音 / 无界面</em>，由被动响应转主动服务；② 能力从单模态走向<em class="hl">全模态</em>（语音 + 视觉 + 用户状态）感知-决策-执行闭环；③ 终端呈现「快思考（实时追踪/意图）/ 中思考（感知理解精度）/ 慢思考（深度规划）」协同。</li>
+      <li><strong>硬门槛</strong>：芯片、算法、操作系统与传感器的<em class="hl">软硬件磨合</em>；与真实用户场景一致的<em class="hl">评测基准</em>；发挥端侧独有的<em class="hl">数据主权、长期记忆与常驻智能体</em>优势，让个性化服务在数据不出设备下完成。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是终端智能从「共识（密度定律）」到「路径（三重跃迁）」的系统表述，且明确点出端侧独有优势——<strong>数据主权、长期记忆、常驻 Agent</strong>，直接服务通通 TEI 的终端方向。对 B/C 阶段而言，端侧模型下沉速度（3.5 月翻倍）意味着「端云协同」闭环的工程窗口也在快速前移，C 阶段行业方案里「终端侧个性化」不再是远期功能。</p>
+    <p>与信号 01 形成互补：Perplexity 给出本地运行的「产品实例」，面壁给出终端智能的「演进规律」——两者共同把「终端 Agent 可行」从口号推进到可规划。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/26 人民网金台圆桌</b> · 密度定律（能力密度约每 3.5 月翻倍） · 三重跃迁（去屏幕化/全模态/快中慢协同） · 硬门槛（软硬件磨合/评测/数据主权）  |  冷静点：密度为厂商表述的经验规律而非物理定律；「快中慢思考」协同尚无统一实现标准，需看后续产品落地
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  具身智能 · 从演示者到工作者（作业模式）</span>
+  <h2 class="c-title">具身智能跨进工信部「作业模式」：年底百个以上高价值场景、万台级规模落地能力，近 10 家车企已产线验证</h2>
+  <p class="c-tags"><span class="chip b">WRC 2026 余波</span><span class="chip o">万台级</span><span class="chip t">百个场景</span><span class="chip">实景实训</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <ul>
+      <li><strong>WRC 2026（8/19–23）余波</strong>：机器人从「演示者」加速走向「工作者」。优必选携 Cruzr Y1 / S2 工业人形实景作业（汽车钣金与机加件上下料、拆码垛、分拣）；乐聚 Taskor 部署方案把单机部署从<em class="hl">数月缩至数小时</em>，已获汽车、通信、家电、物流等 <strong>10 余行业头部客户认购</strong>；星动纪元物流方案携手顺丰、中国邮政在 5 省十余中心常态运营；魔法原子以轮式双臂作柔性工作站。</li>
+      <li><strong>政策锚点（光明日报 8/27）</strong>：工信部、国资委 6 月《2026 年度人形机器人与具身智能<em class="hl">实景实训专项行动</em>》明确——到 2026 年底，人形机器人在一批代表性场景率先完成应用验证与常态部署，凝练形成<strong>百个以上高价值应用场景</strong>，带动形成<em class="hl">万台级规模落地能力</em>。</li>
+      <li><strong>产业底盘</strong>：小米、比亚迪等<strong>近 10 家主流汽车生产商</strong>已在实际产线开展具身智能部署验证（物料搬运、上下料等）；2025 年机器人产业规上企业营收突破 3000 亿元，今年上半年 1655 亿元、同比 +24.5%。</li>
+      <li><strong>口径</strong>：本届 WRC 参展企业 300+（同比 +36%）、展品 2000+（+27%）、首发新品 150+（+21%）；专家共识是具身正从「小批量试用」转向「大规模落地」关键拐点。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能的拐点从「会动」进入「<strong>真干活、可计量</strong>」——这正是 TEI 战略 C 阶段（行业方案做现金流）要切的现场。万台级落地能力 + 百个高价值场景，意味着具身从样机采购转向「按场景交付」，C 阶段现金流的可行性第一次有了<em class="hl">政策 + 产业双面背书</em>。</p>
+    <p><strong>对 TEI 的映射</strong>：C 阶段首发的制造业 / 工业客户，恰好是 WRC 验证最密集的「上下料、分拣、巡检」通用场景；落地的硬约束是数据闭环（实景实训）而非单点硬件——这与本期信号 03 的「终端数据主权」、信号 05 的「治理」共同构成 C→B→A→D 的现实地基。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  WRC 2026（300+企业/+36% · 2000+展品/+27% · 150+首发/+21%） · 优必选/乐聚/星动纪元/魔法原子工业落地 · 乐聚 Taskor 部署 <b>数月→数小时</b> · 工信部实景实训：<b>年底百个+高价值场景 / 万台级</b> · 近 10 家车企产线验证 · 上半年营收 1655 亿/+24.5%  |  冷静点：医院/家庭等深度场景仍试点；工信部专家直陈「各自为战/标准滞后」是系统性挑战；落地速度取决于数据闭环而非单点硬件
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  AI Agent · 规模化治理与企业化</span>
+  <h2 class="c-title">Agent 规模化之后，治理成刚需：Copilot 进 Slack/Teams、Gartner 45% FTSE100 关键职能由多智能体管理、Agent 身份与注册表 GA</h2>
+  <p class="c-tags"><span class="chip b">身份治理</span><span class="chip o">45% FTSE100</span><span class="chip t">Agent Identity</span><span class="chip">进团队工作流</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <ul>
+      <li><strong>GitHub Copilot 进 Slack / Teams（8/21 公开预览）</strong>：在任意频道 @GitHub 即可起云 agent，答代码问题、分诊 bug、在沙箱查故障并开 PR 回流对话；专用 Code 频道隔离工作；仓库管理员可要求 agent-authored PR <em class="hl">额外审批</em>才合并，人类监督保留。</li>
+      <li><strong>Gartner 8 月报告</strong>：<strong>45% 的 FTSE 100 公司</strong>已至少有一项关键业务职能由多智能体系统管理，年初仅 18%——从试点到生产的跨越正在加速（物流、金融、专业服务最密集）。</li>
+      <li><strong>Google Cloud Agent Identity</strong> 认证管理 + API 达 GA：集中式 agent 凭证 / 鉴权 broker，使多厂商 agent 拓扑与每-agent 身份在规模上可行。</li>
+      <li><strong>AWS Bedrock AgentCore</strong> 追加 Agent Registry 与运行时治理改进，让 agent 舰队可发现、可治理、可集成。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>Agent 规模化后，稀缺资源从「能力」变成「<strong>身份 / 权限 / 审计 / 团队边界</strong>」——agent 从 IDE 走向组织工作流，治理从可选项变刚需。这与本期信号 01（本地化）、02（货币化）形成闭环：本地化与货币化解决了「能跑 / 能付」，<em class="hl">治理化解决「跑得可控、付得有责」</em>。</p>
+    <p><strong>对 TEI 的映射</strong>：B 阶段（具身平台 / OS）一旦进入企业部署，面临的正是 agent 身份、权限与审计问题；提前把治理原语（身份注册、审批闸、预算上限）纳入平台设计，比事后补墙成本低一个数量级。规模化与治理化在此合流——05 既是规模化（进团队）的果实，也是治理化（可控）的前提。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  Copilot Slack/Teams <b>8/21 公开预览</b>（@GitHub 起云 agent / PR 回流 / 可加审批） · Gartner <b>45% FTSE100</b> 关键职能由多智能体管理（年初 18%） · Google Agent Identity GA · AWS AgentCore Agent Registry  |  冷静点：Gartner 数字为厂商报告口径；agent 身份与审批仍处早期，跨厂商互操作依赖 A2A / MCP 标准落地
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：7 月底「边界划定」→ 8 月中「模型之外那一层 / 可持久可信可跨本体」→ 8/25「自治三落地面（就地训练/就近推理/就绪量产）」→ 今日「约束纪元四象限（本地化/货币化/规模化/治理化）」。叙事从「能力→底座」推进到「能力→约束内运行」，焦点进一步收口为「能在边界内持续运转」。</li>
+    <li><strong>交叉验证</strong>：01（Perplexity 官方发布 / VentureBeat / Gizmodo）、02（Cloudflare 官方 + 多家媒体）、03（人民网财经研究院金台圆桌）、04（央广网 / 人民日报 / 光明日报）、05（GitHub 官方 / Gartner 报告 / Google / AWS 发布说明）均为一级或权威信源，中高可信。</li>
+    <li><strong>与历史卡片零重复</strong>：本期补的是 8/25 晚间—8/27 的增量——本地 Agent 运行时（Perplexity）、Agent 货币化三件套（Cloudflare x402）、终端三重跃迁（面壁）、具身作业模式/万台级（工信部实景实训）、Agent 规模化治理（Copilot 进团队 / Gartner / Agent Identity）。此前各期未覆盖。</li>
+    <li><strong>诚实边界</strong>：Perplexity 85.4% 为其自测 53 任务基准；Cloudflare 货币化闭环的生态成熟度与责权框架仍待观察；面壁「密度定律」为厂商经验规律；Gartner 45% 为厂商报告口径。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：当「会不会做」被解决，下一程真正稀缺的是<strong>「能在约束内长期、可信、可结算地跑」</strong>——本地化（数据主权）、货币化（机器付费）、规模化（进产线/进团队）、治理化（身份审计）四件套同时就位，才是终端与具身智能落地的真地基。</div>
+  <div class="risk"><b>风险与未决</b>货币化与治理化的责权法律框架仍空白；端侧跨芯片（Apple Silicon / macOS）适配是真门槛；具身落地速度取决于数据闭环而非单点硬件，标准滞后与「各自为战」是工信部专家直陈的系统性挑战。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.53</span>
+  <span>2026-08-27 10:00 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>

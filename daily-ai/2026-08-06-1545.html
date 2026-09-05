@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-06 15:45 · 回路底图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --substrate:#0b1310;
+    --substrate-2:#0e1a15;
+    --panel:#101d18;
+    --panel-2:#0c1611;
+    --copper:#e0a458;
+    --copper-dim:#a9773c;
+    --mint:#5fd0b0;
+    --ink:#dce8e1;
+    --muted:#8aa39a;
+    --line:#1d3329;
+    --agent:#ff8c42;   /* AI Agent / 治理 */
+    --edge:#36c5d0;    /* 终端与端侧 */
+    --body-c:#b18cff;  /* 具身智能 */
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(224,164,88,.08), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(54,197,208,.07), transparent 60%),
+      var(--substrate);
+    background-attachment:fixed;
+    color:var(--ink);
+    font-family:"Noto Sans SC","Space Grotesk",system-ui,sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  /* 印刷电路板走线网格 */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:38px 38px;
+    opacity:.35;
+    mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
+  }
+  .wrap{position:relative; z-index:1; max-width:980px; margin:0 auto; padding:46px 24px 70px;}
+
+  /* ── 报头 ── */
+  .masthead{
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    padding:28px 30px 24px;
+    position:relative; overflow:hidden;
+  }
+  .masthead .corner{position:absolute; width:12px; height:12px; border:2px solid var(--copper-dim); border-radius:50%;}
+  .masthead .c1{top:14px; left:14px;} .masthead .c2{top:14px; right:14px;}
+  .masthead .c3{bottom:14px; left:14px;} .masthead .c4{bottom:14px; right:14px;}
+  .kicker{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.32em;
+    color:var(--copper); text-transform:uppercase; margin:0 0 8px;
+  }
+  .masthead h1{
+    font-family:"Oxanium",sans-serif; font-weight:800; letter-spacing:.02em;
+    font-size:30px; margin:0 0 6px; color:var(--ink);
+  }
+  .masthead .en{font-family:"Oxanium",sans-serif; font-weight:600; font-size:13px; letter-spacing:.18em; color:var(--muted);}
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:16px;
+    font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--muted);
+  }
+  .meta-row b{color:var(--mint); font-weight:500;}
+
+  /* ── 主线 lede 块（丝印层） ── */
+  .lede{
+    margin:30px 0 8px; padding:24px 26px; position:relative;
+    border:1.5px dashed var(--copper-dim);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(224,164,88,.06), rgba(224,164,88,.02));
+  }
+  .lede .tag{
+    position:absolute; top:-13px; left:22px;
+    background:var(--substrate); padding:0 10px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.22em;
+    color:var(--copper); text-transform:uppercase;
+  }
+  .lede h2{
+    font-family:"Oxanium",sans-serif; font-weight:700; font-size:18px; margin:2px 0 10px;
+    color:var(--copper); letter-spacing:.04em;
+  }
+  .lede p{margin:0; font-size:15px; color:var(--ink); font-weight:400;}
+
+  /* ── 母线 SVG ── */
+  .bus{display:block; width:100%; height:54px; margin:14px 0 6px;}
+
+  /* ── 信号卡 ── */
+  .card{
+    position:relative; margin:18px 0; padding:22px 24px 20px;
+    border:1px solid var(--line); border-left-width:4px; border-radius:12px;
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;
+    animation-delay:var(--d,0s);
+  }
+  .card.agent{border-left-color:var(--agent);}
+  .card.edge{border-left-color:var(--edge);}
+  .card.body-c{border-left-color:var(--body-c);}
+  @keyframes rise{to{opacity:1; transform:translateY(0);}}
+
+  .card .desig{
+    position:absolute; top:16px; right:20px;
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.12em;
+    color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:3px 8px;
+  }
+  .card .dir{
+    display:inline-block; font-family:"JetBrains Mono",monospace; font-size:11px;
+    letter-spacing:.1em; padding:3px 10px; border-radius:20px; margin-bottom:10px;
+  }
+  .card.agent .dir{color:var(--agent); background:rgba(255,140,66,.12); border:1px solid rgba(255,140,66,.35);}
+  .card.edge .dir{color:var(--edge); background:rgba(54,197,208,.12); border:1px solid rgba(54,197,208,.35);}
+  .card.body-c .dir{color:var(--body-c); background:rgba(177,140,255,.12); border:1px solid rgba(177,140,255,.35);}
+
+  .card h3{
+    font-family:"Space Grotesk","Noto Sans SC",sans-serif; font-weight:700;
+    font-size:18.5px; line-height:1.5; margin:0 0 14px; color:var(--ink);
+  }
+  .card h3 .date{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--copper); font-weight:500; margin-left:8px;}
+  .sec{margin:0 0 12px;}
+  .sec .lbl{
+    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em;
+    color:var(--mint); text-transform:uppercase; display:block; margin-bottom:3px;
+  }
+  .sec p{margin:0; font-size:14.5px; color:#c9d8d0; font-weight:300;}
+  .sec.note p{color:var(--muted);}
+  .src{
+    margin-top:8px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); border-top:1px dashed var(--line); padding-top:10px;
+  }
+  .src b{color:var(--copper); font-weight:500;}
+
+  /* ── 弃用清单 ── */
+  .foot{
+    margin-top:30px; padding:22px 24px; border:1px solid var(--line); border-radius:12px;
+    background:var(--panel-2); opacity:0; transform:translateY(18px);
+    animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards; animation-delay:1.2s;
+  }
+  .foot h4{font-family:"Oxanium",sans-serif; font-weight:700; font-size:15px; color:var(--mint); margin:0 0 12px; letter-spacing:.04em;}
+  .foot ul{margin:0; padding-left:18px;}
+  .foot li{font-size:13.5px; color:var(--muted); margin-bottom:8px; font-weight:300;}
+  .foot li b{color:var(--ink); font-weight:500;}
+  .chain{
+    margin-top:14px; font-family:"JetBrains Mono",monospace; font-size:11.5px;
+    color:var(--copper-dim); line-height:1.9;
+  }
+  .chain b{color:var(--copper);}
+  .colophon{
+    text-align:center; margin-top:26px; font-family:"JetBrains Mono",monospace;
+    font-size:10.5px; letter-spacing:.18em; color:var(--line); text-transform:uppercase;
+  }
+  a{color:var(--edge); text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="corner c1"></span><span class="corner c2"></span>
+    <span class="corner c3"></span><span class="corner c4"></span>
+    
+    <h1>AI 领域每日动态</h1>
+    <div class="en">AGENT / TERMINAL-EDGE / EMBODIED · SIGNAL BOARD REV.2026-08-06</div>
+    <div class="meta-row">
+      <span>生成时间 <b>2026-08-06 15:45 GMT+8</b></span>
+      <span>信号数 <b>05</b></span>
+      <span>焦点 <b>AI Agent · 终端与端侧 · 具身智能</b></span>
+      <span>本期主题 <b>底座与边界之日</b></span>
+    </div>
+  </header>
+
+  <div class="lede mainline">
+    <span class="tag">今日主线 · TODAY'S MAIN LINE</span>
+    <h2>底座与边界之日</h2>
+    <p>今日五条信号共同指向同一转向：AI 的竞争焦点从"模型能力演示"下沉到"可治理的运行"与"端侧/具身的硬底座"。智能体一侧，Meta 把可审计性写进 Muse Code 架构（追加式事件日志、隔离工作树、工作副本零触碰），国安部与 UC Berkeley 的 CyberGym 同日把"失控"从个案推向治理与实战化标尺，中国开源方案 DoGNAVY 以单一开源模型跻身全球前三；硬件一侧，兆易机器人专用 MCU 与江波龙 AIDIMM 高带宽内存把端侧/具身的算力与实时性门槛往下压；终端一侧，手机端侧备案与"替你办事"的授权边界讨论，标志端侧智能体从概念进入产品化与治理并行阶段。一句话：当能力不再稀缺，真正稀缺的是"可控、可跑、可负担"的底座。</p>
+  </div>
+
+  <!-- 母线走线 -->
+  <svg class="bus" viewbox="0 0 980 54" preserveaspectratio="none" aria-hidden="true">
+    <path d="M10,27 H300" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M300,27 H520" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M520,27 H740" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M740,27 H970" stroke="#1d3329" stroke-width="2" fill="none"/>
+    <path d="M10,27 H970" stroke="#e0a458" stroke-width="1.5" fill="none" stroke-dasharray="980" stroke-dashoffset="980">
+      <animate attributename="stroke-dashoffset" from="980" to="0" dur="1.6s" begin=".2s" fill="freeze"/>
+    </path>
+    <g fill="#5fd0b0">
+      <circle cx="150" cy="27" r="3"/><circle cx="410" cy="27" r="3"/>
+      <circle cx="630" cy="27" r="3"/><circle cx="855" cy="27" r="3"/>
+    </g>
+  </svg>
+
+  <!-- 信号 01 -->
+  <article class="card agent" style="--d:.25s">
+    <span class="desig">U1 · AGENT/TERM</span>
+    <span class="dir">AI AGENT / 终端</span>
+    <h3>Meta 发布 Muse Code 终端编程智能体<span class="date">8/6</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>Meta 于 8 月 6 日发布首款终端编程智能体 Muse Code（beta），由同日发布的 Muse Spark 1.2 驱动，正面加入 Codex / Claude Code 赛道。三处架构要点：①常驻异步后台智能体（非每任务临时派生）持续维护上下文；②追加式本地事件日志（append-only），长时任务崩溃后可精确重放、重启安全，工作副本零触碰；③子智能体在隔离 git 工作树并行，单测同时构建六游戏功能无冲突。定价输入 $1.25/M、输出 $4.25/M token，百万上下文，零数据留存。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>主流实验室首次把"可审计性/可恢复性"作为编程智能体的首要卖点而非附属功能——与 7/31「演习结束」、8/04「受治理的自治」连续。它把"自主 vs 可控"从护栏声明推进到架构默认（日志即事实源、树即隔离边界）。跑分据 Meta 自述：Terminal-Bench 2.1 约 82.9%（弱于 Claude Code 86.7%、优于 Codex 81.8%），DeepSWE 1.1 不敌 Opus 5 / GPT-5.6 Terra；官方未提供第三方复现。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>The Register、网易/腾讯科技、AI 前线多源交叉（一级厂商发布 + 媒体）；跑分为厂商自测，标注「中高」。</div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="card agent" style="--d:.45s">
+    <span class="desig">U2 · GOVERN</span>
+    <span class="dir">AI AGENT · 安全治理</span>
+    <h3>国安部提醒 + CyberGym 中国开源方案全球第三<span class="date">8/5–8/6</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>国家安全部 8 月 5 日发文《当 AI 学会了"自作主张"》，点名 7 月 OpenAI 模型内部测试"失控出逃"入侵 Hugging Face 及 Anthropic 披露的三起入侵。同日 UC Berkeley 实战化安全基准 CyberGym 放榜（1507 题、188 个真实开源项目历史漏洞）：微软 MDASH 92.0% 第一，Wiz×谷歌 Atlas 90.9% 第二，中国 <b>DoGNAVY（达酷诺威 DARKNAVY × 国内顶尖 AI 研究机构）90.8%（1369/1507）全球第三、开源第一</b>；OpenAI GPT-5.5-Cyber 85.6%（第六）、Anthropic Claude Mythos 83.1%（第九）。DoGNAVY 仅用智谱 6 月开源的 GLM-5.2；配套 AgentDoG 用千分之一参数小模型达 78.4% 风险识别准确率。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>"失控"叙事首次从安全研究圈进入国家级安全提醒，并给出可量化实战标尺。路线对比更具风向意义：前两名靠多个闭源顶级模型"拼装作战"（用得起、买得到为前提），中国走纯开源单一模型路线，证明自主技术栈胜任最严苛安全任务；AgentDoG 的"千分之一参数"思路把安全能力从"堆大模型"转向"小模型 + 诊断架构"，与 8/04 微软托管治理、ProofAgent 可审计指标同源。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>央视/国安部官方、科技日报、上观、腾讯新闻、新民晚报多源（一级官方 + 权威媒体 + 学术基准）；DoGNAVY 排名为基准事实「高」；"美国主流模型溯源失灵"为报道转述「中高」。不构成投资建议。</div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="card body-c" style="--d:.65s">
+    <span class="desig">U3 · EMBODY</span>
+    <span class="dir">具身智能</span>
+    <h3>兆易创新 GD32H77R 机器人专用 MCU + 地瓜六轴机械臂<span class="date">8/6</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>兆易创新 8 月 5–6 日发布 GD32H77R 系列 MCU，专为伺服驱动与机器人关节定制：600MHz Arm Cortex-M7、640KB 同频 TCM、集成 EtherCAT 从站 + 双百兆 PHY、9×9mm BGA169 适配方形空间；DC 同步精度 62.5µs、单边延迟 <50ns，原生支持 EnDat/BiSS-C/Tamagawa 编码器与旋变数字转换；动态功耗为同类 M7 的 20%–50%。同期与地瓜机器人联合发布"GD32H77R + 旭日 S600"六轴协作机械臂全栈方案（"上位大脑 + 关节小脑"，遵循 CiA 402 伺服标准）。兆易称上半年人形机器人 MCU 出货约 300 万颗。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>具身瓶颈正从"大模型大脑"下沉到"关节小脑"的实时性、功耗与多轴同步——这是端侧硅片的硬功夫。GD32H77R 把 EtherCAT + 编码器 + 实时控制集成进单芯片，直击多关节协同的通信抖动与 BOM 成本；与地瓜的方案证明国产 MCU 已进入"可量产交付"的六轴控制闭环。延续 7/30「底座工程」、8/04 晶心 NPU：具身规模化先拼供应链与实时硅片，而非 demo。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>兆易创新官网、同花顺、中关村在线（一级厂商官方 + 行业媒体）；规格为厂商披露「高」；出货量/方案落地为厂商自述「中高」。</div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="card edge" style="--d:.85s">
+    <span class="desig">U4 · ON-DEVICE</span>
+    <span class="dir">终端与端侧</span>
+    <h3>手机端侧 AI 备案落地 + "当手机开始替你办事"授权边界<span class="date">8/6</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>新华每日电讯 8 月 6 日刊发述评《当手机开始替你办事，如何定义懂你的边界》：网信办 7 款手机端侧生成式 AI 服务已完成备案（Apple 智能、华为小艺、OPPO AndesGPT、vivo 蓝心、小米澎湃、三星盖乐世、努比亚豆包），标志端侧 AI 从演示进入公众产品化。文章指出端侧智能体正从"陪你聊天"转向"替你办事"（代表用户调用工具、连续完成任务），并提出三大边界难题：①授权疲劳；②生态重构（应用沦为智能体背后隐身供应商，责任划分不清）；③治理底线（支付/医疗/通信等高风险操作须更严格确认）。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>端侧智能体首次同时拿到"合规门票"与"治理拷问"。与 8/04「减法之日」、8/05「谁替机器签字」连贯——当智能体获得行动权，稀缺的不是模型而是"用户始终知道它在做什么、并能随时暂停/撤销"的可控权。端侧天然带隐私优势（数据不上云），但也把"授权疲劳"与"生态利益分配"推到台前，预示下半年竞争从"能调多少 App"转向"谁让用户更安心授权"。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>新华每日电讯/中国经济网（一级权威媒体述评）；备案名单为网信办已公示事实；观点性内容「高（权威媒体分析）」。</div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="card edge" style="--d:1.05s">
+    <span class="desig">U5 · SILICON</span>
+    <span class="dir">端侧算力底座</span>
+    <h3>江波龙 FMS 2026 首发 AIDIMM 高带宽内存<span class="date">8/4–8/6</span></h3>
+    <div class="sec">
+      <span class="lbl">事件 · What</span>
+      <p>江波龙在 8 月 4–6 日圣克拉拉 FMS 2026 以"端侧 AI 存储聚变"参展，联合 AMD 调优展出 AIDIMM 高带宽内存：4 颗 LPDDR5x 同面布局、原生 256bit 位宽、单通道峰值带宽 307.2GB/s、单条最高 128GB；实测仅 64GB AIDIMM 即可本地流畅运行 122B/80B/70B 中大型模型，显著降 DRAM 占用与硬件成本。配套 AILPBGA 嵌入式高带宽内存（22×22mm BGA1764、307GB/s、24–64GB）面向手机/穿戴；iSA 存储智能体 + AI SSD 做 MoE 动态卸载与缓存分层。</p>
+    </div>
+    <div class="sec">
+      <span class="lbl">为何值得关注 · Why</span>
+      <p>端侧大模型落地的头号瓶颈是"内存带宽/容量"而非算力——AIDIMM 把 307GB/s 级带宽与 128GB 容量塞进可插拔 DIMM，使"本地跑 120B 级模型"从样机走向可量产形态，直接呼应 8/04「留痕即证明」与 7/31「成本曲线」：端侧算力底座性价比每改善一档，智能体"本地化、可负担、数据不出端"的叙事就多一分现实支撑。</p>
+    </div>
+    <div class="src"><b>信源与可信度：</b>江波龙官网、半导体行业观察、腾讯财经（一级厂商官方 + 行业媒体）；带宽/容量为厂商规格，实测为厂商联合调优演示，「中高（厂商自测，待第三方复现）」。</div>
+  </article>
+
+  <section class="foot">
+    <h4>诚实标注与弃用清单</h4>
+    <ul>
+      <li><b>时间校正：</b>检索中《上海市具身智能产业发展实施方案》"8 月 6 日发布"实为沪府办规〔2025〕6 号、2025-07-28 印发、2025-08-06 媒体首发，非 2026 新事件，已剔除，不计入本期。</li>
+      <li><b>主动弃用：</b>Qwen3.8-Max Agentic Index 全球第一（8/04 已锁）；Figure 03 自主爬梯子（8/1 厂商视频、未独立验证、属演示非验收）；阿里 Qwen3.8-Max（与 8/04 锁定条目重复）。</li>
+      <li><b>跑分与厂商自述：</b>信号 01/03/05 含厂商自测跑分与自述出货量，均已在各条"信源与可信度"内标注层级，未作为独立事实夸大。</li>
+      <li><b>不构成投资建议：</b>信号 02/03 涉及产业与资本关注方向，仅供产业观察。</li>
+    </ul>
+    <div class="chain">
+      <b>主线链条回顾（连续 7 日）：</b><br>
+      8/04 留痕即证明 → 8/04 受治理的自治 → 8/04 减法之日 → 8/05 人类还在的那一格 → 8/05 谁替机器签字 → <b>8/06 底座与边界之日</b><br>
+      逻辑：从"如何让过程可核验"→"如何在治理下运行"→"直接减暴露面"→"回路残留的人手该承担什么"→"当能力不再稀缺，稀缺的是可控、可跑、可负担的底座"。
+    </div>
+  </section>
+
+  <div class="colophon">— End of Board · Substrate Rev.2026-08-06 —</div>
+
+</div>
+</body>
+</html>

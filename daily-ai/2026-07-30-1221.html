@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-07-30 12:21 · 正午账房</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Cutive+Mono&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f1e3;
+  --paper-deep:#efe8d4;
+  --ink:#29241b;
+  --ink-soft:#5d5546;
+  --ink-faint:#8d8271;
+  --rule:#d8cdb2;
+  --margin-red:#b23a26;
+  --agent:#a8341f;      /* 账房朱 · AI Agent */
+  --agent-bg:#f3e2dc;
+  --term:#2d4b8e;       /* 靛账蓝 · 终端与端侧 */
+  --term-bg:#e2e7f1;
+  --embod:#2f6b4c;      /* 钱庄绿 · 具身智能 */
+  --embod-bg:#e0ece3;
+  --gold:#9a7b2d;
+  --serif:'Noto Serif SC',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --disp:'Gilda Display','Noto Serif SC',serif;
+  --mono:'Cutive Mono','Noto Sans SC',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.85;
+  /* 账本横线 + 纸纹 */
+  background-image:
+    repeating-linear-gradient(to bottom, transparent 0, transparent 31px, rgba(120,105,75,.14) 31px, rgba(120,105,75,.14) 32px),
+    radial-gradient(ellipse at 20% 0%, rgba(178,58,38,.05), transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(45,75,142,.05), transparent 50%);
+  min-height:100vh;
+}
+.sheet{
+  max-width:880px;
+  margin:0 auto;
+  padding:56px 56px 80px 84px;
+  position:relative;
+}
+/* 账本红色边距双竖线 */
+.sheet::before{
+  content:'';position:fixed;top:0;bottom:0;
+  left:max(12px, calc(50% - 440px + 52px));
+  width:0;border-left:1.5px solid rgba(178,58,38,.55);
+  pointer-events:none;
+}
+.sheet::after{
+  content:'';position:fixed;top:0;bottom:0;
+  left:max(18px, calc(50% - 440px + 58px));
+  width:0;border-left:1px solid rgba(178,58,38,.30);
+  pointer-events:none;
+}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rise{opacity:0;animation:rise .7s cubic-bezier(.22,.8,.36,1) forwards}
+
+/* ===== 页首 ===== */
+header{padding-bottom:20px;border-bottom:3px double var(--ink)}
+.ledger-meta{
+  display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);letter-spacing:.06em;
+  margin-bottom:18px;
+}
+.ledger-meta .folio{color:var(--margin-red)}
+h1{
+  font-family:var(--disp);
+  font-size:clamp(30px,5vw,44px);
+  font-weight:400;letter-spacing:.02em;line-height:1.25;
+}
+h1 .zh{font-family:var(--serif);font-weight:900}
+.subtitle{
+  margin-top:10px;font-family:var(--serif);font-size:15px;color:var(--ink-soft);
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.subtitle .seal{
+  display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  border:1.5px solid var(--margin-red);color:var(--margin-red);
+  padding:2px 10px;border-radius:2px;transform:rotate(-2deg);
+  background:rgba(178,58,38,.05);
+}
+/* ===== 主线（.lede 供发布脚本提取） ===== */
+.lede{
+  margin:34px 0 8px;
+  background:var(--paper-deep);
+  border:1px solid var(--rule);
+  border-left:5px solid var(--margin-red);
+  padding:26px 30px 24px;
+  position:relative;
+  box-shadow:0 2px 0 rgba(41,36,27,.06);
+}
+.lede .lede-tag{
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--margin-red);
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
+}
+.lede .lede-tag::after{content:'';flex:1;border-top:1px dashed rgba(178,58,38,.4)}
+.lede h2{
+  font-family:var(--serif);font-size:21px;font-weight:900;letter-spacing:.02em;margin-bottom:10px;
+}
+.lede p{font-family:var(--serif);font-size:15.5px;color:var(--ink);line-height:2}
+.lede strong{color:var(--margin-red)}
+/* 收支两讫小结行 */
+.balance-row{
+  display:flex;gap:0;margin:26px 0 40px;border:1px solid var(--rule);
+  background:#fbf8ef;
+  font-family:var(--mono);
+}
+.balance-cell{
+  flex:1;padding:12px 16px;font-size:12px;letter-spacing:.05em;color:var(--ink-soft);
+  border-right:1px dashed var(--rule);
+}
+.balance-cell:last-child{border-right:none}
+.balance-cell b{display:block;font-family:var(--serif);font-size:14.5px;font-weight:700;letter-spacing:0;margin-top:3px}
+.balance-cell.c-a b{color:var(--agent)}
+.balance-cell.c-t b{color:var(--term)}
+.balance-cell.c-e b{color:var(--embod)}
+
+/* ===== 分录卡片 ===== */
+.entry{
+  margin-bottom:44px;
+  border:1px solid var(--rule);
+  background:#fbf8ef;
+  box-shadow:0 3px 0 rgba(41,36,27,.05);
+}
+.entry-head{
+  display:flex;align-items:stretch;border-bottom:1px solid var(--rule);
+}
+.entry-no{
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  padding:14px 16px;min-width:96px;display:flex;flex-direction:column;justify-content:center;gap:2px;
+  border-right:1px dashed var(--rule);color:var(--ink-faint);
+}
+.entry-no b{font-size:17px;color:var(--ink);letter-spacing:.02em}
+.entry-title{padding:14px 20px;flex:1}
+.entry-title .dir{
+  display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  padding:2px 10px;border-radius:2px;margin-bottom:7px;
+}
+.e-agent .dir{background:var(--agent-bg);color:var(--agent);border:1px solid rgba(168,52,31,.35)}
+.e-term  .dir{background:var(--term-bg);color:var(--term);border:1px solid rgba(45,75,142,.35)}
+.e-embod .dir{background:var(--embod-bg);color:var(--embod);border:1px solid rgba(47,107,76,.35)}
+.entry-title h3{
+  font-family:var(--serif);font-size:19.5px;font-weight:700;line-height:1.55;
+}
+.e-agent{border-top:4px solid var(--agent)}
+.e-term{border-top:4px solid var(--term)}
+.e-embod{border-top:4px solid var(--embod)}
+.entry-body{padding:20px 24px 8px}
+.entry-body p{font-size:14.8px;margin-bottom:14px;color:var(--ink)}
+.entry-body .fact{font-family:var(--serif)}
+.entry-body strong{font-weight:700}
+.e-agent strong{color:var(--agent)}
+.e-term strong{color:var(--term)}
+.e-embod strong{color:var(--embod)}
+.why{
+  margin:4px 0 16px;padding:14px 18px;
+  background:var(--paper-deep);border-left:3px solid var(--gold);
+}
+.why .why-tag{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:8px;
+}
+.why ol{padding-left:20px}
+.why li{font-size:14.2px;margin-bottom:8px;color:var(--ink)}
+.why li::marker{font-family:var(--mono);color:var(--gold)}
+.entry-foot{
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  border-top:1px dashed var(--rule);
+  padding:10px 24px 12px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-faint);
+}
+.entry-foot .cred{color:var(--ink-soft)}
+.entry-foot .cred b{color:var(--margin-red);font-weight:400}
+
+/* ===== 横向观察 ===== */
+.closing{
+  margin-top:56px;border:1px solid var(--rule);background:#fbf8ef;
+  padding:26px 30px 22px;position:relative;
+}
+.closing::before{
+  content:'結';position:absolute;top:-16px;right:26px;
+  font-family:var(--serif);font-weight:900;font-size:15px;color:#fbf8ef;
+  background:var(--ink);width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.closing .c-tag{
+  font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--ink-soft);
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.closing .c-tag::after{content:'';flex:1;border-top:1px dashed var(--rule)}
+.closing-item{display:flex;gap:14px;margin-bottom:13px;align-items:baseline}
+.closing-item .k{
+  font-family:var(--mono);font-size:12px;color:var(--margin-red);white-space:nowrap;
+}
+.closing-item p{font-family:var(--serif);font-size:14.8px}
+.closing-item p b{font-weight:900}
+
+footer{
+  margin-top:44px;padding-top:18px;border-top:3px double var(--ink);
+  font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;letter-spacing:.05em;
+}
+@media (max-width:640px){
+  .sheet{padding:36px 20px 60px 40px}
+  .balance-row{flex-direction:column}
+  .balance-cell{border-right:none;border-bottom:1px dashed var(--rule)}
+  .entry-head{flex-direction:column}
+  .entry-no{border-right:none;border-bottom:1px dashed var(--rule);flex-direction:row;align-items:baseline;gap:10px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="rise" style="animation-delay:.05s">
+  <div class="ledger-meta">
+    <span class="folio">FOLIO 2026-07-30 · NOON ENTRY 12:21 GMT+8</span>
+    <span>LEDGER OF AI SIGNALS · 正午账房</span>
+  </div>
+  <h1><span class="zh">AI 领域每日动态</span><br>The Noon Ledger</h1>
+  <div class="subtitle">
+    <span class="seal">午班 · 复式记账</span>
+    <span>侧重：AI Agent ／ 终端与端侧 ／ 具身智能 · 每条标注信源与可信度 · 不构成投资建议</span>
+  </div>
+</header>
+
+<!-- 主线 · 供发布脚本提取的 .lede 块 -->
+<section class="lede rise" style="animation-delay:.18s">
+  <div class="lede-tag">今日主线 · THESIS</div>
+  <h2>入口收拢，账本亮相</h2>
+  <p>上午的边界（协议／地缘／政策）划完之后，中午的信号转向两本"账"：一本是<strong>组织账</strong>——字节把飞书并入豆包、销售并入火山，与阿里千问办公、腾讯 QClaw 并入 WorkBuddy 形成三家同夏收敛，赛马制正式让位于"单一入口"总攻；另一本是<strong>资本账</strong>——Meta 一边许诺"数十亿人拥有个人 Agent"，一边自由现金流同比锐减 91%，而具身赛道上半年 935 亿融资正加速流向"卖铲子"的数据基建。Agent 的叙事红利期结束了：接下来拼的是<strong>入口集中度、交互的真实延迟、以及现金流能撑多久</strong>。</p>
+</section>
+
+<div class="balance-row rise" style="animation-delay:.28s">
+  <div class="balance-cell c-a">AI AGENT · 借方<b>入口收敛 ×2 ＋ 资本定价 ×1</b></div>
+  <div class="balance-cell c-t">终端与端侧 · 贷方<b>国产 AI PC 算力底座补位</b></div>
+  <div class="balance-cell c-e">具身智能 · 结转<b>935 亿流向"卖铲人"</b></div>
+</div>
+
+<!-- 分录一 -->
+<article class="entry e-agent rise" style="animation-delay:.38s">
+  <div class="entry-head">
+    <div class="entry-no">ENTRY<b>No.001</b></div>
+    <div class="entry-title">
+      <span class="dir">AI AGENT · 组织收敛</span>
+      <h3>字节把飞书并入豆包：办公 Agent"入口战争"三家同夏收官</h3>
+    </div>
+  </div>
+  <div class="entry-body">
+    <p class="fact">7 月 30 日，字节跳动启动 AI 业务组织调整：<strong>飞书产品团队与豆包产品团队合并</strong>为新的豆包产品团队；<strong>飞书 GTM 团队并入火山引擎</strong>，成立"创造力服务平台"统管 MaaS＋SaaS 销售。豆包企业版已在部分飞书客户内测，集成文档、表格、会议、群聊。至此三大厂同夏完成同一动作：腾讯 QClaw 并入 WorkBuddy 所在云产品六部、阿里整合三产品推出千问办公、字节今日收口。触发点之一是易观 6 月数据：桌面端 AI 办公智能体月访问量破 6000 万次，WorkBuddy 以 2097 万登顶，超过 Trae（1279 万）与 QoderWork（788 万）之和。</p>
+    <div class="why">
+      <div class="why-tag">为何入账 · WHY IT MATTERS</div>
+      <ol>
+        <li><b>赛马制的历史使命正式结束</b>：OpenClaw 开源后三家各铺 3-4 条线试错，如今市场数据说话——"分是为了试错，合是为了开战"，办公 Agent 从能力竞赛进入入口竞赛。</li>
+        <li><b>组织架构是最诚实的战略信号</b>：把销售并入云平台，说明共识是办公 Agent 不是独立 App 生意，而是"云＋协作套件"的增值入口，与 7/27「新建入口 vs 融入工作流」观察合流。</li>
+        <li>入口收敛后，第三方 Agent 的生存空间取决于三家开放接口的诚意——与上午豆包手机"弃 GUI 转 MCP"是同一逻辑在不同战场的投影。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="entry-foot">
+    <span>信源：腾讯科技 7/30 引述字节内部调整 ＋ 易观 6 月报告</span>
+    <span class="cred">可信度 <b>中高</b>（多方报道，细节待官方确认）</span>
+  </div>
+</article>
+
+<!-- 分录二 -->
+<article class="entry e-agent rise" style="animation-delay:.50s">
+  <div class="entry-head">
+    <div class="entry-no">ENTRY<b>No.002</b></div>
+    <div class="entry-title">
+      <span class="dir">AI AGENT · 语音交互</span>
+      <h3>xAI Grok Voice Think Fast 2.0 登顶语音智能体榜：0.70 秒响应，"边说边推理"打成标配</h3>
+    </div>
+  </div>
+  <div class="entry-body">
+    <p class="fact">7 月 30 日，马斯克旗下 xAI 发布语音到语音模型 Grok Voice Think Fast 2.0：在衡量语音智能体能力的 <strong>Tau Voice 基准以 56.5% 排名第一</strong>，Speech-to-Speech 综合 82.9% 居第二（仅次于千问 Qwen Audio 3.0 Realtime Plus 的 84.1%）；平均首音频响应 <strong>0.70 秒</strong>，为榜单前五唯一破 1 秒者；推理 Token 中位消耗仅为上代约 40%，工具调用可在第一句话结束前执行；定价 $0.08/分钟，约为 GPT-Realtime-2.1 High 的 1/2.2。</p>
+    <div class="why">
+      <div class="why-tag">为何入账 · WHY IT MATTERS</div>
+      <ol>
+        <li><b>语音 Agent 的竞争焦点从"像不像人"转向"能不能干活"</b>：Tau Voice 衡量工具调用与任务完成，低延迟＋低成本直指客服、电话助手、销售等真实业务。</li>
+        <li><b>与 7/28 阿里 Qoder Voice 形成中美对位</b>：中国队综合分领先、xAI 智能体单项登顶——语音这条"最自然的 Agent 入口"进入贴身缠斗，8/5 默认模型升级后接受更大规模实测。</li>
+        <li>对端侧的暗示：0.70 秒仍依赖云端；谁先把这一体验搬进端侧（叠加上午的 MCP 直控手机），谁就拿到移动 Agent 的入场券。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="entry-foot">
+    <span>信源：智东西 7/30 ＋ Artificial Analysis 榜单 ＋ xAI 官方推文</span>
+    <span class="cred">可信度 <b>中高</b>（第三方基准，真实场景待验证）</span>
+  </div>
+</article>
+
+<!-- 分录三 -->
+<article class="entry e-agent rise" style="animation-delay:.62s">
+  <div class="entry-head">
+    <div class="entry-no">ENTRY<b>No.003</b></div>
+    <div class="entry-title">
+      <span class="dir">AI AGENT · 资本账本</span>
+      <h3>扎克伯格许诺"数十亿人的个人 Agent"，Meta 自由现金流同比锐减 91%</h3>
+    </div>
+  </div>
+  <div class="entry-body">
+    <p class="fact">7 月 30 日 Meta 财报电话会，扎克伯格预测五年内"数十亿人拥有专属个人 AI 智能体"，覆盖财务、健康、人际与家庭管理，WhatsApp 为首要交互入口。但财报另一面：<strong>Q2 自由现金流仅 7.84 亿美元，同比锐减 91%</strong>；Reality Labs 单季亏损约 46 亿美元、累计约 880 亿；财报后股价跌近 10%；本周 Meta 与贝莱德宣布共建 140 亿美元得州数据中心。同日消息面：ChatGPT 周活即将破 10 亿但比原目标晚 7 个月；扎克伯格另反对封禁中国 AI 模型、警示"监管俘获"风险。</p>
+    <div class="why">
+      <div class="why-tag">为何入账 · WHY IT MATTERS</div>
+      <ol>
+        <li><b>"个人 Agent"叙事第一次被现金流公开定价</b>：市场用 -10% 股价回答"数十亿人的 Agent 值多少钱"——与上午微软"Copilot 超级应用＋Q4 营收 900 亿"的从容形成鲜明对照。</li>
+        <li><b>巨头个人 Agent 路线图罕见趋同</b>：微软押办公、Meta 押生活与通讯、谷歌苹果押"替你打电话"——个人 Agent 之争实质是既有流量入口的保卫战。</li>
+        <li>理性提示：周活延后 7 个月破 10 亿，提醒渗透速度并非指数——Agent 商业化的时间常数可能比叙事长得多。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="entry-foot">
+    <span>信源：Meta 财报（一级）＋ TechCrunch/IT 之家 ＋ 外媒周活转述</span>
+    <span class="cred">可信度 <b>高／中</b>（财报高；周活为内部数据转述）</span>
+  </div>
+</article>
+
+<!-- 分录四 -->
+<article class="entry e-embod rise" style="animation-delay:.74s">
+  <div class="entry-head">
+    <div class="entry-no">ENTRY<b>No.004</b></div>
+    <div class="entry-title">
+      <span class="dir">具身智能 · 数据基建</span>
+      <h3>"卖铲人"价值重估：上半年 935 亿融资，加速流向具身数据基建上游</h3>
+    </div>
+  </div>
+  <div class="entry-body">
+    <p class="fact">证券时报 7/30 深度：具身资本正从本体转向<strong>数据基建"卖铲人"</strong>——德塔智能天使轮近 5 亿（成立半年六轮，股东含智元/乐聚/星海图等本体厂）；光轮智能两周两轮共 20 亿、估值破 150 亿成全球首个具身数据独角兽，Q1 订单 5.5 亿；觅蜂科技 6 月完成数亿元天使轮。行业共识：全球高质量真实物理交互数据仅几十万小时，可用具身智能需"亿小时"量级，<strong>缺口 3-5 个数量级</strong>。配套数据：上半年具身赛道 322 起融资共 935 亿元（同比增 5 倍），百亿估值公司从 3 家增至 23＋；墨奇智能获<strong>阿里＋腾讯罕见天使轮联投超 10 亿</strong>、投后估值 70 亿；智谱入股原力灵机。</p>
+    <div class="why">
+      <div class="why-tag">为何入账 · WHY IT MATTERS</div>
+      <ol>
+        <li><b>本体厂商向上游投资数据基建是结构性信号</b>：硬件方案收敛后"大脑"训练成决胜关键，数据量级直接决定泛化——与 7/29 德塔单点融资不同，今天资本的系统性转向被完整呈现。</li>
+        <li><b>数据服务是具身赛道第一个跑通"轻资产、高周转、可复购"商业模式的环节</b>：复购（框架合同）＋复售（一份数据卖多家），比本体的"订单故事"更接近真实收入。</li>
+        <li>理性提示：935 亿中前 20 家拿走 59%，淘汰将率先发生在融资环节；多数数据厂商达不到头部模型训练标准——热潮里供给质量才是稀缺品。不构成投资建议。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="entry-foot">
+    <span>信源：证券时报/九派财经 7/30 ＋ IT 桔子 ＋ 深网 ＋ 南都湾财社</span>
+    <span class="cred">可信度 <b>中高</b>（融资为披露口径，估值为市场信息）</span>
+  </div>
+</article>
+
+<!-- 分录五 -->
+<article class="entry e-term rise" style="animation-delay:.86s">
+  <div class="entry-head">
+    <div class="entry-no">ENTRY<b>No.005</b></div>
+    <div class="entry-title">
+      <span class="dir">终端与端侧 · AI PC</span>
+      <h3>此芯科技发布首款异构 SoC"此芯 P1"：Arm 阵营国产 AI PC 算力底座补位</h3>
+    </div>
+  </div>
+  <div class="entry-body">
+    <p class="fact">7 月 30 日，此芯科技在上海发布 AI PC 战略与首款异构高能效 SoC <strong>此芯 P1</strong>：CPU＋GPU＋NPU 异构集成，Arm v9 架构（PACBTI/MTE/secure EL2），支持通用商密与国密算法、满足 TPM/TCM 可信需求，面向"云端公有＋端侧私有"混合部署。同日端侧生态旁证：安谋科技联合 9 家伙伴展示星辰 CPU＋Ethos-U NPU 端侧 Agent 方案；<strong>Kimi K3 开源 24 小时内</strong>摩尔线程 MTT S5000 完成适配、趋境科技联合昇腾完成全栈适配——2.8 万亿参数模型的国产算力部署路径本周被快速打通。</p>
+    <div class="why">
+      <div class="why-tag">为何入账 · WHY IT MATTERS</div>
+      <ol>
+        <li><b>AI PC 算力底座之争补上国产 Arm 一角</b>：在 x86 与高通骁龙 X 之外，以"高能效＋国密可信"切入政企端侧私有部署——端侧 Agent 要常驻运行，能效与合规恰是政企采购的两道硬门槛。</li>
+        <li><b>"开源即适配"成为国产算力新节奏</b>：模型开放倒逼算力生态收敛，验证 7/29「过程开放」判断的另一半，端侧/边缘跑大 Agent 的国产路径正在成型。</li>
+        <li>理性提示：P1 为发布节点，量产上机、软件生态与实际能效比待整机实测；"发布会算力"与"用户手里的算力"之间通常隔 6-12 个月。</li>
+      </ol>
+    </div>
+  </div>
+  <div class="entry-foot">
+    <span>信源：EET-China 发布会报道 ＋ 芯榜 ＋ 摩尔线程/趋境官方披露</span>
+    <span class="cred">可信度 <b>中高</b>（厂商披露为主，量产表现待验证）</span>
+  </div>
+</article>
+
+<!-- 横向观察 -->
+<section class="closing rise" style="animation-delay:.98s">
+  <div class="c-tag">横向观察 · 今日三句话</div>
+  <div class="closing-item"><span class="k">01</span><p><b>入口在收拢</b>——字节合飞书入豆包、微软收口超级应用、Meta 押 WhatsApp：Agent 下半场不是谁更聪明，而是谁把入口攥在手里。</p></div>
+  <div class="closing-item"><span class="k">02</span><p><b>账本在亮相</b>——Meta 现金流 -91%、ChatGPT 周活延后 7 个月、具身 935 亿流向前 20 家：叙事与财务的剪刀差首次被市场公开定价。</p></div>
+  <div class="closing-item"><span class="k">03</span><p><b>底座在补位</b>——语音 0.70 秒、AI PC 国产 SoC、K3 开源即适配：交互延迟与端侧算力两块"最后短板"正在被同时填平。</p></div>
+</section>
+
+<footer class="rise" style="animation-delay:1.08s">
+  <span>WORKBUDDY AUTOMATION · 2026-07-30 12:21 GMT+8</span>
+  <span>信息以当日公开信源为准 · 不构成投资建议</span>
+</footer>
+
+</div>
+</body>
+</html>

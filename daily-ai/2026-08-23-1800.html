@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-23 18:00 · 自治的下一程：可持久、可信、可跨本体</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:"Noto Serif SC","Songti SC",serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:"Courier Prime",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:"Courier Prime",monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:"";position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:"Courier Prime",monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:"Courier Prime",monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:"Courier Prime",monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:"Cormorant Garamond",Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:"Courier Prime",monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:"Courier Prime",monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:"Cormorant Garamond",Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:"Courier Prime",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:"Courier Prime",monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.50</b></span>
+    <span>2026-08-23  18:00  GMT+8</span>
+  </div>
+
+  <h1>自治的下一程：<em>可持久 · 可信 · 可跨本体</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日梳理</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">$4.8B · 700 TOPS · 17 品牌</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">底座收敛周</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">自治的下一程落在「可持久、可信、可跨本体」的底座：编码 Agent 常驻化、Agent 与具身在编排层合流、端侧为常驻重做算力、具身借大会与运动会跨进规模化前夜</div>
+  <p>今天的五条信号锚定同一个转向——单体智能体的「会不会」早已不是问题，竞争焦点全面压到<strong>能长期、可信、跨本体地跑</strong>的底座层：<strong>AI coding</strong> 把 Agent 从一次性会话做成跨会话常驻＋用量上限自动续跑＋防凭证泄漏，从「问答工具」长成「工程实体」；<strong>AI Agent 与具身在编排层合流</strong>——NVIDIA Isaac 次世代集成 MOQ 流式与 ruflo 式编排，意图用统一控制面管住异构机器人编队，把 Agent 范式直接搬进具身软件栈；<strong>终端智能</strong>为常驻 Agent 重做计算底座，Acrab GΞLIX 1 把焦点从「单 NPU 算力」挪到 CPU/NPU/内存/编排协同的异构系统题；<strong>具身智能</strong>借 WRC 2026「一脑多能、跨本体」实证与第二届世界人形机器人运动会，从 demo 跨进「通用大脑部署＋真实物理评测」的规模化前夜，HOST/GOAG 等零样本学习研究则把「少示教快部署」往前推。一句话：<strong>稀缺的不再是能力演示，而是「可持久运行、可信约束、跨本体部署」三件套同时就位</strong>——这正是主人新岗（终端/具身智能）要亲手补的底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  单体能力就位轴 × 底座四层收敛 + 具身评测尺，今日信号分布</div>
+  <svg viewbox="0 0 872 332" width="100%" role="img" aria-label="信号星图：左侧为已就位的单体智能体能力，右侧为底座四层收敛（持久可信/编排合流/端侧算力/跨本体规模）与具身评测尺——编码常驻、Agent具身合流、端侧异构、一脑多能、物理评测">
+    <defs>
+      <marker id="ao" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">AGENT READY / PRODUCTION BASE LAYERS / 2026-08-23</text>
+
+    <!-- 左：单体能力就位 -->
+    <rect x="8" y="34" width="250" height="54" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="133" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">单体智能体能力就位</text>
+    <text x="133" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">「会不会做」已不再稀缺</text>
+
+    <!-- 右：底座落点 -->
+    <rect x="614" y="34" width="250" height="54" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="739" y="56" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="14" fill="#1b2733">底座四层 + 具身评测尺</text>
+    <text x="739" y="76" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">持久·可信·跨本体地跑</text>
+
+    <path d="M262,61 L610,61" stroke="#a4442a" stroke-width="1.4" marker-end="url(#ao)"/>
+
+    <!-- 五个节点 -->
+    <g font-family="Courier Prime,monospace">
+      <rect x="20" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="100" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">01</text>
+      <text x="100" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">编码 · 常驻</text>
+      <text x="100" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Claude Code</text>
+      <text x="100" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">跨会话+续跑</text>
+      <text x="100" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">防凭证泄漏</text>
+
+      <rect x="192" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="272" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">02</text>
+      <text x="272" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">编排 · 合流</text>
+      <text x="272" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Isaac+ruflo</text>
+      <text x="272" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">MOQ 流式</text>
+      <text x="272" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">统一控制面</text>
+
+      <rect x="364" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="444" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">03</text>
+      <text x="444" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">端侧 · 算力</text>
+      <text x="444" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Acrab 4.8B</text>
+      <text x="444" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">700 TOPS</text>
+      <text x="444" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">异构协同</text>
+
+      <rect x="536" y="120" width="160" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="616" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">04</text>
+      <text x="616" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">具身 · 跨本体</text>
+      <text x="616" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">WRC 一脑多能</text>
+      <text x="616" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">17 品牌适配</text>
+      <text x="616" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">规模落地</text>
+
+      <rect x="708" y="120" width="156" height="150" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="786" y="146" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="22" fill="#1d4e78" font-weight="700">05</text>
+      <text x="786" y="170" text-anchor="middle" font-size="10" fill="#1d4e78" letter-spacing=".12em">具身 · 评测</text>
+      <text x="786" y="196" text-anchor="middle" font-size="9.5" fill="#4d5c6c">机器人运动会</text>
+      <text x="786" y="212" text-anchor="middle" font-size="9.5" fill="#4d5c6c">HOST 零样本</text>
+      <text x="786" y="244" text-anchor="middle" font-size="9.5" fill="#7f8d9c">物理评测尺</text>
+    </g>
+
+    <text x="436" y="312" text-anchor="middle" font-family="Courier Prime,monospace" font-size="10" fill="#a4442a" letter-spacing="1.4">能力就位 → 竞争落在「持久·可信·跨本体」四层底座 + 真实物理评测尺</text>
+  </svg>
+  <div class="fig-note">信号 01–05 分别落在「编码常驻 / 编排合流 / 端侧算力 / 跨本体规模 / 物理评测」五处落点；横轴 = 单体智能体能力已就位，纵轴无。制图依据今日公开报道梳理。</div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 持久化与加固</span>
+  <h2 class="c-title">Claude Code 两周连发三版（v2.1.233–236）：跨会话常驻、用量上限自动续跑、GitLab MR 与 cgroup 限额、凭证泄漏防护</h2>
+  <p class="c-tags"><span class="chip b">Claude Code</span><span class="chip o">持久会话</span><span class="chip t">cgroup 限额</span><span class="chip">防泄漏</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Anthropic 在约两周内连推三个版本，把 CLI 编码 Agent 从「一次性问答会话」做成<em class="hl">跨会话常驻的工程实体</em>：</p>
+    <ul>
+      <li><strong>v2.1.236（8/19）</strong>：新增 <em class="hl">ANTHROPIC_DEFAULT_MODEL</em> 环境变量，设定新会话默认模型——团队可统一标准，个人仍可在会话内用 <code>/model</code> 覆盖并保持；<em class="hl">notify_when_idle</em> 支持跨会话消息（一个会话可在另一个空闲时 ping 它，免轮询）。</li>
+      <li><strong>v2.1.234（8/17）</strong>：用量上限重置后会话<em class="hl">自动续跑</em>，长任务不再静默卡死直到人工发现重启。</li>
+      <li><strong>v2.1.233（8/14）</strong>：支持 GitLab MR URL（此前仅 GitHub）；Linux 下 Bash 工具命令可设 <em class="hl">cgroup 内存上限</em>，防失控构建/安装拖垮整会话；加强<em class="hl">凭证泄漏防护</em>。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>编码 Agent 正从「人盯着的一次性工具」长成「可长期运行、会自愈、能互相等待」的进程——这是它从 demo 走向生产系统的前提。其中两处对 SecOps 直接相关：<strong>cgroup 限额</strong>把 Agent 的爆炸半径从「整台机器」收到「单条命令」，<strong>凭证防泄漏</strong>降低自主提交时的密钥外泄面。这恰是主人新岗「终端/具身智能」可复用的 <em class="hl">Agent 运行时护栏范式</em>——让本地/本体的自治进程「跑得动、关得住」。</p>
+    <p>同周横向印证：OpenAI Codex 推出 Linux 桌面 App 预览 + Agent Plugins 支持；OpenCode（SST 系）三连更；BenchLM 编码榜（8/2）Claude Mythos 5 综合 80.1 居首、Claude Fable 5 79.8、GPT-5.6 Sol 78.4——头部差距仅 2 分内，竞争已从「模型分」转到「harness 与运行时」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/19</b> v2.1.236 ANTHROPIC_DEFAULT_MODEL + notify_when_idle · <b>8/17</b> v2.1.234 上限重置自动续跑 · <b>8/14</b> v2.1.233 GitLab MR + cgroup 限额 + 凭证防护  |  来源：Claude Code Docs Changelog · Oday Bakkour Roundup
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Agent · 具身编排合流</span>
+  <h2 class="c-title">NVIDIA 次世代 Isaac 集成 MOQ 流式 + ruflo 式编排，Boston Dynamics 开放 Spot SDK：Agent 编排范式正搬进具身软件栈，统一控制面管住异构机器人编队</h2>
+  <p class="c-tags"><span class="chip b">NVIDIA Isaac</span><span class="chip o">ruflo</span><span class="chip t">MOQ 流式</span><span class="chip">统一控制面</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Robotics Daily（8/22）：NVIDIA 发布<strong>次世代 Isaac 机器人平台</strong>，集成 <em class="hl">MOQ</em>（流式）支持，并与 <em class="hl">ruflo 式编排框架</em>深度整合——意图控制「从仿真到部署」的全软件栈。同期 <strong>Boston Dynamics 开放 Spot SDK</strong>，支持 ruflo 兼容的 agent workflow，从封闭转向开放平台（承认生态增长是商业化关键）。</p>
+    <ul>
+      <li>市场背景：<em class="hl">ruflo</em>（agent meta-harness）被视为 ROS 2 之后的编排层候选，预计 2028 年市场 40–60 亿美元/年；<em class="hl">MOQ</em> 协议推动遥操作市场 2030 年达 120 亿美元。</li>
+      <li>趋势判读：Agent 编排（ruflo）+ 流式（MOQ）+ 基础模型，正收敛为「单一控制面管理异构机器人编队」的统一架构——与智能手机「硬件+软件+连接」合并为平台的革命同构。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能的「中间层」正在向 <strong>Agent 编排范式收敛</strong>——一个控制面同时管异构本体编队、实时流式遥操作、基础模型高层决策。这把 AI Agent（ruflo 编排）与具身（机器人本体）在软件栈层面合流。NVIDIA 意在<em class="hl">全球机器人软件栈霸权</em>。</p>
+    <p>对主人新岗：这意味着「具身 Agent 的编排标准」正在成形，<strong>提前选型关乎未来集成成本</strong>。若 ruflo/Isaac 成为事实标准，本土具身方案的互操作、数据接口与工具生态都要围绕它对齐——是「跟」还是「另起炉灶」，现在就要有判断。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  NVIDIA Isaac 次世代(MOQ+ruflo 编排) · Boston Dynamics Spot SDK 开放(ruflo 兼容) · ruflo 编排层 2028 市场估 40–60 亿美元/年 · MOQ 遥操作 2030 估 120 亿美元  |  来源：Smartotics Robotics Daily · ruvnet/ruflo
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  终端智能 · Agent 原生端侧算力</span>
+  <h2 class="c-title">Acrab 完成 1.3 亿美元 B 轮、累计融资超 4.8 亿美元：GΞLIX 1 端侧芯片（700 TOPS、CPU/NPU 协同）与 Agent Box，押注「常驻本地 Agent」的计算底座</h2>
+  <p class="c-tags"><span class="chip b">Acrab</span><span class="chip o">$4.8B</span><span class="chip t">700 TOPS</span><span class="chip">Agent 原生</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>新加坡 <strong>Acrab</strong>（2024 成立）完成 <strong>1.3 亿美元 B 轮</strong>（Vertex Growth 等），累计融资超 <strong>4.8 亿美元</strong>，首颗端侧 AI 芯片 <em class="hl">GΞLIX 1</em> 进入量产准备；同步推出 <em class="hl">Agent Box</em> 个人 AI 中心——本地跑千亿参数级模型，整合长期记忆、多模态交互、工具调用与 Agent 编排。</p>
+    <ul>
+      <li>GΞLIX 1：<strong>700 TOPS</strong>，强调<em class="hl">统一内存 + CPU/NPU 协同 + Prefill + Agent 编排</em>（非单纯 NPU 算力）。自测：Gemma 26B-A4B、4 万 token 缓存、1 万 token 输入下 Prefill 达 1416 token/s（自测，称比业界领先端侧平台快 7 倍，<strong>仍需第三方验证</strong>）。</li>
+      <li>同类端侧算力军备集体转向「模型感知 + Agent 原生」：芯擎科技 <em class="hl">天工100</em> 车规 7nm AI 加速芯片 8 月全面量产（千元级硬件、已供整车厂/Tier1）；谷歌 Pixel 11 <em class="hl">Tensor G6</em>（TPU+50%、端侧 AI 快 3.5×、能耗降至约 1/3）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>直接呼应主人「终端智能」岗调——端侧 Agent 常驻后，瓶颈<strong>不是「一颗更快的 NPU」，而是 CPU/NPU/内存/软件协同的系统题</strong>。这与微软 Azure《Architectural Implications of Agentic AI Workflows》的实测一致：Agent 任务在推理/工具/编排间反复横跳，真实流水线 8 个阶段有 7 个跑在 CPU。Acrab 押的正是「长期工作的本地 Agent 计算底座」。</p>
+    <p>对 SecOps：端侧常驻 Agent ＝终端攻击面结构性扩大（本地模型、跨 App 操作、机械执行器），终端管控需从「管进程」升级到「管 Agent 行为 + 数据出域 + 模型沙箱」。GΞLIX 1 的长上下文/Prefill 自测数据仍需独立复现，投资与量产节奏待首批客户验证。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  Acrab B轮1.3亿美元/累计4.8亿 · GΞLIX 1(700 TOPS,统一内存+CPU/NPU协同) · Agent Box(本地千亿模型+长期记忆+工具) · 芯擎天工100 8月量产 · Pixel 11 Tensor G6(TPU+50%)  |  来源：量子位/今日头条 · 芯擎科技 · Google
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  具身智能 · 一脑多能 / 跨本体规模落地</span>
+  <h2 class="c-title">WRC 2026 释放拐点信号：具身智能从「小批量试用」转向「大规模落地」，现场实证「一脑多能、跨本体跨场景」——蚂蚁灵波 17 品牌适配、光象单台多工位循环</h2>
+  <p class="c-tags"><span class="chip b">WRC 2026</span><span class="chip o">一脑多能</span><span class="chip t">跨本体</span><span class="chip">规模落地</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>央广网 8/22：2026 世界机器人大会释放清晰信号——具身智能处于<strong>「小批量试用 → 大规模落地」关键拐点</strong>。现场实证「一脑多能、跨本体跨场景」：</p>
+    <ul>
+      <li><strong>蚂蚁灵波全栈大脑 2.0</strong>：一个大脑预训练<em class="hl">适配 17 个机器人品牌</em>；国大药房夜班分拣（门店零改造即可上岗）、乐聚仓储高精度抓取。</li>
+      <li><strong>光象科技「物理原生智能」</strong>：单台机器人在汽车产线<em class="hl">双工位（焊接上料 + 质检）自主循环</em>，部署周期压到周/天级——行业首次验证单台具身从「专岗」走向「多面手」。</li>
+      <li><strong>越疆空弈 DobotWAM 具身大模型</strong>：驱动多机接力（分拣→转运→抓取→装配），各司其职无缝衔接。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能从「单本体炫技」跨进「<strong>通用大脑 + 跨本体部署 + 真实上岗</strong>」的工程量产前夜。「一脑多能」＝训练与部署成本断崖式下降（<em class="hl">一个模型吃下多品牌本体</em>），正是主人新岗要抓的「具身大脑标准化」命题——也是规模化经济性的命门。</p>
+    <p>风险与现实：家庭场景仍需时日；当前高价值落地集中在<strong>零售/仓储/工业质检等结构化场景</strong>。评判别被「 Demo 视频」带偏——要看「零改造上岗」「部署周期」「单台多工位」这类可结算指标。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  WRC 2026(8/22)拐点信号 · 蚂蚁灵波大脑2.0 适配17品牌/国大药房夜班 · 光象单台双工位自主循环(周/天级部署) · 越疆空弈DobotWAM多机接力  |  来源：央广网 · 北京日报/今日头条
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身评测 · 真实物理 + 快速学习</span>
+  <h2 class="c-title">第二届世界人形机器人运动会开幕（Galbot ET1 对打网球），HOST/GOAG 零样本学习研究同周发布：具身进入「真实物理评测 + 少示教快部署」阶段</h2>
+  <p class="c-tags"><span class="chip b">机器人运动会</span><span class="chip o">Galbot ET1</span><span class="chip t">HOST 零样本</span><span class="chip">物理评测</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>CGTN 8/23：第二届世界人形机器人运动会（北京）开幕，银河通用 <strong>Galbot ET1</strong> 人形与人对打网球——「大脑」(决策)+「小脑」(运动控制) 架构，人类动作数据 + 虚拟仿真训练，虚拟环境<em class="hl">多智能体对练</em>提升连续对拉/走位/击球选择。这把具身 AI 从数字棋盘（AlphaGo）推向真实物理动态评测。</p>
+    <ul>
+      <li>同期 arxiv（8/22）密集发布快速学习范式：<strong>HOST</strong>（单段人类视频<em class="hl">秒级</em>学会操作、防灾难性遗忘）、<strong>GOAG / CoToGrasp</strong>（零样本灵巧抓取，解耦抓取意图与物体几何）、<strong>Flex-π</strong>（一套权重在 VLA/世界模型/混合间自适应、无需重训）。</li>
+      <li>背景：北京以「双法案」政策框架把自身设为真实世界机器人部署试验场；中国借机器人竞赛作为具身技术战略试金石。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>具身智能进入「<strong>真实物理评测 + 快速泛化学习</strong>」阶段。网球等动态运动是比固定棋盘更难的可信度试金石——要求实时感知、决策、执行闭环；而 HOST/GOAG 把「从极少数据学会新技能」往前推，直击具身规模化（<em class="hl">少示教、快部署</em>）的关键瓶颈。</p>
+    <p>对主人新岗：<strong>评测尺（机器人运动会 / 真实物理任务）+ 学习范式（少样本 / 零样本）</strong>是具身智能能否「低成本上岗」的两大杠杆。前者决定「怎么算过关」，后者决定「部署要多少数据与人日」——两者都该进入新岗的度量与选型清单。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  第二届世界人形机器人运动会(北京,8/22开幕) · Galbot ET1 网球对打(大脑+小脑架构) · HOST(单视频秒级学,防遗忘) · GOAG/CoToGrasp(零样本抓取) · Flex-π(单权重自适应)  |  来源：CGTN · arxiv · machinedawn.ai
+  </div>
+</div>
+
+<div class="cross">
+  <h3>横向观察 · 从「会不会」到「能不能长期、可信、跨本体地跑」</h3>
+  <ol>
+    <li><strong>编码常驻（01）＋ 端侧算力（03）</strong>说明：Agent 要「长期工作」，两端都得补底座——软的（跨会话续跑、cgroup 限额、防泄漏）与硬的（CPU/NPU 协同、统一内存的异构算力）。</li>
+    <li><strong>编排合流（02）＋ 跨本体规模（04）</strong>说明：具身智能的「中间层」正被 Agent 编排范式（ruflo/Isaac/MOQ）统一，而落地靠「一脑多能、跨本体部署」把成本打下来——这是软件栈与大脑标准化的双收敛。</li>
+    <li><strong>物理评测尺（05）</strong>把可信度从「跑分」拉到「真实动态环境」：运动会 + 零样本学习，共同定义具身「过关」与「部署成本」的新标尺。</li>
+  </ol>
+  <div class="verdict">一句话：单体能力就位的仗打完了；下一程在「可持久运行、可信约束、跨本体部署」三件套同时就位——这正是主人新岗（终端/具身智能）要亲手补的底座。</div>
+  <div class="risk">
+    <b>注 / Caveat</b>
+    01 事件原始日期 8/14–8/19，属近期已发生但未纳入本栏目历史卡片（08-18/19/20 覆盖 Cursor/Wiz/Polaris/Codex-Linux/OpenCode/Meta Muse/荣耀Pixel/WRC 开幕，未覆盖 Claude Code 持久化加固）的重要信号，今日一并梳理；03 Acrab 融资/发布为 8/13 前后、仍在发酵；04/05 为 8/22–8/23 当日。GΞLIX 1 的 Prefill 1416 token/s 为厂商自测，需第三方复现；「一脑多能」跨品牌适配仍依赖场景预训练，家庭等非结构化场景落地尚需时日。
+  </div>
+</div>
+
+<footer>
+  <span>Leion · Daily AI · NO.50 · 2026-08-23 18:00 GMT+8</span>
+  <span>信号来源：Claude Code Docs / Smartotics / 量子位 / 央广网 / CGTN 等公开报道</span>
+</footer>
+
+</div>
+</body>
+</html>

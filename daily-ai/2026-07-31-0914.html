@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成本账本 · AI 领域每日动态 2026-07-31 早班</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=DM+Mono:wght@300;400;500&family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3efe4;
+  --paper2:#faf7ef;
+  --paper3:#efe9db;
+  --ink:#23241f;
+  --ink-soft:#4d4c42;
+  --muted:#8c8675;
+  --rule:#d9d2c0;
+  --rule-soft:#e7e1d2;
+  --red:#b5341f;
+  --red-deep:#8c2616;
+  --green:#2f6b4f;
+  --blue:#1f3d59;
+  --gold:#9a6a1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans SC",sans-serif;
+  font-weight:300;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+  overflow-x:hidden;
+}
+/* ledger paper: horizontal rules + left red margin + faint grain */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    repeating-linear-gradient(180deg,rgba(35,36,31,.045) 0 1px,transparent 1px 33px),
+    linear-gradient(90deg,transparent 0 54px,rgba(181,52,31,.16) 54px 55px,transparent 55px);
+}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 120% 80% at 50% -8%,rgba(154,106,28,.07),transparent 60%);
+  mix-blend-mode:multiply;
+}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 30px 110px}
+
+/* ── masthead ───────────────────────── */
+.mast{padding:50px 0 0;animation:fade .8s ease both}
+.mast-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  gap:20px;flex-wrap:wrap;
+  border-bottom:2px solid var(--ink);padding-bottom:12px;
+}
+.lab-id{
+  font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;
+}
+.lab-id b{color:var(--red);font-weight:500}
+.stamp{
+  font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.16em;
+  color:var(--ink-soft);border:1px solid var(--rule);background:var(--paper2);
+  padding:5px 11px;display:inline-flex;align-items:center;gap:8px;
+}
+.stamp .dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blip 2.4s infinite}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.2}}
+
+h1{
+  font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;
+  font-weight:900;font-size:clamp(58px,12vw,138px);
+  line-height:.82;letter-spacing:-.02em;
+  margin:26px 0 6px;color:var(--ink);
+}
+h1 .sub{
+  display:block;font-family:"Noto Serif SC",serif;font-weight:600;
+  font-size:clamp(20px,3.2vw,30px);color:var(--red);letter-spacing:.18em;
+  margin-top:12px;
+}
+.zh-title{
+  font-family:"Noto Serif SC",serif;font-weight:600;
+  font-size:clamp(15px,2vw,19px);color:var(--ink-soft);
+  letter-spacing:.14em;margin-top:16px;
+}
+.meta-row{
+  display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;padding-top:14px;
+  border-top:1px solid var(--rule);
+  font-family:"DM Mono",monospace;font-size:11px;
+  letter-spacing:.1em;color:var(--muted);text-transform:uppercase;
+}
+.meta-row span b{color:var(--ink-soft);font-weight:500}
+
+/* ── folio bar (ledger column header) ─ */
+.folio{
+  display:grid;grid-template-columns:1.1fr .9fr 1fr 1.1fr;
+  gap:0;margin:30px 0 6px;border:1px solid var(--ink);
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+  animation:fade .9s .1s ease both;
+}
+.folio div{
+  padding:8px 14px;border-right:1px solid var(--rule);
+}
+.folio div:last-child{border-right:none}
+.folio .h{color:var(--ink);font-weight:500}
+.folio .hr{color:var(--red);font-weight:500}
+
+/* ── hero: cost curve ───────────────── */
+.curve-box{
+  margin:10px 0 6px;border:1px solid var(--ink);background:var(--paper2);
+  padding:24px 22px 14px;position:relative;overflow:hidden;
+  animation:fade .9s .14s ease both;
+}
+.curve-box .cap{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:4px;
+}
+svg.curve{width:100%;height:auto;display:block;overflow:visible}
+.grid{stroke:var(--rule);stroke-width:1;stroke-dasharray:2 4}
+.axis{stroke:var(--ink);stroke-width:1.4}
+.costline{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round;
+  stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.6s cubic-bezier(.4,.1,.2,1) .5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.cmkr{opacity:0;animation:pop .5s cubic-bezier(.2,1.5,.4,1) forwards}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+.clbl{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.04em;fill:var(--ink-soft)}
+.clbl.r{fill:var(--red)}
+.caxis{font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.08em;fill:var(--muted)}
+
+/* ── lede / main line ───────────────── */
+.lede{
+  margin:30px 0 6px;border:1px solid var(--ink);background:var(--paper3);
+  padding:30px 32px 28px;position:relative;
+  animation:fade .9s .2s ease both;
+}
+.lede::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--red)}
+.lede-h{
+  font-family:"Fraunces",Georgia,serif;font-weight:900;
+  font-size:clamp(26px,4vw,40px);letter-spacing:-.01em;color:var(--red);
+  line-height:.95;
+}
+.lede-zh{
+  font-family:"Noto Serif SC",serif;font-weight:600;font-size:14px;
+  letter-spacing:.2em;color:var(--gold);margin-top:10px;
+}
+.lede p{
+  font-family:"Noto Serif SC",serif;font-size:17px;line-height:1.95;
+  color:var(--ink);margin-top:18px;
+}
+.lede p strong{color:var(--red);font-weight:700}
+.lede .kicker{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.18em;
+  color:var(--muted);text-transform:uppercase;margin-top:20px;padding-top:14px;
+  border-top:1px dashed var(--rule);display:block;
+}
+
+/* ── section label ──────────────────── */
+.sec-label{
+  display:flex;align-items:center;gap:16px;margin:54px 0 22px;
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.24em;
+  color:var(--ink-soft);text-transform:uppercase;
+}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--rule)}
+.sec-label .n{color:var(--red);font-weight:500}
+
+/* ── cards = ledger entries ─────────── */
+.card{
+  border:1px solid var(--ink);background:var(--paper2);
+  margin-bottom:22px;position:relative;
+  opacity:0;transform:translateY(24px);
+  animation:rise .8s cubic-bezier(.22,.9,.28,1) forwards;
+}
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+.card:nth-child(1){animation-delay:.30s}
+.card:nth-child(2){animation-delay:.40s}
+.card:nth-child(3){animation-delay:.50s}
+.card:nth-child(4){animation-delay:.60s}
+.card:nth-child(5){animation-delay:.70s}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--red))}
+.card.c1{--c:var(--red)} .card.c2{--c:var(--green)} .card.c3{--c:var(--gold)}
+.card.c4{--c:var(--blue)} .card.c5{--c:var(--red)}
+
+.chead{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  padding:13px 24px;border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--paper3),var(--paper2));
+}
+.chead-l{display:flex;align-items:center;gap:14px}
+.cno{
+  font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:32px;
+  line-height:1;color:var(--c);letter-spacing:-.01em;
+}
+.dirtag{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--c);border:1px solid var(--c);
+  padding:3px 9px;
+}
+.unc{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase;text-align:right;
+}
+.unc b{color:var(--ink-soft);font-weight:500}
+.dir{
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;
+  color:var(--paper2);background:var(--c);padding:3px 10px;font-weight:500;
+}
+.dir.up{background:transparent;color:var(--red);border:1px solid var(--red)}
+
+.cbody{padding:24px 28px 26px}
+h2{
+  font-family:"Noto Serif SC",serif;font-weight:700;
+  font-size:clamp(19px,2.5vw,25px);line-height:1.5;color:var(--ink);
+  letter-spacing:.01em;margin-bottom:6px;
+}
+.h2-en{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.16em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:18px;
+}
+.cbody p{font-size:15px;color:var(--ink-soft);margin-bottom:14px;line-height:1.92}
+.cbody p strong{color:var(--ink);font-weight:500}
+.cbody em{font-style:normal;color:var(--c);font-weight:500}
+.k{
+  font-family:"DM Mono",monospace;font-size:12.5px;color:var(--c);
+  background:rgba(181,52,31,.06);padding:1px 6px;border-bottom:1px solid rgba(181,52,31,.22);
+}
+.blk{
+  margin:18px 0 4px;padding:15px 19px;border-left:2px solid var(--c);
+  background:var(--paper3);
+}
+.blk .bh{
+  font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.2em;
+  color:var(--c);text-transform:uppercase;margin-bottom:7px;
+}
+.blk p{margin-bottom:0;font-size:14.4px}
+.conf{
+  margin-top:16px;padding-top:13px;border-top:1px dashed var(--rule);
+  font-size:13px;color:var(--muted);line-height:1.8;
+}
+.conf b{
+  font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.16em;
+  color:var(--ink-soft);text-transform:uppercase;font-weight:500;
+  display:inline-block;margin-right:8px;
+}
+
+/* ── three lines ────────────────────── */
+.three{border:1px solid var(--ink);background:var(--paper2);padding:28px 30px;margin-top:10px;
+  opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.22,.9,.28,1) .8s forwards}
+.three ol{list-style:none;counter-reset:t}
+.three li{
+  counter-increment:t;position:relative;padding-left:46px;margin-bottom:16px;
+  font-size:15px;color:var(--ink-soft);line-height:1.9;
+}
+.three li:last-child{margin-bottom:0}
+.three li::before{
+  content:"0" counter(t);position:absolute;left:0;top:1px;
+  font-family:"Fraunces",Georgia,serif;font-weight:900;font-size:23px;
+  color:var(--red);letter-spacing:.02em;
+}
+.three li strong{color:var(--ink);font-weight:500}
+
+/* ── thread ─────────────────────────── */
+.thread{margin-top:24px;border:1px solid var(--rule);padding:24px 28px;background:var(--paper3);
+  opacity:0;transform:translateY(22px);animation:rise .8s cubic-bezier(.22,.9,.28,1) .88s forwards}
+.thread .t{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.2em;
+  color:var(--muted);text-transform:uppercase;margin-bottom:16px;
+}
+.tl{display:flex;flex-direction:column;gap:0}
+.ti{display:flex;gap:16px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--rule)}
+.ti:last-child{border-bottom:none}
+.ti .d{font-family:"DM Mono",monospace;font-size:11px;color:var(--muted);min-width:62px;letter-spacing:.06em}
+.ti .v{font-size:14.2px;color:var(--ink-soft)}
+.ti.now .d{color:var(--red)}
+.ti.now .v{color:var(--ink)}
+.ti.now .v b{color:var(--red);font-weight:500}
+
+footer{
+  margin-top:54px;padding-top:20px;border-top:2px solid var(--ink);
+  font-size:12.4px;color:var(--muted);line-height:1.85;
+}
+footer .sig{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--rule);margin-top:14px;
+}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:640px){
+  .wrap{padding:0 18px 70px}
+  .cbody{padding:20px 18px 22px}
+  .chead{padding:12px 16px}
+  .lede{padding:24px 20px}
+  .folio{grid-template-columns:1fr 1fr}
+  .folio div:nth-child(2){border-right:none}
+  .three,.thread{padding:24px 20px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="mast-top">
+      <div class="lab-id">COST LEDGER <b>/ NO.2026-0731-A1</b> · AI DAILY ENTRIES</div>
+      <div class="stamp"><span class="dot"></span>09:14 GMT+8 · SHIFT 1 / 1</div>
+    </div>
+
+    <h1>COST<br>LEDGER<span class="sub">成本账本 · 边际成本总账</span></h1>
+    <div class="zh-title">AI 领域每日动态 · 2026 年 7 月 31 日 早班</div>
+
+    <div class="meta-row">
+      <span>方向 <b>AI AGENT</b></span>
+      <span>方向 <b>终端与端侧</b></span>
+      <span>方向 <b>具身智能</b></span>
+      <span>分录 <b>05</b></span>
+      <span>去重 <b>已避开 7/27–7/30 已锁信号</b></span>
+    </div>
+  </header>
+
+  <div class="folio">
+    <div class="h">科目 / ACCOUNT</div>
+    <div class="hr">方向 / DR·CR</div>
+    <div>凭证 / VOUCHER</div>
+    <div>备注 / MEMO</div>
+  </div>
+
+  <section class="curve-box">
+    <div class="cap">MARGINAL COST CURVE — 五笔分录在「智能边际成本」轴上的落点（向下 = 更便宜）</div>
+    <svg class="curve" viewbox="0 0 940 280" role="img" aria-label="成本曲线：自左上高边际成本向右下递减，标注五条信号落点">
+      <!-- gridlines -->
+      <g>
+        <line class="grid" x1="90" y1="60" x2="900" y2="60"/>
+        <line class="grid" x1="90" y1="110" x2="900" y2="110"/>
+        <line class="grid" x1="90" y1="160" x2="900" y2="160"/>
+        <line class="grid" x1="90" y1="210" x2="900" y2="210"/>
+      </g>
+      <!-- axes -->
+      <line class="axis" x1="90" y1="40" x2="90" y2="232"/>
+      <line class="axis" x1="90" y1="232" x2="900" y2="232"/>
+      <text class="caxis" x="14" y="48" transform="rotate(-90 14 48)">边际成本 MARGINAL COST ↑</text>
+      <text class="caxis" x="780" y="258">能力曲线 →</text>
+      <!-- the cost curve (downward) -->
+      <path class="costline" d="M120,70 C 260,86 360,128 470,162 S 700,196 850,222"/>
+      <!-- markers -->
+      <g class="cmkr" style="animation-delay:1.20s">
+        <circle cx="150" cy="78" r="6" fill="#b5341f"/>
+        <text class="clbl r" x="118" y="62">01 内核自改 −80%</text>
+      </g>
+      <g class="cmkr" style="animation-delay:1.34s">
+        <circle cx="340" cy="118" r="6" fill="#2f6b4f"/>
+        <text class="clbl" x="300" y="104">02 跨本体 <200 示范</text>
+      </g>
+      <g class="cmkr" style="animation-delay:1.48s">
+        <circle cx="470" cy="162" r="6" fill="#9a6a1c"/>
+        <text class="clbl" x="430" y="148">03 本地买断</text>
+      </g>
+      <g class="cmkr" style="animation-delay:1.62s">
+        <circle cx="640" cy="190" r="6" fill="#1f3d59"/>
+        <text class="clbl" x="600" y="176">04 代工外包</text>
+      </g>
+      <g class="cmkr" style="animation-delay:1.76s">
+        <circle cx="830" cy="220" r="6" fill="#b5341f"/>
+        <text class="clbl r" x="788" y="206">05 数据工厂化</text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="lede">
+    <div class="lede-h">Today's Main Line</div>
+    <div class="lede-zh">今日主线 · 成本曲线现身</div>
+    <p>今天没有一条重要信号是关于"更聪明"。OpenAI 让 GPT-5.6 改写自己的 GPU 内核，把省下的 20% 成本当天变成 80% 降价；Gemini Robotics 2 让换一具机器人身体只需要不到 200 条示范；Acrab 把千亿模型的账单从"按 token 租"改成"一次性买"；Humanoid 把制造整包外包给博世；郑州用近 70 个人每天标注 5 万条数据。</p>
+    <p>五件事压着同一件事——<strong>智能的边际成本</strong>。能力曲线已经跑了三年，今天成本曲线第一次并排站到台前。而决定哪些 Demo 能活到明年的，是后者。</p>
+    <span class="kicker">Thesis — the marginal cost of intelligence just stepped onto the stage, beside the capability curve.</span>
+  </section>
+
+  <div class="sec-label"><span class="n">Signals</span> · 五笔分录</div>
+
+  <article class="card c1">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">01</span><span class="dirtag">AI Agent</span></div>
+      <div class="unc">凭证 <b>OpenAI 官方博文</b> ／ 信用 <b>高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>模型改写自己的 GPU 内核，20% 成本降幅当天变成 80% 降价</h2>
+      <div class="h2-en">OpenAI — GPT-5.6 Sol rewrites its own inference stack</div>
+
+      <p>7 月 29 日，OpenAI 发布博文披露：团队用 <span class="k">GPT-5.6 Sol</span> 优化 GPT-5.6 系列自身的推理链路，分三层——<em>调度层</em>（Sol 经 Codex 分析生产流量、识别负载失衡、调整路由启发式，按地域、可用容量、加速器类型分配请求）；<em>内核层</em>（让 Sol 学 Triton 与 Gluon，自主改写生产环境 GPU 内核，端到端服务成本最多降 <strong>20%</strong>，正确性用开源浮点清理器 FpSan 验证）；<em>解码层</em>（优化投机解码，token 生成效率提升 <strong>超过 15%</strong>）。</p>
+
+      <p>7 月 30 日（美东）／31 日（北京），这部分收益直接传导给客户：<span class="k">GPT-5.6 Luna 降价 80%、Terra 降价 20%</span>，API 引入 Fast mode 替代 Priority Processing（Sol 最高 2.5× 速度、2× 价格，智能不变）。内部衡量自我改进能力的 RSI Index 上，GPT-5.6 比 5.5 高出 <strong>16.2 分</strong>。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>这是"递归自我改进"第一次有了<strong>可核验的商业闭环</strong>——不是论文概念，是账单数字。飞轮很清楚：模型越强 → 越能优化推理栈 → 同样的卡吐出更多 token → 成本下降 → 更强的模型铺给更多人。竞争轴随之偏移：过去比谁买得起更多 GPU，现在开始比同样一批卡谁榨得出更多 token。</p>
+      </div>
+
+      <p><em>同频参照</em>：同一周，腾讯混元开源端到端投机解码框架 <span class="k">AngelSpec</span>（7/29–30），并开放 Hy3-A21B 的 MTP 与 DFly drafter 权重及训练代码——DFly 在 4–64 全并发档位平均加速 1.98–2.40×，D-cut 机制在高并发下再提升 15.7% 吞吐。同一件事的两条路径：一条让模型自己改，一条把工具链开源出去。</p>
+
+      <div class="conf"><b>Uncertainty</b>推理栈层面的自优化（内核 / 路由 / 投机解码），不等于"模型自己训练出更强的模型"，与完整意义的递归自我改进仍有距离；Anthropic 联创 Jack Clark"2028 年底前出现完整递归自我改进概率超 60%"属观点预测，非事实。信源：OpenAI 官方博文与产品页（一级），可信度高。</div>
+    </div>
+  </article>
+
+  <article class="card c2">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">02</span><span class="dirtag">具身智能</span></div>
+      <div class="unc">凭证 <b>DeepMind + WIRED</b> ／ 信用 <b>高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>Gemini Robotics 2：从脚趾到指尖的全身控制，同步发布安全基准</h2>
+      <div class="h2-en">Google DeepMind — whole-body VLA + ASIMOV-Agentic</div>
+
+      <p>7 月 30 日（美东）／31 日（北京），Google DeepMind 发布 <span class="k">Gemini Robotics 2</span>，形成三模型栈：核心 VLA（双足人形"从脚趾到指尖"全身控制）、ER 2（具身推理大脑，数分钟级多步分解、多机器人协同、与人沟通）、On-Device 2（本地芯片运行）。关键突破是<strong>打破"导航—操作"解耦</strong>——把全身动力学统一到单个 VLA 下，一句"把浇水壶放进底层货架的绿箱里"，Apptronik Apollo 2 自主评估场景、穿越房间、下蹲避让、完成放置，无需拆子程序。</p>
+
+      <p>灵巧度上原生支持 <span class="k">22 自由度触觉手</span>，可封保鲜袋、系垃圾袋、拧灯泡；<strong>On-Device 2 支持数小时内、用不到 200 条示范样本适配全新本体</strong>，覆盖形态、传感器、自由度差异极大的机型。安全侧同步推出 <span class="k">ASIMOV-Agentic</span> 基准，检测多 AI 协作控制机器人时是否产生有害或不确定后果，并加入人体接近感知自动停机。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>真正的成本项不是"能不能做到"，而是<strong>换一具身体要花多少钱</strong>。<200 条示范就能迁移到新本体，意味着机器人厂商的软件适配成本正在塌陷——这比"拧灯泡 92%"更有产业含义。DeepMind CEO 哈萨比斯把目标形容为"给机器人做安卓"，这次的三层栈就是那个操作系统的雏形。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>机器人总监 Kanishka Rao 明确承认：真正意义的灵活性仍是遥远目标，动作仍缓慢刻意，因为机器要停下来"思考"人类凭直觉做的判断；模型仍依赖特定训练数据（遥操作 / 视频 / 仿真混合），不具备无训练广泛执行复杂任务的通用能力。信源：官方发布 + WIRED 采访 + 多家媒体交叉（一级），可信度高。</div>
+    </div>
+  </article>
+
+  <article class="card c3">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">03</span><span class="dirtag">终端与端侧</span></div>
+      <div class="unc">凭证 <b>公司新闻稿</b> ／ 信用 <b>中</b></div>
+    </div>
+    <div class="cbody">
+      <h2>Acrab GΞLIX 1 + Agent Box：把千亿参数搬回桌面，用买断替代 token</h2>
+      <div class="h2-en">Acrab — edge SoC + local Personal AI Center</div>
+
+      <p>新加坡公司 Acrab（Arm 中国前联席 CEO 潘镇元 2024 年创办，累计融资超 <span class="k">3.5 亿美元</span>）发布首代边缘 AI SoC <span class="k">GΞLIX 1</span> 及整机 Agent Box：5nm、20 核 Arm CPU + 3 TFLOPS GPU + 独立 NPU，AI 总算力 <strong>700 TOPS</strong>，统一内存带宽 <strong>273 GB/s</strong>，目标本地部署 1000 亿参数级开源模型，体积与 Mac mini 相当。自测下 prefill 速率 1416.8 token/s，约为 Mac mini M4 Pro 的 <strong>7.5×</strong>。</p>
+
+      <p>Agent Box 定位 <em>Personal AI Center</em>：本地推理 + 持久记忆 + 多模态 + Agent 编排，数据与记忆全留本地。CEO Ken Phua 的说法是"生成式 AI 帮人找答案，Agentic AI 帮人把事做完"。其商业逻辑是<strong>用一次性投入替代云端 token 的经常性支出</strong>，以缓解"token 焦虑"。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>值得关注的不是 700 TOPS，而是 <strong>273 GB/s 统一内存带宽</strong>。Agent 工作负载会放大数据搬运问题——频繁读历史、跨模型/系统传数据、持续存状态，每次复制都加延迟和功耗，任务跑得越久越关键。峰值算力再高，带宽跟不上，NPU 就只能等。<strong>瓶颈叙事正从"算力峰值"转向"数据通路"</strong>。从成本角度，它提出另一种降本路径：不是把单位 token 做便宜，而是把计价方式整个换掉。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>该发布为 7 月 23 日（新加坡），本周在中文技术圈发酵，非当日首发；所有性能数据均为厂商自测，未经第三方独立验证；售价与上市时间均未公布。信源：公司新闻稿（一级，但数据自测）+ 媒体转述，可信度中。</div>
+    </div>
+  </article>
+
+  <article class="card c4">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">04</span><span class="dirtag">具身 / 资本</span></div>
+      <div class="unc">凭证 <b>媒体 + 公司披露</b> ／ 信用 <b>中高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>欧洲首家人形机器人独角兽：博世既是股东，也是它的代工厂</h2>
+      <div class="h2-en">Humanoid — Europe's first humanoid unicorn</div>
+
+      <p>英国 SKL Robotics 旗下品牌 <span class="k">Humanoid</span> 完成 <strong>1.52 亿美元 A 轮</strong>，投后估值 <strong>13.5 亿美元</strong>，累计融资 2.7 亿美元，由此成为欧洲首家专注人形机器人的独角兽。结构性选择有二：其一<strong>淡化双足执念</strong>——核心平台 HMND-01 Alpha 同时规划轮式与双足，本轮重点用于轮式人形规模化生产，逻辑是工厂仓库里轮式底盘更省、能耗更低、成本更可控；其二<strong>制造整包外部化</strong>——博世作为合同制造伙伴承担硬件设计、生产与供应链，舍弗勒既投资也签商业合作。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>这是与中美都不同的<strong>第三条路径</strong>：美国靠大科技 + 前沿模型 + 风投；中国靠供应链密度 + 场景规模 + 地方产业基金；欧洲的答案是创业公司负责 AI、本体与产品迭代，<strong>传统工业集团承担制造、验证与客户导入</strong>。对成本曲线而言，这意味着制造学习曲线可以不必自己重走一遍。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>公司 5 月披露约 3.4 万台预订、对应约 24 亿美元未来年度经常性收入，均为管理层陈述——预订 ≠ 交付，意向金额 ≠ 已确认收入；公司 2024 年成立，尚未完成商业化验证。信源：媒体报道 + 公司披露（中高），可信度中高。本条不构成任何投资建议。</div>
+    </div>
+  </article>
+
+  <article class="card c5">
+    <div class="chead">
+      <div class="chead-l"><span class="cno">05</span><span class="dirtag">具身 / 数据</span></div>
+      <div class="unc">凭证 <b>央媒采访 + 企业</b> ／ 信用 <b>中高</b></div>
+    </div>
+    <div class="cbody">
+      <h2>郑州"数据工厂"：140 台异构机器人、近 70 名采集师、每天 5 万条标注</h2>
+      <div class="h2-en">Zhengzhou — the embodied-data factory</div>
+
+      <p>7 月 31 日，中央媒体采访团走进郑州，披露<strong>中原异构人形机器人训练场</strong>运行数据：中部首个异构机器人训练场，运营方称位列全国第三；常态化部署 <span class="k">140 台</span>各类异构机器人（双足、轮臂、四足、四轮），搭建 <strong>27 个</strong>应用场景，建设周期 <strong>40 天</strong>。产能上近 <strong>70 名</strong>数据采集师长期驻场，<strong>每天采集并标注 5 万条</strong>数据，累计沉淀 2 万余小时真机实操数据。</p>
+
+      <p>评测对标 6 月实施的工信部《YD/T 6770—2026 具身智能基准测试方法》，把作业划分为原子技能 / 基础任务 / 长线程复合任务三层，以任务成功率、执行效率、<strong>人工干预率</strong>、整机能耗四指标判定达标。感知侧配套汉威科技柔性触觉传感器（"电子皮肤"），年产能达 <strong>1000 万片</strong>，自研品类 85%–90% 性能持平或超越海外同类。</p>
+
+      <div class="blk">
+        <div class="bh">Why it matters</div>
+        <p>两点。第一，<strong>具身数据第一次以劳动密集型实体工厂的形态出现</strong>——不是算法问题，是人力、场地、工时问题。资本讨论具身估值时，真正被消耗的是这种不性感的产能。第二，<strong>"人工干预率"被写进国标指标</strong>——这四个字比任何 Demo 都更有信息量，行业终于开始量化"这台机器到底自主到什么程度"。降低单位有效数据的成本，是具身曲线上最硬的一段。</p>
+      </div>
+
+      <div class="conf"><b>Uncertainty</b>各项数据为运营方与企业口径，未见第三方审计；"全国第三"排名口径未公开说明；汉威相关产能引自企业介绍与公开财报。信源：中央媒体采访团报道 + 企业披露，可信度中高。本条不构成任何投资建议。</div>
+    </div>
+  </article>
+
+  <div class="sec-label"><span class="n">Cross-reading</span> · 横向观察</div>
+
+  <section class="three">
+    <ol>
+      <li><strong>成本曲线第一次和能力曲线并排站上台前。</strong>自优化（OpenAI）、跨本体迁移（DeepMind）、本地化买断（Acrab）、代工外包（Humanoid）、数据工厂化（郑州）——五种压低边际成本的方式在同一天显形。</li>
+      <li><strong>瓶颈在往下沉。</strong>从"模型够不够聪明"，到"内核够不够快、带宽够不够宽、身体换起来贵不贵、数据标得起标不起"。Agent 常驻长跑的形态，把每一次数据搬运都变成了成本项。</li>
+      <li><strong>诚实是今天信号的共同底色。</strong>DeepMind 承认灵活性仍遥远、Acrab 数据未经第三方验证、Humanoid 的 3.4 万台是预订不是交付、郑州的排名口径未公开——值得关注的不是这些数字有多亮，而是它们各自站在证据链的哪一格。</li>
+    </ol>
+  </section>
+
+  <section class="thread">
+    <div class="t">Continuity · 与本周脉络的衔接</div>
+    <div class="tl">
+      <div class="ti"><span class="d">07 / 24</span><span class="v">Agent 从工具走向"可信商业实体"</span></div>
+      <div class="ti"><span class="d">07 / 27</span><span class="v">自主 vs 可控，边界设计是唯一护栏</span></div>
+      <div class="ti"><span class="d">07 / 29</span><span class="v">可控的自治：治理、工程、主权三线收束</span></div>
+      <div class="ti"><span class="d">07 / 30</span><span class="v">早 边界划定 → 午 入口收拢·账本亮相 → 午后 围栏而非文本 → 傍晚 主体交接底座 → 夜 刻度之夜</span></div>
+      <div class="ti now"><span class="d">今早</span><span class="v"><b>成本曲线现身</b> —— 前一周问"Agent 能不能被信任、被约束、被测量"，今天开始问一个更冷的问题：它划不划算。跑不起账的自治系统，不会有人给它授权。</span></div>
+    </div>
+  </section>
+
+  <footer>
+    本文为公开信息整理与个人观察，各条已标注信源层级与不确定度，不构成投资建议。涉及企业自述数据（"全球首个"、榜单第一、目标产能、预订量等）均已注明口径，请以官方最终披露为准。
+    <div class="sig">END OF COST LEDGER · NO.2026-0731-A1 · 05 ENTRIES POSTED</div>
+  </footer>
+
+</div>
+</body>
+</html>

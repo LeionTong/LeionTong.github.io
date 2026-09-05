@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-09-03 09:30 · 可信·可控·可交付·端侧·定标：自治体从「能不能演示」下沉到五件上岗底座</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:'Courier Prime',monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.59</b></span>
+    <span>2026-09-03  09:30  GMT+8</span>
+  </div>
+
+  <h1>可信·可控·可交付·端侧·定标：<em>自治体从「能不能演示」下沉到五件上岗底座</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 早班车精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">7 agent · 1691 · 6000万 · 80%+ · 97%</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">可信·可控·可交付·端侧·定标</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">今天五条信号把竞争焦点压到「被委托之前先防住、能跑之后能算账」</div>
+  <p>能力就位已是共识，稀缺资源从「能不能演示」进一步下沉到五件让能力真正「能被委托、能上岗、能算账」的底座：① Manifold Security 9/1 披露 <strong>GitSpawn</strong>——8 个漏洞横跨 <strong>7 个</strong> CLI coding agent，恶意 <strong>.git 配置</strong>（core.fsmonitor 等）能让 agent 在开发者机器上<em class="hl">沙箱外、无审批执行攻击代码</em>；goose / Claude Code / Cursor 已修，Hermes Agent、Qwen Code、Grok Build 及 Claude Code 另一路径仍裸奔——agent 安全边界不在模型、在管道；② OpenAI 宣布 <strong>11/12</strong> 终止向 Cursor 供模型（SpaceX 收购后不信任条款），同日阿里 <strong>Qwen3.8-Max</strong> 登顶 CodeArena 前端编程榜（<strong>1691</strong>，超 Claude Opus 5 / Kimi K3，每百万 token $5），开源 <strong>Orca</strong> 把 Codex / Claude Code / 多模型编成「多 Agent 开发团队」（Git Worktree 并行）——coding agent 护城河从「模型接入」转向「自有模型 + 场景绑定 + 多 Agent 工作台」；③ 企业级 agent 密集上岗：腾讯 WorkBuddy 在晶科能源把财务 BP 月度预算分析从 <strong>2 天压到 15 分钟</strong>、蒙牛自建 <strong>45</strong> 个 AI 数字员工，6 月以来腾讯/阿里/百度/字节/金山/360 密集推 AI 办公产品，国内 17 款主流 AI 办公智能体月访问量 <strong>3 月 2000 万 → 6 月 6000 万</strong>，Salesforce Slack Code 把编程智能体嵌进 Slack 协作流、Winter'27 Agentforce 从任务辅助进端到端自主工作流（<strong>73.1%</strong> 企业决策者列高优先级）——从「会问答」到「能交付、按结果计费」；④ 努比亚 <strong>NaviX Ultra</strong>（豆包手机二代）9/1 获工信部入网许可，全球首款量产 AI 智能体手机 9 月发售，端侧+云端协同跨应用多步自主执行（成功率 <strong>80%+</strong>），Counterpoint 估 2026 生成式 AI 手机出货占比 45%、2027 破 52%——智能手机从「功能型 AI」进「智能体型 AI」，入口从 APP 分发转智能体调度；⑤ 人形机器人从赛场进工位：第二届世界人形机器人运动会天工 Ultra 400m <strong>38.15s</strong>（一年前 1:28），《国家人形机器人产业标准体系建设指南(2026版)》+ 全量数据集 <strong>2500h</strong> + 国际标准《人形机器人数据集》立项，上半年融资 <strong>935 亿</strong> 同比 5 倍、中国出货占全球 <strong>97%</strong>——从「参赛」到「定标」，但王兴兴再提醒「身体达标≠大脑成熟」。一句话：<strong>稀缺资源从「能不能演示」下沉到「可信边界（被委托前先防住）· 可控执行（多 agent 工作台 + 私有化）· 按结果交付（企业上岗算账）· 端侧闭环（手机量产）· 标准定义（具身定标出海）」五件套</strong>——正是 TEI C→B→A→D 当下要亲手补的「可信 + 可控 + 可交付 + 可端侧 + 可定标」底座。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>能力 → 五件上岗底座 信号位置</b>  |  2026-09-03：从「演示就位」推进到「可信 / 可控 / 可交付 / 端侧 / 定标」</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：五条信号分别落在可信边界、可控执行、按结果交付、端侧闭环、标准定义五个上岗底座档位">
+    <defs>
+      <marker id="bo9" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">CAPABILITY → TRUST/CONTROL/DELIVERY / 2026-09-03</text>
+
+    <rect x="8" y="34" width="212" height="46" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">能力（往期已证）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.53–58 演示·受托·上岗</text>
+
+    <rect x="652" y="34" width="212" height="46" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">上岗底座（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">可信·可控·可交付·端侧·定标</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo9)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">可信边界</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 安全</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">01 GitSpawn</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">7 agent 裸奔</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">.git 钩子沙箱外</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">无审批执行</text>
+
+      <rect x="182" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">可控执行</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 护城河</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">02 OpenAI断供</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">Qwen 1691·Orca</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">自有模型+多agent</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">工作台</text>
+
+      <rect x="354" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">按结果交付</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Agent · 上岗</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 WorkBuddy</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">2天→15分·6000万</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">73.1% 高优先级</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">按结果计费</text>
+
+      <rect x="526" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">端侧闭环</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端智能 · 量产</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">04 NaviX Ultra</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">入网·80%+成功率</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">端云协同执行</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">入口重构</text>
+
+      <rect x="698" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">标准定义</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身 · 定标</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 运动会/指南</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">2500h·97%出货</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">数据集+国际标准</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">生态话语权</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+    <text x="10" y="290" font-family="Courier Prime,monospace" font-size="9.5" fill="#7f8d9c">TEI 映射 →</text>
+    <text x="96" y="290" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C 行业方案(按结果交付) · B 平台(多agent工作台+私有化) · A 终端(端侧量产闭环) · D 并购(定标/出海硬指标)</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的能力演示 → 今日推进到的五件上岗底座」。01/02 是 coding agent 被委托前的「可信 + 可控」前提（A 终端 / B 平台的安全与控制面）；03 是 agent 进企业真实业务流、按结果算账（C 行业方案）；04 是端侧执行闭环量产（A 终端硬件）；05 是具身定标与出海（D 并购评估）。五件事共同把「能力」翻译成「能被信任委托、能上岗、能算账、能端侧、能定标」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">今日五条精选信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 可信边界</span>
+  <h2 class="c-title">GitSpawn：恶意 .git 配置可让 7 个 CLI coding agent 在开发者机器上沙箱外、无审批执行攻击代码</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">可信边界</span><span class="chip t">上岗前提</span><span class="chip">GitSpawn</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>Manifold Security 9/1 披露 <strong>GitSpawn</strong>——跨 7 个命令行 coding agent 的 8 个安全漏洞，根因在普通管道而非模型：</p>
+    <ul>
+      <li><strong>触发机制</strong>：仓库自带 <code>.git/config</code> 的 <em class="hl">core.fsmonitor</em> 等性能项，值是 Git 在刷新索引（git status / git diff）时运行的命令；agent 启动即调用这些命令确定分支与变更，于是仓库配置里的命令在<strong>沙箱外、无审批</strong>下以用户权限执行——读取/篡改/删除用户文件、触及账户资源。</li>
+      <li><strong>影响面</strong>：goose、Claude Code、Cursor 已修复；截至 9/1 复测，<em class="hl">Hermes Agent、Qwen Code、Grok Build 及 Claude Code 另一路径仍裸奔</em>；OpenAI 同日自曝 3 个同类的 Codex CVE。在 Hermes/Qwen Code 上载荷在信任提示接受前/认证前即触发。</li>
+      <li><strong>本质</strong>：漏洞不在模型、不在新东西，而在「agent 启动时为确认自己在哪而 spawn 的子进程」——被仓库配置投毒。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这直接对冲 NO.58 的「受托 / 上岗」：一个能被长期委托（Codex 持久 25h）的 agent，攻击面也同步放大。它证明<strong>agent 的可信边界不在模型智能，而在启动序列与子进程隔离</strong>——这是「上岗前先防住」的最硬一课。</p>
+    <p><strong>对 TEI 的映射</strong>：A 终端 / B 平台要补的底座正是「仓库信任 + 沙箱隔离 + 无审批拦截 + 完整动作留痕」；否则 C 行业方案把 agent 接进客户代码库时，等于把客户的机也交了出去。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Manifold Security GitSpawn(9/1)</b> · 8 漏洞/7 个 CLI agent · core.fsmonitor 等 .git 配置沙箱外执行 · 已修:goose/Claude Code/Cursor · 仍裸奔:Hermes Agent/Qwen Code/Grok Build/Claude Code 次路径 · OpenAI 同日 3 个 Codex CVE  ·  <b>The Hacker News 9/1</b>  |  冷静点:利用需仓库以含 .git 的文件形式到达(共享压缩包/盘/USB),普通 clone 不触发;部分为厂商自述修复进度
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Coding · 护城河迁移</span>
+  <h2 class="c-title">OpenAI 11/12 终止向 Cursor 供模型 + Qwen3.8-Max 登顶 CodeArena + 开源 Orca 多 Agent 工作台：coding agent 护城河从「模型接入」转向「自有模型 + 多 Agent 工作台」</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">护城河</span><span class="chip t">多 Agent 工作台</span><span class="chip">模型无关</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/2 三件事同日把 coding agent 的竞争结构显形：</p>
+    <ul>
+      <li><strong>模型商收紧</strong>：OpenAI 宣布 <em class="hl">11/12 终止向 Cursor 提供模型服务</em>，理由是不信任被 SpaceX 收购后的合作方遵守条款；Cursor 仅约 5% 流量依赖 OpenAI，Anthropic 已表态增算力支持 Claude 接入。</li>
+      <li><strong>模型冲顶</strong>：阿里 9/2 更新 <strong>Qwen3.8-Max</strong>，CodeArena 前端编程榜 <em class="hl">1691 分登顶</em>（超 Claude Opus 5 / Kimi K3），每百万 token 综合均价约 $5，已接入 Qoder、千问办公。</li>
+      <li><strong>工作台开源</strong>：GitHub 走红的 <strong>Orca</strong> 定位 Agent Development Environment——以 Git Worktree 为底座，让 Codex / Claude Code / OpenCode / Pi / Kimi / Qwen Code 并行工作于独立目录，开发者统一比较 Diff、Review 后合并，IDE 从「单人编辑器」走向「多 Agent 工作台」。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>模型商与工具商的博弈进入新阶段：护城河从「谁能接入最强模型」转向「<strong>自有模型 + 场景绑定 + 多 Agent 工作台</strong>」。Orca 这类模型无关 harness 把「核心极小、能力靠扩展」做成范式，封闭产品的锁定正在松动。</p>
+    <p><strong>对 TEI 的映射</strong>：C 行业方案别把身家押在单一模型厂商（Cursor 即前车之鉴）；自研 harness / 多 agent 工作台 + 私有化部署，才是更稳的卡位——与 01 的「可信边界」刚好是同一条控制面的两面。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>全天候科技/潮新闻 9/2</b> · OpenAI 11/12 终止 Cursor 模型供应·Cursor ~5% 流量依赖 OpenAI  ·  <b>阿里 Qwen3.8-Max 9/2</b> · CodeArena 1691 登顶·每百万token ~$5·接入 Qoder/千问办公  ·  <b>Orca(GitHub)</b> · ADE·Git Worktree 多 agent 并行  |  冷静点:Cursor 断供为官宣、窗口至 11/12;CodeArena 为前端专项榜非综合;Orca 为社区项目、成熟度待验证
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 企业上岗</span>
+  <h2 class="c-title">AI 办公智能体密集上岗：WorkBuddy@晶科把预算分析 2 天压到 15 分钟，国内主流 AI 办公智能体月访问量 3 月 2000 万→6 月 6000 万，Salesforce 推 Slack Code 与端到端 Agentforce</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">上岗</span><span class="chip t">按结果计费</span><span class="chip">办公流</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/3 上证报 / 新浪报道多家大厂把 AI 办公智能体推进一线业务，供给侧同步密集入局：</p>
+    <ul>
+      <li><strong>落地实证</strong>：晶科能源用腾讯 WorkBuddy，财务 BP 月度预算分析从 <em class="hl">2 天压到 15 分钟</em>（规则做成专属 Skill 持续更新）；蒙牛一线员工自建 <strong>45</strong> 个 AI 数字员工，覆盖研发/供应链/销售；中国移动 MobileWork「数智员工」内部活跃超 9 万、沉淀 1400+ 技能。</li>
+      <li><strong>供给侧放量</strong>：6 月以来腾讯/阿里/百度/字节/金山/360 密集推出 AI 办公产品；国内 17 款主流 AI 办公智能体月访问量 <em class="hl">3 月 2000 万 → 6 月 6000 万</em>。</li>
+      <li><strong>协作流嵌入</strong>：Salesforce 9/1 发 Slack Code——在 Slack 专属频道里指派 Claude/Devin/Copilot 等编程智能体、跟踪进展、审批 PR；Winter'27 Agentforce 从任务辅助进<em class="hl">端到端自主工作流</em>，73.1% 企业决策者将 Agentic AI 列高优先级。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>企业 agent 从「会问答」跨到「<strong>能交付、按结果计费</strong>」——HubSpot 按 $0.50/对话、Salesforce 按 $0.10/动作计费，正在取代 per-seat SaaS。这是「软件即工人」的商业化拐点，也是 Gartner「40% 企业 SaaS 含结果计费」预言的落地。</p>
+    <p><strong>对 TEI 的映射</strong>：C 行业方案（制造业/政企）直接对应——把 agent 装进真实业务流、用「完成率 / 节省工时」算账，正是客户愿意付费的落点；这也反向要求 B 平台补「多 agent 协同 + 端到端完成率可核算 + 全链路可观测」。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>上海证券报/新浪 9/3</b> · WorkBuddy@晶科 2天→15分·蒙牛 45 个 AI 数字员工·17 款 AI 办公智能体月访问 2000万→6000万(3→6月)  ·  <b>Salesforce Slack Code/Winter'27(9/1)</b> · Agentforce 端到端·73.1% 企业决策者高优先级·$0.10/动作计费  |  冷静点:月访问量为国内样本、口径未明;按结果计费多为厂商定价非普遍落地;「数字员工」含营销表述
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 量产闭环</span>
+  <h2 class="c-title">努比亚 NaviX Ultra（豆包手机二代）获工信部入网许可：全球首款量产 AI 智能体手机 9 月发售，端侧+云端协同跨应用多步自主执行</h2>
+  <p class="c-tags"><span class="chip b">终端智能</span><span class="chip o">量产</span><span class="chip t">端侧闭环</span><span class="chip">入口重构</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9/1 中兴终端总裁倪飞确认，努比亚 NaviX Ultra（豆包手机二代）正式获工信部入网许可，计划 9 月上市，定位<em class="hl">全球首款量产 AI 智能体手机</em>：</p>
+    <ul>
+      <li><strong>形态</strong>：字节豆包大模型 + 中兴硬件的「AI 厂商 + 硬件厂商」跨界量产模式；豆包手机助手深嵌系统底层，非 APP 套壳。</li>
+      <li><strong>闭环</strong>：端侧 + 云端协同，构建「感知-规划-执行-反馈」完整闭环，可理解自然语言复杂需求、<em class="hl">跨应用多步自主执行</em>（跨应用比价、行程规划与预订、应用下载安装、信息整合），实测任务成功率 <strong>80%+</strong>。</li>
+      <li><strong>市场</strong>：Counterpoint 估 2026 年全球生成式 AI 手机出货占比 <strong>45%</strong>、2027 破 52%；IDC 估中国新一代 AI 手机 1.47 亿台（+31.6%），终端侧普及带动消费电子产业链价值重估。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>智能手机从「功能型 AI」（单点修图/翻译）进「<strong>智能体型 AI</strong>」（手机化身主动办事的智能体），入口从 APP 分发转向智能体调度。这是端侧执行闭环第一次以「量产旗舰」形态走到货架，而非概念机。</p>
+    <p><strong>对 TEI 的映射</strong>：A 终端硬件长期生态合作的直接标的——「端侧看屏 + 云端决策 + 跨 App 执行」的三段式，正是 C→B→A 里「终端原生可执行体」的最小可用形态；模型公司解决「能不能」、终端厂商解决「用户能不能真用起来」，分工值得在 A 阶段复用。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>中兴倪飞 9/1 确认/科技日报 9/3</b> · NaviX Ultra 入网·全球首款量产 AI 智能体手机·9月发售·跨应用多步执行成功率 80%+  ·  <b>Counterpoint</b> · 2026 生成式AI手机占比 45%·2027 破 52%  ·  <b>IDC</b> · 中国新一代 AI 手机 1.47亿台(+31.6%)  |  冷静点:80%+ 为技术预览实测、非长期大规模统计;量产规模/价格未定;跨 App 执行依赖系统授权与生态协同
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身 · 定标 / 出海</span>
+  <h2 class="c-title">人形机器人从赛场进工位：运动会天工 Ultra 400m 提速近 50 秒，国家标准体系 + 2500h 数据集 + 国际标准立项，上半年融资 935 亿、中国出货占全球 97%</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">定标</span><span class="chip t">出海</span><span class="chip">量产</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>新华社 9/2 报道，人形机器人从「展台」经「赛场」迈向「工位」，产业化进入关键转折：</p>
+    <ul>
+      <li><strong>能力进阶</strong>：第二届世界人形机器人运动会天工 Ultra 400m 大型组 <em class="hl">38.15s</em> 冲线，一年前该项冠军还是 1:28，一年提速近 50s；赛规规定全自主模式按原始分计、遥操作得分 ×0.5，倒逼去遥控真实能力。</li>
+      <li><strong>标准定标</strong>：《国家人形机器人产业标准体系建设指南(2026版)(征求意见稿)》含基础共性/类脑与智算/肢体与部组件/整机与系统/应用/安全伦理 6 部分；闭幕式发布<em class="hl">总时长超 2500h 的全量数据集</em>，我国在 ISO 成功立项具身智能全球首项国际标准《人形机器人数据集》。</li>
+      <li><strong>资本与占比</strong>：上半年国内具身智能融资 <strong>935 亿</strong> 同比 5 倍；IT 桔子称中国出货占全球 <strong>97%</strong>。但王兴兴再提醒：运动控制成熟≠具身智能成熟，「身体达标与大脑成熟之间隔整整一代技术」，ChatGPT 时刻＝80% 陌生场景完成 80% 任务。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>从「参赛」到「<strong>定标</strong>」——赛事规则 + 数据集 + 国际标准三位一体卡位生态话语权，把先发优势固化为标准优势。但「身体达标≠大脑成熟」的冷提示仍在：商业闭环、长程稳定性、端侧算力与能耗约束尚未完全逾越。</p>
+    <p><strong>对 TEI 的映射</strong>：D 并购评估（具身大脑/世界模型/少示教快部署）应把「全自主率、特定场景成功率、出海交付能力」列为硬指标；C→B 制造业/政企首发客户要的正是「能上岗、能交付、能出海」的具身方案，而非展台炫技。</p>
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>新华社/中国经济信息社 9/2</b> · 天工 Ultra 400m 38.15s(一年前1:28)·全自主计分·遥操作×0.5  ·  <b>国家人形机器人产业标准体系指南(2026版)</b> + 全量数据集 2500h + ISO《人形机器人数据集》立项  ·  <b>IT桔子/中国电子学会</b> · 上半年融资 935亿同比5倍·中国出货占全球 97%  ·  <b>王兴兴</b> · 身体达标≠大脑成熟·ChatGPT时刻=80%场景完成80%任务  |  冷静点:运动会为标准化赛项非真实工况;97% 含消费/教育类;商业闭环仍在形成、愿为通用大脑付费客户不多
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.58「受托·上岗（演示 → 受托 → 上岗）」→ 本日 NO.59「可信·可控·可交付·端侧·定标（上岗底座）」。叙事从「agent 被委托、进产线/终端」再推进到「被委托之前先防住、能跑之后能算账」——稀缺资源从能力演示进一步下沉到五件让能力真正落地的底座。</li>
+    <li><strong>交叉验证</strong>：01（Manifold Security / The Hacker News 9/1，含 CVE）、02（全天候科技/潮新闻 9/2 + GitHub Orca）、03（上海证券报/新浪 9/3 + Salesforce 9/1）、04（中兴倪飞 9/1 / 科技日报 9/3 + Counterpoint/IDC）、05（新华社/中国经济信息社 9/2 + 标准指南/ISO 立项）均为一级或权威转述，中高可信；03/04/05 含厂商与赛事口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 9/1–9/3 增量——GitSpawn 漏洞（新安全边界）、OpenAI 断供 Cursor + Qwen3.8-Max 登顶 + Orca（新生态结构）、WorkBuddy@晶科/Slack Code（新上岗证据）、NaviX Ultra 入网（新终端量产）、运动会提速 + 标准定标（新定标动作）。与 NO.58（Codex 持久/JetBrains/华为 828/MOG V1/运动会纪录）完全分开。</li>
+    <li><strong>诚实边界</strong>：01 利用需仓库含 .git 文件到达、普通 clone 不触发；02 Cursor 断供窗口至 11/12、CodeArena 为前端专项榜；03 月访问量口径未明、按结果计费多为厂商定价；04 80%+ 为预览实测、量产规模未定；05 运动会为标准化赛项、97% 含消费/教育类。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：自治体（Agent + 机器人）从「能不能演示」下沉到五件上岗底座——GitSpawn 逼出 coding agent 的「可信边界」（.git 钩子沙箱外执行、7 个 agent 裸奔）、OpenAI 断供 Cursor + Qwen3.8-Max 登顶 + Orca 把护城河推向「自有模型 + 多 Agent 工作台」、WorkBuddy@晶科与 Salesforce 把企业 agent 推进「按结果交付」、NaviX Ultra 入网让端侧执行闭环量产、运动会提速 + 标准定标把具身推向「出海与生态话语权」。五件事共同把「能力」翻译成「可信 + 可控 + 可交付 + 可端侧 + 可定标」的底座——正是 TEI C→B→A→D 当下要亲手补的地基。</div>
+  <div class="risk"><b>风险与未决</b>GitSpawn 仍有多 agent 未修复、被委托的攻击面随自主时长同步放大；OpenAI 断供 Cursor 可能引发模型供应连锁重组、单模型押注风险上升；企业按结果计费多为厂商定价、真实 ROI 待验证；NaviX Ultra 量产规模与端侧性能未公开、跨 App 执行依赖系统授权；具身运动会为标准化赛项非真实工况、97% 全球占比含消费/教育类、商业闭环仍在形成。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.59</span>
+  <span>2026-09-03 09:30 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>
