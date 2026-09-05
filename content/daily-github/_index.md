@@ -8,6 +8,11 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分条与逐条拆解）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-05-1105.html">
+    <div class="da-card-date">2026-09-05 · 11:05 · NO.03</div>
+    <div class="da-card-main">今日五条方向高度一致——<b>把客户账单上的某一行换成自有软件</b>。<b>pdf-inspector</b>（18,822★，月增 +9,431，MIT）Rust PDF 分类抽取库，约 54% 的 PDF 其实不必上 OCR，一条 <code>pip install pdf-inspector</code> 即可验证省下的钱——今日首选；<b>celld</b>（4,491★，月增 +4,433）Deno 官方自托管 Durable Objects，解 Cloudflare 绑定；<b>Jarvis Registry</b>（2,771★）企业级 MCP/A2A 网关，身份+权限+审计一体，对标 Kong/Solo.io；<b>Magnitude</b>（2,548★，今日 +391）按硬件挑模型的本地推理服务器，直连 Claude Code / Codex；<b>Shippie</b>（2,492★，MIT）CI 里的代码评审 Agent，替代 CodeRabbit/Greptile，但 main 已近两月无提交。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-03-1000.html">
     <div class="da-card-date">2026-09-03 · 10:00 · NO.02</div>
     <div class="da-card-main">今日五条里有四条在做同一件事——把原本按月付费的能力搬回自己可控的机房。<b>Needle 2</b>（10,109★，月增 +6,771）14MB 端侧工具调用模型、28MB 内存跑完整会话，一条 <code>pip install cactus-needle</code> 即可验证，正对端侧与机器人方向——今日首选；<b>VoiceStudio</b>（14,860★，月增 +5,159）全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎、646 语言；<b>Laminar</b>（3,219★，YC S24）Agent 专用开源可观测，托管云收费、自托管免费；<b>Tracecat</b>（3,784★）开源 SOAR，替代 Tines/Torq/XSOAR；<b>Utopia</b>（2,372★，Apache-2.0）带时间感知与本体层的企业知识底座，离线部署数据不出网。</div>
