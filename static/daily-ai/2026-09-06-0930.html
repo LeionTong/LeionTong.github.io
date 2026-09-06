@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-09-06 09:30 · 世界模型·开源底座·规模落地·终端扩散·量产临界点：自治体从「规模清算」推进到「底座补完 + 落地兑现」</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:'Courier Prime',monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.61</b></span>
+    <span>2026-09-06  09:30  GMT+8</span>
+  </div>
+
+  <h1>世界模型·开源底座·规模落地·终端扩散·量产临界点：<em>自治体从「规模清算」推进到「底座补完 + 落地兑现」</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 早班车精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">1分钟·2万·4.5亿·80%+·10万台</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">世界模型·开源底座·规模落地·终端扩散·量产临界点</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">今天五条信号把「规模清算」推进到「底座补完 + 落地兑现」</div>
+  <p>规模清算（NO.60 的降本·组网·整合·终端原生·量产）刚铺开，市场立刻进入下一程——把能力摊开成<em class="hl">可复用的底座与可核算的落地</em>：① 李飞飞 World Labs 发 <strong>Atlas 全模态世界模型</strong>单图生成 1 分钟 1440P 视频、物理规律驱动、长时序稳定——补具身智能"大脑"的世界理解底座；② <strong>DeepSeek 开源 Harness</strong>（全插件化、可 delegate 给 Claude Code/Codex）+ Zed Delta（AI 协作编码 multiplayer 环境）+ MCP 改 <em class="hl">stateless</em> + Agent Plugins 标准（OpenAI/Microsoft/Cursor/AWS 支持）——coding agent 竞争从"模型/工具"下沉到"harness/协议"控制面，开源让自有 coding 底座可本地搭；③ agent 进<em class="hl">规模化落地兑现</em>：美的 2026 H1 孵化<strong>超 2 万智能体</strong>、提效 900 万小时、<strong>降本 4.5 亿</strong>，港理工 InfiAgent 落地真维斯/绝味（本地+容器化）、海尔 AI 厨电逆势正增长——从 NO.60 的"上岗试点"进"规模降本 ROI 兑现"；④ 终端原生形态<em class="hl">扩散</em>：绿联 <strong>Home Agent</strong>（本地数据+Agent，10 月众筹）、阿里 Qoder <strong>眼镜版</strong>（语音控 Agent）、努比亚 NaviX Ultra 9 月开售（端侧运算+MCP 跨应用，成功率 80%+）——智能体终端从手机扩到 NAS/眼镜/家电，MCP 成跨应用协议；⑤ 具身进<em class="hl">量产临界点</em>：北京亦庄目标 <strong>10 万台级</strong>量产、河南产业链（众擎 T800 下线/智元基地投产/30 亿基金）、车企实际订单（广汽慧仑近 50 台部署近千万元订单、小鹏 IRON 年底量产）——订单/成本/场景三件事同时成立才是真量产。一句话：<strong>稀缺资源从「规模清算」再下沉到「世界模型（补大脑）· 开源底座（补 coding 控制面）· 规模落地（万级智能体 ROI）· 终端扩散（原生形态+MCP）· 量产临界点（订单+成本+场景）」五件套</strong>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>规模清算 → 底座补完 + 落地兑现 信号位置</b>  |  2026-09-06：从「算账/组网/整合」推进到「补底座 + 兑落地」</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：五条信号分别落在世界模型、开源底座、规模落地、终端扩散、量产临界点五个档位">
+    <defs>
+      <marker id="bo61" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">SCALE SETTLEMENT → BASE COMPLETE + LANDING / 2026-09-06</text>
+
+    <rect x="8" y="34" width="212" height="46" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">规模清算（往期）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.60 降本·组网·整合·终端原生·量产</text>
+
+    <rect x="652" y="34" width="212" height="46" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">底座补完+落地兑现（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">世界模型·开源·规模·终端·量产</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo61)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">世界模型</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身 · 补大脑</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">01 Atlas</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">单图·1分钟·1440P</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">物理规律驱动</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">补世界理解</text>
+
+      <rect x="182" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">开源底座</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 控制面</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">02 Harness</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">DeepSeek 开源·MCP</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">harness/协议层</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">本地可搭</text>
+
+      <rect x="354" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">规模落地</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Agent · ROI</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 美的</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">2万智能体·4.5亿</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">试点→规模降本</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">兑现期</text>
+
+      <rect x="526" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">终端扩散</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端智能 · 形态</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">04 Home Agent</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">NAS·眼镜·家电</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">MCP 跨应用</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">原生形态扩</text>
+
+      <rect x="698" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">量产临界点</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身 · 成军</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 亦庄</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">10万台·千万元单</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">订单+成本+场景</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">真量产</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的规模清算 → 今日推进到的底座补完 + 落地兑现」。五件事共同把「规模清算」翻译成「补底座、兑落地」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">今日五条精选信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  具身 · 世界模型底座（补大脑）</span>
+  <h2 class="c-title">李飞飞 World Labs 发布 Atlas 全模态世界模型：单图生成 1 分钟 1440P 视频，物理规律驱动——补具身智能「大脑」的世界理解底座</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">世界模型</span><span class="chip t">补大脑</span><span class="chip">Atlas</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>李飞飞创立的 <strong>World Labs</strong> 正式发布 <em class="hl">Atlas 全模态世界模型</em>，实现从单张静态图像生成 1 分钟 1440P 高清动态视频；模型基于物理世界规律训练，生成画面遵循光影、重力、物体运动逻辑，长时序稳定性与场景连贯性大幅提升，无需多段拼接即可输出完整一分钟高质量视频，覆盖影视创作、数字孪生、机器人仿真等场景。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>世界模型是具身智能「大脑」的底层——它让机器人在真实落地前，先在一个<strong>可物理推演的世界</strong>里做长时序想象与规划。Atlas 把世界模型的长时序生成能力从"秒级"推到"分钟级 + 1440P + 物理一致"，意味着仿真到落地的训练基建又补了一块关键拼图。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>网易/前沿在线 9/3</b> · World Labs 发 Atlas 全模态世界模型·单图→1分钟1440P视频·物理规律(光影/重力/运动)驱动·长时序稳定·覆盖影视/数字孪生/机器人仿真  |  冷静点:为厂商发布、真实机器人闭环控制效果未公开实测;分钟级生成≠实时控制;商业可用性/落地节奏待观察
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Coding · 基础设施/协议层（控制面）</span>
+  <h2 class="c-title">DeepSeek 开源 Harness（全插件化、可 delegate 给 Claude Code/Codex）+ Zed Delta + MCP 改 stateless + Agent Plugins 标准：coding agent 竞争下沉到「harness/协议」控制面</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">开源</span><span class="chip t">控制面</span><span class="chip">Harness</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9 月 Radar 显示 coding agent 的"控制面"密集演进，从"模型/工具"下沉到"harness/协议"：</p>
+    <ul>
+      <li><strong>DeepSeek 开源 Harness</strong>：其 agent harness 几乎一切皆插件、极度灵活，可对接多模型，并能在内部把工作 <em class="hl">delegate 给 Claude Code 与 Codex</em>——把"自有 coding 底座"变成可本地搭的开源件。</li>
+      <li><strong>Zed Delta</strong>：面向"与 agent 协作编码"的 multiplayer 环境，重新定义 Git/GitHub——核心洞察是"关于代码的对话"与源码同等重要，必须和源码一起被捕获留存。</li>
+      <li><strong>MCP 更新</strong>：把 Model Context Protocol 改为 <em class="hl">stateless</em>，解决大规模采用的关键障碍之一（状态管理）。</li>
+      <li><strong>Agent Plugins 标准</strong>：用可复用组件扩展 agent 的插件标准，获 OpenAI、Microsoft、Cursor、AWS 支持（Google/Anthropic 未加入）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>coding agent 的护城河从「谁模型强」转向「<strong>谁能统一编排、插件化、跨模型代理</strong>」——harness 是控制面，协议（MCP stateless / Agent Plugins）是互操作地基。开源 Harness 让企业能本地搭"自有 coding 底座"，不再绑死单一厂商模型。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>O'Reilly Radar Sept 2026</b> · DeepSeek 开源 Harness(全插件·可 delegate 给 Claude Code/Codex)·Zed Delta(AI 协作编码 multiplayer 环境)·MCP 改 stateless·Agent Plugins 标准(OpenAI/Microsoft/Cursor/AWS 支持,Google/Anthropic 未加入)  |  冷静点:雷达为行业观察非官方发布;DeepSeek Harness 为开源项目、生态成熟度待验证;Agent Plugins 阵营分裂(Google/Anthropic 缺席)暗示协议未统一
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 规模化落地（ROI 兑现）</span>
+  <h2 class="c-title">美的 2026 H1 孵化超 2 万智能体、提效 900 万小时、降本 4.5 亿 + 港理工 InfiAgent 落地真维斯/绝味 + 海尔 AI 厨电逆势正增长：agent 从「上岗试点」进「规模降本」</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">规模落地</span><span class="chip t">ROI</span><span class="chip">2万智能体</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>企业 agent 从 NO.60 的"上岗试点"（晶科/蒙牛）进到"规模降本"的硬数字阶段：</p>
+    <ul>
+      <li><strong>美的集团</strong> 2026 上半年累计孵化 <em class="hl">超 2 万个智能体</em>，覆盖研发/制造/销售/供应链全价值链，提效超 <strong>900 万小时</strong>、降本超 <strong>4.5 亿元</strong>；C 端 AI 智能体 MevoX 已服务超 1.5 亿用户。</li>
+      <li><strong>港理工 InfiAgent</strong>：面向"长程 + 确定性"复杂业务任务的智能体开发运行平台，已在惠州真维斯搭 ChatBI 与销售检讨工作流、在绝味食品供应链实现物流自动化报价，支持本地及容器化部署。</li>
+      <li><strong>海尔智家</strong>：2026 半年报显示，行业零售同比下滑 9.9% 背景下，其厨电凭 AI 嵌入风压调节/火候控制等全流程场景成 TOP3 唯一正增长品牌；L4 级智能体厨电 Seeker 套系 618 登顶天猫烟灶热卖榜。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>"2 万智能体 + 4.5 亿降本"是 agent 从"试点故事"进"<strong>规模 ROI 兑现</strong>"的标志性数字——不再是单点提效，而是全价值链铺开、可核算的成本账。InfiAgent 的"本地+容器化"印证 NO.60「可控/私有化」路线在企业落地；海尔则证明 agent 能直接拉动逆势增长。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>南方都市报 9/4</b> · 美的 2026H1 孵化超2万智能体·提效900万小时·降本4.5亿·MevoX 服务1.5亿用户  ·  <b>南方都市报 9/4</b> · 港理工 InfiAgent 落地真维斯/绝味(本地+容器化)  ·  <b>南方都市报 9/4</b> · 海尔智家 AI 厨电逆势正增长·Seeker 套系618登顶  |  冷静点:降本为厂商披露、口径与归因未独立审计;2万智能体含低复杂度场景;规模化治理(权限/审计)隐性成本未计入
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 原生形态扩散（NAS/眼镜/家电 + MCP）</span>
+  <h2 class="c-title">绿联 Home Agent（本地数据 + Agent，10 月众筹）+ 阿里 Qoder 眼镜版（语音控 Agent）+ 努比亚 NaviX Ultra 9 月开售（端侧 + MCP 跨应用）：智能体终端从手机扩到 NAS/眼镜/家电</h2>
+  <p class="c-tags"><span class="chip b">终端智能</span><span class="chip o">终端扩散</span><span class="chip t">MCP</span><span class="chip">Home Agent</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>智能体终端从"手机"一种形态扩散到更多原生硬件，且普遍把 <strong>MCP 作为跨应用协议</strong>：</p>
+    <ul>
+      <li><strong>绿联 Home Agent</strong>：在 WorkBuddy 生态发布会中亮相，主打<em class="hl">本地数据 + AI Agent 协同</em>（家庭/私有云场景），产品预计 10 月众筹，目标定位高于 AI NAS。</li>
+      <li><strong>阿里 Qoder 眼镜版</strong>：9/3 宣布上线，首批接入千问与乐奇 AI 眼镜，用户戴镜即可通过语音让 Agent 执行任务；完整功能将于 2026 云栖大会发布。</li>
+      <li><strong>努比亚 NaviX Ultra（豆包手机二代）</strong>：9 月正式开售，大模型 Agent 深度集成进系统底层，核心运算支持<em class="hl">本地端侧运行</em>、采用 MCP 应用协议与第三方应用对接，跨应用任务执行成功率 80%+。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>智能体终端的外延被拓宽：从手机到 <strong>NAS（本地数据中枢）/ 眼镜（自然交互）/ 家电（场景执行）</strong>，共同范式是"端侧算力 + 本地数据 + MCP 跨应用执行"。MCP 正从"Agent 互联协议"变成"终端跨应用协议"——谁定义终端侧的 MCP 接入规范，谁占入口。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>一财 9/3</b> · 绿联 NAS 私有云参与 WorkBuddy 生态·Home Agent 预计10月众筹·目标高于 AI NAS  ·  <b>潇湘晨报 9/3</b> · 阿里 Qoder 上线眼镜版·接入千问/乐奇 AI 眼镜·语音控 Agent·云栖大会发完整功能  ·  <b>人民网/羊城派 9/1-2</b> · 努比亚 NaviX Ultra 9月开售·端侧运算·MCP 跨应用·成功率80%+  |  冷静点:Home Agent 未发售、众筹价/能力未定;Qoder 眼镜版为"计划/邀测"非已上线;端侧 MCP 跨应用的权限与隐私治理仍早期
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身 · 量产临界点（订单/成本/场景三件事同时成立）</span>
+  <h2 class="c-title">北京亦庄目标 10 万台级量产 + 河南产业链（众擎 T800 下线/智元基地投产/30 亿基金）+ 车企实际订单（广汽慧仑近千万元单、小鹏 IRON 年底量产）：具身从「十骏成军」进「量产临界点」</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">量产临界点</span><span class="chip t">订单</span><span class="chip">亦庄</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>具身从 NO.60「广东十骏成军」再往前，进"量产临界点"——订单、成本、场景三件事开始同时成立：</p>
+    <ul>
+      <li><strong>北京亦庄</strong>：加快实现 <em class="hl">10 万台（套）级</em>具身智能机器人规模量产，形成 100 万套关键核心零部件生产能力；25 万㎡产业园区拓展至 300 万㎡，目标百款可落地特色机器人、千种细分场景应用。</li>
+      <li><strong>河南产业链</strong>：众擎 T800 人形机器人在郑州高新区下线（发往国内及欧美/东南亚）、智元机器人中部基地在新郑投产（规划年产 4000 台）、2.5 亿具身智能股权基金备案、30 亿 AI 产业基金赋能。</li>
+      <li><strong>车企实际订单</strong>：广汽慧仑 GoMate Mini 已在 7 个代表性项目部署<em class="hl">近 50 台</em>、取得<strong>近千万元订单</strong>；小鹏 IRON 计划年底进规模量产、2027 上市、月产能可数千台（何小鹏亲任机器人 CEO）。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>"量产临界点"不是某一台机器人多能跳，而是<strong>订单、成本、场景三件事同时成立</strong>。亦庄的 10 万台目标 + 河南的区域集群 + 车企的近千万元真实订单，把具身从"展示"推到"能交付、能算账"——比 NO.60「十骏成军」更接近商业闭环。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>经济日报 9/3</b> · 北京亦庄目标10万台级具身智能机器人规模量产·100万套零部件·300万㎡园区·百款机器人/千种场景  ·  <b>大象网/大河网 9/1</b> · 河南具身:众擎T800下线·智元新郑基地投产·30亿基金·2.5亿股权基金  ·  <b>湖南日报/今日头条 9/4</b> · 广汽慧仑 GoMate Mini 近50台部署·近千万元订单·小鹏IRON年底量产2027上市月产能数千台  |  冷静点:亦庄10万台为规划目标非已交付;区域集群仍处早期、价格未定;车企"第二增长曲线"投入回报周期长;王兴兴"身体达标≠大脑成熟"仍未解
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.60「规模清算（降本·组网·整合·终端原生·量产）」→ 本日 NO.61「底座补完 + 落地兑现（世界模型·开源底座·规模落地·终端扩散·量产临界点）」。稀缺资源从「算得过账、组得成网」再推进到「补得上底座、兑得了落地」——能力摊开后，市场开始回填基础层并核算真实 ROI。</li>
+    <li><strong>交叉验证</strong>：01（网易/前沿在线 9/3）、02（O'Reilly Radar Sept 2026）、03（南方都市报 9/4）、04（一财/潇湘晨报/人民网 9/1-3）、05（经济日报 9/3 + 大象网/大河网 9/1 + 湖南日报 9/4）均为权威媒体或公司/赛事发布转述，中高可信；02/04 含行业观察与厂商口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 9/1–9/4 的"底座 + 落地"增量——Atlas 世界模型（新大脑底座）、DeepSeek Harness/ Zed Delta/ MCP stateless/ Agent Plugins（新 coding 控制面）、美的 2 万智能体/4.5 亿（新规模 ROI）、绿联 Home Agent/ Qoder 眼镜版/ NaviX 开售（新终端形态）、亦庄 10 万台/河南产业链/车企近千万元单（新量产临界点）。与 NO.60（Fable 5.1/WorkBuddy 开放平台/Claudeforce/Codex Micro/广东十骏）完全分开。</li>
+    <li><strong>诚实边界</strong>：01 为厂商发布、真实机器人闭环控制未公开实测、分钟级生成≠实时控制；02 雷达为行业观察、DeepSeek Harness 生态待验证、Agent Plugins 阵营分裂（Google/Anthropic 缺席）；03 降本为厂商披露、口径未独立审计、万级智能体治理隐性成本未计；04 Home Agent 未发售、Qoder 眼镜版为邀测、端侧 MCP 隐私治理早期；05 亦庄 10 万台为规划、区域集群早期、车企回报周期长。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：自治体（Agent + 机器人）从「规模清算」推进到「底座补完 + 落地兑现」——李飞飞 World Labs 发 Atlas 全模态世界模型补具身大脑的世界理解底座（世界模型）、DeepSeek 开源 Harness + Zed Delta + MCP stateless + Agent Plugins 把 coding agent 竞争压到 harness/协议控制面（开源底座）、美的 2 万智能体降本 4.5 亿把企业 agent 从试点推进规模 ROI 兑现（规模落地）、绿联 Home Agent + 阿里 Qoder 眼镜版 + 努比亚开售把智能体终端从手机扩到 NAS/眼镜/家电且以 MCP 跨应用（终端扩散）、亦庄 10 万台 + 河南产业链 + 车企近千万元单把具身推进量产临界点（量产临界点）。</div>
+  <div class="risk"><b>风险与未决</b>世界模型 Atlas 分钟级生成≠实时控制、真实机器人闭环效果未公开；coding 控制面阵营分裂（Agent Plugins 缺 Google/Anthropic）暗示协议未统一、开源 Harness 生态成熟度待验；企业 agent 降本为厂商披露、万级智能体并发治理隐性成本未计；终端原生形态（Home Agent/Qoder 眼镜版）多未发售/邀测、端侧 MCP 权限与隐私治理早期；具身"量产临界点"仍靠规划目标与区域集群支撑、商业闭环在形成、王兴兴"身体达标≠大脑成熟"的冷提示未解。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.61</span>
+  <span>2026-09-06 09:30 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>
