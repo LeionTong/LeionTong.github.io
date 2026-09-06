@@ -8,6 +8,11 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分条与逐条拆解）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-06-1015.html">
+    <div class="da-card-date">2026-09-06 · 10:15 · NO.04</div>
+    <div class="da-card-main">今日五条落在两个方向。<b>OpenViking</b>（35,674★，月增 +7,811）把 Agent 的记忆/资源/技能收进 <code>viking://</code> 虚拟文件系统，三级按需加载，但 AGPL-3.0；<b>AI-Infra-Guard</b>（6,150★，月增 +1,779，Apache-2.0）腾讯朱雀实验室的 AI 红队平台，Agent / MCP / Skills 全扫；<b>LibreDesk</b>（2,880★）单二进制自托管客服台，直接替换 Zendesk / Intercom 每席位 55–115 美元月费——今日首选；<b>Tracely</b>（1,192★，MIT）把生产失败 trace 冻结成回归用例并在 PR 上拦截；<b>sandboxd</b>（929★，MIT）自托管 AI 应用构建引擎，替代 Lovable / v0 / Bolt。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-05-1105.html">
     <div class="da-card-date">2026-09-05 · 11:05 · NO.03</div>
     <div class="da-card-main">今日五条方向高度一致——<b>把客户账单上的某一行换成自有软件</b>。<b>pdf-inspector</b>（18,822★，月增 +9,431，MIT）Rust PDF 分类抽取库，约 54% 的 PDF 其实不必上 OCR，一条 <code>pip install pdf-inspector</code> 即可验证省下的钱——今日首选；<b>celld</b>（4,491★，月增 +4,433）Deno 官方自托管 Durable Objects，解 Cloudflare 绑定；<b>Jarvis Registry</b>（2,771★）企业级 MCP/A2A 网关，身份+权限+审计一体，对标 Kong/Solo.io；<b>Magnitude</b>（2,548★，今日 +391）按硬件挑模型的本地推理服务器，直连 Claude Code / Codex；<b>Shippie</b>（2,492★，MIT）CI 里的代码评审 Agent，替代 CodeRabbit/Greptile，但 main 已近两月无提交。</div>
