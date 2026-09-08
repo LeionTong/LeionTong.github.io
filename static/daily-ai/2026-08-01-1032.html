@@ -4,408 +4,857 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 领域每日动态 · 2026-08-01 · 验收席位</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600;700&family=Overpass+Mono:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
 :root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
   --ink:#12100e;
   --ink-2:#1a1613;
   --ink-3:#221c18;
   --lightbox:#f4f1e8;
   --lightbox-dim:#ddd8ca;
   --safelight:#d9503c;
-  --safelight-soft:rgba(217,80,60,.16);
+  --safelight-soft:#f9e3e0;
   --cyan:#5aa9c0;
   --amber:#d9a441;
   --developer:#4a8f7a;
   --paper:#e8e3d6;
   --muted:#8b8177;
   --muted-2:#6d645b;
-  --hairline:rgba(232,227,214,.14);
+  --hairline:#fcfbf9;
   --chinagraph:#e0503c;
 }
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  background:
-    radial-gradient(ellipse 1100px 620px at 18% -8%, rgba(217,80,60,.13), transparent 62%),
-    radial-gradient(ellipse 800px 500px at 92% 12%, rgba(90,169,192,.07), transparent 60%),
-    radial-gradient(ellipse 900px 700px at 50% 108%, rgba(217,164,65,.06), transparent 65%),
-    linear-gradient(178deg, #12100e 0%, #16120f 42%, #100d0b 100%);
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body {
+  background:#fae8e6;
   background-attachment:fixed;
-  color:var(--paper);
+  color:#6d6b65;
   font-family:'Noto Sans SC',sans-serif;
-  font-weight:300;
+  font-weight:400;
   line-height:1.85;
   padding:0 0 90px;
   position:relative;
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
 }
-
-/* 暗房颗粒 + 细横纹 */
-body::before{
+body::before {
   content:'';
-  position:absolute;inset:0;
-  pointer-events:none;z-index:0;
-  background-image:
-    repeating-linear-gradient(0deg, rgba(255,255,255,.014) 0px, rgba(255,255,255,.014) 1px, transparent 1px, transparent 3px),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
-  mix-blend-mode:screen;
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:none;
 }
-
-.wrap{max-width:1080px;margin:0 auto;padding:0 30px;position:relative;z-index:1}
-
-/* ============ 页首 · 暗房标牌 ============ */
-.masthead{
+.wrap {
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 30px;
+  position:relative;
+  z-index:1;
+}
+.masthead {
   padding:60px 0 30px;
-  border-bottom:1px solid var(--hairline);
-  animation:rise .8s cubic-bezier(.2,.7,.3,1) both;
+  border-bottom:1px solid #fcfbf9;
 }
-.safelight-row{
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+.safelight-row {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
   margin-bottom:26px;
 }
-.bulb{
-  display:inline-flex;align-items:center;gap:9px;
-  font-family:'Overpass Mono',monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.24em;text-transform:uppercase;
-  color:var(--safelight);
-  border:1px solid rgba(217,80,60,.42);
-  background:var(--safelight-soft);
-  padding:6px 13px;border-radius:2px;
-}
-.bulb i{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--safelight);display:block;
-  box-shadow:0 0 10px 2px rgba(217,80,60,.75);
-  animation:glow 2.6s ease-in-out infinite;
-}
-@keyframes glow{0%,100%{opacity:1;box-shadow:0 0 10px 2px rgba(217,80,60,.75)}50%{opacity:.55;box-shadow:0 0 4px 1px rgba(217,80,60,.4)}}
-
-.stamp{
-  font-family:'Overpass Mono',monospace;font-size:10.5px;font-weight:600;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
-  border:1px dashed rgba(232,227,214,.2);padding:6px 12px;border-radius:2px;
-}
-
-h1{
-  font-family:'Oswald',sans-serif;font-weight:700;
-  font-size:clamp(40px,6.6vw,78px);
-  line-height:.98;letter-spacing:-.005em;
+.bulb {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.24em;
   text-transform:uppercase;
-  color:var(--lightbox);
+  color:#b44232;
+  border:1px solid #efb6ad;
+  background:#f9e3e0;
+  padding:6px 13px;
+  border-radius:2px;
+}
+.bulb i {
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#f6f6f6;
+  display:block;
+}
+.stamp {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#7e756c;
+  border:1px dashed #faf9f7;
+  padding:6px 12px;
+  border-radius:2px;
+}
+h1 {
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:clamp(40px,6.6vw,78px);
+  line-height:1.85;
+  letter-spacing:-.005em;
+  text-transform:uppercase;
+  color:#787672;
   margin-bottom:8px;
 }
-h1 .thin{font-weight:300;color:var(--muted);display:block;font-size:.42em;letter-spacing:.16em;margin-bottom:12px}
-.h1-cn{
-  font-family:'Noto Serif SC',serif;font-weight:900;
+h1 .thin {
+  font-weight:400;
+  color:#7e756c;
+  display:block;
+  font-size:13px;
+  letter-spacing:.16em;
+  margin-bottom:12px;
+}
+.h1-cn {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
   font-size:clamp(19px,2.5vw,27px);
-  color:var(--paper);letter-spacing:.02em;margin-top:14px;
+  color:#79766f;
+  letter-spacing:.02em;
+  margin-top:14px;
 }
-.h1-cn em{font-style:normal;color:var(--safelight)}
-
-.meta-strip{
-  display:flex;flex-wrap:wrap;gap:8px 22px;
+.h1-cn em {
+  font-style:normal;
+  color:#cc4b38;
+}
+.meta-strip {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 22px;
   margin-top:24px;
-  font-family:'Overpass Mono',monospace;font-size:11px;
-  letter-spacing:.09em;color:var(--muted-2);
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  letter-spacing:.09em;
+  color:#6d645b;
 }
-.meta-strip b{color:var(--muted);font-weight:600}
-
-/* ============ 主线 · 灯箱 ============ */
-.lede{
+.meta-strip b {
+  color:#7e756c;
+  font-weight:600;
+}
+.lede {
   margin:44px 0 12px;
-  background:linear-gradient(168deg,#f6f3ea 0%,#eae5d6 100%);
+  background:#f6f3ea;
   color:#191512;
   border-radius:3px;
   padding:40px 42px 38px;
   position:relative;
-  box-shadow:
-    0 0 0 1px rgba(232,227,214,.1),
-    0 0 60px rgba(244,241,232,.09),
-    0 26px 60px rgba(0,0,0,.55);
-  animation:rise .9s cubic-bezier(.2,.7,.3,1) .12s both;
   overflow:hidden;
 }
-.lede::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:repeating-linear-gradient(90deg, rgba(0,0,0,.028) 0px, rgba(0,0,0,.028) 1px, transparent 1px, transparent 26px);
+.lede::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:#f8f8f8;
 }
-.lede-tag{
+.lede-tag {
   display:inline-block;
-  font-family:'Overpass Mono',monospace;font-size:10px;font-weight:700;
-  letter-spacing:.3em;text-transform:uppercase;
-  color:#fff;background:var(--safelight);
-  padding:5px 12px;border-radius:2px;margin-bottom:20px;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#707070;
+  background:#f6f6f6;
+  padding:5px 12px;
+  border-radius:2px;
+  margin-bottom:20px;
 }
-.lede h2{
-  font-family:'Oswald',sans-serif;font-weight:600;
-  font-size:clamp(26px,3.9vw,42px);line-height:1.06;
-  text-transform:uppercase;letter-spacing:.005em;
-  color:#141110;margin-bottom:6px;
+.lede h2 {
+  font-family:'Oswald',sans-serif;
+  font-weight:600;
+  font-size:clamp(26px,3.9vw,42px);
+  line-height:1.85;
+  text-transform:uppercase;
+  letter-spacing:.005em;
+  color:#141110;
+  margin-bottom:6px;
 }
-.lede .h2-cn{
-  font-family:'Noto Serif SC',serif;font-weight:900;
-  font-size:clamp(18px,2.2vw,24px);color:#3a2f28;
-  margin-bottom:22px;letter-spacing:.04em;
+.lede .h2-cn {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:clamp(18px,2.2vw,24px);
+  color:#3a2f28;
+  margin-bottom:22px;
+  letter-spacing:.04em;
 }
-.lede p{
-  font-family:'Noto Serif SC',serif;font-weight:400;
-  font-size:16.5px;line-height:1.95;color:#2a2320;
-  margin-bottom:15px;position:relative;
+.lede p {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:400;
+  font-size:16.5px;
+  line-height:1.95;
+  color:#2a2320;
+  margin-bottom:15px;
+  position:relative;
 }
-.lede p:last-child{margin-bottom:0}
-.lede strong{
-  font-weight:600;color:#12100e;
-  background:linear-gradient(transparent 62%, rgba(224,80,60,.26) 62%);
+.lede p:last-child {
+  margin-bottom:0;
+}
+.lede strong {
+  font-weight:600;
+  color:#12100e;
+  background:#f7d2cc;
   padding:0 1px;
 }
-.circle-note{
-  position:absolute;right:34px;bottom:26px;
-  font-family:'Overpass Mono',monospace;font-size:9.5px;font-weight:700;
-  letter-spacing:.2em;color:var(--chinagraph);
-  border:1.6px solid var(--chinagraph);
-  border-radius:40px;padding:6px 15px;
-  transform:rotate(-6deg);opacity:.82;
+.circle-note {
+  position:absolute;
+  right:34px;
+  bottom:26px;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.2em;
+  color:#ce4a37;
+  border:1.6px solid #e0503c;
+  border-radius:40px;
+  padding:6px 15px;
 }
-
-/* ============ SVG 检片图 ============ */
-.plate{
+.plate {
   margin:34px 0 54px;
-  border:1px solid var(--hairline);
+  border:1px solid #fcfbf9;
   border-radius:3px;
-  background:linear-gradient(172deg, rgba(26,22,19,.9), rgba(18,15,13,.9));
+  background:#efefef;
   padding:26px 22px 20px;
-  animation:rise .9s cubic-bezier(.2,.7,.3,1) .22s both;
 }
-.plate-cap{
-  font-family:'Overpass Mono',monospace;font-size:10px;font-weight:600;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2);
-  margin-bottom:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+.plate-cap {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#6d645b;
+  margin-bottom:14px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
 }
-.plate svg{width:100%;height:auto;display:block}
-
-.fr-box{animation:develop 1.3s ease-out both}
-@keyframes develop{
-  0%{opacity:0;filter:brightness(.15) contrast(2.4)}
-  55%{opacity:.6;filter:brightness(.7) contrast(1.4)}
-  100%{opacity:1;filter:none}
+.plate svg {
+  width:100%;
+  height:auto;
+  display:block;
 }
-.draw{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1.9s cubic-bezier(.25,.8,.35,1) forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.pop{opacity:0;animation:pop .5s cubic-bezier(.3,1.5,.5,1) forwards}
-@keyframes pop{0%{opacity:0;transform:scale(.2)}100%{opacity:1;transform:scale(1)}}
-.grow{transform-origin:left center;transform:scaleX(0);animation:grow 1.5s cubic-bezier(.22,.8,.3,1) forwards}
-@keyframes grow{to{transform:scaleX(1)}}
-
-/* ============ 信号卡 · 底片格 ============ */
-.section-label{
-  font-family:'Overpass Mono',monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--muted-2);
-  margin:0 0 22px;padding-bottom:10px;border-bottom:1px solid var(--hairline);
+.draw {
+  stroke-dasharray:900;
+  stroke-dashoffset:900;
 }
-
-.frame{
+.section-label {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#6d645b;
+  margin:0 0 22px;
+  padding-bottom:10px;
+  border-bottom:1px solid #fcfbf9;
+}
+.frame {
   position:relative;
   margin-bottom:34px;
-  background:linear-gradient(170deg, rgba(30,25,21,.92), rgba(20,17,14,.94));
-  border:1px solid var(--hairline);
+  background:#efefef;
+  border:1px solid #fcfbf9;
   border-radius:3px;
   padding:32px 34px 30px 52px;
-  animation:rise .85s cubic-bezier(.2,.7,.3,1) both;
   overflow:hidden;
 }
-.frame:nth-of-type(1){animation-delay:.30s}
-.frame:nth-of-type(2){animation-delay:.40s}
-.frame:nth-of-type(3){animation-delay:.50s}
-.frame:nth-of-type(4){animation-delay:.60s}
-.frame:nth-of-type(5){animation-delay:.70s}
-
-/* 左侧片孔 */
-.frame::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:26px;
-  background:
-    repeating-linear-gradient(180deg,
-      transparent 0px, transparent 9px,
-      rgba(244,241,232,.13) 9px, rgba(244,241,232,.13) 22px,
-      transparent 22px, transparent 31px);
-  border-right:1px solid var(--hairline);
+.frame::before {
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:26px;
+  background:#fefdfc;
+  border-right:1px solid #fcfbf9;
 }
-.frame::after{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--accent,var(--safelight));
+.frame::after {
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:#f6f6f6;
 }
-.frame.a{--accent:var(--safelight)}
-.frame.t{--accent:var(--cyan)}
-.frame.e{--accent:var(--amber)}
-
-.fr-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-.fr-no{
-  font-family:'Oswald',sans-serif;font-weight:700;font-size:34px;
-  line-height:1;color:var(--accent);letter-spacing:.02em;
+.frame.a {
+  --accent:#d9503c;
 }
-.dir{
-  font-family:'Overpass Mono',monospace;font-size:9.5px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--accent);border:1px solid var(--accent);
-  padding:4px 10px;border-radius:2px;opacity:.9;
+.frame.t {
+  --accent:#5aa9c0;
 }
-h3{
-  font-family:'Noto Serif SC',serif;font-weight:900;
-  font-size:clamp(19px,2.4vw,25px);line-height:1.42;
-  color:var(--lightbox);margin:10px 0 16px;letter-spacing:.01em;
+.frame.e {
+  --accent:#d9a441;
 }
-
-.exif{
-  display:flex;flex-wrap:wrap;gap:0;
-  border:1px solid var(--hairline);border-radius:2px;
-  margin-bottom:20px;overflow:hidden;
+.fr-head {
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:6px;
 }
-.exif div{
-  flex:1 1 auto;min-width:132px;
+.fr-no {
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  font-size:34px;
+  line-height:1.85;
+  color:#d9503c;
+  letter-spacing:.02em;
+}
+.dir {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#cc4b38;
+  border:1px solid #d9503c;
+  padding:4px 10px;
+  border-radius:2px;
+}
+h3 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:clamp(19px,2.4vw,25px);
+  line-height:1.85;
+  color:#787672;
+  margin:10px 0 16px;
+  letter-spacing:.01em;
+}
+.exif {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  border:1px solid #fcfbf9;
+  border-radius:2px;
+  margin-bottom:20px;
+  overflow:hidden;
+}
+.exif div {
+  flex:1 1 auto;
+  min-width:132px;
   padding:9px 13px;
-  border-right:1px solid var(--hairline);
-  font-family:'Overpass Mono',monospace;font-size:10px;letter-spacing:.06em;
+  border-right:1px solid #fcfbf9;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  letter-spacing:.06em;
 }
-.exif div:last-child{border-right:none}
-.exif span{display:block;color:var(--muted-2);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3px}
-.exif b{color:var(--paper);font-weight:600;font-size:11px}
-.exif b.hi{color:var(--developer)}
-.exif b.mid{color:var(--amber)}
-.exif b.low{color:var(--safelight)}
-
-.sub{
-  font-family:'Overpass Mono',monospace;font-size:10px;font-weight:700;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--muted-2);
-  margin:24px 0 11px;display:flex;align-items:center;gap:10px;
+.exif div:last-child {
+  border-right:none;
 }
-.sub::after{content:'';flex:1;height:1px;background:var(--hairline)}
-
-.frame p{font-size:14.8px;color:#cdc5b9;margin-bottom:13px}
-.frame p:last-child{margin-bottom:0}
-.frame strong{color:var(--lightbox);font-weight:500}
-.frame em{font-style:normal;color:var(--accent);font-weight:500}
-
-ol.why{list-style:none;counter-reset:w}
-ol.why li{
-  counter-increment:w;position:relative;
-  padding-left:34px;margin-bottom:12px;font-size:14.8px;color:#cdc5b9;
+.exif span {
+  display:block;
+  color:#6d645b;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:3px;
 }
-ol.why li::before{
-  content:counter(w,decimal-leading-zero);
-  position:absolute;left:0;top:1px;
-  font-family:'Overpass Mono',monospace;font-size:10px;font-weight:700;
-  color:var(--accent);border:1px solid var(--accent);
-  width:22px;height:22px;display:flex;align-items:center;justify-content:center;
-  border-radius:2px;opacity:.85;
-}
-
-.caution{
-  margin-top:22px;
-  border-left:2px solid var(--muted-2);
-  background:rgba(244,241,232,.035);
-  padding:15px 18px;border-radius:0 2px 2px 0;
-}
-.caution .sub{margin-top:0;margin-bottom:8px}
-.caution p{font-size:13.8px;color:#a9a096}
-
-/* ============ 横向观察表 ============ */
-.watch{
-  margin:52px 0 0;
-  animation:rise .85s cubic-bezier(.2,.7,.3,1) .78s both;
-}
-table{width:100%;border-collapse:collapse;font-size:13.6px}
-thead th{
-  font-family:'Overpass Mono',monospace;font-size:9.5px;font-weight:700;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2);
-  text-align:left;padding:11px 14px;border-bottom:1px solid rgba(232,227,214,.22);
-}
-tbody td{
-  padding:16px 14px;border-bottom:1px solid var(--hairline);
-  color:#bdb4a9;vertical-align:top;line-height:1.75;
-}
-tbody td:first-child{
-  font-family:'Noto Serif SC',serif;font-weight:600;color:var(--lightbox);
-  font-size:14px;width:20%;min-width:130px;
-}
-tbody td:last-child{
-  font-family:'Overpass Mono',monospace;font-size:10.5px;
-  color:var(--muted);width:23%;min-width:150px;line-height:1.7;
-}
-tbody tr:hover td{background:rgba(244,241,232,.028)}
-
-/* ============ 主线脉络 ============ */
-.chain{
-  margin:56px 0 0;
-  border:1px solid var(--hairline);border-radius:3px;
-  padding:30px 32px;
-  background:linear-gradient(168deg, rgba(26,22,19,.75), rgba(18,15,13,.75));
-  animation:rise .85s cubic-bezier(.2,.7,.3,1) .86s both;
-}
-.chain-list{list-style:none;margin:18px 0 22px}
-.chain-list li{
-  display:flex;gap:16px;align-items:flex-start;
-  padding:8px 0;border-bottom:1px dashed rgba(232,227,214,.09);
-  font-size:14px;color:#bdb4a9;
-}
-.chain-list li:last-child{border-bottom:none}
-.chain-list .d{
-  font-family:'Overpass Mono',monospace;font-size:11px;font-weight:700;
-  color:var(--muted-2);min-width:52px;letter-spacing:.06em;
-}
-.chain-list li.now{color:var(--lightbox)}
-.chain-list li.now .d{color:var(--safelight)}
-.takeaway{
-  margin-top:20px;padding:20px 22px;
-  background:var(--lightbox);color:#191512;border-radius:2px;
-}
-.takeaway .sub{color:#7d7266;margin-top:0}
-.takeaway .sub::after{background:rgba(0,0,0,.14)}
-.takeaway p{font-family:'Noto Serif SC',serif;font-size:15.5px;line-height:1.9;color:#241e1a}
-.takeaway strong{
+.exif b {
+  color:#79766f;
   font-weight:600;
-  background:linear-gradient(transparent 62%, rgba(224,80,60,.26) 62%);
+  font-size:13px;
 }
-
-/* ============ 声明 ============ */
-footer{
-  margin-top:56px;padding-top:26px;
-  border-top:1px solid var(--hairline);
-  animation:rise .8s ease .94s both;
+.exif b.hi {
+  color:#43826f;
 }
-footer ul{list-style:none}
-footer li{
-  font-size:12.6px;color:var(--muted);line-height:1.85;
-  padding-left:16px;position:relative;margin-bottom:6px;
+.exif b.mid {
+  color:#94702c;
 }
-footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
-.sig{
+.exif b.low {
+  color:#cc4b38;
+}
+.sub {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#6d645b;
+  margin:24px 0 11px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.sub::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:#fcfbf9;
+}
+.frame p {
+  font-size:14.8px;
+  color:#7b766f;
+  margin-bottom:13px;
+}
+.frame p:last-child {
+  margin-bottom:0;
+}
+.frame strong {
+  color:#787672;
+  font-weight:500;
+}
+.frame em {
+  font-style:normal;
+  color:#cc4b38;
+  font-weight:500;
+}
+ol.why {
+  list-style:none;
+  counter-reset:w;
+}
+ol.why li {
+  counter-increment:w;
+  position:relative;
+  padding-left:34px;
+  margin-bottom:12px;
+  font-size:14.8px;
+  color:#7b766f;
+}
+ol.why li::before {
+  content:counter(w,decimal-leading-zero);
+  position:absolute;
+  left:0;
+  top:1px;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  color:#cc4b38;
+  border:1px solid #d9503c;
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:2px;
+}
+.caution {
+  margin-top:22px;
+  border-left:2px solid #6d645b;
+  background:#fffffe;
+  padding:15px 18px;
+  border-radius:0 2px 2px 0;
+}
+.caution .sub {
+  margin-top:0;
+  margin-bottom:8px;
+}
+.caution p {
+  font-size:13.8px;
+  color:#7b756e;
+}
+.watch {
+  margin:52px 0 0;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:13.6px;
+}
+thead th {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#6d645b;
+  text-align:left;
+  padding:11px 14px;
+  border-bottom:1px solid #faf9f6;
+}
+tbody td {
+  padding:16px 14px;
+  border-bottom:1px solid #fcfbf9;
+  color:#7b756e;
+  vertical-align:top;
+  line-height:1.75;
+}
+tbody td:first-child {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:600;
+  color:#787672;
+  font-size:14px;
+  width:20%;
+  min-width:130px;
+}
+tbody td:last-child {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  color:#7e756c;
+  width:23%;
+  min-width:150px;
+  line-height:1.7;
+}
+tbody tr:hover td {
+  background:#fffffe;
+}
+.chain {
+  margin:56px 0 0;
+  border:1px solid #fcfbf9;
+  border-radius:3px;
+  padding:30px 32px;
+  background:#f1f1f1;
+}
+.chain-list {
+  list-style:none;
+  margin:18px 0 22px;
+}
+.chain-list li {
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  padding:8px 0;
+  border-bottom:1px dashed #fdfcfb;
+  font-size:14px;
+  color:#7b756e;
+}
+.chain-list li:last-child {
+  border-bottom:none;
+}
+.chain-list .d {
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  font-weight:700;
+  color:#6d645b;
+  min-width:52px;
+  letter-spacing:.06em;
+}
+.chain-list li.now {
+  color:#787672;
+}
+.chain-list li.now .d {
+  color:#cc4b38;
+}
+.takeaway {
+  margin-top:20px;
+  padding:20px 22px;
+  background:#f4f1e8;
+  color:#191512;
+  border-radius:2px;
+}
+.takeaway .sub {
+  color:#7d7266;
+  margin-top:0;
+}
+.takeaway .sub::after {
+  background:#dbdbdb;
+}
+.takeaway p {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:15.5px;
+  line-height:1.9;
+  color:#241e1a;
+}
+.takeaway strong {
+  font-weight:600;
+  background:#f7d2cc;
+}
+footer {
+  margin-top:56px;
+  padding-top:26px;
+  border-top:1px solid #fcfbf9;
+}
+footer ul {
+  list-style:none;
+}
+footer li {
+  font-size:13px;
+  color:#7e756c;
+  line-height:1.85;
+  padding-left:16px;
+  position:relative;
+  margin-bottom:6px;
+}
+footer li::before {
+  content:'—';
+  position:absolute;
+  left:0;
+  color:#6d645b;
+}
+.sig {
   margin-top:24px;
-  font-family:'Overpass Mono',monospace;font-size:10px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font-family:'Overpass Mono',monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#6d645b;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
 }
-
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-
-@media (max-width:720px){
-  .wrap{padding:0 18px}
-  .lede{padding:30px 22px 30px}
-  .circle-note{position:static;display:inline-block;margin-top:16px;transform:rotate(-3deg)}
-  .frame{padding:26px 20px 24px 40px}
-  .exif div{min-width:50%}
-  table,thead,tbody,tr,td,th{display:block}
-  thead{display:none}
-  tbody td,tbody td:first-child,tbody td:last-child{width:auto}
-  tbody tr{border-bottom:1px solid rgba(232,227,214,.2);padding:8px 0;display:block}
-  tbody td{border-bottom:none;padding:6px 0}
+@media (max-width:720px) {.wrap {
+  padding:0 18px;
 }
-@media (prefers-reduced-motion:reduce){
-  *{animation-duration:.01ms!important;animation-iteration-count:1!important}
+.lede {
+  padding:30px 22px 30px;
 }
+.circle-note {
+  position:static;
+  display:inline-block;
+  margin-top:16px;
+}
+.frame {
+  padding:26px 20px 24px 40px;
+}
+.exif div {
+  min-width:50%;
+}
+table,thead,tbody,tr,td,th {
+  display:block;
+}
+thead {
+  display:none;
+}
+tbody td,tbody td:first-child,tbody td:last-child {
+  width:auto;
+}
+tbody tr {
+  border-bottom:1px solid #faf9f7;
+  padding:8px 0;
+  display:block;
+}
+tbody td {
+  border-bottom:none;
+  padding:6px 0;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
 </style>
 </head>
 <body>
@@ -462,9 +911,9 @@ footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
       </defs>
 
       <!-- 胶片基带 -->
-      <rect x="20" y="34" width="960" height="150" rx="3" fill="url(#lb)" stroke="rgba(232,227,214,.16)"/>
+      <rect x="20" y="34" width="960" height="150" rx="3" fill="url(#lb)" stroke="""/>
       <!-- 上下齿孔 -->
-      <g fill="rgba(244,241,232,.15)">
+      <g fill=""">
         <rect x="36" y="42" width="15" height="11" rx="2"/><rect x="76" y="42" width="15" height="11" rx="2"/>
         <rect x="116" y="42" width="15" height="11" rx="2"/><rect x="156" y="42" width="15" height="11" rx="2"/>
         <rect x="196" y="42" width="15" height="11" rx="2"/><rect x="236" y="42" width="15" height="11" rx="2"/>
@@ -492,36 +941,36 @@ footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
       </g>
 
       <!-- 五个片格 -->
-      <g class="fr-box" style="animation-delay:.35s">
-        <rect x="40" y="62" width="172" height="94" rx="2" fill="rgba(217,80,60,.10)" stroke="#d9503c" stroke-width="1.2"/>
+      <g class="fr-box" >
+        <rect x="40" y="62" width="172" height="94" rx="2" fill=""" stroke="#d9503c" stroke-width="1.2"/>
         <text x="50" y="82" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#d9503c">FRAME 01</text>
         <text x="50" y="108" font-family="Oswald, sans-serif" font-size="17" font-weight="600" fill="#f4f1e8">ASTRA</text>
         <text x="50" y="128" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">多智能体组队</text>
         <text x="50" y="146" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">政府预审前置</text>
       </g>
-      <g class="fr-box" style="animation-delay:.55s">
-        <rect x="228" y="62" width="172" height="94" rx="2" fill="rgba(217,80,60,.10)" stroke="#d9503c" stroke-width="1.2"/>
+      <g class="fr-box" >
+        <rect x="228" y="62" width="172" height="94" rx="2" fill=""" stroke="#d9503c" stroke-width="1.2"/>
         <text x="238" y="82" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#d9503c">FRAME 02</text>
         <text x="238" y="108" font-family="Oswald, sans-serif" font-size="17" font-weight="600" fill="#f4f1e8">CONTAINMENT</text>
         <text x="238" y="128" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">失控不止一起</text>
         <text x="238" y="146" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">欧盟正式接触</text>
       </g>
-      <g class="fr-box" style="animation-delay:.75s">
-        <rect x="416" y="62" width="172" height="94" rx="2" fill="rgba(217,80,60,.10)" stroke="#d9503c" stroke-width="1.2"/>
+      <g class="fr-box" >
+        <rect x="416" y="62" width="172" height="94" rx="2" fill=""" stroke="#d9503c" stroke-width="1.2"/>
         <text x="426" y="82" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#d9503c">FRAME 03</text>
         <text x="426" y="108" font-family="Oswald, sans-serif" font-size="17" font-weight="600" fill="#f4f1e8">MYTHOS</text>
         <text x="426" y="128" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">60h 密码学突破</text>
         <text x="426" y="146" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">验证近一个月</text>
       </g>
-      <g class="fr-box" style="animation-delay:.95s">
-        <rect x="604" y="62" width="172" height="94" rx="2" fill="rgba(90,169,192,.10)" stroke="#5aa9c0" stroke-width="1.2"/>
+      <g class="fr-box" >
+        <rect x="604" y="62" width="172" height="94" rx="2" fill=""" stroke="#5aa9c0" stroke-width="1.2"/>
         <text x="614" y="82" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#5aa9c0">FRAME 04</text>
         <text x="614" y="108" font-family="Oswald, sans-serif" font-size="17" font-weight="600" fill="#f4f1e8">OPENWORK</text>
         <text x="614" y="128" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">技能跨 harness</text>
         <text x="614" y="146" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">组织自建控制面</text>
       </g>
-      <g class="fr-box" style="animation-delay:1.15s">
-        <rect x="792" y="62" width="172" height="94" rx="2" fill="rgba(217,164,65,.10)" stroke="#d9a441" stroke-width="1.2"/>
+      <g class="fr-box" >
+        <rect x="792" y="62" width="172" height="94" rx="2" fill=""" stroke="#d9a441" stroke-width="1.2"/>
         <text x="802" y="82" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#d9a441">FRAME 05</text>
         <text x="802" y="108" font-family="Oswald, sans-serif" font-size="17" font-weight="600" fill="#f4f1e8">HANGZHOU</text>
         <text x="802" y="128" font-family="Noto Sans SC, sans-serif" font-size="11" fill="#cdc5b9">国家级中试基地</text>
@@ -532,16 +981,16 @@ footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
       <text x="20" y="222" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" letter-spacing="2" fill="#8b8177">THE GAP · 产出速率 vs 验收速率（以信号三为标尺）</text>
 
       <text x="20" y="256" font-family="Overpass Mono, monospace" font-size="10" fill="#cdc5b9">AI 发现</text>
-      <rect class="grow" style="animation-delay:1.3s" x="110" y="245" width="62" height="15" rx="2" fill="url(#gapA)"/>
+      <rect class="grow"  x="110" y="245" width="62" height="15" rx="2" fill="url(#gapA)"/>
       <text x="184" y="257" font-family="Overpass Mono, monospace" font-size="10.5" font-weight="700" fill="#4a8f7a">≈ 60 小时</text>
 
       <text x="20" y="292" font-family="Overpass Mono, monospace" font-size="10" fill="#cdc5b9">人工验证</text>
-      <rect class="grow" style="animation-delay:1.5s" x="110" y="281" width="744" height="15" rx="2" fill="url(#gapB)"/>
+      <rect class="grow"  x="110" y="281" width="744" height="15" rx="2" fill="url(#gapB)"/>
       <text x="866" y="293" font-family="Overpass Mono, monospace" font-size="10.5" font-weight="700" fill="#d9503c">≈ 1 个月</text>
 
-      <line class="draw" style="animation-delay:1.8s" x1="172" y1="240" x2="172" y2="304" stroke="#e0503c" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>
-      <circle class="pop" style="animation-delay:2.1s" cx="172" cy="318" r="3" fill="#e0503c"/>
-      <text class="pop" style="animation-delay:2.2s" x="184" y="322" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#e0503c">约 12× 速度差 —— 瓶颈已从"发现"移到"确认"</text>
+      <line class="draw"  x1="172" y1="240" x2="172" y2="304" stroke="#e0503c" stroke-width="1" stroke-dasharray="4 4"/>
+      <circle class="pop"  cx="172" cy="318" r="3" fill="#e0503c"/>
+      <text class="pop"  x="184" y="322" font-family="Overpass Mono, monospace" font-size="10" font-weight="700" fill="#e0503c">约 12× 速度差 —— 瓶颈已从"发现"移到"确认"</text>
     </svg>
   </section>
 
@@ -739,7 +1188,7 @@ footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
 
   <!-- ========== 主线脉络 ========== -->
   <section class="chain">
-    <div class="section-label" style="margin-bottom:0;border-bottom:none;padding-bottom:0">Through-Line · 主线脉络</div>
+    <div class="section-label" style="margin-bottom:0; border-bottom:none; padding-bottom:0">Through-Line · 主线脉络</div>
     <ul class="chain-list">
       <li><span class="d">7/24</span><span>可信化：Agent 从工具走向可信商业实体</span></li>
       <li><span class="d">7/27</span><span>自主 vs 可控：能力越强，边界设计越是唯一护栏</span></li>
@@ -758,10 +1207,10 @@ footer li::before{content:'—';position:absolute;left:0;color:var(--muted-2)}
 
   <!-- ========== 声明 ========== -->
   <footer>
-    <div class="section-label" style="border-bottom:none;padding-bottom:0;margin-bottom:14px">Notes · 声明</div>
+    <div class="section-label" style="border-bottom:none; padding-bottom:0; margin-bottom:14px">Notes · 声明</div>
     <ul>
       <li>本文所有信号均标注信源层级与可信度，非首发、非当日、口径存疑之处已逐条说明。</li>
-      <li>涉及企业估值、融资、并购、股价的内容仅为事实转述，<strong style="color:var(--paper)">不构成任何投资建议</strong>。</li>
+      <li>涉及企业估值、融资、并购、股价的内容仅为事实转述，<strong style="color:#79766f">不构成任何投资建议</strong>。</li>
       <li>未获官方确认的匿名信源报道（信号一、信号二部分细节）已明确标示，请勿作为既成事实引用。</li>
       <li>本期刻意避开 7/27–7/31 各班已成文条目（MCP final、Claude Code 大版本、DeepSeek-V4-Flash、Gemini Robotics 2、七部门揭榜挂帅、宇树招股书、亦庄 ESCC、后摩 M50 等），只收当日新增或当日首次系统披露的信号。</li>
     </ul>

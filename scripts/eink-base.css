@@ -56,7 +56,7 @@ body{
   border:1px solid var(--rule-hard);background:var(--paper)}
 .spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
 .spec-cell:last-child{border-right:none}
-.spec-k{font-size:12px;letter-spacing:.12em;color:var(--ink-faint);
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
   display:block;margin-bottom:4px;font-weight:700}
 .spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
 
@@ -67,7 +67,7 @@ body{
 .lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
 .lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
 .lede p:last-child{margin-bottom:0}
-.lede .tag{display:inline-block;font-size:12.5px;letter-spacing:.1em;font-weight:700;
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
   border:2px solid var(--ink);color:var(--ink);background:var(--paper);
   padding:3px 10px;margin-bottom:14px}
 
@@ -80,7 +80,7 @@ body{
 /* ---------- 卡片（Daily AI） ---------- */
 .card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
 .card:last-of-type{border-bottom:none}
-.c-num{font-size:12.5px;letter-spacing:.14em;color:var(--ink-faint);
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
   display:block;margin-bottom:8px;font-weight:700}
 .c-num b{color:var(--ink)}
 .c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
@@ -104,7 +104,7 @@ em.hl{font-style:normal;color:var(--ink);font-weight:700;
 
 .figure{margin:0 0 40px;padding:22px 20px 14px;
   border:1px solid var(--rule-hard);background:var(--paper)}
-.fig-cap{font-size:12.5px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
   border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
 .fig-cap b{color:var(--ink)}
 .fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
@@ -126,7 +126,7 @@ em.hl{font-style:normal;color:var(--ink);font-weight:700;
 /* ---------- 条目（Daily Github） ---------- */
 .entry{margin:0 0 38px;padding:24px 24px 20px;
   border:1px solid var(--rule-hard);background:var(--paper)}
-.entry-no{float:right;font-size:34px;line-height:1;color:#c4c4c4;font-weight:700;margin:-4px 0 0 14px}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
 .e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
 .e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
 .e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
@@ -157,7 +157,7 @@ p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft
 .scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
   border-top:1px dashed var(--rule)}
 .sc{flex:1 1 112px}
-.sc-k{font-size:12.5px;letter-spacing:.1em;color:var(--ink-faint);
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
   display:block;margin-bottom:5px;font-weight:700}
 .bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
 .bar i{display:block;height:100%;background:var(--ink)}

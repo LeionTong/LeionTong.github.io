@@ -4,156 +4,486 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AI 领域每日动态｜2026-07-24</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --paper: #e9edf2;
-    --card: #fbfcfd;
-    --ink: #122236;
-    --muted: #5d6b7e;
-    --line: #d3dae3;
-    --agent: #d9540d;     /* AI Agent — 朱红 */
-    --edge: #1d4ed8;      /* 终端·边缘 — 钴蓝 */
-    --infra: #0f766e;     /* 基础设施·模型 — 墨绿 */
-    --embodied: #4d7c0f;  /* 具身 — 橄榄（仅横向观察） */
-    --accent-soft: rgba(217,84,13,.08);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background:
-      linear-gradient(transparent 0, transparent 31px, var(--line) 32px),
-      linear-gradient(90deg, transparent 0, transparent 31px, var(--line) 32px),
-      var(--paper);
-    background-size: 32px 32px, 32px 32px, 100% 100%;
-    color: var(--ink);
-    font-family: 'Spectral', Georgia, serif;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    padding: 0 0 64px;
-  }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
 
-  /* ---------- Header ---------- */
-  header {
-    background: var(--ink);
-    color: #f4f7fb;
-    border-bottom: 4px solid var(--agent);
-    padding: 38px 0 30px;
-    margin-bottom: 8px;
-  }
-  .meta {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: .06em;
-    color: #9fb0c4;
-    text-transform: uppercase;
-    display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px;
-  }
-  .meta b { color: #ffd9c4; font-weight: 500; }
-  h1 {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-weight: 800;
-    font-size: clamp(30px, 6vw, 50px);
-    line-height: 1.04;
-    letter-spacing: -.02em;
-  }
-  h1 .sub { display:block; font-size: .42em; font-weight: 400; color:#cdd8e6; margin-top: 10px; letter-spacing: 0; font-family:'Spectral',serif; }
-  .focus {
-    margin-top: 20px; display:flex; gap:8px; flex-wrap:wrap;
-  }
-  .focus span {
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.05em;
-    padding:4px 10px; border:1px solid #3a4d68; border-radius:2px; color:#bcd0e6;
-  }
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
 
-  /* ---------- Summary ---------- */
-  .summary {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-left: 4px solid var(--ink);
-    padding: 24px 26px;
-    margin: 30px 0 8px;
-    font-size: 17px;
-  }
-  .summary h2 {
-    font-family:'Bricolage Grotesque',sans-serif; font-size: 16px; font-weight:700;
-    letter-spacing:.02em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
-  }
-  .summary p { color: #243348; }
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
 
-  /* ---------- Item card ---------- */
-  .item {
-    background: var(--card);
-    border: 1px solid var(--line);
-    padding: 26px 28px 28px;
-    margin-top: 18px;
-    position: relative;
-    opacity: 0; transform: translateY(18px);
-    animation: rise .7s cubic-bezier(.2,.7,.3,1) forwards;
-  }
-  .item::before {
-    content:''; position:absolute; left:-1px; top:-1px; bottom:-1px; width:4px;
-    background: var(--c, var(--agent));
-  }
-  @keyframes rise { to { opacity:1; transform: none; } }
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
 
-  .item .top {
-    display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom: 6px;
-  }
-  .num {
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size: 26px;
-    color: var(--c, var(--agent)); line-height:1; min-width: 30px;
-  }
-  .tag {
-    font-family:'JetBrains Mono',monospace; font-size: 11px; font-weight:700; letter-spacing:.05em;
-    padding:4px 9px; border-radius:2px; color:#fff; background: var(--c, var(--agent));
-    text-transform: uppercase;
-  }
-  .item h3 {
-    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size: 21px;
-    letter-spacing:-.01em; margin: 8px 0 16px; line-height:1.25;
-  }
-  .item .ev { font-size: 16px; color:#22303f; }
-  .item .ev b { font-weight: 500; }
-  .why, .obj { margin-top: 16px; padding-left: 16px; border-left: 2px dashed var(--line); }
-  .why .lbl, .obj .lbl {
-    font-family:'JetBrains Mono',monospace; font-size: 11px; font-weight:700; letter-spacing:.06em;
-    text-transform: uppercase; display:block; margin-bottom: 6px;
-  }
-  .why .lbl { color: var(--c, var(--agent)); }
-  .obj .lbl { color: var(--muted); }
-  .why { color:#1f2c3b; }
-  .obj { color:#46586c; font-size:15px; }
-  .why ul, .obj ul { padding-left: 18px; }
-  .why li, .obj li { margin: 5px 0; }
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
 
-  /* ---------- Horizontal ---------- */
-  .cross {
-    background: var(--ink); color:#e7eef7; margin-top: 26px; padding: 28px 28px 30px;
-    border-top: 4px solid var(--embodied);
-  }
-  .cross h2 {
-    font-family:'Bricolage Grotesque',sans-serif; font-size: 18px; font-weight:700; letter-spacing:.02em;
-    color:#cfe0cf; margin-bottom: 16px; text-transform: uppercase;
-  }
-  .cross .line { display:flex; gap:14px; margin:14px 0; align-items:flex-start; }
-  .cross .n {
-    font-family:'JetBrains Mono',monospace; font-weight:700; color: var(--embodied);
-    flex:0 0 auto; min-width: 18px;
-  }
-  .cross p { font-size: 16px; color:#dbe6f2; }
-  .cross b { color:#fff; font-weight:500; }
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
 
-  /* ---------- Footer ---------- */
-  footer {
-    margin-top: 26px; font-family:'JetBrains Mono',monospace; font-size: 12px;
-    color: var(--muted); line-height:1.9; padding: 0 4px;
-  }
-  footer h4 { font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink); margin-bottom:6px; }
-  @media (max-width: 560px){ .item, .summary, .cross { padding-left:18px; padding-right:18px; } }
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --paper:#e9edf2;
+  --card:#fbfcfd;
+  --ink:#122236;
+  --muted:#5d6b7e;
+  --line:#d3dae3;
+  --agent:#d9540d;
+  --edge:#1d4ed8;
+  --infra:#0f766e;
+  --embodied:#4d7c0f;
+  --accent-soft:#fcf1ec;
+}
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html {
+  scroll-behavior:smooth;
+}
+body {
+  background:#e9edf2;
+  background-size:32px 32px, 32px 32px, 100% 100%;
+  color:#122236;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 64px;
+}
+.wrap {
+  max-width:920px;
+  margin:0 auto;
+  padding:0 24px;
+}
+header {
+  background:#efefef;
+  color:#6b6d6e;
+  border-bottom:4px solid #d9540d;
+  padding:38px 0 30px;
+  margin-bottom:8px;
+}
+.meta {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.06em;
+  color:#6c7885;
+  text-transform:uppercase;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-bottom:18px;
+}
+.meta b {
+  color:#857166;
+  font-weight:500;
+}
+h1 {
+  font-family:'Bricolage Grotesque', sans-serif;
+  font-weight:800;
+  font-size:clamp(30px, 6vw, 50px);
+  line-height:1.85;
+  letter-spacing:-.02em;
+}
+h1 .sub {
+  display:block;
+  font-size:13px;
+  font-weight:400;
+  color:#71777f;
+  margin-top:10px;
+  letter-spacing:0;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+}
+.focus {
+  margin-top:20px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.focus span {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.05em;
+  padding:4px 10px;
+  border:1px solid #3a4d68;
+  border-radius:2px;
+  color:#6b7783;
+}
+.summary {
+  background:#fbfcfd;
+  border:1px solid #d3dae3;
+  border-left:4px solid #122236;
+  padding:24px 26px;
+  margin:30px 0 8px;
+  font-size:17px;
+}
+.summary h2 {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:16px;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:#5d6b7e;
+  margin-bottom:12px;
+}
+.summary p {
+  color:#243348;
+}
+.item {
+  background:#fbfcfd;
+  border:1px solid #d3dae3;
+  padding:26px 28px 28px;
+  margin-top:18px;
+  position:relative;
+}
+.item::before {
+  content:'';
+  position:absolute;
+  left:-1px;
+  top:-1px;
+  bottom:-1px;
+  width:4px;
+  background:#f6f6f6;
+}
+.item .top {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:6px;
+}
+.num {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:800;
+  font-size:26px;
+  color:#d9540d;
+  line-height:1.85;
+  min-width:30px;
+}
+.tag {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.05em;
+  padding:4px 9px;
+  border-radius:2px;
+  color:#707070;
+  background:#f6f6f6;
+  text-transform:uppercase;
+}
+.item h3 {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-weight:700;
+  font-size:21px;
+  letter-spacing:-.01em;
+  margin:8px 0 16px;
+  line-height:1.85;
+}
+.item .ev {
+  font-size:16px;
+  color:#22303f;
+}
+.item .ev b {
+  font-weight:500;
+}
+.why, .obj {
+  margin-top:16px;
+  padding-left:16px;
+  border-left:2px dashed #d3dae3;
+}
+.why .lbl, .obj .lbl {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:6px;
+}
+.why .lbl {
+  color:#ca4e0c;
+}
+.obj .lbl {
+  color:#5d6b7e;
+}
+.why {
+  color:#1f2c3b;
+}
+.obj {
+  color:#46586c;
+  font-size:15px;
+}
+.why ul, .obj ul {
+  padding-left:18px;
+}
+.why li, .obj li {
+  margin:5px 0;
+}
+.cross {
+  background:#efefef;
+  color:#6a6d72;
+  margin-top:26px;
+  padding:28px 28px 30px;
+  border-top:4px solid #4d7c0f;
+}
+.cross h2 {
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.02em;
+  color:#707970;
+  margin-bottom:16px;
+  text-transform:uppercase;
+}
+.cross .line {
+  display:flex;
+  gap:14px;
+  margin:14px 0;
+  align-items:flex-start;
+}
+.cross .n {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-weight:700;
+  color:#4d7c0f;
+  flex:0 0 auto;
+  min-width:18px;
+}
+.cross p {
+  font-size:16px;
+  color:#70757b;
+}
+.cross b {
+  color:#757575;
+  font-weight:500;
+}
+footer {
+  margin-top:26px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  color:#5d6b7e;
+  line-height:1.9;
+  padding:0 4px;
+}
+footer h4 {
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#122236;
+  margin-bottom:6px;
+}
+@media (max-width: 560px) {.item, .summary, .cross {
+  padding-left:18px;
+  padding-right:18px;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
 </style>
 </head>
 <body>
@@ -181,7 +511,7 @@
   </section>
 
   <!-- 1 -->
-  <article class="item" style="--c:var(--agent); animation-delay:.05s">
+  <article class="item" style="--c:var(--agent)">
     <div class="top"><span class="num">01</span><span class="tag">AI Agent</span></div>
     <h3>国内首套 AI 智能体互联国家标准 GB/Z185-2026 发布</h3>
     <p class="ev">据同花顺 7/24 综叙、中关村发布，中关村发布 <b>GB/Z185-2026 七项智能体互联指导性国家标准</b>，被报道为"全球首个系统性智能体互联标准体系"。核心设计：为每一个 AI 智能体分配唯一数字身份码，打通不同厂商智能体"孤岛"，实现跨平台可信协同；现场完成 2000 余个行业智能体身份首批发放，标准外文版本同步推进对外输出。</p>
@@ -199,7 +529,7 @@
   </article>
 
   <!-- 2 -->
-  <article class="item" style="--c:var(--agent); animation-delay:.15s">
+  <article class="item" style="--c:var(--agent)">
     <div class="top"><span class="num">02</span><span class="tag">AI Agent</span></div>
     <h3>Visa×连连完成大中华区首笔 B2B 智能体真实交易</h3>
     <p class="ev">据腾讯新闻 7/24，Visa 与连连数字宣布，由连连 AI 智能体 <b>LoopXPay</b> 执行的首笔真实 B2B 智能体交易完成，系大中华区公开披露的首笔。流程上，LoopXPay 在单一工作流内完成供应商寻源、方案比较、下单与支付，全程运行在企业预设的支出控制与审批参数内。LoopXPay 已注册进入 <b>Visa 可信智能体名录（Agentic Directory）</b>，并配合 <b>Visa 可信智能体协议（Trusted Agent Protocol）</b> 提供身份、透明度与支出控制机制。</p>
@@ -217,7 +547,7 @@
   </article>
 
   <!-- 3 -->
-  <article class="item" style="--c:var(--agent); animation-delay:.25s">
+  <article class="item" style="--c:var(--agent)">
     <div class="top"><span class="num">03</span><span class="tag">AI Agent</span></div>
     <h3>OpenAI 发布 Presence 企业级智能体管理平台</h3>
     <p class="ev">据 OpenAI 官方 7/22、环球网/钛媒体 7/23 发酵，OpenAI 推出 <b>Presence</b>——将 AI 智能体与企业内部数据、现有软件和工作流连接的企业级平台，覆盖客服、销售、IT 工单、理赔等场景，支持语音与聊天。提供政策管控（Guardrails）、人工审核、模拟测试与自动评分；Codex 驱动的持续改进会就生产信号提出更新建议，经版本对比后由人工批准受控上线。已在 BBVA、SoftBank 等试点，OpenAI 自身客服验证 <b>75% 诉求由 AI 独立闭环</b>。部署不走自助开通，须由 OpenAI 工程团队或授权集成商实施（有限 GA）。</p>
@@ -235,7 +565,7 @@
   </article>
 
   <!-- 4 -->
-  <article class="item" style="--c:var(--edge); animation-delay:.35s">
+  <article class="item" style="--c:var(--edge)">
     <div class="top"><span class="num">04</span><span class="tag">终端·边缘算力</span></div>
     <h3>力箭一号一箭五星，多颗星载 AI 试验卫星入轨</h3>
     <p class="ev">据同花顺 7/24 早间综叙，力箭一号遥十五一箭五星发射成功，多颗卫星搭载国产 GPU 与在轨 AI 推理系统，开展空间碎片 AI 识别、太空算力验证、高光谱影像星上实时解译，推进<b>"算力上天、在轨跑模型"</b>技术路线落地。</p>
@@ -253,7 +583,7 @@
   </article>
 
   <!-- 5 -->
-  <article class="item" style="--c:var(--infra); animation-delay:.45s">
+  <article class="item" style="--c:var(--infra)">
     <div class="top"><span class="num">05</span><span class="tag">基础设施·模型</span></div>
     <h3>DeepSeek V4 稳定版今日上线，旧接口今日强制停用</h3>
     <p class="ev">据 DeepSeek 官方及多家媒体 7/24，DeepSeek-V4 稳定版（含 V4-Pro 1.6T 参数、V4-Flash 2840 亿参数两档）于 7/24 上线；旧 API 名 <b>deepseek-chat、deepseek-reasoner 于 7/24 15:59 UTC 永久停用，无宽限期</b>。两档均原生 1M（百万 token）上下文、支持思考模式；V4 对 Claude Code、OpenClaw、OpenCode、CodeBuddy 等主流 Agent 产品做专项适配，并适配华为昇腾（脱离 CUDA）。定价约闭源 1/8（V4-Flash 输出 $0.28/百万 token、V4-Pro $0.87/百万 token，据 theneuralfeed / freeai.help 整理）。</p>
