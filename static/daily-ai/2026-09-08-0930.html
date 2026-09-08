@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-09-08 09:30 · 终端原生·流量接管·ROI核算·端侧下云·复杂工作流：智能体从「能上岗」进「接管入口与算力」</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+.lede{position:relative;margin:0 0 40px;padding:30px 32px 28px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.55);box-shadow:5px 5px 0 rgba(27,39,51,.09)}
+.lede:before{content:'';position:absolute;top:-11px;left:38px;width:104px;height:22px;
+  background:var(--tape);border-left:1px solid rgba(150,115,28,.3);
+  border-right:1px solid rgba(150,115,28,.3);transform:rotate(-1.2deg)}
+.lede .tag{display:inline-block;font-family:'Courier Prime',monospace;font-size:10.5px;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--paper);
+  background:var(--blue);padding:4px 11px;margin-bottom:16px}
+.lede-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:700;
+  color:var(--blue);margin:0 0 14px;line-height:1.28}
+.lede p{margin:0;font-size:15.6px;line-height:1.94}
+.lede strong{color:var(--ochre);font-weight:700}
+.figure{margin:0 0 44px;padding:24px 20px 16px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.45)}
+.fig-cap{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-faint);border-bottom:1px solid var(--rule-soft);
+  padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ochre);font-weight:700}
+.fig-note{font-family:'Courier Prime',monospace;font-size:11px;color:var(--ink-faint);
+  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);line-height:1.7}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 26px;
+  border-bottom:1px solid var(--ink);padding-bottom:10px}
+.sec-head .n{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.2em;
+  color:var(--ochre);font-weight:700}
+.sec-head .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:22px;font-weight:700;
+  color:var(--ink);letter-spacing:.02em}
+.card{position:relative;margin:0 0 38px;padding:0 0 30px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px}
+.c-num b{color:var(--ochre)}
+.c-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:25px;font-weight:700;
+  line-height:1.32;margin:0 0 6px;color:var(--ink)}
+.c-tags{margin:0 0 18px}
+.chip{display:inline-block;font-family:'Courier Prime',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:rgba(255,255,255,.5)}
+.chip.b{border-color:var(--blue);color:var(--blue)}
+.chip.o{border-color:var(--ochre);color:var(--ochre)}
+.chip.t{border-color:var(--teal);color:var(--teal)}
+.blk{margin:0 0 16px}
+.blk-k{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);font-weight:700;display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:15.3px;color:var(--ink)}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:20px}
+.blk li{margin-bottom:8px;font-size:15px;color:var(--ink)}
+strong{color:var(--ochre);font-weight:700}
+em.hl{font-style:normal;color:var(--blue);font-weight:600}
+.why{border-left:3px solid var(--blue);padding:2px 0 2px 16px;background:rgba(29,78,120,.045)}
+.why .blk-k{color:var(--blue)}
+.datum{margin-top:14px;padding:10px 14px;border:1px dashed var(--rule);
+  background:rgba(255,255,255,.5);font-family:'Courier Prime',monospace;
+  font-size:11.5px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--blue)}
+.cross{margin:44px 0 0;padding:28px 30px;border:1px solid var(--ink);
+  background:rgba(255,255,255,.5);box-shadow:5px 5px 0 rgba(27,39,51,.08)}
+.cross h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:700;
+  color:var(--blue);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:22px}
+.cross li{margin-bottom:10px;font-size:15.2px}
+.verdict{margin-top:18px;padding:16px 18px;border-left:3px solid var(--ochre);
+  background:rgba(164,68,42,.05);font-size:15.4px}
+.risk{margin-top:18px;padding:14px 16px;border:1px dashed var(--rule);
+  font-size:14.2px;color:var(--ink-soft);background:rgba(255,255,255,.4)}
+.risk b{font-family:'Courier Prime',monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ochre);display:block;margin-bottom:6px}
+footer{margin-top:52px;padding-top:18px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.13em;
+  color:var(--ink-faint);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:640px){
+  body{font-size:15px;padding:0 14px 70px}
+  .masthead{padding:34px 20px 24px;margin:0 -14px 28px}
+  .lede,.cross{padding:22px 20px}
+  .c-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.62</b></span>
+    <span>2026-09-08  09:30  GMT+8</span>
+  </div>
+
+  <h1>终端原生·流量接管·ROI核算·端侧下云·复杂工作流：<em>智能体从「能上岗」进「接管入口与算力」</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 早班车精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">2000+智能体·5亿现金流·122B·80%+</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">终端原生·流量接管·ROI核算·端侧下云·复杂工作流</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">今天五条信号把智能体从「能上岗」推进到「接管入口与算力」</div>
+  <p>NO.61 的「落地兑现」刚铺开，今天信号的方向更进一程——智能体不再只证明"能上岗、能降本"，而是开始<em class="hl">接管流量入口、下沉端侧算力、把复杂活办成</em>：① <strong>华为 HarmonyOS 7 把小艺升级为系统级智能体</strong>——感知 200+ 系统数据、调用 2100+ 系统能力、接入 500+ 伙伴 Skills 与 2000+ 鸿蒙智能体，跨应用跨设备主动执行，星盾风险检出率超 90%——终端原生智能体首次以系统底座形态冲规模；② <strong>腾讯研究院「Agent 终结互联网免费午餐」+ Cloudflare「AI 流量首超人类」</strong>——Agent 经济以"任务"替代"流量"为基本单位，平台权力从"入口分发"转向"任务编排"，微信小微内测 A2A 对话——智能体正接管互联网的流量与入口；③ 企业智能体进<em class="hl">ROI 可核算期</em>：迈富时转型企业智能体平台、上半年经营现金流净流入 <strong>5 亿</strong>、复购 +81%、八大场景落地，智用开物用 PRISM 把工业数字员工 ROI 量化——从 NO.61「万级智能体降本」进"现金流 + 复购"硬账；④ <strong>后摩智能 M50 存算一体芯片量产</strong>（10W、单芯片 122B 参数，落地 Agent Computer/AI PC/具身/边缘）——把大模型推理从云端搬下端侧，补终端智能的<em class="hl">算力底座</em>；⑤ <strong>GPT-6 Astra Agent 化推理 + 阿里千问办公多人工作台</strong>——computer-use / 浏览器 / 软件工程 / 多步工作流后台自主办复杂任务，一句话生成百人协作网页——coding 与 agent 从"协助写"进"后台自主办"。一句话：<strong>稀缺资源从「上岗 + 降本」再下沉到「原生终端（系统级智能体）· 接管入口（任务编排）· 算清账（现金流复购）· 端侧算力（存算一体）· 办复杂活（computer-use 工作流）」五件套</strong>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 01 — <b>落地兑现 → 接管入口与算力 信号位置</b>  |  2026-09-08：从「上岗 + 降本」推进到「原生 + 接管 + 核算 + 下云 + 办复杂活」</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：五条信号分别落在终端原生、流量接管、ROI核算、端侧下云、复杂工作流五个档位">
+    <defs>
+      <marker id="bo62" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">ONBOARDING+SAVINGS → TAKE THE ENTRY & COMPUTE / 2026-09-08</text>
+
+    <rect x="8" y="34" width="212" height="46" fill="rgba(47,107,107,.12)" stroke="#2f6b6b" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">落地兑现（往期）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.61 世界模型·开源·规模·终端·量产</text>
+
+    <rect x="652" y="34" width="212" height="46" fill="rgba(164,68,42,.12)" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">接管入口与算力（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">原生·接管·核算·下云·办复杂活</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo62)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">终端原生</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端智能 · 系统级</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">01 小艺</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">HarmonyOS 7</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">200+数据·2100+能力</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">2000+智能体</text>
+
+      <rect x="182" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">流量接管</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Agent · 入口</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">02 任务编排</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">腾讯+Cloudflare</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">AI流量>人类</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">权力转移</text>
+
+      <rect x="354" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">ROI核算</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">企业智能体 · 账</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 迈富时</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">现金流5亿·复购81%</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">PRISM量化</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">可核算</text>
+
+      <rect x="526" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#356b96" font-weight="700">端侧下云</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">终端智能 · 算力</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#356b96">04 M50</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#356b96">后摩存算一体</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">10W·122B</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">端侧底座</text>
+
+      <rect x="698" y="102" width="162" height="148" fill="rgba(255,255,255,.7)" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">复杂工作流</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 自治</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 Astra</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">computer-use</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">后台自主办</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">多步工作流</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1" opacity=".35"/>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的落地兑现 → 今日推进到的接管入口与算力」。02 是 Agent 接管互联网流量与入口；04 是存算一体把大模型推理搬下端侧、补终端算力底座（A 端侧硬件）；05 是 computer-use 让 coding/agent 后台自主办多步复杂工作流（B/C 的 coding 自治）。五件事共同把「上岗 + 降本」翻译成「接管入口、握紧算力」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">今日五条精选信号</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  终端智能 · 系统级智能体（原生形态冲规模）</span>
+  <h2 class="c-title">华为 HarmonyOS 7 把小艺升级为系统级智能体：感知 200+ 系统数据、调用 2100+ 能力、接入 2000+ 鸿蒙智能体，跨应用跨设备主动执行</h2>
+  <p class="c-tags"><span class="chip b">终端智能</span><span class="chip o">系统级智能体</span><span class="chip t">HarmonyOS 7</span><span class="chip">小艺</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9 月 7 日华为推出 <strong>HarmonyOS 7</strong>，把小艺打造为<em class="hl">系统级智能体</em>：可感知 <strong>200 余项系统数据</strong>、调用 <strong>2100 余项系统能力</strong>，接入 500 多伙伴 Skills 与 <strong>2000 多鸿蒙智能体</strong>，实现跨应用、跨设备的主动执行任务；星盾安全体系可识别 AI 变声、境外转接等 7 类诈骗剧本，风险检出率超 90%。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>"系统级智能体"意味着 Agent 不再是一个 App，而是<strong>操作系统底座</strong>——它直接读写系统状态、统一编排跨应用与跨设备能力，把"原生智能体终端"从单品推到系统生态级。这与努比亚 NaviX Ultra（NO.60/61 的端侧 MCP 跨应用）共同确认：终端原生执行体正成为厂商必争入口。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>贝果财经 9/7</b> · 华为 HarmonyOS 7 小艺系统级智能体·感知200+系统数据·调用2100+系统能力·接入500+伙伴Skills与2000+鸿蒙智能体·跨应用跨设备主动执行·星盾识别7类诈骗剧本风险检出率>90%  |  冷静点:为厂商发布会口径、系统级开放范围与第三方 Skills 实际质量待观察;2000+智能体含轻量技能、主动执行的安全边界与用户授权机制仍依赖厂商实现
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Agent · 流量与入口权力迁移（任务编排接管）</span>
+  <h2 class="c-title">腾讯研究院「Agent 终结互联网免费午餐」+ Cloudflare「AI 流量首超人类」+ 微信小微内测 A2A：平台权力从「入口分发」转向「任务编排」</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">流量接管</span><span class="chip t">任务编排</span><span class="chip">A2A</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>9 月 7 日多条信号共同指向 Agent 对互联网入口的接管：</p>
+    <ul>
+      <li><strong>腾讯研究院</strong>发文指出，AI Agent 经济以"<em class="hl">任务</em>"替代"流量"为基本单位，非零边际成本正在瓦解传统广告逻辑，平台权力从"入口分发"转向"任务编排"。</li>
+      <li><strong>Cloudflare</strong>数据显示，<strong>Agent 流量首次超过人类流量</strong>，搜索行为大规模转向 AI 消费，内容所有者的旧商业模式正在瓦解。</li>
+      <li><strong>微信小微</strong>内测"小微对话小微"——用户与好友的小微之间可 AI to AI 沟通，代为协调时间、传话，A2A 社交能力亮相。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这是 Agent 从"工具"升格为"<strong>互联网的新入口</strong>"的标志性拐点：当 Agent 流量 > 人类、且 Agent 之间能直接对话（A2A），分发权与编排权就从"人找 App"转移到"Agent 编排任务"。对 B 端而言，未来获客不再靠 App 商店曝光，而靠被 Agent 编排进任务流。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>腾讯研究院 9/7</b> · AI Agent 经济以"任务"替代"流量"·平台权力从入口分发转向任务编排  ·  <b>Cloudflare 9/7</b> · Agent 流量首超人类流量·搜索行为转向AI消费  ·  <b>新京报 9/7</b> · 微信小微内测"小微对话小微"A2A  |  冷静点:Cloudflare 为单平台口径、统计口径含 bot 与 agent 边界模糊;A2A 仍内测、隐私与授权机制未明;任务编排替代流量为趋势判断非已发生事实
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  企业智能体 · ROI 可核算（现金流 + 复购硬账）</span>
+  <h2 class="c-title">迈富时转型企业智能体平台：上半年经营现金流净流入 5 亿、复购 +81%、八大场景落地；智用开物用 PRISM 把工业数字员工 ROI 量化</h2>
+  <p class="c-tags"><span class="chip b">企业智能体</span><span class="chip o">ROI</span><span class="chip t">可核算</span><span class="chip">现金流</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>企业智能体从 NO.61「万级智能体降本（美的 4.5 亿）」再往前，进"现金流 + 复购"的硬账阶段：</p>
+    <ul>
+      <li><strong>迈富时</strong>：自 2024 年转向 AI 企业运营智能体系，2026 上半年<em class="hl">经营性现金流净流入 5 亿元</em>、复购指标增长 <strong>81%</strong>，已落地八大智能体场景（营销/客服/供应链等）；某工业企业部署 8 套智能体后销售转化率 +30%、下单时长 -30%，文旅集团新客转化 +25%、销售人效 +43%。</li>
+      <li><strong>智用开物</strong>：在 XAIR Expo 2026 推工业数字员工（GoodCrew 平台），已适配 ICT/高端装备/汽车行业的品控、根因分析等核心岗位，并自研 <strong>PRISM 价值评估系统</strong>量化 ROI，把 AI 从演示工具变为可管控生产要素。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>"现金流 + 复购 +81%"比"降本 4.5 亿"更硬——它证明企业智能体不只是<strong>成本项</strong>，而是能形成<strong>可持续收入与续费</strong>的生产要素。PRISM 这类价值评估系统则把"AI 有没有用"从乙方话术变成甲方可审计的账。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>凤凰网财经 9/7</b> · 迈富时转型企业智能体平台·上半年经营现金流净流入5亿·复购+81%·八大场景·工业客户转化+30%/时长-30%·文旅新客+25%/人效+43%  ·  <b>南方都市报 9/7</b> · 智用开物工业数字员工 GoodCrew·PRISM 量化ROI·适配ICT/高端装备/汽车  |  冷静点:现金流/复购为厂商披露、口径未独立审计;PRISM 为厂商自研评估、方法论未公开;工业岗位 ROI 受行业与数据质量影响大
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  终端智能 · 端侧算力底座（存算一体下云）</span>
+  <h2 class="c-title">后摩智能 M50 存算一体芯片量产：10W 功耗、单芯片 122B 参数，落地 Agent Computer / AI PC / 具身智能 / 边缘推理——把大模型推理从云端搬下端侧</h2>
+  <p class="c-tags"><span class="chip b">终端智能</span><span class="chip o">端侧算力</span><span class="chip t">存算一体</span><span class="chip">M50</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>后摩智能 <strong>M50 存算一体芯片</strong>（2026 年 2 月量产）典型功耗仅 <strong>10W</strong>、单芯片最高支持 <strong>122B 参数</strong>大模型，落地 Agent Computer、AI PC、具身智能、边缘推理四大方向；搭载 M50 的中国移动全光融合终端 Promax 支持 120B 模型本地运行，某商业综合体消控室改造项目半年内可回收投资。</p>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>"10W + 单芯片 122B"直接击中端侧 AI 的<strong>不可能三角</strong>（性能/功耗/成本）——它让终端原生智能体不必每件小事都回云端，断网也能跑、数据不出本机<em class="hl">算力底座</em>，也让具身智能的"端侧小脑"有了可量产候选。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>半导体产业纵横 9/8</b> · 后摩智能 M50 存算一体芯片量产·10W·单芯片122B·落地 Agent Computer/AI PC/具身/边缘·移动 Promax 支持120B 本地·消控室改造半年回收  |  冷静点:量产时间为厂商口径(2月量产、9月报道);122B 为量化后本地运行、实际推理速度/精度未公开实测;端侧算力与云端协同的分工边界仍待产品验证
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  AI Coding · 复杂工作流自治（computer-use 后台办复杂活）</span>
+  <h2 class="c-title">GPT-6 Astra Agent 化推理（computer-use / 浏览器 / 软件工程 / 多步工作流）+ 阿里千问办公多人工作台：coding 与 agent 从「协助写」进「后台自主办」</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">computer-use</span><span class="chip t">工作流</span><span class="chip">Astra</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>coding 与 agent 的边界进一步融合，从"帮你写代码"进"后台自主办多步复杂任务"：</p>
+    <ul>
+      <li><strong>GPT-6 Astra</strong>（OpenAI，9/8 券商解读）：能力重心落在 computer-use、浏览器操作、软件工程与多步骤专业工作流，可在后台调用桌面环境完成多步任务并产出文档、表格、演示文稿；其"非 GPU 工作负载"（工具调用/代码沙箱/浏览器渲染/文件处理/任务编排）随 agent 会话数线性放大，直接抬升 CPU 与服务器需求。</li>
+      <li><strong>阿里千问办公</strong>：上线多人协作能力，用户描述需求即可生成支持<em class="hl">百人在线协作</em>的网页，具备角色权限、云端数据库与管理后台，适用于活动组织与企业协作——coding 从个人写码变成"自然语言生成可协作应用"。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>computer-use + 多步工作流让 Agent 不再停在"生成代码"，而是<strong>占有桌面与浏览器、自主办完整任务</strong>——这把 AI Coding 的战场从 IDE 扩到整个操作系统。同时 Astra 揭示一个被忽视的算力结构变化：agent 化推理把大量负载推回通用 CPU/内存。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>东吴计算机 9/8</b> · GPT-6 Astra Agent化推理·computer-use/浏览器/软件工程/多步工作流·后台调桌面环境·非GPU负载随会话线性放大抬升CPU/服务器需求  ·  <b>极目新闻 9/7</b> · 阿里千问办公上线多人工作台·一句话生成百人协作网页·角色权限/云端DB/管理后台  |  冷静点:GPT-6 Astra 信息源自券商解读非官方发布、能力边界待官方实锤;computer-use 的权限/安全/误操作风险显著高于代码生成;千问办公协作网页的工程化与权限治理仍早期
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.61「落地兑现（世界模型·开源·规模·终端·量产）」→ 本日 NO.62「接管入口与算力（终端原生·流量接管·ROI核算·端侧下云·复杂工作流）」。稀缺资源从「上岗 + 降本」再推进到「原生终端、接管入口、算清账、握端侧算力、办复杂活」——智能体正从"被部署"变"掌入口"。</li>
+    <li><strong>交叉验证</strong>：01（贝果财经 9/7）、02（腾讯研究院 9/7 + Cloudflare 9/7 + 新京报 9/7）、03（凤凰网财经 9/7 + 南方都市报 9/7）、04（半导体产业纵横 9/8）、05（东吴计算机 9/8 + 极目新闻 9/7）均为媒体或券商对公司/研究发布的转述，中高可信；05 的 GPT-6 Astra 为券商解读、非官方实锤。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 9/7–9/8 的"原生 + 接管 + 核算 + 下云 + 办复杂活"增量——小艺系统级智能体（新终端原生形态）、腾讯研究院/Cloudflare/微信 A2A（新流量入口权力）、迈富时 5 亿现金流 + 智用开物 PRISM（新企业 ROI 账）、后摩 M50（新端侧算力）、GPT-6 Astra computer-use + 千问办公（新 coding 工作流）。与 NO.61（Atlas/DeepSeek Harness/美的 2 万/Home Agent/亦庄 10 万）完全分开。</li>
+    <li><strong>诚实边界</strong>：01 为厂商发布口径、系统级开放范围与 Skills 质量待观察；02 Cloudflare 统计含 bot/agent 边界模糊、A2A 仍内测、任务编排替代流量为趋势判断；03 现金流/复购为厂商披露未独立审计、PRISM 方法论未公开；04 M50 量产时间为厂商口径、122B 实测速度与精度未公开；05 GPT-6 Astra 为券商解读非官方、computer-use 安全/误操作风险高于代码生成。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：智能体从「能上岗」进「接管入口与算力」——华为 HarmonyOS 7 把小艺升级为系统级智能体（感知 200+ 数据、调用 2100+ 能力、接入 2000+ 鸿蒙智能体，跨应用跨设备主动执行）把终端原生推到系统生态级（终端原生）、腾讯研究院「Agent 终结免费午餐」+ Cloudflare「AI 流量首超人类」+ 微信小微 A2A 内测把平台权力从入口分发转向任务编排（流量接管）、迈富时转型企业智能体平台现金流净流入 5 亿 + 复购 81% 落地八大场景、智用开物用 PRISM 量化工业数字员工 ROI 把企业智能体从降本进可核算硬账（ROI 核算）、后摩 M50 存算一体芯片 10W/单芯片 122B 把大模型推理搬下端侧补终端算力底座（端侧下云）、GPT-6 Astra computer-use + 阿里千问办公多人工作台把 coding/agent 从协助写进后台自主办复杂工作流（复杂工作流）。</div>
+  <div class="risk"><b>风险与未决</b>终端系统级智能体（小艺）的开放范围与第三方 Skills 质量、主动执行的安全边界依赖厂商实现；Agent 接管流量（Cloudflare）统计口径含 bot/agent 边界模糊、A2A 仍内测且隐私授权未明；企业智能体现金流/复购为厂商披露未独立审计、PRISM 价值评估方法论未公开；端侧算力 M50 的 122B 实测速度与精度未公开、量产节奏以厂商口径为准；computer-use（GPT-6 Astra）权限与安全误操作风险显著高于代码生成、千问办公协作网页工程化与权限治理仍早期。"能力摊开 + 入口接管"是双刃——既给开发者可编排的空间，也让使用者独担集成、成本与失控风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.62</span>
+  <span>2026-09-08 09:30 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>
