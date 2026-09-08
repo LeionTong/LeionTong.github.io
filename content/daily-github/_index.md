@@ -2,50 +2,60 @@
 title: "Daily Github"
 ---
 
-> 自动化「GitHub 项目商业化潜力筛选」栏目，每日推送 5 个项目（主流 2 + 小众 3）。
-> 五维加权：商业化 30% / 规模化 25% / 边际成本 20% / 验证速度 15% / 成熟度 10%，加权 ≥ 3.5 方可入册。
-> 一票否决：停更超 6 个月 · License 禁止商用 · 纯论文复现 · 发币空投 · 核心交付依赖重硬件 · 强本地化实施。
-> 点击任意卡片，直达当期的完整图文报告（含五维评分条与逐条拆解）。
+> 自动化「GitHub 优质项目」栏目，每日筛选 5 个**主流与小众兼具、易商业化、可规模化、低边际成本、可快速验证**的开源项目。
+> 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
   <a class="da-card" href="/daily-github/2026-09-08-1000.html">
-    <div class="da-card-date">2026-09-08 · 10:00 · NO.05</div>
-    <div class="da-card-main">今日五条没有一条是模型，全是 <b>让 Agent 能开工的地基</b>。<b>camofox-browser</b>（9,776★，MIT）C++ 层改指纹的反检测浏览器服务器，替代按 GB 计费的 Browserbase / ScrapingBee，一条 <code>npm start</code> 即可验证——今日首选；<b>TencentDB Agent Memory</b>（26,115★，月增 +8,875）腾讯云团队级记忆中心，一个 Proxy 接管 base URL、跨端零代码接入；<b>Vexa</b>（2,757★，Apache-2.0）派 bot 进 Meet / Teams / Zoom 实时转录，托管已在收费；<b>seekdb</b>（2,915★）MySQL 兼容的 Agent 状态库，向量+全文+标量一条 SQL；<b>coop</b>（141★）Trail of Bits 出品的 microVM 隔离跑 Claude Code / Codex。</div>
+    <div class="da-card-date">2026-09-08 · 10:00</div>
+    <div class="da-card-title">五仓入库：让 Agent 能开工的五样必需品</div>
+    <div class="da-card-main">今日五条没有一条是模型。camofox 让 Agent 真能上网，TencentDB Agent Memory 让它记得住，Vexa 让它进得了会议，seekdb 让它有地方存状态，coop 让它跑得安全——全是 Agent 从 demo 走进生产必须补的地基。五条全部可自托管、MIT / Apache-2.0，商业化的落点不再是「AI 能干什么」，而是「把已经在烧的那笔钱换成自己的」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-06-1015.html">
-    <div class="da-card-date">2026-09-06 · 10:15 · NO.04</div>
-    <div class="da-card-main">今日五条落在两个方向。<b>OpenViking</b>（35,674★，月增 +7,811）把 Agent 的记忆/资源/技能收进 <code>viking://</code> 虚拟文件系统，三级按需加载，但 AGPL-3.0；<b>AI-Infra-Guard</b>（6,150★，月增 +1,779，Apache-2.0）腾讯朱雀实验室的 AI 红队平台，Agent / MCP / Skills 全扫；<b>LibreDesk</b>（2,880★）单二进制自托管客服台，直接替换 Zendesk / Intercom 每席位 55–115 美元月费——今日首选；<b>Tracely</b>（1,192★，MIT）把生产失败 trace 冻结成回归用例并在 PR 上拦截；<b>sandboxd</b>（929★，MIT）自托管 AI 应用构建引擎，替代 Lovable / v0 / Bolt。</div>
+    <div class="da-card-date">2026-09-06 · 10:15</div>
+    <div class="da-card-title">五仓入库：Agent 上生产要补的三块地基，与两个旧账单</div>
+    <div class="da-card-main">今日五条落在两个方向。OpenViking（上下文层）、Tracely（质量层）、AI-Infra-Guard（安全层）是 Agent 从 demo 走进生产必须补的三块地基——都不创造新需求，而是买现有 Agent 团队已经痛的那部分。LibreDesk 与 sandboxd 则说明另一面：AI 能力正在被塞进已经收了多年钱的成熟品类，靠替换现有订阅而不是教育市场来收钱。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-05-1105.html">
-    <div class="da-card-date">2026-09-05 · 11:05 · NO.03</div>
-    <div class="da-card-main">今日五条方向高度一致——<b>把客户账单上的某一行换成自有软件</b>。<b>pdf-inspector</b>（18,822★，月增 +9,431，MIT）Rust PDF 分类抽取库，约 54% 的 PDF 其实不必上 OCR，一条 <code>pip install pdf-inspector</code> 即可验证省下的钱——今日首选；<b>celld</b>（4,491★，月增 +4,433）Deno 官方自托管 Durable Objects，解 Cloudflare 绑定；<b>Jarvis Registry</b>（2,771★）企业级 MCP/A2A 网关，身份+权限+审计一体，对标 Kong/Solo.io；<b>Magnitude</b>（2,548★，今日 +391）按硬件挑模型的本地推理服务器，直连 Claude Code / Codex；<b>Shippie</b>（2,492★，MIT）CI 里的代码评审 Agent，替代 CodeRabbit/Greptile，但 main 已近两月无提交。</div>
+    <div class="da-card-date">2026-09-05 · 11:05</div>
+    <div class="da-card-title">五仓入库：把账单上那一行换成自己的软件</div>
+    <div class="da-card-main">今日五条的方向高度一致：OCR 调用、Durable Objects、MCP 接入、Agent 推理——四条都在把按次或按席位计费的外部依赖换回自有可控的软件栈；第五条直接用 Agent 顶掉按席位收费的 SaaS。共同前提是五条全部 MIT / Apache-2.0，License 已不再是障碍，竞争落在谁先把替代账算清楚。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-03-1000.html">
-    <div class="da-card-date">2026-09-03 · 10:00 · NO.02</div>
-    <div class="da-card-main">今日五条里有四条在做同一件事——把原本按月付费的能力搬回自己可控的机房。<b>Needle 2</b>（10,109★，月增 +6,771）14MB 端侧工具调用模型、28MB 内存跑完整会话，一条 <code>pip install cactus-needle</code> 即可验证，正对端侧与机器人方向——今日首选；<b>VoiceStudio</b>（14,860★，月增 +5,159）全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎、646 语言；<b>Laminar</b>（3,219★，YC S24）Agent 专用开源可观测，托管云收费、自托管免费；<b>Tracecat</b>（3,784★）开源 SOAR，替代 Tines/Torq/XSOAR；<b>Utopia</b>（2,372★，Apache-2.0）带时间感知与本体层的企业知识底座，离线部署数据不出网。</div>
+    <div class="da-card-date">2026-09-03 · 10:00</div>
+    <div class="da-card-title">五仓入库：把烧钱的能力搬回自己的基础设施</div>
+    <div class="da-card-main">今日五条里有四条在做同一件事——把原本按月付费的能力（语音、可观测、安全自动化、知识底座）搬回自己可控的机房；第五条把这条逻辑推到了设备端。采购的第一理由，正在从「模型能干什么」转向「省下多少、数据归谁」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-02-1434.html">
-    <div class="da-card-date">2026-09-02 · 14:34 · NO.01</div>
-    <div class="da-card-main">首期五仓，共同卖点不是「AI 能干什么」，而是「把已经在烧的钱省下来、管起来」。<b>Workweave Router</b>（3,553★，本周 +2,510）按请求路由最优模型、宣称降 LLM 成本 40–70%，一条 <code>npx @workweave/router --claude</code> 即可验证，切成数可量化——今日首选；<b>OpenSEO</b>（16,201★）开源版 Semrush/Ahrefs，官方 $10/月托管已验证付费；<b>WeKnora</b>（21,151★）腾讯企业级文档 RAG 框架，多租户 + RBAC + 审计内置；<b>AgentField</b>（2,545★）把 Agent 变成可调用 API 的控制平面，切口在治理与证明；<b>OpenOutreach</b>（2,877★）自托管 B2B 线索挖掘 Agent，替代 Apollo/Clay。</div>
+    <div class="da-card-date">2026-09-02 · 14:34</div>
+    <div class="da-card-title">今日五仓：把 AI 的账算清楚</div>
+    <div class="da-card-main">五维加权筛选（商业化 30% / 规模化 25% / 边际成本 20% / 验证速度 15% / 成熟度 10%），加权 ≥ 3.5 方可入册。主流 2 条 + 小众 3 条，全部经 GitHub REST API 逐仓核验。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
 </div>
 
 <style>
+/* Daily AI / Daily Github 栏目索引卡片 — 墨水瓶友好样式
+   约束：纯白底 · 深墨字 · 无渐变 · 无阴影 · 无动画/过渡 · 无位移 hover
+         · hover/focus 用 outline（不触发重排，墨水屏不产生残影）
+   本文件被 publish_daily_ai.py 与 publish_daily_github.py 共用，改一处生效两处。 */
+
 .da-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin:26px 0 8px}
 .da-card{display:block;border:1.5px solid var(--primary,#1b2733);border-radius:10px;
-  padding:16px 18px 12px;background:var(--entry,#fff);text-decoration:none;color:inherit;
-  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
-.da-card:hover{transform:translateY(-3px);border-color:var(--primary,#1b2733);
-  box-shadow:0 6px 18px rgba(0,0,0,.18)}
-.da-card-date{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.12em;
-  color:var(--secondary,#4d5c6c);margin-bottom:8px}
-.da-card-main{font-size:14.5px;line-height:1.7;color:var(--primary,#1b2733)}
-.da-card-main code{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;
-  background:var(--tertiary,#e6e9ec);padding:1px 5px;border-radius:3px;color:var(--primary,#1b2733)}
-.da-card-go{margin-top:12px;font-size:13px;color:var(--ochre,#a4442a)}
+  padding:16px 18px 12px;background:var(--entry,#fff);text-decoration:none;color:inherit}
+.da-card:focus-visible{outline:2px solid var(--primary,#1b2733);outline-offset:2px}
+.da-card-date{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px;letter-spacing:.08em;color:var(--secondary,#4d5c6c);margin-bottom:8px}
+.da-card-title{font-size:16px;font-weight:700;line-height:1.5;margin:0 0 8px;
+  color:var(--primary,#1b2733)}
+.da-card-main{font-size:14.5px;line-height:1.75;color:var(--primary,#1b2733)}
+.da-card-main code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px;background:var(--tertiary,#e6e9ec);padding:1px 5px;
+  color:var(--primary,#1b2733)}
+.da-card-go{margin-top:12px;padding-top:8px;border-top:1px solid var(--tertiary,#e6e9ec);
+  font-size:13.5px;font-weight:700;color:var(--primary,#1b2733)}
 </style>

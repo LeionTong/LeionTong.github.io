@@ -319,14 +319,23 @@ title: "Daily AI"
 </div>
 
 <style>
+/* Daily AI / Daily Github 栏目索引卡片 — 墨水瓶友好样式
+   约束：纯白底 · 深墨字 · 无渐变 · 无阴影 · 无动画/过渡 · 无位移 hover
+         · hover/focus 用 outline（不触发重排，墨水屏不产生残影）
+   本文件被 publish_daily_ai.py 与 publish_daily_github.py 共用，改一处生效两处。 */
+
 .da-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin:26px 0 8px}
 .da-card{display:block;border:1.5px solid var(--primary,#1b2733);border-radius:10px;
-  padding:16px 18px 12px;background:var(--entry,#fff);text-decoration:none;color:inherit;
-  transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
-.da-card:hover{transform:translateY(-3px);border-color:var(--primary,#1b2733);
-  box-shadow:0 6px 18px rgba(0,0,0,.18)}
-.da-card-date{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.12em;
-  color:var(--secondary,#4d5c6c);margin-bottom:8px}
-.da-card-main{font-size:14.5px;line-height:1.7;color:var(--primary,#1b2733)}
-.da-card-go{margin-top:12px;font-size:13px;color:var(--ochre,#a4442a)}
+  padding:16px 18px 12px;background:var(--entry,#fff);text-decoration:none;color:inherit}
+.da-card:focus-visible{outline:2px solid var(--primary,#1b2733);outline-offset:2px}
+.da-card-date{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px;letter-spacing:.08em;color:var(--secondary,#4d5c6c);margin-bottom:8px}
+.da-card-title{font-size:16px;font-weight:700;line-height:1.5;margin:0 0 8px;
+  color:var(--primary,#1b2733)}
+.da-card-main{font-size:14.5px;line-height:1.75;color:var(--primary,#1b2733)}
+.da-card-main code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:13px;background:var(--tertiary,#e6e9ec);padding:1px 5px;
+  color:var(--primary,#1b2733)}
+.da-card-go{margin-top:12px;padding-top:8px;border-top:1px solid var(--tertiary,#e6e9ec);
+  font-size:13.5px;font-weight:700;color:var(--primary,#1b2733)}
 </style>
