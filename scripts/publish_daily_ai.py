@@ -355,15 +355,15 @@ title: "Daily AI"
 
 <style>
 .da-cards{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin:26px 0 8px}}
-.da-card{{display:block;border:1px solid var(--card-edge,rgba(111,214,224,.18));border-radius:14px;
-  padding:18px 18px 14px;background:var(--card,rgba(20,28,48,.55));text-decoration:none;color:inherit;
+.da-card{{display:block;border:1.5px solid var(--primary,#1b2733);border-radius:10px;
+  padding:16px 18px 12px;background:var(--entry,#fff);text-decoration:none;color:inherit;
   transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}}
-.da-card:hover{{transform:translateY(-3px);border-color:var(--cyan,#6fd6e0);
-  box-shadow:0 10px 30px rgba(0,0,0,.28)}}
+.da-card:hover{{transform:translateY(-3px);border-color:var(--primary,#1b2733);
+  box-shadow:0 6px 18px rgba(0,0,0,.18)}}
 .da-card-date{{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.12em;
-  color:var(--cyan,#6fd6e0);margin-bottom:8px}}
-.da-card-main{{font-size:14.5px;line-height:1.7;color:var(--ink-soft,#a9b4cc)}}
-.da-card-go{{margin-top:12px;font-size:13px;color:var(--gold,#e9c46a)}}
+  color:var(--secondary,#4d5c6c);margin-bottom:8px}}
+.da-card-main{{font-size:14.5px;line-height:1.7;color:var(--primary,#1b2733)}}
+.da-card-go{{margin-top:12px;font-size:13px;color:var(--ochre,#a4442a)}}
 </style>
 """
     os.makedirs(CONTENT_DAILY, exist_ok=True)
