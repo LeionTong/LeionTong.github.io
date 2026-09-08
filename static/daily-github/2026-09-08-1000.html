@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Daily Github · 2026-09-08 10:00 · 五维加权筛选：商业化 / 规模化 / 边际成本 / 验证速度 / 成熟度</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700&family=Noto+Serif+SC:wght@300;400;500;700&display=swap' rel='stylesheet'>
+<style>
+:root{
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:rgba(30,58,88,.06);
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:rgba(27,39,51,.17);
+  --rule-soft:rgba(27,39,51,.09);
+  --tape:rgba(150,115,28,.15);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px) 0 0/100% 24px,
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0/24px 100%,
+    radial-gradient(circle at 15% 6%, rgba(29,78,120,.07), transparent 44%),
+    radial-gradient(circle at 85% 94%, rgba(47,107,107,.06), transparent 46%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Noto Serif SC','Songti SC',serif;
+  line-height:1.84;font-size:16px;padding:0 20px 90px;
+}
+.sheet{max-width:912px;margin:0 auto}
+.masthead{
+  position:relative;margin:0 -20px 34px;padding:46px 34px 30px;
+  border-bottom:2px solid var(--ink);
+  background:repeating-linear-gradient(90deg,transparent 0 3px,rgba(27,39,51,.03) 3px 4px),var(--paper-2);
+}
+.masthead:before{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:var(--ink);opacity:.4}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--blue);font-weight:700}
+.masthead h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);line-height:1.1;margin:0 0 12px;color:var(--ink)}
+.masthead h1 em{font-style:italic;color:var(--blue);font-weight:600}
+.mh-sub{font-size:15.6px;color:var(--ink-soft);margin:0;line-height:1.9}
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;border:1px solid var(--rule);
+  background:rgba(255,255,255,.4)}
+.spec-cell{flex:1 1 150px;padding:11px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:3px}
+.spec-v{font-size:13.5px;color:var(--blue);font-weight:500}
+
+.lede{margin:0 0 30px;padding:18px 22px;border-left:3px solid var(--blue);
+  background:rgba(29,78,120,.05);font-size:15px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+
+.entry{position:relative;margin:0 0 42px;padding:26px 26px 22px;
+  border:1px solid var(--rule);background:rgba(255,255,255,.52);
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset}
+.entry:before{content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-1.4deg);
+  width:86px;height:19px;background:var(--tape);border-left:1px dashed rgba(27,39,51,.16);
+  border-right:1px dashed rgba(27,39,51,.16)}
+.entry-no{position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:52px;line-height:1;color:rgba(29,78,120,.13);font-weight:700}
+.e-head{border-bottom:1px solid var(--rule);padding-bottom:14px;margin-bottom:16px}
+.e-name{font-family:'Cormorant Garamond',Georgia,serif;font-size:31px;font-weight:700;margin:0 0 6px;color:var(--ink)}
+.e-name span{font-family:'Courier Prime',monospace;font-size:14px;font-weight:400;color:var(--blue-soft);letter-spacing:.04em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin:8px 0 0}
+.tag{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.08em;
+  padding:3px 8px;border:1px solid var(--rule);background:rgba(255,255,255,.6);color:var(--ink-soft)}
+.tag.star{color:var(--ochre);border-color:rgba(164,68,42,.35);background:rgba(164,68,42,.06)}
+.tag.up{color:var(--teal);border-color:rgba(47,107,107,.35);background:rgba(47,107,107,.06)}
+.tag.warn{color:var(--ochre);border-color:rgba(164,68,42,.5);background:rgba(164,68,42,.12)}
+.e-line{margin:0 0 9px;font-size:15.4px;color:var(--ink-soft);line-height:1.88}
+.e-line b{display:inline-block;min-width:62px;color:var(--blue);font-weight:500;
+  font-family:'Courier Prime',monospace;font-size:13px;letter-spacing:.04em}
+.e-line em{font-style:normal;color:var(--ink);font-weight:500}
+.e-line a{color:var(--blue-soft)}
+pre{margin:6px 0 12px;padding:12px 14px;background:rgba(27,39,51,.05);
+  border-left:2px solid var(--teal);font-family:'Courier Prime',monospace;
+  font-size:13px;line-height:1.7;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:rgba(47,107,107,.1);padding:1px 5px;border-radius:3px}
+.risk{color:var(--ochre)}
+
+.scores{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--rule)}
+.sc{flex:1 1 118px}
+.sc-k{font-family:'Courier Prime',monospace;font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:4px}
+.bar{height:5px;background:rgba(27,39,51,.1);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue-soft),var(--teal))}
+.sc-v{font-family:'Courier Prime',monospace;font-size:12px;color:var(--blue);margin-top:3px;display:block}
+.wsum{margin-top:16px;padding:9px 14px;border:1px solid var(--rule);background:rgba(150,115,28,.08);
+  font-family:'Courier Prime',monospace;font-size:13px;color:var(--ink);display:inline-block}
+.wsum b{color:var(--ochre);font-size:15px}
+
+.tail{border:1px solid var(--rule);background:rgba(255,255,255,.5);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;margin:0 0 12px;
+  color:var(--ink);border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:italic;color:var(--blue)}
+.tail p{margin:0 0 10px;font-size:15.2px;color:var(--ink-soft);line-height:1.9}
+.tail ol{margin:0;padding-left:1.3em;font-size:15.2px;color:var(--ink-soft);line-height:1.9}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon{margin-top:38px;padding-top:16px;border-top:2px solid var(--ink);
+  font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+@media (max-width:640px){
+  body{font-size:15.4px;padding:0 12px 60px}
+  .masthead{margin:0 -12px 26px;padding:30px 18px 22px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:38px;top:12px;right:14px}
+}
+@media print{
+  body{background:#fff;padding:0;font-size:11.5pt}
+  .entry,.tail{break-inside:avoid;box-shadow:none}
+  .masthead{margin:0 0 18px}
+  pre{white-space:pre-wrap}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top">
+    <span>LeionTong · <b>Daily Github</b> · NO.05</span>
+    <span>2026-09-08 · 10:00 GMT+8</span>
+  </div>
+  <h1>五仓入库：<em>让 Agent 能开工的</em><br>五样必需品</h1>
+  <p class="mh-sub">今日五条没有一条是模型。camofox 让 Agent 真能上网，TencentDB Agent Memory 让它记得住，Vexa 让它进得了会议，seekdb 让它有地方存状态，coop 让它跑得安全——全是 Agent 从 demo 走进生产必须补的地基。五条全部可自托管、MIT / Apache-2.0，商业化的落点不再是「AI 能干什么」，而是「把已经在烧的那笔钱换成自己的」。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Date</span><span class="spec-v">2026-09-08</span></div>
+    <div class="spec-cell"><span class="spec-k">Picks</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">Gate</span><span class="spec-v">加权 ≥ 3.5 / 5.0</span></div>
+    <div class="spec-cell"><span class="spec-k">Sources</span><span class="spec-v">Trending · Search · HN</span></div>
+  </div>
+</header>
+
+<p class="lede"><b>数据口径：</b>star 数、License、最近提交均取自 2026-09-08 当日 GitHub API 实检；「近 30 天 +X」取自当日 GitHub Trending 月榜，未上榜者标注「未获取到」，<b>不作估算</b>。评分权重：商业化 30% · 规模化 25% · 边际成本 20% · 验证速度 15% · 成熟度 10%。</p>
+
+<!-- 01 jo-inc/camofox-browser -->
+<article class="entry">
+  <div class="entry-no">01</div>
+  <div class="e-head">
+    <h2 class="e-name">camofox-browser <span>jo-inc/camofox-browser</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 9,776</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">MIT</span>
+      <span class="tag">v1.14.0 · 2026-08-19</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>给 AI Agent 用的反检测浏览器服务器，C++ 层改指纹的 Firefox 内核 + 面向 Agent 的 REST API。</em></p>
+  <p class="e-line"><b>痛点</b>Playwright 被拦、无头 Chrome 被指纹识别、stealth 插件本身成了新指纹；它在 C++ 实现层伪造 <code>hardwareConcurrency</code>、WebGL、AudioContext，JS 拿不到破绽，可访问性快照比原始 HTML 小约 90%。</p>
+  <p class="e-line"><b>谁付钱</b>要让 Agent 抓真实网页的团队，替代按 GB 计费的 Browserbase / ScrapingBee / Bright Data 浏览器云；作者团队本身在卖 askjo.ai 个人 Agent 订阅。</p>
+  <p class="e-line"><b>规模化</b>凡需真实网页的 Agent 都通用，Docker / Fly.io / Railway 部署形态统一，空闲仅约 40MB，可与现有服务挤在同一台 5 美元 VPS 上。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件 + 浏览器按需拉起与空闲关闭，无专有硬件，新增客户不带来新增固定成本。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/jo-inc/camofox-browser &amp;&amp; cd camofox-browser
+npm install &amp;&amp; npm start   # → http://localhost:9377/docs</pre>
+  <p class="e-line">交互文档在 <code>/docs</code>，OpenAPI 在 <code>/openapi.json</code>；只想先试反检测能力，直接对 <code>@google_search</code> 宏发一次请求。</p>
+  <p class="e-line risk"><b>风险</b>绕过 Cloudflare 与站点反爬涉及 ToS 与合规，商用前须法务确认；底层依赖 Camoufox（Firefox fork），上游节奏不由自己掌握；主分支实质提交停在 2026-08-19（v1.14.0），后续 pushed_at 多为分支与标签活动。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.65</b> / 5.00</div>
+</article>
+
+<!-- 02 TencentCloud/TencentDB-Agent-Memory -->
+<article class="entry">
+  <div class="entry-no">02</div>
+  <div class="e-head">
+    <h2 class="e-name">TencentDB Agent Memory <span>TencentCloud/TencentDB-Agent-Memory</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 26,115</span>
+      <span class="tag up">近 30 天 +8,875</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">MIT*</span>
+      <span class="tag">v2.0.2-beta.1 · 2026-09-07</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>把对话、文档、代码转成可复用记忆资产的团队级 Agent 记忆中心，跨端共享同一套记忆。</em></p>
+  <p class="e-line"><b>痛点</b>换一次会话就要重讲一遍上下文，同一份文档每个 Agent 都从第一页重读；它用一个 Proxy 接管 Agent 的 base URL，零代码接入，Claude Code / Codex / CodeBuddy / WorkBuddy / OpenClaw 共用一份存档。</p>
+  <p class="e-line"><b>谁付钱</b>已上 coding agent 的研发团队，省的是重复 token 与返工工时；腾讯云背书，可变现点是记忆层托管与企业私有化部署。</p>
+  <p class="e-line"><b>规模化</b>需求跨行业通用，Proxy 零代码集成、交付标准化，不需要驻场实施。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件 + 向量检索，自托管即可，除 embedding 与模型 API 外无额外硬性开销。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/Tencent/TencentDB-Agent-Memory.git
+cd TencentDB-Agent-Memory/deploy/global-images &amp;&amp; cp .env.example .env
+$EDITOR .env &amp;&amp; ./start-all.sh   # → http://localhost:8125</pre>
+  <p class="e-line">脚本会一次拉起 memory-core + memory-hub + proxy 三个服务，结束后打印一行可直接粘进 Claude 的配置；<code>.env</code> 需填<b>两组</b> LLM 参数（记忆组 + 代理组）。</p>
+  <p class="e-line risk"><b>风险</b>v2.0.2-beta.1 仍是 beta，从 v1.x 升级必须走官方迁移工具；两组 LLM 参数配置使 30 分钟略紧；记忆质量取决于 embedding 与切分策略，宣称的省 token 幅度须用自己语料复测。*GitHub 元数据标 NOASSERTION，LICENSE 文件正文为 MIT 条款，可商用。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.05</b> / 5.00</div>
+</article>
+
+<!-- 03 Vexa-ai/vexa -->
+<article class="entry">
+  <div class="entry-no">03</div>
+  <div class="e-head">
+    <h2 class="e-name">Vexa <span>Vexa-ai/vexa</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,757</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">Python</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.13.1 · 2026-09-07</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>派机器人进 Google Meet / Teams / Zoom 实时回传带说话人标注的转录，并把会议沉淀成你自己拥有的 Markdown 知识库。</em></p>
+  <p class="e-line"><b>痛点</b>Otter / Fireflies / Gong 把会议内容送进对方云端再租回给你；Vexa 反过来——栈跑在自己机器上、模型自己指定，产出是你 git 仓库里可 diff、可 grep 的文件。</p>
+  <p class="e-line"><b>谁付钱</b>托管服务 vexa.ai 已在收费（按 bot 与转录时长），金融政企可买私有化部署；转录 API 本身即一个独立产品，可只买这一层。</p>
+  <p class="e-line"><b>规模化</b>会议转录跨行业通用，API + Docker Compose 交付标准；真正的门槛是 bot 舰队——其他「chat with your docs」工具都从已有转录稿才起步。</p>
+  <p class="e-line"><b>边际成本</b><em>中</em> —— 每场会议要跑一个 bot 实例，占用真实 CPU 与内存，客户增长伴随实际资源开销，不趋近于零。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>curl -X POST "https://api.cloud.vexa.ai/bots" \
+  -H "X-API-Key: $API_KEY" -H "Content-Type: application/json" \
+  -d '{"platform":"google_meet","native_meeting_id":"abc-defg-hij","bot_name":"Vexa"}'</pre>
+  <p class="e-line">先到 <a href="https://vexa.ai/signin">vexa.ai/signin</a> 取 key；要跑全套（含沙箱知识 Agent）走仓库内 <code>docker compose</code> 一键栈，可完全离线部署。</p>
+  <p class="e-line risk"><b>风险</b>bot 入会涉及平台规则与参会者告知，合规是首要成本；Zoom / Teams 反自动化策略一旦变更会直接打断服务；Jitsi 仅「离线验证通过」，线上仍待验证；沙箱 Agent 层目前只能自托管。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.30</b> / 5.00</div>
+</article>
+
+<!-- 04 oceanbase/seekdb -->
+<article class="entry">
+  <div class="entry-no">04</div>
+  <div class="e-head">
+    <h2 class="e-name">seekdb <span>oceanbase/seekdb</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,915</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">C++</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v1.4.0 · 2026-08-27</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>MySQL 兼容的 AI Agent 状态库——向量 + 全文 + 标量一条 SQL 查完，还能 FORK/MERGE 出沙箱供 Agent 安全试错。</em></p>
+  <p class="e-line"><b>痛点</b>Agent 现在要同时养一套向量库、一套全文检索、一套业务库，数据割裂、成本翻倍；它把三套压成一个 MySQL 协议的嵌入式 / 服务端库。</p>
+  <p class="e-line"><b>谁付钱</b>做 Agent 平台的团队，直接替换 Pinecone / Weaviate / Elasticsearch 的组合账单；OceanBase 有商业版与云服务可承接。</p>
+  <p class="e-line"><b>规模化</b>Agent 状态存储跨行业通用，MySQL 协议 + LangChain / LlamaIndex / Dify 现成集成，交付形态统一。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 可嵌入式单进程运行，pip 装 pyseekdb 即用，无需额外集群与专用硬件。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>pip install pyseekdb
+# 官方「30-Second Try」：建库 → 插入 → 混合检索，三步跑完</pre>
+  <p class="e-line">需要与现有栈对齐可走服务端模式（MySQL 协议直连）；生态集成见 <a href="https://docs.seekdb.ai/">docs.seekdb.ai</a>。</p>
+  <p class="e-line risk"><b>风险</b>官方 1,523 QPS（10× Milvus、3× Elasticsearch）为自测基准，须用自己数据复跑；FORK/MERGE 沙箱是差异点也是最新面，稳定性待验证；生态绑定 OceanBase，走出其体系需评估迁移成本。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.20</b> / 5.00</div>
+</article>
+
+<!-- 05 trailofbits/coop -->
+<article class="entry">
+  <div class="entry-no">05</div>
+  <div class="e-head">
+    <h2 class="e-name">coop <span>trailofbits/coop</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 141</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">Rust</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.5.4 · 2026-07-14</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>一条命令起一台一次性虚拟机，让 Claude Code / Codex 在里面拿到 Docker、git、编译器全权限，而不碰宿主机。</em></p>
+  <p class="e-line"><b>痛点</b>企业不敢让 Agent 直连办公机与生产凭证；coop 把 Agent 的执行面关进可随时销毁的 microVM——隔离、可复现、创建与销毁都便宜。</p>
+  <p class="e-line"><b>谁付钱</b>要批量上 coding agent 却过不了安全评审的团队；Trail of Bits 本身做企业安全服务，可直接兜咨询与落地交付。</p>
+  <p class="e-line"><b>规模化</b>凡跑 Claude Code / Codex 的组织都需要，CLI + 模板镜像交付标准，不依赖驻场。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯编排层，复用 Firecracker / Lima 现成后端，无自研硬件，多开一个客户只是多起一台 VM。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>curl -fsSL https://raw.githubusercontent.com/trailofbits/coop/main/install.sh | bash
+coop setup &amp;&amp; cd ~/code/my-project &amp;&amp; coop up &amp;&amp; coop claude</pre>
+  <p class="e-line">Linux 下 <code>coop setup</code> 会自动装 Firecracker 并取 guest kernel；macOS 需先 <code>brew install lima</code>，否则 setup 直接失败。</p>
+  <p class="e-line risk"><b>风险</b>仅 141★、2026-04 才创建，属早期项目——成熟度是五项里最弱的一环；依赖 Linux KVM / Firecracker 或 macOS + Lima，<b>Windows 无法直接跑</b>；release 停在 07-14，镜像与工作区同步是最易踩的坑。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>3.85</b> / 5.00</div>
+</article>
+
+<section class="tail">
+  <h2>一、今日<em>首选</em></h2>
+  <p><b>jo-inc/camofox-browser</b>（加权 4.65）。它是今日唯一一条能在 30 分钟内用一条 <code>npm start</code> 证明「Agent 真的能上网」的账，替代的是按 GB 计的浏览器云账单，且 MIT 没有协议包袱。它的风险在合规，不在技术——先做内部数据采集场景，再谈对外服务。</p>
+</section>
+
+<section class="tail">
+  <h2>二、<em>组合观察</em></h2>
+  <p>五条全部是 Agent 从 demo 走进生产的必需品——能上网（camofox）、记得住（TencentDB Agent Memory）、进得了会议（Vexa）、存得下状态（seekdb）、跑得安全（coop），<b>模型本身一条都没有</b>。共同点是全部可自托管、全部 MIT / Apache-2.0：钱不再赚在「AI 能干什么」，而赚在「让 AI 能开工」的地基上。</p>
+  <p>值得注意的是两条主流都在做「接管现有入口」——camofox 接管浏览器请求、TencentDB Agent Memory 接管模型 API 的 base URL。不改造客户的工作流，只在链路上插一层，这是当前落地阻力最小的形态。</p>
+  <p>具身与仿真方向当日仍无合格标的：RoboTwin 2.0 是 ICML 2026 论文代码（纯论文复现）、RLinf 需 GPU 训练集群（边际成本高）、OM1 依赖机器人本体（触发重硬件否决）。</p>
+</section>
+
+<section class="tail">
+  <h2>三、暂<em>不建议碰</em></h2>
+  <ol>
+    <li><b>hyperframes</b>（heygen-com/hyperframes，⭐ 46,000，今日 +474）— 写 HTML 渲染视频、为 Agent 而生，热度真实；但它是 HeyGen 商业视频云的引流前端，渲染能力绑定自家服务，第三方既无定价权也无差异化，热度归 HeyGen 不归使用者。</li>
+    <li><b>LunaTV</b>（MoonTechLab/LunaTV，⭐ 9,739，今日 +197）— README 明确写「CC BY-NC-SA，禁止任何商业化行为，任何衍生项目必须保留项目地址并以相同协议开源」，直接踩 License 一票否决，转手即侵权。</li>
+  </ol>
+</section>
+
+<div class="colophon">
+  <span>Daily Github · NO.05 · 五维加权筛选</span>
+  <span>数据实检于 2026-09-08 · GitHub API + Trending 月榜 + HN Algolia</span>
+</div>
+
+</div>
+</body>
+</html>

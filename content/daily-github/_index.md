@@ -8,6 +8,11 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分条与逐条拆解）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-08-1000.html">
+    <div class="da-card-date">2026-09-08 · 10:00 · NO.05</div>
+    <div class="da-card-main">今日五条没有一条是模型，全是 <b>让 Agent 能开工的地基</b>。<b>camofox-browser</b>（9,776★，MIT）C++ 层改指纹的反检测浏览器服务器，替代按 GB 计费的 Browserbase / ScrapingBee，一条 <code>npm start</code> 即可验证——今日首选；<b>TencentDB Agent Memory</b>（26,115★，月增 +8,875）腾讯云团队级记忆中心，一个 Proxy 接管 base URL、跨端零代码接入；<b>Vexa</b>（2,757★，Apache-2.0）派 bot 进 Meet / Teams / Zoom 实时转录，托管已在收费；<b>seekdb</b>（2,915★）MySQL 兼容的 Agent 状态库，向量+全文+标量一条 SQL；<b>coop</b>（141★）Trail of Bits 出品的 microVM 隔离跑 Claude Code / Codex。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-06-1015.html">
     <div class="da-card-date">2026-09-06 · 10:15 · NO.04</div>
     <div class="da-card-main">今日五条落在两个方向。<b>OpenViking</b>（35,674★，月增 +7,811）把 Agent 的记忆/资源/技能收进 <code>viking://</code> 虚拟文件系统，三级按需加载，但 AGPL-3.0；<b>AI-Infra-Guard</b>（6,150★，月增 +1,779，Apache-2.0）腾讯朱雀实验室的 AI 红队平台，Agent / MCP / Skills 全扫；<b>LibreDesk</b>（2,880★）单二进制自托管客服台，直接替换 Zendesk / Intercom 每席位 55–115 美元月费——今日首选；<b>Tracely</b>（1,192★，MIT）把生产失败 trace 冻结成回归用例并在 PR 上拦截；<b>sandboxd</b>（929★，MIT）自托管 AI 应用构建引擎，替代 Lovable / v0 / Bolt。</div>
