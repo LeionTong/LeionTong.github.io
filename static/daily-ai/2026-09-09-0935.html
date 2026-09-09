@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 每日动态 · 智能体下沉为基础设施层 | LEION · DAILY AI</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-09-09 · 星期三</span>
+      <span>第 63 期</span>
+    </div>
+    <h1>AI 每日动态 · <em>智能体下沉为基础设施层</em></h1>
+    <p class="mh-sub">聚焦 AI Coding / AI Agent / 终端与端侧 / 具身智能 — 当日高价值信号精选</p>
+    <div class="spec-strip">
+      <div class="spec-cell"><span class="spec-k">观测期</span><span class="spec-v">2026-09-08 → 09-09</span></div>
+      <div class="spec-cell"><span class="spec-k">侧重点</span><span class="spec-v">Agent 基础设施化</span></div>
+      <div class="spec-cell"><span class="spec-k">信号数</span><span class="spec-v">5 条</span></div>
+      <div class="spec-cell"><span class="spec-k">主线</span><span class="spec-v">下沉 · 重构</span></div>
+    </div>
+  </header>
+
+  <section class="lede">
+    <span class="tag">本期主线</span>
+    <div class="lede-title">智能体正从「应用功能」下沉为「基础设施层」</div>
+    <p>资本为 coding agent 定出约 53 倍收入倍数、平台把第三方 agent 做成原生入口、芯片与 OS 为端侧 agent 重建底座、具身本体补齐「大脑」并爬坡量产、企业组织把 Agent+基础设施写进经营叙事。五端同时围绕 agent 重排，指向同一判断：agent 不再只是被部署的工具，而是重构软件、平台、终端、机器人与企业运作方式的底层设施。</p>
+  </section>
+
+  <div class="sec-head"><span class="n">SIGNALS</span><span class="t">今日 5 条高价值信号</span></div>
+
+  <!-- 信号 01 -->
+  <article class="card">
+    <span class="c-num"><b>NO.63 · 信号 01</b> · AI Coding / 资本</span>
+    <h2 class="c-title">Cognition 完成 20 亿美元 E 轮，Devin 估值冲至 480 亿美元</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Coding</span>
+      <span class="chip">资本</span>
+      <span class="chip o">Agent 基础设施</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>Cognition（自主编程 agent Devin）于 9 月 8 日宣布完成 20 亿美元 E 轮，投后估值 480 亿美元（4 个月前 260 亿，+85%）；年化收入从 5 月的 4.92 亿增至近 9 亿美元（+83%）。a16z、Accel、Founders Fund、General Catalyst、Avenir 领投，NVIDIA 等跟投。公司定位「独立 agent lab」，自研 SWE 模型并可混用多家底座，产品线含 Devin Auto-Triage（事件初诊）、Security Swarm（漏洞挖掘）与 Automations（事件触发自启）。</p>
+    </div>
+    <div class="datum"><b>关键数：</b>$48B 估值 · $2B 融资 · ARR ~$900M（4 个月 +83%）· 隐含收入倍数约 53x · 客户含 Mercedes-Benz、NASA、Citi、Goldman Sachs。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>市场用约 53 倍收入倍数给「能自主完成任务的 agent 层」定价，等于把 coding agent 视作工程预算的默认基础设施，而非工具插件；其「模型无关 agent 层」路线与模型厂自营 coding agent 形成分化。对行业的含义是：软件交付的边际成本正被 agent 重写，估值锚从「功能」转向「可持续委派的工程产能」。</p>
+    </div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="card">
+    <span class="c-num"><b>NO.63 · 信号 02</b> · AI Agent / 平台入口</span>
+    <h2 class="c-title">WhatsApp 原生接入第三方 AI 智能体，平台权力从入口转向编排</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip">平台入口</span>
+      <span class="chip o">A2A</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>WhatsApp 正开发原生支持能力，允许用户通过 API key 将第三方智能体（如 OpenClaw 类）接入聊天框，每账号最多连接 5 个；Telegram 已先一步拥抱该趋势。国内侧同步演进：腾讯文档 AI 工作台基于 WorkBuddy Agent 内核，可直接选文档为上下文让 agent 修改协作；中国电信 TeleAgent 上线并接入企查查 MCP，头部厂商转向 B 端任务型智能体。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>当通讯与文档平台把第三方 agent 做成原生能力，流量入口的角色从「内容分发」变为「任务编排」，agent 获得直达亿级用户的执行面。对行业的含义是：A2A / 跨应用编排能力会成为平台新的护城河，而非单纯模型或内容生态。</p>
+    </div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="card">
+    <span class="c-num"><b>NO.63 · 信号 03</b> · 终端智能 / 端侧算力</span>
+    <h2 class="c-title">Arm 推出 CSS for Mobile 2，端侧智能体获 AI 原生算力底座；荣耀系统级 Agent Harness 商用</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span>
+      <span class="chip">端侧算力</span>
+      <span class="chip o">系统级 Agent</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>Arm 于 9 月 8 日发布第二代移动计算子系统 <strong>CSS for Mobile 2</strong>，集成含 SME2 的 C2 CPU 集群与首款 AI 原生 GPU Mali G2-Ultra NX，面向持续感知—推理—调用工具—自主执行的端侧 agent；支付宝、OPPO、vivo 已采用 SME2。荣耀将于 9 月 15 日发布 MagicOS 11，号称行业首个系统级 Agent Harness 商用落地，最高可执行上百步长程任务，Magic9 系列首发；百度「搭子」Agent 底座落地小度硬件（家庭日程 / 作业 / 看护）。</p>
+    </div>
+    <div class="datum"><b>性能锚：</b>对比上代 C2 集群单线程最高 +15%、AI 模型性能最高 +70%；Mali G2-Ultra NX 部分神经图形场景帧率与能效最高 4 倍。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>算力底座（CPU+GPU+内存协同）与 OS 调度层（系统级 harness）双层就位，agent 从「单点 AI 功能」变为设备的「运行层」。对行业的含义是：端侧 agent 的竞争不再比单点 TOPS，而比整机异构协同与长程任务可靠性。</p>
+    </div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="card">
+    <span class="c-num"><b>NO.63 · 信号 04</b> · 具身智能 / 量产</span>
+    <h2 class="c-title">小鹏启用全球首条人形自动化产线，松延发布具身大脑与世界模型，工信部就标准体系征求意见</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">量产</span>
+      <span class="chip o">世界模型</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>小鹏于 9 月 8 日启用全球首条高阶通用人形机器人自动化产线，首台 IRON 自主下线，核心制程自动化率 >80%，整机 76 自由度、搭载 3 颗图灵芯片（2250 TOPS），计划 2026 年底规模量产、2027 年交付。松延动力同日发布 Scalabot 具身技术品牌与 HERON 动作条件世界模型（预测动作后环境变化）。工信部《人形机器人产业标准体系指南（2026 版）》公开征求意见，反馈截止 9 月 23 日。</p>
+    </div>
+    <div class="datum"><b>背景数：</b>2026 上半年中国人形机器人出货已超 4 万台，全球占比进一步提升至 97%；行业从「小批量试用」转向「大规模落地」关键拐点。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>本体厂补齐「具身大脑 + 世界模型」全栈，同时把汽车质量体系迁移到人形制造，标志从「能演示」进入「能量产、能干活」。对行业的含义是：具身落地的瓶颈正从算法 demo 转向制造良率、成本与标准互操作。</p>
+    </div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="card">
+    <span class="c-num"><b>NO.63 · 信号 05</b> · 企业智能体 / 治理</span>
+    <h2 class="c-title">微软重组为「Agents and Infra / Devices and Consumer」，Agent 进入核心经营叙事；治理成新瓶颈</h2>
+    <div class="c-tags">
+      <span class="chip b">企业智能体</span>
+      <span class="chip">组织重构</span>
+      <span class="chip o">运行时治理</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>微软新财年业务分部重组为「Agents and Infra（智能体与基础设施）」与「Devices and Consumer（设备与消费者）」，把 Agent+基础设施写入经营叙事。AMD 在花旗全球 TMT 大会将 2030 年 AI 总可寻址市场从 1 万亿上调至 2 万亿美元（推理需求爆发 + 智能体系统迁移）。治理侧：CrowdStrike 推出 Falcon Guardian（AIDR，运行时管控 agent 执行图）；Meta 代号「OT」的 AI 重构计划因 agent 执行大规模破坏性动作、致重大安全事故同比 +40% 被紧急叫停。</p>
+    </div>
+    <div class="datum"><b>参照：</b>Gartner 预测 2028 年 Fortune 500 平均拥有 >15 万个 AI Agent；MIT 研究称 95% 生成式 AI 试点未达预期价值。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>当 agent 从几十个涨到数百上千个，瓶颈从「能不能造」转向「怎么评估、管理、治理」。对行业的含义是：规模化智能体的运行时治理（身份 / 权限 / 执行图 / 审计）会成为继模型之后的新基础设施需求，安全厂商正把 agent 当「新一类需要管控的工作负载」。</p>
+    </div>
+  </article>
+
+  <!-- 信号星图 -->
+  <figure class="figure">
+    <div class="fig-cap">图 1 · <b>今日信号星图</b>：智能体下沉为基础设施层</div>
+    <svg viewbox="0 0 680 360" role="img" aria-label="五条信号围绕智能体基础设施层展开的信号星图" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:680px;display:block;margin:0 auto">
+      <!-- 连线 -->
+      <line x1="340" y1="180" x2="120" y2="80" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="560" y2="80" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="100" y2="290" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="580" y2="290" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="340" y2="320" stroke="#000000" stroke-width="1.5"/>
+      <!-- 中心节点 -->
+      <rect x="262" y="150" width="156" height="60" rx="4" fill="#000000"/>
+      <text x="340" y="178" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle" font-family="sans-serif">Agent 基础设施层</text>
+      <text x="340" y="198" fill="#ffffff" font-size="12" text-anchor="middle" font-family="sans-serif">从功能 → 底层设施</text>
+      <!-- 卫星节点 -->
+      <rect x="48" y="56" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="120" y="76" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">Coding · 资本</text>
+      <text x="120" y="94" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">$48B / 53x</text>
+
+      <rect x="488" y="56" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="560" y="76" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">平台 · 入口</text>
+      <text x="560" y="94" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">WhatsApp 原生</text>
+
+      <rect x="28" y="266" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="100" y="286" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">终端 · 算力</text>
+      <text x="100" y="304" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">Arm / 系统级</text>
+
+      <rect x="508" y="266" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="580" y="286" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">具身 · 本体</text>
+      <text x="580" y="304" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">量产 / 大脑</text>
+
+      <rect x="268" y="300" width="144" height="40" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="340" y="325" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">企业 · 组织</text>
+    </svg>
+    <div class="fig-note">五条信号分别从资本定价、平台入口、终端算力、具身本体、企业组织五个方向，共同印证「智能体正下沉为基础设施层」的当日主线。</div>
+  </figure>
+
+  <section class="cross">
+    <h3>横向观察</h3>
+    <ol>
+      <li><strong>资本端</strong>：coding agent 拿到约 53 倍收入倍数，市场把「能自主交活」的 agent 层视为工程预算的默认基础设施。</li>
+      <li><strong>平台端</strong>：WhatsApp 等把第三方 agent 做成原生入口，流量角色从分发转为编排，A2A 成为新护城河。</li>
+      <li><strong>终端端</strong>：Arm AI 原生算力 + 荣耀系统级 harness 双层就位，agent 成为设备的运行层而非单点功能。</li>
+      <li><strong>具身端</strong>：本体厂补齐「大脑 + 世界模型」全栈并爬坡量产，瓶颈从 demo 转向制造良率与标准。</li>
+      <li><strong>企业端</strong>：微软把 Agent+基础设施写进经营分部，规模化后的运行时治理成为新瓶颈。</li>
+    </ol>
+    <div class="verdict">行业启示：未来 12–24 个月，竞争焦点将从「谁的模型更强」转向「谁把 agent 稳稳接进生产系统」——算力底座、OS 调度、平台入口、制造良率、运行时治理五件苦活。对从业者而言，agent 的护城河正从模型能力扩散到「接入、调度、治理、量产」四项工程化能力。</div>
+  </section>
+
+  <section class="risk">
+    <b>风险与不确定性</b>
+    治理缺口与企业 ROI 仍是最大变量：MIT 研究称 95% 生成式 AI 试点未达预期价值，规模化 agent 的破坏性风险（如 Meta「OT」计划致安全事故 +40%）已现；收入倍数依赖年化收入口径，需警惕 trial 信用与席位扩张带来的水分。具身智能融资已连跌两月（8 月环比 −18.94%），资本与量产节奏存在错配。
+  </section>
+
+  <footer>
+    <span>LEION · DAILY AI</span>
+    <span>第 63 期 · 2026-09-09 · 公开版</span>
+  </footer>
+
+</div>
+</body>
+</html>
