@@ -62,6 +62,12 @@ theme = 'PaperMod'
   weight = 18
 
 [[menu.main]]
+  identifier = 'daily-terminal'
+  name = 'Daily Terminal'
+  url = '/daily-terminal/'
+  weight = 19
+
+[[menu.main]]
   identifier = 'archive'
   name = 'Archive'
   url = '/archives/'
