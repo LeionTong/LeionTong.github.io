@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-09-1013.html">
+    <div class="da-card-date">2026-09-09 · 10:13</div>
+    <div class="da-card-title">五笔老账：把成熟账单拆成自己的软件</div>
+    <div class="da-card-main">今日五条没有一个新模型。hyperframes 让视频变成代码，TimesFM 让预测变成一个 pip 包，Mailflare 把邮箱席位搬回 Cloudflare，Patter 拆掉语音平台的分钟加价，HFlow 管住具身数据的血缘——全是已经收了多年钱、如今可被软件顶掉的账目。三条在 License 或合规上留了钩子，替换前先算清边界。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-08-1000.html">
     <div class="da-card-date">2026-09-08 · 10:00</div>
     <div class="da-card-title">五仓入库：让 Agent 能开工的五样必需品</div>
