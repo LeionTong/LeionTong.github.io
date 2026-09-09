@@ -779,8 +779,8 @@ body{background:#ffffff!important;color:#000000!important;
   </header>
 
   <section class="scale-box">
-    <div class="cap">MEASURING RANGE — 今晚五条信号在「可信度刻度」上的落点</div>
-    <svg class="vernier" viewbox="0 0 940 132" role="img" aria-label="游标卡尺刻度，标注五条信号的可信度落点">
+    <div class="cap">MEASURING RANGE — 今晚信号在「可信度刻度」上的落点</div>
+    <svg class="vernier" viewbox="0 0 940 132" role="img" aria-label="游标卡尺刻度，标注信号的可信度落点">
       <!-- main rule -->
       <line x1="20" y1="52" x2="920" y2="52" stroke="#5b655e" stroke-width="1.2"/>
       <!-- ticks -->
@@ -852,12 +852,12 @@ body{background:#ffffff!important;color:#000000!important;
   <section class="lede">
     <div class="lede-h">Today's Main Line</div>
     <div class="lede-zh">今日主线 · 刻度之夜</div>
-    <p>白天讲的是边界、入口和围栏，夜里露出的是更根上的一件事：<strong>我们手里没有可信的刻度</strong>。今晚五条信号，四条在补刻度或绕开刻度——腾讯把 Agent 记忆做成带 ACL、版本与审计的资产账本；ITSMBench 给企业任务出了一把更难的新尺子，并顺带暴露「判官本身有多不准」；优艾智合干脆不信概率输出，把确定性蒸馏进模型结构；智元则把评测轴从静态图文挪到真实场景的声画同步。第五条把地基向下压到 8 美元的单片机与 2GB 内存里。</p>
+    <p>白天讲的是边界、入口和围栏，夜里露出的是更根上的一件事：<strong>我们手里没有可信的刻度</strong>。今晚这几条，四条在补刻度或绕开刻度——腾讯把 Agent 记忆做成带 ACL、版本与审计的资产账本；ITSMBench 给企业任务出了一把更难的新尺子，并顺带暴露「判官本身有多不准」；优艾智合干脆不信概率输出，把确定性蒸馏进模型结构；智元则把评测轴从静态图文挪到真实场景的声画同步。第五条把地基向下压到 8 美元的单片机与 2GB 内存里。</p>
     <p><strong>可信不是声明出来的，是被测量和结构约束出来的</strong>；量不准，就谈不上放手。</p>
     <span class="kicker">Thesis — trust is measured & structurally enforced, not declared.</span>
   </section>
 
-  <div class="sec-label">Signals · 五条信号</div>
+  <div class="sec-label">Signals · 信号</div>
 
   <article class="card c1">
     <div class="chead">
@@ -870,7 +870,7 @@ body{background:#ffffff!important;color:#000000!important;
 
       <p>腾讯云 <span class="k">TencentDB Agent Memory</span> 于 2026 年 7 月发布 <strong>2.0.0 beta 并首次公开开源</strong>，7 月 30 日出现体系化解读。它不做「更大的上下文窗口」，而是把团队记忆拆成四类可继承资产：<em>Memory</em>（对话异步提炼的长期画像）、<em>LLM-Wiki</em>（PRD／接口说明／运维手册／知识索引）、<em>Code Graph</em>（文件、符号、函数、调用链与影响范围）、<em>Skill</em>（团队 SOP、工具链、检查项封装为执行单元）。</p>
 
-      <p>工程核心是<strong>资产目录</strong>，为每份资产标注 <span class="k">identity / scope / trust / lifecycle / governance / usage</span>——这是什么、属于哪个团队与仓库、来源证据是什么、谁能看谁能改、在哪些任务里被引用过。三个组件分工明确：<strong>Memory Core</strong> 作为事实源承载 ACL、版本、审计与绑定关系；<strong>Memory Hub</strong>（Panel + Knowledge）做管理面；<strong>Memory Proxy</strong> 站在 Agent 与资产之间，按 team／agent／task／role 做召回、上下文编排、<em>权限过滤、token 预算控制与审计</em>——不是把资产全塞进上下文，而是按任务相关性和预算做选择。Core / Hub / Proxy 及 TypeScript、Python SDK 均已开源，可一键拉起三件套。公开评测 PersonaMem 上，启用后总回答准确率由 <span class="k">48% → 76%</span>（相对提升约 59%）。</p>
+      <p>工程核心是<strong>资产目录</strong>，为每份资产标注 <span class="k">identity / scope / trust / lifecycle / governance / usage</span>——这是什么、属于哪个团队与仓库、来源证据是什么、谁能看谁能改、在哪些任务里被引用过。三个组件分工明确：<strong>Memory Core</strong> 作为事实源承载 ACL、版本、审计与绑定关系；<strong>Memory Hub</strong>（Panel + Knowledge）做管理面；<strong>Memory Proxy</strong> 站在 Agent 与资产之间，按 team／agent／task／role 做召回、上下文编排、<em>权限过滤、token 预算控制与审计</em>——不是把资产全塞进上下文，而是按任务相关性和预算做选择。Core / Hub / Proxy 及 TypeScript、Python SDK 均已开源，可一键拉起整套。公开评测 PersonaMem 上，启用后总回答准确率由 <span class="k">48% → 76%</span>（相对提升约 59%）。</p>
 
       <div class="blk">
         <div class="bh">Why it matters</div>

@@ -652,11 +652,11 @@ body{background:#ffffff!important;color:#000000!important;
 <div class="lede">
   <span class="tag">本期主线</span>
   <div class="lede-title">单体能力的叙事仗已经打完，竞争转向「能在约束内长期、可信、可结算地跑」的四件事：本地化（数据不出设备）、货币化（机器自己付钱）、规模化（进产线/进团队）、治理化（身份与审计）</div>
-  <p>今天的五条信号锚定同一个转向——Agent 不再比「谁更会做」，而比「谁能在边界内持续运转」。<strong>本地端</strong>，Perplexity 把整套 Agent 运行时（编排器 + 子代理 + harness）压到本地 DGX Spark，离云前先过 PII 分类器与用户授权，把「数据主权」做成默认；<strong>货币端</strong>，Cloudflare 用 Kitesurf（无头浏览器）+ Wallets（封顶额度委托）+ x402（稳定币按请求计费）给 Agent 配齐「自己浏览、自己付钱」闭环，20+ 公司已跑通 agent 发起支付；<strong>规模端</strong>，具身智能从 WRC 的「演示者」跨进工信部「作业模式」——年底百个以上高价值场景、万台级落地能力；<strong>治理端</strong>，GitHub Copilot 进 Slack/Teams、Gartner 称 45% FTSE100 关键职能由多智能体系统管理、Google Agent Identity 与 AWS AgentCore 注册表把 agent 身份与权限做成平台原语。一句话：<strong>稀缺资源从「能力」换成「约束内运行」的四件套</strong>——这正是终端 / 具身落地前要亲手补的底座。</p>
+  <p>同一个转向贯穿这几条——Agent 不再比「谁更会做」，而比「谁能在边界内持续运转」。<strong>本地端</strong>，Perplexity 把整套 Agent 运行时（编排器 + 子代理 + harness）压到本地 DGX Spark，离云前先过 PII 分类器与用户授权，把「数据主权」做成默认；<strong>货币端</strong>，Cloudflare 用 Kitesurf（无头浏览器）+ Wallets（封顶额度委托）+ x402（稳定币按请求计费）给 Agent 配齐「自己浏览、自己付钱」闭环，20+ 公司已跑通 agent 发起支付；<strong>规模端</strong>，具身智能从 WRC 的「演示者」跨进工信部「作业模式」——年底百个以上高价值场景、万台级落地能力；<strong>治理端</strong>，GitHub Copilot 进 Slack/Teams、Gartner 称 45% FTSE100 关键职能由多智能体系统管理、Google Agent Identity 与 AWS AgentCore 注册表把 agent 身份与权限做成平台原语。一句话：<strong>稀缺资源从「能力」换成「约束内运行」</strong>——这正是终端 / 具身落地前要亲手补的底座。</p>
 </div>
 
 <div class="figure">
-  <div class="fig-cap">图 01 — <b>五条信号的位置</b>  |  能力已就位轴 × 约束纪元四象限（本地化 / 货币化 / 规模化 / 治理化），今日信号分布</div>
+  <div class="fig-cap">图 01 — <b>信号的位置</b>  |  能力已就位轴 × 约束纪元四象限（本地化 / 货币化 / 规模化 / 治理化），今日信号分布</div>
   <svg viewbox="0 0 872 322" width="100%" role="img" aria-label="信号星图：左侧为已就位的单体智能体能力，右侧为约束纪元四象限（本地化/货币化/规模化/治理化）——Perplexity 本地运行时、面壁三重跃迁落本地化，Cloudflare x402 落货币化，具身作业模式落规模化，Agent 治理企业化落治理化">
     <defs>
       <marker id="ao3" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
@@ -719,7 +719,7 @@ body{background:#ffffff!important;color:#000000!important;
 
 <div class="sec-head">
   <span class="n">SIGNALS / 05</span>
-  <span class="t">当日五条信号</span>
+  <span class="t">当日信号</span>
 </div>
 
 <div class="card">
@@ -758,7 +758,7 @@ body{background:#ffffff!important;color:#000000!important;
 
   <div class="blk">
     <span class="blk-k">事件</span>
-    <p>Cloudflare 在跨三周的三次发布里，给出 Agent 自主经济的完整三件套（8/24 被多家媒体作为「Agent 首次能无人在环地浏览与付费」合并同类项）：</p>
+    <p>Cloudflare 在跨三周的三次发布里，给出 Agent 自主经济的完整套件（8/24 被多家媒体作为「Agent 首次能无人在环地浏览与付费」合并同类项）：</p>
     <ul>
       <li><strong>Kitesurf</strong>：用 Rust 写、跑在 Workers V8 isolates 上的<em class="hl">无 Chromium 无头浏览器</em>，截图与 HTML 抽取比传统方案省 <strong>3–7× CPU 与内存</strong>；讲 Chrome DevTools Protocol，故现有 Playwright / Puppeteer 客户端可直接用。免费 beta。</li>
       <li><strong>Wallets</strong>：人类注资账户、把<em class="hl">封顶额度委托</em>给 Agent，让机器在额度内自主支配。</li>
@@ -769,7 +769,7 @@ body{background:#ffffff!important;color:#000000!important;
 
   <div class="blk why">
     <span class="blk-k">为什么值得关注</span>
-    <p>Agent 第一次同时拿到「<strong>浏览器（感知外部世界）+ 钱包（支配资金）+ 支付轨（结算）</strong>」三件套，能无人在环地浏览与付费——这是「机器管钱 / 签字」长期主线的工程兑现（此前 08-05 仅为架构设想）。对 AI coding / Agent 赛道，这意味着 agent 不只是「写代码」，而是能「自己采购依赖、自己付 API 费、自己结算任务」。</p>
+    <p>Agent 第一次同时拿到「<strong>浏览器（感知外部世界）+ 钱包（支配资金）+ 支付轨（结算）</strong>」三项组合，能无人在环地浏览与付费——这是「机器管钱 / 签字」长期主线的工程兑现（此前 08-05 仅为架构设想）。对 AI coding / Agent 赛道，这意味着 agent 不只是「写代码」，而是能「自己采购依赖、自己付 API 费、自己结算任务」。</p>
     <p><strong>风险面也正是治理面</strong>：谁来为 Agent 的采购签字、封顶额度能否在网络层真正硬约束、稳定币收付费的责权框架，目前仍缺位——这与本期信号 05 的治理化互为表里。</p>
   </div>
 
@@ -861,10 +861,10 @@ body{background:#ffffff!important;color:#000000!important;
   <ol>
     <li><strong>主线连续性</strong>：7 月底「边界划定」→ 8 月中「模型之外那一层 / 可持久可信可跨本体」→ 8/25「自治三落地面（就地训练/就近推理/就绪量产）」→ 今日「约束纪元四象限（本地化/货币化/规模化/治理化）」。叙事从「能力→底座」推进到「能力→约束内运行」，焦点进一步收口为「能在边界内持续运转」。</li>
     <li><strong>交叉验证</strong>：01（Perplexity 官方发布 / VentureBeat / Gizmodo）、02（Cloudflare 官方 + 多家媒体）、03（人民网财经研究院金台圆桌）、04（央广网 / 人民日报 / 光明日报）、05（GitHub 官方 / Gartner 报告 / Google / AWS 发布说明）均为一级或权威信源，中高可信。</li>
-    <li><strong>与历史卡片零重复</strong>：本期补的是 8/25 晚间—8/27 的增量——本地 Agent 运行时（Perplexity）、Agent 货币化三件套（Cloudflare x402）、终端三重跃迁（面壁）、具身作业模式/万台级（工信部实景实训）、Agent 规模化治理（Copilot 进团队 / Gartner / Agent Identity）。此前各期未覆盖。</li>
+    <li><strong>与历史卡片零重复</strong>：本期补的是 8/25 晚间—8/27 的增量——本地 Agent 运行时（Perplexity）、Agent 货币化三项（Cloudflare x402）、终端三重跃迁（面壁）、具身作业模式/万台级（工信部实景实训）、Agent 规模化治理（Copilot 进团队 / Gartner / Agent Identity）。此前各期未覆盖。</li>
     <li><strong>诚实边界</strong>：Perplexity 85.4% 为其自测 53 任务基准；Cloudflare 货币化闭环的生态成熟度与责权框架仍待观察；面壁「密度定律」为厂商经验规律；Gartner 45% 为厂商报告口径。本报不构成投资建议。</li>
   </ol>
-  <div class="verdict">本期一句话：当「会不会做」被解决，下一程真正稀缺的是<strong>「能在约束内长期、可信、可结算地跑」</strong>——本地化（数据主权）、货币化（机器付费）、规模化（进产线/进团队）、治理化（身份审计）四件套同时就位，才是终端与具身智能落地的真地基。</div>
+  <div class="verdict">本期一句话：当「会不会做」被解决，下一程真正稀缺的是<strong>「能在约束内长期、可信、可结算地跑」</strong>——本地化（数据主权）、货币化（机器付费）、规模化（进产线/进团队）、治理化（身份审计）这四项同时就位，才是终端与具身智能落地的真地基。</div>
   <div class="risk"><b>风险与未决</b>货币化与治理化的责权法律框架仍空白；端侧跨芯片（Apple Silicon / macOS）适配是真门槛；具身落地速度取决于数据闭环而非单点硬件，标准滞后与「各自为战」是工信部专家直陈的系统性挑战。</div>
 </div>
 

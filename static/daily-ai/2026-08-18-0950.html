@@ -676,11 +676,11 @@ body{background:#ffffff!important;color:#000000!important;
 <div class="lede">
   <span class="tag">本期主线</span>
   <div class="lede-title">从一个 Agent 到一支舰队，代价浮现在模型之外的四处</div>
-  <p>今天的五条信号有一个共同前提：智能体已经不再是「单点调用」，而是成规模的<strong>舰队</strong>。而规模化的账单，没有落在模型能力上——落在<strong>算力结构</strong>（AMD 实测：真实智能体流水线 8 个阶段有 7 个完全跑在 CPU 上，AWS 已下令不惜代价节省 CPU）、<strong>治理形态</strong>（ABC Legal 把 agent 当代码管，50+ 个在产、改动只走 PR）、<strong>交付面</strong>（Claude Code <code>/design</code> 让评审从读计划变成看画布）、<strong>端侧硅与制造底座</strong>（瑞芯微净利 +61.73%；三星硬性规定新出厂设备预装 AI-Agent）、以及<strong>具身数据</strong>（京东两年 1000 万小时真实场景数据）。一句话：<em class="hl">「会不会做」早已不是问题，「摊得起多少」才是</em>。</p>
+  <p>它们有一个共同前提：智能体已经不再是「单点调用」，而是成规模的<strong>舰队</strong>。而规模化的账单，没有落在模型能力上——落在<strong>算力结构</strong>（AMD 实测：真实智能体流水线 8 个阶段有 7 个完全跑在 CPU 上，AWS 已下令不惜代价节省 CPU）、<strong>治理形态</strong>（ABC Legal 把 agent 当代码管，50+ 个在产、改动只走 PR）、<strong>交付面</strong>（Claude Code <code>/design</code> 让评审从读计划变成看画布）、<strong>端侧硅与制造底座</strong>（瑞芯微净利 +61.73%；三星硬性规定新出厂设备预装 AI-Agent）、以及<strong>具身数据</strong>（京东两年 1000 万小时真实场景数据）。一句话：<em class="hl">「会不会做」早已不是问题，「摊得起多少」才是</em>。</p>
 </div>
 
 <div class="figure">
-  <div class="fig-cap">图 01 — <b>舰队化的成本落点</b>  |  规模轴 × 四个成本中心，今日五条信号的位置</div>
+  <div class="fig-cap">图 01 — <b>舰队化的成本落点</b>  |  规模轴 × 四个成本中心，信号分布</div>
   <svg viewbox="0 0 872 404" width="100%" role="img" aria-label="智能体舰队化成本落点图：上方为规模轴从单个 Agent 到数百万子 Agent，下方为算力结构、治理形态、端侧硅、具身数据四个成本中心">
     <defs>
       <marker id="ao" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
@@ -768,13 +768,13 @@ body{background:#ffffff!important;color:#000000!important;
     <text x="22" y="388" font-family="Courier Prime,monospace" font-size="10.5" fill="#1d4e78">结论：规模化的约束条件是「摊薄单位成本」，而不是「提升单点能力」——这决定了今天的采购与选型判据。</text>
   </svg>
   <div class="fig-note">
-    读法：上半部是规模轴——Agent 从单次调用扩到企业级的数十万乃至数百万个子 Agent；下半部是账单落点。请注意四个成本中心都不在「模型层」：算力结构错配（CPU 而非 GPU）、治理形态（agent 必须像代码一样被 review）、端侧硅与制造底座、具身真实数据供给。今日五条信号分别落在这四处。
+    读法：上半部是规模轴——Agent 从单次调用扩到企业级的数十万乃至数百万个子 Agent；下半部是账单落点。请注意四个成本中心都不在「模型层」：算力结构错配（CPU 而非 GPU）、治理形态（agent 必须像代码一样被 review）、端侧硅与制造底座、具身真实数据供给。这几条分别落在这四处。
   </div>
 </div>
 
 <div class="sec-head">
   <span class="n">SIGNALS</span>
-  <span class="t">五条信号 · 逐条解读</span>
+  <span class="t">信号 · 逐条解读</span>
 </div>
 
 <div class="card">
@@ -908,7 +908,7 @@ body{background:#ffffff!important;color:#000000!important;
   </ol>
 
   <div class="verdict">
-    <strong>一句话判断</strong>：当模型「会不会做」不再稀缺，智能体成规模后的真正约束是<em class="hl">「摊得起多少」</em>——把单位成本摊薄的能力，正在四处显形：CPU 供给（算力）、GitOps 治理（可审计）、端侧专用硅（本地化）、真实数据（供给）。今天五条信号分别在这四处按下同一个逻辑：稀缺的从来不是「能做一次」，而是「能做一百万次还查得清、摊得起」。
+    <strong>一句话判断</strong>：当模型「会不会做」不再稀缺，智能体成规模后的真正约束是<em class="hl">「摊得起多少」</em>——把单位成本摊薄的能力，正在四处显形：CPU 供给（算力）、GitOps 治理（可审计）、端侧专用硅（本地化）、真实数据（供给）。这四处按下同一个逻辑：难点不在做一次，而在规模化之后还查得清、摊得起。
   </div>
 
   <div class="risk">
