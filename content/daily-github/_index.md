@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-10-1016.html">
+    <div class="da-card-date">2026-09-10 · 10:16</div>
+    <div class="da-card-title">Agent 上生产要补的运行层与物理 AI 的评测框架</div>
+    <div class="da-card-main">今日五条没有一个新模型。Maka 把 Agent 的每一次工具调用写成可审计日志，SkillHub 管住企业内部 skill 的版本与权限，Ripwire 压掉编码 Agent 的上下文开销，Temps 把七项 SaaS 订阅并成一个自托管二进制，Inspect Robots 让机器人团队在仿真里先建立评测基线。交付形态都是纯软件、私有化、License 友好。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-09-1013.html">
     <div class="da-card-date">2026-09-09 · 10:13</div>
     <div class="da-card-title">把成熟账单拆成自己的软件</div>
