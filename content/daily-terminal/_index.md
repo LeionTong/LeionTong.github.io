@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-10-1042.html">
+    <div class="da-card-date">2026-09-10 · 10:42</div>
+    <div class="da-card-title">智能屏、机械臂与数字人后端：三条可落地路径</div>
+    <div class="da-card-main">本期扫描智能屏显示、具身、服务端配套三个扇区，12 条查询命中 12 个通过质量闸门的仓库，按 stars 降序取前 8。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-09-1042.html">
     <div class="da-card-date">2026-09-09 · 10:42</div>
     <div class="da-card-title">开源终端硬件：固件成熟度高，商业化分层明显</div>
