@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-11-1041.html">
+    <div class="da-card-date">2026-09-11 · 10:41</div>
+    <div class="da-card-title">智能眼镜的操作系统，与一台能自己造的桌面机器人</div>
+    <div class="da-card-main">今日扇区：语音终端 · 穿戴 · 桌面机器人。十轮检索后过闸六项，共同点是都能直接落到某件可卖的东西上——OS 收生态位，语音座席收人力替代，桌面机器人收整机。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-10-1042.html">
     <div class="da-card-date">2026-09-10 · 10:42</div>
     <div class="da-card-title">智能屏、机械臂与数字人后端：三条可落地路径</div>
