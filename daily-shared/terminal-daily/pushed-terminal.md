@@ -1,0 +1,22 @@
+# 已推送终端硬件项目（滚动 60 天）
+- 2026-09-09 · PetoiCamp/OpenCat-Quadruped-Robot · 开源四足机器狗框架，整机套件已商业化的 STEM 标杆
+- 2026-09-09 · InfiniTimeOrg/InfiniTime · PineTime 智能手表 GPL-3.0 固件，社区活跃度最高的开源穿戴固件
+- 2026-09-09 · ZSWatch/ZSWatch · Zephyr 开源智能手表，硬件与固件双双开源的可复刻参考设计
+- 2026-09-09 · HeyWillow/willow · ESP32 本地语音助手固件，Apache-2.0 的 Echo 隐私替代方案
+- 2026-09-09 · isair/jarvis · PC 端本地语音助手，MCP 工具链丰富但无硬件载体
+- 2026-09-09 · AsteroidOS/asteroid · AsteroidOS 手表系统构建脚本仓，发行版定制底座
+- 2026-09-09 · wasp-os/wasp-os · MicroPython 手表固件，开发门槛低但发版停滞
+- 2026-09-10 · MagicMirrorOrg/MagicMirror · 开源智能镜子平台，模块化生态最完整的智能屏底座
+- 2026-09-10 · lipku/LiveTalking · 实时流式数字人服务端，私有化部署事实标准
+- 2026-09-10 · Seeed-Projects/reBot-DevArm · Seeed 官方开源六轴机械臂，整机在售
+- 2026-09-10 · Source-Robotics/PAROL6-Desktop-robot-arm · 3D 打印桌面六轴机械臂，BOM+STL 全开源
+- 2026-09-10 · datascale-ai/opentalking · 工业级开源数字人，2026-04 新仓高速增长
+- 2026-09-10 · Roboparty/roboto_origin · 全开源手搓级人形机器人原型机
+- 2026-09-10 · NVlabs/ProtoMotions · NVIDIA GPU 加速具身仿真与强化学习框架
+- 2026-09-10 · vroland/epdiy · 大尺寸 e-paper 开源驱动板，硬件固件双开源
+- 2026-09-11 · Intent-Lab/VisionClaw · Ray-Ban 眼镜实时语音+视觉助手，依附量产硬件的软件层
+- 2026-09-11 · Mentra-Community/MentraOS · Apache-2.0 智能眼镜操作系统，穿戴赛道生态位入口
+- 2026-09-11 · hkjarral/AVA-AI-Voice-Agent-for-Asterisk · Asterisk/FreePBX 的 MIT 开源 AI 语音座席，容器化私有部署
+- 2026-09-11 · Notely-Voice/NotelyVoice · GPL-3.0 全本地语音转写应用，隐私卖点明确
+- 2026-09-11 · uncle-mark/desk-emoji · 表情屏+两轴云台+LLM 语音的真开源 AI 桌面机器人
+- 2026-09-11 · xmannii/micky · 波斯语优先的 agentic 语音助手，新锐雷达唯一命中

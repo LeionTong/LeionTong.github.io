@@ -31,7 +31,7 @@ INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
 CARD_CSS = os.path.join(HERE, "da_cards.css")
 
 # 自动化归档目录（若存在其中的 .html 视为待发布新报告）
-ARCHIVE_DIR = r"C:\Users\Leion\.workbuddy\automation-data\github-daily\archive"
+ARCHIVE_DIR = os.path.join(SITE_DIR, "daily-shared", "github-daily", "archive")
 
 SLUG_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{4})\.html$")
 VOID = {"img", "br", "hr", "meta", "link", "input", "area", "base",

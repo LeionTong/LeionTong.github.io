@@ -1,0 +1,42 @@
+# 已推送项目存档（滚动 60 天）
+
+- 2026-09-02 · every-app/open-seo · 开源版 Semrush/Ahrefs 替代，自带 MCP 与 Agent Skills
+- 2026-09-02 · Tencent/WeKnora · 企业级文档 RAG 知识框架，多租户 + 自维护 Wiki
+- 2026-09-02 · workweave/router · 按请求路由的模型代理，宣称降低 LLM 成本 40-70%
+- 2026-09-02 · Agent-Field/agentfield · 把 Agent 变成可被调用的 API 的开源控制平面
+- 2026-09-02 · eracle/OpenOutreach · 自托管 B2B 线索挖掘与外发 AI Agent（GPLv3）
+- 2026-09-03 · cactus-compute/needle · 14MB 端侧工具调用模型，28MB 内存跑完整会话
+- 2026-09-03 · debpalash/VoiceStudio · 全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎
+- 2026-09-03 · lmnr-ai/lmnr · 专为 AI Agent 做的开源可观测平台（YC S24）
+- 2026-09-03 · TracecatHQ/tracecat · 面向安全团队与 AI Agent 的开源 SOAR 平台
+- 2026-09-03 · deeplethe/utopia · 带时间感知与本体层的企业知识/决策底座（自称开源企业世界模型）
+- 2026-09-05 · firecrawl/pdf-inspector · Rust PDF 分类抽取库，跳过约 54% 不必上 OCR 的页面
+- 2026-09-05 · denoland/celld · 自托管分布式 Durable Objects，把 Workers 搬回自己机器
+- 2026-09-05 · ascending-llc/jarvis-registry · 企业级 MCP/A2A 网关，身份+权限+审计一体
+- 2026-09-05 · magnitudedev/magnitude · 按硬件挑模型的本地推理服务器，直连编码 Agent
+- 2026-09-05 · mattzcarey/shippie · CI 里的代码评审 Agent，替代 CodeRabbit/Greptile
+- 2026-09-06 · volcengine/OpenViking · Agent 上下文数据库，viking:// 虚拟文件系统统一记忆/资源/技能
+- 2026-09-06 · Tencent/AI-Infra-Guard · 腾讯朱雀实验室 AI 红队平台，Agent/MCP/Skills 全扫描
+- 2026-09-06 · abhinavxd/libredesk · 单二进制自托管全渠道客服台，替代 Zendesk/Intercom
+- 2026-09-06 · Jwuthri/Tracely-ai · 生产失败 trace 自动冻结为回归用例并在 PR 拦截
+- 2026-09-06 · tastyeffectco/sandboxd · 自托管 AI 应用构建引擎，替代 Lovable/v0/Bolt
+- 2026-09-08 · jo-inc/camofox-browser · C++ 层反检测浏览器服务器，专为 AI Agent 提供 REST API
+- 2026-09-08 · TencentCloud/TencentDB-Agent-Memory · 团队级 Agent 记忆中心，Proxy 接管 base URL 零代码接入
+- 2026-09-08 · Vexa-ai/vexa · 派 bot 进 Meet/Teams/Zoom 的实时转录与会议知识库
+- 2026-09-08 · oceanbase/seekdb · MySQL 兼容的 Agent 状态库，向量+全文+标量统一查询
+- 2026-09-08 · trailofbits/coop · microVM 隔离运行 Claude Code/Codex 的一次性虚拟机 CLI
+- 2026-09-09 · heygen-com/hyperframes · HTML/CSS 确定性渲染成 MP4 的开源框架，本地 CLI + Agent 技能
+- 2026-09-09 · google-research/timesfm · Google 预训练时间序列基础模型，v3 原生多变量与协变量预测
+- 2026-09-09 · hieunc229/mailflare · 跑在 Cloudflare 上的自托管域名邮箱，替代 Workspace/Front 席位费
+- 2026-09-09 · PatterAI/Patter · 给 Agent 一个真实电话号码的开源语音 SDK，Vapi/Retell 替代
+- 2026-09-09 · Hebbian-Robotics/hflow · 机器人与 Physical AI 多模态数据流水线 SDK（YC S26）
+- 2026-09-10 · apache/maka · Apache 孵化 Agent 工作台，append-only RuntimeEvent 日志全程留痕
+- 2026-09-10 · iflytek/skillhub · 企业私有 Agent Skill 注册中心，RBAC + 审计 + 容器化部署
+- 2026-09-10 · gotempsh/temps · 单二进制自托管 PaaS，替代 Vercel+Sentry+PostHog 等七项订阅
+- 2026-09-10 · redhat-et/ripwire · 给编码 Agent 的调用图 CLI + MCP，降低上下文 token 消耗
+- 2026-09-10 · robocurve/inspect-robots · Physical AI 开源评测框架，支持仿真与真机双路径
+- 2026-09-11 · alibaba/zvec · 进程内嵌入式向量数据库，像 SQLite 一样嵌进应用
+- 2026-09-11 · rorkai/App-Store-Connect-CLI · App Store Connect 发版自动化 CLI，自带 25 个 Agent 技能
+- 2026-09-11 · omnara-ai/omnara · 托管 Agent 运行平台，执行与状态托管、模型自选自持
+- 2026-09-11 · gronxb/hot-updater · React Native 自托管 OTA 更新，CodePush 关停后的替代
+- 2026-09-11 · runs-on/runs-on · 跑在自有 AWS 账号里的 GitHub Actions runner 控制平面

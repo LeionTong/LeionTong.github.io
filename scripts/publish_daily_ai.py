@@ -26,7 +26,10 @@ from html.parser import HTMLParser
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.dirname(HERE)
-SRC_DIR = r"C:\Users\Leion\WorkBuddy\automation-2026-05-09-task-1"
+SRC_DIR = os.environ.get(
+    "DAILY_AI_SRC_DIR",
+    os.path.join(SITE_DIR, "daily-shared", "ai-daily", "archive"),
+)
 STATIC_DAILY = os.path.join(SITE_DIR, "static", "daily-ai")
 CONTENT_DAILY = os.path.join(SITE_DIR, "content", "daily-ai")
 INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
@@ -374,9 +377,7 @@ def main():
         known = {os.path.abspath(f) for f in files}
         extras = [a for a in args if os.path.isfile(a) and os.path.abspath(a) not in known]
         files += extras
-    if not files:
-        print("没有找到待处理的报告 HTML。", file=sys.stderr)
-        sys.exit(1)
+    # 源目录为空不报错：历史期次由 collect_published 从 static 回填（索引单调不减）
     records = [process_file(p) for p in files]
     n = build_index(records)
     print(f"已处理 {len([r for r in records if r])} 篇报告，生成 {n} 张卡片到 {INDEX_MD}")
