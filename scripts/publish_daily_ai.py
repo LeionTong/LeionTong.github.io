@@ -29,7 +29,7 @@ SITE_DIR = os.path.dirname(HERE)
 SRC_DIR = os.environ.get(
     "DAILY_AI_SRC_DIR",
     os.path.join(SITE_DIR, "daily-shared", "ai-daily", "archive"),
-)
+)  # 默认取 <SITE>/daily-shared/ai-daily/archive/
 STATIC_DAILY = os.path.join(SITE_DIR, "static", "daily-ai")
 CONTENT_DAILY = os.path.join(SITE_DIR, "content", "daily-ai")
 INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
