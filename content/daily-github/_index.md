@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-11-1036.html">
+    <div class="da-card-date">2026-09-11 · 10:36</div>
+    <div class="da-card-title">把固定成本换成自己掌控的形态三条落在构建与发布流水线上</div>
+    <div class="da-card-main">今日五条没有一条在卖模型能力。Zvec 把向量检索的云账单压成一个库依赖，asc 把 iOS 发版从网页点选换成一条命令并附带 Agent 技能，Omnara 托管 Agent 的执行与状态，Hot Updater 补上 CodePush 关停后的 RN 热更新，RunsOn 把 CI 分钟费换回自有 AWS 账号。两条主流都选择「嵌进去」而不是「另建平台」。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-10-1016.html">
     <div class="da-card-date">2026-09-10 · 10:16</div>
     <div class="da-card-title">Agent 上生产要补的运行层与物理 AI 的评测框架</div>
