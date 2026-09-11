@@ -3,7 +3,7 @@
 """
 publish_daily_terminal.py — 重建 Daily Terminal 栏目索引（content/daily-terminal/_index.md）。
 
-与 publish_daily_github.py 同构：单期 HTML 由自动化直接生成到
+三栏目脚本同构（ai / github / terminal）：单期 HTML 由自动化直接生成到
 static/daily-terminal/，本脚本**不搬运文件**，只做「扫描 -> 提主线 -> 重建
 索引」。从 static 回填，保证索引单调不减（幂等，可反复执行）。
 

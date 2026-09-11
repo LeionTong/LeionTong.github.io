@@ -11,7 +11,7 @@
 - `<HUGO>` = `C:\Users\Leion\T\LeionTong.github.io-hugo` — 站点仓库根（`scripts\` 随其 git 备份）
 - `<COMMON>` = `<HUGO>\scripts\DAILY-COMMON.md` — 本文件
 - `<TEMPMD>` = `C:\Users\Leion\AppData\Local\Temp\daily-md\` — 单期干净 md 临时归档（ima 同步源）：同步成功即删，失败保留重试，不入 git
-- `<DATA>` = `<HUGO>\scripts\<栏目>-daily\` — 去重日志与工作档案（pushed-*.md、Terminal 月度 md、sector-cursor.md）
+- `<DATA>` = `<HUGO>\scripts\<栏目>-daily\` — 去重日志与轮换状态（pushed-*.md、sector-cursor.md）；三栏目同构，均无持久内容归档
 - `<IMA>` = `<HUGO>\scripts\ima\sync-to-ima.cjs` — ima 同步脚本（`ima\` 目录自包含，可整体搬移）
 - 解释器与工具一律用 PATH 上的通用命令：`python`（≥3.11）、`node`（≥20）、`hugo`、`git`、`gh`。**禁止**绑定任何捆绑解释器或特定应用私有目录的绝对路径。
 - 「今天」一律按本机本地时区 Asia/Shanghai（UTC+8）判定。
@@ -79,7 +79,7 @@
    - AI：`python <HUGO>\scripts\publish_daily_ai.py --all`
    - Github：`python <HUGO>\scripts\publish_daily_github.py --all`
    - Terminal：`python <HUGO>\scripts\publish_daily_terminal.py --all`
-   - 注意：`publish_daily_ai.py` 默认从 `<TEMPMD>` 取源报告（可用环境变量 `DAILY_AI_SRC_DIR` 覆盖，一般无需理会——新流程 HTML 直写 static，索引由 static 回填）；若对 static 下页面做过手工修订，勿直接跑该脚本覆盖，改手工编辑 `content/daily-ai/_index.md`。其余两个脚本只扫描 static 重建索引，无此问题。
+   - 三脚本同构：只扫描 `static/daily-<栏目>/` 重建索引，幂等可反复执行；`_index.md` 每次全量重建，手工改卡片会被覆盖——改卡片要么落脚本模板，要么直接改脚本。
 3. 本地构建校验（必须零 ERROR）：先 cd 到 `<HUGO>`，再执行 `hugo --minify`。
    （PaperMod 的 `.Language.LanguageCode` / `.Language.LanguageDirection` deprecation WARN 属已知噪音，忽略。）
 4. 校验通过后提交并推送（gh-pages 由 Actions 自动构建，`public/` 不入库）：
@@ -97,7 +97,7 @@ node <IMA> --file "<当日归档 md 绝对路径>" --kb "<知识库名>"
 
 - `<知识库名>`：Daily-AI / Daily-Github / Daily-Terminal（按栏目）
 - 凭证：`~/.config/ima/client_id` 与 `api_key`，或环境变量 `IMA_OPENAPI_CLIENTID` / `IMA_OPENAPI_APIKEY`
-- 同步前须生成一份**干净 Markdown 归档**（纯文本、不含内联 CSS，供知识库检索），写入 `<TEMPMD>`（目录不存在则创建）；文件名以各栏目 prompt 为准（如 `GitHub每日优质项目-YYYY-MM-DD.md` / `Daily-AI-YYYY-MM-DD.md`）。同步成功后删除该文件；失败或跳过则保留，供重试与排查。临时目录不入 git。
+- 同步前须生成一份**干净 Markdown 单期稿**（纯文本、不含内联 CSS，供知识库检索），写入 `<TEMPMD>`（目录不存在则创建）；文件名三栏目同构：`Daily-AI-YYYY-MM-DD.md` / `GitHub每日优质项目-YYYY-MM-DD.md` / `Daily-Terminal-YYYY-MM-DD.md`。同步成功后删除该文件；失败或跳过则保留，供重试与排查。临时目录不入 git；**三栏目一律不留持久内容归档**。
 - 成功判定：退出码 0 且 stdout 含 `{"ok":true,...}`
 - 失败（非 0 或 ok=false）最多重试 1 次；仍失败在摘要末尾追加 `ima 同步失败：<message>`，不中断主流程
 - 知识库不存在（脚本报「未找到知识库」）则跳过同步，摘要末尾追加 `ima 同步跳过：知识库「<名>」不存在，需在 ima 侧手动创建`
