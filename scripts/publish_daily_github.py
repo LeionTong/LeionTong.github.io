@@ -30,9 +30,6 @@ CONTENT_DAILY = os.path.join(SITE_DIR, "content", "daily-github")
 INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
 CARD_CSS = os.path.join(HERE, "da_cards.css")
 
-# 自动化归档目录（若存在其中的 .html 视为待发布新报告）
-ARCHIVE_DIR = os.path.join(SITE_DIR, "daily-shared", "github-daily", "archive")
-
 SLUG_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{4})\.html$")
 VOID = {"img", "br", "hr", "meta", "link", "input", "area", "base",
         "col", "embed", "source", "track", "wbr"}
@@ -264,14 +261,6 @@ title: "Daily Github"
 def main():
     args = sys.argv[1:]
     records = []
-
-    # 归档目录里的新报告（自动化产物）
-    if os.path.isdir(ARCHIVE_DIR):
-        for p in sorted(glob.glob(os.path.join(ARCHIVE_DIR, "*.html"))):
-            try:
-                records.append(ingest(p))
-            except OSError as e:
-                print(f"跳过 {p}: {e}", file=sys.stderr)
 
     # 命令行显式传入的报告
     if args and args[0] != "--all":

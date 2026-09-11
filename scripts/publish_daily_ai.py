@@ -22,14 +22,15 @@ import os
 import re
 import sys
 import glob
+import tempfile
 from html.parser import HTMLParser
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.path.dirname(HERE)
 SRC_DIR = os.environ.get(
     "DAILY_AI_SRC_DIR",
-    os.path.join(SITE_DIR, "daily-shared", "ai-daily", "archive"),
-)  # 默认取 <SITE>/daily-shared/ai-daily/archive/
+    os.path.join(tempfile.gettempdir(), "daily-md"),
+)  # 默认取系统临时目录 daily-md\（单期 md 临时归档，ima 同步成功即删，不入 git）
 STATIC_DAILY = os.path.join(SITE_DIR, "static", "daily-ai")
 CONTENT_DAILY = os.path.join(SITE_DIR, "content", "daily-ai")
 INDEX_MD = os.path.join(CONTENT_DAILY, "_index.md")
