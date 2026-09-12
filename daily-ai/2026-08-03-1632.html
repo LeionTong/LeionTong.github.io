@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-03 16:32 · 验证的单价</title>
+<style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --paper:#f1f2ee;
+  --paper2:#e7e9e3;
+  --ink:#15171b;
+  --ink2:#2c3138;
+  --steel:#5a6b78;
+  --steel-soft:#ebedef;
+  --hz:#e9be33;
+  --hz-soft:#fbf3da;
+  --red:#ce3b2e;
+  --red-soft:#f9e6e4;
+  --green:#2f7f63;
+  --green-soft:#e4eeeb;
+  --violet:#6a5aa8;
+  --violet-soft:#eceaf4;
+  --line:#dedfdf;
+  --line2:#efefef;
+}
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body {
+  background:#f1f2ee;
+  background-image:none;
+  background-size:34px 34px, 34px 34px, 100% 100%, 100% 100%;
+  color:#15171b;
+  font-family:'Noto Sans SC',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 70px;
+  position:relative;
+  overflow-x:hidden;
+}
+body::after {
+  content:'';
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:99;
+  background:#fcfcfc;
+}
+.hazard {
+  height:12px;
+  width:100%;
+  background:#e9be33;
+}
+.wrap {
+  max-width:1010px;
+  margin:0 auto;
+  padding:0 26px;
+}
+.masthead {
+  padding:52px 0 26px;
+  position:relative;
+}
+.kicker {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:#5a6b78;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+.kicker::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:#dedfdf;
+}
+.masthead h1 {
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(38px,7.4vw,80px);
+  line-height:1.85;
+  letter-spacing:-.028em;
+  color:#15171b;
+  text-transform:uppercase;
+}
+.masthead h1 .thin {
+  display:block;
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:900;
+  font-size:clamp(19px,2.7vw,30px);
+  letter-spacing:.06em;
+  color:#2c3138;
+  margin-top:12px;
+  line-height:1.85;
+}
+.sub {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.09em;
+  color:#5a6b78;
+  margin-top:20px;
+  line-height:1.9;
+}
+.stamp {
+  position:absolute;
+  right:2px;
+  top:44px;
+  width:132px;
+  height:132px;
+}
+.meterbar {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0;
+  margin-top:26px;
+  border:1.5px solid #15171b;
+  background:#fff;
+}
+.meterbar div {
+  flex:1 1 auto;
+  min-width:132px;
+  padding:11px 14px;
+  border-right:1px solid #dedfdf;
+}
+.meterbar div:last-child {
+  border-right:0;
+}
+.meterbar b {
+  display:block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.22em;
+  color:#5a6b78;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.meterbar span {
+  font-family:'Archivo Black',sans-serif;
+  font-size:15.5px;
+  letter-spacing:-.01em;
+  color:#15171b;
+}
+.meterbar span.sm {
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:700;
+  font-size:13.5px;
+}
+.lede {
+  background:#eeeeee;
+  color:#6a6b69;
+  padding:38px 40px 36px;
+  margin:34px 0 0;
+  position:relative;
+  overflow:hidden;
+  border-left:9px solid #e9be33;
+}
+.lede::before {
+  content:'';
+  position:absolute;
+  right:-70px;
+  top:-70px;
+  width:280px;
+  height:280px;
+  background:#fcf6e2;
+  pointer-events:none;
+}
+.lede-tag {
+  display:inline-block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#15171b;
+  background:#e9be33;
+  padding:6px 13px;
+  margin-bottom:20px;
+}
+.lede h2 {
+  font-family:'Archivo Black',sans-serif;
+  font-size:clamp(25px,4.3vw,46px);
+  line-height:1.85;
+  letter-spacing:-.02em;
+  color:#757575;
+  text-transform:uppercase;
+}
+.lede .h2-cn {
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:900;
+  font-size:clamp(17px,2.2vw,23px);
+  color:#8c721f;
+  margin:10px 0 22px;
+  letter-spacing:.1em;
+}
+.lede p {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:16.2px;
+  line-height:2.02;
+  color:#747673;
+  margin-bottom:15px;
+  position:relative;
+  z-index:2;
+}
+.lede p:last-child {
+  margin-bottom:0;
+}
+.lede strong {
+  color:#696969;
+  font-weight:700;
+  background:#f8eabe;
+  padding:0 2px;
+}
+.lede em {
+  font-style:normal;
+  color:#8c721f;
+  font-weight:600;
+}
+.gauge {
+  margin:30px 0 0;
+  background:#fff;
+  border:1.5px solid #15171b;
+  padding:24px 22px 18px;
+  position:relative;
+}
+.gauge-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:6px;
+  border-bottom:1px solid #dedfdf;
+  padding-bottom:12px;
+}
+.gauge-head h3 {
+  font-family:'Archivo Black',sans-serif;
+  font-size:14.5px;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+}
+.gauge-head span {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.18em;
+  color:#5a6b78;
+  text-transform:uppercase;
+}
+.gauge svg {
+  width:100%;
+  height:auto;
+  display:block;
+  margin-top:8px;
+}
+.gauge figcaption {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  line-height:1.85;
+  color:#5a6b78;
+  border-top:1px solid #dedfdf;
+  margin-top:12px;
+  padding-top:11px;
+  letter-spacing:.04em;
+}
+.sec-head {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:52px 0 22px;
+}
+.sec-head h3 {
+  font-family:'Archivo Black',sans-serif;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#15171b;
+  white-space:nowrap;
+}
+.sec-head::after {
+  content:'';
+  flex:1;
+  height:6px;
+  background:#eeeeee;
+}
+.sig {
+  background:#fff;
+  border:1.5px solid #15171b;
+  margin-bottom:26px;
+  position:relative;
+}
+.sig-top {
+  display:flex;
+  border-bottom:1.5px solid #15171b;
+  background:#e7e9e3;
+}
+.sig-no {
+  font-family:'Archivo Black',sans-serif;
+  font-size:23px;
+  color:#757575;
+  padding:14px 17px;
+  min-width:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  letter-spacing:-.02em;
+}
+.sig-topmeta {
+  flex:1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:0;
+}
+.sig-topmeta div {
+  padding:8px 15px;
+  border-right:1px solid #dedfdf;
+  flex:1 1 auto;
+  min-width:118px;
+}
+.sig-topmeta div:last-child {
+  border-right:0;
+}
+.sig-topmeta b {
+  display:block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#5a6b78;
+  margin-bottom:3px;
+}
+.sig-topmeta span {
+  font-size:13px;
+  font-weight:700;
+  color:#2c3138;
+}
+.badge {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:5px 10px;
+  color:#757575;
+  white-space:nowrap;
+  align-self:center;
+  margin-right:13px;
+}
+.sig-body {
+  padding:26px 30px 28px;
+}
+.sig h4 {
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:900;
+  font-size:clamp(19px,2.5vw,25px);
+  line-height:1.85;
+  letter-spacing:.005em;
+  color:#15171b;
+  margin-bottom:6px;
+}
+.sig .en {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.19em;
+  text-transform:uppercase;
+  color:#5a6b78;
+  margin-bottom:20px;
+}
+.sig h5 {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  margin:22px 0 11px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.sig h5::after {
+  content:'';
+  flex:1;
+  height:1px;
+  background:#dedfdf;
+}
+.sig p {
+  font-size:15.1px;
+  line-height:1.94;
+  color:#2c3138;
+  margin-bottom:12px;
+}
+.sig p:last-child {
+  margin-bottom:0;
+}
+.sig ul {
+  margin:0 0 12px;
+  padding-left:0;
+  list-style:none;
+}
+.sig li {
+  font-size:14.7px;
+  line-height:1.88;
+  color:#2c3138;
+  padding-left:22px;
+  position:relative;
+  margin-bottom:8px;
+}
+.sig li::before {
+  content:'';
+  position:absolute;
+  left:2px;
+  top:11px;
+  width:8px;
+  height:8px;
+  background:#f3f3f3;
+}
+.sig ol {
+  margin:0 0 12px;
+  padding-left:20px;
+}
+.sig ol li {
+  padding-left:6px;
+  list-style:decimal;
+}
+.sig ol li::before {
+  display:none;
+}
+.sig strong {
+  font-weight:700;
+  color:#15171b;
+}
+.sig .hl {
+  background:#fbf3da;
+  padding:0 2px;
+  font-weight:700;
+  color:#15171b;
+}
+.caution {
+  background:#e7e9e3;
+  border-left:5px solid #ce3b2e;
+  padding:16px 20px;
+  margin-top:20px;
+}
+.caution p,.caution li {
+  font-size:13.9px;
+  line-height:1.85;
+  color:#3a3f46;
+}
+.caution h5 {
+  margin-top:0;
+  color:#ce3b2e;
+}
+.warnline {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.05em;
+  background:#f4f4f4;
+  color:#707070;
+  padding:8px 14px;
+  margin-bottom:18px;
+  display:inline-block;
+}
+.tbl {
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  border:1.5px solid #15171b;
+}
+.tbl th {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:11px 14px;
+  background:#eeeeee;
+  color:#6b6b6b;
+  font-weight:600;
+}
+.tbl td {
+  padding:13px 14px;
+  border-top:1px solid #dedfdf;
+  font-size:13.6px;
+  line-height:1.78;
+  color:#2c3138;
+  vertical-align:top;
+}
+.tbl td:first-child {
+  font-weight:700;
+  color:#15171b;
+  min-width:132px;
+}
+.tbl td:last-child {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  color:#5a6b78;
+  min-width:130px;
+}
+.chain {
+  background:#fff;
+  border:1.5px solid #15171b;
+  padding:26px 28px;
+}
+.chain pre {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  line-height:2.05;
+  color:#2c3138;
+  overflow-x:auto;
+  padding-bottom:6px;
+}
+.chain pre b {
+  color:#ce3b2e;
+  font-weight:700;
+}
+.chain .after {
+  margin-top:20px;
+  border-top:1px solid #dedfdf;
+  padding-top:20px;
+}
+.chain .after p {
+  font-size:15.1px;
+  line-height:1.95;
+  color:#2c3138;
+  margin-bottom:13px;
+}
+.chain .after strong {
+  color:#15171b;
+  font-weight:700;
+}
+.chain .after .hl {
+  background:#fbf3da;
+  padding:0 2px;
+  font-weight:700;
+  color:#15171b;
+}
+.opts {
+  list-style:none;
+  margin:6px 0 16px;
+  padding:0;
+}
+.opts li {
+  padding:13px 16px;
+  border:1px solid #dedfdf;
+  border-left:5px solid #5a6b78;
+  margin-bottom:9px;
+  font-size:14.4px;
+  line-height:1.82;
+  color:#2c3138;
+  background:#f1f2ee;
+}
+.opts li b {
+  font-weight:900;
+  color:#15171b;
+}
+.opts li:nth-child(1) {
+  border-left-color:#ce3b2e;
+}
+.opts li:nth-child(2) {
+  border-left-color:#2f7f63;
+}
+.opts li:nth-child(3) {
+  border-left-color:#6a5aa8;
+}
+.kicker-note {
+  background:#eeeeee;
+  color:#6b6c6a;
+  padding:22px 26px;
+  margin-top:26px;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:15.4px;
+  line-height:1.98;
+}
+.kicker-note strong {
+  color:#8c721f;
+  font-weight:700;
+}
+footer.dis {
+  margin-top:44px;
+  border-top:6px solid #15171b;
+  padding-top:20px;
+}
+footer.dis ul {
+  list-style:none;
+  padding:0;
+}
+footer.dis li {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  line-height:1.95;
+  color:#5a6b78;
+  padding-left:17px;
+  position:relative;
+  margin-bottom:7px;
+}
+footer.dis li::before {
+  content:'//';
+  position:absolute;
+  left:0;
+  color:#767676;
+  font-weight:700;
+}
+footer.dis li strong {
+  color:#ce3b2e;
+  font-weight:700;
+}
+@media (max-width:720px) {.wrap {
+  padding:0 15px;
+}
+.stamp {
+  width:78px;
+  height:78px;
+  top:36px;
+  right:0;
+}
+.masthead {
+  padding:34px 0 18px;
+}
+.lede {
+  padding:28px 20px 26px;
+  border-left-width:6px;
+}
+.sig-body {
+  padding:20px 18px 22px;
+}
+.gauge {
+  padding:16px 12px 12px;
+}
+.sig-no {
+  min-width:52px;
+  font-size:19px;
+  padding:11px 12px;
+}
+.badge {
+  margin:0 10px 10px 12px;
+}}
+.pp {
+  transform-box:fill-box;
+}
+.dw {
+  stroke-dasharray:900;
+  stroke-dashoffset:900;
+}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
+</style>
+</head>
+<body>
+<div class="hazard"></div>
+<div class="wrap">
+
+  <header class="masthead">
+    <svg class="stamp" viewbox="0 0 140 140" aria-hidden="true">
+      <g>
+        <circle cx="70" cy="70" r="62" fill="none" stroke="#ce3b2e" stroke-width="4"/>
+        <circle cx="70" cy="70" r="53" fill="none" stroke="#ce3b2e" stroke-width="1.4" stroke-dasharray="3 4"/>
+        <text x="70" y="62" text-anchor="middle" font-family="Archivo Black, sans-serif" font-size="21" fill="#ce3b2e" letter-spacing="1">THROTTLE</text>
+        <text x="70" y="84" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10.5" font-weight="700" fill="#ce3b2e" letter-spacing="3">限 流 中</text>
+        <text x="70" y="102" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="8" fill="#ce3b2e" letter-spacing="1.6">2026-08-03 / 16:32</text>
+      </g>
+      
+    </svg>
+    
+    <h1>THE UNIT<br>COST OF PROOF
+      <span class="thin">验证的单价 · 生成塌到零，验证还在按人头计价</span>
+    </h1>
+    
+
+  <figure class="gauge">
+    <div class="gauge-head">
+      <h3>Throughput Gate — 吞吐闸口示意</h3>
+      <span>入口：廉价生成 ／ 闸口：人工复现 ／ 出口：被确认的事实</span>
+    </div>
+    <svg viewbox="0 0 1000 400" role="img" aria-label="吞吐闸口示意图：左侧大量廉价生成的信号涌入，中部人工验证闸口收窄，右侧仅少量通过">
+      <defs>
+        <pattern id="hz" width="14" height="14" patterntransform="rotate(135)" patternunits="userSpaceOnUse">
+          <rect width="14" height="14" fill="#e9be33"/>
+          <rect width="7" height="14" fill="#15171b"/>
+        </pattern>
+        <lineargradient id="fade" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#5a6b78" stop-opacity=".30"/>
+          <stop offset="1" stop-color="#5a6b78" stop-opacity=".05"/>
+        </lineargradient>
+        
+      </defs>
+
+      <!-- chute outline -->
+      <path class="dw" d="M46 46 L470 168 L470 232 L46 354" fill="none" stroke="#15171b" stroke-width="2.4"/>
+      <path d="M46 46 L470 168 L470 232 L46 354 Z" fill="url(#fade)"/>
+
+      <!-- intake blocks: cheap generation -->
+      <g fill="#5a6b78">
+        <rect class="fx" x="64" y="70" width="15" height="15"/>
+        <rect class="fx" x="88" y="96" width="15" height="15"/>
+        <rect class="fx" x="62" y="124" width="15" height="15"/>
+        <rect class="fx" x="112" y="72" width="15" height="15"/>
+        <rect class="fx" x="118" y="140" width="15" height="15"/>
+        <rect class="fx" x="150" y="104" width="15" height="15"/>
+        <rect class="fx" x="92" y="168" width="15" height="15"/>
+        <rect class="fx" x="158" y="164" width="15" height="15"/>
+        <rect class="fx" x="196" y="128" width="15" height="15"/>
+        <rect class="fx" x="128" y="200" width="15" height="15"/>
+        <rect class="fx" x="200" y="188" width="15" height="15"/>
+        <rect class="fx" x="240" y="150" width="15" height="15"/>
+        <rect class="fx" x="166" y="230" width="15" height="15"/>
+        <rect class="fx" x="246" y="212" width="15" height="15"/>
+        <rect class="fx" x="286" y="176" width="15" height="15"/>
+        <rect class="fx" x="212" y="258" width="15" height="15"/>
+        <rect class="fx" x="292" y="232" width="15" height="15"/>
+        <rect class="fx" x="330" y="196" width="15" height="15"/>
+        <rect class="fx" x="258" y="284" width="15" height="15"/>
+        <rect class="fx" x="336" y="248" width="15" height="15"/>
+        <rect class="fx" x="374" y="182" width="15" height="15"/>
+        <rect class="fx" x="380" y="216" width="15" height="15"/>
+        <rect class="fx" x="306" y="290" width="15" height="15"/>
+        <rect class="fx" x="416" y="200" width="15" height="15"/>
+        <rect class="fx" x="352" y="300" width="15" height="15"/>
+        <rect class="fx" x="420" y="236" width="15" height="15"/>
+      </g>
+
+      <!-- backlog pile -->
+      <g fill="#ce3b2e">
+        <rect class="fx" x="398" y="274" width="15" height="15"/>
+        <rect class="fx" x="418" y="296" width="15" height="15"/>
+        <rect class="fx" x="396" y="312" width="15" height="15"/>
+        <rect class="fx" x="436" y="272" width="15" height="15"/>
+      </g>
+
+      <!-- gate -->
+      <g>
+        <rect x="470" y="150" width="34" height="52" fill="url(#hz)"/>
+        <rect x="470" y="208" width="34" height="52" fill="url(#hz)"/>
+      </g>
+      <rect x="470" y="150" width="34" height="110" fill="none" stroke="#15171b" stroke-width="2"/>
+      <text x="487" y="140" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="700" fill="#15171b" letter-spacing="2">GATE</text>
+
+      <!-- narrow output channel -->
+      <line class="dw" x1="504" y1="202" x2="946" y2="202" stroke="#15171b" stroke-width="1.6" stroke-dasharray="6 5"/>
+      <line class="dw" x1="504" y1="208" x2="946" y2="208" stroke="#15171b" stroke-width="1.6" stroke-dasharray="6 5"/>
+
+      <!-- cleared outputs -->
+      <g fill="#2f7f63">
+        <rect class="pp" x="596" y="197" width="15" height="15"/>
+        <rect class="pp" x="722" y="197" width="15" height="15"/>
+        <rect class="pp" x="848" y="197" width="15" height="15"/>
+      </g>
+
+      <!-- labels -->
+      <text x="46" y="30" font-family="Archivo Black, sans-serif" font-size="14" fill="#15171b">生成侧 · GENERATION</text>
+      <text x="46" y="392" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a6b78" letter-spacing="1.2">边际成本 → 0：写报告 / 拆护栏 / 发目标 / 起草规则</text>
+
+      <text x="946" y="30" text-anchor="end" font-family="Archivo Black, sans-serif" font-size="14" fill="#2f7f63">出口 · CONFIRMED</text>
+      <text x="946" y="392" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5a6b78" letter-spacing="1.2">单价不变：人工复现 / 归责 / 交付 / 执法</text>
+
+      <!-- annotations with leader lines -->
+      <g stroke="#15171b" stroke-width="1" stroke-dasharray="2 3" fill="none">
+        <path d="M300 120 L300 78 L560 78"/>
+        <path d="M420 300 L470 330 L580 330"/>
+        <path d="M596 197 L596 118 L700 118"/>
+      </g>
+      <text x="566" y="74" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#15171b" font-weight="600">HackerOne 报告量 +76%（YoY / 截至 2026-03）</text>
+      <text x="566" y="90" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#5a6b78">真实漏洞占比持平 ≈ 25%</text>
+      <text x="586" y="326" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#ce3b2e" font-weight="600">BACKLOG：一条 $100k–200k 提权链卡在配额外</text>
+      <text x="586" y="342" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#5a6b78">curl 确认率 >15% → <5%，2026-01-31 关停赏金</text>
+      <text x="706" y="114" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#2f7f63" font-weight="600">Unit 42：约 460 次尝试 → 确认成功 3 次</text>
+      <text x="706" y="130" font-family="IBM Plex Mono, monospace" font-size="10.6" fill="#5a6b78">且 3 次全部来自人工操作，自主流水线为零</text>
+    </svg>
+    <figcaption>
+      示意图，非等比数据可视化。左侧方块＝被 AI 放大后近乎免费的产出；闸口＝仍按人力单价计费的验证环节；右侧＝被真正确认的事实。<br>
+      所标数据分别来自《金融时报》报道（苹果限流与 Bynario 案例）、HackerOne 与 curl 公开数据、Palo Alto Networks Unit 42 于 2026-07-30 发布的研究报告。
+    </figcaption>
+  </figure>
+
+  <div class="sec-head"><h3>Signals / 本期信号</h3></div>

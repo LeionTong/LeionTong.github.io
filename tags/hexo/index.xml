@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hexo on Leion'Log</title><link>https://leiontong.github.io/tags/hexo/</link><description>Recent content in Hexo on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 16 Aug 2021 17:08:31 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hexo-Theme-Next-Configuration</title><link>https://leiontong.github.io/posts/hexo-theme-next-configuration/</link><pubDate>Mon, 16 Aug 2021 17:08:31 +0000</pubDate><guid>https://leiontong.github.io/posts/hexo-theme-next-configuration/</guid><description>&lt;h1 id="hexo-theme-next-configuration"&gt;Hexo Theme Next Configuration&lt;/h1&gt;
+&lt;h2 id="创建主题配置文件"&gt;创建主题配置文件&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;# Installed through npm
+cp node_modules/hexo-theme-next/_config.yml _config.next.yml
+# Installed through Git
+cp themes/next/_config.yml _config.next.yml
+&lt;/code&gt;&lt;/pre&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://theme-next.js.org/docs/getting-started/configuration.html"&gt;https://theme-next.js.org/docs/getting-started/configuration.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>无效或已损坏的软件包 (PGP 签名)</title><link>https://leiontong.github.io/posts/invalid-or-corrupted-package/</link><pubDate>Sun, 17 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/invalid-or-corrupted-package/</guid><description>&lt;h1 id="无效或已损坏的软件包-pgp-签名"&gt;无效或已损坏的软件包 (PGP 签名)&lt;/h1&gt;
+&lt;h2 id="现象"&gt;现象&lt;/h2&gt;
+&lt;p&gt;提示：无效或已损坏的软件包 (PGP 签名)。出现Keys错误，签名失败，导致 ArchLinux/Manjaro 无法正常升级或者安装软件。&lt;/p&gt;
+&lt;p&gt;方法1：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;sud vim /etc/pacman.conf
+...
+[archlinuxcn]
+SigLevel = Never #SigLevel的值改为 Never 或 Optional TrustAll
+...
+sudo pacman -Syu
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;方法2：
+1,移除旧的keys
+&lt;code&gt;sudo rm -rf /etc/pacman.d/gnupg&lt;/code&gt;&lt;/p&gt;</description></item><item><title>How to use Hexo and deploy to GitHub Pages</title><link>https://leiontong.github.io/posts/hexo-deploy-to-github-pages/</link><pubDate>Wed, 17 May 2017 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/hexo-deploy-to-github-pages/</guid><description>&lt;h1 id="how-to-use-hexo-and-deploy-to-github-pages"&gt;How to use Hexo and deploy to GitHub Pages&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/hexojs/hexo"&gt;https://github.com/hexojs/hexo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hexo.io/docs/"&gt;https://hexo.io/docs/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="1-install-hexo"&gt;1. Install Hexo&lt;/h2&gt;</description></item><item><title>common Hexo post Steps</title><link>https://leiontong.github.io/posts/tips-common-hexo-post-steps/</link><pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/tips-common-hexo-post-steps/</guid><description>&lt;h1 id="common-hexo-post-steps"&gt;common Hexo post Steps:&lt;/h1&gt;
+&lt;h2 id="server-preview"&gt;Server preview:&lt;/h2&gt;
+&lt;p&gt;hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo server&lt;/p&gt;
+&lt;h2 id="deploy-to-gh-pages"&gt;Deploy to Gh-pages:&lt;/h2&gt;
+&lt;p&gt;hexo clean &amp;amp;&amp;amp; hexo g -d &amp;amp;&amp;amp; hexo clean&lt;/p&gt;
+&lt;h1 id="hexo-insert-images-into-mardown"&gt;Hexo insert images into Mardown&lt;/h1&gt;
+&lt;p&gt;Hexo 向 Mardown 中插入图片&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Refer: &lt;a href="https://zhuanlan.zhihu.com/p/265077468"&gt;https://zhuanlan.zhihu.com/p/265077468&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>
