@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-12-2058.html">
+    <div class="da-card-date">2026-09-12 · 20:58</div>
+    <div class="da-card-title">AI 每日动态 · 智能体进治理与进厂，具身开源底座补场景</div>
+    <div class="da-card-main">智能体的竞争焦点从&quot;能不能上岗&quot;转向&quot;谁来治理、在哪托管、进哪个场景&quot;，具身与端侧同步补底座 Salesforce 把七个即用型智能体与一套治理控制面打包推出，OpenAI 把云端智能体做成可被 API 直接调用的托管基础设施——两条线索指向同一件事：企业部署智能体的瓶颈，正从&quot;能不能建&quot;转向&quot;谁来管、能在哪干什么、出了事怎么审计&quot;。与此同时，具身智能在补两块短板：宇树开源通用基座模型、工信部把开源社区写进政策，中国商飞开放大飞机车间作训练场；行业展会也把主语从&quot;跑跳&quot;换成&quot;进工厂&quot;。端侧则把智能体的算力与数据主权，从云端一路下沉到一根 USB-C 设备。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-11-1021.html">
     <div class="da-card-date">2026-09-11 · 10:21</div>
     <div class="da-card-title">AI 每日动态 · 智能体成为可编程基础设施</div>
