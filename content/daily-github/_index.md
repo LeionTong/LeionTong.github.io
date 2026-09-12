@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-12-2110.html">
+    <div class="da-card-date">2026-09-12 · 21:10</div>
+    <div class="da-card-title">把按量计费的 SaaS 换成自托管</div>
+    <div class="da-card-main">今日五条没有一条在卖模型能力，卖的全是「把一类已被市场验证、按量或按席位计费的 SaaS 换成开源自托管形态」——浏览器自动化、实时消息、语音 AI、邮件发送、嵌入分析。两条主流走 MCP 与协议层，三条小众是语音、邮件与 BI 这三个用量越大账单越痛的品类。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-11-1036.html">
     <div class="da-card-date">2026-09-11 · 10:36</div>
     <div class="da-card-title">把固定成本换成自己掌控的形态三条落在构建与发布流水线上</div>
