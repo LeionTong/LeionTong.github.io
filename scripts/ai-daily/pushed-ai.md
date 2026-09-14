@@ -1,0 +1,4 @@
+- 2026-09-14 · OpenAI Agents API 公开测试版 · 把 Codex harness 封装为托管 API
+- 2026-09-14 · 中国移动云国产GPU+类脑异构推理系统 · 面向代码生成/多智能体
+- 2026-09-14 · Rokid AIUI Studio · 面向AI眼镜的智能体创作平台(IFA)
+- 2026-09-14 · Weave Isaac 1 家用人形机器人 · 7999美元轮式家用
