@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-14-0935.html">
+    <div class="da-card-date">2026-09-14 · 09:35</div>
+    <div class="da-card-title">AI 编程与智能体进入生产治理阶段</div>
+    <div class="da-card-main">本期聚焦 9 月 9–14 日 AI 编程与智能体的密集落地：国家级&quot;人工智能+软件&quot;专项把智能编程与智能体软件纳入政策红利；Cursor、GitHub、Claude Code 三条主线把编码智能体推向多代理编排、周期任务与企业治理；终端侧蚂蚁&quot;灵影&quot;把 agent 运行底座下沉到 AI 眼镜等新终端；具身智能则在服贸会与智博会展示从展台到车间的真实作业。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-12-2058.html">
     <div class="da-card-date">2026-09-12 · 20:58</div>
     <div class="da-card-title">AI 每日动态 · 智能体进治理与进厂，具身开源底座补场景</div>
