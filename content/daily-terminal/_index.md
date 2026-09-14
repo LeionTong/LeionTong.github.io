@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-14-1042.html">
+    <div class="da-card-date">2026-09-14 · 10:42</div>
+    <div class="da-card-title">终端硬件 开源周选</div>
+    <div class="da-card-main">从全 GitHub 筛选并评估优质终端硬件开源项目：人形机器人、智能屏显示与服务端配套。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-11-1041.html">
     <div class="da-card-date">2026-09-11 · 10:41</div>
     <div class="da-card-title">智能眼镜的操作系统，与一台能自己造的桌面机器人</div>
