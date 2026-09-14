@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-14-1109.html">
+    <div class="da-card-date">2026-09-14 · 11:09</div>
+    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-main">从趋势与数据基础设施里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-14-1015.html">
     <div class="da-card-date">2026-09-14 · 10:15</div>
     <div class="da-card-title">LLM 与 Agent 的生产基建</div>

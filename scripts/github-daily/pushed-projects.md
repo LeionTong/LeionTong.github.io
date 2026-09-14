@@ -40,3 +40,8 @@
 - 2026-09-11 · omnara-ai/omnara · 托管 Agent 运行平台，执行与状态托管、模型自选自持
 - 2026-09-11 · gronxb/hot-updater · React Native 自托管 OTA 更新，CodePush 关停后的替代
 - 2026-09-11 · runs-on/runs-on · 跑在自有 AWS 账号里的 GitHub Actions runner 控制平面
+- 2026-09-14 · semantica-agi/semantica · 图原生 AI 上下文/知识基础设施，可问责溯源
+- 2026-09-14 · CopilotKit/OpenBot · 开源 AI 同事：每个智能体一台自己的电脑（浏览器/文件/工具）
+- 2026-09-14 · AtomicBot-ai/atomic-agent · 本地优先 AI 智能体，本机跑开源权重模型
+- 2026-09-14 · slothflowlabs/duckle · 自托管 ETL，DuckDB 编译 SQL，替代行计量云端
+- 2026-09-14 · 0xMassi/webclaw · 本地优先 LLM 网页抽取，CLI/REST/MCP
