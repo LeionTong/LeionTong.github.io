@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-14-1015.html">
+    <div class="da-card-date">2026-09-14 · 10:15</div>
+    <div class="da-card-title">LLM 与 Agent 的生产基建</div>
+    <div class="da-card-main">今日五条没有一条在卖模型能力，卖的全是让 LLM 与 Agent 真正上生产的环节——接入网关、评测红队、语音回归、私有运行时、团队共享。两条主流是有九月发布的成熟项目（网关 / 评测），三条小众是语音测试、私有 agent 服务器与团队 agent 协作。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-12-2110.html">
     <div class="da-card-date">2026-09-12 · 21:10</div>
     <div class="da-card-title">把按量计费的 SaaS 换成自托管</div>
