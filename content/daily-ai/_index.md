@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-14-1052.html">
+    <div class="da-card-date">2026-09-14 · 10:52</div>
+    <div class="da-card-title">智能体运行底座、国产推理算力与终端生态同日放量</div>
+    <div class="da-card-main">本期补录 9 月 9–14 日本周此前遗漏的四条关键进展：OpenAI 把支撑 Codex 的 agent 运行 harness 封装为托管 API，把长时运行智能体所需的基础设施产品化；中国移动云联合多家院企发布国产 GPU + 类脑芯片异构混合推理系统，为代码生成与多智能体等高并发推理给出一条不依赖先进制程的国产算力路径；Rokid 在 IFA 2026 发布面向 AI 眼镜的一站式智能体创作平台；美国初创 Weave 以 7999 美元的轮式家用人形机器人，把「能干活」与「可负担」拉到同一价位。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-14-0935.html">
     <div class="da-card-date">2026-09-14 · 09:35</div>
     <div class="da-card-title">AI 编程与智能体进入生产治理阶段</div>
