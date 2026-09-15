@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-15-1050.html">
+    <div class="da-card-date">2026-09-15 · 10:50</div>
+    <div class="da-card-title">LEION · DAILY TERMINAL</div>
+    <div class="da-card-main">语音终端 · 穿戴 · 桌面机器人 三扇区扫描，新增 2 个活跃开源硬件项目：把 AI 编程助手实体化的桌面机器人 tiny-engineer，与人形机器人开源 CAD 源 sprite_humanoid_freecad。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-14-1041.html">
     <div class="da-card-date">2026-09-14 · 10:41</div>
     <div class="da-card-title">Daily Terminal · 2026-09-14</div>
