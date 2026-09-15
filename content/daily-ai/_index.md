@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-15-0942.html">
+    <div class="da-card-date">2026-09-15 · 09:42</div>
+    <div class="da-card-title">GPT-6 Astra 上线，多模型编排与端侧智能体同步推进</div>
+    <div class="da-card-main">本期梳理 9 月上旬的编码智能体与端侧/具身进展：OpenAI 把新一代旗舰的能力重心明确放到长程软件工程与电脑操作；GitHub 在 Copilot CLI 中把多模型协同编排产品化，用更低的 token 成本逼近更强单模型的基准表现；清华与 Qwen 团队给出「轨迹即数据」的编码 agent 训练环境构建方法；面壁智能的 2B 端侧模型初具通用 Agent 能力，把工具调用与代码生成压到手机与 PC 本地；小鹏机器人自动化总装产线启用，人形机器人从研发试制跨向规模制造。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-14-1052.html">
     <div class="da-card-date">2026-09-14 · 10:52</div>
     <div class="da-card-title">智能体运行底座、国产推理算力与终端生态同日放量</div>
