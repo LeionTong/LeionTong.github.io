@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily-Terminal 2026-09-09 · 终端硬件开源观察</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:10px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+/* ---------- 本页增补：终端硬件条目结构 ---------- */
+.spec-grid{display:flex;flex-wrap:wrap;gap:0;margin:0 0 4px}
+.spec-grid .sc{flex:1 1 120px;padding:10px 12px;border:1px solid var(--rule-soft);
+  border-right:none;background:var(--paper)}
+.spec-grid .sc:last-child{border-right:1px solid var(--rule-soft)}
+.e-sec{margin:0 0 12px}
+.e-sec-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:5px}
+.e-sec p{margin:0;font-size:16.5px;color:var(--ink);line-height:1.85}
+.e-sec.soft p{color:var(--ink-soft)}
+.finding{margin:0 0 20px;padding:0}
+.finding li{font-size:16.5px;line-height:1.85;color:var(--ink);margin-bottom:9px}
+@media (max-width:640px){
+  .spec-grid .sc{flex:1 1 100%;border-right:1px solid var(--rule-soft);
+    border-bottom:none}
+  .spec-grid .sc:last-child{border-bottom:1px solid var(--rule-soft)}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top">
+    <span><b>Daily-Terminal</b> · 终端硬件开源观察</span>
+    <span>2026-09-09 · 第 001 期</span>
+  </div>
+  <h1>开源终端硬件：<em>固件成熟度高，商业化分层明显</em></h1>
+  <p class="mh-sub">本期扫描语音终端 · 穿戴 · 桌面机器人三个扇区，五条查询命中候选，经活跃度与质量闸门后入选 7 个项目。可玩性普遍不低，但商业化强度呈清晰的两极分化。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">扫描查询</span><span class="spec-v">5 条</span></div>
+    <div class="spec-cell"><span class="spec-k">入选项目</span><span class="spec-v">7 个</span></div>
+    <div class="spec-cell"><span class="spec-k">商业化强</span><span class="spec-v">1 个</span></div>
+    <div class="spec-cell"><span class="spec-k">最新 push</span><span class="spec-v">2026-09-08</span></div>
+  </div>
+</header>
+
+<section class="lede">
+  <span class="tag">今日判断</span>
+  <p class="lede-title">固件侧已过"能不能跑"阶段，难点在"能不能卖"</p>
+  <p><b>核心观察：</b>本期 7 个项目全部在 30 天内有代码提交，说明终端硬件开源社区的维护连续性远好于一般软件项目——硬件固件一旦停更即失去意义，淘汰机制比纯软件更残酷，留下的都是真在跑的。</p>
+  <p><b>关键分化：</b>商业化强度与 stars 数并不正相关。★5287 的 OpenCat 有整机在售，而 ★3367 的 InfiniTime 仍停留在"社区固件为硬件厂商引流"的间接模式。判断一个终端项目能否变现，看的是它有没有定义硬件 BOM，而不是仓库热度。</p>
+  <p><b>协议陷阱：</b>穿戴扇区四个项目里三个是 GPL（InfiniTime / ZSWatch / wasp-os 为 GPL-3.0，AsteroidOS 为 GPL-2.0），做闭源硬件产品时传染性风险显著。语音终端的 willow 用 Apache-2.0，是本期协议最宽松的可商用标的。</p>
+</section>
+
+<div class="sec-head"><span class="n">PART 01</span><span class="t">今日入选项目</span></div>
+
+<article class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">PetoiCamp/OpenCat-Quadruped-Robot <span>PetoiCamp</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 5287</span>
+      <span class="tag">桌面机器人 / 四足</span>
+      <span class="tag">MIT</span>
+      <span class="tag">C++</span>
+      <span class="tag warn">商业化：强</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-09-08</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">1.2.5</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">2025-06-23</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">6</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">固件</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>波士顿动力风格的开源四足机器狗框架，覆盖 STEM 教育、编程教学、IoT 机器人与 DIY 套件开发多个场景。MIT 协议，无商用限制。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>Bittle / Nybble 整机与散件在官网直接销售，入手即可跑固件，无需自己解决结构件与舵机选型——这是终端硬件开源项目里极罕见的"零摩擦上手"体验。仅 6 个开放 issue 说明 issue 消化速度极快，社区问答质量有保障。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>强。</em>这是"开源固件驱动硬件销售"的完整闭环样本：固件 MIT 开源换取社区与教育渠道渗透，收入来自整机、套件与配件。STEM 教育是其最稳固的付费场景——学校采购决策链清晰、复购（竞赛 / 课程）稳定。对想做具身硬件的团队，它的价值不在抄代码，而在抄它的<b>产品分层与渠道结构</b>。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/PetoiCamp/OpenCat-Quadruped-Robot">github.com/PetoiCamp/OpenCat-Quadruped-Robot</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">InfiniTimeOrg/InfiniTime <span>InfiniTimeOrg</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 3367</span>
+      <span class="tag">穿戴 / 智能手表</span>
+      <span class="tag">GPL-3.0</span>
+      <span class="tag">C</span>
+      <span class="tag up">商业化：中</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-09-07</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">1.16.1</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">2026-07-05</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">413</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">固件</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>PineTime 智能手表的开源固件，C++ 编写、基于 FreeRTOS，是开源穿戴领域维护最持续的固件项目之一。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>PineTime 整机售价极低，固件可自行编译刷写，是入门嵌入式穿戴的最低成本路径。但 <b>413 个开放 issue</b> 是本期最高，反映维护者负载已接近饱和——新贡献者提的 PR 可能长时间得不到 review。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>中。</em>项目本身不卖货，商业价值体现在为 Pine64 硬件引流：固件越好用，手表越好卖。想复刻这条路径需要自己掌握硬件供应链，否则只是在给别人做嫁衣。另一重约束是 <b>GPL-3.0</b>——若做闭源衍生固件，协议传染性会直接阻断商业化，必须评估合规成本。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/InfiniTimeOrg/InfiniTime">github.com/InfiniTimeOrg/InfiniTime</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">ZSWatch/ZSWatch <span>ZSWatch</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 3353</span>
+      <span class="tag">穿戴 / 智能手表</span>
+      <span class="tag">GPL-3.0</span>
+      <span class="tag">C</span>
+      <span class="tag up">商业化：中</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-09-07</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">无正式 release</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">—</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">32</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">固件 + 硬件</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>基于 Zephyr RTOS 的开源智能手表，硬件（PCB 设计、外壳）与固件双双开源，是本期硬件完整度最高的项目。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>Zephyr 生态成熟、驱动复用度高，且 PCB 与结构件文件齐全，理论上可自己打样组装。32 个开放 issue 相对健康。但<b>没有正式 release</b> 意味着没有一个被维护者背书的可刷写稳定版本，自行动手需承担版本不确定性。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>中。</em>"硬件 + 固件全开源"是双刃剑：对想做手表套件的团队，它省掉几乎全部研发成本；但同样意味着竞争对手也能零成本复制，难以形成产品壁垒。真正的差异点只能建在工业设计、供应链与品牌上。GPL-3.0 同样限制闭源衍生。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/ZSWatch/ZSWatch">github.com/ZSWatch/ZSWatch</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">HeyWillow/willow <span>HeyWillow</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 3105</span>
+      <span class="tag">语音终端</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">C</span>
+      <span class="tag up">商业化：中</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-09-01</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">0.4.3</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">2026-07-21</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">25</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">固件</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>运行于 ESP32 的开源本地语音助手，定位 Amazon Echo / Google Home 的隐私友好替代方案，唤醒与推理均可本地完成。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>ESP32 开发板价格低廉、获取容易，固件刷写流程文档完整。25 个开放 issue 处于健康区间，版本号 0.4.3 说明仍在快速迭代——想做二次开发要接受 API 变动。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>中。</em>本期<b>协议最宽松</b>的可商用标的：Apache-2.0 允许闭源衍生与商业集成，无 GPL 传染性顾虑。最直接的路径是做政企 / 家庭的私有化语音终端方案集成——数据不出本地本身就是卖点。短板在于 ESP32 算力有限，复杂语义理解仍需上云，纯离线体验有天花板。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/HeyWillow/willow">github.com/HeyWillow/willow</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">isair/jarvis <span>isair</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 1737</span>
+      <span class="tag">语音终端 / 软件</span>
+      <span class="tag">NOASSERTION</span>
+      <span class="tag">Python</span>
+      <span class="tag up">商业化：弱</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-08-25</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">v2.2.2</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">2026-08-05</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">139</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">源码</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>运行在个人电脑上的 100% 私有语音助手，支持自然对话、长期记忆、联网检索、Chrome 控制、营养追踪，且可挂载无限 MCP 工具。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>功能覆盖面是本期最广的，MCP 扩展机制让它能接进几乎任何工具链，纯软件部署无硬件门槛。发版节奏也快（v2.2.2 发布于 8 月初）。但 139 个开放 issue 提示功能铺得太开、维护跟不上。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>弱。</em>本任务的筛选目标是<b>终端硬件</b>，而它是纯 PC 软件，无硬件载体、无 BOM、无供应链，硬件变现路径不存在。纳入观察是因为它的 MCP 工具编排思路对语音终端的软件栈设计有借鉴价值。另需注意 license 为 <b>NOASSERTION</b>，GitHub 未识别到标准协议——这不等于禁止商用，实际授权条款须读取仓库 LICENSE 正文才能判定，不可凭空值下结论。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/isair/jarvis">github.com/isair/jarvis</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">06</span>
+  <div class="e-head">
+    <h2 class="e-name">AsteroidOS/asteroid <span>AsteroidOS</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 1064</span>
+      <span class="tag">穿戴 / 手表 OS</span>
+      <span class="tag">GPL-2.0</span>
+      <span class="tag">Shell</span>
+      <span class="tag up">商业化：弱</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-08-30</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">无正式 release</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">—</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">73</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">源码 / 构建系统</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>AsteroidOS 的构建脚本仓库，AsteroidOS 是一套面向智能手表的开源操作系统。本仓是构建入口，而非终端应用本体。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>面向的是"想给手表刷自定义系统"的进阶玩家，构建流程依赖完整 Linux 环境，上手门槛明显高于刷一个固件。主语言为 Shell 也印证了它的构建工具属性。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>弱。</em>它提供的是发行版定制底座，不是可交付的终端产品。商业价值在于：若团队要为自有手表硬件做定制系统，可以它为基础省掉构建体系搭建。直接变现路径不存在，GPL-2.0 亦限制闭源分发。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/AsteroidOS/asteroid">github.com/AsteroidOS/asteroid</a></div>
+</article>
+
+<article class="entry">
+  <span class="entry-no">07</span>
+  <div class="e-head">
+    <h2 class="e-name">wasp-os/wasp-os <span>wasp-os</span></h2>
+    <div class="e-meta">
+      <span class="tag star">★ 935</span>
+      <span class="tag">穿戴 / 智能手表</span>
+      <span class="tag">GPL-3.0</span>
+      <span class="tag">Python</span>
+      <span class="tag up">商业化：弱</span>
+    </div>
+  </div>
+  <div class="spec-grid">
+    <div class="sc"><span class="sc-k">最近 push</span><span class="sc-v">2026-08-29</span></div>
+    <div class="sc"><span class="sc-k">最新 release</span><span class="sc-v">v0.4</span></div>
+    <div class="sc"><span class="sc-k">发布时间</span><span class="sc-v">2021-02-20</span></div>
+    <div class="sc"><span class="sc-k">开放 issue</span><span class="sc-v">116</span></div>
+    <div class="sc"><span class="sc-k">部署形态</span><span class="sc-v">固件</span></div>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">它是什么</span>
+    <p>面向智能手表（含 Pine64 PineTime）的 MicroPython 开发环境与固件，用 Python 写表盘与应用。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">可玩性</span>
+    <p>最大优势是开发门槛——会 Python 就能写手表应用，无需啃 C / FreeRTOS。但<b>最新 release 停留在 2021 年 2 月</b>，而代码 2026 年 8 月仍在提交，属典型的"代码活跃但发版停滞"：想用就得直接跟 main 分支，稳定性无保障。116 个开放 issue 也偏高。</p>
+  </div>
+  <div class="e-sec">
+    <span class="e-sec-k">商业化判读</span>
+    <p><em>弱。</em>五年不发版意味着没有可用于产品的稳定基线，任何商用部署都要自己承担全部测试与维护成本。它的定位更接近教学与原型验证工具——快速验证一个穿戴交互想法可以，做成产品不合适。GPL-3.0 同样限制闭源。</p>
+  </div>
+  <div class="e-line"><b>仓库</b><a href="https://github.com/wasp-os/wasp-os">github.com/wasp-os/wasp-os</a></div>
+</article>
+
+<div class="sec-head"><span class="n">PART 02</span><span class="t">横向对照</span></div>
+
+<div class="figure">
+  <div class="fig-cap"><b>表 1</b> · 七项目关键维度对照（数据均为本次实测）</div>
+  <div class="entry" style="margin-bottom:22px">
+    <div class="e-line"><b>硬件载体</b> 明确定义 BOM 的只有 <em>OpenCat</em>（整机在售）与 <em>ZSWatch</em>（PCB + 外壳开源）；InfiniTime / wasp-os 依附 PineTime 硬件；willow 依附 ESP32 开发板；jarvis / asteroid 无硬件载体。</div>
+    <div class="e-line"><b>协议友好度</b> <em>willow（Apache-2.0）</em> &gt; <em>OpenCat（MIT）</em> &gt; 其余四个 GPL 项目 &gt; jarvis（NOASSERTION，须读 LICENSE 正文）。做闭源商业产品，只有前两者无协议障碍。</div>
+    <div class="e-line"><b>发版健康度</b> <em>OpenCat 1.2.5</em>（2025-06）与 <em>InfiniTime 1.16.1</em>（2026-07）有近期正式版本；<em>ZSWatch / asteroid</em> 无 release；<em>wasp-os</em> 停在 2021 年。</div>
+    <div class="e-line"><b>维护压力</b> 开放 issue 数：<em>InfiniTime 413</em> &gt; jarvis 139 &gt; wasp-os 116 &gt; asteroid 73 &gt; ZSWatch 32 &gt; willow 25 &gt; <em>OpenCat 6</em>。OpenCat 的 6 个 issue 在五千星量级项目中极为罕见。</div>
+  </div>
+  <p class="fig-note">注：release 发布时间距今较远不代表项目停滞，需结合 pushedAt 判断。wasp-os 即为"提交活跃但发版停滞"的典型，两者应分开看。</p>
+</div>
+
+<div class="cross">
+  <h3>三条可执行判断</h3>
+  <ol>
+    <li><strong>找"能卖"的标的，先看有没有 BOM。</strong>本期只有 OpenCat 与 ZSWatch 定义了完整硬件，其余都是依附既有硬件的固件或软件。没有 BOM 就没有供应链议价权，也就没有硬件毛利。评估任何终端硬件项目，先问"它的物料清单在哪里"。</li>
+    <li><strong>协议是硬约束，不是可选项。</strong>穿戴扇区被 GPL 覆盖过半。若产品路线包含闭源固件，InfiniTime / ZSWatch / wasp-os / asteroid 四个标的应直接排除或仅作参考；willow（Apache-2.0）与 OpenCat（MIT）是唯二可无障碍商用的选择。</li>
+    <li><strong>STEM 教育是被验证的终端硬件付费场景。</strong>OpenCat 用 MIT 开源换教育渠道渗透、靠整机与套件变现，且开放 issue 仅 6 个说明社区自治良好。对想切入具身硬件的团队，这是当前性价比最高的路径参照——先做教育套件跑通现金流，再谈平台化。</li>
+  </ol>
+  <div class="verdict">结论：若只跟一个项目，跟 OpenCat——它是本期唯一完成"开源 → 硬件 → 收入"闭环的样本，且 MIT 协议无商用阻碍。</div>
+</div>
+
+<section class="tail">
+  <h2>明日<em>轮换计划</em></h2>
+  <p>本期已用扇区：语音终端 · 穿戴 · 桌面机器人。按菜单顺序，次日从<strong>智能屏显示</strong>起，接续<strong>具身</strong>与<strong>服务端配套</strong>。</p>
+  <ol>
+    <li>智能屏显示：smart mirror / e-paper dashboard / smart display</li>
+    <li>具身：robot arm / quadruped robot</li>
+    <li>服务端配套：voice server / ASR TTS server / digital human</li>
+    <li>补跑本期遗漏的桌面机器人新锐雷达</li>
+  </ol>
+  <p>本期新锐雷达两条扇区（语音终端、穿戴）均 0 命中——近 30 天新建的终端硬件项目 stars 尚未突破 20 阈值，属正常周期波动，非查询故障。后续若持续多期 0 命中，需考虑下调阈值或改用 pushed 排序。</p>
+</section>
+
+<div class="colophon">
+  <span>Daily-Terminal · 2026-09-09 · 第 001 期</span>
+  <span>数据源：GitHub REST API via gh CLI（已认证）· 全部数值为本次实测</span>
+</div>
+
+</div>
+</body>
+</html>

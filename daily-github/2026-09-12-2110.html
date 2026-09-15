@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Github · 2026-09-12 21:10 · 五维加权筛选：商业化 / 规模化 / 边际成本 / 验证速度 / 成熟度</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top">
+    <span>LeionTong · <b>Daily Github</b> · NO.09</span>
+    <span>2026-09-12 · 21:10 GMT+8</span>
+  </div>
+  <h1>把按量计费的 SaaS 换成自托管</h1>
+  <p class="mh-sub">今日五条没有一条在卖模型能力，卖的全是「把一类已被市场验证、按量或按席位计费的 SaaS 换成开源自托管形态」——浏览器自动化、实时消息、语音 AI、邮件发送、嵌入分析。两条主流走 MCP 与协议层，三条小众是语音、邮件与 BI 这三个用量越大账单越痛的品类。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Date</span><span class="spec-v">2026-09-12</span></div>
+    <div class="spec-cell"><span class="spec-k">Picks</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">Gate</span><span class="spec-v">加权 ≥ 3.5 / 5.0</span></div>
+    <div class="spec-cell"><span class="spec-k">Sources</span><span class="spec-v">Trending · Search · API</span></div>
+  </div>
+</header>
+
+<p class="lede"><b>数据口径：</b>star 数、License、最近提交均取自 2026-09-12 当日 GitHub API 实检；「近 30 天 +X」取自当日 GitHub Trending 月 / 周榜，未上榜者标注「未获取到」，<b>不作估算</b>。评分权重：商业化 30% · 规模化 25% · 边际成本 20% · 验证速度 15% · 成熟度 10%。</p>
+
+<!-- 01 ChromeDevTools/chrome-devtools-mcp -->
+<article class="entry">
+  <div class="entry-no">01</div>
+  <div class="e-head">
+    <h2 class="e-name">Chrome DevTools MCP <span>ChromeDevTools/chrome-devtools-mcp</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 51,725</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v1.9.0 · 提交 2026-09-11</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>把 Chrome 完整调试协议包成 MCP 服务，让 coding agent 直接读 DOM、截图、抓网络、跑性能分析。</em></p>
+  <p class="e-line"><b>痛点</b>让 Agent 操作真实浏览器，过去只能接 Browserbase / Steel 这类按会话计费的托管服务。</p>
+  <p class="e-line"><b>谁付钱</b>需要浏览器自动化的工程团队与 Agent 产品；开源免费，第三方靠私有化支持与集成变现。</p>
+  <p class="e-line"><b>规模化</b>凡 coding agent 需取网页上下文都通用，MCP 接入即标准化，无实施。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件 MCP 服务，无硬件无 GPU。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>npx -y @chrome-devtools/mcp@latest
+
+# 在 Claude Code / Cursor 的 mcp 配置里加上述命令，重启后让 agent
+# 「打开 example.com 并截图标出登录按钮」</pre>
+  <p class="e-line risk"><b>风险</b>本质是 Google 免费基础设施，路线图由 Chrome 团队定；原生面向调试协议，登录态与反爬场景仍需配 stealth 方案。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.55</b> / 5.00</div>
+</article>
+
+<!-- 02 centrifugo/centrifugo -->
+<article class="entry">
+  <div class="entry-no">02</div>
+  <div class="e-head">
+    <h2 class="e-name">Centrifugo <span>centrifugo/centrifugo</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 10,742</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">Go</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">主干 · 提交 2026-09-12</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>语言无关的可扩展实时消息服务器，自托管替代 PubNub / Pusher / Ably。</em></p>
+  <p class="e-line"><b>痛点</b>实时消息按量计费，用量上来账单陡增，且供应商锁定协议。</p>
+  <p class="e-line"><b>谁付钱</b>需要实时推送 / 在线状态的 Web 与移动产品；开源免费，商业云与优先支持变现。</p>
+  <p class="e-line"><b>规模化</b>实时消息是通用基建，跨行业，Docker 一行起，可标准化。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯服务端软件，新增客户零增量。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>docker run -it --rm -p 8000:8000 centrifugo/centrifugo:latest
+
+# 打开 http://localhost:8000 走内置 demo，或用 centrifugo config.json 起生产节点</pre>
+  <p class="e-line risk"><b>风险</b>与托管实时服务（Ably / Pusher）和云厂商托管 WebSocket 直接竞争；客户端需接它的协议，迁移成本在 SDK 层。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>5.00</b> / 5.00</div>
+</article>
+
+<!-- 03 dograh-hq/dograh -->
+<article class="entry">
+  <div class="entry-no">03</div>
+  <div class="e-head">
+    <h2 class="e-name">Dograh <span>dograh-hq/dograh</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 5,635</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">Python</span>
+      <span class="tag">BSD-2-Clause</span>
+      <span class="tag">v1.46.0 · 提交 2026-09-12</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>自托管语音 AI 平台，BYOK 接 STT / TTS / LLM，替代 Vapi 与 Retell。</em></p>
+  <p class="e-line"><b>痛点</b>语音 AI 按分钟计费，Vapi / Retell 单价高，且供应商锁调用与计费的入口。</p>
+  <p class="e-line"><b>谁付钱</b>要做语音 Agent、电话机器人的团队；开源免费，客户只为底层模型付费，厂商赚支持与私有化。</p>
+  <p class="e-line"><b>规模化</b>语音交互是高需求垂直，但依赖 telephony / STT / TTS 供应商生态，交付需配置。</p>
+  <p class="e-line"><b>边际成本</b><em>中</em> —— 平台软件自托管无硬件，但跑语音需接外部 STT / TTS / LLM，有外部成本。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/dograh-hq/dograh && cd dograh
+docker compose up -d   # 按 README 填 BYOK 的 STT/TTS/LLM key 后接电话或 Web 渠道</pre>
+  <p class="e-line risk"><b>风险</b>强依赖外部语音供应商，成本与可用性不完全自控；项目新（v1.46.0），多厂商编排与 telephony 稳定性待生产验证。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.30</b> / 5.00</div>
+</article>
+
+<!-- 04 usesend/useSend -->
+<article class="entry">
+  <div class="entry-no">04</div>
+  <div class="e-head">
+    <h2 class="e-name">useSend <span>usesend/useSend</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 4,672</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag warn">AGPL-3.0</span>
+      <span class="tag">v1.9.8 · 提交 2026-09-08</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>自托管邮件发送 API，替代 Resend、SendGrid、Postmark。</em></p>
+  <p class="e-line"><b>痛点</b>事务邮件按发送量计费，量上来账单陡增，且供应商锁 SMTP / API 入口。</p>
+  <p class="e-line"><b>谁付钱</b>需要可靠发信的产品与团队；开源免费，靠托管与支持变现。</p>
+  <p class="e-line"><b>规模化</b>邮件发送是通用需求，但交付需配 SMTP 中继、域名与 SPF / DKIM。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件服务，无硬件。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/usesend/useSend && cd useSend
+docker compose up -d   # 起后按 README 配置 SMTP 中继与域名 DNS，调 /v1/email 发第一封</pre>
+  <p class="e-line risk"><b>风险</b>AGPL-3.0，对外提供多租户邮件 SaaS 会触发 §13 源码开放义务，自托管交付客户则无碍；送达率与 IP 信誉需自己养。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.50</b> / 5.00</div>
+</article>
+
+<!-- 05 Kanaries/graphic-walker -->
+<article class="entry">
+  <div class="entry-no">05</div>
+  <div class="e-head">
+    <h2 class="e-name">Graphic Walker <span>Kanaries/graphic-walker</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,243</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.5.0 · 提交 2026-09-08</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>可嵌入的开源可视化分析，替代 Tableau / Power BI 的嵌入式报表。</em></p>
+  <p class="e-line"><b>痛点</b>BI 许可贵，嵌入式分析按席位或用量计费，且报表锁在厂商格式里。</p>
+  <p class="e-line"><b>谁付钱</b>要把分析嵌进自家产品的团队；开源免费，靠云版与商业支持变现。</p>
+  <p class="e-line"><b>规模化</b>BI 是通用需求，但企业部署要接权限与多数据源。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯前端 + 后端库，npm 嵌入应用，无硬件。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>npm i @kanaries/graphic-walker
+
+# 在 React 组件里引 <GraphicWalker /> 并传入一个 DataFrame，浏览器即出拖拽分析</pre>
+  <p class="e-line risk"><b>风险</b>相对 Tableau 功能覆盖仍早期，复杂语义建模与大型企业权限需自行补齐；前端包体积与渲染性能在大数据集上要压。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.35</b> / 5.00</div>
+</article>
+
+<section class="tail">
+  <h2>一、今日<em>首选</em></h2>
+  <p><b>centrifugo/centrifugo</b>（加权 5.00）。它攻击的是最成熟、最易量化的替代场景——按量计费的实时消息（PubNub / Pusher / Ably），且有十年生产验证与 Apache-2.0 许可，Docker 一行即可交付，成本差是立刻可算的。</p>
+</section>
+
+<section class="tail">
+  <h2>二、<em>组合观察</em></h2>
+  <p>五条都是同一件事的不同切面：把一类已被市场验证、按量或按席位计费的 SaaS，换成开源自托管形态——浏览器自动化、实时消息、语音 AI、邮件发送、嵌入分析。共同信号是「用量越大、账单越痛」的品类最先被自托管搬走，而交付形态正从「另起平台」收敛为「一个可嵌入的库或一行 Docker」。</p>
+</section>
+
+<section class="tail">
+  <h2>三、暂<em>不建议碰</em></h2>
+  <ol>
+    <li><b>Gitlawb/openclaude</b>（⭐ 33,192，TypeScript，MIT）— 实为 Anthropic 专有 Claude Code CLI 的衍生物，MIT 仅覆盖二次修改，底层代码受 Anthropic 商业条款约束。商用即把上游 ToS 风险写进自己的交付，一票否决。</li>
+    <li><b>DietrichGebert/ponytail</b>（⭐ 136,259，JavaScript，MIT）— 让编码 Agent「像最懒的高级工程师一样思考」的 Claude Code 配置 / 技能合集。无产品形态、无收费入口、复制成本为零，热度来自安装量而非付费意愿，属当日高热但不符标准的技能类项目。</li>
+  </ol>
+</section>
+
+<div class="colophon">
+  <span>Daily Github · NO.09 · 五维加权筛选</span>
+  <span>数据实检于 2026-09-12 · GitHub API + Trending 月 / 周榜 + GitHub Search</span>
+</div>
+
+</div>
+</body>
+</html>
