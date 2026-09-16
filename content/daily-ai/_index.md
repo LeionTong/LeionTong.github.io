@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-16-0937.html">
+    <div class="da-card-date">2026-09-16 · 09:37</div>
+    <div class="da-card-title">AI Agent 从实验走向可投产的基础设施</div>
+    <div class="da-card-main">智能体正在从云端实验走向可投产的基础设施：一端是本地运行（数据不出设备、无 token 计费），一端是托管 harness（标准化会话与编排）。与此同时，编码场景的竞争从「更大模型」转向「单位任务成本与执行安全」，具身方向则继续验证世界模型驱动落地的可行性。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-15-0942.html">
     <div class="da-card-date">2026-09-15 · 09:42</div>
     <div class="da-card-title">GPT-6 Astra 上线，多模型编排与端侧智能体同步推进</div>
