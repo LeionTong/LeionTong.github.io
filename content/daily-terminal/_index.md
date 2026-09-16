@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-16-1055.html">
+    <div class="da-card-date">2026-09-16 · 10:55</div>
+    <div class="da-card-title">LEION · DAILY TERMINAL</div>
+    <div class="da-card-main">第 20 期 · 2026-09-16 · 智能屏显示 / 具身 / 服务端配套：e-ink 看板、四足机器人与家庭服务器 OS</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-15-1050.html">
     <div class="da-card-date">2026-09-15 · 10:50</div>
     <div class="da-card-title">LEION · DAILY TERMINAL</div>
