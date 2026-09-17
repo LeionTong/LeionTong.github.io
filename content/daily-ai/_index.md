@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-17-0934.html">
+    <div class="da-card-date">2026-09-17 · 09:34</div>
+    <div class="da-card-title">编码智能体加固，具身侧三层开源</div>
+    <div class="da-card-main">编码智能体在本周把重心从功能加法转向执行边界与治理层，具身侧则呈现本体厂商自研大模型、端侧推理引擎与空间多模态模型三层开源供给。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-16-0937.html">
     <div class="da-card-date">2026-09-16 · 09:37</div>
     <div class="da-card-title">AI Agent 从实验走向可投产的基础设施</div>
