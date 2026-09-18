@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-18-1012.html">
+    <div class="da-card-date">2026-09-18 · 10:12</div>
+    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-main">主流与小众兼具 · 商业化清晰 · 可规模化 · 边际成本低 · 可快速验证迭代</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-17-1022.html">
     <div class="da-card-date">2026-09-17 · 10:22</div>
     <div class="da-card-title">GitHub 每日优质项目</div>

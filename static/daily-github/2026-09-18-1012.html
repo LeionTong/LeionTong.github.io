@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEION DAILY BRIEF · GitHub 每日优质项目 · 2026-09-18</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="mh-top">
+      <span>LEION DAILY BRIEF</span>
+      <span><b>NO.15</b> · 2026-09-18</span>
+    </div>
+    <h1>GitHub <em>每日优质项目</em></h1>
+    <p class="mh-sub">主流与小众兼具 · 商业化清晰 · 可规模化 · 边际成本低 · 可快速验证迭代</p>
+  </header>
+
+  <!-- 1 -->
+  <article class="entry">
+    <div class="entry-no">01</div>
+    <div class="e-head">
+      <h2 class="e-name">security-audit-skill <span>cloudflare/security-audit-skill</span></h2>
+      <div class="e-meta">
+        <span class="tag star">★ 10,773</span>
+        <span class="tag up">今日 Trending +570</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">MIT</span>
+        <span class="tag">最近提交 2026-09-14</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>给 coding agent 的多阶段安全审计 skill，输出机器可读、独立核验的发现，替代付费 AppSec/审计 SaaS。</p>
+    <p class="e-line"><b>谁付钱</b>需要安全合规的代码团队；靠成本差（免按席位审计费）与 Cloudflare 平台生态变现。</p>
+    <p class="e-line"><b>规模化</b>云厂商背书、可插拔，跨团队通用，交付标准化。</p>
+    <p class="e-line"><b>边际成本</b>低 — 纯软件 skill，新增用户成本近零。</p>
+    <p class="e-line"><b>快速验证</b>Claude Code / Cursor 直接添加 skill，分钟级跑通：
+      <a href="https://github.com/cloudflare/security-audit-skill">github.com/cloudflare/security-audit-skill</a></p>
+    <div class="risk"><b>风险与坑</b>价值依附 Cloudflare 生态，开源 skill 本身免费、靠平台变现，独立商业化弱；"近30天 +X"未获取到（无历史 star 接口）。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    </div>
+    <div class="wsum">加权评分 <b>4.5</b></div>
+  </article>
+
+  <!-- 2 -->
+  <article class="entry">
+    <div class="entry-no">02</div>
+    <div class="e-head">
+      <h2 class="e-name">BrowserSkill <span>Tencent/BrowserSkill</span></h2>
+      <div class="e-meta">
+        <span class="tag star">★ 4,262</span>
+        <span class="tag up">今日 Trending +296</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">MIT</span>
+        <span class="tag">最近提交 2026-09-17</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>让 AI agent 用你真实已登录的浏览器，CLI+扩展跨任意 shell agent，替代 Browserbase/Steel 等付费浏览器自动化 SaaS。</p>
+    <p class="e-line"><b>谁付钱</b>需要浏览器自动化的团队；自托管省去按量/席位费，成本差清晰。</p>
+    <p class="e-line"><b>规模化</b>任何需浏览器操作的 agent 通用，跨行业。</p>
+    <p class="e-line"><b>边际成本</b>低 — 本地扩展+CLI，BYOK，无重服务端。</p>
+    <p class="e-line"><b>快速验证</b>装扩展+CLI 即跑：
+      <a href="https://github.com/Tencent/BrowserSkill">github.com/Tencent/BrowserSkill</a></p>
+    <div class="risk"><b>风险与坑</b>依赖被控浏览器环境，企业合规需评估；腾讯背书但核心免费；"近30天 +X"未获取到。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    </div>
+    <div class="wsum">加权评分 <b>4.4</b></div>
+  </article>
+
+  <!-- 3 -->
+  <article class="entry">
+    <div class="entry-no">03</div>
+    <div class="e-head">
+      <h2 class="e-name">PawWork_ZhuaZhua <span>Player-YN/PawWork_ZhuaZhua</span></h2>
+      <div class="e-meta">
+        <span class="tag star">★ 2,768</span>
+        <span class="tag up">上线21天累计 2,768</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">MIT</span>
+        <span class="tag">最近提交 2026-09-17</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>选区即用的网页 agent：真实页面选内容、描述产出，拿走可编辑办公文件。BYOK、沙箱、无服务端。</p>
+    <p class="e-line"><b>谁付钱</b>知识工作者；替代手工采集+文档生成，愿为效率付费。</p>
+    <p class="e-line"><b>规模化</b>通用但 Chrome 限定、办公文档场景收窄；边际成本极低（本地优先）。</p>
+    <p class="e-line"><b>快速验证</b>装扩展、选页、描述即出文档：
+      <a href="https://github.com/Player-YN/PawWork_ZhuaZhua">github.com/Player-YN/PawWork_ZhuaZhua</a></p>
+    <div class="risk"><b>风险与坑</b>社区深度偏浅（fork 少）、单一维护者；Chrome 限定；"近30天 +X"未获取到。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    </div>
+    <div class="wsum">加权评分 <b>3.6</b></div>
+  </article>
+
+  <!-- 4 -->
+  <article class="entry">
+    <div class="entry-no">04</div>
+    <div class="e-head">
+      <h2 class="e-name">LiveStream-Agent-Studio <span>HanyuanWang/LiveStream-Agent-Studio</span></h2>
+      <div class="e-meta">
+        <span class="tag star">★ 1,017</span>
+        <span class="tag up">上线27天累计 1,017</span>
+        <span class="tag">Python</span>
+        <span class="tag">MIT</span>
+        <span class="tag">最近提交 2026-08-24</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>抖音直播电商本地 AI Agent Studio，贯通主播发现、直播洞察、复盘与短视频编导。</p>
+    <p class="e-line"><b>谁付钱</b>直播卖家；为增长与运营工具高付费，垂直窄但意愿强。</p>
+    <p class="e-line"><b>规模化</b>地域与平台绑定（中国抖音），非跨行业；本地 Windows 应用，BYOK/API，边际成本低。</p>
+    <p class="e-line"><b>快速验证</b>需 Windows+抖音号+密钥，约30分钟跑通：
+      <a href="https://github.com/HanyuanWang/LiveStream-Agent-Studio">github.com/HanyuanWang/LiveStream-Agent-Studio</a></p>
+    <div class="risk"><b>风险与坑</b>地域与平台绑定（抖音 API 变动风险）；近25天无提交，活跃度待观察；"近30天 +X"未获取到。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    </div>
+    <div class="wsum">加权评分 <b>3.7</b></div>
+  </article>
+
+  <!-- 5 -->
+  <article class="entry">
+    <div class="entry-no">05</div>
+    <div class="e-head">
+      <h2 class="e-name">BoardUI <span>BoardUI/boardui</span></h2>
+      <div class="e-meta">
+        <span class="tag star">★ 477</span>
+        <span class="tag up">上线17天累计 477</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">MIT</span>
+        <span class="tag">最近提交 2026-09-05</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>面向 agentic 界面的 React 设计系统，组件全开源可改，首页即用自有密钥跑通 AI 聊天。</p>
+    <p class="e-line"><b>谁付钱</b>构建 agent UI 的团队；替代 Retool/商用 UI 套件，付费意愿明确。</p>
+    <p class="e-line"><b>规模化</b>跨行业通用；OSS 组件库，边际成本近零。</p>
+    <p class="e-line"><b>快速验证</b>npm 装、拷组件、分钟级出 demo：
+      <a href="https://github.com/BoardUI/boardui">github.com/BoardUI/boardui</a></p>
+    <div class="risk"><b>风险与坑</b>设计系统赛道拥挤，差异化靠"agentic"定位；极新，生态待建；"近30天 +X"未获取到。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    </div>
+    <div class="wsum">加权评分 <b>4.3</b></div>
+  </article>
+
+  <section class="tail">
+    <h2><em>今日首选</em></h2>
+    <p><b>cloudflare/security-audit-skill</b> — Cloudflare 背书、即插即用的 agent 安全审计 skill，直接替代付费 AppSec 审计；纯软件边际成本近零、分钟级验证，商业化路径最清晰。</p>
+
+    <h2><em>组合观察</em></h2>
+    <p>今日五项共同指向"agent 基础设施商品化"：大厂把浏览器、安全审计能力开源成可插拔 skill/CLI，正在把原本按席位收费的 Browserbase/Steel/安全审计 SaaS 拆成免费组件。</p>
+    <p>本地优先（BYOK、on-device）与垂直高付费窄场景（直播电商、agent UI）同步成为小众项目的切入方向。</p>
+
+    <h2><em>暂不建议碰</em></h2>
+    <ol>
+      <li><b>affaan-m/ECC</b>：单仓 261,177 stars 异常（趋势单日 +1,171 但总量离谱），疑似刷量/营销盘；内容为 skill 集合，商业模型不清晰，排除。</li>
+      <li><b>Zyrexnn/Cybermes</b>：自主进攻性安全/红队 Agent 框架，双用途，部署涉及授权边界与 ToS 风险，公开商业化需谨慎，本期不入选。</li>
+    </ol>
+  </section>
+
+  <footer class="colophon">
+    <span>Leion</span>
+    <span>· 2026-09-18 10:12 GMT+8</span>
+  </footer>
+
+</div>
+</body>
+</html>
