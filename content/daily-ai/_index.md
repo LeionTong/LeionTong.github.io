@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-18-0934.html">
+    <div class="da-card-date">2026-09-18 · 09:34</div>
+    <div class="da-card-title">AI 领域每日动态</div>
+    <div class="da-card-main">聚焦 AI coding / AI Agent / 终端智能 / 具身智能</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-17-0934.html">
     <div class="da-card-date">2026-09-17 · 09:34</div>
     <div class="da-card-title">编码智能体加固，具身侧三层开源</div>
