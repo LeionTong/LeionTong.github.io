@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-18-1049.html">
+    <div class="da-card-date">2026-09-18 · 10:49</div>
+    <div class="da-card-title">LEION · DAILY TERMINAL</div>
+    <div class="da-card-main">本期扫描智能屏显示、具身、服务端配套三个扇区，新增 8 个终端硬件开源项目，涵盖家庭服务器系统与路由/NAS 固件、开放机械臂与电子墨水屏应用。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-17-1037.html">
     <div class="da-card-date">2026-09-17 · 10:37</div>
     <div class="da-card-title">LEION · DAILY TERMINAL</div>
