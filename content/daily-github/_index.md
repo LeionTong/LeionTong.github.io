@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-19-1829.html">
+    <div class="da-card-date">2026-09-19 · 18:29</div>
+    <div class="da-card-title">GitHub 每日优质项目 · NO.16</div>
+    <div class="da-card-main">本期聚焦「Agent 基础设施自托管化」：浏览器自动化、对象存储、Agent 开发环境、信息抽取与隔离执行五层，均为 Apache-2.0，替代按次/按席位计费的付费 SaaS。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-18-1012.html">
     <div class="da-card-date">2026-09-18 · 10:12</div>
     <div class="da-card-title">GitHub 每日优质项目</div>
