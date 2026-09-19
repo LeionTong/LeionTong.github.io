@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-19-1826.html">
+    <div class="da-card-date">2026-09-19 · 18:26</div>
+    <div class="da-card-title">Agent 走向生产级，端侧与具身同步突破</div>
+    <div class="da-card-main">第 73 期聚焦：Agent 框架收敛于生产级原语；端侧 AI 手机与主动智能 OS 同周落地；具身世界模型密集开源并验证 scaling 路径。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-18-0934.html">
     <div class="da-card-date">2026-09-18 · 09:34</div>
     <div class="da-card-title">AI 领域每日动态</div>
