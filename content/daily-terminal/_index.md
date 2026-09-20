@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-20-1031.html">
+    <div class="da-card-date">2026-09-20 · 10:31</div>
+    <div class="da-card-title">LEION · DAILY TERMINAL</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人三个扇区；新增 2 个终端硬件项目，其中开放 AI 穿戴设备 Omi 以 1.3 万星成为本周期最值得关注的硬件标的。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-18-1049.html">
     <div class="da-card-date">2026-09-18 · 10:49</div>
     <div class="da-card-title">LEION · DAILY TERMINAL</div>
