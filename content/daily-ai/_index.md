@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-20-0939.html">
+    <div class="da-card-date">2026-09-20 · 09:39</div>
+    <div class="da-card-title">Agent 协作与治理走向工程化，端侧与具身密集开源</div>
+    <div class="da-card-main">第 74 期聚焦：NVIDIA 以 Git 提交图为多智能体共享记忆；Agent 框架强化 MCP 治理与跨厂接入；纯 C 推理引擎把前沿 MoE 搬上消费级硬件；导航大脑开源支持跨本体零样本迁移。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-19-1826.html">
     <div class="da-card-date">2026-09-19 · 18:26</div>
     <div class="da-card-title">Agent 走向生产级，端侧与具身同步突破</div>
