@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-21-1015.html">
+    <div class="da-card-date">2026-09-21 · 10:15</div>
+    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-main">本期聚焦智能体基础设施与治理层：并行 agent 运行时、技能安全扫描、技能管理、统一 harness API 与训练后强化学习框架——开发者正把投入从「更聪明的模型」转向「可控、可换、可审计的 agent 管道」。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-20-1008.html">
     <div class="da-card-date">2026-09-20 · 10:08</div>
     <div class="da-card-title">GitHub 每日优质项目</div>
