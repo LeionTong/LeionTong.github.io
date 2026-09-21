@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-21-0931.html">
+    <div class="da-card-date">2026-09-21 · 09:31</div>
+    <div class="da-card-title">AI 编程与 Agent 基础设施进入生产级收敛，智能体加速上硬件</div>
+    <div class="da-card-main">本期聚焦 AI 编程与 Agent 基础设施的实装进展，以及终端智能体硬件、具身智能量产与资本动向。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-20-0939.html">
     <div class="da-card-date">2026-09-20 · 09:39</div>
     <div class="da-card-title">Agent 协作与治理走向工程化，端侧与具身密集开源</div>
