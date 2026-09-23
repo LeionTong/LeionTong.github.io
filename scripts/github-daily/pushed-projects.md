@@ -45,3 +45,43 @@
 - 2026-09-14 · AtomicBot-ai/atomic-agent · 本地优先 AI 智能体，本机跑开源权重模型
 - 2026-09-14 · slothflowlabs/duckle · 自托管 ETL，DuckDB 编译 SQL，替代行计量云端
 - 2026-09-14 · 0xMassi/webclaw · 本地优先 LLM 网页抽取，CLI/REST/MCP
+- 2026-09-15 · CopilotKit/OpenBot · 开源「AI 同事」——给每个 Agent 配一台隔离的电脑（浏览器/文件/登录），动作前经 CEL 策略
+- 2026-09-15 · pascalorg/editor · 开源 3D 建筑编辑器，带本地 CLI 与 MCP 工具，人和 AI Agent 都能读写
+- 2026-09-15 · agentverse-os/AgentVerse-OS · 给每个项目一个隔离的 Incus 工作区，Agent 被限制在里面跑
+- 2026-09-15 · agent-launch/agent-launcher · 一个桌面 App 把六个 coding agent CLI 收拢到一处
+- 2026-09-15 · jnMetaCode/openshorts · 本地优先的短视频生产线：话题进、成片出（脚本→素材/端侧 AI→TTS→字幕→mp4），跑前显示成本
+- 2026-09-16 · alibaba/open-code-review · 混合架构代码评审工具——确定性流水线 + LLM Agent，行级精准评论，内置多语言规则集（NPE/线
+- 2026-09-16 · JustVugg/colibri · 纯 C、零依赖的推理引擎，把前沿 MoE 模型按专家流式从磁盘加载到自有硬件上跑
+- 2026-09-16 · melgarafael/DeskcommCRM · 自托管 AI 销售 OS——内建 AI Agent 与 WhatsApp（WAHA），MCP 就绪、多租
+- 2026-09-16 · agentpit-io/hunter-community · 多智能体投研终端，覆盖 A 股/港股/美股，推理在本地跑、仓位不出本机，BYOK + docker co
+- 2026-09-16 · FootprintAI/Containarium · 开源 Agent 运行时——SSH 原生隔离、eBPF 出网策略、K8s + LXC 后端、GPU 直通
+- 2026-09-17 · Panniantong/Agent-Reach · 给 AI Agent 一个统一 CLI，免 API 费读取与检索 Twitter、Reddit、YouT
+- 2026-09-17 · hugohe3/ppt-master · 把文档或主题直接生成真正的原生 PowerPoint——原生形状、切换动画、数据图表，可套自己的 .pp
+- 2026-09-17 · aaron-for-value/VeriRun · 面向 RLVR（可验证奖励）的隔离可执行评测与在线奖励基础设施，提供可复现、隔离的执行与打分
+- 2026-09-17 · cosmo-wander-ai/cosmo-edge · 生产级 C++ 边缘 AI 引擎，做视频分析与端侧 VLM，覆盖 Sophon、Rockchip RKN
+- 2026-09-17 · alphaXiv/OpenResearch · 把 coding agent 变成研究 agent——自动做深度研究、可计算机执行的研究流程
+- 2026-09-18 · cloudflare/security-audit-skill · 给 coding agent 的多阶段安全审计 skill，输出机器可读、独立核验的发现，替代付费 Ap
+- 2026-09-18 · Tencent/BrowserSkill · 让 AI agent 用你真实已登录的浏览器，CLI+扩展跨任意 shell agent，替代 Brow
+- 2026-09-18 · Player-YN/PawWork_ZhuaZhua · 选区即用的网页 agent：真实页面选内容、描述产出，拿走可编辑办公文件
+- 2026-09-18 · HanyuanWang/LiveStream-Agent-Studio · 抖音直播电商本地 AI Agent Studio，贯通主播发现、直播洞察、复盘与短视频编导
+- 2026-09-18 · BoardUI/boardui · 面向 agentic 界面的 React 设计系统，组件全开源可改，首页即用自有密钥跑通 AI 聊天
+- 2026-09-19 · vercel-labs/agent-browser · 给 AI Agent 的浏览器自动化 CLI，替代 Browserbase/Steel 按会话计费 Sa
+- 2026-09-19 · rustfs/rustfs · S3 兼容高性能对象存储，MinIO/Ceph 自托管替代，削 AWS S3 出网费
+- 2026-09-19 · yyjeqhc/webcodex · 让云端 AI Agent 用你本机真实开发环境，替代托管式 Agent 工作区
+- 2026-09-19 · fastino-ai/GLiNER2 · 统一 schema 信息抽取，替代付费实体/字段抽取 API，喂给 RAG/LLM
+- 2026-09-19 · boxlite-ai/boxlite · 给 Agent 的硬件隔离 micro-VM，OCI 原生、可持久，替代 E2B/Modal 按次沙箱
+- 2026-09-20 · headroomlabs-ai/headroom · 在 token 进 LLM 前压缩工具输出、日志、文件与 RAG 块，编码 agent 省 20%、JS
+- 2026-09-20 · HKUDS/nanobot · 超轻量自托管个人 AI Agent 框架，带 WebUI、工具、记忆、MCP、多 Agent 与工作流
+- 2026-09-20 · anthropics/commerce-agents · 用 Claude 构建购物与商户 Agent 的参考蓝图，含零售、电商、电信、娱乐示例
+- 2026-09-20 · Human-Agent-Society/reef · 面向自改进 Agent 的持续学习基础设施，让 Agent 边跑边沉淀经验
+- 2026-09-20 · Albert-Weasker/niubigeo · 开源 AI 品牌可见性与竞品报告，附真实人工 AI 测试与 GEO 优化付费服务
+- 2026-09-21 · stablyai/orca · 面向并行智能体集群的桌面开发环境（ADE），用自有订阅多开 coding agent
+- 2026-09-21 · NVIDIA/SkillSpector · 给 Claude Code / Codex / MCP 技能做安装前安全扫描的命令行工具
+- 2026-09-21 · radixark/miles · 面向企业的 LLM/VLM 训练后强化学习框架，与 slime 同源共生
+- 2026-09-21 · qufei1993/skills-hub · 跨平台桌面应用，集中管理与同步 Agent Skills 到多个 coding 工具
+- 2026-09-21 · HarnessRouter/harnessrouter · 自托管统一 harness API，把 Codex/Claude Code/Hermes 等收进一个 O
+- 2026-09-23 · google/ax · Google 开源的声明式 agent 编排器，用类似 Kubernetes 的清单在集群里批量跑 ag
+- 2026-09-23 · dream-num/univer · 可嵌入自有产品的 Office SDK（表格、文档、幻灯片、看板、Base），本月把定位明确切到面向 a
+- 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
+- 2026-09-23 · nolabs-ai/nono · 零延迟、零配置的 agent 沙箱，单二进制给 Claude Code、Codex、OpenCode 等
+- 2026-09-23 · lahfir/agent-desktop · 给任意 agent 的桌面操作层：Rust 单二进制，读系统无障碍树而不是截图像素，再从稳定引用上执行动
