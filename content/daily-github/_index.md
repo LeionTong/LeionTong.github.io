@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-23-1132.html">
+    <div class="da-card-date">2026-09-23 · 11:32</div>
+    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-main">agent 落地的瓶颈正从模型能力转向执行环境：声明式编排、可嵌入的 Office 组件、工具与凭据代理、零配置沙箱、桌面操作层，各自被拆成可以单独售卖的一层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-21-1015.html">
     <div class="da-card-date">2026-09-21 · 10:15</div>
     <div class="da-card-title">GitHub 每日优质项目</div>
