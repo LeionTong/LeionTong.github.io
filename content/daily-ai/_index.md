@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-23-1116.html">
+    <div class="da-card-date">2026-09-23 · 11:16</div>
+    <div class="da-card-title">算力与开源模型同步加码，Agent 与具身智能转入系统层竞争</div>
+    <div class="da-card-main">本期收录云栖大会的新一代 AI 芯片与模型规模规划、开源 Agentic 基座模型、消费级人形机器人开售，以及通用模型控制机器人的能力边界与桌面 Agent 的权限路径分歧。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-21-0931.html">
     <div class="da-card-date">2026-09-21 · 09:31</div>
     <div class="da-card-title">AI 编程与 Agent 基础设施进入生产级收敛，智能体加速上硬件</div>
