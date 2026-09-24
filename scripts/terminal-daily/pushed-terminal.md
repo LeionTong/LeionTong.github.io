@@ -1,12 +1,9 @@
 # 已推送终端硬件项目（滚动 60 天）
-- 2026-09-09 · PetoiCamp/OpenCat-Quadruped-Robot · 开源四足机器狗框架，整机套件已商业化的 STEM 标杆
-- 2026-09-09 · InfiniTimeOrg/InfiniTime · PineTime 智能手表 GPL-3.0 固件，社区活跃度最高的开源穿戴固件
-- 2026-09-09 · ZSWatch/ZSWatch · Zephyr 开源智能手表，硬件与固件双双开源的可复刻参考设计
-- 2026-09-09 · HeyWillow/willow · ESP32 本地语音助手固件，Apache-2.0 的 Echo 隐私替代方案
-- 2026-09-14 · Roboparty/roboto_origin · 全开源可手搓人形机器人，整机套件可电商化
-- 2026-09-14 · NVlabs/ProtoMotions · GPU 物理仿真训练框架，NVIDIA 出品
-- 2026-09-14 · unitreerobotics/xr_teleoperate · 宇树官方人形 XR 遥操作
-- 2026-09-14 · menloresearch/asimov-1 · CERN-OHL-S 开源人形 v1
-- 2026-09-14 · davidhampgonsalves/Life-Dashboard · Kindle E-Ink 低功耗仪表盘
-- 2026-09-14 · dmellok/tesserae · E-Ink 面板配套服务，服务端渲染
-- 2026-09-14 · ygelfand/echolocal · Echo Dot 刷成本地 Home Assistant 语音卫星
+- 2026-09-24 · BasedHardware/omi · 开源 AI 记忆穿戴全栈，硬件与 App 双开源、官网直销
+- 2026-09-24 · Picovoice/porcupine · 端侧唤醒词引擎，Apache-2.0 仓库 + AccessKey 商用授权
+- 2026-09-24 · Source-Robotics/PAROL6-Desktop-robot-arm · 3D 打印六轴桌面机械臂，图纸开源整机直销
+- 2026-09-24 · the-momentum/open-wearables · 自托管可穿戴数据聚合 API + MCP
+- 2026-09-24 · Mentra-Community/MentraOS · 多品牌智能眼镜统一运行时与 MiniApp 商店
+- 2026-09-24 · isair/jarvis · 本地优先桌面语音助手，自定义许可
+- 2026-09-24 · uncle-mark/desk-emoji · 表情屏 + 双轴云台的开源 AI 桌面机器人
+- 2026-09-24 · curisama/The-Badge · ESP32-S3 圆屏 AMOLED 徽章固件，待机从 11.9h 做到 19.6h
