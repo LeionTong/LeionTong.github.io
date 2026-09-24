@@ -9,8 +9,8 @@ title: "Daily Terminal"
 <div class="da-cards">
   <a class="da-card" href="/daily-terminal/2026-09-24-1044.html">
     <div class="da-card-date">2026-09-24 · 10:44</div>
-    <div class="da-card-title">墨水屏三家寡头之外的八条路：端子设备与配套服务</div>
-    <div class="da-card-main">从全 GitHub 扫一遍终端硬件相关仓库，本期看智能屏显示、具身、服务端配套三个扇区，共入选 8 个条目的实测数据。</div>
+    <div class="da-card-title">墨水屏终端转向固件、套件与内容服务，具身与感知配套同期开源</div>
+    <div class="da-card-main">本期覆盖智能屏显示、具身、服务端配套三个扇区，8 个条目的 stars、版本与推送日期均为当日实测。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-terminal/2026-09-24-1009.html">
