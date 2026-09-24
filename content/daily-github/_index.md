@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-09-24-1030.html">
+    <div class="da-card-date">2026-09-24 · 10:30</div>
+    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-main">今天的几个项目都在把「模型必须处理的信息」重新组织成更小的结构：动作被压成可选集合、上下文被压成代码图谱、设计约束被写成机器可读规则、操作过程被转成图文、数据库操作被收进一个带 MCP 的客户端。方向不是更大的模型，而是把输入改得更省。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-09-23-1132.html">
     <div class="da-card-date">2026-09-23 · 11:32</div>
     <div class="da-card-title">GitHub 每日优质项目</div>
