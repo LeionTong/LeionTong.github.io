@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-24-1003.html">
+    <div class="da-card-date">2026-09-24 · 10:03</div>
+    <div class="da-card-title">Claude Opus 5.5 强化大规模代码库能力，具身智能数据路线与端侧模型同期披露</div>
+    <div class="da-card-main">本期收录 Anthropic 新旗舰模型的性能与定价变化、人形机器人在陌生家庭中的预训练实验对比、特斯拉供应链订单与机构出货预期调整、阿里 Agent 服务平台，以及端侧全模态模型在座舱的落地进展。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-23-1116.html">
     <div class="da-card-date">2026-09-23 · 11:16</div>
     <div class="da-card-title">算力与开源模型同步加码，Agent 与具身智能转入系统层竞争</div>
