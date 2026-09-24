@@ -18,3 +18,11 @@
 - 2026-09-24 · isair/jarvis · 本地优先桌面语音助手，自定义许可
 - 2026-09-24 · uncle-mark/desk-emoji · 表情屏 + 双轴云台的开源 AI 桌面机器人
 - 2026-09-24 · curisama/The-Badge · ESP32-S3 圆屏 AMOLED 徽章固件，待机从 11.9h 做到 19.6h
+- 2026-09-24 · fatihak/InkyPi · 树莓派驱动的墨水屏信息屏，浏览器打开网页即可配好显示内容。
+- 2026-09-24 · usetrmnl/trmnl-firmware · 墨水屏终端 TRMNL 的官方 C 固件，跑在已经量产销售的 ESP32 墨水屏机器上。
+- 2026-09-24 · TalismanDesign/PocketMage_PDA · ESP32-S3 掌上墨水屏 PDA，用墨水屏加一块小 OLED 互补刷新率，C++ 自
+- 2026-09-24 · arnegiacomo/fugleramme · 树莓派做的「鸟类画框」：本地识别窗外鸟叫，把十八世纪手绘鸟图铺到墨水屏上。
+- 2026-09-24 · leggedrobotics/pace-sim2real · 足式机器人的仿真到实机迁移工具箱，从实测数据里辨识执行器与关节动力学参数。
+- 2026-09-24 · BeijingDynamics/sprite_humanoid_freecad · 人形机器人 Sprite 的 FreeCAD 结构设计源文件，含总装与子系统、关节、电机
+- 2026-09-24 · francescopace/espectre · 基于 WiFi CSI 的被动感知 SDK，ESP32 端采样、服务端判断人体存在与动作
+- 2026-09-24 · jxlarrea/kiosk-satellite · 把闲置 Android 平板变成 Home Assistant 专用中控的 App，原生

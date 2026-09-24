@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-24-1044.html">
+    <div class="da-card-date">2026-09-24 · 10:44</div>
+    <div class="da-card-title">墨水屏三家寡头之外的八条路：端子设备与配套服务</div>
+    <div class="da-card-main">从全 GitHub 扫一遍终端硬件相关仓库，本期看智能屏显示、具身、服务端配套三个扇区，共入选 8 个条目的实测数据。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-24-1009.html">
     <div class="da-card-date">2026-09-24 · 10:09</div>
     <div class="da-card-title">LEION · DAILY TERMINAL</div>
