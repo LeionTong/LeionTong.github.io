@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-24-1009.html">
+    <div class="da-card-date">2026-09-24 · 10:09</div>
+    <div class="da-card-title">LEION · DAILY TERMINAL</div>
+    <div class="da-card-main">每日从全 GitHub 发现并评估优质终端硬件开源项目，本期为增量更新。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-21-1030.html">
     <div class="da-card-date">2026-09-21 · 10:30</div>
     <div class="da-card-title">LEION · DAILY TERMINAL</div>
