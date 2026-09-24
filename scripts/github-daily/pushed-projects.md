@@ -85,3 +85,8 @@
 - 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
 - 2026-09-23 · nolabs-ai/nono · 零延迟、零配置的 agent 沙箱，单二进制给 Claude Code、Codex、OpenCode 等
 - 2026-09-23 · lahfir/agent-desktop · 给任意 agent 的桌面操作层：Rust 单二进制，读系统无障碍树而不是截图像素，再从稳定引用上执行动
+- 2026-09-24 · t8y2/dbx · 25MB 跨平台数据库客户端，90+ 库 + 内置 AI/MCP，替代按授权计费的商业客户端
+- 2026-09-24 · browser-use/jev-ultrafast · 把网页动作空间索引化的 agent，用 Jev 决策模型替代逐步推理
+- 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
+- 2026-09-24 · shadcn-ui/lint · 面向 Tailwind 设计系统的 agent-first linter，把设计约束写成可校验规则
+- 2026-09-24 · zzet/gortex · 代码库索引成知识图谱的代码智能引擎，单二进制 + MCP，宣称省 token 50 倍
