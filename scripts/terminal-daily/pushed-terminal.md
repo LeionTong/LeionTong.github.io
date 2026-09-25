@@ -26,3 +26,10 @@
 - 2026-09-24 · BeijingDynamics/sprite_humanoid_freecad · 人形机器人 Sprite 的 FreeCAD 结构设计源文件，含总装与子系统、关节、电机
 - 2026-09-24 · francescopace/espectre · 基于 WiFi CSI 的被动感知 SDK，ESP32 端采样、服务端判断人体存在与动作
 - 2026-09-24 · jxlarrea/kiosk-satellite · 把闲置 Android 平板变成 Home Assistant 专用中控的 App，原生
+- 2026-09-25 · huangjunsen0406/py-xiaozhi · 小智语音助手的 Python 生态，MCP+多模态+IoT 接入语音链路
+- 2026-09-25 · KoljaB/RealtimeSTT · 低延迟语音转文字库，内置 VAD 与唤醒词激活
+- 2026-09-25 · cactus-compute/needle · 面向微小设备的 2-bit 自动化基础模型，8-29MB
+- 2026-09-25 · cactus-compute/cactus · 手机/穿戴端侧量化与推理运行时
+- 2026-09-25 · Intent-Lab/VisionClaw · Meta Ray-Ban 眼镜上的实时 AI 助手
+- 2026-09-25 · yjeanrenaud/yj_nearbyglasses · 检测附近智能眼镜的隐私提醒工具
+- 2026-09-25 · Seeed-Projects/reBot-DevArm · Seeed 开源桌面机械臂

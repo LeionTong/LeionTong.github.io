@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-09-25-1042.html">
+    <div class="da-card-date">2026-09-25 · 10:42</div>
+    <div class="da-card-title">端侧 AI 开始在穿戴与手机上跑工具调用，语音助手与智能眼镜同步走向 Agent 化</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人三个扇区，7 个条目的 stars、版本与推送日期均为当日实测。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-09-24-1044.html">
     <div class="da-card-date">2026-09-24 · 10:44</div>
     <div class="da-card-title">墨水屏终端转向固件、套件与内容服务，具身与感知配套同期开源</div>
