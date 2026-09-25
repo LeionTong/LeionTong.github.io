@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-09-25-1000.html">
+    <div class="da-card-date">2026-09-25 · 10:00</div>
+    <div class="da-card-title">Meta 把 Agent 铺进眼镜，JetBrains 把 coding agent 升级为组织级系统</div>
+    <div class="da-card-main">本期收录 Meta Connect 的首款纯音频 AI 眼镜与 Muse 上镜、JetBrains Air 三件套开放系统、国际机器人联合会《2026 世界机器人报告》的工业安装量数据，以及世界技能大赛开幕式的人形机器人实时群舞。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-24-1003.html">
     <div class="da-card-date">2026-09-24 · 10:03</div>
     <div class="da-card-title">Claude Opus 5.5 强化大规模代码库能力，具身智能数据路线与端侧模型同期披露</div>
