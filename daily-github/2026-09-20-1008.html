@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GitHub 每日优质项目 · NO.17 · 2026-09-20</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top"><span><b>LEION DAILY BRIEF</b></span><span>NO.17 · 2026-09-20 · 周日</span></div>
+    <h1>GitHub 每日优质项目</h1>
+    <p class="mh-sub">本期聚焦「Agent 商业化分层」：头部是降本与自托管基础设施，尾部是带明确收费的垂直 Agent 蓝图与 GEO 工具，中间补上自改进能力层。</p>
+  </header>
+
+  <article class="entry">
+    <span class="entry-no">1</span>
+    <div class="e-head">
+      <h2 class="e-name">Headroom <span>headroomlabs-ai/headroom</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 73,116</span>
+        <span class="tag">Python</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag">最近提交 09-19</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>在 token 进 LLM 前压缩工具输出、日志、文件与 RAG 块，编码 agent 省 20%、JSON 省 60-95%。</p>
+    <p class="e-line"><b>痛点</b>Agent 运行期上下文膨胀，token 账单随调用量线性放大。</p>
+    <p class="e-line"><b>付费</b>团队自托管省 LLM token 账单；企业版/托管可收费。</p>
+    <p class="e-line"><b>规模化</b>所有 LLM 应用通用，drop-in 代理+库+MCP，无定制。</p>
+    <p class="e-line"><b>边际成本</b><em>低</em>——纯软件 Apache-2.0，自托管新增客户成本趋零。</p>
+    <pre><code>pip install headroom   # 按 docs 起代理，接 coding agent（github.com/headroomlabs-ai/headroom）</code></pre>
+    <div class="risk"><b>风险</b>压缩可能丢细节，长链路任务需校验一致性；企业支持体系待建。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.85</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">2</span>
+    <div class="e-head">
+      <h2 class="e-name">Nanobot <span>HKUDS/nanobot</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 48,367</span>
+        <span class="tag">Python</span>
+        <span class="tag">MIT</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag">最近提交 09-20</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>超轻量自托管个人 AI Agent 框架，带 WebUI、工具、记忆、MCP、多 Agent 与工作流。</p>
+    <p class="e-line"><b>痛点</b>付费 Agent 平台按席位/用量计费，数据出域。</p>
+    <p class="e-line"><b>付费</b>自托管省订阅；托管/企业支持可收费。</p>
+    <p class="e-line"><b>规模化</b>个人与小企业通用，标准框架，无重定制。</p>
+    <p class="e-line"><b>边际成本</b><em>低</em>——纯软件 MIT，自托管边际成本趋零。</p>
+    <pre><code>pip install nanobot   # 或 docker run（github.com/HKUDS/nanobot，README 有 Quickstart）</code></pre>
+    <div class="risk"><b>风险</b>WebUI 与多 Agent 仍在快速迭代，API 可能变动；大型部署需自验稳定性。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.55</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">3</span>
+    <div class="e-head">
+      <h2 class="e-name">Commerce Agents <span>anthropics/commerce-agents</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 2,976</span>
+        <span class="tag">Python</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag up">上线19天累计</span>
+        <span class="tag">最近提交 09-11</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>用 Claude 构建购物与商户 Agent 的参考蓝图，含零售、电商、电信、娱乐示例。</p>
+    <p class="e-line"><b>痛点</b>企业想做 commerce agent 缺可落地架构与合规范式。</p>
+    <p class="e-line"><b>付费</b>Anthropic 借生态绑定拉动 API 用量；实施方可收咨询/集成费。</p>
+    <p class="e-line"><b>规模化</b>零售/电信/娱乐跨行业，示例即模板，可标准化复制。</p>
+    <p class="e-line"><b>边际成本</b><em>低</em>——代码与样例 Apache-2.0，分发成本趋零。</p>
+    <pre><code>git clone https://github.com/anthropics/commerce-agents   # 看 examples/ 跑最小商户 Agent</code></pre>
+    <div class="risk"><b>风险</b>纯参考实现无版本发布，需自行工程化；强绑定 Claude 生态。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.40</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">4</span>
+    <div class="e-head">
+      <h2 class="e-name">Reef <span>Human-Agent-Society/reef</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 3,670</span>
+        <span class="tag">Python</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag up">上线20天累计</span>
+        <span class="tag">最近提交 09-19</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>面向自改进 Agent 的持续学习基础设施，让 Agent 边跑边沉淀经验。</p>
+    <p class="e-line"><b>痛点</b>Agent 每次会话从零开始，重复试错、无法累积能力。</p>
+    <p class="e-line"><b>付费</b>自托管省重复推理成本；平台/云托管可收费。</p>
+    <p class="e-line"><b>规模化</b>学习层跨任务跨领域，标准基础设施。</p>
+    <p class="e-line"><b>边际成本</b><em>中低</em>——软件 Apache-2.0，自托管需少量算力承载记忆。</p>
+    <pre><code>git clone https://github.com/Human-Agent-Society/reef   # 按 README 接自有 Agent 试用</code></pre>
+    <div class="risk"><b>风险</b>项目约 20 天新，文档与基准待完善；持续学习的可靠性需实测。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:70%"></i></div><span class="sc-v">3.5</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:70%"></i></div><span class="sc-v">3.5</span></div>
+    </div>
+    <div class="wsum">加权 <b>3.90</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">5</span>
+    <div class="e-head">
+      <h2 class="e-name">Niubigeo <span>Albert-Weasker/niubigeo</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 2,525</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag up">上线17天累计</span>
+        <span class="tag">最近提交 09-16</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b>开源 AI 品牌可见性与竞品报告，附真实人工 AI 测试与 GEO 优化付费服务。</p>
+    <p class="e-line"><b>痛点</b>企业在 AI 搜索/问答里"看不见"，传统 SEO 管不到生成式入口。</p>
+    <p class="e-line"><b>付费</b>SaaS 报告订阅 + 真实人工测试 + GEO 优化，定价页已上线（niubigeo.ai/pricing）。</p>
+    <p class="e-line"><b>规模化</b>任何有品牌曝光需求的企业通用，跨行业。</p>
+    <p class="e-line"><b>边际成本</b><em>中</em>——核心工具开源低边际；人工测试部分含人力成本。</p>
+    <pre><code># 访 niubigeo.ai 注册生成品牌可见性报告（github.com/Albert-Weasker/niubigeo）</code></pre>
+    <div class="risk"><b>风险</b>人工测试服务依赖众包，规模扩张的人力成本需控；GEO 效果难量化。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:70%"></i></div><span class="sc-v">3.5</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.30</b></div>
+  </article>
+
+  <section class="tail">
+    <h2><em>今日首选</em></h2>
+    <p><b>headroomlabs-ai/headroom</b>。把 LLM 运行期最贵的环节——上下文 token 消耗——直接压下来，drop-in 代理+库+MCP 让团队自托管即省账单；73k 星、Apache-2.0、今日仍在高频提交，商业化与验证速度都最干净。</p>
+    <h2><em>组合观察</em></h2>
+    <p>今日 5 项共同指向一个信号：Agent 的商业化重心从"能不能跑"转移到"跑得多便宜、数据在不在自己手里、为哪类商业意图而跑"。头部是降本与自托管基础设施（Headroom、Nanobot），尾部是带明确收费的垂直 Agent 蓝图与 GEO 工具（commerce-agents、Niubigeo），中间 Reef 补上自改进这一层。</p>
+    <p>对行业的含义是：可自托管、可计量、可垂直变现的环节，正成为开源 Agent 项目最稳的商业化切口。</p>
+    <h2><em>暂不建议碰</em></h2>
+    <ol>
+      <li><b>affaan-m/ECC（262,991★）</b>——星数异常疑似刷量，本质是个人 Agent 配置合集，无清晰工程化产品与商业模型，排除。</li>
+      <li><b>sapientinc/PRAXIST（6,227★，NOASSERTION）</b>——自主研究系统方向好，但自定义非 OSI 许可，商用存在合规风险，故不入选（仅供观察）。</li>
+    </ol>
+  </section>
+
+  <div class="colophon"><span>Leion</span><span>· 2026-09-20 10:08 GMT+8</span></div>
+</div>
+</body>
+</html>

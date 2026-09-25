@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub 每日优质项目 · NO.16 · 2026-09-19</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION DAILY BRIEF</b></span>
+      <span>2026-09-19 · NO.16 · 18:29 GMT+8</span>
+    </div>
+    <h1>GitHub 每日优质项目 · NO.16</h1>
+    <p class="mh-sub">本期聚焦「Agent 基础设施自托管化」：浏览器自动化、对象存储、Agent 开发环境、信息抽取与隔离执行五层，均为 Apache-2.0，替代按次/按席位计费的付费 SaaS。</p>
+  </header>
+
+  <article class="entry">
+    <span class="entry-no">01</span>
+    <div class="e-head">
+      <h2 class="e-name">agent-browser <span>vercel-labs/agent-browser</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 42,859</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag up">今日 +79</span>
+        <span class="tag">Rust</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag">最近提交 09-18</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b> 给 AI Agent 的浏览器自动化 CLI，替代 Browserbase/Steel 按会话计费 SaaS。</p>
+    <p class="e-line"><b>痛点</b> 云端浏览器自动化按会话/时长计费，规模化成本高。</p>
+    <p class="e-line"><b>付费</b> 团队自托管省 SaaS 订阅；Vercel 可推托管版变现。</p>
+    <p class="e-line"><b>规模化</b> 跨行业通用，标准 CLI，无定制。</p>
+    <p class="e-line"><b>边际成本</b> 低——纯软件 Apache-2.0，自托管新增客户成本趋零。</p>
+    <p class="e-line"><b>验证</b> <code>npm i -g agent-browser &amp;&amp; agent-browser install</code></p>
+    <div class="risk"><b>风险与坑</b> 依赖 Chrome for Testing 下载；企业支持弱于 Browserbase，复杂反爬场景需自调。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.85</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">02</span>
+    <div class="e-head">
+      <h2 class="e-name">rustfs <span>rustfs/rustfs</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 33,290</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag up">今日 +267</span>
+        <span class="tag">Rust</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag">最近提交 09-19</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b> S3 兼容高性能对象存储，MinIO/Ceph 自托管替代，削 AWS S3 出网费。</p>
+    <p class="e-line"><b>痛点</b> 对象存储被云厂商锁定，出网与请求费随规模放大。</p>
+    <p class="e-line"><b>付费</b> 企业自托管省云账单；商业支持/托管版收费。</p>
+    <p class="e-line"><b>规模化</b> 存储是通用基础设施，跨行业标准化。</p>
+    <p class="e-line"><b>边际成本</b> 低——纯软件 Apache-2.0，自托管边际成本趋零。</p>
+    <p class="e-line"><b>验证</b> <code>docker run -p 9000:9000 rustfs/rustfs</code></p>
+    <div class="risk"><b>风险与坑</b> 生态较 MinIO 年轻，客户端/运维工具链待补齐；大数据量下需自验稳定性。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.70</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">03</span>
+    <div class="e-head">
+      <h2 class="e-name">webcodex <span>yyjeqhc/webcodex</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 1,379</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag up">今日 +170</span>
+        <span class="tag">Rust</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag">最近提交 09-19</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b> 让云端 AI Agent 用你本机真实开发环境，替代托管式 Agent 工作区。</p>
+    <p class="e-line"><b>痛点</b> 把仓库搬进托管工作区才能用 Agent，代码出域且按席位收费。</p>
+    <p class="e-line"><b>付费</b> 团队自托管省云工作区订阅；Desktop 版可走授权。</p>
+    <p class="e-line"><b>规模化</b> 面向所有开发团队，标准 Runtime，无重定制。</p>
+    <p class="e-line"><b>边际成本</b> 低——纯软件 Apache-2.0，自托管新增团队成本趋零。</p>
+    <p class="e-line"><b>验证</b> <code>git clone https://github.com/yyjeqhc/webcodex</code> 后按 docs/QUICK_START 跑 <code>share</code></p>
+    <div class="risk"><b>风险与坑</b> 项目较新（约 4 个月），多接入方式（隧道/MCP）配置门槛高，文档待完善。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.40</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">04</span>
+    <div class="e-head">
+      <h2 class="e-name">GLiNER2 <span>fastino-ai/GLiNER2</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 1,985</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag up">今日 +181</span>
+        <span class="tag">Python</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag">最近提交 09-18</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b> 统一 schema 信息抽取，替代付费实体/字段抽取 API，喂给 RAG/LLM。</p>
+    <p class="e-line"><b>痛点</b> 结构化抽取被按量计费 SaaS 锁定，敏感文档不敢上云。</p>
+    <p class="e-line"><b>付费</b> 本地 BYO 模型省抽取 API 账单；企业版可收费。</p>
+    <p class="e-line"><b>规模化</b> 文档/RAG/合规跨行业通用，标准管线。</p>
+    <p class="e-line"><b>边际成本</b> 低——纯软件 Apache-2.0，本地推理边际成本趋零。</p>
+    <p class="e-line"><b>验证</b> <code>pip install gliner2</code> 后 <code>from gliner2 import GLiNER2; GLiNER2.from_pretrained("gliner-community/gliner2-base")</code></p>
+    <div class="risk"><b>风险与坑</b> 抽取精度依赖底座模型，复杂中文 schema 需自标；大模型厂商内卷挤压空间。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.60</b></div>
+  </article>
+
+  <article class="entry">
+    <span class="entry-no">05</span>
+    <div class="e-head">
+      <h2 class="e-name">boxlite <span>boxlite-ai/boxlite</span></h2>
+      <div class="e-meta">
+        <span class="tag star">⭐ 2,333</span>
+        <span class="tag up">近30天 未获取到</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Apache-2.0</span>
+        <span class="tag">最近提交 09-19</span>
+      </div>
+    </div>
+    <p class="e-line"><b>定位</b> 给 Agent 的硬件隔离 micro-VM，OCI 原生、可持久，替代 E2B/Modal 按次沙箱。</p>
+    <p class="e-line"><b>痛点</b> Agent 执行沙箱按次/按时计费，规模化跑批成本高。</p>
+    <p class="e-line"><b>付费</b> 自托管省沙箱账单；托管/企业版可收费。</p>
+    <p class="e-line"><b>规模化</b> Agent 执行层跨行业，标准 OCI 镜像，无定制。</p>
+    <p class="e-line"><b>边际成本</b> 低——编排软件 Apache-2.0，自托管新增执行成本趋零。</p>
+    <p class="e-line"><b>验证</b> <code>pip install boxlite</code> 或 <code>npm i -g @boxlite-ai/boxlite</code></p>
+    <div class="risk"><b>风险与坑</b> 需算力承载 micro-VM；issue 数偏高（约 296），早期 API 可能变动。</div>
+    <div class="scores">
+      <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:90%"></i></div><span class="sc-v">4.5</span></div>
+      <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+      <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    </div>
+    <div class="wsum">加权 <b>4.75</b></div>
+  </article>
+
+  <section class="tail">
+    <h2>今日首选</h2>
+    <p><b>boxlite-ai/boxlite</b>。把 Agent 执行沙箱这一按次计费的高频环节自托管化，硬件隔离 micro-VM 直接替代 E2B/Modal，边际成本趋零；今日仍在高频提交，Apache-2.0 可商用。</p>
+    <h2>组合观察</h2>
+    <p>今日 5 项共同指向一个信号：Agent 基础设施正被拆成可自托管的标准件（浏览器、存储、开发环境、抽取、隔离执行），且全部 Apache-2.0、全部替代按次/按席位的付费 SaaS。对行业的含义是：靠托管计费建立的壁垒正被开源等效件削平，创业公司的空间转向"托管+合规+企业支持"而非单纯功能。</p>
+    <h2>暂不建议碰</h2>
+    <ol>
+      <li><b>affaan-m/ECC</b>（262,405★，单日 +39,255）——星数异常疑似刷量，本质是个人 Agent 配置合集，无清晰工程化产品与商业模型，排除。</li>
+      <li><b>asciimoo/hister</b>（5,071★，AGPL-3.0）——自托管搜索引擎方向好，但 AGPL 托管即需开源衍生，对做 SaaS 的创业者不友好，故不入选（仅供观察）。</li>
+    </ol>
+  </section>
+
+  <div class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-09-19 18:29 GMT+8</span>
+  </div>
+</div>
+</body>
+</html>
