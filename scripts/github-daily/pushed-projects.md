@@ -90,3 +90,8 @@
 - 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
 - 2026-09-24 · shadcn-ui/lint · 面向 Tailwind 设计系统的 agent-first linter，把设计约束写成可校验规则
 - 2026-09-24 · zzet/gortex · 代码库索引成知识图谱的代码智能引擎，单二进制 + MCP，宣称省 token 50 倍
+- 2026-09-25 · omnigent-ai/omnigent · 开源 AI 智能体框架与编排层，统一编排 Claude Code/Codex/Cursor 等并加治理
+- 2026-09-25 · odysseus-dev/odysseus · 自托管 AI 工作区，团队知识/对话/工具收敛到自主可控环境
+- 2026-09-25 · xerj-org/xerj · 面向 AI 的数据搜索引擎，autoindex 让 agent 直接检索业务数据
+- 2026-09-25 · okf-memory/okf-agent-memory · Git 原生编码 agent 持久记忆（OKF v0.2，毫秒级读写）
+- 2026-09-25 · duty1g/x64dbg-mcp-server · 把 x64dbg 调试器暴露给 AI agent 的原生 MCP 插件
