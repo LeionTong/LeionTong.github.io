@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-15-1707.html">
+    <div class="da-card-date">2026-10-15 · 17:07</div>
+    <div class="da-card-title">Gemini 4 Argon 开放付费层，通用大模型操控机械臂与移动端 AI 入口博弈同期出现</div>
+    <div class="da-card-main">本期收录 Google 把 Gemini 4 Argon 开放给付费层并公布机器人、代码库与科研结果，Artificial Analysis 首份通用大模型操控真实机械臂的 AA-Robotics 榜单，豆包手机助手屏幕自动化协议的第三方拒绝清单，Meta 首个前沿级模型 Muse Wonder / Wonder Full，以及 DeepSeek 的 Agent 运行平台 DeepSeekHarness 面向国内推广与同期服务中断。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-09-25-1000.html">
     <div class="da-card-date">2026-09-25 · 10:00</div>
     <div class="da-card-title">Meta 把 Agent 铺进眼镜，JetBrains 把 coding agent 升级为组织级系统</div>
