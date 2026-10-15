@@ -95,3 +95,8 @@
 - 2026-09-25 · xerj-org/xerj · 面向 AI 的数据搜索引擎，autoindex 让 agent 直接检索业务数据
 - 2026-09-25 · okf-memory/okf-agent-memory · Git 原生编码 agent 持久记忆（OKF v0.2，毫秒级读写）
 - 2026-09-25 · duty1g/x64dbg-mcp-server · 把 x64dbg 调试器暴露给 AI agent 的原生 MCP 插件
+- 2026-10-15 · Niko1221/Strata · 消费级 PC 一键跑 Qwen3.8-Flash-Next 125B 的本地推理引擎
+- 2026-10-15 · NandhaKishorM/laya · 33ms 单次前向的 System-1 决策引擎，替代 LLM 做分类与评分
+- 2026-10-15 · datalab-to/indra · 100 万参数纯 CPU OCR，49 页/秒输出 markdown 与带框 JSON
+- 2026-10-15 · TypeLLM/TypeLLM · 给自回归模型加类型安全生成，按 schema 约束的结构化输出
+- 2026-10-15 · Continuum-AI-Corp/scuttle · 敏感日志的混合后量子加密层，只写不可读
