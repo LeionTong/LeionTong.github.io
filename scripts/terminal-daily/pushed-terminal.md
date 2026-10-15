@@ -33,3 +33,11 @@
 - 2026-09-25 · Intent-Lab/VisionClaw · Meta Ray-Ban 眼镜上的实时 AI 助手
 - 2026-09-25 · yjeanrenaud/yj_nearbyglasses · 检测附近智能眼镜的隐私提醒工具
 - 2026-09-25 · Seeed-Projects/reBot-DevArm · Seeed 开源桌面机械臂
+- 2026-10-15 · crosspoint-reader/crosspoint-reader · 开源电子书阅读器固件，Xteink 等墨水屏硬件的可复刻整机体验
+- 2026-10-15 · OpenEPaperLink/OpenEPaperLink · 电子价签改低功耗墨水屏节点，私有 AP 统一刷新（CC BY-NC-SA）
+- 2026-10-15 · CloudZao/Metalio-E-INK4-Plus · 4.7 寸开源墨水屏整机，带语音与云端 AI 交互
+- 2026-10-15 · dimensionalOS/dimos · 物理空间 Agent 运行时，自然语言指挥人形/四足/无人机
+- 2026-10-15 · enactic/openarm · 全开源人形机械臂，接触密集型物理 AI 研究部署
+- 2026-10-15 · KingKongRobotics/jumper · 开源螃蟹机器人，两周 2679 星
+- 2026-10-15 · OHF-Voice/linux-voice-assistant · Linux 上的 Home Assistant 语音卫星（ESPHome 协议）
+- 2026-10-15 · Gamer92000/echo-dot-assist · Echo Dot 改本地 HA 语音卫星，保留原厂麦克风与唤醒词
