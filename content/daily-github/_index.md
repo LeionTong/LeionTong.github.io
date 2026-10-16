@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-16-1051.html">
+    <div class="da-card-date">2026-10-16 · 10:51</div>
+    <div class="da-card-title">逆向工程、模型网关、语音推理与本机检索出现可自持的开源底座</div>
+    <div class="da-card-main">本期收录把专业工具搬回自有栈的五个项目：让 agent 逆向二进制与应用的 REA、企业 AI 网关 Bifrost、音频模型服务运行时 SGLang-Omni、本机全内容语义检索 DigUp，以及 leaderless 分布式 SQLite 的 Marmot v2——共同点是不再把能力交给 GUI 工具、商业 SaaS 与托管数据库。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-16-0945.html">
     <div class="da-card-date">2026-10-16 · 09:45</div>
     <div class="da-card-title">Agent 的产出扩到 CAD 图档、音频栈与机器人控制回路</div>

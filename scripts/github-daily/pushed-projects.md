@@ -105,3 +105,8 @@
 - 2026-10-16 · 0xShug0/audio.cpp · 基于 ggml 的纯 C++ 音频推理运行时，一个引擎跑 TTS/ASR/VAD/声线转换
 - 2026-10-16 · Mentra-Community/MentraOS · 开源智能眼镜运行时，一套 API 多机型复用并自带 MiniApp 商店
 - 2026-10-16 · softmata/horus · 机器人实时分布式中间件，亚 200ns IPC，补 ROS2 高频控制回路短板
+- 2026-10-16 · morluto/rea · agent 逆向二进制与应用的 MCP，读伪代码/汇编/调用关系，产物可复现
+- 2026-10-16 · maximhq/bifrost · 高吞吐 AI 网关，一个 OpenAI 兼容端点接多家模型与 MCP
+- 2026-10-16 · sgl-project/sglang-omni · 音频/omni 模型多阶段推理运行时，TTS/ASR 流式、OpenAI 兼容
+- 2026-10-16 · ARahim3/DigUp · 本机全内容语义检索，EmbeddingGemma 2 建索引、跨百种语言
+- 2026-10-16 · maxpert/marmot · 无主节点分布式 SQLite，gossip 复制加分布式事务、MySQL 协议
