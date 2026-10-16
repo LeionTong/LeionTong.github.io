@@ -8,80 +8,80 @@ title: "Daily Github"
 <div class="da-cards">
   <a class="da-card" href="/daily-github/2026-10-16-0945.html">
     <div class="da-card-date">2026-10-16 · 09:45</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从趋势与真实发版里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">Agent 的产出扩到 CAD 图档、音频栈与机器人控制回路</div>
+    <div class="da-card-main">本期收录给 coding agent 装上 CAD 的 text-to-cad、跨供应商切换模型的 magpie、纯 C++ 音频运行时 audio.cpp、智能眼镜运行时 MentraOS 与机器人实时中间件 HORUS：Agent 的产出正从文本扩到工程文件与物理设备。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-10-15-1721.html">
     <div class="da-card-date">2026-10-15 · 17:21</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从趋势与基础设施里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">账单与数据边界一起往下压，端侧推理与小模型决策同步出现</div>
+    <div class="da-card-main">本期收录 12GB 显存跑 125B 的本地推理引擎 Strata、替代 LLM 做决策的 Laya、纯 CPU 的 Indra OCR、schema 约束输出的 TypeLLM 与写不可读的日志加密库 Scuttle：五项都在把调用云端模型这一步换掉或压小。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-25-1025.html">
     <div class="da-card-date">2026-09-25 · 10:25</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从趋势与基础设施里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">编排、工作区、检索、记忆与调试，Agent 底座被逐层补齐</div>
+    <div class="da-card-main">本期收录多 Agent 编排层 Omnigent、自托管 AI 工作区 Odysseus、面向 AI 的数据搜索引擎 XERJ、Git 原生 Agent 记忆 OKF 与 x64dbg 的 MCP 插件：本周标的共同指向同一件事——给 Agent 配齐运行时、检索、记忆与调试环境。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-24-1030.html">
     <div class="da-card-date">2026-09-24 · 10:30</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-title">把模型要处理的信息压成更小的结构</div>
     <div class="da-card-main">今天的几个项目都在把「模型必须处理的信息」重新组织成更小的结构：动作被压成可选集合、上下文被压成代码图谱、设计约束被写成机器可读规则、操作过程被转成图文、数据库操作被收进一个带 MCP 的客户端。方向不是更大的模型，而是把输入改得更省。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-23-1132.html">
     <div class="da-card-date">2026-09-23 · 11:32</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-title">Agent 的执行环境被拆成可单独售卖的一层</div>
     <div class="da-card-main">agent 落地的瓶颈正从模型能力转向执行环境：声明式编排、可嵌入的 Office 组件、工具与凭据代理、零配置沙箱、桌面操作层，各自被拆成可以单独售卖的一层。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-21-1015.html">
     <div class="da-card-date">2026-09-21 · 10:15</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-title">投入从更聪明的模型转向可控可审计的 Agent 管道</div>
     <div class="da-card-main">本期聚焦智能体基础设施与治理层：并行 agent 运行时、技能安全扫描、技能管理、统一 harness API 与训练后强化学习框架——开发者正把投入从「更聪明的模型」转向「可控、可换、可审计的 agent 管道」。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-20-1008.html">
     <div class="da-card-date">2026-09-20 · 10:08</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
+    <div class="da-card-title">Agent 商业化两头分化，降本基建与带定价的垂直蓝图并存</div>
     <div class="da-card-main">本期聚焦「Agent 商业化分层」：头部是降本与自托管基础设施，尾部是带明确收费的垂直 Agent 蓝图与 GEO 工具，中间补上自改进能力层。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-19-1829.html">
     <div class="da-card-date">2026-09-19 · 18:29</div>
-    <div class="da-card-title">GitHub 每日优质项目 · NO.16</div>
+    <div class="da-card-title">Agent 基础设施自托管化，浏览器到沙箱五层均为宽松许可</div>
     <div class="da-card-main">本期聚焦「Agent 基础设施自托管化」：浏览器自动化、对象存储、Agent 开发环境、信息抽取与隔离执行五层，均为 Apache-2.0，替代按次/按席位计费的付费 SaaS。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-18-1012.html">
     <div class="da-card-date">2026-09-18 · 10:12</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">主流与小众兼具 · 商业化清晰 · 可规模化 · 边际成本低 · 可快速验证迭代</div>
+    <div class="da-card-title">安全审计、真登录浏览器与 Agent 界面层同周补齐</div>
+    <div class="da-card-main">本期收录 Cloudflare 的 agent 安全审计 skill、腾讯用真实已登录浏览器的 BrowserSkill、选区即用的网页 Agent、抖音直播电商 Agent Studio 与面向 agentic 界面的 React 设计系统：替代对象是按席位计费的审计、浏览器自动化与 UI 套件。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-17-1022.html">
     <div class="da-card-date">2026-09-17 · 10:22</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从 Agent 能力层与配套基建里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">Agent 补齐取数与交付能力，评测与端侧基建同步硬化</div>
+    <div class="da-card-main">本期收录免 API 钥读取社媒的 Agent-Reach、直接产出原生 PPTX 的 ppt-master、RLVR 隔离评测 VeriRun、边缘视频分析引擎 cosmo-edge 与把 coding agent 变成研究 agent 的 OpenResearch：一边补 Agent 的具体能力，一边把订阅费与云依赖往本地搬。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-16-1020.html">
     <div class="da-card-date">2026-09-16 · 10:20</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从 Agent 基础设施与本地优先工具里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">把付费 SaaS 与云端推理搬回自己机器</div>
+    <div class="da-card-main">本期收录阿里 open-code-review、纯 C 零依赖的 MoE 推理引擎 colibri、自托管销售 OS DeskcommCRM、多智能体投研终端与 SSH 原生隔离运行时 Containarium：一类自托管替代代码评审、CRM 与研报终端，一类把模型推理搬回本地机器。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-15-1038.html">
     <div class="da-card-date">2026-09-15 · 10:38</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从 Agent 基础设施与本地优先工具里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">Agent 的治理先于智能，策略门禁与隔离工作区同日出现</div>
+    <div class="da-card-main">本期收录带 CEL 策略门禁的 OpenBot、可被 Agent 读写的开源 3D 编辑器 editor、按项目分配 Incus 隔离工作区的 AgentVerse-OS、收拢六个 coding agent 的启动器与本地短视频生产线 OpenShorts：方向是把操作权关进策略与隔离，把数据留在本机。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-14-1109.html">
     <div class="da-card-date">2026-09-14 · 11:09</div>
-    <div class="da-card-title">GitHub 每日优质项目</div>
-    <div class="da-card-main">从趋势与数据基础设施里挑五个值得看的商业切口，标注拥挤度与差异化。</div>
+    <div class="da-card-title">Agent 从聊天框走向自主执行，上下文与取数层成为采购项</div>
+    <div class="da-card-main">本期收录图原生上下文与溯源基础设施 Semantica、给每个 Agent 配一台电脑的 OpenBot、本地优先 Agent、基于 DuckDB 的自托管 ETL Duckle 与本地网页抽取 webclaw：Agent 正从回答问题走向操作用户的浏览器与本机，被买账的是它脚下的上下文与取数层。</div>
     <div class="da-card-go">阅读完整报告 →</div>
   </a>
   <a class="da-card" href="/daily-github/2026-09-14-1015.html">
