@@ -41,3 +41,11 @@
 - 2026-10-15 · KingKongRobotics/jumper · 开源螃蟹机器人，两周 2679 星
 - 2026-10-15 · OHF-Voice/linux-voice-assistant · Linux 上的 Home Assistant 语音卫星（ESPHome 协议）
 - 2026-10-15 · Gamer92000/echo-dot-assist · Echo Dot 改本地 HA 语音卫星，保留原厂麦克风与唤醒词
+- 2026-10-16 · Open-Smartwatch/open-smartwatch-os · ESP32 开源手表操作系统，系统/表盘/刷机工具成链
+- 2026-10-16 · jamro/tiny-engineer · 桌面小机器人，把编码助手的运行状态做成动作
+- 2026-10-16 · LuwuDynamics/xgoduck_hardware · 3D 打印双足机器鸭（Arduino UNO Q + 15 舵机）
+- 2026-10-16 · Adolanium/hermes-gadget-sdk · 给 Agent 做语音/文本终端的 SDK，含 ESP32 固件与模拟器
+- 2026-10-16 · HuskerMinion/techo5 · Echo Show 5 去 Android 固件，本地 HA 语音卫星
+- 2026-10-16 · Tobi1chi/OpenRayneo · RayNeo 眼镜的 macOS 蓝牙桥，通知本地 HTTP 化
+- 2026-10-16 · cgro00/desk-robot · ESP32+Python 桌面机器人，带脸/语音/摄像头
+- 2026-10-16 · iamankushpandit/esp_ai · ESP32-S3 上的全离线语音助手

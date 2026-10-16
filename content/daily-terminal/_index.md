@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-16-0949.html">
+    <div class="da-card-date">2026-10-16 · 09:49</div>
+    <div class="da-card-title">语音终端向 ESP32 端侧链路收敛，穿戴与桌面机器人继续靠开源图纸推进</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人三个扇区；8 个条目的 stars、许可、版本与推送日期均为本次实测。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-15-1727.html">
     <div class="da-card-date">2026-10-15 · 17:27</div>
     <div class="da-card-title">墨水屏开源硬件扩到整机与电子价签改造，具身机器人补上开源机械臂与运行时</div>
