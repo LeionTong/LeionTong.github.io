@@ -1,6 +1,6 @@
 ---
 title: "无公网内网服务器上离线部署个人电子书库（Calibre-Web / Kavita / Samba / Nextcloud）"
-date: 2026-10-16 11:05:00
+date: 2026-10-16 02:00:00
 slug: "offline-ebook-library-on-intranet-server"
 draft: false
 ---

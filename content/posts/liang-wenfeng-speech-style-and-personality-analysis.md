@@ -1,6 +1,6 @@
 ---
 title: "梁文锋讲话风格与人格结构分析"
-date: 2026-10-16 11:06:00
+date: 2026-10-16 02:01:00
 slug: "liang-wenfeng-speech-style-and-personality-analysis"
 draft: false
 ---
