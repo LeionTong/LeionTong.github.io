@@ -100,3 +100,8 @@
 - 2026-10-15 · datalab-to/indra · 100 万参数纯 CPU OCR，49 页/秒输出 markdown 与带框 JSON
 - 2026-10-15 · TypeLLM/TypeLLM · 给自回归模型加类型安全生成，按 schema 约束的结构化输出
 - 2026-10-15 · Continuum-AI-Corp/scuttle · 敏感日志的混合后量子加密层，只写不可读
+- 2026-10-16 · earthtojake/text-to-cad · 给 coding agent 装 CAD 能力，一句话生成可编辑的参数化模型与 STEP 文件
+- 2026-10-16 · yetone/magpie · 本机网关+菜单栏，把 Claude Code/Codex 指到任意模型，额度用完自动换账号
+- 2026-10-16 · 0xShug0/audio.cpp · 基于 ggml 的纯 C++ 音频推理运行时，一个引擎跑 TTS/ASR/VAD/声线转换
+- 2026-10-16 · Mentra-Community/MentraOS · 开源智能眼镜运行时，一套 API 多机型复用并自带 MiniApp 商店
+- 2026-10-16 · softmata/horus · 机器人实时分布式中间件，亚 200ns IPC，补 ROS2 高频控制回路短板
