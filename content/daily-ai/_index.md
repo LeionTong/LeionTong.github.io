@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-16-1021.html">
+    <div class="da-card-date">2026-10-16 · 10:21</div>
+    <div class="da-card-title">Anthropic 为 agent 规模重写源码控制，编程 Agent 可观测性与具身自进化同期推进</div>
+    <div class="da-card-main">本期收录 Anthropic 公开自研版本控制系统 Scion 与代码评审平台 Antique、Claude Code v2.1.300 引入 OpenTelemetry GenAI 语义属性、EmbodiedEvo 用自进化编程 Agent 提升机器人任务成功率、阶跃星辰智能体手机 STEPX Neo 今日首销，以及 Nature Will 用百万小时人类视频预训练灵巧手模型 Natura-1。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-15-1707.html">
     <div class="da-card-date">2026-10-15 · 17:07</div>
     <div class="da-card-title">Gemini 4 Argon 开放付费层，通用大模型操控机械臂与移动端 AI 入口博弈同期出现</div>

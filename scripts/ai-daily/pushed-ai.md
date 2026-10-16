@@ -21,3 +21,8 @@
 - 2026-10-15 · 豆包手机助手 SAEP 拒绝清单 · 155款App拒绝AI屏幕自动化操作，移动端AI入口权博弈
 - 2026-10-15 · Meta Muse Wonder / Wonder Full · 首个前沿级模型，Wonder Full仅Muse Code订阅可用
 - 2026-10-15 · DeepSeekHarness 国内推广 · Agent运行平台开B站账号，同期DeepSeek服务中断近5小时
+- 2026-10-16 · Anthropic 自研源码控制 Scion / Antique · 日均合并半年涨超十倍，7 人团队 5 个月从 Git 全量迁移
+- 2026-10-16 · Claude Code v2.1.300 · 引入 OpenTelemetry GenAI 语义属性与 AWS 平台 advisor，钩子输入改按工具规则校验
+- 2026-10-16 · EinsiaAI EmbodiedEvo · 自进化编程 Agent 做机器人任务，RoboDojo 仿真 44.48/37.82% 称超官方验证
+- 2026-10-16 · 阶跃星辰 STEPX Neo 首销 · 3999 元软硬模全栈定价，智能体原生系统 + 背屏状态位
+- 2026-10-16 · Nature Will Natura-1 · 50B MoE 以百万小时人类视频预训练，驱动 20 自由度灵巧手零样本
