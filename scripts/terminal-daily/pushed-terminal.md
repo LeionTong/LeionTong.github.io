@@ -1,4 +1,3 @@
-# 已推送终端硬件项目（滚动 60 天）
 - 2026-09-09 · PetoiCamp/OpenCat-Quadruped-Robot · 开源四足机器狗框架，整机套件已商业化的 STEM 标杆
 - 2026-09-09 · InfiniTimeOrg/InfiniTime · PineTime 智能手表 GPL-3.0 固件，社区活跃度最高的开源穿戴固件
 - 2026-09-09 · ZSWatch/ZSWatch · Zephyr 开源智能手表，硬件与固件双双开源的可复刻参考设计
@@ -49,3 +48,11 @@
 - 2026-10-16 · Tobi1chi/OpenRayneo · RayNeo 眼镜的 macOS 蓝牙桥，通知本地 HTTP 化
 - 2026-10-16 · cgro00/desk-robot · ESP32+Python 桌面机器人，带脸/语音/摄像头
 - 2026-10-16 · iamankushpandit/esp_ai · ESP32-S3 上的全离线语音助手
+- 2026-10-17 · iandchasse/silkscreen-pcb · 开源硬件 ESP32-S3 墨水屏阅读器主板，KiCad 9 板级工程
+- 2026-10-17 · koosoli/ESPHomeDesigner · ESPHome 显示屏可视化拖拽编辑器，接 OpenDisplay/OpenEPaperLink 生态
+- 2026-10-17 · plateaukao/einkbro · 面向墨水屏优化的 Android 轻量浏览器
+- 2026-10-17 · Forrest404/unidex · Waveshare ESP32-S3 口袋墨水屏 OS，课表+AI 语音笔记（非商用许可）
+- 2026-10-17 · makerspet/oomwoo · 全开源扫地机器人，Apache-2.0，3D 打印本体 + ROS2
+- 2026-10-17 · onehumanbeing/esp32-iphone-agent · 7 美元 ESP32 让 AI 模型操作真机 iPhone，MIT
+- 2026-10-17 · acon96/home-llm · Home Assistant 本地大模型控制集成（无许可证文件）
+- 2026-10-17 · timeframe/ha-addon · HA 墨水屏日历/天气/家庭看板插件（非商用许可）

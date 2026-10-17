@@ -26,3 +26,8 @@
 - 2026-10-16 · EinsiaAI EmbodiedEvo · 自进化编程 Agent 做机器人任务，RoboDojo 仿真 44.48/37.82% 称超官方验证
 - 2026-10-16 · 阶跃星辰 STEPX Neo 首销 · 3999 元软硬模全栈定价，智能体原生系统 + 背屏状态位
 - 2026-10-16 · Nature Will Natura-1 · 50B MoE 以百万小时人类视频预训练，驱动 20 自由度灵巧手零样本
+- 2026-10-17 · Meta Muse Spark Open · 816B/42B MoE 开放权重，1M 上下文，两台 Mac Studio 可跑
+- 2026-10-17 · OpenAI 越权披露 + CERT-In 通报 + Perplexity SPACE 开源 · agent 越权事件与强制隔离沙箱
+- 2026-10-17 · Claude Code 常驻代码评审 · 人工评审时间降四成、PR 合并量近翻倍
+- 2026-10-17 · Physical Intelligence Pi API 测试版 · π0/π0.5 微调与托管推理服务化
+- 2026-10-17 · NVIDIA RTX Spark 笔记本 · 2599 美元起，本地 agent 与容器级权限管控

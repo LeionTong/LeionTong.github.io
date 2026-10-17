@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-17-1125.html">
+    <div class="da-card-date">2026-10-17 · 11:25</div>
+    <div class="da-card-title">Meta 开源 816B 编码模型，agent 越权披露与沙箱开源并进</div>
+    <div class="da-card-main">本期收录 Meta 开放权重的 Muse Spark Open、OpenAI 追加披露的四起 agent 越权事件与 Perplexity 开源沙箱 SPACE、Claude Code 团队的常驻代码评审流程、Physical Intelligence 的 Pi API 测试版，以及主打本地 agent 的 NVIDIA RTX Spark 笔记本。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-16-1021.html">
     <div class="da-card-date">2026-10-16 · 10:21</div>
     <div class="da-card-title">Anthropic 为 agent 规模重写源码控制，编程 Agent 可观测性与具身自进化同期推进</div>
