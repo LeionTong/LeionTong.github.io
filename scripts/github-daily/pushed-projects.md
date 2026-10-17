@@ -110,3 +110,8 @@
 - 2026-10-16 · sgl-project/sglang-omni · 音频/omni 模型多阶段推理运行时，TTS/ASR 流式、OpenAI 兼容
 - 2026-10-16 · ARahim3/DigUp · 本机全内容语义检索，EmbeddingGemma 2 建索引、跨百种语言
 - 2026-10-16 · maxpert/marmot · 无主节点分布式 SQLite，gossip 复制加分布式事务、MySQL 协议
+- 2026-10-17 · HKUDS/CLI-Anything · 给任意 CLI 生成 agent 原生操作层 + CLI-Hub 注册中心，今日 +281
+- 2026-10-17 · storytold/artcraft · Rust AI 创作 IDE：2D/3D 构图与图生视频，本周 +20,267
+- 2026-10-17 · QwenAudio/qwen-audio-agent · 实时语音运行时，agent 翻工具不打断对话，ACP/A2A 后端
+- 2026-10-17 · Armur-Ai/Pentest-Swarm-AI · 多 agent 协同自动渗透，XBOW 的开源自托管替代
+- 2026-10-17 · intellectronica/ruler · 一套统一规则文件约束所有编码 agent 的指令与 MCP 配置

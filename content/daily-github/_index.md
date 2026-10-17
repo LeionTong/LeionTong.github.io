@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-17-1107.html">
+    <div class="da-card-date">2026-10-17 · 11:07</div>
+    <div class="da-card-title">软件为 Agent 重做接口层，创作引擎与语音赛道进入商业化窗口</div>
+    <div class="da-card-main">本期五条指向同一个动作：Agent 开始接管软件本身。CLI-Anything 给任意 CLI 套上 agent 原生接口，Ruler 统一编码 agent 的规则，ArtCraft 用 Rust 引擎做 AI 图像视频创作，QwenAudio 让 agent 保持实时语音会话，Pentest-Swarm 把渗透测试交给多 agent 流水线——五样都能自托管、都有企业付费的位置。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-16-1051.html">
     <div class="da-card-date">2026-10-16 · 10:51</div>
     <div class="da-card-title">逆向工程、模型网关、语音推理与本机检索出现可自持的开源底座</div>
