@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-17-1111.html">
+    <div class="da-card-date">2026-10-17 · 11:11</div>
+    <div class="da-card-title">墨水屏阅读器主板级开源，扫地机与家庭中控把本地模型接进设备</div>
+    <div class="da-card-main">本期覆盖智能屏显示、具身、服务端配套三个扇区：带 KiCad 工程的 ESP32-S3 墨水屏阅读器主板、墨水屏浏览器与面板编辑器、全开源扫地机、用 ESP32 操作真机 iPhone 的低成本方案，以及两类家庭中控集成。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-16-0949.html">
     <div class="da-card-date">2026-10-16 · 09:49</div>
     <div class="da-card-title">语音终端向 ESP32 端侧链路收敛，穿戴与桌面机器人继续靠开源图纸推进</div>
