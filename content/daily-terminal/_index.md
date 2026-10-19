@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-19-0941.html">
+    <div class="da-card-date">2026-10-19 · 09:41</div>
+    <div class="da-card-title">语音终端开始自己啃下识别与合成，硬件只剩换板与换脑</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人：旧智能音箱换板、ESP32 与 STM32 上的端侧识别合成、单卡全双工本地助手，以及去掉原厂客户端接管眼镜、接 MCP 的桌面机器人。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-17-1111.html">
     <div class="da-card-date">2026-10-17 · 11:11</div>
     <div class="da-card-title">墨水屏阅读器主板级开源，扫地机与家庭中控把本地模型接进设备</div>

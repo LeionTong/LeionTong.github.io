@@ -56,3 +56,11 @@
 - 2026-10-17 · onehumanbeing/esp32-iphone-agent · 7 美元 ESP32 让 AI 模型操作真机 iPhone，MIT
 - 2026-10-17 · acon96/home-llm · Home Assistant 本地大模型控制集成（无许可证文件）
 - 2026-10-17 · timeframe/ha-addon · HA 墨水屏日历/天气/家庭看板插件（非商用许可）
+- 2026-10-19 · iMike78/nest-mini-drop-in-pcb · Nest Mini 二代直插替换主板，ESP32-S3/C6/P4 跑开源语音固件
+- 2026-10-19 · raullenchai/esp32-thinks · SenseCAP Watcher 上的语音助手固件，STT/对话/TTS 三端点可换
+- 2026-10-19 · speakrail/speakrail · 单卡 4090 的全双工本地语音栈，轮次判定头 + LoRA
+- 2026-10-19 · JosssphZhou/groki-bot · CoreS3 桌面机器人，固件+网关+面部跟随一套齐
+- 2026-10-19 · macedonga/visor · 替代 Meta AI 应用的 Ray-Ban Meta 安卓客户端
+- 2026-10-19 · tlack/babytalk · ESP32-S3/P4 离线语音库，通用英文识别 + 合成
+- 2026-10-19 · fotonik-sk/stm32n6-speech-recognition · STM32N6 端侧英文识别，7.2M 参数 0.2W 峰值
+- 2026-10-19 · MultiX0/orion · LilyGO T-CameraPlus-S3 桌面语音助手，刷机+应用+外壳齐备
