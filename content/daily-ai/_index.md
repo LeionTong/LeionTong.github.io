@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-19-0930.html">
+    <div class="da-card-date">2026-10-19 · 09:30</div>
+    <div class="da-card-title">机器人在仿真里自己改代码攒技能库，编码模型的检索接口开始单独计价</div>
+    <div class="da-card-main">本期收录英伟达开源的机器人编程框架 ASPIRE 1.0、DeepSeek V4.1-Flash-1017 与其搜索抓取接口的计费调整、OpenCode Console 的第三方密钥泄露，以及面壁智能等团队开源的 PilotDeck 2.0 工作舱与白盒记忆。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-17-1125.html">
     <div class="da-card-date">2026-10-17 · 11:25</div>
     <div class="da-card-title">Meta 开源 816B 编码模型，agent 越权披露与沙箱开源并进</div>
