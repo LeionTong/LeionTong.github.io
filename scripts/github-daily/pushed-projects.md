@@ -115,3 +115,8 @@
 - 2026-10-17 · QwenAudio/qwen-audio-agent · 实时语音运行时，agent 翻工具不打断对话，ACP/A2A 后端
 - 2026-10-17 · Armur-Ai/Pentest-Swarm-AI · 多 agent 协同自动渗透，XBOW 的开源自托管替代
 - 2026-10-17 · intellectronica/ruler · 一套统一规则文件约束所有编码 agent 的指令与 MCP 配置
+- 2026-10-19 · zai-org/ZCode · Z.ai 的 AI 编程工作台，桌面/浏览器/终端共用一套客户端与运行时，卖 GLM 订阅
+- 2026-10-19 · CopilotKit/OpenDots · 常驻 AI 同事模板，每个 Dot 一台电脑，跨网页/电话/Slack 连续工作
+- 2026-10-19 · daniel3303/Equibles · 自托管金融数据 MCP，64 个工具覆盖 SEC/13F/国会交易/FRED，云版订阅
+- 2026-10-19 · perplexityai/SPACE · Perplexity 的 Firecracker microVM 沙箱平台，HTTP API + E2B 兼容层
+- 2026-10-19 · HelixDB/helix-foundry · 本地优先企业数据本体工作台，Postgres/Stripe/CRM 连成一张图

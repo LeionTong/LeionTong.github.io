@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-19-0942.html">
+    <div class="da-card-date">2026-10-19 · 09:42</div>
+    <div class="da-card-title">Agent 工具链分成工作台、执行沙箱与数据底座</div>
+    <div class="da-card-main">Z.ai 的 ZCode 工作台、CopilotKit 的常驻 AI 同事、Perplexity 的 Firecracker 沙箱，加上 Helix 的本地数据本体库与 Equibles 的金融数据 MCP，分别在补 Agent 的壳层、执行环境与可信数据源。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-17-1107.html">
     <div class="da-card-date">2026-10-17 · 11:07</div>
     <div class="da-card-title">软件为 Agent 重做接口层，创作引擎与语音赛道进入商业化窗口</div>
