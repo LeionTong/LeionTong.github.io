@@ -31,3 +31,7 @@
 - 2026-10-17 · Claude Code 常驻代码评审 · 人工评审时间降四成、PR 合并量近翻倍
 - 2026-10-17 · Physical Intelligence Pi API 测试版 · π0/π0.5 微调与托管推理服务化
 - 2026-10-17 · NVIDIA RTX Spark 笔记本 · 2599 美元起，本地 agent 与容器级权限管控
+- 2026-10-19 · NVIDIA ASPIRE 1.0 开源 · 编程 agent 写/调机器人控制程序，修复沉淀为技能库，Opus 5.5 下 LIBERO-Pro 80 项平均 99%
+- 2026-10-19 · DeepSeek V4.1-Flash-1017 + Search/Fetch 计费 · DeepSWE v1.1 77.0，11/1 起每千次成功请求 5 元
+- 2026-10-19 · OpenCode Console 密钥泄露 · 旧系统被未授权访问，1.4% Console 用户第三方 key 可能外泄
+- 2026-10-19 · PilotDeck 2.0 开源 · WorkSpace 隔离 + 白盒可改记忆 + 原生 MCP，AGPL-3.0，4,713 星
