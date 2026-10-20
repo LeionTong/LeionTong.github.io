@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-20-0932.html">
+    <div class="da-card-date">2026-10-20 · 09:32</div>
+    <div class="da-card-title">便宜 agent 模型继续压价，编码 agent 接手漏洞修复与长程任务</div>
+    <div class="da-card-main">本期收录 MiniMax M3.1 Flash 及其定价、Gemini 4 Argon 四个 agent 自主通关 Minecraft、GitHub 把代码扫描告警的修复交给 Copilot，以及 OpenAI 确认自研人形机器人与 UCLA 用旧手机做机器人。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-19-0930.html">
     <div class="da-card-date">2026-10-19 · 09:30</div>
     <div class="da-card-title">机器人在仿真里自己改代码攒技能库，编码模型的检索接口开始单独计价</div>
