@@ -64,3 +64,11 @@
 - 2026-10-19 · tlack/babytalk · ESP32-S3/P4 离线语音库，通用英文识别 + 合成
 - 2026-10-19 · fotonik-sk/stm32n6-speech-recognition · STM32N6 端侧英文识别，7.2M 参数 0.2W 峰值
 - 2026-10-19 · MultiX0/orion · LilyGO T-CameraPlus-S3 桌面语音助手，刷机+应用+外壳齐备
+- 2026-10-20 · dinggefei/fridge-eink-display · 冰箱门四色水墨屏整栈：ESP32-S3 固件 + 微信小程序 + FastAPI
+- 2026-10-20 · J-Rod-Ay/eink-quad · reTerminal E1001 厨房看板，服务端渲染差分下发
+- 2026-10-20 · pavellunev/tablo · TRMNL 7.5 DIY 自足墨水屏固件，设备直连数据源
+- 2026-10-20 · dorianborian/sesame-robot · ESP32 开源迷你四足，$50 元件 + 3D 打印
+- 2026-10-20 · NVlabs/GR00T-WholeBodyControl · NVIDIA 人形全身控制开源库与 SONIC 控制器
+- 2026-10-20 · thingsboard/thingsboard-gateway · 开源 IoT 协议网关，接入 ThingsBoard 平台
+- 2026-10-20 · Edgenesis/shifu · K8s 原生声明式 IoT 网关，设备抽象为 CRD
+- 2026-10-20 · oleost/VisionState · 摄像头语义化转 HA 传感器的本地视觉服务
