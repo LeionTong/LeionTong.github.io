@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-20-0955.html">
+    <div class="da-card-date">2026-10-20 · 09:55</div>
+    <div class="da-card-title">墨水屏看板走向冰箱与厨房，人形控制层与设备网关补齐开源底座</div>
+    <div class="da-card-main">本期扫智能屏显示、具身、服务端配套：冰箱与厨房墨水屏的整套自建方案、ESP32 迷你四足、NVIDIA 人形全身控制库，以及 ThingsBoard 网关、K8s 原生设备接入与本地视觉传感器服务。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-19-0941.html">
     <div class="da-card-date">2026-10-19 · 09:41</div>
     <div class="da-card-title">语音终端开始自己啃下识别与合成，硬件只剩换板与换脑</div>
