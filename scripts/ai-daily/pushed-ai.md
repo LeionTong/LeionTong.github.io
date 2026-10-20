@@ -35,3 +35,8 @@
 - 2026-10-19 · DeepSeek V4.1-Flash-1017 + Search/Fetch 计费 · DeepSWE v1.1 77.0，11/1 起每千次成功请求 5 元
 - 2026-10-19 · OpenCode Console 密钥泄露 · 旧系统被未授权访问，1.4% Console 用户第三方 key 可能外泄
 - 2026-10-19 · PilotDeck 2.0 开源 · WorkSpace 隔离 + 白盒可改记忆 + 原生 MCP，AGPL-3.0，4,713 星
+- 2026-10-20 · MiniMax M3.1 Flash 发布 · agent 任务成本降 70%，输入 0.15 美元/百万 token，权重 10/23 放出
+- 2026-10-20 · Gemini 4 Argon 四 agent 自主通关 Minecraft · 27h14m，写 2783 程序，arXiv 2610.22319
+- 2026-10-20 · GitHub code scanning autofix + AI Scan 转 GA · 告警修复交 Copilot；LSCBench 能跑且安全最高 25.1%
+- 2026-10-20 · Altman 确认 OpenAI 自研人形机器人 · 2027 年给 demo，机器人岗位 27 个
+- 2026-10-20 · UCLA PhoneBot 开源 · 400 美元手机双足平台，旧安卓机当 IMU/算力，arXiv 2610.08737
