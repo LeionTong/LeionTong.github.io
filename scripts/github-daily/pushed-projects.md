@@ -1,5 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-
 - 2026-09-02 · every-app/open-seo · 开源版 Semrush/Ahrefs 替代，自带 MCP 与 Agent Skills
 - 2026-09-02 · Tencent/WeKnora · 企业级文档 RAG 知识框架，多租户 + 自维护 Wiki
 - 2026-09-02 · workweave/router · 按请求路由的模型代理，宣称降低 LLM 成本 40-70%
@@ -120,3 +119,8 @@
 - 2026-10-19 · daniel3303/Equibles · 自托管金融数据 MCP，64 个工具覆盖 SEC/13F/国会交易/FRED，云版订阅
 - 2026-10-19 · perplexityai/SPACE · Perplexity 的 Firecracker microVM 沙箱平台，HTTP API + E2B 兼容层
 - 2026-10-19 · HelixDB/helix-foundry · 本地优先企业数据本体工作台，Postgres/Stripe/CRM 连成一张图
+- 2026-10-20 · ShawnPana/phone-harness · agent 直连真机（iPhone 镜像窗口 / Android adb / 云手机），云机按分钟计费
+- 2026-10-20 · zhongerxin/iPhone-use · Codex 经 WDA 操作 USB 真机 iPhone，侧边栏同步手机画面
+- 2026-10-20 · physiclaw/PhysiClaw · 相机读屏加触控笔点击的物理手机操作手，卖 CAD-as-code 套件
+- 2026-10-20 · koosoli/ESPHomeDesigner · 智能屏与电子价签可视化拖拽编辑器，导出 ESPHome/OEPL/OpenDisplay
+- 2026-10-20 · chekusu/yomado · 给视觉 agent 一块 macOS 虚拟屏跑桌面图形软件

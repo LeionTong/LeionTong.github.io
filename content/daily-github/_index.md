@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-20-0950.html">
+    <div class="da-card-date">2026-10-20 · 09:50</div>
+    <div class="da-card-title">手机与智能屏被改造成 agent 的操作面</div>
+    <div class="da-card-main">Phone Harness 与 iPhone-use 把真机手机交给 agent，PhysiClaw 用相机加触控笔物理操作手机，ESPHomeDesigner 与 yomado 分别给智能屏和桌面屏幕装上设计层——五条都在补同一段：能看见、能点下去的界面。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-19-0942.html">
     <div class="da-card-date">2026-10-19 · 09:42</div>
     <div class="da-card-title">Agent 工具链分成工作台、执行沙箱与数据底座</div>
