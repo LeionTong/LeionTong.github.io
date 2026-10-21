@@ -72,3 +72,8 @@
 - 2026-10-20 · thingsboard/thingsboard-gateway · 开源 IoT 协议网关，接入 ThingsBoard 平台
 - 2026-10-20 · Edgenesis/shifu · K8s 原生声明式 IoT 网关，设备抽象为 CRD
 - 2026-10-20 · oleost/VisionState · 摄像头语义化转 HA 传感器的本地视觉服务
+- 2026-10-21 · Picovoice/rhino · 端侧语音意图引擎，一句话直出 intent 与参数槽位
+- 2026-10-21 · sahilmahendrakar/paradee · 8M 参数单音色英文 TTS，8.5MB ONNX 单 CPU 线程跑 62 倍实时
+- 2026-10-21 · LibreStatic/LibreWrist · Galaxy Watch 配非三星手机的健康监测补齐，MIT 补丁自签自用
+- 2026-10-21 · Oppzippy/OpenSCQ30 · Soundcore 耳机与音箱的跨平台设置客户端，Rust 核心多前端
+- 2026-10-21 · RegeneratusLabs/physical-hermes · ESP32-S3 圆屏玩具刷成本地 Agent 语音身体
