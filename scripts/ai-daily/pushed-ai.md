@@ -40,3 +40,8 @@
 - 2026-10-20 · GitHub code scanning autofix + AI Scan 转 GA · 告警修复交 Copilot；LSCBench 能跑且安全最高 25.1%
 - 2026-10-20 · Altman 确认 OpenAI 自研人形机器人 · 2027 年给 demo，机器人岗位 27 个
 - 2026-10-20 · UCLA PhoneBot 开源 · 400 美元手机双足平台，旧安卓机当 IMU/算力，arXiv 2610.08737
+- 2026-10-21 · Battle Drones 全 agent 开发 · Claude Code 动态工作流写完整款 RTS，321 次提交，1200 局自测把 25 分钟未分胜负占比 14%→0.9%
+- 2026-10-21 · Notion 第六代 agent harness · 单任务 5 分钟拉到 24 小时，Auto 路由称成本降约九成，改双层 credit
+- 2026-10-21 · Grafana Watchers GA + 托管沙箱预览 · agent 读线上遥测改代码，修复停在 PR 等人工合并
+- 2026-10-21 · 工信部人形机器人产量口径 · 上半年 400+ 款/超 4 万台，全年预计破 10 万台，300+ 场景
+- 2026-10-21 · DeepSeek 开源 DeepInfer · Apache 2.0 生产推理栈，SM100 与昇腾 950 同一套代码
