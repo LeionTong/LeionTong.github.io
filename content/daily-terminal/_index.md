@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-21-0944.html">
+    <div class="da-card-date">2026-10-21 · 09:44</div>
+    <div class="da-card-title">端侧语音压到 8MB，穿戴互操作靠社区补丁拆厂商锁</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人：语音意图引擎与 8MB 合成模型继续往端侧收，Galaxy Watch 配非三星手机的补齐方案、Soundcore 耳机的第三方客户端，以及把现成玩具刷成 Agent 身体的固件。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-20-0955.html">
     <div class="da-card-date">2026-10-20 · 09:55</div>
     <div class="da-card-title">墨水屏看板走向冰箱与厨房，人形控制层与设备网关补齐开源底座</div>
