@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-21-0936.html">
+    <div class="da-card-date">2026-10-21 · 09:36</div>
+    <div class="da-card-title">本地优先的语音与文件工具正在替代按量订阅</div>
+    <div class="da-card-main">VoiceStudio 把克隆与配音搬回本机，Filee 用一套引擎覆盖 255 种格式、免掉 Office 授权，speech.cpp、BetterWispr 与 Oído 再把识别与合成压到单文件、Mac 与 5 美元芯片上。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-20-0950.html">
     <div class="da-card-date">2026-10-20 · 09:50</div>
     <div class="da-card-title">手机与智能屏被改造成 agent 的操作面</div>
