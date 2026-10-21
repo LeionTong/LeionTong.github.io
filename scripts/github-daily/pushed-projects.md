@@ -124,3 +124,8 @@
 - 2026-10-20 · physiclaw/PhysiClaw · 相机读屏加触控笔点击的物理手机操作手，卖 CAD-as-code 套件
 - 2026-10-20 · koosoli/ESPHomeDesigner · 智能屏与电子价签可视化拖拽编辑器，导出 ESPHome/OEPL/OpenDisplay
 - 2026-10-20 · chekusu/yomado · 给视觉 agent 一块 macOS 虚拟屏跑桌面图形软件
+- 2026-10-21 · debpalash/VoiceStudio · 本地语音克隆/配音/有声书桌面应用，Pro 商业授权按席位卖
+- 2026-10-21 · KnifeLemon/Filee · 离线拖放格式转换 255 种，含 HWP/HWPX，免 Office 授权
+- 2026-10-21 · nyosegawa/speech.cpp · ggml 上的 TTS/ASR/VAD 单二进制，OpenAI 音频 API 兼容
+- 2026-10-21 · opennookorg/betterwispr · macOS 本地听写替代订阅制听写工具，带会议转写与 MCP
+- 2026-10-21 · lokutor-ai/oido · 5 美元 ESP32-S3 上的开集语音识别固件，英/西两语
