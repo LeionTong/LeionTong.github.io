@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-21-0927.html">
+    <div class="da-card-date">2026-10-21 · 09:27</div>
+    <div class="da-card-title">Claude Code 写完一整款游戏，平台侧补上 agent 的沙箱与监控</div>
+    <div class="da-card-main">本期收录 Claude Code 用动态工作流完成的 Battle Drones、Notion 第六代 agent harness 与双层 credit、Grafana 的常驻 Watchers 与托管沙箱、DeepSeek 开源的推理框架 DeepInfer，以及工信部对人形机器人全年产量的预计。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-20-0932.html">
     <div class="da-card-date">2026-10-20 · 09:32</div>
     <div class="da-card-title">便宜 agent 模型继续压价，编码 agent 接手漏洞修复与长程任务</div>
