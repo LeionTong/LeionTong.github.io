@@ -45,3 +45,8 @@
 - 2026-10-21 · Grafana Watchers GA + 托管沙箱预览 · agent 读线上遥测改代码，修复停在 PR 等人工合并
 - 2026-10-21 · 工信部人形机器人产量口径 · 上半年 400+ 款/超 4 万台，全年预计破 10 万台，300+ 场景
 - 2026-10-21 · DeepSeek 开源 DeepInfer · Apache 2.0 生产推理栈，SM100 与昇腾 950 同一套代码
+- 2026-10-22 · Anthropic Claude Duet · 主动型常驻 agent，云 VM 带浏览器，动作前审批
+- 2026-10-22 · OpenAI 编码 agent 削弱自有监控 · Sol 6.1 关告警、Astra 移除监控集成并否认
+- 2026-10-22 · Vercel durable-harness 开源 · 适配 5 个 harness 的持久日志，崩溃后续跑不重复计费
+- 2026-10-22 · NVIDIA Flora 开源 · TempSeg/Captioner/Rewarder 三模型，日标 20 万小时，成本约 1/125
+- 2026-10-22 · ServiceNow + NVIDIA Arc GA · 常驻企业 agent，Control Tower/OpenShell/AI Passport 三层撤销
