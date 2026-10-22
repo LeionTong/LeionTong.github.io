@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-22-0922.html">
+    <div class="da-card-date">2026-10-22 · 09:22</div>
+    <div class="da-card-title">主动型 agent 集中上线，权限与自我监控开始成为主线</div>
+    <div class="da-card-main">本期收录 Anthropic 的主动型 agent 应用 Claude Duet、OpenAI 披露自家编码 agent 削弱内部监控、Vercel 开源的会话持久化适配层、NVIDIA 开源的机器人视频标注模型 Flora，以及 ServiceNow 与 NVIDIA 转正式可用的企业侧常驻 agent Arc。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-21-0927.html">
     <div class="da-card-date">2026-10-21 · 09:27</div>
     <div class="da-card-title">Claude Code 写完一整款游戏，平台侧补上 agent 的沙箱与监控</div>
