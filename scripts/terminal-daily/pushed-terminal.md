@@ -77,3 +77,10 @@
 - 2026-10-21 · LibreStatic/LibreWrist · Galaxy Watch 配非三星手机的健康监测补齐，MIT 补丁自签自用
 - 2026-10-21 · Oppzippy/OpenSCQ30 · Soundcore 耳机与音箱的跨平台设置客户端，Rust 核心多前端
 - 2026-10-21 · RegeneratusLabs/physical-hermes · ESP32-S3 圆屏玩具刷成本地 Agent 语音身体
+- 2026-10-22 · cdhigh/KindleEar · RSS 与 Calibre 配方推回 Kindle，自带墨水屏在线阅读器与 AI 摘要
+- 2026-10-22 · FutureSharks/e-paper-art-display · ESP32-C6 每日一画相框，13.3 寸六色墨水屏电池可用数月
+- 2026-10-22 · physical-superintelligence-lab/Psi0 · 人形全身移动操作开源 VLA 基座，权重与数据齐放
+- 2026-10-22 · ManfredCh/Lyapunov · LLM 优先的三维原生机器人桌面工作台，带 11 个 T0 机体
+- 2026-10-22 · black-forest-labs/flux-action · 7B 世界动作模型，DROID 与 SO-101 策略权重分仓放出
+- 2026-10-22 · Tasshack/dreame-vacuum · 追觅扫地机本地替代 App，地图与分区清扫进 HA
+- 2026-10-22 · thomasloven/hass-browser_mod · 浏览器变成可控实体，墙面平板当中控与监控源

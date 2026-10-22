@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-22-0940.html">
+    <div class="da-card-date">2026-10-22 · 09:40</div>
+    <div class="da-card-title">墨水屏内容管道和机器人动作模型都在更新</div>
+    <div class="da-card-main">本期覆盖智能屏显示、具身、服务端配套三个扇区：KindleEar 把 RSS 与 Calibre 配方重新推回墨水屏，Psi0 与 FLUX 3 Action 放出可商用权重的人形与操作基座，另有追觅扫地机与浏览器中控两个本地集成。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-21-0944.html">
     <div class="da-card-date">2026-10-21 · 09:44</div>
     <div class="da-card-title">端侧语音压到 8MB，穿戴互操作靠社区补丁拆厂商锁</div>
