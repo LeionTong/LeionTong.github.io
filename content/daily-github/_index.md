@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-22-0937.html">
+    <div class="da-card-date">2026-10-22 · 09:37</div>
+    <div class="da-card-title">按屏与按台的软件授权正在被自托管压低</div>
+    <div class="da-card-main">Fleet 用单个二进制替掉按主机计费的设备管理平台，Anthias 与 ScreenTinker 把数字标牌搬回自有服务器，FreeKiosk 接管安卓平板锁定，Bambuddy 管起 Bambu Lab 打印农场。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-21-0936.html">
     <div class="da-card-date">2026-10-21 · 09:36</div>
     <div class="da-card-title">本地优先的语音与文件工具正在替代按量订阅</div>

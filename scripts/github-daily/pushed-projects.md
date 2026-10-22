@@ -129,3 +129,8 @@
 - 2026-10-21 · nyosegawa/speech.cpp · ggml 上的 TTS/ASR/VAD 单二进制，OpenAI 音频 API 兼容
 - 2026-10-21 · opennookorg/betterwispr · macOS 本地听写替代订阅制听写工具，带会议转写与 MCP
 - 2026-10-21 · lokutor-ai/oido · 5 美元 ESP32-S3 上的开集语音识别固件，英/西两语
+- 2026-10-22 · fleetdm/fleet · 开源跨平台设备管理平台，Free 0 美元、Premium 7 美元/主机/月
+- 2026-10-22 · Screenly/Anthias · 树莓派与 x86 的数字标牌系统，GPLv2 与商业双授权
+- 2026-10-22 · maziggy/bambuddy · 自托管 Bambu Lab 打印机群控制台，切片与固件回滚在本地
+- 2026-10-22 · RushB-fr/freekiosk · 安卓平板 Device Owner 锁定，MIT 内核加 1 欧元/设备/月的云
+- 2026-10-22 · screentinker/screentinker · 自托管数字标牌 CMS，浏览器即播放端
