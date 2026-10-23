@@ -134,3 +134,8 @@
 - 2026-10-22 · maziggy/bambuddy · 自托管 Bambu Lab 打印机群控制台，切片与固件回滚在本地
 - 2026-10-22 · RushB-fr/freekiosk · 安卓平板 Device Owner 锁定，MIT 内核加 1 欧元/设备/月的云
 - 2026-10-22 · screentinker/screentinker · 自托管数字标牌 CMS，浏览器即播放端
+- 2026-10-23 · NVIDIA/OpenShell · 自主 agent 群的沙箱运行时，内核级隔离加声明式 YAML 策略
+- 2026-10-23 · heygen-com/hyperframes · 把 HTML 与动画渲成确定性 MP4 的开源引擎，本地渲染免费托管收费
+- 2026-10-23 · davidondrej/cloudroom-core · 自托管 Rust 服务跑云端编码 agent，每个 agent 一个沙箱
+- 2026-10-23 · jwuthri-cloud/Tracely-ai · 把线上 agent 的失败轨迹冻成 CI 回归闸门
+- 2026-10-23 · marclou/mailcheap · 按发送量计费的 newsletter，可自托管也可用云版
