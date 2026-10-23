@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Coding on Leion'Log</title><link>https://leiontong.github.io/tags/coding/</link><description>Recent content in Coding on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Sun, 17 May 2020 19:39:26 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/coding/index.xml" rel="self" type="application/rss+xml"/><item><title>npm安装并配置国内镜像源(阿里云 npmmirror 镜像站)</title><link>https://leiontong.github.io/posts/npm-install-configure-taobao-mirror/</link><pubDate>Sun, 17 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/npm-install-configure-taobao-mirror/</guid><description>&lt;h1 id="npm安装并配置国内镜像源阿里云-npmmirror-镜像站"&gt;npm安装并配置国内镜像源(阿里云 npmmirror 镜像站)&lt;/h1&gt;
+&lt;h2 id="npm安装"&gt;npm安装&lt;/h2&gt;
+&lt;p&gt;官网下载nodejs安装包并安装：&lt;a href="https://nodejs.org"&gt;https://nodejs.org&lt;/a&gt;。nodejs自带npm，实际上npm是nodejs的包管理器。&lt;/p&gt;
+&lt;h2 id="npm国内镜像源阿里云-npmmirror-镜像站"&gt;npm国内镜像源(阿里云 npmmirror 镜像站)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://npmmirror.com/"&gt;npmmirror 中国镜像站&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="使用说明"&gt;使用说明&lt;/h3&gt;
+&lt;p&gt;你可以使用我们定制的 &lt;a href="https://github.com/cnpm/cnpm"&gt;cnpm&lt;/a&gt; (gzip 压缩支持) 命令行工具代替默认的 &lt;code&gt;npm&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ npm install -g cnpm --registry&lt;span style="color:#f92672"&gt;=&lt;/span&gt;https://registry.npmmirror.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.27 — 2026-10-20</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.27 · 2026-10-20 · 09:50 GMT+8</span></div>
+  <h1>手机与智能屏被改造成 agent 的操作面</h1>
+  <p class="mh-sub">Phone Harness 与 iPhone-use 把真机手机交给 agent，PhysiClaw 用相机加触控笔物理操作手机，ESPHomeDesigner 与 yomado 分别给智能屏和桌面屏幕装上设计层——五条都在补同一段：能看见、能点下去的界面。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-20</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 今日实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>同一件事的五种做法：agent 要干活，得先有一块能读、能点的屏幕。手机侧分托管云机、本地软件桥与物理触控三条路，屏幕侧一个管智能屏内容、一个给 agent 自己一块虚拟屏。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Phone Harness <span>ShawnPana/phone-harness</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,830 · 近30天 +1,144</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-17 · 68 open issues</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>让 agent 直接操作你的真机：iPhone 走 Mac 的镜像窗口，Android 走 adb，也可用云手机；不越狱、不装 Xcode。</p>
+  <p class="e-line"><b>痛点</b>手机 App 大多不给 API，agent 想替人跑注册、下单、回消息，缺一层统一的读屏与点击原语。</p>
+  <p class="e-line"><b>付费</b>本地免费；云端 Phone Harness Cloud 首 100 分钟免费，云安卓按分钟计费，卖真机号码与 2FA。</p>
+  <p class="e-line"><b>规模化</b>凡要替用户在手机上跑流程的团队都适用，helpers 是稳定的屏幕与点击原语，换 App 不改代码。</p>
+  <p class="e-line"><b>边际</b>中 · 本地插件零成本，云手机按台按分钟摊算。</p>
+  <p class="e-line"><b>验证</b><code>uv 装好 CLI 后跑 phone-harness skill 注册技能、phone-harness doctor 自检，再按 onboarding.md 配对手机。</code></p>
+  <div class="risk"><b>风险</b>iPhone 这条路依赖 macOS 镜像窗口与辅助功能、录屏授权；68 个 open issue；云端有机器与号码成本，规模化后边际不归零。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">iPhone Use <span>zhongerxin/iPhone-use</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 4,317 · 近30天 +4,317（10-06 建库）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-16 · v0.3.15</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 USB 连着的那台 iPhone 交给 Codex：用 WebDriverAgent 读屏、点击、输入，侧边栏同步手机画面。</p>
+  <p class="e-line"><b>痛点</b>手机上整理收件箱、核对表单只能手点；控件定位失败时还要人截图回传，agent 够不到真机。</p>
+  <p class="e-line"><b>付费</b>插件免费，装在自己 Apple 开发者签名下；仓库暂无收费，收费位置留给托管设备的一方。</p>
+  <p class="e-line"><b>规模化</b>每个有 iPhone 的开发者都能装，交付是安装脚本加本地 MCP 服务，不挑宿主。</p>
+  <p class="e-line"><b>边际</b>低 · 纯本地运行，一次装配长期复用。</p>
+  <p class="e-line"><b>验证</b><code>sh scripts/install.sh，缺 WDA 时按提示用自家团队签名构建并启动。</code></p>
+  <div class="risk"><b>风险</b>首次要 Apple 账号签名并部署 WDA，个人免费账号 7 天到期需重签；默认发匿名使用统计可关；仍需一台 Mac 侧支持。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">PhysiClaw <span>physiclaw/PhysiClaw</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 397 · 近30天 +96</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-20 · 硬件版 v0.50</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>相机读屏、触控笔点击的物理手机操作手，手机不装东西、不开调试，agent 像人一样点屏幕。</p>
+  <p class="e-line"><b>痛点</b>ADB 与桌面自动化会留下可被风控识别的指纹，而生活类 App 基本没有 API。</p>
+  <p class="e-line"><b>付费</b>软件 MIT、模型 BYOK，卖 CAD-as-code 的硬件套件；站点已备中英文文档与装配视频。</p>
+  <p class="e-line"><b>规模化</b>「替人跑腿」跨 App 通用，但每台手机要配一套相机与机械笔，交付带硬件。</p>
+  <p class="e-line"><b>边际</b>中 · 软件可复制，硬件套件有物料与装配成本。</p>
+  <p class="e-line"><b>验证</b><code>curl -fsSL https://physiclaw.ai/install.sh | bash，physiclaw doctor 检查环境后跑硬件装配向导。</code></p>
+  <div class="risk"><b>风险</b>硬件是前提，单步动作要几秒；397 ★ 单人维护；硬件版号 0.50，套件供应与售后尚未验证。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.6</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">ESPHome Designer <span>koosoli/ESPHomeDesigner</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,132 · 近30天 +123</span>
+      <span class="tag">JavaScript · GPL-3.0</span>
+      <span class="tag">最近提交 10-17 · v1.0.0-rc.48</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>智能屏的可视化拖拽编辑器，产出 ESPHome/LVGL YAML、电子价签的 OEPL 服务调用与 OpenDisplay JSON。</p>
+  <p class="e-line"><b>痛点</b>ESP32 与电子价签的界面现在靠手写 lambda 和 YAML，改一版要翻一遍文档。</p>
+  <p class="e-line"><b>付费</b>眼下靠 GitHub Sponsors；装法有 HACS 集成与在线版，收费位置在模板与托管编辑器。</p>
+  <p class="e-line"><b>规模化</b>玩 Home Assistant 加智能屏、电子价签的人通用，输出是标准 YAML/JSON，不绑硬件品牌。</p>
+  <p class="e-line"><b>边际</b>低 · 前端编辑器加 HA 集成，没有服务端成本。</p>
+  <p class="e-line"><b>验证</b><code>直接打开 koosoli.github.io/ESPHomeDesigner 在线版，拖一屏导出 YAML 看格式。</code></p>
+  <div class="risk"><b>风险</b>GPL-3.0，嵌进自有产品要注意；只有赞赏收入，1.0 仍在 rc；43 个 open issue，靠单人主线推进。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">yomado <span>chekusu/yomado</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 171 · 近30天 +171（10-10 建库）</span>
+      <span class="tag">Objective-C · MIT</span>
+      <span class="tag">最近提交 10-17 · v0.3.7</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给视觉 agent 一块 macOS 虚拟屏：Codex 在虚拟屏里开 Blender、Marvelous Designer 这类图形软件干活。</p>
+  <p class="e-line"><b>痛点</b>视觉 agent 操作图形软件要逐家配 MCP，物理屏还被开着软件的人占满。</p>
+  <p class="e-line"><b>付费</b>免费下载、MIT；还没出现定价，位置留给 Pro 或企业授权。</p>
+  <p class="e-line"><b>规模化</b>面向用视觉 agent 碰桌面图形的 mac 用户，本地 app 交付，不依赖云。</p>
+  <p class="e-line"><b>边际</b>低 · 纯本地应用，无服务端与调用成本。</p>
+  <p class="e-line"><b>验证</b><code>下 v0.3.7 的 Yomado.zip 打开，菜单栏面板里新建一块虚拟屏，把窗口拖进去。</code></p>
+  <div class="risk"><b>风险</b>仅 Apple Silicon 的 macOS；171 ★ 只有 10 天；无定价、单人维护，虚拟屏与物理布局的边界情况多。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.7</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Phone Harness（ShawnPana/phone-harness）</b>。五条里唯一把商业条款写明白的：本地免费、云端按分钟计费、头 100 分钟白送，iPhone 用户还能先借云安卓跑通。helpers 是稳定的读屏与点击原语，换 App 不改代码，一条 uv 命令就能验证到付费入口。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>手机和屏幕这两块最成熟的终端正在被重新接线给 agent：软件路径（USB、镜像窗口、adb）与物理路径（相机加触控笔）并行，屏幕侧则从「给人看」转向「给 agent 看与用」。共同点是补上缺的那一段——一块能看见、能点下去的界面。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>MadsLorentzen/ai-job-search</b>（57,376★ · 今日 Trending 日榜第一）· 求职流程框架，fork 自用为主，没有收费主体；简历与面试产物一次性，用户找到工作就走，留存和复购都薄。</li>
+    <li><b>openai/math</b>（15,227★ · 719 篇手稿、372 个族）· 研究产出而非产品，没定价也没支持；42% 有 Lean 形式化，其余只能看不能验，商业化载体缺位。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-10-20 0950 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
