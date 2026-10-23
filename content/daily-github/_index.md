@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-23-0937.html">
+    <div class="da-card-date">2026-10-23 · 09:37</div>
+    <div class="da-card-title">编码 Agent 的云端沙箱与轨迹回归开始按用量计价</div>
+    <div class="da-card-main">NVIDIA OpenShell 用内核级策略替自主 Agent 划边界，Cloudroom 与 Tracely 分别按云端 agent 和 trace 量收费，HeyGen HyperFrames 把 HTML 渲成视频，MailCheap 把计费基准从订阅人数换成发送量。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-22-0937.html">
     <div class="da-card-date">2026-10-22 · 09:37</div>
     <div class="da-card-title">按屏与按台的软件授权正在被自托管压低</div>
