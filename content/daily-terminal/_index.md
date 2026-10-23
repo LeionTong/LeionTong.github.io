@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-23-0948.html">
+    <div class="da-card-date">2026-10-23 · 09:48</div>
+    <div class="da-card-title">语音助手与可穿戴开源工程同时补齐固件与整机链路</div>
+    <div class="da-card-main">本期覆盖语音终端、穿戴、桌面机器人三个扇区：omi 与 MentraOS 先做成产品再开源，InfiniTime 与 willow 交出整机固件，PAROL6 桌面机械臂与 DuckBuddy 机器鸭给出可复刻硬件，另有 macOS 与 AMD 显卡两条本地语音链路。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-22-0942.html">
     <div class="da-card-date">2026-10-22 · 09:42</div>
     <div class="da-card-title">墨水屏内容管道和机器人动作模型都在更新</div>

@@ -84,3 +84,11 @@
 - 2026-10-22 · black-forest-labs/flux-action · 7B 世界动作模型，DROID 与 SO-101 策略权重分仓放出
 - 2026-10-22 · Tasshack/dreame-vacuum · 追觅扫地机本地替代 App，地图与分区清扫进 HA
 - 2026-10-22 · thomasloven/hass-browser_mod · 浏览器变成可控实体，墙面平板当中控与监控源
+- 2026-10-23 · BasedHardware/omi · 可穿戴录音与屏幕感知的第二大脑，桌面/手机/固件同仓
+- 2026-10-23 · InfiniTimeOrg/InfiniTime · PineTime 智能手表开源固件，FreeRTOS+C++ 全链路
+- 2026-10-23 · Source-Robotics/PAROL6-Desktop-robot-arm · 3D 打印桌面六轴机械臂，结构件与控制软件全开源
+- 2026-10-23 · HeyWillow/willow · 自托管语音助手整机，ESP32-S3 硬件加自建推理服务
+- 2026-10-23 · Mentra-Community/MentraOS · 智能眼镜操作系统，含应用商店与开发者控制台
+- 2026-10-23 · SaarthurR/atticus-mac · macOS 常驻语音助手，跑在已有订阅模型上，重复指令本地固化
+- 2026-10-23 · JMS1717/ming-voice · AMD 显卡上的全本地语音到语音助手，ROCm 7.2
+- 2026-10-23 · Animan-AI/DuckBuddy · 开源具身机器鸭，感知/生命层/运动三组服务分进程

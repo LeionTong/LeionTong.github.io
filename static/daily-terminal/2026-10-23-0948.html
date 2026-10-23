@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY TERMINAL NO.35 — 2026-10-23</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+<header class="masthead">
+<div class="mh-top"><b>LEION · DAILY TERMINAL</b><span>NO.35 · 2026-10-23 · 09:48 GMT+8</span></div>
+<h1>语音助手与可穿戴开源工程同时补齐固件与整机链路</h1>
+<p class="mh-sub">本期覆盖语音终端、穿戴、桌面机器人三个扇区：omi 与 MentraOS 先做成产品再开源，InfiniTime 与 willow 交出整机固件，PAROL6 桌面机械臂与 DuckBuddy 机器鸭给出可复刻硬件，另有 macOS 与 AMD 显卡两条本地语音链路。</p>
+<div class="spec-strip">
+<div class="spec-cell"><span class="spec-k">本期扇区</span><span class="spec-v">语音终端 / 穿戴 / 桌面机器人</span></div>
+<div class="spec-cell"><span class="spec-k">入选条目</span><span class="spec-v">8 条</span></div>
+<div class="spec-cell"><span class="spec-k">扫描命中</span><span class="spec-v">≈70 条 / 30 次检索</span></div>
+<div class="spec-cell"><span class="spec-k">数据口径</span><span class="spec-v">gh search / gh api 实测</span></div>
+</div>
+</header>
+<main>
+
+<section class="entry">
+<div class="entry-no">01</div>
+<div class="e-head">
+<h2 class="e-name">omi <span>BasedHardware/omi</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 13801</span>
+<span class="tag">穿戴</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 强</span>
+</div></div>
+<p class="e-line"><b>定位</b>可穿戴形态的第二大脑：项链或吊坠硬件实时采集对话与屏幕内容，转写后生成摘要与待办，再提供一个记得你所见所闻的问答入口。</p>
+<p class="e-line"><b>亮点</b>MIT，最近推送 2026-10-23；桌面端、手机端、固件与后端放在同一组织下，另有一个应用商店收开发者做的小程序；官方称已有三十万以上使用者；v0.12.524（2026-10-22）为当前版本，macOS 端一条命令即可起本地开发环境；未关 issue 1442 个，在用开发者基数不小。</p>
+<p class="e-line"><b>商业化</b>录音类可穿戴已被验证为付费品类，硬件套装加订阅是现成模式，开放仓库把开发者生态与品牌信任一并拿到手。</p>
+<div class="risk"><b>风险与坑</b>1442 个未关 issue，说明厂商与社区之间的功能期待落差在累积；录音产品在多地受隐私法规约束，落地要按辖区处理告知与数据留存；官方客户端与自家云后端耦合较紧，完全自托管需要自己补服务端。</div>
+<p class="e-line"><b>版本</b>v0.12.524（2026-10-22） ｜ 最近推送 2026-10-23</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">02</div>
+<div class="e-head">
+<h2 class="e-name">InfiniTime <span>InfiniTimeOrg/InfiniTime</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 3405</span>
+<span class="tag">穿戴</span>
+<span class="tag">固件</span>
+<span class="tag up">商业化 中</span>
+</div></div>
+<p class="e-line"><b>定位</b>PineTime 智能手表的开源固件，FreeRTOS 加 C++ 写成，从表盘、通知、计步到无线升级一整条链路。</p>
+<p class="e-line"><b>亮点</b>GPL-3.0，最近推送 2026-10-22；1.16.1（2026-07-05）为当前稳定版，多年迭代把功耗与墨水屏式低刷新使用场景磨得比较稳；配套手机端与刷机工具成链，社区表盘与应用数量可观；411 个未关 issue 里多数是硬件差异与真机行为反馈。</p>
+<p class="e-line"><b>商业化</b>固件本身受 GPL 约束卖不动，价值在整机软件底座——做手表品牌或代工的一方可以省掉固件自研，收入落在整机、表带与售后。</p>
+<div class="risk"><b>风险与坑</b>GPL-3.0 对闭源整机厂商是硬约束，商用前要过法务；硬件强绑 PineTime 一块表，换主控要重做驱动；未关 issue 里不少是长期未决的蓝牙兼容问题。</div>
+<p class="e-line"><b>版本</b>1.16.1（2026-07-05） ｜ 最近推送 2026-10-22</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">03</div>
+<div class="e-head">
+<h2 class="e-name">PAROL6 <span>Source-Robotics/PAROL6-Desktop-robot-arm</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 3394</span>
+<span class="tag">桌面机器人</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 中</span>
+</div></div>
+<p class="e-line"><b>定位</b>按工业机器人思路做的 3D 打印桌面六轴机械臂，结构件模型、物料清单、装配说明与控制软件全部开源。</p>
+<p class="e-line"><b>亮点</b>GPL-3.0，最近推送 2026-10-22；配套软件成体系，图形控制台、浏览器控制台、Python 接口与 ROS2/MoveIt 仿真分仓发布，运动学基于 Robotics Toolbox，上手曲线比自研方案短；出品方已在售整机与套件，文档站与视频教程长期在维护；未关 issue 只有 2 个。</p>
+<p class="e-line"><b>商业化</b>桌面机械臂在高校与科研采购里是稳定需求，开源结构件降低复刻门槛，收入落在套件出货、备件与培训。</p>
+<div class="risk"><b>风险与坑</b>结构件与电机、减速器选型绑定特定物料，替换要重算载荷与精度；GPL-3.0 会传染到控制软件，做闭源上位机要另起一套；release 停在 V1（2025-03-08），发版节奏明显慢于主干提交。</div>
+<p class="e-line"><b>版本</b>V1（2025-03-08） ｜ 最近推送 2026-10-22</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">04</div>
+<div class="e-head">
+<h2 class="e-name">Willow <span>HeyWillow/willow</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 3128</span>
+<span class="tag">语音终端</span>
+<span class="tag">固件</span>
+<span class="tag up">商业化 中</span>
+</div></div>
+<p class="e-line"><b>定位</b>对标智能音箱的自托管语音助手整机方案：ESP32-S3 硬件跑唤醒词与音频前端，识别、理解与合成全部回到自己服务器。</p>
+<p class="e-line"><b>亮点</b>Apache-2.0，最近推送 2026-10-01；官方推理服务已单独开源，语音转写、语音合成、大模型与实时通信推理一起给出，整条链路可以完全离线；硬件板卡已发到早期用户手上，社区讨论区有专人跟；0.4.3（2026-07-21）为当前版本。</p>
+<p class="e-line"><b>商业化</b>语音入口是智能家居的必争位置，把云端换成自托管正好对上数据敏感型用户与集成商，整机加部署服务是可行的报价方式。</p>
+<div class="risk"><b>风险与坑</b>自托管推理要么配一张大显存显卡，要么接受明显延迟，硬件门槛直接压在用户侧；固件与推理服务分仓演进，版本对齐要自己盯；最近推送已是 2026-10-01，活跃度比高峰期回落。</div>
+<p class="e-line"><b>版本</b>0.4.3（2026-07-21） ｜ 最近推送 2026-10-01</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">05</div>
+<div class="e-head">
+<h2 class="e-name">MentraOS <span>Mentra-Community/MentraOS</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 2391</span>
+<span class="tag">穿戴</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 强</span>
+</div></div>
+<p class="e-line"><b>定位</b>智能眼镜的操作系统：在兼容眼镜上做实时字幕、第一视角推流、语音对话与免手拍照，手机端、开发者控制台与应用商店配套。</p>
+<p class="e-line"><b>亮点</b>Apache-2.0，最近推送 2026-10-23；v3.0（2026-07-26）为当前版本；对多款在售眼镜做适配，眼镜厂商不必自建系统；开发者控制台、小程序商店与文档站都已上线，手机端在应用商店可下载，生态形态跑通了。</p>
+<p class="e-line"><b>商业化</b>眼镜硬件正在放量而系统层几乎空白，做操作系统比做单品更值钱，应用分成与厂商授权是两条收入路径。</p>
+<div class="risk"><b>风险与坑</b>829 个未关 issue，眼镜型号适配与蓝牙稳定性是主要痛点；依赖各家眼镜的私有蓝牙协议，固件一升级就可能失效；应用商店的审核与分成规则还没定型，早期参与者收益不稳。</div>
+<p class="e-line"><b>版本</b>v3.0（2026-07-26） ｜ 最近推送 2026-10-23</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">06</div>
+<div class="e-head">
+<h2 class="e-name">Atticus <span>SaarthurR/atticus-mac</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 224</span>
+<span class="tag">语音终端</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 中</span>
+</div></div>
+<p class="e-line"><b>定位</b>macOS 上的常驻语音助手：按住 Control、Option 与空格说话，松手即执行，开应用、移窗口、找文件、读屏并指出该点哪里。</p>
+<p class="e-line"><b>亮点</b>MIT，建仓 2026-10-10，最近推送 2026-10-23；不需要 API key，直接跑在已有的 Claude 订阅或本地模型上；重复指令第二次就固化成不调用模型的本地命令，常用操作不再消耗推理；可把大任务派给后台 agent；v1.4.0（2026-10-21）当日发布。</p>
+<p class="e-line"><b>商业化</b>桌面语音操作是订阅制工具的成熟形态，省掉推理成本的结构让毛利高于同类，适合按年订阅或与模型额度打包。</p>
+<div class="risk"><b>风险与坑</b>需要较新的 macOS 版本与一个外部 AI 客户端才能跑，装完还要逐项开系统权限；仓库新建不久、fork 只有 12 个，长期维护能力待观察；操作窗口与文件属高危动作，误执行的边界控制决定产品成败。</div>
+<p class="e-line"><b>版本</b>v1.4.0（2026-10-21） ｜ 最近推送 2026-10-23</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">07</div>
+<div class="e-head">
+<h2 class="e-name">Ming Voice <span>JMS1717/ming-voice</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 59</span>
+<span class="tag">语音终端</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 弱</span>
+</div></div>
+<p class="e-line"><b>定位</b>跑在 AMD 显卡上的全本地实时语音助手，用语音到语音模型直接对答，通常在你停下说话约四分之一秒后开口。</p>
+<p class="e-line"><b>亮点</b>MIT，建仓 2026-10-21，最近推送 2026-10-22；基于开源的语音到语音小模型，Linux 与 Windows 子系统都支持，走 ROCm 7.2；能查天气、联网搜索、设定时器、记购物清单与长期记忆，并控制 Home Assistant 与 Jellyfin；音频不出本机；v1.6.0（2026-10-22）当日发布。</p>
+<p class="e-line"><b>商业化</b>把语音链路从单一显卡厂商上解耦，正好对上大量只有 AMD 显卡的存量机器，卖点落在装机与调优服务。</p>
+<div class="risk"><b>风险与坑</b>59 星、建仓两天，属早期原型，接口与依赖还会变；ROCm 在 Windows 子系统下的兼容性随驱动版本起伏，装不起来的情况常见；端到端语音到语音的结构不能中途更换组件，定制空间有限。</div>
+<p class="e-line"><b>版本</b>v1.6.0（2026-10-22） ｜ 最近推送 2026-10-22</p>
+</section>
+
+<section class="entry">
+<div class="entry-no">08</div>
+<div class="e-head">
+<h2 class="e-name">DuckBuddy <span>Animan-AI/DuckBuddy</span></h2>
+<div class="e-meta">
+<span class="tag star">⭐ 38</span>
+<span class="tag">桌面机器人</span>
+<span class="tag">源码</span>
+<span class="tag up">商业化 弱</span>
+</div></div>
+<p class="e-line"><b>定位</b>会走会听的桌面机器鸭：Orange Pi Zero 3W 上跑感知、生命层与运动三组服务，语音下一串指令就能连续完成多个动作。</p>
+<p class="e-line"><b>亮点</b>Apache-2.0，建仓 2026-10-18，最近推送 2026-10-19；架构分得干净，语音服务做降噪与离线识别，视觉服务做人脸与运动检测，测距服务用 Rust 做八乘八点阵，运动服务以五十赫兹跑 ONNX 策略直接驱动舵机，服务之间用本机 Unix socket 传 JSON；带需求与情绪的生命层，会用鸭语回应，人设写在一份 JSON 里可替换；离线有小脑兜底，联网才走多模态大模型。</p>
+<p class="e-line"><b>商业化</b>形态讨巧、物料简单，适合做教育陪伴类整机或套件；软件把性格与行为分层，换一份人设就是另一个产品。</p>
+<div class="risk"><b>风险与坑</b>38 星、建仓五天，实机能力尚未经受长期使用检验；基于上游开源机器鸭改做，上游一动就要跟；离线小脑的能力边界没写清，断网后的体验落差需要实测。</div>
+<p class="e-line"><b>版本</b>无正式 release ｜ 最近推送 2026-10-19</p>
+</section>
+
+</main>
+<footer><span>整理：Leion</span><span>· 2026-10-23 09:48 GMT+8</span></footer>
+</div>
+</body>
+</html>
