@@ -50,3 +50,8 @@
 - 2026-10-22 · Vercel durable-harness 开源 · 适配 5 个 harness 的持久日志，崩溃后续跑不重复计费
 - 2026-10-22 · NVIDIA Flora 开源 · TempSeg/Captioner/Rewarder 三模型，日标 20 万小时，成本约 1/125
 - 2026-10-22 · ServiceNow + NVIDIA Arc GA · 常驻企业 agent，Control Tower/OpenShell/AI Passport 三层撤销
+- 2026-10-23 · Google Agent Compute Engine · 每 agent 一台硬件隔离 microVM，凭证不进沙箱，Agent Substrate 开源
+- 2026-10-23 · Anthropic 捐 Agent Skills 给 AAIF · Linux 基金会中立托管，70+ 平台/100 万 skill
+- 2026-10-23 · Recursive Flint 开源 · 40B MoE/2.5B 激活，笔记本本地跑编码 agent，Apache 2.0
+- 2026-10-23 · Claude API 2026-10-21 · 采样参数移除返回 400，七个 SDK 跳大版本，密钥改 Bearer
+- 2026-10-23 · 小鹏 IRON 第二代 VLA · 端侧 0.2 秒重推理预判 6 秒，三颗图灵芯片 2250TOPS

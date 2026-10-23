@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-23-0931.html">
+    <div class="da-card-date">2026-10-23 · 09:31</div>
+    <div class="da-card-title">agent 的运行环境与凭证边界开始落到基础设施层</div>
+    <div class="da-card-main">本期收录 Google 给每个 agent 配一台硬件隔离 microVM 的 Agent Compute Engine、Anthropic 把 Agent Skills 标准捐给 Linux 基金会下的 AAIF、Recursive 开源可跑在笔记本上的编码模型 Flint、Claude API 三年多来第一次版本换代，以及小鹏 IRON 端侧 VLA 的实时重推理升级。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-22-0922.html">
     <div class="da-card-date">2026-10-22 · 09:22</div>
     <div class="da-card-title">主动型 agent 集中上线，权限与自我监控开始成为主线</div>
