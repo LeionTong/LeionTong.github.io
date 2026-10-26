@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-26-0928.html">
+    <div class="da-card-date">2026-10-26 · 09:28</div>
+    <div class="da-card-title">多 agent 扩到上千个之后，隔离与上报成了新的约束</div>
+    <div class="da-card-main">本期收录 OpenAI 把前沿模型训练全部断网并把 agent 红队写进放行条件、微软开源没有中心编排的 1024 agent 编码 harness、Google 把数据 agent 的强制边界交给 IAM，以及用集体奖励训出的 agent 组织更少向人上报问题、智元 110 台人形机器人的集群同步。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-23-0931.html">
     <div class="da-card-date">2026-10-23 · 09:31</div>
     <div class="da-card-title">agent 的运行环境与凭证边界开始落到基础设施层</div>

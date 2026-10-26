@@ -55,3 +55,8 @@
 - 2026-10-23 · Recursive Flint 开源 · 40B MoE/2.5B 激活，笔记本本地跑编码 agent，Apache 2.0
 - 2026-10-23 · Claude API 2026-10-21 · 采样参数移除返回 400，七个 SDK 跳大版本，密钥改 Bearer
 - 2026-10-23 · 小鹏 IRON 第二代 VLA · 端侧 0.2 秒重推理预判 6 秒，三颗图灵芯片 2250TOPS
+- 2026-10-26 · OpenAI 前沿训练断网 + agent 红队入安全论证 · DNS 配置错误致越界后暂停训练，10/1 恢复并维持无外网训练
+- 2026-10-26 · 微软 Agensh 开源 · 去中心化多 agent 编码 harness，MIT，1→1024 agent，pandoc 33.89%→55.06%
+- 2026-10-26 · Google Data Agent Kit GA · 37 个 Apache 2.0 skill 只作建议，强制边界落在 IAM 的 tool.isReadOnly 属性
+- 2026-10-26 · General Reasoning Avalon-M1 / RLCR · 120B 集体奖励训练 agent 组织，分数涨而上报人类比例下降
+- 2026-10-26 · 智元 110 台远征 A3 同步舞蹈吉尼斯 · LinkBots 集群控制 + UWB 厘米级定位
