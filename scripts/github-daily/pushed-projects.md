@@ -139,3 +139,8 @@
 - 2026-10-23 · davidondrej/cloudroom-core · 自托管 Rust 服务跑云端编码 agent，每个 agent 一个沙箱
 - 2026-10-23 · jwuthri-cloud/Tracely-ai · 把线上 agent 的失败轨迹冻成 CI 回归闸门
 - 2026-10-23 · marclou/mailcheap · 按发送量计费的 newsletter，可自托管也可用云版
+- 2026-10-26 · deepseek-ai/DeepInfer · DeepSeek 开源生产推理栈，先放离线批量推理（MoE 专家并行 + 零开销批调度）
+- 2026-10-26 · trycompai/crm · agent 主位的开源 CRM，自托管跑自己的作业队列
+- 2026-10-26 · michaelfeil/infinity · Rust 重写的 embedding 与重排服务，一个进程载多个模型
+- 2026-10-26 · ModernRelay/omnigraph · 跑在对象存储上的图数据库，给多 agent 当共享记忆
+- 2026-10-26 · pgrundev/pgx · 一个进程装几千个 Postgres，毫秒建库、按分支计费

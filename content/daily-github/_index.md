@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-26-1014.html">
+    <div class="da-card-date">2026-10-26 · 10:14</div>
+    <div class="da-card-title">推理、记忆与数据库的计价单位被压到单个实例</div>
+    <div class="da-card-main">DeepSeek 开源生产环境用的离线推理引擎 DeepInfer，Comp AI 把 CRM 做成 agent 自己的作业本，Infinity v3 用一个 Rust 进程同时服务多个向量模型，Omnigraph 把多个 agent 的共享记忆放进对象存储，PGX 让一个进程装下几千个 Postgres；共同点是把按机器、按席位收的钱改成按单个实例收。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-23-0937.html">
     <div class="da-card-date">2026-10-23 · 09:37</div>
     <div class="da-card-title">编码 Agent 的云端沙箱与轨迹回归开始按用量计价</div>
