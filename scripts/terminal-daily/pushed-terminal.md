@@ -92,3 +92,11 @@
 - 2026-10-23 · SaarthurR/atticus-mac · macOS 常驻语音助手，跑在已有订阅模型上，重复指令本地固化
 - 2026-10-23 · JMS1717/ming-voice · AMD 显卡上的全本地语音到语音助手，ROCm 7.2
 - 2026-10-23 · Animan-AI/DuckBuddy · 开源具身机器鸭，感知/生命层/运动三组服务分进程
+- 2026-10-26 · rorygallagher2024/glasshouse · 已解锁 LG webOS 电视上的本地控制面板，含去广告与 HA MQTT 桥
+- 2026-10-26 · Mastershort/neonplan3d · Home Assistant 三维户型图面板，页面内建模并实时控制实体
+- 2026-10-26 · slcr/ha-frame-starter · 纸质墨色风 HA 墙面看板起步包，设置页直接生成 YAML
+- 2026-10-26 · Genesis-Embodied-AI/genesis-world · 通用机器人与具身学习仿真平台，Python 接口直连训练
+- 2026-10-26 · FluxVLA/FluxVLA · 从数据到真机部署的全流程 VLA 工程平台
+- 2026-10-26 · BinceQu/RoboHarness · 给大模型智能体的机器人操作层，几何面板直连具身任务
+- 2026-10-26 · homeassistant-ai/ha-mcp · Home Assistant 的 MCP 服务端，模型可查询并控制家居实体
+- 2026-10-26 · flashrt-project/FlashRT · 小批量低延迟实时推理引擎，主打 Pi0/GROOT 系列 VLA 控制

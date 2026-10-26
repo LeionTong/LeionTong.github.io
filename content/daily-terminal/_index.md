@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-26-0948.html">
+    <div class="da-card-date">2026-10-26 · 09:48</div>
+    <div class="da-card-title">屏幕端做出成品形态，机器人端把仿真与操作层接通</div>
+    <div class="da-card-main">本期覆盖智能屏显示、具身、服务端配套三个扇区：LG 电视本地化面板与 Home Assistant 三维户型图把墙面屏幕做成可直接交付的形态，Genesis 仿真平台与 FluxVLA 工具链把机器人从训练接到实机，HA MCP 服务与 FlashRT 推理引擎补上服务端一环。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-23-0948.html">
     <div class="da-card-date">2026-10-23 · 09:48</div>
     <div class="da-card-title">语音助手与可穿戴开源工程同时补齐固件与整机链路</div>
