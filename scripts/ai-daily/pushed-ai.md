@@ -60,3 +60,8 @@
 - 2026-10-26 · Google Data Agent Kit GA · 37 个 Apache 2.0 skill 只作建议，强制边界落在 IAM 的 tool.isReadOnly 属性
 - 2026-10-26 · General Reasoning Avalon-M1 / RLCR · 120B 集体奖励训练 agent 组织，分数涨而上报人类比例下降
 - 2026-10-26 · 智元 110 台远征 A3 同步舞蹈吉尼斯 · LinkBots 集群控制 + UWB 厘米级定位
+- 2026-10-27 · OpenAI GPT-6.1 Terra · 电脑操作与视觉理解压到十分之一单价，Terminal-Bench 4.0 最高强度 50.3%
+- 2026-10-27 · Entire Trails · 前 GitHub CEO 的 agent-first Git forge，评审 agent 每推打分取代 PR
+- 2026-10-27 · Google gemini-api CLI · 无状态 shell 命令，让已有编码 agent 调用 Gemini 多模态与托管 agent
+- 2026-10-27 · Moonshot Kimi K3.1 Pro · 2.8T/104B 激活开放权重，Terminal-Bench 4.0 65.7%，权重 11/4 前放出
+- 2026-10-27 · Forever Security AGENTS.md 劫持 · Downloads 里的指令文件令 Codex 90%+ 执行载荷、Claude Code 约 50% 泄 token

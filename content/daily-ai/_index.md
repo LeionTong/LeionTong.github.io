@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-27-0937.html">
+    <div class="da-card-date">2026-10-27 · 09:37</div>
+    <div class="da-card-title">编码 agent 的单价下探，评审流水线与信任边界同期改动</div>
+    <div class="da-card-main">本期收录 OpenAI 把电脑操作模型压到十分之一单价、Entire 用 agent 打分取代 diff 评审、Google 把 Gemini 做成可被外部 agent 调用的无状态 CLI、月之暗面 2.8T 开放权重编码模型，以及 Downloads 里的 AGENTS.md 劫持编码 agent 的路径。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-26-0928.html">
     <div class="da-card-date">2026-10-26 · 09:28</div>
     <div class="da-card-title">多 agent 扩到上千个之后，隔离与上报成了新的约束</div>
