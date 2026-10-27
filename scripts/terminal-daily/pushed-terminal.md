@@ -100,3 +100,10 @@
 - 2026-10-26 · BinceQu/RoboHarness · 给大模型智能体的机器人操作层，几何面板直连具身任务
 - 2026-10-26 · homeassistant-ai/ha-mcp · Home Assistant 的 MCP 服务端，模型可查询并控制家居实体
 - 2026-10-26 · flashrt-project/FlashRT · 小批量低延迟实时推理引擎，主打 Pi0/GROOT 系列 VLA 控制
+- 2026-10-27 · alphacep/vosk-api · 跨平台离线语音识别 API，Kaldi 小模型跑树莓派与手机
+- 2026-10-27 · nyosegawa/speech.cpp · ggml 上的 C++ 语音合成、识别与断句检测套件，带 OpenAI 兼容服务端
+- 2026-10-27 · lokutor-ai/oido · 5 美元 ESP32-S3 上的开放词汇语音识别，不上云不用 NPU
+- 2026-10-27 · JellyFlow/Mcdonalds_in_RokidGlasses · Rokid 眼镜点餐助手，MCP 直连与实时算价
+- 2026-10-27 · CH-LaTiao/lumina-guide · Jetson 加 Orbbec 深度相机的可穿戴导航助手原型
+- 2026-10-27 · PetoiCamp/OpenCatEsp32-Quadruped-Robot · ESP32 开源四足机器宠物框架，官方套件在售
+- 2026-10-27 · kissqy/Microduck-kissqy · 小型四足整机复刻资料，含 3D 打印件、系统镜像与中控

@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-27-1042.html">
+    <div class="da-card-date">2026-10-27 · 10:42</div>
+    <div class="da-card-title">离线语音识别压到五美元主板，四足机器人整机复刻资料公开</div>
+    <div class="da-card-main">本期按语音终端、穿戴、桌面机器人三个扇区取材：离线识别一侧是跨平台识别库、一个月内连发 23 版的 C++ 语音套件与 5 美元 ESP32-S3 识别方案，穿戴一侧是 Rokid 眼镜点餐应用与 Jetson 深度相机导航原型，桌面一侧是开源四足宠物固件与一台小型四足的整机复刻资料。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-26-0948.html">
     <div class="da-card-date">2026-10-26 · 09:48</div>
     <div class="da-card-title">屏幕端做出成品形态，机器人端把仿真与操作层接通</div>
