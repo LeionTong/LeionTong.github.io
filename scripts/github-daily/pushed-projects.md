@@ -144,3 +144,8 @@
 - 2026-10-26 · michaelfeil/infinity · Rust 重写的 embedding 与重排服务，一个进程载多个模型
 - 2026-10-26 · ModernRelay/omnigraph · 跑在对象存储上的图数据库，给多 agent 当共享记忆
 - 2026-10-26 · pgrundev/pgx · 一个进程装几千个 Postgres，毫秒建库、按分支计费
+- 2026-10-27 · akitaonrails/ai-memory · 跨厂商编码智能体长期记忆，32 种工具共用一套交接协议
+- 2026-10-27 · anthropics/sandbox-runtime · 操作系统层给进程加文件与网络限制，不需要容器
+- 2026-10-27 · rasonyang/ai-native-callcenter · 自托管 AI 呼叫中心，FreeSWITCH 接自有 SIP 中继、AI 先接人工后补
+- 2026-10-27 · Nexting-ai/nexting · 用手机与领夹 PIN 远控本机编码智能体，仓库开源设备 SDK
+- 2026-10-27 · reality-opened/openreality · 手机视频重建可查询三维场景，41 个 MCP 工具给编码智能体

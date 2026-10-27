@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-27-1005.html">
+    <div class="da-card-date">2026-10-27 · 10:05</div>
+    <div class="da-card-title">编码智能体的记忆、隔离与随身入口同期补齐</div>
+    <div class="da-card-main">本期收录跨 32 种编码工具共享长期记忆的 ai-memory、不依赖容器的操作系统级沙箱 sandbox-runtime、自持 SIP 中继的 AI 呼叫中心、129 美元起的随身遥控硬件 Nexting，以及把手机视频变成可查询三维场景的 Open Reality；共同点是智能体的记忆、隔离与入口都由使用者自己持有。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-26-1014.html">
     <div class="da-card-date">2026-10-26 · 10:14</div>
     <div class="da-card-title">推理、记忆与数据库的计价单位被压到单个实例</div>
