@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-28-1033.html">
+    <div class="da-card-date">2026-10-28 · 10:33</div>
+    <div class="da-card-title">整机开源的人形机器人平台、墨水屏阅读软件与边缘推理引擎</div>
+    <div class="da-card-main">本期按智能屏显示、具身、服务端配套三个扇区取材：显示侧是覆盖 Kindle 与 Kobo 的墨水屏阅读器、把旧 Kindle 变桌边副屏的应用；具身侧是开源人形整机平台 RP1、动作重定向工具 GMR 与策略评测框架 Isaac Lab-Arena；服务端侧是端侧推理引擎 MNN、边缘视频推理引擎 CosmoEdge 与小米官方家居集成。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-27-1042.html">
     <div class="da-card-date">2026-10-27 · 10:42</div>
     <div class="da-card-title">离线语音识别压到五美元主板，四足机器人整机复刻资料公开</div>

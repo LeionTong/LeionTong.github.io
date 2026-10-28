@@ -107,3 +107,11 @@
 - 2026-10-27 · CH-LaTiao/lumina-guide · Jetson 加 Orbbec 深度相机的可穿戴导航助手原型
 - 2026-10-27 · PetoiCamp/OpenCatEsp32-Quadruped-Robot · ESP32 开源四足机器宠物框架，官方套件在售
 - 2026-10-27 · kissqy/Microduck-kissqy · 小型四足整机复刻资料，含 3D 打印件、系统镜像与中控
+- 2026-10-28 · koreader/koreader · 墨水屏阅读软件，覆盖 Kindle/Kobo/reMarkable，AGPL-3.0
+- 2026-10-28 · deskbuddy-app/desk-buddy · 越狱 Kindle 变桌边副屏，桌面端负责取数与推送
+- 2026-10-28 · Roboparty/RP1 · 开源人形整机平台，机械、电子、固件、部署与学习分子仓库
+- 2026-10-28 · YanjieZe/GMR · 人体动作实时重定向到 17 种人形机器人，CPU 可跑
+- 2026-10-28 · isaac-sim/IsaacLab-Arena · Isaac Lab 之上的策略评测与基准编排框架
+- 2026-10-28 · alibaba/MNN · 阿里端侧推理引擎，覆盖手机、嵌入式与边缘设备
+- 2026-10-28 · cosmo-wander-ai/cosmo-edge · 视频分析用 C++ 边缘推理引擎，覆盖算能与瑞芯微
+- 2026-10-28 · XiaoMi/ha_xiaomi_home · 小米官方 Home Assistant 集成，许可限非商业用途
