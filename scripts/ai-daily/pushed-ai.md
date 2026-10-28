@@ -65,3 +65,8 @@
 - 2026-10-27 · Google gemini-api CLI · 无状态 shell 命令，让已有编码 agent 调用 Gemini 多模态与托管 agent
 - 2026-10-27 · Moonshot Kimi K3.1 Pro · 2.8T/104B 激活开放权重，Terminal-Bench 4.0 65.7%，权重 11/4 前放出
 - 2026-10-27 · Forever Security AGENTS.md 劫持 · Downloads 里的指令文件令 Codex 90%+ 执行载荷、Claude Code 约 50% 泄 token
+- 2026-10-28 · Google Genie 4 · 原生多模态实时世界仿真，Gemini 3.8 Flash 作循环内引导 agent，实验接 Gemini Robotics
+- 2026-10-28 · GitHub Copilot 辅助权限 GA · 模型判定安全命令自动放行，企业可屏蔽 Allow All 而保留 Assisted
+- 2026-10-28 · Cursor Agent SDK · agent 定义为一个代码文件夹，事件回放与 eval 内建，一条命令部署到 Cursor 基础设施
+- 2026-10-28 · Liquid AI LFM3 · 同一 backbone 六个 2B 级模型，1.7B 超前代 2.6B，256K 上下文，4-bit 约 1GB
+- 2026-10-28 · 云深处 DEEPRobotics-Brain 五项研究 · DR-WM-1.0 把地形接触动力学纳入动作后果预测，258 万图像-掩码对
