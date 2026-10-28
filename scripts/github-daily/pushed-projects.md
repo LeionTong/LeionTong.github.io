@@ -149,3 +149,8 @@
 - 2026-10-27 · rasonyang/ai-native-callcenter · 自托管 AI 呼叫中心，FreeSWITCH 接自有 SIP 中继、AI 先接人工后补
 - 2026-10-27 · Nexting-ai/nexting · 用手机与领夹 PIN 远控本机编码智能体，仓库开源设备 SDK
 - 2026-10-27 · reality-opened/openreality · 手机视频重建可查询三维场景，41 个 MCP 工具给编码智能体
+- 2026-10-28 · agentgateway/agentgateway · 智能体的连接层：一个代理同时管模型路由、MCP 工具接入与代理间通信
+- 2026-10-28 · cloudflare/security-audit-skill · 把编码智能体改成安全审计员的技能，六个阶段含独立复核
+- 2026-10-28 · perplexityai/SPACE · Firecracker 微虚拟机上的代码执行沙箱平台，带 E2B 兼容层
+- 2026-10-28 · SoMarkAI/OXR · 1.3B 文档解析模型，输出带版面坐标的 Markdown 与 JSON
+- 2026-10-28 · incoai/splash · Apple 芯片上的本地推理引擎，一条命令接住编码智能体
