@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-28-1008.html">
+    <div class="da-card-date">2026-10-28 · 10:08</div>
+    <div class="da-card-title">智能体上服务端之后要用到的连接、隔离、数据与审计层</div>
+    <div class="da-card-main">agentgateway 把模型路由与 MCP 工具收进一个网关，Perplexity 开源了沙箱平台 SPACE，文档解析模型 OXR 用双授权卖商业版，Apple 芯片上的推理引擎 Splash 接住编码智能体，Cloudflare 的技能把智能体改成安全审计员；都是智能体上服务器后要用到的层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-27-1005.html">
     <div class="da-card-date">2026-10-27 · 10:05</div>
     <div class="da-card-title">编码智能体的记忆、隔离与随身入口同期补齐</div>
