@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-28-0925.html">
+    <div class="da-card-date">2026-10-28 · 09:25</div>
+    <div class="da-card-title">世界模型进入实时交互，编码 agent 的放行判定与打包方式同期成型</div>
+    <div class="da-card-main">本期收录 Google 的实时世界模型 Genie 4、GitHub Copilot 让模型判定命令是否放行、Cursor 把 agent 定义成一个代码文件夹、Liquid AI 的 2B 级多模态开放权重，以及云深处把地形接触动力学写进世界模型。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-27-0937.html">
     <div class="da-card-date">2026-10-27 · 09:37</div>
     <div class="da-card-title">编码 agent 的单价下探，评审流水线与信任边界同期改动</div>
