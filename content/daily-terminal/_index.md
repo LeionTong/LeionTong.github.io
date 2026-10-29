@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-29-1036.html">
+    <div class="da-card-date">2026-10-29 · 10:36</div>
+    <div class="da-card-title">桌面机器人卖整机、肌电腕带出图纸、语音识别离开云端</div>
+    <div class="da-card-main">本期按语音终端、穿戴与桌面机器人三个扇区取材：语音侧是十美元级别的 ESP32-S3 离线识别、把 Mac 变成电话代理的守护进程，以及走蓝牙 mesh 的离网通话；穿戴侧是一条仿 Meta Neural Band 的八通道肌电腕带；桌面机器人侧是已经在售的 Reachy Mini。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-28-1033.html">
     <div class="da-card-date">2026-10-28 · 10:33</div>
     <div class="da-card-title">整机开源的人形机器人平台、墨水屏阅读软件与边缘推理引擎</div>

@@ -115,3 +115,8 @@
 - 2026-10-28 · alibaba/MNN · 阿里端侧推理引擎，覆盖手机、嵌入式与边缘设备
 - 2026-10-28 · cosmo-wander-ai/cosmo-edge · 视频分析用 C++ 边缘推理引擎，覆盖算能与瑞芯微
 - 2026-10-28 · XiaoMi/ha_xiaomi_home · 小米官方 Home Assistant 集成，许可限非商业用途
+- 2026-10-29 · pollen-robotics/reachy_mini · 开源桌面机器人 SDK，整机在售含对话与手部跟随应用
+- 2026-10-29 · jlcjak/neurband · 仿 Meta Neural Band 的八通道肌电腕带，KiCad/FreeCAD/Zephyr 全开源
+- 2026-10-29 · andrisgauracs/whistle-esp32 · ESP32-S3 全离线语音识别，14.5MB 模型放片上 PSRAM
+- 2026-10-29 · oxnw/ai-phone · Mac 上的本地语音电话代理，选本地模型并接 SIP 线路
+- 2026-10-29 · MeshLive/meshlive-android · 蓝牙 mesh 离网语音通话，多跳中继无需网络与 SIM
