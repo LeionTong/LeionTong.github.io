@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-29-0926.html">
+    <div class="da-card-date">2026-10-29 · 09:26</div>
+    <div class="da-card-title">编码成本改按任务结算，机器人在真实门店自行改进作业策略</div>
+    <div class="da-card-main">本期收录 Google Gemini 4 Carbon 在独立榜单登顶但先向防御方开放、GitHub 用任务级路由把编码成本减半、智元 Genie Master 在便利店验证部署后的自进化、腾讯 WorkBuddy 让手机接管桌面上运行的 agent，以及 44 个 agent 分工完成的一次入侵。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-28-0925.html">
     <div class="da-card-date">2026-10-28 · 09:25</div>
     <div class="da-card-title">世界模型进入实时交互，编码 agent 的放行判定与打包方式同期成型</div>
