@@ -70,3 +70,8 @@
 - 2026-10-28 · Cursor Agent SDK · agent 定义为一个代码文件夹，事件回放与 eval 内建，一条命令部署到 Cursor 基础设施
 - 2026-10-28 · Liquid AI LFM3 · 同一 backbone 六个 2B 级模型，1.7B 超前代 2.6B，256K 上下文，4-bit 约 1GB
 - 2026-10-28 · 云深处 DEEPRobotics-Brain 五项研究 · DR-WM-1.0 把地形接触动力学纳入动作后果预测，258 万图像-掩码对
+- 2026-10-29 · Google Gemini 4 Carbon · 智能指数 v5.0 以 59 分登顶，安全三段基准齐发，先向防御方开放
+- 2026-10-29 · GitHub Copilot Fusion + Octoverse 2026 · 任务级路由让单任务成本 11.42→5.59 美元，40% 拉取请求由 agent 起草
+- 2026-10-29 · 智元 Genie Master · EEP 协议接住判断与执行反馈，真实便利店验证部署后自进化
+- 2026-10-29 · 腾讯 WorkBuddy 远程控制 · 手机实时接管桌面上运行的 agent，只耗流量不耗 Token
+- 2026-10-29 · TrendAI CyberStrikeAI 44 agents · 开源渗透平台多 agent 分工完成侦察到报告，19 家组织被扫描
