@@ -154,3 +154,8 @@
 - 2026-10-28 · perplexityai/SPACE · Firecracker 微虚拟机上的代码执行沙箱平台，带 E2B 兼容层
 - 2026-10-28 · SoMarkAI/OXR · 1.3B 文档解析模型，输出带版面坐标的 Markdown 与 JSON
 - 2026-10-28 · incoai/splash · Apple 芯片上的本地推理引擎，一条命令接住编码智能体
+- 2026-10-29 · ruvnet/RuView · 拿普通 WiFi 的信道状态做无摄像头的存在与生命体征感知，配套硬件 Seed 卖 257 美元
+- 2026-10-29 · pollen-robotics/microduck · 25 厘米双足小机器人，全身动作由强化学习策略驱动，整机 399 美元
+- 2026-10-29 · trymirai/uzu · 可嵌进应用的本地推理引擎，Apple 统一内存，MIT 开源配商业许可
+- 2026-10-29 · elliothux/open-compute · 单个二进制把 Workers、KV、D1、R2 那一整套搬到自有机器上
+- 2026-10-29 · FlashML-org/FreeVideo · 8 GB 显存本地跑 MiniMax H3 出片，桌面端四档质量加时间线编辑

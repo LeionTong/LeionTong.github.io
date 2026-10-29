@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-29-1003.html">
+    <div class="da-card-date">2026-10-29 · 10:03</div>
+    <div class="da-card-title">把感知、推理、生成与运行平台收回自有设备</div>
+    <div class="da-card-main">RuView 用普通 WiFi 的信道状态做无摄像头的存在与体征感知，Microduck 开源双足小机器人的训练栈并卖整机，uzu 把推理引擎嵌进应用，open-compute 让 Workers 那套跑在一台机器上，FreeVideo 在 8 GB 显存上本地出片；共同点是把算力与数据留在自有设备。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-28-1008.html">
     <div class="da-card-date">2026-10-28 · 10:08</div>
     <div class="da-card-title">智能体上服务端之后要用到的连接、隔离、数据与审计层</div>
