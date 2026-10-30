@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-30-1037.html">
+    <div class="da-card-date">2026-10-30 · 10:37</div>
+    <div class="da-card-title">数字标牌做到设备管控，具身侧补的是动作数据与地形适应</div>
+    <div class="da-card-main">本期按智能屏显示、具身与服务端配套三个扇区取材：显示侧是三套与屏幕本身强绑定的软件（树莓派数字标牌、安卓自助机锁屏、给小屏的手工点阵字体）；具身侧是把视频转成骨骼动画的 Windows 工具与一套不靠地形示范的人形控制模型；服务端侧是两套 MQTT 消息中间件，一套打云、一套打边缘。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-29-1036.html">
     <div class="da-card-date">2026-10-29 · 10:36</div>
     <div class="da-card-title">桌面机器人卖整机、肌电腕带出图纸、语音识别离开云端</div>
