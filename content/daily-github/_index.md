@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-30-1004.html">
+    <div class="da-card-date">2026-10-30 · 10:04</div>
+    <div class="da-card-title">控制入口正从厂商控制台挪到脚本与 REST</div>
+    <div class="da-card-main">Aerial 用 adb 脚本接管小米与 TCL 的电视桌面，Pomerado 把没有 API 的网站包成 MCP 工具，Dograh 一条 docker 命令替掉按分钟计费的语音平台，Tesserae 靠 REST 推墨水屏，PathSim 用 Python 方块图做仿真；共同点是控制入口从厂商控制台挪到了能被程序调用的那一层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-29-1003.html">
     <div class="da-card-date">2026-10-29 · 10:03</div>
     <div class="da-card-title">把感知、推理、生成与运行平台收回自有设备</div>
