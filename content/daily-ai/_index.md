@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-10-30-0923.html">
+    <div class="da-card-date">2026-10-30 · 09:23</div>
+    <div class="da-card-title">编码助手的浏览器越权细节公开，机器人产出改按有效工时计量</div>
+    <div class="da-card-main">本期收录 Forever Security 披露五款编码助手内嵌浏览器的越权细节、Mistral 开放万亿参数权重、智元创新日发布 GO-3 Preview 与灵渠 OS 1.0、Android Studio 对 40 余个外部 agent 开放，以及 Oracle 云上让 agent 沙箱单独用 CPU 扩容。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-29-0926.html">
     <div class="da-card-date">2026-10-29 · 09:26</div>
     <div class="da-card-title">编码成本改按任务结算，机器人在真实门店自行改进作业策略</div>

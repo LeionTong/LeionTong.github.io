@@ -75,3 +75,8 @@
 - 2026-10-29 · 智元 Genie Master · EEP 协议接住判断与执行反馈，真实便利店验证部署后自进化
 - 2026-10-29 · 腾讯 WorkBuddy 远程控制 · 手机实时接管桌面上运行的 agent，只耗流量不耗 Token
 - 2026-10-29 · TrendAI CyberStrikeAI 44 agents · 开源渗透平台多 agent 分工完成侦察到报告，19 家组织被扫描
+- 2026-10-30 · Forever Security EMBRACE 五款编码助手浏览器越权 · Cursor 静默修复，Codex 与 VS Code 公开时仍未修复
+- 2026-10-30 · Mistral Large 4 万亿参数权重开放 · 自托管网络防御定位，Terminal-Bench 4.0 41%，MaaS 需单独许可
+- 2026-10-30 · 智元 GO-3 Preview 与灵渠 OS 1.0 + Worken 度量 · 三个具身评测列第一并年内开源，便利店成功率 28.6%→85.7%
+- 2026-10-30 · Android Studio Rabbit 2 接入 40 余个 ACP agent · 30 多个 Android skills，AppFunctions 与端侧 Agentic API 开放
+- 2026-10-30 · Oracle 云 Vera Rubin NVL72 与 Vera CPU GA · agent 沙箱的 CPU 侧算力可独立扩容，不可信代码硬件隔离
