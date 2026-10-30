@@ -120,3 +120,10 @@
 - 2026-10-29 · andrisgauracs/whistle-esp32 · ESP32-S3 全离线语音识别，14.5MB 模型放片上 PSRAM
 - 2026-10-29 · oxnw/ai-phone · Mac 上的本地语音电话代理，选本地模型并接 SIP 线路
 - 2026-10-29 · MeshLive/meshlive-android · 蓝牙 mesh 离网语音通话，多跳中继无需网络与 SIM
+- 2026-10-30 · Screenly/Anthias · 树莓派与 PC 数字标牌平台，GPLv2 加商业双授权，支持通用 ARM 单板
+- 2026-10-30 · RushB-fr/freekiosk · 安卓平板自助机锁屏，设备所有者策略加 40 余个 REST 接口，MIT
+- 2026-10-30 · mcer12/PixelFonts · 兼容 AdafruitGFX 与 u8g2 的手绘窄体点阵字体，MIT
+- 2026-10-30 · toyxyz/toyxyz_RGBMocap · Windows 本地视频动捕，三套人体估计模型加重定向导出 FBX/VMD，MIT
+- 2026-10-30 · Roboparty/P-BFM · 人形行为基础模型，平地动作加在线地形交互，G1 与 RP1 双机型配置，CC BY-NC
+- 2026-10-30 · emqx/emqx · 物联网 MQTT 消息中间件，MQTT over QUIC 与多协议网关，BSL 1.1
+- 2026-10-30 · nanomq/nanomq · 边缘侧轻量 MQTT 代理，NNG 异步架构，MIT
