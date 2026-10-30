@@ -159,3 +159,8 @@
 - 2026-10-29 · trymirai/uzu · 可嵌进应用的本地推理引擎，Apple 统一内存，MIT 开源配商业许可
 - 2026-10-29 · elliothux/open-compute · 单个二进制把 Workers、KV、D1、R2 那一整套搬到自有机器上
 - 2026-10-29 · FlashML-org/FreeVideo · 8 GB 显存本地跑 MiniMax H3 出片，桌面端四档质量加时间线编辑
+- 2026-10-30 · pengchujin/aerial-tv · 参照 tvOS 的电视桌面，靠 adb 脚本接管小米与 TCL 的开机页，MIT
+- 2026-10-30 · dograh-hq/dograh · 自托管语音智能体平台，一条 docker 命令替掉按分钟计费的 Vapi 与 Retell
+- 2026-10-30 · Pomerado/pomerado · 把没有 API 的网站生成为确定性 MCP 工具，MIT 核心加托管云收费
+- 2026-10-30 · dmellok/tesserae · 电子墨水看板服务端，浏览器排版后按 REST 或 MQTT 推屏
+- 2026-10-30 · pathsim/pathsim · Python 方块图动力学仿真，MIT，作者另接闭源工具迁移咨询
