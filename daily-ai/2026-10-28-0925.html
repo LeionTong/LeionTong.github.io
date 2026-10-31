@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION &middot; DAILY AI &mdash; 2026-10-28 第 89 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION &middot; DAILY AI</b></span>
+      <span>2026-10-28 &middot; 第 89 期</span>
+    </div>
+    <h1>世界模型进入实时交互，编码 agent 的放行判定与打包方式同期成型</h1>
+    <p class="mh-sub">本期收录 Google 的实时世界模型 Genie 4、GitHub Copilot 让模型判定命令是否放行、Cursor 把 agent 定义成一个代码文件夹、Liquid AI 的 2B 级多模态开放权重，以及云深处把地形接触动力学写进世界模型。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> &middot; 具身智能 &middot; 世界模型</span>
+    <h2 class="c-title">Google 发布 Genie 4，把实时世界仿真与环境音、交互对话一起生成</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">世界模型</span><span class="chip">实时仿真</span><span class="chip">物理预测</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 27 日，Google DeepMind 发布 Genie 4 世界模型，定位为原生多模态的实时交互式世界仿真：生成世界的同时生成环境音、类音乐与可交互对话。模型建立在 Gemini 系列之上，Gemini Omni 负责把仿真锚定到真实外观与行为，其他 Gemini 模型提供维持仿真连贯与延续所需的推理。使用者用键盘控制移动与镜头，用文本提示实时改造场景，例如改变天气、移动物体、加入新的人，Gemini 会结合周围场景改写提示；两次输入之间，Gemini 持续观测并引导场景推进。</p>
+      <p>关键机制与数字：Gemini 3.8 Flash 作为循环中的引导 agent，观测场景、把目标拆成步骤、核对回传帧以确认每一步是否达成，并在世界变化或使用者干预时即时改计划；物理侧模拟空气动力学、碰撞等，人物按更自然的运动规律移动并实时响应。音频是 Genie 4 首次原生生成，环境音随场景自带；交互式对话随输入与事件当场变化。DeepMind 表示正与 Gemini Robotics 结合实验：Gemini 4 Argon 把用户指令拆解成步骤，以文本字幕插入 Genie 4 的渲染过程，让仿真随任务推进而调整，用于在想象世界里模拟各类机器人场景。</p>
+      <p>投放节奏：先以研究预览向受信任测试者开放，再陆续给 Google AI Ultra 订阅者（Project Genie）与 Gemini API、Google AI Studio 的早期合作方。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>世界模型的一步实质变化在于仿真开始承担推理角色：把引导 agent 放进循环、逐帧核对目标是否达成的做法，让实时仿真能承载多步任务而不是只出画面。对具身方向，这种可被文本实时改写的环境，是低成本生成训练与评测场景的入口，DeepMind 明确把它接到机器人训练环境上。</p>
+      <p>它仍是标注为实验性的研究预览，物理一致性、以仿真训练再迁移到真机的落差都还没有公开数据；宣传中的真实感来自官方录屏，未提供可复现的评测口径。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Google DeepMind https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/ ；Hacker News https://news.ycombinator.com/item?id=50261319</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> &middot; AI coding &middot; 权限边界</span>
+    <h2 class="c-title">GitHub Copilot 辅助权限转正，由模型判定命令能否直接放行</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">权限模式</span><span class="chip">Copilot CLI</span><span class="chip">企业策略</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 26 日，GitHub 宣布辅助权限（assisted permissions）在 GitHub Copilot CLI、Copilot 应用与 Visual Studio Code 中正式可用。当 Copilot 请求运行命令、访问某个文件系统路径或打开 URL 时，由一个语言模型评估该请求，被判定为明显安全的自动放行，其余请求仍需使用者批准。开启方式：CLI 里运行 <code>/permissions</code> 后选 assisted；应用里打开模式选择器、点 Tool permissions 后选 Assisted；VS Code 里打开权限选择器后选 Assisted permissions。</p>
+      <p>企业侧控制：管理员可用企业托管设置单独屏蔽 Allow All 而保留 Assisted，也可单独停用 Assisted，并可设定新会话的默认权限模式；若默认模式被策略禁止，会话以手动批准启动。规则细节见 GitHub 文档「Allowing safe commands to run without manual approval」。同期 Copilot CLI 更新到 v1.0.104。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把「哪些动作可以不问」的判断从人工维护的命令白名单交给模型，改变的是编码 agent 的自治边界：安全类命令不再逐条打断，人的注意力留给真正需要批准的一小部分。企业的取舍也很清晰——Allow All 可被屏蔽而 Assisted 保留，说明厂商把「模型判定 + 人工兜底」当作比「全放行」更可控的默认。</p>
+      <p>判定质量本身是新的信任面：模型把危险命令误判为安全时不再有人拦。误放行率与判定过程的可审计性目前没有公开数据，企业侧的默认值选择需要按自身风险承受度定。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>GitHub Changelog https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available/ ；GitHub Docs https://docs.github.com/copilot/concepts/customizations/allowing-safe-commands ；Copilot CLI https://github.com/github/copilot-cli/releases/tag/v1.0.104</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> &middot; AI coding &middot; agent 工程化</span>
+    <h2 class="c-title">Cursor 发布 Agent SDK，把 agent 定义成一个受版本控制的代码文件夹</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">Agent SDK</span><span class="chip">评测</span><span class="chip">事件驱动</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>Cursor 正式开放 Agent SDK，用它把 agent 定义为代码，并像管理普通软件项目一样管理。一个 agent 就是一个项目：<code>instructions.md</code> 是提示词，<code>tools/</code> 里每个文件是模型可调用的一个有类型动作，<code>skills/</code> 放按需加载的过程，<code>mcp-connections/</code> 接入 MCP 服务提供的工具，<code>channels/</code> 定义 bot 从哪里收发消息。上手方式为 <code>npx @cursor/agent-sdk init ./my-bot</code>，用 <code>agent-sdk dev</code> 在本地带 playground 启动，<code>--template</code> 可从安全评审、owners 策略审批、PR 自动修复、Linear 或 Jira 分诊等模板起步；<code>agent-sdk validate</code> 校验项目、<code>agent-sdk info</code> 打印识别到的内容。</p>
+      <p>触发与测试：agent 在 GitHub、GitLab、Bitbucket 的 PR、评论与 CI 事件，Slack 的提及与私信，任意提供方的 webhook 以及 cron 计划上被唤醒，GitHub 事件走 Cursor 账号拉取，不需要公开 webhook 地址；每个会话保留自己的 session 与完整的消息、工具调用记录，对 PR 或 Slack 线程的追问接回同一个 session。eval 发送固定消息并断言 agent 做了什么（跑了哪些工具、输入是什么、回复的形状），可在本地或 CI 里跑；<code>agent-sdk github replay &lt;pr-url&gt;</code> 把真实 pull request 转成签名 webhook 载荷投给 bot，用于不等推送即可测试。部署用 <code>agent-sdk deploy</code>，命令会构建 agent、给它一个 URL 并跑在 Cursor 基础设施上，密钥与集成在面板里管理。官方称其自有的 Bugbot、Security Reviewer、Rollouts 等托管 agent 即由该框架构建。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把提示词、工具、外部连接、事件入口与评测全部放进同一个受版本控制的目录，等于让 agent 的改动走与业务代码相同的评审与回滚流程，也把「事件回放 + 断言」这套评测方式变成默认项。对做代码评审、分诊这类固定工作流的团队，省掉的是自研脚手架与测试环境。</p>
+      <p>部署命令默认把 agent 放到 Cursor 的基础设施，自有环境部署的支持程度需要另看文档；官方给出的省时案例来自其内部与客户自述，缺少可复现的横向评测。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Cursor Blog https://cursor.com/blog/agent-sdk ；Cursor Changelog https://cursor.com/changelog</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> &middot; 终端智能 &middot; 开放权重</span>
+    <h2 class="c-title">Liquid AI 发布 LFM3，2B 级多模态模型把端侧 agent 当主目标</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span><span class="chip">小模型</span><span class="chip">多模态</span><span class="chip">端侧推理</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 27 日，Liquid AI 发布 LFM3，同一 backbone 上六个 20 亿参数级别的模型，覆盖文本、视觉（含视频）、音频（18 种语言）、omni 与两个决策模型，权重放到 Hugging Face。LFM3-1.7B 为 24 层、22 万亿 token 预训练，其中最后 3.5 万亿用于把上下文扩到 256,000 token；4-bit 文本模型约 1GB。官方称其以少 35% 的参数超过前代 LFM2.5-2.6B，WebArena-Verified 从 3.02 升到 38.42；视觉模型 1.9B 参数（前代 3.1B）把 62 项视觉基准均值从 57.6 抬到 71.4，官方称与 Gemma 4 12B 相当；语音质量 UTMOSv2 从 3.22 到 3.83；决策模型 d1-2B 在 ImajevBench 从 64.0 到 75.5。</p>
+      <p>机器人侧的说法来自微调版本而非基础模型：官方称视觉模型的微调版跨 15 种机器人本体训练后，在 LIBERO 四套件平均成功率 96.2%、RoboCasa-GR1 45.7%，在 Jetson AGX Orin 上生成动作块低于 50 毫秒。新视觉编码器 164M 参数，官方称其算力约为前代 LFM 视觉模型里 SigLIP2 编码器的三分之一。LiquidCodec 在 Apple M4 Max 的单 CPU 线程上以约 87 倍实时把 token 转成语音，首音频 token 延迟低至 50 毫秒。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这次的关键次序是分数更高的那个反而更小：1.7B 文本模型超过 2.6B 前代，视觉从 3.1B 缩到 1.9B 而均值上升，且在 4-bit 下文本模型约 1GB，权重当天可下载。对端侧与单卡场景，这意味着浏览器与办公应用这类 agent 长任务不必再调到更大的托管模型。机器人微调在 Jetson AGX Orin 上的动作块延迟，也把端侧视觉—语言—动作链路拉进可接受的响应区间。</p>
+      <p>分数全部来自 Liquid AI 自测，没有第二方复现 WebArena-Verified 与 62 项视觉均值；发布帖没有点名许可证，落地前需要查模型卡；机器人成功率是微调版数字，不能直接推给基础视觉模型。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Liquid AI https://huggingface.co/blog/LiquidAI/lfm3 ；Minerka https://minerka.com/stories/lfm3 ；Hugging Face https://huggingface.co/LiquidAI/LFM3-1.7B</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> &middot; 具身智能 &middot; 世界模型与策略</span>
+    <h2 class="c-title">云深处一次公布五项具身研究，把地形接触动力学写进世界模型</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">世界模型</span><span class="chip">VLA</span><span class="chip">真机数据</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 24 日，云深处（DEEP Robotics）公布支撑 DEEPRobotics-Brain 具身智能架构的五项研究进展，覆盖物理预测、导航与操作、策略优化、预测记忆与数据驱动评测，对应 DR-WM-1.0 世界模型、DR-VLA-2.0 具身基础模型、DR-APO 策略优化框架、DR-Agent 具身 agent 与 DR-Benchmark 数据与评测平台。研究的共同命题是让机器人在会变化的环境里稳定工作：预判动作后果、把指令翻译成动作、改进已学策略、修正过时的空间认知，并用真实数据衡量进展。</p>
+      <p>其中 DR-WM-1.0 的切入点是「视频逼真不等于动作物理可行」——一段机器人在雪地行走的逼真视频，可能完全没有体现低摩擦带来的打滑。该模型把机器人—地形接触动力学纳入动作后果预测，结合重建的场景几何与摩擦、粗糙度、刚度的密集物理先验，并用真实动作—响应数据校准；数据规模为 258 万图像—掩码对与超过 10 万段真机片段，采用双 ControlNet 架构按场景几何与相机运动条件化视频生成，自回归展开时把机器人与控制器状态向前传递以贴合控制回路。官方给的应用例子是雨雪后的变电站巡检：先分别推演打滑的捷径与更长的路线，再按风险与效率取舍。DR-VLA-2.0 一侧引入 EgoLynx：1 万小时精选第一视角网络视频与 2000 段遥操作机器人导航片段，用域不变场景表示（DISR）把人类视频与机器人可执行动作对齐。合作方包括 MIT、加州大学圣地亚哥分校、伊利诺伊大学厄巴纳-香槟分校、清华、浙大、香港科技大学与北京理工大学。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把接触动力学与真实动作—响应数据作为世界模型的条件输入，回应的是生成式世界模型在机器人上最实际的短板：视觉可信的预测可能对应物理上不可行的动作。用物理先验 + 真机校准来给动作做「物理彩排」，是把世界模型接进决策闭环的前提。用大量人类第一视角视频预训练、再用少量遥操作数据补动作标签的路径，也直接针对真机演示采集成本高这一瓶颈。</p>
+      <p>这批成果以研究公告形式发布并列出合作院校，各项的完整论文、基准成绩与第三方复现尚未同时公开；DR-Benchmark 是否对外开放、物理先验能否跨地形与本体泛化，都是待观察项。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>DEEP Robotics / GLOBE NEWSWIRE https://www.tmcnet.com/usubmit/2026/10/24/10469241.htm</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Genie 4 作为机器人训练环境时的物理一致性，仿真训练到真机迁移的落差，以及研究预览转向普遍可用的时间表。</li>
+      <li>Copilot 辅助权限在真实流量里对危险命令的误放行率与判定过程的可审计性。</li>
+      <li>Cursor Agent SDK 部署到自有基础设施的支持程度，eval 与事件回放结果的可复现性。</li>
+      <li>LFM3 的许可证明确结果，以及 2B 级模型在端侧 agent 长任务与浏览器任务上的实测表现。</li>
+      <li>DR-WM-1.0 的物理先验跨地形与本体泛化范围，DR-Benchmark 是否对外开放。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>&middot; 2026-10-28 09:25 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

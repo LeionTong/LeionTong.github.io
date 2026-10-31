@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-10-29 第 90 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-10-29 · 第 90 期</span>
+    </div>
+    <h1>编码成本改按任务结算，机器人在真实门店自行改进作业策略</h1>
+    <p class="mh-sub">本期收录 Google Gemini 4 Carbon 在独立榜单登顶但先向防御方开放、GitHub 用任务级路由把编码成本减半、智元 Genie Master 在便利店验证部署后的自进化、腾讯 WorkBuddy 让手机接管桌面上运行的 agent，以及 44 个 agent 分工完成的一次入侵。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 前沿模型 · 编码与安全</span>
+    <h2 class="c-title">Google 发布 Gemini 4 Carbon，独立榜单登顶，先给网络安全防御方</h2>
+    <div class="c-tags">
+      <span class="chip b">前沿模型</span><span class="chip">AI coding</span><span class="chip">网络安全</span><span class="chip">受限开放</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 28 日，Google DeepMind 发布 Gemini 4 Carbon，定位为在网络安全与长周期任务上最强的一代，距 Gemini 4 Argon 扩大开放仅两周。在独立评测机构 Artificial Analysis 更新后的智能指数 v5.0 上，Carbon 以 59 分排名第一，高于 Claude Opus 5.5 的 58 分、GPT-6 Astra 的 57 分与 Argon 的 50 分；在该机构的编码 agent 指数上 Carbon 得 59 分，比 Claude Code 搭配 Opus 5.5 低 3 分。</p>
+      <p>官方给出的提升集中在编码、agent 任务、科研任务、全栈网页开发与多模态理解。全栈网页开发在 WebDev Arena 上升 89 elo 至 1769 分、排名第 4；安全侧 SEC-bench Pro 漏洞发现 88.2%、ExploitGym 利用验证 54.8%、CWE-bench 补丁修复 71.0%。Google 另称 Carbon 生成安全代码的成功率比 Argon 提高一倍以上，内部编码工作里的高严重度失准告警减少近八成，在 Gray Swan 的间接提示注入基准上抵御了全部攻击。</p>
+      <p>可用性与价格：本周起先向部分网络安全防御者开放，之后通过 Fairwind 计划逐步扩大到受信任合作方，普遍可用时间尚未公布。定价与 Argon 相同，每百万 token 输入 2 美元、输出 10 美元，缓存输入享 95% 折扣，介绍期后升至 4 美元与 20 美元。Google 未发布技术报告与参数规模，Ars Technica 认为 Carbon 可能是 Argon 的后训练升级。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码与 agent 任务的分数已经挤在 2 到 3 分的区间里，单看榜单难以支撑选型，价格、访问权限与单项任务的通过率权重上升。漏洞发现、利用验证、补丁修复三段基准一起公布，首发对象限定为防御方，说明安全能力正被当作进入企业编码流程的准入条件。</p>
+      <p>对多数开发者，短期内能用到的仍是同价位的 Argon；Carbon 的实际差异要等 Fairwind 计划放开，或第三方在自有代码库上复现后才可判断。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Google 官方博客 https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon ；9to5Google https://9to5google.com/2026/10/28/gemini-4-carbon-announcement/ ；Artificial Analysis https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI coding · 计价单位</span>
+    <h2 class="c-title">GitHub 推出 Copilot Fusion，按任务在多个模型之间分派与互评</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">模型路由</span><span class="chip">成本</span><span class="chip">Octoverse</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 28 日，GitHub 在 Universe 2026 发布 Copilot Fusion，一个按任务计价的编排层。它先判断任务属于推理、代码生成、调试还是工具调用，再决定交给单个模型还是多个模型协作；三种执行模式为 Single（直接派给最合适的模型）、Cascade（先用低成本模型，不够再升级）、Critique（一个模型起草、另一个评审、原模型据此修订）。开发者只选 Standard、High、Max 三档投入强度，不再逐次挑模型。</p>
+      <p>独立评测机构 Artificial Analysis 的测试显示，Fusion Max 在编码 agent 指数上与 Claude Opus 5.5 Max 相差 2 分以内，单任务成本 5.59 美元对 11.42 美元，速度快 40%；微软内部评估给出的节省比例最高到 77%。</p>
+      <p>同期发布的 Octoverse 2026 给出规模侧的数字：截至 9 月，超过 40% 的拉取请求由 agent 起草，3 月时是 17%，9 月由 agent 发起的拉取请求约 1.1 亿个；9 月单月提交 74 亿次，为去年同期的 5 倍。GitHub 为此增加 400 万个 CPU 核、160PB 高速存储与 50Tb/s 网络容量，并把计算与存储拆开部署，目标是把吞吐提高到 35 倍；年内多次宕机中，90 天可用性一度降到约 84%。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>计价单位从每百万 token 变成每个完成的任务，成本控制的位置随之从「选哪个模型」移到「设哪档投入、失败后重试几次」。路由加互评把模型选择交给平台，团队的比价对象变成任务完成率与单任务成本。</p>
+      <p>Octoverse 的 40% 说明 agent 起草已是主流入口，平台容量与可用性因此成为编码流程的真实约束——提交量涨 5 倍带来的宕机，代价由所有使用者分摊。任务级成本的数字来自第三方评测，测试任务集与样本量未公开，横向比较仍需自测。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>The Outpost（引 VentureBeat 与 Artificial Analysis 测试）https://theoutpost.ai/news-story/github-copilot-fusion-launches-with-50-cost-savings-as-infrastructure-expands-to-handle-ai-agent-surge-32804/ ；Octoverse 2026 数据报道 https://blockchain.news/news/github-says-2026-code-activity-hit-records-as-agents-spread</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 具身智能 · 部署后学习</span>
+    <h2 class="c-title">智元发布具身 Agent 框架 Genie Master，门店里的机器人自己改策略</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">具身 Agent</span><span class="chip">真实场景</span><span class="chip">经验回流</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 27 日，智元在 AI WAVE 活动发布具身 Agent 框架 Genie Master，是这场活动里的第四项发布。核心是一套具身执行协议 EEP，把能力、引导、反馈、连续性四类接口统一起来：agent 能查到当前机器人有哪些动作能力可调用、这一步应如何引导执行、实际结果是否达到要求、还有哪些任务待完成。任务中途失败时系统保留已完成的进展，agent 从断点重新规划；多台机器人协作时，agent 跟踪分工与任务依赖，支持动态调度。</p>
+      <p>经验沉淀走两条路。Harness RSI 把每次成功与失败的案例随做随记，每日任务结束后由模型总结，可复用的部分写进长期记忆，下次遇到同类场景直接调用；Policy RSI 把 agent 介入执行、接管与恢复过程中产生的数据回流训练动作策略，让改进保留在模型参数里。官方举的例子是挂货：头部相机分辨率不足、挂钩被标签牌遮住，agent 回溯失败记录后改为左手先用腕部相机近距离定位，再由右手完成挂货。</p>
+      <p>搭载该框架的精灵 G2 已在真实便利店上岗，官方称熟食打包、取货、补货等精细任务无需人工示范与调参即持续改进，并把这一结果描述为首次脱离仿真与实验室环境验证 Physical RSI（具身递归自进化）。11 月 2 日，智元将让 6 台 G2 连续 24 小时直播作业，覆盖午间高峰、晚高峰、深夜值守与清晨四个班次。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把部署后继续变好拆成记忆层与参数层两条可以分别实现的路，比笼统讲端到端模型更接近工程现实：记忆层当天就能生效，参数层需要数据回流与训练闭环，两者的投入与风险完全不同。若同一套能力能随门店数量复制，边际成本下降是零售场景规模化的关键变量。</p>
+      <p>目前公开的是单一门店、单一零售业态的自述结果，没有任务成功率、人工干预次数、单次任务耗时这类可比较指标；24 小时直播能证明短时稳定性，不等于长期无人值守。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>具身之家 https://www.jushenhome.com/news/2155 ；新浪财经 https://finance.sina.com.cn/jjxw/2026-10-27/doc-iniwrzht4610342.shtml</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 终端智能 · 人机接管</span>
+    <h2 class="c-title">腾讯 WorkBuddy 上线远程控制，手机可直接接管电脑上的 agent</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span><span class="chip">桌面 agent</span><span class="chip">远程接管</span><span class="chip">权限</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 28 日，腾讯 WorkBuddy 上线「远程控制」，由腾讯 Edge One 团队提供技术支持。手机 App 一键连上同账号的电脑后可看到桌面实时画面，连接建立后画面以小窗悬浮在首页或会话页顶部，下方输入框照常可用，发现任务跑偏可直接发指令纠正。</p>
+      <p>切到全屏横屏即可用小屏操作大屏，手指点按对应电脑上的同一位置；右侧有操作、键盘、鼠标三个按钮，可平铺查看所有窗口、回到桌面、切换清晰度，键盘可调用手机输入法或电脑键盘与常用快捷键，虚拟鼠标用于点击过小的按钮。使用门槛是手机端 App v2.7.0 及以上、macOS 桌面端 v5.9.3 及以上，首次需在电脑的设置 → 设备连接里开启「允许同账号设备远程连接」、安装远程遥控组件并授予屏幕录制与系统录音、辅助功能两项系统权限。</p>
+      <p>官方给出的约束是：一台电脑同一时间只允许一部已认证手机连接，画面与操作走加密通道，不记录用户输入内容，也不保存远程控制画面，远程控制只消耗数据流量、不消耗 Token。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>agent 的任务时长已经越过「人坐在电脑前」的边界，远程接管的实质是把监督权搬到手机上：能看每一步、能在中途纠偏，比只接收结果更贴近值守场景。对长任务与需要临场判断的桌面操作，这是使用频率很高的需求。</p>
+      <p>代价在权限。屏幕录制与辅助功能属于系统级授权，一台电脑只绑一部手机的限制说明厂商把同一时刻只有一个操作者当作安全前提。企业环境里这类授权能否通过合规审查、远程通道的审计记录如何留存，会决定它能否进入办公流程。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>IT之家 https://www.ithome.com/1/018/882.htm ；WorkBuddy 文档 https://www.workbuddy.ai/docs/zh/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Assistant</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · Agent 安全 · 攻防</span>
+    <h2 class="c-title">44 个 agent 分工完成入侵，TrendAI 披露三起针对日本目标的案件</h2>
+    <div class="c-tags">
+      <span class="chip b">Agent 安全</span><span class="chip">多 agent 编排</span><span class="chip">攻击自动化</span><span class="chip">取证</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 27 日，Trend Micro 旗下企业安全部门 TrendAI 发布分析，研究者 Bakuei Matsukawa 与 Joseph C. Chen 复盘了三个暴露在互联网上的攻击者服务器环境，其中存放着侦察与攻击工具、脚本、目标清单、结果、日志与命令历史。</p>
+      <p>第一起案件使用开源渗透测试平台 CyberStrikeAI，把侦察、漏洞发现与验证、利用、命令控制、持久化、数据窃取与自动报告串成一条可重复的工作流，由 44 个 agent 分担不同环节，并能生成日语表单与仿冒登录页。短期内至少 19 家可识别组织被验证扫描，其中至少 16 家在日本，每家都拿到同格式报告与证据索引。另两起案件中，一起由人主导、用大语言模型加速攻击规划与工具开发，另一起里模型只用于编写脚本。研究者表示目前没有证据显示三起案件出自同一操作者，所用模型也未确认。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这次披露有价值的地方在证据形态：同格式报告加证据索引，说明攻击方已经把多 agent 编排当成生产线使用，防御方可以据此做指纹识别与检测规则；只看单个恶意样本会漏掉整条流程。</p>
+      <p>对 agent 平台的含义是，攻防两侧用的是同一类开源编排框架，差距更多落在流程设计与并行程度上；模型来源不明也意味着按模型封禁的办法作用有限。同一批 agent 能自动生成目标国语言的仿冒页面，把社工环节也纳入流水线，这是此前的自动化工具较少覆盖的部分。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>The Hacker News https://thehackernews.com/2026/10/cyberstrikeai-uses-44-ai-agents-to.html ；TrendAI https://www.trendaisecurity.com/en-us/resources-insights/deep-research/not-only-artex-the-different-levels-ai-is-used-in-attacks-targeting-japan</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Gemini 4 Carbon 的普遍可用时间与 Fairwind 计划的实际准入条件，第三方在自有代码库上的复现结果。</li>
+      <li>Copilot Fusion 的任务级成本在长尾任务上的表现，路由失败与重试对账单的影响。</li>
+      <li>Genie Master 的任务成功率、人工干预次数与跨门店复制的实际成本，11 月 2 日 24 小时直播的结果。</li>
+      <li>WorkBuddy 远程控制的企业合规审查结果，远程通道的审计记录与授权回收机制。</li>
+      <li>CyberStrikeAI 一类多 agent 框架的检测规则与模型来源追溯手段。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-10-29 09:26 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

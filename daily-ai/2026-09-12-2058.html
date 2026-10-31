@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 每日动态 · 智能体进治理与进厂，具身开源底座补场景 | LEION · DAILY AI</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-09-12 · 星期六</span>
+      <span>第 66 期</span>
+    </div>
+    <h1>AI 每日动态 · <em>智能体进治理与进厂，具身开源底座补场景</em></h1>
+    <p class="mh-sub">聚焦 AI Coding / AI Agent / 终端与端侧 / 具身智能 — 当日高价值信号精选</p>
+    <div class="spec-strip">
+      <div class="spec-cell"><span class="spec-k">观测期</span><span class="spec-v">2026-09-09 → 09-12</span></div>
+      <div class="spec-cell"><span class="spec-k">侧重点</span><span class="spec-v">治理控制面 · 进厂作业</span></div>
+      <div class="spec-cell"><span class="spec-k">信号数</span><span class="spec-v">5 条</span></div>
+      <div class="spec-cell"><span class="spec-k">主线</span><span class="spec-v">可治理 · 进场景</span></div>
+    </div>
+  </header>
+
+  <section class="lede">
+    <span class="tag">本期主线</span>
+    <div class="lede-title">智能体的竞争焦点从"能不能上岗"转向"谁来治理、在哪托管、进哪个场景"，具身与端侧同步补底座</div>
+    <p>Salesforce 把七个即用型智能体与一套治理控制面打包推出，OpenAI 把云端智能体做成可被 API 直接调用的托管基础设施——两条线索指向同一件事：企业部署智能体的瓶颈，正从"能不能建"转向"谁来管、能在哪干什么、出了事怎么审计"。与此同时，具身智能在补两块短板：宇树开源通用基座模型、工信部把开源社区写进政策，中国商飞开放大飞机车间作训练场；行业展会也把主语从"跑跳"换成"进工厂"。端侧则把智能体的算力与数据主权，从云端一路下沉到一根 USB-C 设备。</p>
+  </section>
+
+  <div class="sec-head"><span class="n">SIGNALS</span><span class="t">今日动态</span></div>
+
+  <!-- 信号 01 -->
+  <article class="card">
+    <span class="c-num"><b>NO.66 · 信号 01</b> · AI Agent / 企业治理</span>
+    <h2 class="c-title">Salesforce 推出七个即用型智能体，配治理控制面统一管理 agent 身份与权限</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip">企业落地</span>
+      <span class="chip o">治理</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 11 日 Salesforce 推出七个即用型 Agentforce 智能体（Casey、Paige、Carter、Hunter、Marshall、Piper、Fin），分别面向销售、服务、商务、IT/人事、供应链与客户体验，运行于既有 Customer 360 数据平台与企业的权限、安全规则之上。同步发布 Trusted Enterprise AI Harness（统一上下文、行动、治理、安全、模型）与 AI Control Plane（注册 agent、设定身份与策略、管生命周期、评性能、观测行为、控成本），早期客户已在 Agentforce 与 Slack 上交付数十亿级智能体工作单元。</p>
+    </div>
+    <div class="datum"><b>参照：</b>此前多数企业智能体停留在"自建试点"，买来即用、且有统一治理框架，意味着从 pilot 到 production 的摩擦被压缩。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>对行业的含义是：当企业一次部署数十个 agent，真正的难点不再是"能不能建"，而是"谁能在哪干什么、按什么规则、留什么痕"。Control Plane 把 agent 当作系统账号来统一纳管，CIO 与安全的关注点从"每个应用里的分散配置"回到"中央策略与可观测"。这会把智能体采购从"功能比选"推向"平台与治理比选"，也抬高了无治理能力的单点 agent 的替代门槛。</p>
+    </div>
+  </article>
+
+  <!-- 信号 02 -->
+  <article class="card">
+    <span class="c-num"><b>NO.66 · 信号 02</b> · AI Agent / 托管基础设施</span>
+    <h2 class="c-title">OpenAI Agents API 公测，把会话编排与崩溃恢复做成可调用的托管服务</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip">托管基建</span>
+      <span class="chip o">长任务</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 10 日前后 OpenAI Agents API 进入公测，把运行 Codex 式智能体的同一套托管框架暴露为 API，四个核心概念为 agent、environment、session、events；服务负责会话编排、长任务上下文压缩、子 agent 协调、工具懒加载与崩溃恢复，除模型令牌、工具调用与可选托管沙箱算力外不另收费。同期 ChatGPT Work 内上线 Data agent（连企业批准的数据源、用自然语言建交互式仪表盘），全双工语音模型 GPT-Live-1 进入 API，可做同时听说的语音智能体。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>对行业的含义是：builder 不必再重造 agent loop——会话、重试、摘要、工具编排由平台兜底层提供，复杂智能体的搭建时间与风险同步下降。Data agent 与语音 agent 可作为标准分析与支持端点，让非技术员工直接查数或对话式操作系统；但数据驻留、留存策略与沙箱选型，仍要在上规模前压测清楚。</p>
+    </div>
+  </article>
+
+  <!-- 信号 03 -->
+  <article class="card">
+    <span class="c-num"><b>NO.66 · 信号 03</b> · 具身智能 / 开源底座与场景开放</span>
+    <h2 class="c-title">宇树开源通用基座模型，工信部部署人形机器人开源社区，商飞开放大飞机车间</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">开源底座</span>
+      <span class="chip o">场景开放</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 11 日宇树开源 UnifoLM-WLA-1.0 通用基座模型：60 亿参数、约 2500 小时真机数据训练、真机评测覆盖 64 项任务（10 项全身操作 + 54 项桌面操作）、支持平行夹爪与两类灵巧手、跨末端执行器泛化，在 16 项多模态基准中 7 项居开源第一。生数科技在外滩大会发布自进化世界模型 Motus2（策略 / 模拟 / 评估三接口同权重、形成决策—学习闭环）。同日工信部在相关方案中提出围绕开源社区建设作系统部署，开放原子开源基金会推动开源大模型与全栈方案；中国商飞宣布开放大飞机生产车间作 AI 训练场、构建云边端协同中试环境，北京人形机器人创新中心天工 Ultra 已在工厂试点搬运 8 至 12 公斤货物。</p>
+    </div>
+    <div class="datum"><b>背景：</b>具身长期受"本体接口 / 数据格式 / 模型框架互不兼容"制约，同一套算法换本体常要重适配，重复投入巨大。</div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>对行业的含义是：具身智能正同步补"开源底座"与"真实场景"两块短板。开源社区从企业自发行为进入政策视野，指向用统一基座把"一套算法、多种本体"变成工程现实；而谁能拿到大飞机车间这类高复杂度、高价值场景的入场券，正成为新的竞争分水岭。大飞机制造批次小、精度苛、改动频，其数据价值远高于标准化流水线——把场景开放做成可复用的训练基础设施，比单纯腾场地更关键。</p>
+    </div>
+  </article>
+
+  <!-- 信号 04 -->
+  <article class="card">
+    <span class="c-num"><b>NO.66 · 信号 04</b> · 具身智能 / 进厂作业与资本校准</span>
+    <h2 class="c-title">智博会首设"具身智能进工厂"展区，融资环比转冷、头部市值回撤</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">进工厂</span>
+      <span class="chip o">资本校准</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 11 日至 13 日第十六届智博会在宁波举办，主题"AI 智变，慧聚未来"，首次设置"具身智能进工厂"展区，浙江人形机器人创新中心、乐聚智能等展出超 30 台机器人并搭建多条实景产线。行业数据层面，8 月具身智能融资 58 起、合计 256.64 亿元，同比增长超 375% 但环比下滑超 18%，"资本冷静期"成为讨论热词；二级市场同步校准，宇树上市 23 天市值蒸发超 2400 亿元、跌破 2000 亿元关口，优必选上半年营收 12.7 亿元（同比 +104.2%）仍在港股承压。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>对行业的含义是：机器人展会的主语从"跑跳后空翻"换成"进工厂作业"，验收标准从运动能力回到稳定抓取、装配、操作工具。叙事驱动的定价阶段基本结束，接下来看交付与毛利——资金更集中流向已有真实订单与量产记录的头部，早期项目单笔金额与过会速度都在放慢。这轮回撤不是赛道反转，而是把标尺从"概念"重新拨回"订单与产能"。</p>
+    </div>
+  </article>
+
+  <!-- 信号 05 -->
+  <article class="card">
+    <span class="c-num"><b>NO.66 · 信号 05</b> · 终端智能 / 端侧算力落地</span>
+    <h2 class="c-title">联想量产 RTX Spark 笔记本本地跑千亿模型，拇指 AI 电脑全球发货</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span>
+      <span class="chip">端侧算力</span>
+      <span class="chip o">数据主权</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>IFA 2026 上联想联合英伟达发布 Yoga Pro 15 Spark，首批搭载 RTX Spark 超级芯片的量产消费级笔记本：最高 128GB 统一内存、CPU 与 GPU 共享整块内存池，本机流畅运行千亿参数大模型、离线完成长文档处理与端侧多步 Agent，数据不必上云。TrustKernel 的 PlugClaw 于 9 月 4 日起全球发货：50×19×8 毫米 USB-C 直插设备、内置联发科 8 核与 Ubuntu agent 运行时，agent 与凭据全在自有硬件内运行、不取宿主设备管理员权限，起售 149 美元一次性买断。中兴努比亚 NaviX Ultra（"豆包手机"）定档 9 月 16 日发布。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">值得关注</span>
+      <p>对行业的含义是：端侧 AI 从"NPU 小模型加速"越过拐点，进入"完整大模型可本地常驻"，智能体的算力与数据主权从云端一路下沉到终端甚至一根 USB-C。对开发者与内容创作者，本地调 agent 工作流不再持续烧 token、敏感数据不外流出境；对普通用户，隐私与离线成为可感知的卖点。硬件地基已落地，但端侧模型适配与软件生态仍需时间补齐，顶配统一内存版的价位也仍偏高。</p>
+    </div>
+  </article>
+
+  <!-- 信号星图 -->
+  <figure class="figure">
+    <div class="fig-cap">图 1 · <b>今日信号星图</b>：智能体进治理与进厂，具身开源底座补场景</div>
+    <svg viewbox="0 0 680 360" role="img" aria-label="信号围绕智能体可治理可进厂展开的星图" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:680px;display:block;margin:0 auto">
+      <line x1="340" y1="180" x2="120" y2="80" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="560" y2="80" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="100" y2="290" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="580" y2="290" stroke="#000000" stroke-width="1.5"/>
+      <line x1="340" y1="180" x2="340" y2="320" stroke="#000000" stroke-width="1.5"/>
+      <rect x="248" y="150" width="184" height="60" rx="4" fill="#000000"/>
+      <text x="340" y="178" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle" font-family="sans-serif">智能体</text>
+      <text x="340" y="198" fill="#ffffff" font-size="12" text-anchor="middle" font-family="sans-serif">可治理 · 进场景</text>
+      <rect x="48" y="56" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="120" y="76" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">治理控制面</text>
+      <text x="120" y="94" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">Salesforce</text>
+      <rect x="488" y="56" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="560" y="76" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">托管基建</text>
+      <text x="560" y="94" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">OpenAI</text>
+      <rect x="28" y="266" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="100" y="286" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">具身 · 底座</text>
+      <text x="100" y="304" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">宇树开源</text>
+      <rect x="508" y="266" width="144" height="48" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="580" y="286" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">具身 · 进厂</text>
+      <text x="580" y="304" fill="#000000" font-size="12" text-anchor="middle" font-family="sans-serif">智博会</text>
+      <rect x="268" y="300" width="144" height="40" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+      <text x="340" y="325" fill="#000000" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">端侧 · 算力</text>
+    </svg>
+    <div class="fig-note">这几条分别从企业治理控制面、托管基础设施、具身开源底座与场景开放、具身进厂与资本校准、端侧算力落地五个方向，共同印证"智能体从能上岗走向可治理、可进厂，具身与端侧同步补底座"的当日主线。</div>
+  </figure>
+
+  <section class="cross">
+    <h3>横向观察</h3>
+    <ol>
+      <li><strong>治理端</strong>：Salesforce 把七个即用型 agent 与统一 Control Plane 打包，企业部署数十个 agent 后的瓶颈从"能不能建"转向"谁来管、能干什么、怎么审计"。</li>
+      <li><strong>基建端</strong>：OpenAI Agents API 把会话编排与崩溃恢复做成托管服务，复杂 agent 的搭建门槛与风险下降，Data / 语音 agent 可作标准端点。</li>
+      <li><strong>具身端 · 底座</strong>：宇树开源通用基座 + 工信部部署开源社区，统一基座把"一套算法、多种本体"从愿景推向工程现实。</li>
+      <li><strong>具身端 · 场景</strong>：智博会首设"进工厂"展区、商飞开放大飞机车间，验收标准从运动能力回到稳定作业，资本同步从概念回拨到订单。</li>
+      <li><strong>终端端</strong>：量产 RTX Spark 笔记本与拇指 AI 电脑把千亿模型与 agent 主权下沉到本地硬件，隐私与离线成为端侧卖点。</li>
+    </ol>
+    <div class="verdict">行业启示：智能体的竞争焦点正从"能不能上岗"移到"谁来治理、在哪托管、进哪个场景"，具身智能同步补"开源底座 + 真实场景"、端侧把算力与数据主权拉回本地硬件。对从业者而言，下一阶段的分水岭不在谁的模型更会聊，而在谁能把智能体做成可治理、可审计、可进厂的服务，并把具身大脑做成可跨本体复用的开源底座、把端侧做成可常驻大模型的终端。</div>
+  </section>
+
+  <section class="risk">
+    <b>风险与不确定性</b>
+    Agent 治理控制面把 agent 当系统账号纳管，但跨厂商身份、策略与审计标准的互认仍空白，企业多 agent 并存时的权限重叠与责任边界待厘清；托管基建把长任务交给云端沙箱，数据驻留与留存策略需在上规模前压测。具身开源基座虽降门槛，但 2500 小时数据在通用范畴仍有限、长尾任务泛化待验证，跨本体可靠性依赖大规模真实数据；"进工厂"从演示到常态部署，还要跨过工艺数据库与产线接口的工程关。端侧算力硬件地基已落地，但模型适配与软件生态、顶配价位仍是普及阻力；二级市场市值回撤提示叙事定价阶段结束，需警惕估值与交付能力背离。
+  </section>
+
+  <footer>
+    <span>LEION · DAILY AI</span>
+    <span>第 66 期 · 2026-09-12 20:58 GMT+8</span>
+  </footer>
+
+</div>
+</body>
+</html>

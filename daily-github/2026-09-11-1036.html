@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Github · 2026-09-11 10:36 · 五维加权筛选：商业化 / 规模化 / 边际成本 / 验证速度 / 成熟度</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top">
+    <span>LeionTong · <b>Daily Github</b> · NO.08</span>
+    <span>2026-09-11 · 10:36 GMT+8</span>
+  </div>
+  <h1>把固定成本换成自己掌控的形态<br>三条落在构建与发布流水线上</h1>
+  <p class="mh-sub">今日五条没有一条在卖模型能力。Zvec 把向量检索的云账单压成一个库依赖，asc 把 iOS 发版从网页点选换成一条命令并附带 Agent 技能，Omnara 托管 Agent 的执行与状态，Hot Updater 补上 CodePush 关停后的 RN 热更新，RunsOn 把 CI 分钟费换回自有 AWS 账号。两条主流都选择「嵌进去」而不是「另建平台」。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Date</span><span class="spec-v">2026-09-11</span></div>
+    <div class="spec-cell"><span class="spec-k">Picks</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">Gate</span><span class="spec-v">加权 ≥ 3.5 / 5.0</span></div>
+    <div class="spec-cell"><span class="spec-k">Sources</span><span class="spec-v">Trending · Search · HN</span></div>
+  </div>
+</header>
+
+<p class="lede"><b>数据口径：</b>star 数、License、最近提交均取自 2026-09-11 当日 GitHub API 实检；「近 X 天 +X」取自当日 GitHub Trending 月 / 周榜，未上榜者标注「未获取到」，<b>不作估算</b>。评分权重：商业化 30% · 规模化 25% · 边际成本 20% · 验证速度 15% · 成熟度 10%。</p>
+
+<!-- 01 alibaba/zvec -->
+<article class="entry">
+  <div class="entry-no">01</div>
+  <div class="e-head">
+    <h2 class="e-name">Zvec <span>alibaba/zvec</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 15,885</span>
+      <span class="tag up">近 7 天 +192 · 近 30 天 未获取到</span>
+      <span class="tag">C++</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">v0.7.0 · 提交 2026-09-10</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>进程内嵌入式向量数据库，像 SQLite 一样以库的形式嵌进应用，不起服务、不做配置。</em></p>
+  <p class="e-line"><b>痛点</b>只要上向量检索，默认路径就是起一套 Qdrant / Milvus / Weaviate，或买 Pinecone 的托管账单——中小规模为这点能力付了整套运维与云费用。</p>
+  <p class="e-line"><b>谁付钱</b>需要本地或端侧检索的 SaaS、Agent 应用与边缘设备厂商；变现走企业支持、托管服务与索引调优。Apache-2.0 无授权障碍。</p>
+  <p class="e-line"><b>规模化</b>跨行业通用，交付就是一个库依赖（pip / npm / cargo / pub），无实施、无驻场。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯库无服务器进程，每新增客户零增量成本。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>pip install zvec
+
+# 照 README 的一分钟示例建集合、插入两条向量、跑一次查询
+python -c "import zvec; print(zvec.__version__)"</pre>
+  <p class="e-line">另有 Go（<code>cargo add zvec-rust</code> / Go bindings）、Node.js（<code>npm i @zvec/zvec</code>）与 Dart/Flutter SDK，预编译库覆盖 Linux glibc+musl、macOS、Windows、Android、iOS。</p>
+  <p class="e-line risk"><b>风险</b>仍是 0.x（v0.7.0，2026-08-24）；多进程可并发读但写为单进程独占；赛道拥挤（FAISS / LanceDB / Chroma），差异化只能落在端侧与移动端 SDK、以及 zvec-grep 这条 Agent 检索入口上。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.60</b> / 5.00</div>
+</article>
+
+<!-- 02 rorkai/App-Store-Connect-CLI -->
+<article class="entry">
+  <div class="entry-no">02</div>
+  <div class="e-head">
+    <h2 class="e-name">App Store Connect CLI <span>rorkai/App-Store-Connect-CLI</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,182</span>
+      <span class="tag up">近 30 天 +1,495</span>
+      <span class="tag">Go</span>
+      <span class="tag">MIT</span>
+      <span class="tag">v5.2.0 · 提交 2026-09-10</span>
+      <span class="tag">主流</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em><code>asc</code> 一条命令管完 App Store Connect——TestFlight、构建、提审、签名、截图、订阅与分析，CI 与 Agent 都能直接调用。</em></p>
+  <p class="e-line"><b>痛点</b>iOS 发版至今高度依赖网页控制台点选加 fastlane 脚本拼装，换人即断档；App Store Connect API 原生难用，团队各写各的封装。</p>
+  <p class="e-line"><b>谁付钱</b>移动团队与外包交付商为「发版不必再人肉值守」付费；可变现形态是把 25 个已审核 Agent 技能打包成发版自动化交付与运维托管。</p>
+  <p class="e-line"><b>规模化</b>凡有 iOS / macOS 应用的组织都通用，交付就是 Homebrew 装一个二进制加一份配置，可完全标准化。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 单二进制自包含，无服务端、无 GPU、无专有依赖。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre># macOS / Linux
+brew install asc
+asc version && asc --help
+
+# 装上 25 个已审核的 Agent 技能（只依赖 git）
+asc install-skills
+
+# 之后按 README 用 API key 认证
+asc auth login --name "MyApp" --key-id XXX --issuer-id YYY --private-key ./AuthKey.p8</pre>
+  <p class="e-line">CI 或无 keychain 环境用 config-backed auth；Windows 走 releases 页的签名二进制（WinGet 包仍在审核）。首次验证的门槛在 Apple 开发者账号权限，不在代码。</p>
+  <p class="e-line risk"><b>风险</b>强绑定 Apple 生态，平台政策变动直接改写可用面；同类封装（fastlane）心智已占稳，切动力取决于 Agent 技能这一层是否真能省人；headless 认证配置对非 macOS 环境略繁琐。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.20</b> / 5.00</div>
+</article>
+
+<!-- 03 omnara-ai/omnara -->
+<article class="entry">
+  <div class="entry-no">03</div>
+  <div class="e-head">
+    <h2 class="e-name">Omnara <span>omnara-ai/omnara</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,826</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">Go</span>
+      <span class="tag">Apache-2.0</span>
+      <span class="tag">omnarad-v0.1.19 · 提交 2026-09-11</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>托管 Agent 的运行平台——执行与状态由它管，模型、沙箱、工具与交互入口你自己选。</em></p>
+  <p class="e-line"><b>痛点</b>把 Agent 从 demo 推到生产要自己补齐崩溃恢复、状态持久化、RBAC 与多机器调度，这部分每家都在重复造。</p>
+  <p class="e-line"><b>谁付钱</b>已有明确收费模式——Omnara Cloud 按托管收费，开源版可私部署；自托管交付与运维支持同样成立。</p>
+  <p class="e-line"><b>规模化</b>凡要把 Agent 交给内部员工或外部客户用的团队都是受众；交付为 Docker Compose 一套，状态落在 Postgres，不依赖现场定制。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 纯软件控制平面，沙箱可接 Blaxel / Daytona / Modal 或客户自己的机器，无硬件投入。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>git clone https://github.com/omnara-ai/omnara.git
+cd omnara
+docker compose -f compose.yaml --profile app up -d
+
+# 本地认证邮件写在日志里，无需先配邮件服务
+docker compose logs api     # 取 signup 链接后打开 http://localhost:8000</pre>
+  <p class="e-line">自带 Slack 连接器与 CLI / TypeScript SDK / REST API；沙箱与模型都可在 agent 运行期间增删，不重启。</p>
+  <p class="e-line risk"><b>风险</b>版本仍在 0.1.x；沙箱依赖第三方供应商即意味着成本与可用性不完全自控；「Agent 运行平台」赛道玩家密集，客户往往先自研一版再决定买不买。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.35</b> / 5.00</div>
+</article>
+
+<!-- 04 gronxb/hot-updater -->
+<article class="entry">
+  <div class="entry-no">04</div>
+  <div class="e-head">
+    <h2 class="e-name">Hot Updater <span>gronxb/hot-updater</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,709</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">MIT</span>
+      <span class="tag">v1.0.0-rc.14 · 提交 2026-09-11</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>React Native 的自托管 OTA 更新方案，走官方 Expo Updates 协议，服务端、存储与 CDN 全在自己手里。</em></p>
+  <p class="e-line"><b>痛点</b>CodePush 关停后 RN 热更新出现真空，商业方案（EAS Update 等）按 MAU 与流量计价且锁定厂商；自建又要从差分、灰度、回滚做起。</p>
+  <p class="e-line"><b>谁付钱</b>中大型 RN 应用为「更新链路不落在别人家」付费；可变现形态是自托管交付、灰度与回滚策略配置、以及行业合规版本。</p>
+  <p class="e-line"><b>规模化</b>所有 RN 应用通用，一套 CLI 加一套服务端即可复制，多应用共用同一 dashboard。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 插件式存储接 AWS S3 / Cloudflare R2 + D1，带宽由客户自付，每新增客户无边际投入。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre>npx hot-updater init
+
+# 装上 Agent 技能后可用自然语言部署
+npx skills add hot-updater/skills
+# $hot-updater deploy using the current app version
+# $hot-updater roll back the most recently deployed bundle</pre>
+  <p class="e-line">支持 iOS 与 Android、React Native 新架构；bundle diffing 默认出 <code>.bsdiff</code> 补丁，10 MB 归档在小改动下可压到约 600 KB。</p>
+  <p class="e-line risk"><b>风险</b>当前主线是 v1.0.0-rc.14，v1 尚未正式发布，rc 期间配置格式仍可能变；只服务 React Native，天花板由 RN 生态决定；自托管意味着客户要自己承担更新事故的责任与回滚压力。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.20</b> / 5.00</div>
+</article>
+
+<!-- 05 runs-on/runs-on -->
+<article class="entry">
+  <div class="entry-no">05</div>
+  <div class="e-head">
+    <h2 class="e-name">RunsOn <span>runs-on/runs-on</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,327</span>
+      <span class="tag up">近 30 天 未获取到</span>
+      <span class="tag">IaC</span>
+      <span class="tag">MIT</span>
+      <span class="tag">v3.3.1 · 提交 2026-09-10</span>
+      <span class="tag">小众</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b><em>跑在客户自己 AWS 账号里的 GitHub Actions 控制平面，每个 job 起一台全新 EC2 runner，用 CloudFormation 或 Terraform 一套栈装完。</em></p>
+  <p class="e-line"><b>痛点</b>GitHub 托管 runner 按分钟计价且机型固定，CI 账单随团队规模线性涨，还拿不到 GPU、ARM64 与自定义镜像。</p>
+  <p class="e-line"><b>谁付钱</b>已有明确定价与授权（Flex / Fleet 共用一份 license）；省的是公开可比的差价——2 vCPU Linux $0.0009/min 对 GitHub 托管 $0.0060/min，T4 GPU 差最高 13 倍。</p>
+  <p class="e-line"><b>规模化</b>凡用 GitHub Actions 的工程团队都通用，交付是一个 IaC 栈加 runner 规格目录，平台团队可统一发布。</p>
+  <p class="e-line"><b>边际成本</b><em>低</em> —— 软件控制平面，算力与账单在客户 AWS 账号内，供应商无需为新增客户投入资源。</p>
+  <p class="e-line"><b>验证</b>≤30 分钟：</p>
+<pre># 起一个 Flex CloudFormation 栈：https://runs-on.com/installation/flex/
+
+# 然后把 workflow 的 runs-on: 换成按需规格
+# .github/workflows/ci.yml
+jobs:
+  build:
+    runs-on: runs-on=${{ github.run_id }}/family=c8a+m8a/cpu=4/ram=8+16/image=ubuntu24-full-x64
+    steps:
+      - uses: actions/checkout@v7
+      - run: make test</pre>
+  <p class="e-line">Fleet 模式把 runner 规格收进 Terraform 目录由平台团队发布；Flex 与 Fleet 可共存于同一 AWS 账号并共享一份 license。</p>
+  <p class="e-line risk"><b>风险</b>强绑定 AWS，非 AWS 客户直接出局；验证需要一个可用 AWS 账号与 IAM 权限，30 分钟略紧；GitHub 官方随时可能调整托管 runner 定价，价差是动态目标。</p>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5 / 5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3 / 5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4 / 5</span></div>
+  </div>
+  <div class="wsum">加权总分 <b>4.15</b> / 5.00</div>
+</article>
+
+<section class="tail">
+  <h2>一、今日<em>首选</em></h2>
+  <p><b>alibaba/zvec</b>（加权 4.60）。它把一整块云服务账单压缩成一个库依赖——不需要说服客户改架构、加运维或新建账号，<code>pip install</code> 即完成交付动作。阿里集团内部已生产验证，Apache-2.0，且端侧与移动端 SDK 是现存方案普遍没覆盖的切口。</p>
+</section>
+
+<section class="tail">
+  <h2>二、<em>组合观察</em></h2>
+  <p>五条里没有一条在卖模型能力，卖的全是「把某项已经付了多年的固定成本换成自己掌控的形态」：向量检索账单、发版人力、Agent 托管费、OTA 更新服务、CI 分钟费。其中三条（asc、Hot Updater、RunsOn）集中在构建与发布流水线上——这一段最容易成交，因为单价是公开可查的（GitHub 每分钟报价、EAS Update 的 MAU 计价、发版值守的人天）。</p>
+  <p>两条主流项目都不做「另一个平台」而是做「嵌进去」：Zvec 是库不是服务，asc 是 CLI 不是控制台。不要求客户迁移工作流，是当下开源替代最省力的进入姿势。</p>
+</section>
+
+<section class="tail">
+  <h2>三、暂<em>不建议碰</em></h2>
+  <ol>
+    <li><b>sub2api</b>（Wei-Shaw/sub2api，⭐ 41,171，近 30 天 +4,895，Go · LGPL-3.0）— 把 Claude / OpenAI / Gemini / Grok 订阅聚合成统一中转并支持拼车共享分摊成本。热度真实，但共享订阅直接撞上游服务条款，交付给客户即等于把对方的封号风险写进自己的 SLA；LGPL-3.0 也限制二次分发形态。</li>
+    <li><b>i-have-adhd</b>（ayghri/i-have-adhd，⭐ 38,560，近 30 天 +18,245，MIT）— 本质是让编码 Agent 别把答案埋起来的提示词技能。无产品形态、无收费入口、复制成本为零，fork 一份即等价，热度来自安装量而非付费意愿。</li>
+  </ol>
+</section>
+
+<div class="colophon">
+  <span>Daily Github · NO.08 · 五维加权筛选</span>
+  <span>数据实检于 2026-09-11 · GitHub API + Trending 日 / 周 / 月榜 + HN Algolia</span>
+</div>
+
+</div>
+</body>
+</html>
