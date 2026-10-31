@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-10-31-1857.html">
+    <div class="da-card-date">2026-10-31 · 18:57</div>
+    <div class="da-card-title">把按席位与按会话的收费，换成装在本机的程序</div>
+    <div class="da-card-main">SolidCraft 用 Rust 重写参数化 CAD 并把建模接口开放给智能体，agent-device 让编码智能体在自己插着的真机上验证改动，net-merge 把宽带与热点叠成一条链路，Muse Gadget SDK 让 ESP32 与墨水屏接进 Meta 的语音助手，yomiyasu 把日语润色规则装进 agent；交付物从租用转为自有。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-30-1004.html">
     <div class="da-card-date">2026-10-30 · 10:04</div>
     <div class="da-card-title">控制入口正从厂商控制台挪到脚本与 REST</div>

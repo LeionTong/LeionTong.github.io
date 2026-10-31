@@ -164,3 +164,8 @@
 - 2026-10-30 · Pomerado/pomerado · 把没有 API 的网站生成为确定性 MCP 工具，MIT 核心加托管云收费
 - 2026-10-30 · dmellok/tesserae · 电子墨水看板服务端，浏览器排版后按 REST 或 MQTT 推屏
 - 2026-10-30 · pathsim/pathsim · Python 方块图动力学仿真，MIT，作者另接闭源工具迁移咨询
+- 2026-10-31 · tangency-labs/solidcraft · Rust 参数化三维 CAD，桌面与浏览器通用并开放 MCP 给智能体
+- 2026-10-31 · callstack/agent-device · 给编码智能体的设备层，真机与模拟器上验证改动，MIT
+- 2026-10-31 · net-merge/net-merge · 把 Wi-Fi、有线与热点叠成一个链路，跨四平台的 MIT 免费工具
+- 2026-10-31 · facebookincubator/muse-gadget-sdk · Meta 外设端 SDK 与固件，ESP32 与树莓派接进语音助手
+- 2026-10-31 · nanaism/yomiyasu · 日语文章结构级润色的智能体技能，MIT
