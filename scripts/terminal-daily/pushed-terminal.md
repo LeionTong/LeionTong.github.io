@@ -127,3 +127,10 @@
 - 2026-10-30 · Roboparty/P-BFM · 人形行为基础模型，平地动作加在线地形交互，G1 与 RP1 双机型配置，CC BY-NC
 - 2026-10-30 · emqx/emqx · 物联网 MQTT 消息中间件，MQTT over QUIC 与多协议网关，BSL 1.1
 - 2026-10-30 · nanomq/nanomq · 边缘侧轻量 MQTT 代理，NNG 异步架构，MIT
+- 2026-10-31 · ygelfand/LANovo · 联想智能屏与 JBL Link View 刷成 Home Assistant 本地语音卫星，Go 主机侧 CLI，AGPL-3.0
+- 2026-10-31 · Dicklesworthstone/frankensonos · Rust 版 Sonos 控制器，自带 CLI/HTTP/MCP 三接口与模拟器测试，MIT 加附加条款
+- 2026-10-31 · LordixDemon/apple_watch_connector · Apple Watch 接安卓/Linux/Windows，Magisk 模块加 Rust 桌面后端，无 LICENSE
+- 2026-10-31 · lcoutodemos/chums · 把 Claude Code 与 Codex 搬到 Apple Watch，按角色演动作，经 Tailscale 回连 Mac，Apache-2.0
+- 2026-10-31 · whyy1/watch-unlock-windows · Apple Watch 走近解锁 Windows，DPAPI 存密钥，Rust，AGPL-3.0
+- 2026-10-31 · Z-billi/roboArm · 三轴桌面机械臂图纸与上位机，SolidWorks 加 Arduino UNO，MIT
+- 2026-10-31 · HetaoLu-Creater/uwb-localisation · 桌面小车 UWB 实时定位，三基站加滤波链与回放，MIT

@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-10-31-1903.html">
+    <div class="da-card-date">2026-10-31 · 19:03</div>
+    <div class="da-card-title">停产音箱与旧屏被刷成本地语音终端，手表那头补的是配对与解锁</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人三个扇区取材：语音侧是两套把别人不生产的旧设备重新用起来的方案，一套接管联想智能屏，一套接管家里已有的 Sonos 音箱；穿戴侧三条都围绕 Apple Watch，分别是跨平台配对、编码智能体遥控与解锁 Windows；桌面侧是一套三轴机械臂图纸与一套桌面小车的 UWB 定位。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-30-1037.html">
     <div class="da-card-date">2026-10-30 · 10:37</div>
     <div class="da-card-title">数字标牌做到设备管控，具身侧补的是动作数据与地形适应</div>
