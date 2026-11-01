@@ -80,3 +80,8 @@
 - 2026-10-30 · 智元 GO-3 Preview 与灵渠 OS 1.0 + Worken 度量 · 三个具身评测列第一并年内开源，便利店成功率 28.6%→85.7%
 - 2026-10-30 · Android Studio Rabbit 2 接入 40 余个 ACP agent · 30 多个 Android skills，AppFunctions 与端侧 Agentic API 开放
 - 2026-10-30 · Oracle 云 Vera Rubin NVL72 与 Vera CPU GA · agent 沙箱的 CPU 侧算力可独立扩容，不可信代码硬件隔离
+- 2026-11-01 · DeepSeek Super-agent 原型开源 · Router/Worker 双层常驻 agent，投机执行与 Watchdog，模拟任务 95 分位 15.7 分钟
+- 2026-11-01 · Cursor 市场 Claude Code 扩展 2.1.313 被篡改 · 最多 5000 用户，SSH 后门与反向隧道，卸载不清除持久化
+- 2026-11-01 · Claude 订阅改名 Max/Ultra · Ultra 取消五小时窗口，周额度为 Pro 十倍，价格维持 100/200 美元
+- 2026-11-01 · 新芯航途 X7 Ultra 车规芯片 · 700 TOPS、NPU 利用率 98.7%，用 Momenta R7 世界模型做算力口径
+- 2026-11-01 · 美国 232 条款机器人进口认定 · 认定进口威胁国家安全，转入 180 天谈判并保留关税配额选项

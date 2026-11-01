@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-01-2030.html">
+    <div class="da-card-date">2026-11-01 · 20:30</div>
+    <div class="da-card-title">DeepSeek 开放常驻 agent 原型，Cursor 市场出现被篡改的编码扩展</div>
+    <div class="da-card-main">本期收录 DeepSeek 的常驻型 agent 原型（路由与执行两层、投机执行）、Cursor 扩展市场里带 SSH 后门的 Claude Code 扩展、Claude 订阅改名并取消五小时窗口、新芯航途 700 TOPS 车规芯片的评测口径，以及美国对进口机器人的 232 条款认定。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-10-30-0923.html">
     <div class="da-card-date">2026-10-30 · 09:23</div>
     <div class="da-card-title">编码助手的浏览器越权细节公开，机器人产出改按有效工时计量</div>
