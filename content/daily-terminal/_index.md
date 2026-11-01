@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-01-2043.html">
+    <div class="da-card-date">2026-11-01 · 20:43</div>
+    <div class="da-card-title">水墨屏的界面层已成套件，机器人控制工程开始以仓库形式公开</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套三个扇区取材：屏幕侧是树莓派水墨屏与镜面屏两套插件化界面，具身侧是人形机器人的 IsaacLab 训练工程与开源外骨骼控制代码，服务端侧三个桥接项目把 Zigbee、Matter 与小米网关并进本地控制。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-10-31-1903.html">
     <div class="da-card-date">2026-10-31 · 19:03</div>
     <div class="da-card-title">停产音箱与旧屏被刷成本地语音终端，手表那头补的是配对与解锁</div>

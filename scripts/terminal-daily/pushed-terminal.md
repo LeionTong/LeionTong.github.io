@@ -134,3 +134,10 @@
 - 2026-10-31 · whyy1/watch-unlock-windows · Apple Watch 走近解锁 Windows，DPAPI 存密钥，Rust，AGPL-3.0
 - 2026-10-31 · Z-billi/roboArm · 三轴桌面机械臂图纸与上位机，SolidWorks 加 Arduino UNO，MIT
 - 2026-10-31 · HetaoLu-Creater/uwb-localisation · 桌面小车 UWB 实时定位，三基站加滤波链与回放，MIT
+- 2026-11-01 · fatihak/InkyPi · 树莓派水墨屏显示系统，网页配插件与定时播放列表，GPL-3.0
+- 2026-11-01 · MagicMirrorOrg/MagicMirror · 模块化镜面屏平台，Electron 外壳与第三方模块生态，MIT
+- 2026-11-01 · Open-X-Humanoid/TienKung-Lab · 全尺寸人形机器人 IsaacLab 训练与 Sim2Sim 工作流，BSD-3-Clause
+- 2026-11-01 · naubiomech/OpenExo · 开源外骨骼双单片机控制代码，硬件 CERN-OHL-P v2.0，软件 LGPL-3.0
+- 2026-11-01 · Koenkk/zigbee2mqtt · Zigbee 到 MQTT 的桥，Docker 与 HA 插件双装法，GPL-3.0
+- 2026-11-01 · Luligu/matterbridge · 非 Matter 设备桥进 Matter 生态的插件管理器，npm 与 Docker，Apache-2.0
+- 2026-11-01 · AlexxIT/XiaomiGateway3 · 原厂固件上局域网直连小米多模网关的 HA 组件，MIT
