@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-01-2036.html">
+    <div class="da-card-date">2026-11-01 · 20:36</div>
+    <div class="da-card-title">电视桌面、掌机启动器与投屏接收，屏幕入口层被第三方软件接管</div>
+    <div class="da-card-main">cleanyourtv 用 ADB 清掉电视里的广告位与预装行，DroidDeck 把 Steam 与 ARM64 Proton 装进 Android 掌机，iPhoneMirror 把 iPhone 画面接进 Windows 并直出 OBS，Android AirPlay 接收器让盒子变成投屏端，Cobalt 给 Kobo 补上应用商店；五处都换了屏幕的入口层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-10-31-1857.html">
     <div class="da-card-date">2026-10-31 · 18:57</div>
     <div class="da-card-title">把按席位与按会话的收费，换成装在本机的程序</div>

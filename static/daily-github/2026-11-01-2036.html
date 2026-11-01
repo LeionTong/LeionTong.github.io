@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.37 — 2026-11-01</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.37 · 2026-11-01 · 2036 GMT+8</span></div>
+  <h1>电视桌面、掌机启动器与投屏接收，屏幕入口层被第三方软件接管</h1>
+  <p class="mh-sub">cleanyourtv 用 ADB 清掉电视里的广告位与预装行，DroidDeck 把 Steam 与 ARM64 Proton 装进 Android 掌机，iPhoneMirror 把 iPhone 画面接进 Windows 并直出 OBS，Android AirPlay 接收器让盒子变成投屏端，Cobalt 给 Kobo 补上应用商店；五处都换了屏幕的入口层。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-01</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>屏幕的入口层原本归系统厂商：电视首页是广告位，掌机的应用商店里没有 PC 游戏库，会议室投屏要整机采购，阅读器只有官方书店。这一批项目各自找到一条绕过去的路——ADB 禁用预装、ARM64 上的 Proton、Apple 私有采集协议、Android 上的 AirPlay 2 接收、Kobo 上的沙箱运行时。个人使用全部免费，能稳定收钱的位置在整机预装、机位授权与渠道分成。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Clean Your TV <span>Gathin23/cleanyourtv</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 48,450 · 近 30 天 +48,450（建仓 10-17，全部落在窗口内）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 11-01 · 建仓 2026-10-17</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>一段 ADB 流程关掉 Android 电视的预装广告服务与内容行，再装一个 572KB 的原生桌面接管首页。</p>
+  <p class="e-line"><b>痛点</b>电视开机先播赞助横幅，厂商内容行与埋点关不掉，换桌面还得先 root。</p>
+  <p class="e-line"><b>付费</b>目前只有捐赠入口；钱在电视品牌与代工厂的白标桌面、售后与运营商集采渠道。</p>
+  <p class="e-line"><b>规模化</b>407 款机型、106 个品牌、31 种语言，一套禁用清单加一个启动器覆盖各厂改版。</p>
+  <p class="e-line"><b>边际</b>低 · 启动器 572KB，脚本跑在用户自己的电脑上，没有服务端。</p>
+  <p class="e-line"><b>验证</b><code>手机装 cleanyour.tv/app 走完连接与分析，或 clone 仓库后让编码助手按 QUICKSTART 提示词执行，约十五分钟（同网段、Python 3、JDK 17-22、Android SDK 34）。</code></p>
+  <div class="risk"><b>风险</b>只覆盖 Android TV 与 Google TV，三星、LG、Roku、Vizio、VIDA 只能手动关追踪；固件升级后要重跑；连接需要常开 ADB 调试，等于在局域网留一个高权限端口；没有商业主体，企业采购过不了审。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">DroidDeck <span>Droid-Deck/DroidDeck</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 17,034 · 近 30 天 +16,665（star-history 推算）</span>
+      <span class="tag">Kotlin · GPL-3.0</span>
+      <span class="tag">最近提交 11-01 · 版本 0.6.7</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 Valve 的 Steam 客户端与 ARM64 版 Proton 装进 Android 掌机，开机直接进 Big Picture。</p>
+  <p class="e-line"><b>痛点</b>Windows 掌机贵、续航差，Android 掌机的商店里拿不到自己的 PC 游戏库。</p>
+  <p class="e-line"><b>付费</b>没有收费层，也没有官网，只在 Releases 发 APK；掌机厂商预装是唯一现实路径。</p>
+  <p class="e-line"><b>规模化</b>Adreno 730 以上机型通用，同一套运行时覆盖 Retroid、AYANEO 一类同代设备。</p>
+  <p class="e-line"><b>边际</b>中 · 每类 GPU 与驱动要单独适配，Proton 兼容性跟着 Valve 上游走。</p>
+  <p class="e-line"><b>验证</b><code>下载 0.6.7 的 APK，装 Linux 运行时，登录 Steam；需要一台 Adreno 730 以上的掌机，外加约 4GB 空间。</code></p>
+  <div class="risk"><b>风险</b>Mali、Xclipse、PowerVR 与 Adreno 710 明确不支持，桌面合成是软件渲染；Android 14 以上要关子进程限制；Firefox 在 proot 下沙箱被削弱；GPL-3.0 与厂商闭源预装天然冲突。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.6</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">iPhoneMirror <span>RayrenSX/iPhoneMirror</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,642 · 近 30 天 +1,283（star-history 推算）</span>
+      <span class="tag">C# · GPL-3.0</span>
+      <span class="tag">最近提交 11-01 · 建仓 2026-07-11 · 公开预览</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Windows 上经 USB 或局域网 AirPlay 采 iPhone 画面与系统声音，蓝牙把点击与键盘送回手机。</p>
+  <p class="e-line"><b>痛点</b>直播、客服质检、手游录屏要把手机画面送进 OBS，采集卡加 Mac 的方案贵且占一台机器。</p>
+  <p class="e-line"><b>付费</b>没有收费层；直播团队按机位、外包客服按坐席，本来就各有预算。</p>
+  <p class="e-line"><b>规模化</b>Windows 10 与 11 x64 通用，多设备并行、驱动一键装，加一个窗口源就能录。</p>
+  <p class="e-line"><b>边际</b>低 · 一个安装包，解码与渲染都在用户机器上走 D3D11。</p>
+  <p class="e-line"><b>验证</b><code>从 Releases 取 exe，USB 连 iPhone 并在手机上点信任，OBS 里加窗口采集。</code></p>
+  <div class="risk"><b>风险</b>走 Apple 的私有采集协议，iOS 更新后可能需要跟着改；未做商业签名，装的时候会触发 SmartScreen 与未知发布者提示；没有 ARM64 构建；GPL-3.0 要求衍生作品开源，闭源集成走不通。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">AirPlay Receiver for Android <span>jqssun/android-airplay-server</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 913 · 近 30 天 +36（star-history 推算）</span>
+      <span class="tag">Kotlin · GPL-3.0</span>
+      <span class="tag">最近提交 10-19 · 版本 v0.0.36（10-19）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 Android 盒子与 Android TV 变成 AirPlay 2 接收端，镜像、视频与音频都能接，带 PiP 与 PIN 认证。</p>
+  <p class="e-line"><b>痛点</b>会议室投屏要买 ClickShare 一类整机，酒店与商显电视的多屏互动报价更高。</p>
+  <p class="e-line"><b>付费</b>Play 与 F-Droid 上免费；整机预装、酒店与商显方案按台授权，才是能收钱的位置。</p>
+  <p class="e-line"><b>规模化</b>Android 7 以上通用，一套 APK 覆盖电视盒子、投影与一体机。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，两个应用商店直接分发，无物流与硬件成本。</p>
+  <p class="e-line"><b>验证</b><code>从 F-Droid 装 APK 到 Android TV 盒子，iPhone 控制中心里选它投屏。</code></p>
+  <div class="risk"><b>风险</b>版本停在 0.0.36，35 个未结 issue，近 30 天只增 36 星，增速已经平掉；GPL-3.0 传染，厂商改一行也要开源；Apple TV 一类 DRM 内容投不了；主进程是 UxPlay 的移植，协议侧跟着上游走。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Cobalt <span>BandarLabs/Cobalt</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 431 · 近 30 天未获取到（推算值超过总星数，弃用）</span>
+      <span class="tag">Rust · AGPL-3.0</span>
+      <span class="tag">最近提交 10-31 · 建仓 2026-07-29</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给 Kobo 阅读器补上启动器、应用商店与 Rust SDK，应用跑在受限进程里，USB 装一次之后走 Wi-Fi 增删。</p>
+  <p class="e-line"><b>痛点</b>Kobo 只有官方书店，第三方工具要逐台改动，没有分发、更新与回滚通道。</p>
+  <p class="e-line"><b>付费</b>没有定价；应用商店抽成与 SDK 授权是路径，AGPL-3.0 会限制收费商店能做到的形态。</p>
+  <p class="e-line"><b>规模化</b>Clara BW、Clara Colour、Clara HD、Elipsa 2E、Libra 2、Libra Colour、Libra H2O 实测通过，模拟器让开发不必先有设备。</p>
+  <p class="e-line"><b>边际</b>低 · 应用打包成受限进程，商店分发没有物流与库存。</p>
+  <p class="e-line"><b>验证</b><code>按 bandarlabs.github.io/Cobalt/install 用 USB 装一次，再用模拟器跑通示例应用的构建。</code></p>
+  <div class="risk"><b>风险</b>AGPL-3.0 传染，闭源应用商店很难成立；固件 5.x 不支持，其余机型靠用户先试；431 星样本太小，社区只有一个小版块；Kobo 一次固件更新就可能封掉安装路径。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>iPhoneMirror（RayrenSX/iPhoneMirror）</b>。近 30 天加了一千二百多星，一个 exe 接上 USB 就能在 OBS 里出画面，直播机位与客服质检这两个场景本来就有预算，替代的是采集卡加一台 Mac 的组合。它的短板在协议侧，Apple 私有采集与未签名分发都悬着，接之前先把 iOS 版本与签名方案定下来。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>屏幕入口层的争夺已经从系统厂商转到第三方软件：电视首页、掌机启动器、投屏接收、阅读器商店，落点都是 ADB、私有协议与运行时兼容。个人侧几乎全免费，能收钱的位置在整机预装、机位授权与渠道分成；机型与协议适配铺得越宽，才有资格进预装谈判。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>shihabal3amri/DiPlay</b>（13,003★，建仓 09-24，GPL-3.0）· 作者自己在 README 里写明：APK 里打包的是从公开 Carlinkit 固件里提取的实验性配件身份，私钥可被取出，不是为 DiPlay 申请的 MFi 凭证。Apple 一次验证规则变化就能让整条链路失效，拿它做车机方案等于把底座押在别人的开关上；支持范围也只到比亚迪，其余品牌明确不修。</li>
+    <li><b>simbasjungles/free-my-tv</b>（5,600★，建仓 10-19，MIT）· 与 Clean Your TV 同题，覆盖 Google TV 与 LG、三星的桌面替换，站点靠捐赠，没有收费层。同类里已经有机型与文档更完整的一份，两份并行只增加维护面与用户分流。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-01 20:36 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
