@@ -169,3 +169,8 @@
 - 2026-10-31 · net-merge/net-merge · 把 Wi-Fi、有线与热点叠成一个链路，跨四平台的 MIT 免费工具
 - 2026-10-31 · facebookincubator/muse-gadget-sdk · Meta 外设端 SDK 与固件，ESP32 与树莓派接进语音助手
 - 2026-10-31 · nanaism/yomiyasu · 日语文章结构级润色的智能体技能，MIT
+- 2026-11-01 · Gathin23/cleanyourtv · ADB 清掉 Android 电视预装广告位并换 572KB 原生桌面，407 机型，MIT
+- 2026-11-01 · Droid-Deck/DroidDeck · Android 掌机装 Steam 与 ARM64 Proton，开机进 Big Picture，GPL-3.0
+- 2026-11-01 · RayrenSX/iPhoneMirror · Windows 经 USB 与 AirPlay 采 iPhone 画面并直出 OBS，GPL-3.0
+- 2026-11-01 · jqssun/android-airplay-server · Android 盒子做 AirPlay 2 接收端，支持镜像与 HLS，GPL-3.0
+- 2026-11-01 · BandarLabs/Cobalt · Kobo 阅读器启动器、应用商店与 Rust SDK，AGPL-3.0
