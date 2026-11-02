@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-02-1002.html">
+    <div class="da-card-date">2026-11-02 · 10:02</div>
+    <div class="da-card-title">语音输入法、流式识别服务与旧音箱固件，语音接入层被逐段重做</div>
+    <div class="da-card-main">OpenWhispr 把本地听写做成带免费档与团队席位的桌面应用，WhisperLiveKit 用兼容 OpenAI 与 Deepgram 的接口承接流式识别，speech.cpp 把识别与合成压进一个 C 接口的二进制，pitupitu 让手机用语音遥控编码智能体，echo-dot-assist 拿旧 Echo 当本地语音卫星；五处都把语音的采集、识别与接入从云厂商手里挪回本地。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-01-2036.html">
     <div class="da-card-date">2026-11-01 · 20:36</div>
     <div class="da-card-title">电视桌面、掌机启动器与投屏接收，屏幕入口层被第三方软件接管</div>

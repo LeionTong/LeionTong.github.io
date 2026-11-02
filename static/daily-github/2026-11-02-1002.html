@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.38 — 2026-11-02</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.38 · 2026-11-02 · 1002 GMT+8</span></div>
+  <h1>语音输入法、流式识别服务与旧音箱固件，语音接入层被逐段重做</h1>
+  <p class="mh-sub">OpenWhispr 把本地听写做成带免费档与团队席位的桌面应用，WhisperLiveKit 用兼容 OpenAI 与 Deepgram 的接口承接流式识别，speech.cpp 把识别与合成压进一个 C 接口的二进制，pitupitu 让手机用语音遥控编码智能体，echo-dot-assist 拿旧 Echo 当本地语音卫星；五处都把语音的采集、识别与接入从云厂商手里挪回本地。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-02</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>语音这条链一直是云厂商的收费项：识别按分钟、合成按字符、唤醒词按设备授权。这一批项目把三段分别改成自托管部件——本机模型、兼容接口的本地服务、可嵌入的 C 库、可刷的旧硬件固件。个人侧靠免费档就能跑通，能稳定收钱的位置在席位、通话分钟与嵌入式授权。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenWhispr <span>OpenWhispr/openwhispr</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 10,517 · 近 30 天 +2,000（star-history 推算）</span>
+      <span class="tag">TypeScript · MIT</span>
+      <span class="tag">最近提交 10-29 · 版本 1.11.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>按下热键说话，文字落到光标处；本地 Whisper、Parakeet、Cohere 转写与云端转写可切，带会议记录与团队空间。</p>
+  <p class="e-line"><b>痛点</b>云端听写按分钟计费，写代码、写病历与写材料的人不愿把麦克风音频传出本机。</p>
+  <p class="e-line"><b>付费</b>官网明码标价，Pro 每人每月 6.67 美元、Business 13.33 美元，企业档加 SSO 与审计日志；免费档保留无限本地听写。</p>
+  <p class="e-line"><b>规模化</b>同一套 Electron 与 Expo 代码覆盖 macOS、Windows、Linux、iOS，100 多种语言，团队空间按席位开通。</p>
+  <p class="e-line"><b>边际</b>低 · 应用装在本机，云档只承担转写算力，加人不加机器。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/OpenWhispr/openwhispr && cd openwhispr && npm install && npm run dev</code>；不编译就直接下安装包，按热键说一句话。</p>
+  <div class="risk"><b>风险</b>两周内 Hacker News 冒出 Hex、UnCode、VoxScribe 三个同题项目，功能差异被迅速抹平；475 个未关 issue，提交流水线吃紧；系统级键击注入在 macOS 要辅助功能授权，企业终端常被安全软件拦；团队版把人拉回云端，与全本地的卖点相抵。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.9</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">WhisperLiveKit <span>QuentinFuxa/WhisperLiveKit</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 11,201 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 10-31 · 版本 0.2.26（08-29）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>本地流式转写服务，边说边出字，带说话人分离与翻译，同时暴露 OpenAI 音频接口与 Deepgram 的 WebSocket 子集。</p>
+  <p class="e-line"><b>痛点</b>云识别按分钟计费，自建 Whisper 又要自己拼流式切分、静音检测、并发与断句。</p>
+  <p class="e-line"><b>付费</b>仓库无收费层；替代的是按分钟计费的云识别，买家是需要自建客服、会议、字幕系统的集成商。</p>
+  <p class="e-line"><b>规模化</b>单进程支持多并发用户，模型从 tiny 到 large-v3 与 SenseVoice、Voxtral 可换，接口兼容让客户端改一行地址就切过去。</p>
+  <p class="e-line"><b>边际</b>低 · 纯服务端软件，新增用户的成本随 GPU 小时走，没有按坐席的授权费。</p>
+  <p class="e-line"><b>验证</b><code>pip install whisperlivekit && wlk run whisper:tiny</code>，浏览器开 localhost:8000 对着麦克风说话。</p>
+  <div class="risk"><b>风险</b>版本线停在 8 月 29 日，主分支提交不断而发版停滞；Python 加 PyTorch 运行环境重，CPU 上实时率不够；只有 8 个未关 issue，出问题基本自己查文档；serve 模式默认没有鉴权，进生产要自带反向代理与密钥。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.6</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">speech.cpp <span>nyosegawa/speech.cpp</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 303 · 近 30 天 +298（建仓 09-29，全部落在窗口内）</span>
+      <span class="tag">C++ · MIT</span>
+      <span class="tag">最近提交 11-01 · 版本 0.10.1</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>一个 C 接口的二进制与共享库，做合成、识别、人声检测与去噪，跑在 CPU、Metal 与 Vulkan 上，顺带起一个兼容 OpenAI 音频接口的服务。</p>
+  <p class="e-line"><b>痛点</b>端侧语音要在 C++ 里接三四个库，还要自己处理模型格式、线程与平台后端；Python 方案进不了固件与嵌入式。</p>
+  <p class="e-line"><b>付费</b>MIT，按嵌入式授权与整机预装收费；替代的是按次计费的云识别与合成。</p>
+  <p class="e-line"><b>规模化</b>单一可执行文件，模型按名拉取 GGUF，不需要 Python 与 CUDA，同一份代码覆盖三类推理后端。</p>
+  <p class="e-line"><b>边际</b>低 · 库静态链进产品，服务端侧一次部署多客户复用。</p>
+  <p class="e-line"><b>验证</b><code>curl -fsSL https://raw.githubusercontent.com/nyosegawa/speech.cpp/main/install.sh | sh</code>，再跑 <code>speech asr --live</code> 对着麦克风说话。</p>
+  <div class="risk"><b>风险</b>建仓 34 天、20 个 fork、单作者维护，模型链在 Qwen3-ASR 与 Irodori-TTS 上，上游一变就要跟；合成与识别都挂小模型，术语与强口音场景精度有限；serve 无鉴权；MIT 允许闭源分发，也意味着没有服务端收费的抓手。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">pitupitu <span>klarluft/pitupitu</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 224 · 近 30 天 +224（建仓 10-17，全部落在窗口内）</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 10-22 · 版本 0.8.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>手机对着说话，指令落到某台机器上的 Claude Code 或 Codex 会话，跑完再念给你听。</p>
+  <p class="e-line"><b>痛点</b>走路、开车时想给编码智能体派活只能掏电脑；现有语音方案只把话变成字，不接会话状态。</p>
+  <p class="e-line"><b>付费</b>封闭测试，送 30 分钟通话额度，正式版按通话分钟计费，明说没有包月不限量。</p>
+  <p class="e-line"><b>规模化</b>本机只跑一个 Rust 连接器，会话交给 herdr 管理，任何装了 Claude Code 或 Codex 的机器都能接。</p>
+  <p class="e-line"><b>边际</b>中 · 每分钟语音的识别、合成与对话模型都由云端实付，用户越多成本线性上涨。</p>
+  <p class="e-line"><b>验证</b><code>brew install klarluft/tap/pitupitu</code> 后跑 <code>pitupitu setup</code>，手机开 pitupitu.chat/app 说一句话。</p>
+  <div class="risk"><b>风险</b>建仓 16 天、0 个 fork、单作者，后端是闭源云，连接器或云一停整条链就断；连接器只支持 macOS 与 Linux，Windows 机器接不进；凭据不进云，对话内容留在云上；按分钟计费对每天用的人不便宜。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.7</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Echo Dot Assist <span>Gamer92000/echo-dot-assist</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 458 · 近 30 天 +291（star-history 推算）</span>
+      <span class="tag">C · MIT</span>
+      <span class="tag">最近提交 11-02 · 版本 2026.11.02（beta）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>解锁旧 Echo 的引导程序，刷进 Alpine 与 hassmic，把音箱变成 Home Assistant 的本地语音卫星，保留原厂唤醒词与蓝牙代理。</p>
+  <p class="e-line"><b>痛点</b>二手机箱几十块一台，麦克风阵列与音频前端都在，Alexa 却必须出网才能用。</p>
+  <p class="e-line"><b>付费</b>无收费层；钱在整机翻新与弱电、装修集成商的批量部署。</p>
+  <p class="e-line"><b>规模化</b>Dot 2、Dot 3、Echo 2 已各在一台样机上跑通，脚本一套流程覆盖多机型，参数可从另一台设备导入。</p>
+  <p class="e-line"><b>边际</b>中 · 固件是纯软件，但解锁要人接线、刷机，一台一台来。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/Gamer92000/echo-dot-assist && cd echo-dot-assist && scripts/setup.sh</code>，Dot 2 走 micro-USB 免焊。</p>
+  <div class="risk"><b>风险</b>仍是 beta 版本号，每种机型只在一台样机上试过；解锁会清空设备且回不去官方固件；必须已有能跑的 HA Assist 管线，等于先备齐整套语音栈；更新靠自签密钥，密钥丢了只能重刷。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.6</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>speech.cpp（nyosegawa/speech.cpp）</b>。听写应用这两周已经挤了四个同题项目，而把识别与合成压进一个 C 接口、还顺手兼容 OpenAI 音频协议的位置只有它在做，嵌入到车载、对讲、终端里的替换成本最低。三十四天两百九十八星、每日发版，交付形态是二进制而不是部署文档，接之前只要认下单作者与上游模型这两处集中风险。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>语音的处理被拆成采集、识别、接入三段，三段同时出现自托管替代，接口还刻意对齐 OpenAI 与 Deepgram，为的是让现有客户端改一行地址就能走。付费位置随之挪到席位、通话分钟与嵌入式授权，按分钟卖的云识别在这批项目里是统一的对标物。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>anomalyco/hex</b>（3,342★，建仓 07-17，MIT）· 与本期第 1 条同题同形态，只有听写一件事，没有会议记录、团队空间与云档，README 里明说不收 PR，能力边界与节奏全由一家公司定。近 30 天 +576 不算慢，但选它拿不到已经跑起来的付费档与多端协同。</li>
+    <li><b>togg53192-cmd/jailbreaks</b>（12,998★，建仓 06-18，无许可证）· 当日涨一千五百多星，交付物是一堆提示词文本，没有可执行代码、没有版本号、没有许可证。拿来即用没问题，做产品或再分发时授权状态说不清，对模型的适配也全凭作者手改。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-02 10:02 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
