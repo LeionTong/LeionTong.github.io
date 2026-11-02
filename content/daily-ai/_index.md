@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-02-0925.html">
+    <div class="da-card-date">2026-11-02 · 09:25</div>
+    <div class="da-card-title">Claude Code 在提示词里加禁令，原创游戏项目被一起拦下</div>
+    <div class="da-card-main">本期收录 Claude Code 禁止复刻现有游戏的提示词规则与误伤、上海人工智能实验室的三角色长周期编码协议、星衍智能的通用具身 Harness、红旗连锁终止便利店机器人售货，以及国行 Apple 智能接入千问的时间表。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-01-2030.html">
     <div class="da-card-date">2026-11-01 · 20:30</div>
     <div class="da-card-title">DeepSeek 开放常驻 agent 原型，Cursor 市场出现被篡改的编码扩展</div>
