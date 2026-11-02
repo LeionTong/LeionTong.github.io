@@ -1,9 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-02 · every-app/open-seo · 开源版 Semrush/Ahrefs 替代，自带 MCP 与 Agent Skills
-- 2026-09-02 · Tencent/WeKnora · 企业级文档 RAG 知识框架，多租户 + 自维护 Wiki
-- 2026-09-02 · workweave/router · 按请求路由的模型代理，宣称降低 LLM 成本 40-70%
-- 2026-09-02 · Agent-Field/agentfield · 把 Agent 变成可被调用的 API 的开源控制平面
-- 2026-09-02 · eracle/OpenOutreach · 自托管 B2B 线索挖掘与外发 AI Agent（GPLv3）
 - 2026-09-03 · cactus-compute/needle · 14MB 端侧工具调用模型，28MB 内存跑完整会话
 - 2026-09-03 · debpalash/VoiceStudio · 全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎
 - 2026-09-03 · lmnr-ai/lmnr · 专为 AI Agent 做的开源可观测平台（YC S24）
@@ -174,3 +169,8 @@
 - 2026-11-01 · RayrenSX/iPhoneMirror · Windows 经 USB 与 AirPlay 采 iPhone 画面并直出 OBS，GPL-3.0
 - 2026-11-01 · jqssun/android-airplay-server · Android 盒子做 AirPlay 2 接收端，支持镜像与 HLS，GPL-3.0
 - 2026-11-01 · BandarLabs/Cobalt · Kobo 阅读器启动器、应用商店与 Rust SDK，AGPL-3.0
+- 2026-11-02 · OpenWhispr/openwhispr · 跨平台本机听写应用，本地模型与云转写可切，Pro 6.67 美元每席位每月
+- 2026-11-02 · QuentinFuxa/WhisperLiveKit · 本地流式转写服务，兼容 OpenAI 音频接口与 Deepgram WebSocket
+- 2026-11-02 · nyosegawa/speech.cpp · 一个 C 接口二进制做合成、识别与去噪，覆盖 CPU、Metal、Vulkan
+- 2026-11-02 · klarluft/pitupitu · 手机语音遥控本机 Claude Code 与 Codex 会话，按通话分钟收费
+- 2026-11-02 · Gamer92000/echo-dot-assist · 刷旧 Echo 成 Home Assistant 本地语音卫星的固件与解锁脚本
