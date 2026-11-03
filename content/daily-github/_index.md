@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-03-1002.html">
+    <div class="da-card-date">2026-11-03 · 10:02</div>
+    <div class="da-card-title">穿戴设备的固件、数据管道与端侧模型同时出现开源替代</div>
+    <div class="da-card-main">Omi 把吊坠的固件、应用与后端整栈开源并靠硬件与年费收钱，Needle 3 用 8-29MB 的二进制把工具调用压进手表与单片机，Open Wearables 自托管十一家厂商的健康数据，MentraOS 让一款眼镜应用跨五款机型，OpenStrap 让 WHOOP 手环脱开订阅。五处拆的都是穿戴产品身上属于云与订阅的那一层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-02-1002.html">
     <div class="da-card-date">2026-11-02 · 10:02</div>
     <div class="da-card-title">语音输入法、流式识别服务与旧音箱固件，语音接入层被逐段重做</div>
