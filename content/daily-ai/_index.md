@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-03-0924.html">
+    <div class="da-card-date">2026-11-03 · 09:24</div>
+    <div class="da-card-title">Codex 后台已在偷偷换用 GPT-6.2 Astra，同一夜 Anthropic 源码漏出 Claude 5.5</div>
+    <div class="da-card-main">本期收录两家前沿实验室下一代旗舰的提前曝光、Anthropic 让 agent 自动红队绕过数据监控的研究、优必选的机器人仿真平台、千问眼镜的通话翻译升级，以及特拉华州允许智能体运营公司的法案草案。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-02-0925.html">
     <div class="da-card-date">2026-11-02 · 09:25</div>
     <div class="da-card-title">Claude Code 在提示词里加禁令，原创游戏项目被一起拦下</div>
