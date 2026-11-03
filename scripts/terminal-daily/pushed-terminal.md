@@ -141,3 +141,18 @@
 - 2026-11-01 · Koenkk/zigbee2mqtt · Zigbee 到 MQTT 的桥，Docker 与 HA 插件双装法，GPL-3.0
 - 2026-11-01 · Luligu/matterbridge · 非 Matter 设备桥进 Matter 生态的插件管理器，npm 与 Docker，Apache-2.0
 - 2026-11-01 · AlexxIT/XiaomiGateway3 · 原厂固件上局域网直连小米多模网关的 HA 组件，MIT
+- 2026-11-02 · Liu-zhongxian/zongzhu-bot · ESP32-S3 圆屏桌面语音终端，X-ASR 离线识别加电脑端命令分流
+- 2026-11-02 · justhalfbit/thinksmart-ubuntu-image · 联想 ThinkSmart View 会议屏刷成开机进语音界面的系统镜像
+- 2026-11-02 · grigio/sonia-assistant · 不开独立显卡的本地全双工语音助手，四层轮次判定
+- 2026-11-02 · AsteroidOS/asteroid · OpenEmbedded 智能手表系统构建工程，机型覆盖量产手表
+- 2026-11-02 · soma-intelligence/open-health-sync · 自托管可穿戴健康数据聚合服务，含 MCP 服务端
+- 2026-11-02 · stack-chan/stack-chan · M5Stack 上 JavaScript 驱动的开源桌面小机器人
+- 2026-11-02 · m5stack/StackChan · M5Stack 官方 StackChan 整机资料
+- 2026-11-03 · ishangautam7/Talvio · 本机听写加可执行动作的桌面语音助手，带手机端遥控
+- 2026-11-03 · Goekdeniz-Guelmez/JOSIE-Voice · Apple Silicon Mac 上全本机语音与聊天助手，等十二月发版
+- 2026-11-03 · wasp-os/wasp-os · nRF52 手表 MicroPython 固件，2026 年 11 月换维护者
+- 2026-11-03 · laizhixingxingdeli/MiNavigateRing · 把高德步行骑行导航推送到小米手环 9 NFC
+- 2026-11-03 · owenc1122/spare-io · RayNeo iO 眼镜开源启动器界面，PolyForm 非商业
+- 2026-11-03 · pollen-robotics/microduck · 强化学习驱动的双足机器鸭本机固件，整机在售
+- 2026-11-03 · sdua078/TeleoPro · 任意输入设备到任意机械臂的遥操作库
+- 2026-11-03 · FlashCat-Jordan/Flashduck · ESP32-S3 桌面机器鸭，模型直接控制六舵机

@@ -7,6 +7,18 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-03-1033.html">
+    <div class="da-card-date">2026-11-03 · 10:33</div>
+    <div class="da-card-title">强化学习训出的双足机器鸭整机在售，手表固件在十一月换人接手</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人三个扇区取材：语音侧是本机听写的桌面助手与一台等十二月发版的 Mac 助手，穿戴侧是换人维护的 MicroPython 手表固件、把高德导航推到手环的桥与眼镜启动器，桌面机器人侧是一万三千星的强化学习双足鸭、通用遥操作库与一只 ESP32-S3 机器鸭。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
+  <a class="da-card" href="/daily-terminal/2026-11-02-1036.html">
+    <div class="da-card-date">2026-11-02 · 10:36</div>
+    <div class="da-card-title">退市会议屏被刷成语音终端，桌面小机器人放出了整机开源资料</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人三个扇区取材：语音侧是 ESP32 圆屏终端、联想 ThinkSmart View 刷机镜像与一套全双工本地方案，穿戴侧是手表系统构建工程与健康数据聚合服务，桌面机器人侧是 Stack-chan 的社区固件与 M5Stack 官方整机资料。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-01-2043.html">
     <div class="da-card-date">2026-11-01 · 20:43</div>
     <div class="da-card-title">水墨屏的界面层已成套件，机器人控制工程开始以仓库形式公开</div>
