@@ -1,9 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-03 · cactus-compute/needle · 14MB 端侧工具调用模型，28MB 内存跑完整会话
-- 2026-09-03 · debpalash/VoiceStudio · 全本地 ElevenLabs 替代，16 TTS + 11 ASR 引擎
-- 2026-09-03 · lmnr-ai/lmnr · 专为 AI Agent 做的开源可观测平台（YC S24）
-- 2026-09-03 · TracecatHQ/tracecat · 面向安全团队与 AI Agent 的开源 SOAR 平台
-- 2026-09-03 · deeplethe/utopia · 带时间感知与本体层的企业知识/决策底座（自称开源企业世界模型）
 - 2026-09-05 · firecrawl/pdf-inspector · Rust PDF 分类抽取库，跳过约 54% 不必上 OCR 的页面
 - 2026-09-05 · denoland/celld · 自托管分布式 Durable Objects，把 Workers 搬回自己机器
 - 2026-09-05 · ascending-llc/jarvis-registry · 企业级 MCP/A2A 网关，身份+权限+审计一体
@@ -174,3 +169,8 @@
 - 2026-11-02 · nyosegawa/speech.cpp · 一个 C 接口二进制做合成、识别与去噪，覆盖 CPU、Metal、Vulkan
 - 2026-11-02 · klarluft/pitupitu · 手机语音遥控本机 Claude Code 与 Codex 会话，按通话分钟收费
 - 2026-11-02 · Gamer92000/echo-dot-assist · 刷旧 Echo 成 Home Assistant 本地语音卫星的固件与解锁脚本
+- 2026-11-03 · BasedHardware/omi · 开源吊坠固件与应用，Pro 年费 269 美元，本地后端自搭
+- 2026-11-03 · cactus-compute/needle · 8-29MB 端侧模型做工具调用与抽取，附语音识别件，Apache-2.0
+- 2026-11-03 · the-momentum/open-wearables · 自托管十一家厂商穿戴数据层，Enterprise 报价，MIT
+- 2026-11-03 · Mentra-Community/MentraOS · 眼镜运行时一套 API 跨五款机型，自带 MiniApp 商店
+- 2026-11-03 · OpenStrap/edge · 直连 WHOOP 的本地健康应用，绕开官方订阅，AGPL-3.0
