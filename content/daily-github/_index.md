@@ -6,8 +6,8 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
-  <a class="da-card" href="/daily-github/2026-11-04-1005.html">
-    <div class="da-card-date">2026-11-04 · 10:05</div>
+  <a class="da-card" href="/daily-github/2026-11-04-1001.html">
+    <div class="da-card-date">2026-11-04 · 10:01</div>
     <div class="da-card-title">按量计费的推理、云环境与地理工具正被单机版本替下</div>
     <div class="da-card-main">colibri 用纯 C 把 744B 的 MoE 按专家从磁盘读出，Floci 一个容器顶掉 LocalStack 的付费档，open-compute 把 Workers 平台压进一个二进制，api-anything 让智能体共用学到的网站接口，RustGIS 用纯 Rust 重做桌面地理工具。</div>
     <div class="da-card-go">阅读完整报告 →</div>
