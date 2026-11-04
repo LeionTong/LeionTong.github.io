@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-04-1032.html">
+    <div class="da-card-date">2026-11-04 · 10:32</div>
+    <div class="da-card-title">国产廉价屏板有了统一驱动，人形动作复现压进单卡四十分钟</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套三个扇区取材：一块屏的两端是便宜黄板的 LVGL 驱动与桌面触摸控制台；具身侧是用游戏录像继续预训练的视觉动作模型，和在仿真里复现人形动作追踪的流水线；服务端配套是两个把设备管起来的工具，一个跑在单片机上，一个跑在工程师桌面上。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-03-1033.html">
     <div class="da-card-date">2026-11-03 · 10:33</div>
     <div class="da-card-title">强化学习训出的双足机器鸭整机在售，手表固件在十一月换人接手</div>
