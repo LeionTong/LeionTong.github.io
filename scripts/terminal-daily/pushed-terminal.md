@@ -156,3 +156,9 @@
 - 2026-11-03 · pollen-robotics/microduck · 强化学习驱动的双足机器鸭本机固件，整机在售
 - 2026-11-03 · sdua078/TeleoPro · 任意输入设备到任意机械臂的遥操作库
 - 2026-11-03 · FlashCat-Jordan/Flashduck · ESP32-S3 桌面机器鸭，模型直接控制六舵机
+- 2026-11-04 · rzeldent/esp32-smartdisplay · 国产 Sunton 廉价屏板的 LVGL 显示与触摸驱动库
+- 2026-11-04 · THUSI-Lab/GameScaling · 游戏录像继续预训练的视觉动作模型，输出 200 毫秒操作块
+- 2026-11-04 · Motphys/Uni-SuperMimic · UniLab 上复现人体到 G1 的全身动作追踪流水线
+- 2026-11-04 · Keralots/TouchDeck · ESP32-S3 触摸屏做 Home Assistant 桌面控制台
+- 2026-11-04 · txp666/FluentHMI-Studio · Qt 6 可视化上位机设计器，拖拽导出免编译应用
+- 2026-11-04 · arterialist/kube32 · ESP32-S3 上的 Kubernetes 兼容控制面与 wasm Pod 运行时
