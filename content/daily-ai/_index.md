@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-04-0936.html">
+    <div class="da-card-date">2026-11-04 · 09:36</div>
+    <div class="da-card-title">美团把 1.6 万亿参数压到长程智能体编程，Anthropic 用服务端会话线程替 Agent 省掉重复上传</div>
+    <div class="da-card-main">本期收录美团 LongCat-2.5 的长程智能体发布、Anthropic Messages API 的服务端会话线程公测、MIT 让 GPT-6 Astra 直接改写模型权重、小米具身基座模型在汽车工厂与青年公寓的两处落地，以及纯语音个人助理 Orilo 的双层架构。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-03-0924.html">
     <div class="da-card-date">2026-11-03 · 09:24</div>
     <div class="da-card-title">Codex 后台已在偷偷换用 GPT-6.2 Astra，同一夜 Anthropic 源码漏出 Claude 5.5</div>
