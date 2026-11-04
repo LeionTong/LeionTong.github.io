@@ -174,3 +174,8 @@
 - 2026-11-03 · the-momentum/open-wearables · 自托管十一家厂商穿戴数据层，Enterprise 报价，MIT
 - 2026-11-03 · Mentra-Community/MentraOS · 眼镜运行时一套 API 跨五款机型，自带 MiniApp 商店
 - 2026-11-03 · OpenStrap/edge · 直连 WHOOP 的本地健康应用，绕开官方订阅，AGPL-3.0
+- 2026-11-04 · JustVugg/colibri · 纯 C 按专家流式读盘的本机 MoE 推理引擎，13 套引擎无显卡可跑
+- 2026-11-04 · floci-io/floci · 本地 AWS 模拟器，一个容器直接替换 LocalStack 付费档
+- 2026-11-04 · goodnight000/api-anything · 智能体互享从站点自身请求里学到的接口，免开浏览器
+- 2026-11-04 · opengeos/RustGIS · 纯 Rust 桌面 GIS，千余工具编到 wasm 与 PyPI
+- 2026-11-04 · elliothux/open-compute · 一个二进制把 Workers 平台搬到单机，含 KV/R2/D1/DO
