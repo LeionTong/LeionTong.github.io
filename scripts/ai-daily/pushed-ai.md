@@ -100,3 +100,8 @@
 - 2026-11-04 · MIT 权重空间编程 · GPT-6 Astra 直改 Qwen3.5-0.8B 权重，改 0.016% 参数 MATH-500 7.9%→48.1%
 - 2026-11-04 · 小米具身基座模型 · 汽车工厂 8 小时整班作业，青年公寓 30 分钟长程任务链试运营，领先科技奖
 - 2026-11-04 · Orilo 纯语音个人助理 · Echotime 双层架构，Full-Duplex-Bench 打断后重新开口 1.08 秒
+- 2026-11-05 · Ricursive Ripple-65B 开源权重 · 65B 稠密模型 TerminalBench 2.1 80.52 称美国开源 SOTA，3200 万美元训练，1M 上下文
+- 2026-11-05 · 腾讯 Hy4 正式版 · 首次视觉理解与 Computer Use，金融众测 3.04 称开源第一，幻觉率 12.95%→7.2%，权重近期开放
+- 2026-11-05 · OpenAI 收购 Pierre · Trees/Diffs/Code Storage 并入 Codex，版本控制层被垂直整合，待监管批准
+- 2026-11-05 · Anthropic FlashProve · zkSNARK 推理证明每 H100 110 token/秒、19MB/1024 token，开销 70-95 倍，Lean 证明开源
+- 2026-11-05 · 招商局狮子山 Lion-ER-35B-A3B · 35B 具身推理 MoE 激活 3B，十项基准均分开源权重
