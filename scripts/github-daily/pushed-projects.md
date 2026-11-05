@@ -1,9 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-05 · firecrawl/pdf-inspector · Rust PDF 分类抽取库，跳过约 54% 不必上 OCR 的页面
-- 2026-09-05 · denoland/celld · 自托管分布式 Durable Objects，把 Workers 搬回自己机器
-- 2026-09-05 · ascending-llc/jarvis-registry · 企业级 MCP/A2A 网关，身份+权限+审计一体
-- 2026-09-05 · magnitudedev/magnitude · 按硬件挑模型的本地推理服务器，直连编码 Agent
-- 2026-09-05 · mattzcarey/shippie · CI 里的代码评审 Agent，替代 CodeRabbit/Greptile
 - 2026-09-06 · volcengine/OpenViking · Agent 上下文数据库，viking:// 虚拟文件系统统一记忆/资源/技能
 - 2026-09-06 · Tencent/AI-Infra-Guard · 腾讯朱雀实验室 AI 红队平台，Agent/MCP/Skills 全扫描
 - 2026-09-06 · abhinavxd/libredesk · 单二进制自托管全渠道客服台，替代 Zendesk/Intercom
@@ -179,3 +174,8 @@
 - 2026-11-04 · goodnight000/api-anything · 智能体互享从站点自身请求里学到的接口，免开浏览器
 - 2026-11-04 · opengeos/RustGIS · 纯 Rust 桌面 GIS，千余工具编到 wasm 与 PyPI
 - 2026-11-04 · elliothux/open-compute · 一个二进制把 Workers 平台搬到单机，含 KV/R2/D1/DO
+- 2026-11-05 · RunanywhereAI/runanywhere-sdks · 八个端侧 SDK 收进一个 C++ 核，按组织营收与融资分级授权
+- 2026-11-05 · maziyarpanahi/openmed · 病历本地抽取与去标识化，35 种语言 PII，Apache-2.0
+- 2026-11-05 · syswonder/robonix · 机器人智能体操作系统，自然语言编译成 RTDL 程序跨机型执行
+- 2026-11-05 · selfpatch/ros2_medkit · ROS 2 机器人的诊断 REST 网关，故障带快照与录包
+- 2026-11-05 · FluxVLA/FluxVLA · VLA 工程平台，数据训练评测到真机部署一条线

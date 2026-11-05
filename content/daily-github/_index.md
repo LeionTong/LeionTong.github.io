@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-05-1002.html">
+    <div class="da-card-date">2026-11-05 · 10:02</div>
+    <div class="da-card-title">机器人与端侧模型的收费口挪到部署、运维与合规</div>
+    <div class="da-card-main">RunAnywhere 把八个端侧 SDK 收进一个 C++ 核并按组织规模授权，OpenMed 在本机做病历去标识化，Robonix 用 RTDL 程序驱动异构机身，ros2_medkit 给 ROS 2 机器人开出诊断接口，FluxVLA 把训练到真机部署连成一条线。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-04-1001.html">
     <div class="da-card-date">2026-11-04 · 10:01</div>
     <div class="da-card-title">按量计费的推理、云环境与地理工具正被单机版本替下</div>
