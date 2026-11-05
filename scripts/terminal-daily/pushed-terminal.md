@@ -162,3 +162,10 @@
 - 2026-11-04 · Keralots/TouchDeck · ESP32-S3 触摸屏做 Home Assistant 桌面控制台
 - 2026-11-04 · txp666/FluentHMI-Studio · Qt 6 可视化上位机设计器，拖拽导出免编译应用
 - 2026-11-04 · arterialist/kube32 · ESP32-S3 上的 Kubernetes 兼容控制面与 wasm Pod 运行时
+- 2026-11-05 · wilbowes/EchoMuse · 把 Echo Dot 二代替换成自研 Linux 用户空间，接 HA 当本地语音卫星
+- 2026-11-05 · Syfyivan/douli-esp32 · 微雪 ESP32-S3 语音陪伴端，固件后台安卓桌面四端同仓
+- 2026-11-05 · Kristian8606/esp32-airplay2-surround · ESP32-S3 网关把 Apple TV 环绕声分给八只无线音箱
+- 2026-11-05 · espruino/BangleApps · Bangle.js 手表应用目录与网页加载器，社区表盘分发口径
+- 2026-11-05 · OpenStrap/edge · WHOOP 手环免订阅本地健康客户端，AGPL-3.0
+- 2026-11-05 · TheRobotStudio/SO-ARM100 · LeRobot 生态标准开源桌面机械臂图纸，多家套件商在售
+- 2026-11-05 · Source-Robotics/Faze4-Robotic-arm · 全 3D 打印六轴桌面臂，打印摆线减速箱低背隙

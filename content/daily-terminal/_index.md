@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-05-1036.html">
+    <div class="da-card-date">2026-11-05 · 10:36</div>
+    <div class="da-card-title">废音箱与廉价开发板拼回本地语音，桌面六轴臂按图纸就能复刻</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人三个扇区取材：三套把旧音箱或便宜板子做成语音与音频端点的固件，两套让手表和手环脱离原厂订阅的软件，两套自己打印自己装配的六轴桌面臂。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-04-1032.html">
     <div class="da-card-date">2026-11-04 · 10:32</div>
     <div class="da-card-title">国产廉价屏板有了统一驱动，人形动作复现压进单卡四十分钟</div>
