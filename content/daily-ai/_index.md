@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-05-0922.html">
+    <div class="da-card-date">2026-11-05 · 09:22</div>
+    <div class="da-card-title">编程智能体的上游被重新分配，开源权重与版本控制同时易手</div>
+    <div class="da-card-main">本期收录 Ricursive 的 65B 开源权重模型在终端编程基准登顶、腾讯 Hy4 首次支持电脑操作并开放权重预告、OpenAI 收购 Codex 所用的 Git 工具团队，以及 Anthropic 的推理可验证方案与招商局狮子山的开源具身推理模型。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-04-0936.html">
     <div class="da-card-date">2026-11-04 · 09:36</div>
     <div class="da-card-title">美团把 1.6 万亿参数压到长程智能体编程，Anthropic 用服务端会话线程替 Agent 省掉重复上传</div>
