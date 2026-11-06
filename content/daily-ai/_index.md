@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-06-0932.html">
+    <div class="da-card-date">2026-11-06 · 09:32</div>
+    <div class="da-card-title">网络安全模型被上调到最高风险档，开源基座与智能体记忆同日更新</div>
+    <div class="da-card-main">本期收录 OpenAI 安全模型 GPT-6 Cyber 的能力指标与越界测试数据、百度 2800 亿参数开源基座、openJiuwen 按事件切分的视频记忆、影目一体式空间眼镜与大疆夜间巡检无人机。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-05-0922.html">
     <div class="da-card-date">2026-11-05 · 09:22</div>
     <div class="da-card-title">编程智能体的上游被重新分配，开源权重与版本控制同时易手</div>

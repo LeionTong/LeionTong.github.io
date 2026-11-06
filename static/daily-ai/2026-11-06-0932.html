@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-11-06 第 97 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-06 · 第 97 期</span>
+    </div>
+    <h1>网络安全模型被上调到最高风险档，开源基座与智能体记忆同日更新</h1>
+    <p class="mh-sub">本期收录 OpenAI 安全模型 GPT-6 Cyber 的能力指标与越界测试数据、百度 2800 亿参数开源基座、openJiuwen 按事件切分的视频记忆、影目一体式空间眼镜与大疆夜间巡检无人机。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 模型发布 · 安全研究</span>
+    <h2 class="c-title">OpenAI 发布 GPT-6 Cyber，在自家框架里被定为 Critical 风险级别</h2>
+    <div class="c-tags">
+      <span class="chip b">专项模型</span><span class="chip">ExploitGym</span><span class="chip">权限管控</span><span class="chip">仅审核机构可用</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 5 日，OpenAI 发布专做授权范围内漏洞挖掘与验证的模型 GPT-6 Cyber。ExploitGym 基准得分 <strong>48.5%</strong>，前代 GPT-5.6 Cyber 为 32.1%，相对提升 51%，官方称它在多数安全任务上超过通用旗舰 GPT-6 Astra。范围合规测试里，不设部署提示时对越界目标的回避率为 <strong>99.93%</strong>，加上提示后为 100%，前代是 94.49%。</p>
+      <p>实战数字来自自有研究：模型在 Linux 上产出 <strong>948</strong> 个提权利用程序，并找出 <strong>81</strong> 个 Firefox 此前未知的高危漏洞，Mozilla 已在 MFSA2026-118 公告中发布修复并署名致谢。基于这些结果，OpenAI 在准备框架里把它从 High 上调为 <strong>Critical</strong>，这是该公司给自家模型贴出的最高风险标签。API 定价为每百万输入 token 20 美元、输出 100 美元，仅向通过审核的 Daybreak Red 机构开放，Cisco、Calif、CodeRabbit 已在用。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>漏洞挖掘与补丁生成开始具备批量产出能力，安全研究的人均产出结构会先于其他编程任务改变；把能力做成产品闸门、用准入控制代替等待能力回落，是模型公司处理高风险能力的主要办法。</p>
+      <p>基准与合规数字全部来自内部评测，只有 Firefox 漏洞经过 Mozilla 独立验证；它给出的是「已知漏洞能否自动化复现利用」的能力，零日发现率还没有公开对照。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenAI 官方 https://openai.com/index/introducing-gpt-6-cyber ；财联社 https://www.cls.cn/detail/2526753</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · 开源权重 · 基座模型</span>
+    <h2 class="c-title">百度开源 2800 亿参数基座文心 5.5 Flash Base，激活参数 140 亿</h2>
+    <div class="c-tags">
+      <span class="chip b">开源权重</span><span class="chip">MoE</span><span class="chip">100 万上下文</span><span class="chip">稀疏注意力</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 5 日，百度在 Hugging Face 开放 ERNIE-5.5-Flash-Base 权重。模型为混合专家结构，总参数 <strong>2800 亿</strong>、每 token 激活 <strong>140 亿</strong>，预训练用 <strong>33.5 万亿</strong> token，预训练上下文 128K，微调与推理阶段支持最长 100 万 token。官方称在知识、推理、数学、代码、多语言与长上下文基准上取得同尺寸最好成绩，高于 DeepSeek-V4-Flash-Base、Hy3-preview-Base、MiMo-V2.5-Base。</p>
+      <p>技术报告给出的设计围绕长上下文开销：注意力用低秩门控做信息筛选，门控投影权重减少 75%；专家路由改为多路由器共同打分，压低单一评分偏差；训练目标复用主干最后一层预测后续 token，省掉额外的多 token 预测模块，这一层同时可当投机解码的草稿模型。基座面向二次微调，不做对话对齐。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>开源基座的可选范围从十几家扩到又一家大厂，且给的是可微调的底座，做行业专用模型与智能体后训练的团队多了一条低成本起点；稀疏激活加百万级上下文，意味着推理成本能压到单机可承受的区间。</p>
+      <p>成绩是自报口径，代码与长上下文能力在智能体长程任务里的表现要看第三方复测；基座没有对话对齐，直接当产品用还需一轮后训练。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://qbitai.com/2026/11/507787.html ；权重 https://huggingface.co/baidu/ERNIE-5.5-Flash-Base</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 智能体基础设施 · 记忆</span>
+    <h2 class="c-title">openJiuwen 上线按事件切分的视频记忆，检索时延最高降 97%</h2>
+    <div class="c-tags">
+      <span class="chip b">智能体记忆</span><span class="chip">视听双流</span><span class="chip">三层结构</span><span class="chip">离线建库</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，openJiuwen 在 AgentMemory 0.2.0 版本上线多模态记忆组件 OmniMem-Lens。做法是不再按固定时间窗切分长视频，改为视觉画面切换与 ASR 语音换题两条轨迹交叉定位事件边界，把记忆按事件切、按 L0 原文、L1 索引、L2 目录分层存放，检索时按问题颗粒度取用。</p>
+      <p>官方数据是召回精度最高提升 <strong>45.7%</strong>，在线问答时延最高降低 <strong>97%</strong>。记忆整理放在离线完成，L1 与 L2 单元做了文本化与向量化，可直接接现有向量库，已用 RAG 的工程不需要改链路。团队给出的目标场景是三小时发布会提炼卖点、整天监控视频标记异常。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>长视频一直是智能体上下文最容易断的地方，按秒切片导致的证据碎片化与淹没是两个具体故障，按事件切分从切分源头改掉，比在检索端加排序更靠近成因。</p>
+      <p>提升幅度是自家测试，事件边界判定在无语音、长静镜、多人抢话的素材上会退化多少没有公开数据；分层记忆的存储成本也只字未提。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://qbitai.com/2026/11/507533.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 终端硬件 · 空间计算</span>
+    <h2 class="c-title">影目发布一体式空间眼镜 INMO Future，双目 1080P 与厘米级定位</h2>
+    <div class="c-tags">
+      <span class="chip b">AI 眼镜</span><span class="chip">一体式</span><span class="chip">6DoF</span><span class="chip">6999 元</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，影目科技发布第四代 AI+AR 眼镜 INMO Future。整机不接手机与外接主机，核心为高通骁龙空间处理芯片，双眼各 1080P 全彩，阵列光波导支持双目异显，视场角 36 度，入眼亮度最高 800 尼特、较上代提升 33%。空间感知靠 SLAM、六自由度追踪与在线回环优化，做到厘米级定位与度级姿态，3 秒完成多平面检测，地图可持久锚定内容。系统是基于 Android 14 改的空间 AIOS，可离线跑安卓应用。</p>
+      <p>价格按阶梯公布：标准价 6999 元，发布价 5999 元，现场到手 5499 元，老用户 4999 元；同日还发了一副 1199 元的 Magic AI Glasses 太阳镜款。发布会引用沙利文白皮书，称影目 2021 至 2025 年在中国一体式 AI+AR 眼镜累计出货量居首、份额 37.8%，并在南京西路开出首家品牌旗舰店。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把空间计算塞进眼镜本体、去掉随身主机，是这类终端走向日常佩戴的必要条件，6DoF 加持久地图让内容能留在真实位置，指向的是空间应用而非信息提示。</p>
+      <p>36 度视场角与 800 尼特仍限制户外与长时间使用，续航、重量与散热均未公布；出货份额来自厂商赞助的白皮书，需要独立口径核对。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>新浪财经 https://finance.sina.com.cn/wm/2026-11-04/doc-inixqnsx0092792.shtml ；东方财富 https://finance.eastmoney.com/a/202611043922324978.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 具身硬件 · 无人机</span>
+    <h2 class="c-title">大疆发布 Matrice 5T，激光雷达与毫米波雷达同时上机做夜间避障</h2>
+    <div class="c-tags">
+      <span class="chip b">行业无人机</span><span class="chip">机载算力开放</span><span class="chip">IP55</span><span class="chip">59 分钟续航</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 5 日，大疆发布紧凑型行业旗舰无人机 Matrice 5T。首次在紧凑机型上同时集成激光雷达、毫米波雷达与全向视觉，夜间可识别 32 米外的电线一类细障碍，毫米波在雾、雨、扬尘中补盲，全向低光感知在 0.5 lux 下维持视觉定位。机身 IP55 防护，续航 59 分钟，工作温度负 20 至 50 摄氏度。</p>
+      <p>载荷为原生 1K 分辨率红外热像，像素数是常规 640 乘 512 的四倍，超分辨率模式到 2560 乘 2048；另有 5000 万像素中长焦与 11 倍光学变焦夜视长焦，可读取 400 米外车牌。机载 AI 并行分析热成像与可见光，识别 20 类以上目标，支持文字与图片提示检索目标、按圈选区域自动生成巡检航线；机载算力对外开放，可装第三方模型。图传 40 公里，支持多跳中继。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>多传感器融合把夜间与弱 GNSS 环境下的可用性往前推了一档，机载算力开放给第三方模型，意味着行业客户能自带识别算法而不必等厂商更新；这是巡检、应急这类场景能扩大班次的前提。</p>
+      <p>价格与能耗未公布，激光雷达在雨雾中的实际衰减、第三方模型上机的算力上限都还缺数据；40 公里图传属理想条件。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>大疆官方 https://www.dji.com/cn/media-center/announcements/dji-release-matrice-5t</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>GPT-6 Cyber 开放范围扩大后的准入审核标准，以及零日漏洞发现率有没有第三方复测。</li>
+      <li>文心 5.5 Flash Base 的许可证条款，百万级上下文在真实仓库里的有效长度。</li>
+      <li>OmniMem-Lens 在无语音、长静镜素材上的事件切分精度与存储开销。</li>
+      <li>INMO Future 的重量、续航与散热数据，空间应用的实际可玩时长。</li>
+      <li>Matrice 5T 的售价与第三方模型上机的算力配额。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-06 09:32 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>
