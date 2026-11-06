@@ -105,3 +105,8 @@
 - 2026-11-05 · OpenAI 收购 Pierre · Trees/Diffs/Code Storage 并入 Codex，版本控制层被垂直整合，待监管批准
 - 2026-11-05 · Anthropic FlashProve · zkSNARK 推理证明每 H100 110 token/秒、19MB/1024 token，开销 70-95 倍，Lean 证明开源
 - 2026-11-05 · 招商局狮子山 Lion-ER-35B-A3B · 35B 具身推理 MoE 激活 3B，十项基准均分开源权重
+- 2026-11-06 · OpenAI GPT-6 Cyber · 准备框架定级 Critical，ExploitGym 48.5%、948 个 Linux 提权利用、81 个 Firefox 高危漏洞已修
+- 2026-11-06 · 百度文心 5.5 Flash Base 开源 · 2800 亿 MoE 激活 140 亿，33.5 万亿 token，百万上下文
+- 2026-11-06 · openJiuwen OmniMem-Lens · 视听双流按事件切分视频记忆，召回 +45.7%、时延 -97%
+- 2026-11-06 · 影目 INMO Future 空间眼镜 · 一体式骁龙空间芯片，双目 1080P 36 度，6999 元
+- 2026-11-06 · 大疆 Matrice 5T · 激光雷达加毫米波夜间避障，1K 热像，机载算力开放
