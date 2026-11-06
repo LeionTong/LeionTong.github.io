@@ -1,9 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-06 · volcengine/OpenViking · Agent 上下文数据库，viking:// 虚拟文件系统统一记忆/资源/技能
-- 2026-09-06 · Tencent/AI-Infra-Guard · 腾讯朱雀实验室 AI 红队平台，Agent/MCP/Skills 全扫描
-- 2026-09-06 · abhinavxd/libredesk · 单二进制自托管全渠道客服台，替代 Zendesk/Intercom
-- 2026-09-06 · Jwuthri/Tracely-ai · 生产失败 trace 自动冻结为回归用例并在 PR 拦截
-- 2026-09-06 · tastyeffectco/sandboxd · 自托管 AI 应用构建引擎，替代 Lovable/v0/Bolt
 - 2026-09-08 · jo-inc/camofox-browser · C++ 层反检测浏览器服务器，专为 AI Agent 提供 REST API
 - 2026-09-08 · TencentCloud/TencentDB-Agent-Memory · 团队级 Agent 记忆中心，Proxy 接管 base URL 零代码接入
 - 2026-09-08 · Vexa-ai/vexa · 派 bot 进 Meet/Teams/Zoom 的实时转录与会议知识库
@@ -179,3 +174,8 @@
 - 2026-11-05 · syswonder/robonix · 机器人智能体操作系统，自然语言编译成 RTDL 程序跨机型执行
 - 2026-11-05 · selfpatch/ros2_medkit · ROS 2 机器人的诊断 REST 网关，故障带快照与录包
 - 2026-11-05 · FluxVLA/FluxVLA · VLA 工程平台，数据训练评测到真机部署一条线
+- 2026-11-06 · NVIDIA/auto-ontology · 从企业元数据生成智能体可查的语义层，收费落在 NIM 推理容量
+- 2026-11-06 · wangzan101/Mika · 安卓后台屏执行型智能体，APK 无服务端、模型 key 自备
+- 2026-11-06 · YOLOW92/pagesift · 自托管 Rust 抓取与文档解析，兼容 Firecrawl 接口并另售商业授权
+- 2026-11-06 · sahenjp/RustXNG · Rust 自托管元搜索，JSON 与 MCP 给智能体供结果与正文
+- 2026-11-06 · hugues31/duckpad · DuckDB 上的可视化 SQL 工作台，保存即 Git 提交、结果可溯源
