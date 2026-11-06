@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-06-1008.html">
+    <div class="da-card-date">2026-11-06 · 10:08</div>
+    <div class="da-card-title">智能体落地要付的钱散在语义、检索、抓取与手机执行上</div>
+    <div class="da-card-main">NVIDIA Auto Ontology 从企业元数据生成智能体可查的语义层，Mika 在安卓独立后台屏上替人点应用，PageSift 用一个 Rust 二进制把网页与文档转成干净 Markdown 并保留商业授权，RustXNG 自托管搜索，Duckpad 在 DuckDB 上把 SQL 管道可视化。五件都落在按量或按席位付费的那一段。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-05-1002.html">
     <div class="da-card-date">2026-11-05 · 10:02</div>
     <div class="da-card-title">机器人与端侧模型的收费口挪到部署、运维与合规</div>
