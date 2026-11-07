@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION &middot; DAILY AI &mdash; 2026-09-25 第 78 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION &middot; DAILY AI</b></span>
+      <span>2026-09-25 &middot; 第 78 期</span>
+    </div>
+    <h1>Meta 把 Agent 铺进眼镜，JetBrains 把 coding agent 升级为组织级系统</h1>
+    <p class="mh-sub">本期收录 Meta Connect 的首款纯音频 AI 眼镜与 Muse 上镜、JetBrains Air 三件套开放系统、国际机器人联合会《2026 世界机器人报告》的工业安装量数据，以及世界技能大赛开幕式的人形机器人实时群舞。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> &middot; 终端智能 / AI Agent</span>
+    <h2 class="c-title">Meta Connect 发布首款纯音频 AI 眼镜，Muse 落地眼镜与随身硬件</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span>
+      <span class="chip b">AI Agent</span>
+      <span class="chip">智能眼镜</span>
+      <span class="chip">随身硬件</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>9 月 23-24 日的 Meta Connect 上，Zuckerberg 以「个人超级智能」Muse 为中心发布新款 AI 硬件：首款<strong>纯音频眼镜 Ray-Ban Meta Audio</strong>（Clubmaster、Burbank 两款，约 43 克、<strong>12 小时</strong>续航，起价 <strong>349 美元</strong>，10 月 13 日发货）；带摄像头的 <strong>Ray-Ban Meta Gen 3</strong>（起价 449 美元，六麦克风阵列、自定义动作键、9 小时续航）；<strong>Meta VR Glasses</strong>（1,299 美元，2027 年春，约 100 克分体设计、5K 微 OLED，可连 Mac/Windows 作虚拟外接屏）；钥匙扣形态的 <strong>Muse Charm</strong>；以及起价 249 美元的 Meta Adventurer 低价款。</p>
+      <p>软件侧，Muse 未来数月上线 AI 眼镜：喊名字即可免提唤醒，并可<strong>对眼前事物即问即答、直接采取行动</strong>；Mac 端开放 computer use，获授权后可代操作任意应用；Muse 获得专属邮箱地址，并新增 Walmart、Best Buy、Sephora、GitHub、Box 等连接器。官方称到年底全系 AI 眼镜将超过 100 款，并面向新加坡、韩国、墨西哥等新市场铺开。Meta 还推出 FDA 获批的听力增强软件功能（149.99 美元或 Meta One 订阅）。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这把 Agent 从手机与桌面扩展到随身硬件：眼镜的免提唤醒与「对眼前事物采取行动」让 Agent 第一次能直接感知用户视野并据此执行，是比语音助手更贴近终端智能的交互形态。纯音频眼镜去掉了摄像头，既是对隐私质疑的回应，也把语音 Agent 的价格与门槛同时拉低，更像规模铺量而非旗舰演示。对做 Agent 应用与终端的团队，带屏、纯音频眼镜与 VR 眼镜构成了一条新的硬件分流，交互与权限模型也随之分化。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Meta 官方博客 https://www.meta.com/blog/meta-connect-2026-everything-we-announced ；The Verge https://www.theverge.com/tech/999593/meta-connect-2026-everything-announced</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> &middot; AI coding / AI Agent</span>
+    <h2 class="c-title">JetBrains 发布 agentic 开发开放系统 Air，覆盖 IDE、团队与组织治理</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span>
+      <span class="chip b">AI Agent</span>
+      <span class="chip">开发者工具</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>9 月 22 日，JetBrains 发布 <strong>JetBrains Air</strong>，一个横跨 IDE、团队交付与组织治理的开放系统，其 Junie 编码 agent 覆盖所有 Air 表面。系统含三件产品：<strong>Air</strong>（IDE 内编排与核验 agent 的开发体验，可同时开多个项目会话、直接对 diff 行内留言）；<strong>Air Teams</strong>（协调开发者与自主 agent 的软件交付工作流，共享云端环境、把代码审查等重复任务委托给 agent，MCP 连接一次全员共享）；<strong>Air Governance</strong>（原 JetBrains Central，负责企业策略、可见性、审计、成本管理与问责），另有 Air Context 语义索引与 Air Gateway 终端接入。</p>
+      <p>Air 可与 Claude Agent、Codex、Copilot、OpenCode 及任何走 Agent Client Protocol 的 agent 配合，横跨 IDE、Web、CLI 与移动端；模型可用自带订阅/密钥，也可走 JetBrains AI 按公开 API 价计费。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>老牌 IDE 厂商把 agent 化开发从「个人 IDE 助手」升级为「团队与组织级治理」三件套，说明 coding agent 正进入企业工程流程的制度化阶段——当生成不再是瓶颈，核验、归属、审计与成本分层就成为新的产品卖点。这也是 JetBrains 对 Cursor/Codex 一类挑战的回应：不拼单一端点，而是把整条 agent 交付链路做成可治理的平台。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>JetBrains 官方博客 https://blog.jetbrains.com/blog/2026/09/22/introducing-jetbrains-air/ ；InfoWorld https://www.infoworld.com/article/4225681/jetbrains-unveils-jetbrains-air-for-agentic-software-development.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> &middot; 具身智能 / 产业数据</span>
+    <h2 class="c-title">国际机器人联合会发布《2026 世界机器人报告》，物理 AI 被列为产业新方向</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">物理 AI</span>
+      <span class="chip">产业数据</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>9 月 24 日，位于法兰克福的国际机器人联合会发布<strong>《2026 世界机器人报告》</strong>：2025 年中国保持全球最大工业机器人市场，工业机器人安装量达 <strong>35.4 万台</strong>，约占全球总安装量的 <strong>59%</strong>，创历史新高。IFR 秘书长在专访中称，机器人正成为人工智能进入真实生产环境的重要载体，<strong>「物理人工智能」有望成为推动机器人产业下一步发展的重要方向</strong>；中国产业正从规模扩张转向技术创新、场景拓展与解决方案提升。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>工业机器人作为 AI 承载体的安装量与行业扩散度，是判断「物理 AI / 具身智能能否规模化落地」的先行指标——真实生产环境决定数据闭环与场景从哪来。IFR 把「物理 AI」点名为产业方向，与具身、终端智能当前的技术竞争点一致：谁能先在真实环境里持续运转并拿到数据，谁才谈得上从演示走向量产。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>新华社 https://app.xinhuanet.com/news/article.html?articleId=202609253d77c05bd0e24354a7b67e33d12d31f2</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> &middot; 具身智能 / 多机协同</span>
+    <h2 class="c-title">世界技能大赛上海开幕，近 20 台人形机器人与舞者实时同台</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">多机协同</span>
+      <span class="chip">实时演出</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>9 月 22 日，第 48 届世界技能大赛在上海开幕。据宇树与多家媒体报道，<strong>19 台宇树人形机器人与 120 名舞者</strong>同台实时演出，另有宇树 H2、智元 A3 等机型参与，现场全程直播；机器人身着发光服装与面具，动作编排与人类舞者无缝衔接。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>20 台量级的人形机器人在直播场景下实时群舞，考验的是多机协同与外部干扰下的稳定调度，而非单机动作演示——这与此前世界人形机器人运动会上多机参赛暴露出的协调问题形成对照，规模化群体协调是人形机器人从「单台可用」走向「成建制定点」的工程分水岭。需要留意的是，这类表演主要证明编排与稳定性，与开放环境真实任务的泛化能力是两个不同量级的问题。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>CGTN https://news.cgtn.com/news/2026-09-23/Unitree-humanoid-robots-steal-the-show-at-48th-WorldSkills-Competition-1QG9trL5ESA/p.html ；SCMP（机器人参与开幕演出报道）</p>
+    </div>
+  </article>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>&middot; 2026-09-25 10:00 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

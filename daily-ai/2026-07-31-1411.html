@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-07-31 14:11 · 试金石</title>
+<style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --obsidian:#08090B;
+  --slate:#101216;
+  --slate2:#171A20;
+  --slate3:#1E222A;
+  --line:#2B303A;
+  --line-soft:#22262E;
+  --gold:#D4A73C;
+  --gold-deep:#8E6F22;
+  --silver:#C4CAD3;
+  --bronze:#B27A44;
+  --iron:#78899A;
+  --platinum:#9FD3C4;
+  --text:#E8E5DE;
+  --text-2:#B9BCC2;
+  --muted:#7C818A;
+  --muted-2:#5C616A;
+}
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body {
+  background:#eeeeee;
+  color:#6d6c68;
+  font-family:"Noto Sans SC","Helvetica Neue",sans-serif;
+  font-weight:400;
+  line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  padding:0 20px 90px;
+  position:relative;
+  overflow-x:hidden;
+}
+body::before {
+  content:"";
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after {
+  content:"";
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:#ffffff;
+}
+.sheet {
+  max-width:880px;
+  margin:0 auto;
+  position:relative;
+  z-index:1;
+}
+.masthead {
+  padding:74px 0 30px;
+  border-bottom:1px solid #2B303A;
+  position:relative;
+}
+.kicker {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:#907229;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:26px;
+}
+.kicker::after {
+  content:"";
+  flex:1;
+  height:1px;
+  background:#f5f5f5;
+}
+h1.title {
+  font-family:"Bodoni Moda",serif;
+  font-weight:900;
+  font-size:clamp(46px,8.4vw,86px);
+  line-height:1.85;
+  letter-spacing:-.018em;
+  color:#767571;
+  margin-bottom:6px;
+}
+h1.title em {
+  font-style:italic;
+  font-weight:700;
+  color:#907229;
+}
+.title-cn {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:600;
+  font-size:clamp(15px,2.3vw,19px);
+  letter-spacing:.24em;
+  color:#75767a;
+  margin-top:20px;
+}
+.dateline {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 28px;
+  margin-top:30px;
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.13em;
+  color:#72777f;
+  text-transform:uppercase;
+}
+.dateline span b {
+  color:#72757a;
+  font-weight:400;
+}
+.seal {
+  position:absolute;
+  top:56px;
+  right:2px;
+  width:104px;
+  height:104px;
+}
+.lede {
+  margin:52px 0 0;
+  padding:38px 40px 40px;
+  background:#eeeeee;
+  border:1px solid #2B303A;
+  border-left:3px solid #D4A73C;
+  position:relative;
+}
+.lede-head {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#907229;
+  margin-bottom:8px;
+}
+.lede-head-cn {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:26px;
+  letter-spacing:.1em;
+  color:#94938e;
+  margin-bottom:24px;
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+}
+.lede-head-cn small {
+  font-family:"Bodoni Moda",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:15px;
+  letter-spacing:.04em;
+  color:#72777f;
+}
+.lede p {
+  font-size:15.5px;
+  line-height:1.95;
+  color:#75767a;
+  margin-bottom:15px;
+}
+.lede p:last-child {
+  margin-bottom:0;
+}
+.lede strong {
+  color:#907229;
+  font-weight:500;
+}
+.lede .punch {
+  margin-top:26px;
+  padding-top:22px;
+  border-top:1px dashed #2B303A;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:600;
+  font-size:18px;
+  line-height:1.7;
+  color:#767571;
+  letter-spacing:.02em;
+}
+.lede .punch b {
+  color:#907229;
+  font-weight:900;
+}
+.assay-plate {
+  margin:46px 0 0;
+  padding:30px 26px 22px;
+  background:#eeeeee;
+  border:1px solid #22262E;
+}
+.plate-cap {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#5C616A;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid #22262E;
+}
+.plate-cap b {
+  color:#72757a;
+  font-weight:400;
+  letter-spacing:.16em;
+}
+.assay-plate svg {
+  width:100%;
+  height:auto;
+  display:block;
+}
+.plate-note {
+  margin-top:14px;
+  padding-top:13px;
+  border-top:1px solid #22262E;
+  font-size:13px;
+  line-height:1.8;
+  color:#72777f;
+}
+.plate-note b {
+  color:#907229;
+  font-weight:400;
+}
+.streak {
+  stroke-dasharray:220;
+  stroke-dashoffset:220;
+}
+.signals {
+  margin-top:64px;
+}
+.sec-label {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:#5C616A;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:34px;
+}
+.sec-label::after {
+  content:"";
+  flex:1;
+  height:1px;
+  background:#efefef;
+}
+article.card {
+  background:#eeeeee;
+  border:1px solid #22262E;
+  margin-bottom:26px;
+  position:relative;
+}
+article.card:hover {
+  border-color:var(--ac);
+}
+article.card::before {
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:var(--ac);
+}
+.assay-tag {
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:0 18px;
+  align-items:center;
+  padding:15px 30px;
+  background:#eeeeee;
+  border-bottom:1px solid #22262E;
+}
+.tag-no {
+  font-family:"Bodoni Moda",serif;
+  font-weight:900;
+  font-size:30px;
+  line-height:1.85;
+  color:var(--ac);
+  letter-spacing:-.02em;
+}
+.tag-mid {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:#72777f;
+  line-height:1.9;
+}
+.tag-mid b {
+  color:var(--ac);
+  font-weight:400;
+}
+.tag-grade {
+  text-align:right;
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5C616A;
+  line-height:1.85;
+  white-space:nowrap;
+}
+.tag-grade b {
+  display:block;
+  color:#72757a;
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:.2em;
+}
+.card-body {
+  padding:30px 34px 32px;
+}
+h2.sig-title {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:clamp(19px,2.9vw,25px);
+  line-height:1.85;
+  letter-spacing:.005em;
+  color:#767571;
+  margin-bottom:8px;
+}
+.sig-sub {
+  font-family:"Bodoni Moda",serif;
+  font-style:italic;
+  font-weight:400;
+  font-size:14px;
+  color:#72777f;
+  letter-spacing:.02em;
+  margin-bottom:26px;
+  padding-bottom:20px;
+  border-bottom:1px solid #22262E;
+}
+.block {
+  margin-bottom:24px;
+}
+.block:last-child {
+  margin-bottom:0;
+}
+.block-h {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--ac);
+  margin-bottom:11px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.block-h::before {
+  content:"";
+  width:11px;
+  height:1px;
+  background:var(--ac);
+}
+.block p {
+  font-size:14.5px;
+  line-height:1.95;
+  color:#75767a;
+}
+.block p + p {
+  margin-top:12px;
+}
+.block strong {
+  color:#767571;
+  font-weight:500;
+}
+.block em {
+  font-style:normal;
+  color:var(--ac);
+  font-weight:400;
+}
+ul.facts {
+  list-style:none;
+  margin-top:6px;
+}
+ul.facts li {
+  position:relative;
+  padding-left:22px;
+  font-size:14px;
+  line-height:1.9;
+  color:#75767a;
+  margin-bottom:11px;
+}
+ul.facts li::before {
+  content:"";
+  position:absolute;
+  left:2px;
+  top:12px;
+  width:7px;
+  height:1px;
+  background:var(--ac);
+}
+ul.facts li strong {
+  color:#767571;
+  font-weight:500;
+}
+ul.facts code {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  color:#8c6e28;
+  background:#fcf8ef;
+  padding:1px 5px;
+  border-radius:2px;
+}
+.quote-line {
+  margin:16px 0 4px;
+  padding:15px 20px;
+  background:#efefef;
+  border-left:2px solid var(--ac);
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:14px;
+  line-height:1.85;
+  color:#6d6c68;
+}
+.metric-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:1px;
+  margin:18px 0 4px;
+  background:#efefef;
+  border:1px solid #22262E;
+}
+.metric {
+  flex:1 1 116px;
+  background:#eeeeee;
+  padding:13px 15px;
+}
+.metric .m-v {
+  font-family:"Bodoni Moda",serif;
+  font-weight:700;
+  font-size:23px;
+  line-height:1.85;
+  color:var(--ac);
+  letter-spacing:-.01em;
+}
+.metric .m-l {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#5C616A;
+  margin-top:6px;
+  line-height:1.85;
+}
+.caveat {
+  margin-top:24px;
+  padding:15px 19px;
+  background:#f7f8f9;
+  border:1px dashed #2B303A;
+  font-size:13px;
+  line-height:1.85;
+  color:#6d7279;
+}
+.caveat b {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#687786;
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+}
+.caveat strong {
+  color:#75767a;
+  font-weight:500;
+}
+.thread {
+  margin-top:66px;
+  padding:34px 34px 30px;
+  background:#eeeeee;
+  border:1px solid #22262E;
+}
+.thread h3 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:20px;
+  letter-spacing:.08em;
+  margin-bottom:5px;
+  color:#94938e;
+}
+.thread .sub {
+  font-family:"Bodoni Moda",serif;
+  font-style:italic;
+  font-size:13px;
+  color:#72777f;
+  margin-bottom:24px;
+}
+.chain {
+  display:flex;
+  flex-direction:column;
+}
+.chain-row {
+  display:grid;
+  grid-template-columns:88px 1fr;
+  gap:16px;
+  padding:9px 0;
+  border-bottom:1px solid #22262E;
+  align-items:baseline;
+}
+.chain-row:last-child {
+  border-bottom:none;
+}
+.chain-row .d {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:#5C616A;
+}
+.chain-row .t {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:14px;
+  color:#75767a;
+}
+.chain-row.now {
+  background:#fbf7ed;
+}
+.chain-row.now .d {
+  color:#907229;
+}
+.chain-row.now .t {
+  color:#907229;
+  font-weight:600;
+}
+.method {
+  margin-top:26px;
+  padding:32px 34px;
+  border:1px solid #22262E;
+  background:#eeeeee;
+}
+.method h3 {
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#687786;
+  margin-bottom:20px;
+}
+.method dl {
+  display:grid;
+  gap:15px;
+}
+.method dt {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:600;
+  font-size:13.5px;
+  color:#72757a;
+  margin-bottom:3px;
+}
+.method dd {
+  font-size:13px;
+  line-height:1.85;
+  color:#72777f;
+}
+.method dd em {
+  font-style:normal;
+  color:#75767a;
+}
+footer {
+  margin-top:56px;
+  padding-top:26px;
+  border-top:1px solid #2B303A;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+  font-family:"Martian Mono",monospace;
+  font-size:13px;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:#5C616A;
+}
+@media(max-width:640px) {body {
+  padding:0 14px 60px;
+}
+.masthead {
+  padding-top:52px;
+}
+.seal {
+  width:72px;
+  height:72px;
+  top:38px;
+}
+.lede {
+  padding:28px 22px 30px;
+}
+.card-body {
+  padding:24px 21px 26px;
+}
+.assay-tag {
+  padding:13px 20px;
+  grid-template-columns:auto 1fr;
+}
+.tag-grade {
+  grid-column:1/-1;
+  text-align:left;
+  margin-top:8px;
+}
+.thread,.method,.assay-plate {
+  padding-left:20px;
+  padding-right:20px;
+}
+.chain-row {
+  grid-template-columns:72px 1fr;
+  gap:10px;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- ══════════ 页首 ══════════ -->
+  <header class="masthead">
+    
+    <h1 class="title">The<br><em>Assay</em> Room</h1>
+    <div class="title-cn">试 金 石 · AI 领域每日动态</div>
+    <div class="dateline">
+      <span>日期 <b>2026-07-31</b></span>
+      <span>时刻 <b>14:11 GMT+8</b></span>
+      <span>本日班次 <b>第 2 班 / 午后</b></span>
+      <span>信号 <b>5 条</b></span>
+      <span>侧重 <b>Agent · 端侧 · 具身</b></span>
+    </div>
+
+    <svg class="seal" viewbox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="60" cy="60" r="55" stroke="#D4A73C" stroke-width="2.5"/>
+      <circle cx="60" cy="60" r="47" stroke="#D4A73C" stroke-width="1"/>
+      <text x="60" y="52" text-anchor="middle" fill="#D4A73C" font-family="Noto Serif SC,serif" font-size="27" font-weight="900">验讫</text>
+      <text x="60" y="72" text-anchor="middle" fill="#D4A73C" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing="1.6">ASSAYED</text>
+      <line x1="30" y1="59" x2="44" y2="59" stroke="#D4A73C" stroke-width="1"/>
+      <line x1="76" y1="59" x2="90" y2="59" stroke="#D4A73C" stroke-width="1"/>
+      <text x="60" y="90" text-anchor="middle" fill="#D4A73C" font-family="Martian Mono,monospace" font-size="7" letter-spacing="1">07·31</text>
+    </svg>
+  </header>
+
+  <!-- ══════════ 主线 ══════════ -->
+  <section class="lede">
+    <div class="lede-head">Today’s Main Line · The Through-Line</div>
+    <div class="lede-head-cn">今日主线 <small>The Assay — who gets to call it right</small></div>
+
+    <p><strong>核心难题没变：谁来判定它做对了。</strong></p>
+
+    <p>早班的主线是「成本曲线现身」——智能开始被问划不划算。午后这五条把问题推进了一层：成本可以自己压，<strong>正确性不能自己认定</strong>。千问把「换一个 harness 还稳不稳」写进发布稿，判定权交给外部框架；小米把编排从自然语言换成沙箱里的代码、把记忆从主 Agent 手里拿走交给独立 writer、再派一个不干活的验证者去判断「做完没有」，判定权从模型自觉换成确定性工程；宇树的判定权落在 FCC 的认证清单上，存量豁免、增量受审；WAIC 的判定权换成了产线节拍——99% 识别率、单颗螺钉 10 秒；晶泰干脆把判定权交给自动化实验室，一个不能被说服、只能被实验反驳的物理裁判。</p>
+
+    <div class="punch">一句话：<b>智能体正在集体交出自我评判权。</b>凡是「自己给自己打分」的环节，今天都在被替换成一个外部的、确定性的、不讲情面的裁判。</div>
+  </section>
+
+  <!-- ══════════ 试金石划痕图 ══════════ -->
+  <section class="assay-plate">
+    <div class="plate-cap">
+      <span>Streak Test · 划痕比对</span>
+      <span><b>纵轴 ↓ 判定权由内向外移交</b></span>
+    </div>
+
+    <svg viewbox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="试金石划痕比对图：信号按判定者归属排列">
+      <defs>
+        <filter id="grain">
+          <feturbulence type="fractalNoise" basefrequency="0.9" numoctaves="3"/>
+          <fecolormatrix type="saturate" values="0"/>
+        </filter>
+        <lineargradient id="slab" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1C2028"/>
+          <stop offset="100%" stop-color="#111318"/>
+        </lineargradient>
+      </defs>
+
+      <!-- 石板 -->
+      <rect x="14" y="42" width="852" height="212" rx="3" fill="url(#slab)" stroke="#2B303A" stroke-width="1" class="fade-el"/>
+      <rect x="14" y="42" width="852" height="212" rx="3" filter="url(#grain)" class="fade-el"/>
+
+      <!-- 顶部刻度线 -->
+      <line x1="14" y1="70" x2="866" y2="70" stroke="#2B303A" stroke-width="1" stroke-dasharray="2 5" class="fade-el"/>
+      <line x1="14" y1="226" x2="866" y2="226" stroke="#2B303A" stroke-width="1" stroke-dasharray="2 5" class="fade-el"/>
+
+      <text x="24" y="34" fill="#5C616A" font-family="Martian Mono,monospace" font-size="9" letter-spacing="2">SELF-CERTIFIED  自证</text>
+      <text x="24" y="278" fill="#D4A73C" font-family="Martian Mono,monospace" font-size="9" letter-spacing="2">EXTERNALLY  ADJUDICATED  他证</text>
+
+      <!-- 参照划痕 -->
+      <g class="fade-el">
+        <line x1="72" y1="78" x2="72" y2="218" stroke="#3A4049" stroke-width="7" stroke-linecap="round"/>
+        <text x="72" y="304" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="8" letter-spacing="1">标准样</text>
+        <text x="72" y="316" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7" letter-spacing="1">REF</text>
+      </g>
+      <line x1="112" y1="52" x2="112" y2="244" stroke="#2B303A" stroke-width="1" class="fade-el"/>
+
+      <!-- 五道划痕 -->
+      <!-- 01 金 · Agent 模型 -->
+      <g>
+        <line class="streak" x1="212" y1="78" x2="212" y2="200" stroke="#D4A73C" stroke-width="9" stroke-linecap="round"/>
+        <circle class="dot-pop" cx="212" cy="200" r="5.5" fill="#D4A73C"/>
+        <text x="212" y="64" text-anchor="middle" fill="#D4A73C" font-family="Bodoni Moda,serif" font-size="17" font-weight="900" class="fade-el">01</text>
+        <text x="212" y="294" text-anchor="middle" fill="#B9BCC2" font-family="Noto Sans SC,sans-serif" font-size="11" class="fade-el">外部 harness</text>
+        <text x="212" y="311" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing=".8" class="fade-el">QWEN3.7-PLUS</text>
+      </g>
+
+      <!-- 02 银 · 工程 -->
+      <g>
+        <line class="streak" x1="342" y1="78" x2="342" y2="216" stroke="#C4CAD3" stroke-width="9" stroke-linecap="round"/>
+        <circle class="dot-pop" cx="342" cy="216" r="5.5" fill="#C4CAD3"/>
+        <text x="342" y="64" text-anchor="middle" fill="#C4CAD3" font-family="Bodoni Moda,serif" font-size="17" font-weight="900" class="fade-el">02</text>
+        <text x="342" y="294" text-anchor="middle" fill="#B9BCC2" font-family="Noto Sans SC,sans-serif" font-size="11" class="fade-el">沙箱 · 独立验证者</text>
+        <text x="342" y="311" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing=".8" class="fade-el">MIMO CODE</text>
+      </g>
+
+      <!-- 03 青铜 · 地缘 -->
+      <g>
+        <line class="streak" x1="472" y1="78" x2="472" y2="210" stroke="#B27A44" stroke-width="9" stroke-linecap="round"/>
+        <circle class="dot-pop" cx="472" cy="210" r="5.5" fill="#B27A44"/>
+        <text x="472" y="64" text-anchor="middle" fill="#B27A44" font-family="Bodoni Moda,serif" font-size="17" font-weight="900" class="fade-el">03</text>
+        <text x="472" y="294" text-anchor="middle" fill="#B9BCC2" font-family="Noto Sans SC,sans-serif" font-size="11" class="fade-el">FCC 认证清单</text>
+        <text x="472" y="311" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing=".8" class="fade-el">UNITREE / IPO</text>
+      </g>
+
+      <!-- 04 铁 · 产线 -->
+      <g>
+        <line class="streak" x1="602" y1="78" x2="602" y2="206" stroke="#78899A" stroke-width="9" stroke-linecap="round"/>
+        <circle class="dot-pop" cx="602" cy="206" r="5.5" fill="#78899A"/>
+        <text x="602" y="64" text-anchor="middle" fill="#78899A" font-family="Bodoni Moda,serif" font-size="17" font-weight="900" class="fade-el">04</text>
+        <text x="602" y="294" text-anchor="middle" fill="#B9BCC2" font-family="Noto Sans SC,sans-serif" font-size="11" class="fade-el">产线节拍 · 良品率</text>
+        <text x="602" y="311" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing=".8" class="fade-el">WAIC 2026</text>
+      </g>
+
+      <!-- 05 铂 · 物理实验 -->
+      <g>
+        <line class="streak" x1="732" y1="78" x2="732" y2="222" stroke="#9FD3C4" stroke-width="9" stroke-linecap="round"/>
+        <circle class="dot-pop" cx="732" cy="222" r="5.5" fill="#9FD3C4"/>
+        <text x="732" y="64" text-anchor="middle" fill="#9FD3C4" font-family="Bodoni Moda,serif" font-size="17" font-weight="900" class="fade-el">05</text>
+        <text x="732" y="294" text-anchor="middle" fill="#B9BCC2" font-family="Noto Sans SC,sans-serif" font-size="11" class="fade-el">自动化物理实验</text>
+        <text x="732" y="311" text-anchor="middle" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing=".8" class="fade-el">XTALPI SCIENCE</text>
+      </g>
+
+      <!-- 右侧刻度提示 -->
+      <text x="852" y="82" text-anchor="end" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing="1" class="fade-el">起点：模型宣称</text>
+      <text x="852" y="222" text-anchor="end" fill="#5C616A" font-family="Martian Mono,monospace" font-size="7.5" letter-spacing="1" class="fade-el">落点：外部裁定</text>
+    </svg>
+
+    <div class="plate-note">
+      读法：每道划痕代表这几条，<b>划得越深，说明判定权移交得越彻底</b>。落点越靠下，评判者离厂商本身越远——从「我说我行」，到框架说、审批清单说、秒表说，最后到实验说。左侧灰色为参照样，即完全自证状态。
+    </div>
+  </section>
+
+  <!-- ══════════ 信号 ══════════ -->
+  <section class="signals">
+    <div class="sec-label">Five Streaks · 五条送检信号</div>
+
+    <!-- ── 01 ── -->
+    <article class="card" style="--ac:#D4A73C">
+      <div class="assay-tag">
+        <div class="tag-no">01</div>
+        <div class="tag-mid">类别 <b>AI AGENT · 模型基座</b><br>判定者 <b>外部 harness</b></div>
+        <div class="tag-grade">信源层级<b>一级 · 官方</b>厂商自述成分 中</div>
+      </div>
+      <div class="card-body">
+        <h2 class="sig-title">千问发布 Qwen3.7-Plus：把「跨框架还稳不稳」写进发布稿</h2>
+        <div class="sig-sub">When the benchmark moves from the model to the harness around it.</div>
+
+        <div class="block">
+          <div class="block-h">事件</div>
+          <p>7 月 31 日，阿里千问大模型正式发布 <strong>Qwen3.7-Plus</strong>，官方定位为「将视觉与语言统一为一体化智能体基座」的多模态模型。它在 Qwen3.7 文本能力基础上全面升级视觉—语言能力，同时保持编码、工具使用与生产力工作流方面的<strong>完整智能体能力</strong>。官方强调的核心特色是<em>跨框架泛化</em>：无论通过 Claude Code、OpenClaw、Qwen Code 还是其他框架部署，均能保持稳定表现。</p>
+        </div>
+
+        <div class="block">
+          <div class="block-h">为什么值得关注</div>
+          <p>过去发布一个模型，比的是基准分数；这次官方把「装进别人家的 harness 里还稳不稳」当成卖点单独列出来，这是<strong>评价维度的迁移</strong>。</p>
+          <p>它和 7 月 30 日 Composio 的实测互为两面——同一个模型放进三个 harness，成功率相近但 token 效率相差最多 30 倍。也就是说，模型的真实表现并不由模型单方面决定，而由「模型 × 运行时」这一对组合决定。厂商开始承认这件事，意味着模型侧的判定权，正在部分让渡给它无法控制的外部框架。</p>
+        </div>
+
+        <div class="caveat">
+          <b>信源与局限</b>
+          官方发布（AAStocks 转述港股公告口径），信息层级一级。但<strong>「跨框架均能保持稳定表现」目前为厂商自述</strong>，尚无第三方跨 harness 基准佐证，宜等待独立复现后再作强判断。
+        </div>
+      </div>
+    </article>
+
+    <!-- ── 02 ── -->
+    <article class="card" style="--ac:#C4CAD3">
+      <div class="assay-tag">
+        <div class="tag-no">02</div>
+        <div class="tag-mid">类别 <b>AI AGENT · 工程</b><br>判定者 <b>确定性沙箱 · 独立验证者</b></div>
+        <div class="tag-grade">信源层级<b>厂商 + 开源</b>代码可验证 高</div>
+      </div>
+      <div class="card-body">
+        <h2 class="sig-title">小米 MiMo Code 公开长程执行设计：不赌模型自觉，用工程把它兜住</h2>
+        <div class="sig-sub">Orchestration leaves the prompt and becomes code that cannot forget.</div>
+
+        <div class="block">
+          <div class="block-h">事件</div>
+          <p>MiMo Code 团队公开了长程任务的完整技术设计，同日在 GitHub 开源热榜领跑。核心有三层：</p>
+          <ul class="facts">
+            <li><strong>编排代码化（Dynamic Workflow）</strong>：把编排逻辑从 prompt 变成代码。主 Agent 生成一段 JavaScript，在隔离沙箱中确定性执行，通过 <code>agent()</code> 派出子 Agent、<code>parallel()</code>/<code>pipeline()</code> 控制并发。</li>
+            <li><strong>记忆外包</strong>：主 Agent 对结构化记忆文件<strong>只有读权限</strong>，唯一被允许的写入通道是自由格式的 <code>notes.md</code>；提取交给独立 writer subagent，且<strong>提早触发</strong>——在上下文预算的 20%/45%/70% 处而非快满时。理由是「lost in the middle」：95% 利用率下已无处思考，30% 利用率下才游刃有余。记忆分四层（session / project / global / history），Dream 每 7 天整理去重，Distill 每 30 天把反复出现的流程固化成 skill 或 SOP。</li>
+            <li><strong>完成度他证（Goal）</strong>：Agent 每次想终止，系统自动发起一次<strong>独立模型调用</strong>审查完整历史，判断停止条件是否真的满足；这个验证者不参与实际工作，因此不会对自己已完成的部分产生认同偏差。</li>
+          </ul>
+          <div class="quote-line">团队原话：「<strong>if</strong> 不会忘记分支，<strong>for</strong> 不会提前退出，<strong>barrier</strong> 不会漏掉子 Agent。」并明确判断：目前以 prompt 形式定义的许多 skill，未来会逐步演变为代码形式的 workflow 脚本。</div>
+          <div class="metric-row">
+            <div class="metric"><div class="m-v">62%</div><div class="m-l">SWE-Bench Pro<br>Claude Code 57%</div></div>
+            <div class="metric"><div class="m-v">73%</div><div class="m-l">Terminal Bench 2<br>Claude Code 68%</div></div>
+            <div class="metric"><div class="m-v">10–20%</div><div class="m-l">Max Mode 增益<br>代价 4–5× token</div></div>
+            <div class="metric"><div class="m-v"><0.5%</div><div class="m-l">死循环概率<br>Goal 验证后</div></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-h">为什么值得关注</div>
+          <p>这是本周<strong>第三个独立团队收敛到同一结论</strong>：7 月 30 日斯坦福 Shepherd 做意图—执行分离与可回滚，同日夜间 TencentDB Agent Memory 2.0 把记忆资产化并用 Proxy 做权限过滤与审计，今天小米把它推到最直白的一步——<em>不赌模型自觉，用工程把它兜住</em>。</p>
+          <p>三家路径不同，但都在做同一件事：把「Agent 自己判断自己」的环节，一个一个换成外部的确定性机制。尤其「验证者不参与工作，所以不会认同自己」这一句，几乎是本期主线的技术版注脚。</p>
+        </div>
+
+        <div class="caveat">
+          <b>信源与局限</b>
+          厂商技术博客 + 开源代码（MIT，基于 OpenCode），可验证性较高。需诚实标注：<strong>MiMo Code 本体已于 6 月 11 日发布并开源</strong>，今日的新增量是长程技术细节公开与开源热榜位次，并非产品首发；上述跑分均为厂商自测，非第三方评测机构结果。
+        </div>
+      </div>
+    </article>
+
+    <!-- ── 03 ── -->
+    <article class="card" style="--ac:#B27A44">
+      <div class="assay-tag">
+        <div class="tag-no">03</div>
+        <div class="tag-mid">类别 <b>具身智能 · 地缘</b><br>判定者 <b>FCC 认证清单</b></div>
+        <div class="tag-grade">信源层级<b>一级 · 招股书</b>负法律责任 高</div>
+      </div>
+      <div class="card-body">
+        <h2 class="sig-title">宇树在招股书中回应 FCC 禁令：存量豁免，增量受审</h2>
+        <div class="sig-sub">Not a wall — a tax on every future iteration.</div>
+
+        <div class="block">
+          <div class="block-h">事件</div>
+          <p>7 月 31 日，宇树科技在更新的招股书中回应美国 FCC 将境外生产的先进机器人列入管制清单一事：其在售人形机器人 <strong>G1、H2、R1</strong> 及四足机器人 <strong>Go2、B2、A2 均已获得 FCC 认证</strong>，现有主要产品对美销售<strong>不受影响</strong>；但后续新型号若未获豁免，则面临在美销售风险。</p>
+        </div>
+
+        <div class="block">
+          <div class="block-h">为什么值得关注</div>
+          <p>7 月 30 日那条 FCC 禁令还是一个轮廓模糊的「关门」叙事，今天招股书把它切成了精确刻度：<em>已认证的存量放行，未认证的增量受审</em>。</p>
+          <p>这改变了风险的性质——它不是一堵墙，而是一道<strong>时间税</strong>：老型号照卖，但每一次迭代都要重新排队，产品节奏被外部审批绑定。对一家正在 IPO 的公司而言，把这句话写进招股书，等于承认它已经是一项需要向投资者持续披露的经营性风险，而不是一次性的公关事件。判定谁能上市销售的那支笔，明确不在厂商手里。</p>
+        </div>
+
+        <div class="caveat">
+          <b>信源与局限</b>
+          招股书更新（负法律责任的正式披露），信息层级一级、可靠性高。局限：<strong>「新型号是否获豁免」属未来事项</strong>，具体豁免标准、审批周期与适用范围尚未公开，不宜据此推演具体影响量级。
+        </div>
+      </div>
+    </article>
+
+    <!-- ── 04 ── -->
+    <article class="card" style="--ac:#78899A">
+      <div class="assay-tag">
+        <div class="tag-no">04</div>
+        <div class="tag-mid">类别 <b>具身智能 · 产业化</b><br>判定者 <b>产线节拍 · 良品率</b></div>
+        <div class="tag-grade">信源层级<b>二手汇总</b>企业自述口径 中高</div>
+      </div>
+      <div class="card-body">
+        <h2 class="sig-title">WAIC 2026 复盘：评价标准从「像不像人」换成了产线节拍</h2>
+        <div class="sig-sub">The stopwatch replaces the applause.</div>
+
+        <div class="block">
+          <div class="block-h">事件</div>
+          <p>围绕 7 月 17–20 日 WAIC 2026（1100 余家企业参展，具身智能企业超 200 家）的会后复盘于今日集中发布，几个能对齐工业口径的落点：</p>
+          <ul class="facts">
+            <li><strong>节卡机器人 × 华域电动</strong>：两台轮式人形机器人构成协同产线，覆盖电机外壳转运 → 物料交接 → 组件装配 → <strong>0.5mm 细密牙纹螺丝</strong>高精度锁付 → 成品入库。系统融合 3D 视觉、激光雷达、多维力传感器、YOLO 视觉分割与 AI Agent 决策框架，构成「大脑感知决策 + 小脑运动控制」的 VLA 架构。</li>
+            <li><strong>蚂蚁灵波</strong>：发布具身原生世界动作模型 LingBot-VA 2.0；智慧药房场景中，多台<strong>不同构型</strong>机器人搭载跨本体基座模型 LingBot-VLA 2.0，协同完成订单接收 → 智能取药 → 药品送达。</li>
+            <li><strong>世界模型集体上场</strong>：2026 被业内称为「世界模型元年」，昆仑万维 Matrix-Game 3.5、智元、大晓机器人、极佳视界、它石智航、无界动力等同期展示方案。</li>
+            <li><strong>量产刻度</strong>：智身科技称截至 6 月累计量产突破 15000 台、6 月单月突破 5000 台；智元在三地四馆公共区域部署 60 台机器人承担指路引导——是真实岗位，不是展台演示。</li>
+          </ul>
+          <div class="metric-row">
+            <div class="metric"><div class="m-v">99%</div><div class="m-l">零部件识别<br>准确率（稳定）</div></div>
+            <div class="metric"><div class="m-v">≈10s</div><div class="m-l">单颗精密螺钉<br>锁付耗时</div></div>
+            <div class="metric"><div class="m-v">0.5mm</div><div class="m-l">细密牙纹<br>螺丝精度</div></div>
+            <div class="metric"><div class="m-v">15000</div><div class="m-l">智身科技<br>累计量产（台）</div></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="block-h">为什么值得关注</div>
+          <p>「单颗螺钉 10 秒」和「99% 识别率」是能直接进 MES 系统、能换算成良品率和节拍的数字，跟「跑得快不快、会不会翻跟头」完全不是一类指标。这意味着具身智能的判定权，<em>从观众的惊叹换成了产线的秒表</em>。</p>
+          <p>同时必须把话说完整：报道自己也指出，<strong>家庭场景的付费意愿与定价区间仍然模糊</strong>——一台能叠衣服的家用机器人值一万、三万还是五万，行业至今没有答案。工业场景能算 ROI，家庭场景还不能，这是产业化尚未过关的那一环。</p>
+        </div>
+
+        <div class="caveat">
+          <b>信源与局限</b>
+          会后综述（媒体二手汇总），信息层级中高。<strong>核心数据多为参展企业自述口径</strong>，量产数字与准确率均未见第三方审计；WAIC 于 7/17–20 举行，本条为 7/31 复盘扩散而非当日首发事件。
+        </div>
+      </div>
+    </article>
+
+    <!-- ── 05 ── -->
+    <article class="card" style="--ac:#9FD3C4">
+      <div class="assay-tag">
+        <div class="tag-no">05</div>
+        <div class="tag-mid">类别 <b>AI AGENT × 科学</b><br>判定者 <b>自动化物理实验</b></div>
+        <div class="tag-grade">信源层级<b>媒体报道发布会</b>「全球首个」为自述 中高</div>
+      </div>
+      <div class="card-body">
+        <h2 class="sig-title">晶泰发布 XtalPi Science 与 Genius Agents：给 Agent 配一个物理裁判</h2>
+        <div class="sig-sub">It doesn’t grow legs. It grows a laboratory.</div>
+
+        <div class="block">
+          <div class="block-h">事件</div>
+          <p>晶泰科技日前在上海发布 <strong>XtalPi Science</strong> 科学智能平台与 <strong>Genius Agents</strong> 科学智能体矩阵，并联合 26 家产业、高校及科研生态伙伴发起「科学智能开放生态联盟」，7 月 31 日经媒体报道扩散。</p>
+          <p>平台把公司十年积累的模型、工具、智能体及实验资源封装为可按需调用的 <strong>Science Token</strong>；Genius Agents 作为调度中枢，构建兼具全局规划与场景执行的多智能体体系，可在数字世界调用专业模型完成预测，并<em>通过物理智能在真实物理世界开展高精度实验验证</em>，从而贯通「数字假设 → 专业预测 → 物理验证 → 数据反馈」的闭环。</p>
+          <div class="quote-line">发布方同时点出当前科研数据的一个结构性缺陷：公开科研数据库<strong>几乎全为正样本</strong>，缺乏对模型纠错至关重要的<strong>失败负样本</strong>。</div>
+        </div>
+
+        <div class="block">
+          <div class="block-h">为什么值得关注</div>
+          <p>这是 Agent 走进物理世界的另一条路径——<strong>不长腿，长实验室</strong>。它给 Agent 补上了大模型最缺的东西：一个不能被说服、只能被实验反驳的裁判。</p>
+          <p>语言模型的幻觉之所以难治，本质是它的输出在闭环内无人反证；把自动化实验接进循环，等于给每一次预测装了一个不讲情面的终审。「缺失负样本」这句话尤其诚实——今天几乎所有科学 AI 都在只见成功不见失败的数据上训练，而失败恰恰是最有信息量的那一半。</p>
+        </div>
+
+        <div class="caveat">
+          <b>信源与局限</b>
+          媒体报道厂商发布会，信息层级中高。<strong>「全球首个整合大语言模型、科学智能体与大规模自动化机器人实验的 AI4S 综合平台」为厂商自我定位口径</strong>，未见第三方界定；平台实际吞吐量、外部机构调用规模与验证成功率均未披露。
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ══════════ 主线脉络 ══════════ -->
+  <section class="thread">
+    <h3>主线延续脉络</h3>
+    
+    <div class="chain">
+      <div class="chain-row"><div class="d">07 / 24</div><div class="t">可信化</div></div>
+      <div class="chain-row"><div class="d">07 / 27</div><div class="t">自主 vs 可控</div></div>
+      <div class="chain-row"><div class="d">07 / 29</div><div class="t">可控的自治</div></div>
+      <div class="chain-row"><div class="d">07 / 30 早</div><div class="t">边界划定</div></div>
+      <div class="chain-row"><div class="d">07 / 30 午</div><div class="t">入口收拢，账本亮相</div></div>
+      <div class="chain-row"><div class="d">07 / 30 午后</div><div class="t">写下来的规则不是控制</div></div>
+      <div class="chain-row"><div class="d">07 / 30 晚</div><div class="t">主体交接的底座工程</div></div>
+      <div class="chain-row"><div class="d">07 / 30 夜</div><div class="t">刻度之夜</div></div>
+      <div class="chain-row"><div class="d">07 / 31 早</div><div class="t">成本曲线现身（划不划算）</div></div>
+      <div class="chain-row now"><div class="d">07 / 31 午后</div><div class="t">判定权外移（谁说了算）</div></div>
+    </div>
+  </section>
+
+  <!-- ══════════ 方法与自查 ══════════ -->
+  <section class="method">
+    <h3>Method & Self-Check · 方法与自查</h3>
+    <dl>
+      <div>
+        <dt>筛选原则</dt>
+        <dd>只收当日新增或当日正式发酵的信号；与本周已成文条目重复者一律弃用，或仅作背景参照并注明。本期已刻意避开 09:14 早班锁定的 5 条（GPT-5.6 Sol 自改推理栈 / Gemini Robotics 2 三模型栈 / Acrab GΞLIX 1 / 欧洲人形独角兽 Humanoid / 郑州异构训练场）。</dd>
+      </div>
+      <div>
+        <dt>本期主动弃用</dt>
+        <dd><em>①</em> 「高通端云分布式推理架构」——自媒体拼装稿，「待机功耗降 90%」「本地 300 tokens/s」等关键数字无一级来源；<em>②</em> 「义乌 300 元 AI 翻译眼镜狂译 139 种语言」——叙事精彩但为自媒体二创，批发价、语言数、回本周期均无法交叉验证；<em>③</em> 安谋科技「周易」X3-Pro NPU 与炬芯存内计算 NPU——方向切题，但发布时间分别为 7/18 与 7/21，非当日新增；<em>④</em> Gemini Robotics ER 2——今日仍在扩散，主体已被早班锁定。</dd>
+      </div>
+      <div>
+        <dt>口径标注</dt>
+        <dd>凡厂商自述、自测跑分、未经第三方验证的数字，均在正文内显式标出，不作修饰性拔高。事实与判断分栏呈现，「为什么值得关注」段落属编者观点。</dd>
+      </div>
+      <div>
+        <dt>仍未解的问题</dt>
+        <dd>跨 harness 稳定性缺乏公开基准；具身量产数字缺乏第三方审计；家庭机器人定价区间行业无共识；FCC 新型号豁免标准与审批周期未公开。</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>
+    <span>AI 领域每日动态 · 试金石 · The Assay Room</span>
+    <span>2026-07-31 14:11 GMT+8 · 午后班</span>
+  </footer>
+
+</div>
+</body>
+</html>

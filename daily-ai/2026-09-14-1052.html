@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Daily AI · 2026-09-14 — LEION · DAILY AI</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="mh-top">
+      <b>LEION · DAILY AI</b>
+      <span>第 68 期 · 2026-09-14 · AI 编程 / 智能体 / 终端 / 具身</span>
+    </div>
+    <h1>智能体运行底座、国产推理算力与终端生态同日放量</h1>
+    <p class="mh-sub">面向 AI Agent、AI Coding、终端智能与具身智能的每日要闻筛选 · 整理：Leion</p>
+  </header>
+
+  <section class="lede">
+    <span class="tag">NO.68 · 2026-09-14</span>
+    <p>本期补录 9 月 9–14 日本周此前遗漏的四条关键进展：OpenAI 把支撑 Codex 的 agent 运行 harness 封装为托管 API，把长时运行智能体所需的基础设施产品化；中国移动云联合多家院企发布国产 GPU + 类脑芯片异构混合推理系统，为代码生成与多智能体等高并发推理给出一条不依赖先进制程的国产算力路径；Rokid 在 IFA 2026 发布面向 AI 眼镜的一站式智能体创作平台；美国初创 Weave 以 7999 美元的轮式家用人形机器人，把「能干活」与「可负担」拉到同一价位。</p>
+  </section>
+
+  <article class="card">
+    <span class="c-num"><b>01</b> / 04</span>
+    <h2 class="c-title">OpenAI 把 Codex 运行 harness 封装为 Agents API，公开测试版上线</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip">托管基建</span>
+      <span class="chip">沙箱</span>
+      <span class="chip">MCP</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 10 日，OpenAI 将 Agents API 面向全部开发者开放公开测试版，把支撑 Codex 与 ChatGPT for Work 的同一套运行 harness（会话编排、上下文压缩、工具调度、子代理委派与失败恢复）封装为托管 API。开发者自带任务、模型、工具与执行环境，可在 OpenAI 托管沙箱、自建沙箱或 <strong>Cloudflare / Vercel / Oracle</strong> 等伙伴沙箱中运行；内置代码沙箱执行、文件编辑、MCP 连接、产物生成与多代理委派。无额外费用，按 token 与工具用量计费；数据仅存美国，暂不支持零数据保留（ZDR）。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这次产品化的对象是「长时运行 agent 所需的基础设施」，而不是模型本身。OpenAI 等于把 Codex 从一个命令行工具变成一个可被调用的托管服务，沙箱、MCP、子代理与恢复都成了 API 的一等能力，开发者构建生产级 agent 的门槛将从「自建 harness」降为「拼接托管能力」。对 Agent 与 AI coding 的含义是：执行环境选择、数据驻留与可观测性正在成为模型能力之外的下一个竞争层。</p>
+    </div>
+    <p class="datum"><b>来源</b> · OpenAI 官方博客 <a href="https://openai.com/index/introducing-the-agents-api">Introducing the Agents API</a>；The Decoder · <a href="https://the-decoder.com/openais-new-agents-api-gives-developers-the-infrastructure-behind-codex-and-chatgpt">OpenAI’s new Agents API</a></p>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>02</b> / 04</span>
+    <h2 class="c-title">中国移动云发布国产 GPU + 类脑芯片异构混合推理系统</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Coding</span>
+      <span class="chip">推理算力</span>
+      <span class="chip">多智能体</span>
+      <span class="chip">国产化</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月 13 日，2026 中国算力大会（廊坊）「算力首创首发」专场上，移动云联合中国电子科技南湖研究院、北京灵汐科技、上海天数智芯、清华大学、北京大学发布国内首个 <strong>国产 GPU + 类脑芯片</strong>大模型异构混合推理系统。思路是对 Transformer 做 PD/AF 拆分：Prefill 与 Attention 交给国产 GPU，延时敏感的 FFN/MoE 交给存算一体、片上大容量 SRAM 的类脑芯片，再以自研编译器、高速互联协议与统一推理引擎协同调度，对标英伟达 Vera Rubin + Groq 架构。在 DeepSeek V4 Flash 上实测，相较同等投入的国产 GPU 集群，推理输出与能效提升 1 倍以上、业务运营成本下降 40% 以上，已进入小批量试产。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>在先进制程供给受限的背景下，这条路线从「堆单卡算力」转向「混合架构分工」，为国产推理算力提供了不依赖制程红利的系统创新路径。系统明确把目标打在 Token 工厂、AI 代码生成、多智能体协同等高并发推理场景，说明 agent 与 coding 工作负载已是国产算力对标的靶点；若推理成本结构性下降成立，它可能成为国产大模型在 coding / agent 场景规模化落地的成本杠杆。</p>
+    </div>
+    <p class="datum"><b>来源</b> · 财联社（2026-09-13）；IT之家 · <a href="https://www.163.com/dy/article/L6NFGEHR0511B8LM.html">国内首个国产 GPU + 类脑芯片大模型异构混合推理系统发布</a>；央广网 / 快科技</p>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>03</b> / 04</span>
+    <h2 class="c-title">Rokid 在 IFA 2026 发布 AIUI Studio，面向 AI 眼镜的智能体创作平台</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span>
+      <span class="chip">AI 眼镜</span>
+      <span class="chip">智能体开发</span>
+      <span class="chip">生态</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>9 月上旬，Rokid 在德国柏林 IFA 2026 面向全球发布一站式智能体创作平台 <strong>AIUI Studio</strong>，专为 Rokid 系列 AI 眼镜打造。平台整合 AIUI Skills Library 框架与 AIUI Code 辅助编程工具，开发者可在浏览器内完成智能体的设计、编码、实时调试与发布全流程；内置眼镜模拟环境，无需实体设备即可开发测试，并支持自然语言生成应用原型，系统自动针对硬件做延迟、内存与功耗优化。目前 Rokid 全球开发者社区约 <strong>3.5 万</strong>注册开发者，Agent Store 已上线 500 余款智能体。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>AI 眼镜的竞争正从硬件参数转向开发生态。Rokid 把「面向眼镜的智能体开发」做成了浏览器内的一站式平台并开放 Agent Store，实质是在争夺无屏 / 小屏设备上智能体应用的创作入口，降低开发者上手的门槛。这与蚂蚁「灵影」的可穿戴 agent 底座属同一主线：终端智能的胜负手，正从设备本身转移到「谁能最快把智能体生态长出来」。</p>
+    </div>
+    <p class="datum"><b>来源</b> · PR Newswire · <a href="https://www.prnewswire.com/news-releases/rokid-launches-aiui-studio-globally-at-ifa-berlin-2026-making-ai-glasses-creation-more-accessible-for-everyone-302873504.html">Rokid Launches AIUI Studio at IFA Berlin 2026</a>；中国电子报《AI 眼镜悄然开启下一程》</p>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>04</b> / 04</span>
+    <h2 class="c-title">Weave Robotics 发布家用人形机器人 Isaac 1，定价 7999 美元</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">家用机器人</span>
+      <span class="chip">消费定价</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件</span>
+      <p>美国旧金山初创 Weave Robotics（YC 系）发布首款家用移动人形机器人 Isaac 1：轮式底盘 + 双臂 + 双爪（无腿、无手指），可承担折叠衣物、整理房间、铺床、收纳玩具等家务；机身可自 0.9 米伸展到 1.7 米，具备自主导航、任务间回充与 App 远程调度。定价 <strong>7999 美元</strong>整机或每月 449 美元订阅，9 月起先在加州交付，全美计划 2027 年铺开。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>家用机器人第一次把「能干活」与「可负担」放到同一价位，比双足人形竞品低一半以上。设计上刻意砍掉腿与手指，把工程资源集中在躯干与上肢，说明消费具身智能的竞争正从「更像人」转向「更便宜地完成任务」。随之而来的还有远程操控兜底与家庭数据训练两条争议线，隐私与自主性的边界会成为家用机器人进入客厅前的核心议题。</p>
+    </div>
+    <p class="datum"><b>来源</b> · The Robot Report · <a href="https://www.therobotreport.com/weave-robotics-launches-isaac-first-mobile-humanoid-robot">Weave Robotics launches Isaac</a>；TechTimes；The Next Web</p>
+  </article>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-09-14 10:52 GMT+8</span>
+  </footer>
+
+</div>
+</body>
+</html>

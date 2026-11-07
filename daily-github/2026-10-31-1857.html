@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.36 — 2026-10-31</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.36 · 2026-10-31 · 1857 GMT+8</span></div>
+  <h1>把按席位与按会话的收费，换成装在本机的程序</h1>
+  <p class="mh-sub">SolidCraft 用 Rust 重写参数化 CAD 并把建模接口开放给智能体，agent-device 让编码智能体在自己插着的真机上验证改动，net-merge 把宽带与热点叠成一条链路，Muse Gadget SDK 让 ESP32 与墨水屏接进 Meta 的语音助手，yomiyasu 把日语润色规则装进 agent；交付物从租用转为自有。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-31</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>这一批卖的都是「装在自己机器上就能跑」：CAD 席位、设备云会话、宽带订阅、成品 AI 挂件、日语文档审校，原先按月付，现在换成一个安装包、一块开发板或一份规则文件。价格差只是进门的那一步，吃功夫的是适配的广度，机型、板卡、语言每多一类，后来者就多一道坎。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">SolidCraft <span>tangency-labs/solidcraft</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 12,479 · 近 30 天 +12,479（建仓 10-07，全部落在窗口内）</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 10-31 · 版本 v0.28.0（10-31）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Rust 写的参数化三维 CAD，草图约束加特征时间线，改一个尺寸整模重算，桌面与浏览器通用。</p>
+  <p class="e-line"><b>痛点</b>商业 CAD 按席位年付数千美元，个人与创客用不起，脚本化还要另买接口。</p>
+  <p class="e-line"><b>付费</b>目前全免费、没有公开定价，替代的是按席位计的授权费。</p>
+  <p class="e-line"><b>规模化</b>零件、外壳、教具共用一套特征链，几何内核移植自 NVIDIA 的 SMLib。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，装完即用。</p>
+  <p class="e-line"><b>验证</b><code>打开 https://solidcraft.io/app 画一个拉伸体，或从 solidcraft.io/download 取对应安装包。</code></p>
+  <div class="risk"><b>风险</b>v0.x，装配、钣金与曲面远少于成熟 CAD；没有商业主体与支持合同，企业采购难过审；内核是移植来的，精度与稳定性要逐项验。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">agent-device <span>callstack/agent-device</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 5,208 · 近 30 天未获取到（stargazers 接口需认证）</span>
+      <span class="tag">TypeScript · MIT</span>
+      <span class="tag">最近提交 10-31 · 版本 v0.21.35（10-29）· 建仓 2026-01-30</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给编码智能体的设备层，用 CLI、MCP 与 Node 接口控制手机、电视、桌面与网页。</p>
+  <p class="e-line"><b>痛点</b>智能体改完代码没法自己上真机看结果，商业设备云按会话计费，并行一多成本立刻上来。</p>
+  <p class="e-line"><b>付费</b>Callstack 维护，CLI 免费，云设备与咨询收费；e2e.tester.army 直接拿它做底层。</p>
+  <p class="e-line"><b>规模化</b>一套动作语义覆盖 iOS、Android、鸿蒙、tvOS、Fire TV 与网页，跨团队通用。</p>
+  <p class="e-line"><b>边际</b>低 · npm 包，设备在用户手上。</p>
+  <p class="e-line"><b>验证</b><code>npm install -g agent-device@latest && agent-device doctor</code></p>
+  <div class="risk"><b>风险</b>依赖无障碍树，自绘界面上快照会退化到截图；iOS 真机要签名与 WebDriverAgent；0.x 阶段命令与 ref 语义还在变。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">net-merge <span>net-merge/net-merge</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,676 · 近 30 天 +2,676（建仓 10-12）</span>
+      <span class="tag">Go · MIT</span>
+      <span class="tag">最近提交 10-29 · 版本 v0.3.6（10-28）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 Wi-Fi、有线与手机热点叠成一条，多连接的下载、游戏更新与网页吃到带宽总和。</p>
+  <p class="e-line"><b>痛点</b>单条宽带上行与稳定性加不了，Speedify 这类聚合服务按订阅收费。</p>
+  <p class="e-line"><b>付费</b>免费开源，无账号无服务器，作者单人，还没有收费层。</p>
+  <p class="e-line"><b>规模化</b>一个分流器覆盖 Windows、macOS、Linux 与 Android，需求跟行业无关。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，装完即用。</p>
+  <p class="e-line"><b>验证</b><code>管理员 PowerShell 里跑 irm https://raw.githubusercontent.com/net-merge/net-merge/main/install.ps1 | iex</code></p>
+  <div class="risk"><b>风险</b>只加速多连接场景，单条大文件不变快；与同机 VPN 冲突；Android 侧还在 beta 且独占 VPN 槽位；单人维护，无商业支持。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Muse Gadget SDK <span>facebookincubator/muse-gadget-sdk</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,524 · 近 30 天 +2,524（建仓 10-02）</span>
+      <span class="tag">C · Apache-2.0</span>
+      <span class="tag">最近提交 10-31 · 无 release，源码分发</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Meta 放出的外设端 SDK 与固件，ESP32 接屏、麦克风与传感器，树莓派接管命令行与 Home Assistant。</p>
+  <p class="e-line"><b>痛点</b>自研 AI 挂件的端云协议、音频链路与配网要半年，这里手机推流到 466 像素圆屏已跑到 30fps。</p>
+  <p class="e-line"><b>付费</b>SDK 免费，钱在成品硬件与助手订阅上，硬件厂省的是研发时间。</p>
+  <p class="e-line"><b>规模化</b>板卡中立，Waveshare 圆屏、M5Stack、Seeed 墨水屏都在支持列表。</p>
+  <p class="e-line"><b>边际</b>低 · 一套固件铺多个机型。</p>
+  <p class="e-line"><b>验证</b><code>取一块 ESP32-S3，按 esp32/README 刷固件，到 gadgets.muse.ai/settings/sdk-tokens 领 token 后配对。</code></p>
+  <div class="risk"><b>风险</b>必须领 SDK token 并接受 Gadget SDK 条款，设备体验绑在 Meta 的助手与账号上；刷写失败自负，条款与接口可随时改；Muse 应用在境内的可用性要实测。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.8</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">yomiyasu <span>nanaism/yomiyasu</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,765 · 近 30 天 +2,765（建仓 09-30）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-30 · 版本 v2.5.0（10-30）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给日语文章做结构级润色的智能体技能，清掉空泛比喻、主谓不清与多余修饰。</p>
+  <p class="e-line"><b>痛点</b>模型写的日文语法没错却读着别扭，改一遍要母语者逐句过。</p>
+  <p class="e-line"><b>付费</b>技能免费，背后是 ALGO ARTIS 做品牌；钱在企业日语文档审校这条流程上。</p>
+  <p class="e-line"><b>规模化</b>装进 Claude Code、Codex、Cursor 即用，一套规则覆盖技术文档与 PR 说明。</p>
+  <p class="e-line"><b>边际</b>低 · 规则文件，跑一次只花模型的 token。</p>
+  <p class="e-line"><b>验证</b><code>npx skills add nanaism/yomiyasu，然后让 agent 改一段日文。</code></p>
+  <div class="risk"><b>风险</b>只覆盖日语，换语言要重做规则；效果靠语料判断，没有客观指标；技能形态没有分发与计费通道，商业价值要自己补。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>agent-device（callstack/agent-device）</b>。MIT、npm 一条命令，覆盖 iOS 到 Fire TV 十几类目标，Expensify 与 Shopify 已经在用，商业母体 Callstack 靠云设备与咨询收钱。让智能体自己在真机上看改动结果这件事，每个移动团队都要做一遍，而它的交付成本几乎为零。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>被换掉的都是按月付的那一层：CAD 席位、设备云会话、宽带订阅、成品 AI 挂件、日语文档审校。共同的门槛落在适配广度上，机型、板卡、语言每多覆盖一类，后来者就多一道坎；把这层做宽的一方，交付成本压到接近零，收费只能落在云端资源与支持上。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>Inkloom-art/inkloom</b>（2,930★，建仓 09-20，许可未声明 SPDX）· 专用 logo 模型，官网自己写着模型还在开发、现在不能生成，卖的是尚未存在的额度。拿不到输出就无从验证，也没有付费客户。</li>
+    <li><b>xiaoyang111222/cn-math-taxonomy</b>（5,575★，建仓 10-18）· 知识点与先修边对齐课标做得细，但许可是 CC BY-NC 4.0，禁止商用；要做教培或校内产品就得另建一份，回到人工录入 1644 个知识点。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-10-31 18:57 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

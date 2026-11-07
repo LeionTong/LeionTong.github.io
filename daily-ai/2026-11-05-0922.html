@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-11-05 第 96 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-05 · 第 96 期</span>
+    </div>
+    <h1>编程智能体的上游被重新分配，开源权重与版本控制同时易手</h1>
+    <p class="mh-sub">本期收录 Ricursive 的 65B 开源权重模型在终端编程基准登顶、腾讯 Hy4 首次支持电脑操作并开放权重预告、OpenAI 收购 Codex 所用的 Git 工具团队，以及 Anthropic 的推理可验证方案与招商局狮子山的开源具身推理模型。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 开源权重 · 编程智能体</span>
+    <h2 class="c-title">Ricursive 发布 65B 稠密模型，终端编程基准反超八倍参数的对手</h2>
+    <div class="c-tags">
+      <span class="chip b">开源权重</span><span class="chip">TerminalBench 2.1</span><span class="chip">稠密架构</span><span class="chip">单机可跑</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 5 日，Ricursive Intelligence 发布 Ripple-65B Preview 并开放权重。这是一个 <strong>65B</strong> 参数、80 层的稠密 Transformer，预训练用 <strong>12 万亿</strong> token，支持 <strong>100 万</strong> token 上下文；官方口径是在 TerminalBench 2.1 上拿到 <strong>80.52</strong> 分，标为美国开源权重模型当前最好成绩，高于体量大一个量级的 Reflection Beam 501B（80.1）、Meta Muse Spark Open 816B（76.4）、Thinking Machines Inkling 975B（63.8）与 NVIDIA Nemotron 3 Ultra 550B（56.4）。</p>
+      <p>团队称全流程研发成本 <strong>3200 万美元</strong>，为上一任开源领先者的十分之一；强化学习只用 <strong>140 万</strong> 次 rollout 完成爬坡，约为对手的七十分之一，且未采购后训练数据。选择稠密架构而非混合专家，是为了在 NVIDIA 硬件上简化训练与服务，预训练全程维持 40% 的模型浮点利用率，不加自定义算子、不做量化。模型已上 Hugging Face、Together AI、GMI Cloud 与 OpenRouter，官方称窄小参数可让它在 DGX Spark 一类本地设备上运行。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>小参数稠密模型在终端任务基准上压过八倍参数的混合专家，说明数据配方与训练配方能在特定能力上抵消规模优势；能落到单机运行，对离线的编码代理直接可用。</p>
+      <p>分数全部自报，TerminalBench 2.1 只覆盖终端命令一类任务，通用推理与长程项目的表现要等第三方复测；「十分之一成本」的对比口径也由团队自算，复现之前只算一个可验证的候选。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Ricursive Intelligence 官方 https://www.ricursive.com/ripple ；Hacker News https://news.ycombinator.com/item?id=50369925</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · 模型发布 · 电脑操作</span>
+    <h2 class="c-title">腾讯发布 Hy4，首次支持命令行与图形界面的电脑操作</h2>
+    <div class="c-tags">
+      <span class="chip b">模型发布</span><span class="chip">Computer Use</span><span class="chip">视觉理解</span><span class="chip">权重待开放</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，腾讯混元发布新一代大语言模型 Hy4，相对 8 月的 Hy4 preview 扩大了预训练与后训练数据规模，首次引入视觉理解，并首次支持电脑操作，结合命令行与图形界面处理任务，另对 Blender、CAD 与跨应用长程任务做了专项训练。权重将于近期开放，先发系统卡片。</p>
+      <p>官方给出的数字集中在办公与金融：WorkBuddy 场景平均得分 83.18、通过率 96.15%；579 项真实金融任务众测得分 <strong>3.04</strong>，为开源模型最高，对比 Kimi K3.1 Pro 2.68、GLM-5.3 2.68、DeepSeek-V4.1-Flash-1017 2.97；自建测试里幻觉率从 preview 的 12.95% 降到 <strong>7.2%</strong>，猜测导致的错误率从 23.1% 降到 5.6%，游戏开发评测提升 19.1%。定价不涨，输入 6 元、输出 18 元每百万 token，Hy4 Flash 近期发布。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>电脑操作能力让模型从生成文本跨到操作软件，配合企业微信套件打通聊天、邮件、日程，是国产模型里少见的模型与办公产品同批迭代的路线；幻觉率下降是这类场景能否交付的前提。</p>
+      <p>评测多为内部口径与专家众测，权重尚未实际放出，终端操作在真实软件上的成功率、误操作代价都还缺公开数据。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>美通社（腾讯）https://www.prnewswire.com/apac/zh/news-releases/-hy4-302929174.html ；Hacker News https://news.ycombinator.com/item?id=50365780</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 代码基建 · 收购</span>
+    <h2 class="c-title">OpenAI 收购 Pierre，把 Codex 用的 diff 与代码存储工具收进自身体系</h2>
+    <div class="c-tags">
+      <span class="chip b">收购</span><span class="chip">版本控制</span><span class="chip">Codex</span><span class="chip">待监管批准</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，OpenAI 宣布收购 Pierre Computer Company，即 Code Storage 服务与 Trees、Diffs、Highlights 等开源开发工具的开发者。Codex 客户端的文件浏览与改动审查用的正是 Trees 与 Diffs；Diffs 的编辑模式可在审查处直接改代码，Highlights 是随输入实时更新的语法高亮。交易尚待监管批准，两家在交割前保持独立。</p>
+      <p>OpenAI 同期公开了内部 Git 后端 Pando，说明当代码改动大量并行产生时，Git 周边的系统要跟着改。官方表态是让 Codex 承接从第一条分支到部署的全流程，Pierre 的开源项目继续开源并继续贡献；Code Storage 在交割后仍可使用，功能将并入 Codex。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码代理的瓶颈已经从生成代码挪到并行分支、审查与仓库吞吐，把版本控制这一层收进自身体系，等于掌握了代理产出流入主干的那道闸门。</p>
+      <p>对依赖 Git 托管与审查流程做工具的一方，上游被垂直整合是直接冲击；开源项目承诺继续开源也只到口头层面，改许可证与改接口都随时可能发生。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenAI 官方 https://openai.com/index/openai-to-acquire-pierre/ ；Hacker News https://news.ycombinator.com/item?id=50366863</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 推理验证 · 密码学</span>
+    <h2 class="c-title">Anthropic 用零知识证明验证模型身份，单张 H100 每秒出 110 个 token 的证明</h2>
+    <div class="c-tags">
+      <span class="chip b">推理验证</span><span class="chip">zkSNARK</span><span class="chip">独立评测</span><span class="chip">Apache 2.0</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，Anthropic 前沿红队公布 FlashProve 的进展：用 zkSNARK 为推理过程生成密码学证明，让用户在不知道权重的情况下核验某段回答确实出自指定模型，且证明本身不暴露权重。测试模型为 Llama 4 Maverick（400B 混合专家，第三方 4bit 量化），单张 H100 生成速度约 <strong>110 token/秒</strong>，1024 token 请求的证明约 <strong>19MB</strong>，GPU 时间是 vLLM 直接推理的 <strong>70 到 95 倍</strong>，比既有开源系统快几个数量级。</p>
+      <p>团队同时放出技术报告、协议说明、C++ 快速验证器，以及用 Lean 写成的可证明正确验证器与顶层数学命题证明，代码与证明以 Apache 2.0 公开。当前系统只能覆盖 1024 token 的上下文，隐藏的是权重而非架构，官方定位为中间进展。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>要解决的问题是路由服务按成本偷换模型、token 流被中途篡改时光看输出判断不出来；对独立评测机构、合规审计与「按声明模型交付」的商业约定，这是基础设施而不是学术趣味。</p>
+      <p>两个数量级的开销与 1024 token 的上限，意味着它现在只适合校验单次问答，离长会话与代理轨迹还差很远；隐藏权重不隐藏架构，也留了信息面。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Anthropic 研究 https://www.anthropic.com/research/provable-inference ；Hacker News https://news.ycombinator.com/item?id=50368626</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 具身智能 · 推理模型</span>
+    <h2 class="c-title">招商局狮子山开源 35B 具身推理模型，激活 3B 在十项基准全线上涨</h2>
+    <div class="c-tags">
+      <span class="chip b">具身推理</span><span class="chip">MoE 3B 激活</span><span class="chip">能力蓝图</span><span class="chip">开放权重</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 4 日，招商局先进技术研究院下属狮子山人工智能实验室发布具身推理视觉语言模型「驭物」Lion-ER-35B-A3B，混合专家架构、总参数约 <strong>35B</strong>、每 token 只激活约 <strong>3B</strong>。十项公开具身基准以 avg@4 口径评比，等权综合均分 <strong>65.29</strong>，全部高于所用基座：Where2Place 64.28（提升 9.30）、ERQA 64.38（提升 6.19）、SAT 89.33。权重已在 Hugging Face 以 BF16 格式开源，兼容 Transformers、vLLM、SGLang。</p>
+      <p>方法上不追加数据量，而是先列出 8 个一级领域、39 项二级能力的能力蓝图，把 31.2 万条监督样本按能力预算分配权重，再用评测找短板，从 31 个数据源、约 430 万条素材里定向补同逻辑不同场景的题目。公开案例集中在相机转向判断、轨迹可达性、跨视角空间映射与任务步骤是否完成。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>模型检验的都是语言指令落到物理动作时的断点：分不清物体在动还是相机在动、挑出一条碰不到目标的轨迹、把「正在靠近」当成「已经到位」，这些错的代价直接是撞机与错序。</p>
+      <p>把评测当下一轮数据生产起点，比堆数据可复用；但十项基准是自选组合，评测集与训练能力蓝图同源，仍要靠外部在不同本体上跑一遍才算数。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/11/507586.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Ripple-65B 在 TerminalBench 之外的独立复测，以及稠密 65B 在真实仓库里的长程稳定性。</li>
+      <li>Hy4 权重实际放出的时间与许可证，电脑操作在非腾讯系软件上的成功率与误操作恢复。</li>
+      <li>Pierre 交割后的开源项目是否改许可证，Code Storage 并入 Codex 后对外是否还开放。</li>
+      <li>FlashProve 的上下文长度能否从 1024 token 扩到会话级，证明体积与验证耗时是否可降到消费级。</li>
+      <li>Lion-ER 在其他厂商本体与真实工位上的迁移效果，能力蓝图的评测集何时公开。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-05 09:22 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

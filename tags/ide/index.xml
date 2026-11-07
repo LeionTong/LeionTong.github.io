@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ide on Leion'Log</title><link>https://leiontong.github.io/tags/ide/</link><description>Recent content in Ide on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Fri, 23 Aug 2024 10:22:00 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/ide/index.xml" rel="self" type="application/rss+xml"/><item><title>vscode offline setup remote development environment</title><link>https://leiontong.github.io/posts/vscode-offline-remote-dev-setup/</link><pubDate>Fri, 23 Aug 2024 10:22:00 +0000</pubDate><guid>https://leiontong.github.io/posts/vscode-offline-remote-dev-setup/</guid><description>&lt;h1 id="vscode完全离线搭建远程开发环境离线安装gitsshvscode-server"&gt;VSCode完全离线搭建远程开发环境，离线安装Git、SSH、vscode-server&lt;/h1&gt;
+&lt;h2 id="环境背景"&gt;环境背景&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;时间：2024年8月。&lt;/li&gt;
+&lt;li&gt;客户端：Windows_Server_2016（经试验Windows_Server_2012无法启动pycharm2024.1.6和VSCode1.92.2，这是本文完成时的最新版）。&lt;/li&gt;
+&lt;li&gt;服务端：Linux，X86_64、ARM64 均可。&lt;/li&gt;
+&lt;li&gt;完全离线环境：Windows客户端和Linux服务端均在内网，Windows客户端可以直接访问Linux服务端，两者均无法访问互联网。笔者另有一台电脑可以通过零信任访问这两台内网机器，但对两者均无法直连。&lt;/li&gt;
+&lt;li&gt;用户受限：Windows客户端无 Administrator 管理员权限，即无法执行任何需要管理员权限的动作，比如无法安装全局软件、只能使用便携版软件；无法往Windows文件夹放dll；无法执行需要管理员权限的powershell或bat脚本、当然无法启动具有管理员权限的powershell或cmd。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安装-portablegit"&gt;安装 PortableGit&lt;/h2&gt;</description></item></channel></rss>
