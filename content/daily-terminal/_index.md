@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-07-1120.html">
+    <div class="da-card-date">2026-11-07 · 11:20</div>
+    <div class="da-card-title">旧 Kindle 与便宜相框改成常亮看板，视觉语言动作框架各成体系</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套三个扇区取材：三块现成屏幕被改成桌面用量表与家庭看板，三套视觉语言动作开发框架给出预训练、微调与评测路径，另有一套自托管的设备机群后端。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-05-1036.html">
     <div class="da-card-date">2026-11-05 · 10:36</div>
     <div class="da-card-title">废音箱与廉价开发板拼回本地语音，桌面六轴臂按图纸就能复刻</div>

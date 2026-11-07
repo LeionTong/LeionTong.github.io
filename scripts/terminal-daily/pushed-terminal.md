@@ -169,3 +169,10 @@
 - 2026-11-05 · OpenStrap/edge · WHOOP 手环免订阅本地健康客户端，AGPL-3.0
 - 2026-11-05 · TheRobotStudio/SO-ARM100 · LeRobot 生态标准开源桌面机械臂图纸，多家套件商在售
 - 2026-11-05 · Source-Robotics/Faze4-Robotic-arm · 全 3D 打印六轴桌面臂，打印摆线减速箱低背隙
+- 2026-11-07 · starVLA/starVLA · 视觉语言动作框架，模块化解耦拼装多套配方
+- 2026-11-07 · dexmal/dexbotic · 视觉语言动作工具箱，预训练微调推理评测一条链
+- 2026-11-07 · HermannBjorgvin/Clawdmeter · ESP32 桌面板显示 Claude Code 用量额度
+- 2026-11-07 · RoboVerseOrg/RoboVerse · 多仿真器统一接口的机器人学习平台与基准
+- 2026-11-07 · balena-io/open-balena · 自托管设备机群平台，容器更新与内网接入
+- 2026-11-07 · wellavelino/frameo-homeassistant-dashboard · Frameo 相框改 Home Assistant 墙面看板
+- 2026-11-07 · Chaozhuang22/rekindle · 越狱旧 Kindle 改时钟天气常亮屏
