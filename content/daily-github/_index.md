@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-07-1102.html">
+    <div class="da-card-date">2026-11-07 · 11:02</div>
+    <div class="da-card-title">评审与审计开始交出分数、日志和每次尝试的价钱</div>
+    <div class="da-card-main">这一期收了 impeccable 的 62 条确定性设计规则、pr-agent 的自托管代码评审、inspect-robots 刚定版的真机评测、NOIR 的安卓数据流审计，以及 HyperQwen 把 27B 塞进单张 24GB 卡的补丁集；共同点是把质量与成本都算成能复核的数字。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-06-1008.html">
     <div class="da-card-date">2026-11-06 · 10:08</div>
     <div class="da-card-title">智能体落地要付的钱散在语义、检索、抓取与手机执行上</div>

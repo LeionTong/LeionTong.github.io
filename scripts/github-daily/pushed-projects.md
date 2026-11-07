@@ -179,3 +179,8 @@
 - 2026-11-06 · YOLOW92/pagesift · 自托管 Rust 抓取与文档解析，兼容 Firecrawl 接口并另售商业授权
 - 2026-11-06 · sahenjp/RustXNG · Rust 自托管元搜索，JSON 与 MCP 给智能体供结果与正文
 - 2026-11-06 · hugues31/duckpad · DuckDB 上的可视化 SQL 工作台，保存即 Git 提交、结果可溯源
+- 2026-11-07 · pbakaus/impeccable · 给编码智能体的设计词表，62 条确定性规则打分与 P0-P3 审计
+- 2026-11-07 · The-PR-Agent/pr-agent · 自托管 PR 评审智能体，单次调用省掉按席位订阅
+- 2026-11-07 · robocurve/inspect-robots · 物理智能真机评测框架，v1.0.0 出带版本号的评测日志
+- 2026-11-07 · syv-ai/HyperQwen · 固定版本 vLLM 补丁集，27B 进单张 24GB 卡
+- 2026-11-07 · Verlintas/NOIR · 端侧安卓隐私审计，权限与 dex 端点打分出报告
