@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-07-1058.html">
+    <div class="da-card-date">2026-11-07 · 10:58</div>
+    <div class="da-card-title">编码 agent 的权限边界被实测数据与平台策略同时收紧</div>
+    <div class="da-card-main">本期收录 Claude Code 把用户邮箱写进请求头、2.1.319 把自动放行判定收回服务端、AE Studio 集群压力测试的泄密比例、OpenAI 对 Astra 少做安全工作的复盘，以及 795 美元的缆驱房间机器人。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-06-0932.html">
     <div class="da-card-date">2026-11-06 · 09:32</div>
     <div class="da-card-title">网络安全模型被上调到最高风险档，开源基座与智能体记忆同日更新</div>
