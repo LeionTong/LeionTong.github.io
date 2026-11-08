@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-08-1808.html">
+    <div class="da-card-date">2026-11-08 · 18:08</div>
+    <div class="da-card-title">Perplexity 把常驻 Agent 卖给个人，人形机器人进了编辑部与纳斯达克</div>
+    <div class="da-card-main">本期收录 Perplexity 面向个人 Max 推出的常驻 Agent 同事、OpenAI 为 agent 并发重写的 Git 后端 Pando、新华社与优必选联合发布的仿生人形主播、Agility 在纳斯达克挂牌，以及把多种物理要素放进同一个模型的 MoWorld 2.0。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-07-1058.html">
     <div class="da-card-date">2026-11-07 · 10:58</div>
     <div class="da-card-title">编码 agent 的权限边界被实测数据与平台策略同时收紧</div>
