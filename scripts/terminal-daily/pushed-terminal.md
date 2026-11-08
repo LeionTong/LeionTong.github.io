@@ -176,3 +176,10 @@
 - 2026-11-07 · balena-io/open-balena · 自托管设备机群平台，容器更新与内网接入
 - 2026-11-07 · wellavelino/frameo-homeassistant-dashboard · Frameo 相框改 Home Assistant 墙面看板
 - 2026-11-07 · Chaozhuang22/rekindle · 越狱旧 Kindle 改时钟天气常亮屏
+- 2026-11-08 · Nexting-ai/nexting · 领夹 PIN 与戒指远程驱动本机的编码代理
+- 2026-11-08 · timoncool/speech-studio · 桌面端离线语音工作台，克隆音色朗读与录音转写
+- 2026-11-08 · umarz317/WatchPointer · Apple Watch 当 Mac 鼠标，蓝牙直连做指向输入
+- 2026-11-08 · yzytz17/1.5-joint-module · 1.5 美元 FOC 驱动板与打印减速箱的机器人关节
+- 2026-11-08 · X-Square-Robot/X2Streaming-ASR · 只追加不回改的流式识别，定稿字不再撤回
+- 2026-11-08 · BoumedineBillal/esp32-pie-asr · ESP32-P4 上跑离线流式英语识别，零云端
+- 2026-11-08 · justhalfbit/xiaozhi-thinksmart-client · ThinkSmart 会议屏刷 Ubuntu 的小智语音客户端

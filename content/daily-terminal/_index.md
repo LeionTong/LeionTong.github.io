@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-08-1830.html">
+    <div class="da-card-date">2026-11-08 · 18:30</div>
+    <div class="da-card-title">语音识别下沉到微控制器与手表，领夹设备成了能买到的入口</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人三个扇区取材：ESP32-P4 上跑起离线词表识别，流式识别改成只追加不回改，手表与 129 美元的领夹设备各自给出可穿戴入口，另有一个 1.5 美元的机器人关节。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-07-1120.html">
     <div class="da-card-date">2026-11-07 · 11:20</div>
     <div class="da-card-title">旧 Kindle 与便宜相框改成常亮看板，视觉语言动作框架各成体系</div>
