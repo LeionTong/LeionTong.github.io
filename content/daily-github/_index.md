@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-08-1820.html">
+    <div class="da-card-date">2026-11-08 · 18:20</div>
+    <div class="da-card-title">开发工具先比席位费、构建等待与调用账单，再比能力</div>
+    <div class="da-card-main">这一期收了 Rust 重写的 IntelliJ 式 IDE OpenIDEA、微软研究院的智能体成本控制插件 TokenEconomizer、把 cargo 换掉的增量构建器 blaze、兼容 Redis 并自带向量检索的 KiviDB，以及人机共用一块板的 kanzo；共同点是把席位费、构建等待与调用账单变成可以替换的项。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-07-1102.html">
     <div class="da-card-date">2026-11-07 · 11:02</div>
     <div class="da-card-title">评审与审计开始交出分数、日志和每次尝试的价钱</div>

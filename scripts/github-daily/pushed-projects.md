@@ -184,3 +184,8 @@
 - 2026-11-07 · robocurve/inspect-robots · 物理智能真机评测框架，v1.0.0 出带版本号的评测日志
 - 2026-11-07 · syv-ai/HyperQwen · 固定版本 vLLM 补丁集，27B 进单张 24GB 卡
 - 2026-11-07 · Verlintas/NOIR · 端侧安卓隐私审计，权限与 dex 端点打分出报告
+- 2026-11-08 · l0ng-ai/openidea · Rust 内核的 IntelliJ 式桌面 IDE，六类工具窗与六十多种语言
+- 2026-11-08 · microsoft/TokenEconomizer · 编码智能体成本控制插件，剪事实、剪工具、剪死循环
+- 2026-11-08 · indexable-inc/blaze · cargo 的 Rust 增量构建器，守护进程驻留编译状态
+- 2026-11-08 · kividbio/kividb · Redis 兼容内存键值库，自带全文与 HNSW 向量检索
+- 2026-11-08 · emanuele-em/kanzo · 4.7MB 单二进制看板，人机共用一块板并带 MCP 服务器
