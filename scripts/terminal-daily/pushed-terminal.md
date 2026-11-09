@@ -1,7 +1,3 @@
-- 2026-09-09 · PetoiCamp/OpenCat-Quadruped-Robot · 开源四足机器狗框架，整机套件已商业化的 STEM 标杆
-- 2026-09-09 · InfiniTimeOrg/InfiniTime · PineTime 智能手表 GPL-3.0 固件，社区活跃度最高的开源穿戴固件
-- 2026-09-09 · ZSWatch/ZSWatch · Zephyr 开源智能手表，硬件与固件双双开源的可复刻参考设计
-- 2026-09-09 · HeyWillow/willow · ESP32 本地语音助手固件，Apache-2.0 的 Echo 隐私替代方案
 - 2026-09-14 · Roboparty/roboto_origin · 全开源可手搓人形机器人，整机套件可电商化
 - 2026-09-14 · NVlabs/ProtoMotions · GPU 物理仿真训练框架，NVIDIA 出品
 - 2026-09-14 · unitreerobotics/xr_teleoperate · 宇树官方人形 XR 遥操作
@@ -183,3 +179,10 @@
 - 2026-11-08 · X-Square-Robot/X2Streaming-ASR · 只追加不回改的流式识别，定稿字不再撤回
 - 2026-11-08 · BoumedineBillal/esp32-pie-asr · ESP32-P4 上跑离线流式英语识别，零云端
 - 2026-11-08 · justhalfbit/xiaozhi-thinksmart-client · ThinkSmart 会议屏刷 Ubuntu 的小智语音客户端
+- 2026-11-09 · Rukenshia/pomodoro · ESP32 墨水屏专注计时器，零件清单与外壳一起开放，GPL-3.0
+- 2026-11-09 · PinkiePie1/SmoothEPD · 串口 1.54 寸墨水屏做到 47Hz 刷新，带直流应力补偿，CH32 平台
+- 2026-11-09 · LucaPizzorno/esphome-touch-remote · 2.8 寸 ESP32-S3 触屏遥控器，纯 ESPHome 配置拼页面，MIT
+- 2026-11-09 · robosimstudio/robosimstudio · 真实机器人任务转仿真，编码 Agent 搭场景，Apache-2.0
+- 2026-11-09 · eust-w/opengeniemaster · 编码 Agent 指挥多机器人机队的具身 harness，MCP 协议，MIT
+- 2026-11-09 · wangwanjie/gately · 单二进制家用网络网关，DDNS 穿透与 WAF 一个控制台，Apache-2.0
+- 2026-11-09 · justhalfbit/xiaozhi-hub-server · 小智设备中枢网关，按称呼把活派给不同模型，MIT

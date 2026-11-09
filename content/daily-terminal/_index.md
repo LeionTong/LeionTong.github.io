@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-09-1036.html">
+    <div class="da-card-date">2026-11-09 · 10:36</div>
+    <div class="da-card-title">墨水屏小屏靠只刷新变动像素跑到 47Hz，机器人任务先搬进仿真再上真机</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套三个扇区取材：1.54 寸串口墨水屏做到 47Hz 刷新并给出直流应力补偿办法，一款 ESP32 专注计时器把零件清单与外壳一起开放，机器人一侧分别落在仿真重建与多机调度协议上，另有一个单二进制家用网关和一个小智设备中枢。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-08-1830.html">
     <div class="da-card-date">2026-11-08 · 18:30</div>
     <div class="da-card-title">语音识别下沉到微控制器与手表，领夹设备成了能买到的入口</div>
