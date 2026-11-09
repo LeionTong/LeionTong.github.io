@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-09-0920.html">
+    <div class="da-card-date">2026-11-09 · 09:20</div>
+    <div class="da-card-title">编码 agent 把密钥写进公开仓库，苹果与亚马逊同时押注常驻 agent</div>
+    <div class="da-card-main">本期收录 Claude Code 免打扰授权泄露密钥、微软把 agent 技能与 MCP 服务器做成依赖包、苹果内部推动 Siri 转向常驻助手、亚马逊组建家用机器人部门，以及 Anthropic 以 34 亿美元接手 1.7 吉瓦燃气发电机组。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-08-1808.html">
     <div class="da-card-date">2026-11-08 · 18:08</div>
     <div class="da-card-title">Perplexity 把常驻 Agent 卖给个人，人形机器人进了编辑部与纳斯达克</div>
