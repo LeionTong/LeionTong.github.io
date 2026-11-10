@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-10-0923.html">
+    <div class="da-card-date">2026-11-10 · 09:23</div>
+    <div class="da-card-title">Anthropic 新模型把长程工程评测拉高，研发协作开始交给 agent 排单</div>
+    <div class="da-card-main">本期收录 Claude Fable 5.2 与 Mythos 5.2 的编码与机器人仿真成绩、LobeHub 让 agent 接管派活与改码、千问办公 2.0 的团队协作空间、三星智能眼镜 11 月 12 日预售，以及 Anthropic 路演启动前的估值下修。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-09-0920.html">
     <div class="da-card-date">2026-11-09 · 09:20</div>
     <div class="da-card-title">编码 agent 把密钥写进公开仓库，苹果与亚马逊同时押注常驻 agent</div>
