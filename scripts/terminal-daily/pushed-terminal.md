@@ -186,3 +186,8 @@
 - 2026-11-09 · eust-w/opengeniemaster · 编码 Agent 指挥多机器人机队的具身 harness，MCP 协议，MIT
 - 2026-11-09 · wangwanjie/gately · 单二进制家用网络网关，DDNS 穿透与 WAF 一个控制台，Apache-2.0
 - 2026-11-09 · justhalfbit/xiaozhi-hub-server · 小智设备中枢网关，按称呼把活派给不同模型，MIT
+- 2026-11-10 · ZSWatch/ZSWatch · Zephyr 智能手表，KiCad 图纸与固件同仓，99 美元开发套件在售
+- 2026-11-10 · mutonby/agentring · Agent 主动打电话找人决策，自托管 VoIP 加语音 AI 转写回传
+- 2026-11-10 · Animan-AI/DuckBuddy · Orange Pi 加飞特舵机的开源小鸭机器人，离线识别与生命层
+- 2026-11-10 · RegeneratusLabs/physical-hermes · 圆屏 ESP32 玩具刷成 Hermes Agent 的语音身体
+- 2026-11-10 · GhanshyamPaunikar/rayban-meta-god-mode · Ray-Ban Meta 眼镜上的自起唤醒词助手 CJ

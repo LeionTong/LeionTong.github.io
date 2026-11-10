@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-10-1034.html">
+    <div class="da-card-date">2026-11-10 · 10:34</div>
+    <div class="da-card-title">开源手表配上开发套件在售，桌面机器人换国产主控重训步态</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人取材：ZSWatch 开放 Zephyr 手表图纸与固件并卖开发套件，DuckBuddy 换国产主控与飞特舵机重训步态，Physical Hermes 拿圆屏玩具给 Agent 装身体，agentring 让 Agent 打电话找人，CJ 做 Meta 眼镜上的唤醒词助手。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-09-1036.html">
     <div class="da-card-date">2026-11-09 · 10:36</div>
     <div class="da-card-title">墨水屏小屏靠只刷新变动像素跑到 47Hz，机器人任务先搬进仿真再上真机</div>
