@@ -189,3 +189,8 @@
 - 2026-11-08 · indexable-inc/blaze · cargo 的 Rust 增量构建器，守护进程驻留编译状态
 - 2026-11-08 · kividbio/kividb · Redis 兼容内存键值库，自带全文与 HNSW 向量检索
 - 2026-11-08 · emanuele-em/kanzo · 4.7MB 单二进制看板，人机共用一块板并带 MCP 服务器
+- 2026-11-10 · Niko1221/Strata · 消费级显卡一键装本机大模型，开 OpenAI 兼容端点给编码工具
+- 2026-11-10 · KnifeLemon/Filee · 拖放即转的离线格式转换器，270 种格式不装办公套件
+- 2026-11-10 · leemysw/yovoice · 本机配音与音乐工作站，克隆音色、出歌、拆轨转 MIDI
+- 2026-11-10 · soniqo/speech-swift · Apple 端语音模型 Swift 包，识别合成分离都在本地
+- 2026-11-10 · mbillow/localthings · Home Assistant 直连三星家电，配对后不经厂商云
