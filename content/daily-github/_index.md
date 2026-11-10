@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-10-1002.html">
+    <div class="da-card-date">2026-11-10 · 10:02</div>
+    <div class="da-card-title">模型、格式与语音搬回本机，按订阅计费的部分最先被替换</div>
+    <div class="da-card-main">这一期收了把 DeepSeek V4.1 装进消费级显卡的 Strata、离线转 270 种格式的 Filee、本机做配音与音乐的 yovoice、给 Apple 端应用供语音能力的 speech-swift，以及绕开云账号直连三星家电的 LocalThings；共同点是算力与数据退回本机，按字符、按分钟、按 token 的计费失去理由。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-08-1820.html">
     <div class="da-card-date">2026-11-08 · 18:20</div>
     <div class="da-card-title">开发工具先比席位费、构建等待与调用账单，再比能力</div>
