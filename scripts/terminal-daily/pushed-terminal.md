@@ -191,3 +191,9 @@
 - 2026-11-10 · Animan-AI/DuckBuddy · Orange Pi 加飞特舵机的开源小鸭机器人，离线识别与生命层
 - 2026-11-10 · RegeneratusLabs/physical-hermes · 圆屏 ESP32 玩具刷成 Hermes Agent 的语音身体
 - 2026-11-10 · GhanshyamPaunikar/rayban-meta-god-mode · Ray-Ban Meta 眼镜上的自起唤醒词助手 CJ
+- 2026-11-11 · cvhviz/CAIRN · MeshCore 伴侣固件分支，一套源码树出多板触屏界面
+- 2026-11-11 · leggedrobotics/foothold-prediction-model · G1 先预测落脚点再迈步，Isaac Lab 训练零样本迁移
+- 2026-11-11 · twehrbein/ExMR · 单目视频取全身手脚步态，可导出并重定向到人形机器人
+- 2026-11-11 · NTUMARS/ODE-POLICY · 把连续动作当微分方程轨迹学，LIBERO 三项基准 SOTA
+- 2026-11-11 · unfr0zen/unfr0zen · USB 解锁 Nest 恒温器，MQTT/Matter/Zigbee 本地控制
+- 2026-11-11 · ihtisham1211/native-tv · LG webOS 电视本地仪表盘，去广告并接 Home Assistant
