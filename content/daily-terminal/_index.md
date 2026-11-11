@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-11-1034.html">
+    <div class="da-card-date">2026-11-11 · 10:34</div>
+    <div class="da-card-title">恒温器电视改由本机接管，人形机器人先算落脚点再迈步</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套取材：Cairn 给 MeshCore 手台换上触屏界面，Watch Your Step 让 G1 先预测两只脚落哪再走，ExMR 把手机视频转成人形机器人可用的动作，ODE Policy 改学动作的变化率，unfr0zen 与 Native Tv 把恒温器和电视从厂商云里拿回来。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-10-1034.html">
     <div class="da-card-date">2026-11-10 · 10:34</div>
     <div class="da-card-title">开源手表配上开发套件在售，桌面机器人换国产主控重训步态</div>
