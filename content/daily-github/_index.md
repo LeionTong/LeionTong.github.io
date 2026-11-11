@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-11-0956.html">
+    <div class="da-card-date">2026-11-11 · 09:56</div>
+    <div class="da-card-title">仿真、运行时与标定校验，都在替掉按席位与按节点的商用工具</div>
+    <div class="da-card-main">这一期收了给机器人数据做回放与训练流的 Rerun、GPU 物理仿真引擎 Newton、把真机故障变成可复跑用例的 Cerulion、在本机顶掉 LocalStack 的 Robotocore，以及查传感器标定漂移的 Calibrex；共同点是用开源件填上机器人工具链里按人头、按节点计价的位置。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-10-1002.html">
     <div class="da-card-date">2026-11-10 · 10:02</div>
     <div class="da-card-title">模型、格式与语音搬回本机，按订阅计费的部分最先被替换</div>
