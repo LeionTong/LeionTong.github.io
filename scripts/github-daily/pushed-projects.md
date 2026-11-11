@@ -1,24 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-08 · jo-inc/camofox-browser · C++ 层反检测浏览器服务器，专为 AI Agent 提供 REST API
-- 2026-09-08 · TencentCloud/TencentDB-Agent-Memory · 团队级 Agent 记忆中心，Proxy 接管 base URL 零代码接入
-- 2026-09-08 · Vexa-ai/vexa · 派 bot 进 Meet/Teams/Zoom 的实时转录与会议知识库
-- 2026-09-08 · oceanbase/seekdb · MySQL 兼容的 Agent 状态库，向量+全文+标量统一查询
-- 2026-09-08 · trailofbits/coop · microVM 隔离运行 Claude Code/Codex 的一次性虚拟机 CLI
-- 2026-09-09 · heygen-com/hyperframes · HTML/CSS 确定性渲染成 MP4 的开源框架，本地 CLI + Agent 技能
-- 2026-09-09 · google-research/timesfm · Google 预训练时间序列基础模型，v3 原生多变量与协变量预测
-- 2026-09-09 · hieunc229/mailflare · 跑在 Cloudflare 上的自托管域名邮箱，替代 Workspace/Front 席位费
-- 2026-09-09 · PatterAI/Patter · 给 Agent 一个真实电话号码的开源语音 SDK，Vapi/Retell 替代
-- 2026-09-09 · Hebbian-Robotics/hflow · 机器人与 Physical AI 多模态数据流水线 SDK（YC S26）
-- 2026-09-10 · apache/maka · Apache 孵化 Agent 工作台，append-only RuntimeEvent 日志全程留痕
-- 2026-09-10 · iflytek/skillhub · 企业私有 Agent Skill 注册中心，RBAC + 审计 + 容器化部署
-- 2026-09-10 · gotempsh/temps · 单二进制自托管 PaaS，替代 Vercel+Sentry+PostHog 等七项订阅
-- 2026-09-10 · redhat-et/ripwire · 给编码 Agent 的调用图 CLI + MCP，降低上下文 token 消耗
-- 2026-09-10 · robocurve/inspect-robots · Physical AI 开源评测框架，支持仿真与真机双路径
-- 2026-09-11 · alibaba/zvec · 进程内嵌入式向量数据库，像 SQLite 一样嵌进应用
-- 2026-09-11 · rorkai/App-Store-Connect-CLI · App Store Connect 发版自动化 CLI，自带 25 个 Agent 技能
-- 2026-09-11 · omnara-ai/omnara · 托管 Agent 运行平台，执行与状态托管、模型自选自持
-- 2026-09-11 · gronxb/hot-updater · React Native 自托管 OTA 更新，CodePush 关停后的替代
-- 2026-09-11 · runs-on/runs-on · 跑在自有 AWS 账号里的 GitHub Actions runner 控制平面
 - 2026-09-14 · semantica-agi/semantica · 图原生 AI 上下文/知识基础设施，可问责溯源
 - 2026-09-14 · CopilotKit/OpenBot · 开源 AI 同事：每个智能体一台自己的电脑（浏览器/文件/工具）
 - 2026-09-14 · AtomicBot-ai/atomic-agent · 本地优先 AI 智能体，本机跑开源权重模型
@@ -194,3 +174,8 @@
 - 2026-11-10 · leemysw/yovoice · 本机配音与音乐工作站，克隆音色、出歌、拆轨转 MIDI
 - 2026-11-10 · soniqo/speech-swift · Apple 端语音模型 Swift 包，识别合成分离都在本地
 - 2026-11-10 · mbillow/localthings · Home Assistant 直连三星家电，配对后不经厂商云
+- 2026-11-11 · rerun-io/rerun · 机器人多模态数据记录与回放，开源核心配 Hub 商业数据目录
+- 2026-11-11 · newton-physics/newton · Warp 上的 GPU 物理仿真引擎，Linux Foundation 项目
+- 2026-11-11 · cerulion-inc/cerulion · 机器人节点运行时，录制回放把真机故障变成 CI 用例
+- 2026-11-11 · robotocore/robotocore · 本机 AWS 数字孪生，顶掉按席位收费的 LocalStack
+- 2026-11-11 · rsasaki0109/Calibrex · 用 rosbag 查传感器标定漂移，逐轴给通过与超差结论
