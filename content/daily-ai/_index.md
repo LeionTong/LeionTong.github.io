@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-11-0923.html">
+    <div class="da-card-date">2026-11-11 · 09:23</div>
+    <div class="da-card-title">英伟达开源机器人动作模型，触觉与决策模型同时压低执行成本</div>
+    <div class="da-card-main">本期收录英伟达 GR00T 2 的跨本体迁移与开放工具链、蚂蚁灵波 LingBot-Touch 触觉基础模型开源、DeepMind 用 agent 形式化验证 Signal 协议实现、Meta Muse Ember 的 agent 执行定价，以及亚马逊用决策模型替换 Sonnet 做票据标注的成本记录。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-10-0923.html">
     <div class="da-card-date">2026-11-10 · 09:23</div>
     <div class="da-card-title">Anthropic 新模型把长程工程评测拉高，研发协作开始交给 agent 排单</div>
