@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-12-1040.html">
+    <div class="da-card-date">2026-11-12 · 10:40</div>
+    <div class="da-card-title">Pebble 固件开源到能在电脑上跑，旧 Echo 与旧会议屏改作本地语音入口</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人取材：PebbleOS 把内核与三款表的板级描述一起开源，带模拟板可直接跑；ScouterKit 给 Even Realities G1 换固件并开满显示面；Nous-Girl 让 StackChan 接本地语音服务；Hermes Voice 与 ThinkSmart Debian 把旧 Echo、旧会议屏改成本地语音终端。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-11-1034.html">
     <div class="da-card-date">2026-11-11 · 10:34</div>
     <div class="da-card-title">恒温器电视改由本机接管，人形机器人先算落脚点再迈步</div>
