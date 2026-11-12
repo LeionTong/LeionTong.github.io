@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-12-0955.html">
+    <div class="da-card-date">2026-11-12 · 09:55</div>
+    <div class="da-card-title">推理运行时与物理数据层，都在从云服务搬回自己的机器</div>
+    <div class="da-card-main">这一期收了 Google 的端侧运行时 LiteRT-LM、把多模态与机器人策略收进一个服务端的 vLLM-Omni、在 Mac 上直接带起编码智能体的 Kapitsa、把 rosbag 存成可查询数据湖的 Mosaico，以及用它自建评测环境的 NeMo Gym；五件都在把推理与数据的控制权交回使用方。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-11-0956.html">
     <div class="da-card-date">2026-11-11 · 09:56</div>
     <div class="da-card-title">仿真、运行时与标定校验，都在替掉按席位与按节点的商用工具</div>
