@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-12-0924.html">
+    <div class="da-card-date">2026-11-12 · 09:24</div>
+    <div class="da-card-title">谷歌把旗舰模型开放给全部付费开发者，同时把机器人模型送上奔驰产线</div>
+    <div class="da-card-main">本期收录 Gemini 4 Carbon 的全面开放与 Antigravity 的 /swarm 多 agent 编排、Gemini Robotics 2.5 在奔驰产线的 96% 拣配成功率、Anthropic 把表格与白板搬进 Claude、苹果 HALO 的全仿真零样本迁移，以及北京市具身智能三年行动方案的量化指标。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-11-0923.html">
     <div class="da-card-date">2026-11-11 · 09:23</div>
     <div class="da-card-title">英伟达开源机器人动作模型，触觉与决策模型同时压低执行成本</div>
