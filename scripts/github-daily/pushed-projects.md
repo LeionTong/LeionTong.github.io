@@ -179,3 +179,8 @@
 - 2026-11-11 · cerulion-inc/cerulion · 机器人节点运行时，录制回放把真机故障变成 CI 用例
 - 2026-11-11 · robotocore/robotocore · 本机 AWS 数字孪生，顶掉按席位收费的 LocalStack
 - 2026-11-11 · rsasaki0109/Calibrex · 用 rosbag 查传感器标定漂移，逐轴给通过与超差结论
+- 2026-11-12 · google-ai-edge/LiteRT-LM · Google 端侧大模型运行时，一套引擎覆盖五平台六语言
+- 2026-11-12 · vllm-project/vllm-omni · 多模态与机器人策略统一伺服，OpenAI 兼容单服务端
+- 2026-11-12 · nace-ai/kapitsa · Apple silicon 推理引擎，把编码智能体接到本机模型
+- 2026-11-12 · mosaico-labs/mosaico · 机器人传感器数据平台，bag 变可查询、可切片的数据湖
+- 2026-11-12 · NVIDIA-NeMo/Gym · 环境层打包评测与 RL 训练，千级并发可复跑
