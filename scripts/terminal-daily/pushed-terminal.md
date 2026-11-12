@@ -197,3 +197,8 @@
 - 2026-11-11 · NTUMARS/ODE-POLICY · 把连续动作当微分方程轨迹学，LIBERO 三项基准 SOTA
 - 2026-11-11 · unfr0zen/unfr0zen · USB 解锁 Nest 恒温器，MQTT/Matter/Zigbee 本地控制
 - 2026-11-11 · ihtisham1211/native-tv · LG webOS 电视本地仪表盘，去广告并接 Home Assistant
+- 2026-11-12 · coredevices/PebbleOS · Pebble 固件开源主干，三款表板级加 qemu/native 模拟板
+- 2026-11-12 · mafik/scouter_kit · Even Realities G1 换固件的虚拟机与四语言 SDK，开满显示面
+- 2026-11-12 · dax8it/nous-girl-stackchan · StackChan 开源固件，接本地语音服务与长期记忆
+- 2026-11-12 · majorminorlabs/hermes-voice · 二手 Echo 接 Home Assistant 与本地智能体的语音终端
+- 2026-11-12 · m0s4ik/thinksmart-view-debian · ThinkSmart View 会议屏刷成轻量 Debian 13，可作语音入口
