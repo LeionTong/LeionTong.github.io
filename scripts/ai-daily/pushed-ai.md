@@ -135,3 +135,8 @@
 - 2026-11-11 · DeepMind AlphaProof Code · agent 四周完成 Signal 实现形式化验证，生成六百万行 Lean
 - 2026-11-11 · Meta Muse Ember · agent 执行层轻量模型，每百万输入 0.10 美元、单任务成本三分之一
 - 2026-11-11 · 亚马逊 Strands Decider · 决策模型替 Sonnet 做票据标注，成本降 98%、延迟降 78%
+- 2026-11-12 · Gemini 4 Carbon 全面开放 · 每百万输入 2 美元，CursorBench 4.0 第一，Antigravity 预览 /swarm 多 agent 编排
+- 2026-11-12 · Gemini Robotics 2.5 · 200 项任务成功率提高 30-100%，奔驰产线 Apollo 2 拣配 96%
+- 2026-11-12 · Claude Sheets/Whiteboards/Meetings · 办公三件套进 Claude，微软收跌 2.18%
+- 2026-11-12 · 苹果 HALO · 千个程序化住宅合成数据，六个未建图真实环境零样本 91%
+- 2026-11-12 · 北京具身智能三年行动方案 · 2028 年整机产能 20 万台、50000 PFlops 算力、100 万小时数据
