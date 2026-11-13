@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-13-0924.html">
+    <div class="da-card-date">2026-11-13 · 09:24</div>
+    <div class="da-card-title">英伟达换掉掌舵人，OpenAI 与 Cursor 的直连合同在同一天到期</div>
+    <div class="da-card-main">本期收录黄仁勋辞任与克雷斯临时接任、OpenAI 终止向 Cursor 直供模型生效、优必选 Walker S2 首批数百台量产交付、Databricks Genie 转为常驻自主同事，以及 Expo 给编码 agent 准备的云端模拟器。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-12-0924.html">
     <div class="da-card-date">2026-11-12 · 09:24</div>
     <div class="da-card-title">谷歌把旗舰模型开放给全部付费开发者，同时把机器人模型送上奔驰产线</div>
