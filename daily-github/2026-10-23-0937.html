@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.30 — 2026-10-23</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.30 · 2026-10-23 · 0937 GMT+8</span></div>
+  <h1>编码 Agent 的云端沙箱与轨迹回归开始按用量计价</h1>
+  <p class="mh-sub">NVIDIA OpenShell 用内核级策略替自主 Agent 划边界，Cloudroom 与 Tracely 分别按云端 agent 和 trace 量收费，HeyGen HyperFrames 把 HTML 渲成视频，MailCheap 把计费基准从订阅人数换成发送量。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-23</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>今天这五个项目在同一个位置上分头收钱：给 agent 划边界的沙箱、把线上失败冻成用例的回归网关、把 HTML 变成成片的渲染引擎、以及改按发送量计费的播报工具。共同点是引擎免费送出去当入口，账单跟着用量走。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenShell <span>NVIDIA/OpenShell</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 17,815 · 近 30 天未获取到</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 10-23 · v0.1.5（10-20）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>跑自主 agent 群的沙箱运行时，用内核级隔离加一份声明式 YAML 策略，划清能读的文件、能连的网络与能用的凭据。</p>
+  <p class="e-line"><b>痛点</b>agent 要读文件、装包、调接口才有用，给足权限又等于把源码与密钥摊开；托管沙箱按台按月收费，上下文还得过第三方。</p>
+  <p class="e-line"><b>付费</b>代码 Apache-2.0；付费位置在企业侧的支持与合规，私有模型端点、策略审计与策略证明都归到厂商的企业线。</p>
+  <p class="e-line"><b>规模化</b>凡让 agent 碰生产数据的团队都要这一层，策略文件可版本化复用，换行业不改产品。</p>
+  <p class="e-line"><b>边际成本</b>低 · 纯软件，跑在客户自己的机器上。</p>
+  <p class="e-line"><b>验证</b><code>curl -LsSf https://raw.githubusercontent.com/NVIDIA/OpenShell/main/install.sh | sh</code>，然后 <code>openshell sandbox create --name demo</code>，默认镜像是干净的 Ubuntu，装 agent 的步骤见官方 Run Your First Agent。</p>
+  <div class="risk"><b>风险</b>564 个 open issue，版本仍在 0.1.x；需要 Linux、Apple Silicon 或 WSL 2 加 Docker 或 Podman；策略代理与形式化证明对运维是新概念，规则配严了 agent 直接干不了活。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">HyperFrames <span>heygen-com/hyperframes</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 70,032 · 近 30 天未获取到</span>
+      <span class="tag">TypeScript · Apache-2.0</span>
+      <span class="tag">最近提交 10-23 · v0.8.186（10-22）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 HTML、CSS 与可定位动画渲成确定性 MP4 的开源框架，配 CLI、Studio 桌面应用与给编码 agent 用的 skill。</p>
+  <p class="e-line"><b>痛点</b>批量做产品介绍与数据动画，要么买按量计费的生成服务，要么手搓时间线；模型现写的一段代码往往渲不出稳定帧。</p>
+  <p class="e-line"><b>付费</b>本地渲染免费，且不消耗 HeyGen 额度；收费落在托管创作流程、语音、数字人与生成媒体上，接厂商既有订阅。</p>
+  <p class="e-line"><b>规模化</b>营销、产品、教程视频是同一套模板化产能，项目结构能被 agent 批量复用。</p>
+  <p class="e-line"><b>边际成本</b>中 · 引擎免费，但托管渲染要占 GPU 算力，成本随渲染分钟数走。</p>
+  <p class="e-line"><b>验证</b><code>npx skills add heygen-com/hyperframes</code> 选 Core Skills，再让 agent 生成一个十秒短片；手写路径是 <code>npx hyperframes render --output video.mp4</code>。</p>
+  <div class="risk"><b>风险</b>405 个 open issue，Windows 桌面版尚未发布；渲染时长跟动画复杂度强相关，做到长片要排机器；叠加外部语音或数字人服务时费用另算。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.8</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Cloudroom core <span>davidondrej/cloudroom-core</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 982 · 近 30 天未获取到</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 10-22 · core-v0.1.72（10-22）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 Claude Code、Codex、Pi 这类编码 agent 放到自己 Linux 机器上跑的 Rust 服务，每个 agent 一个沙箱、各占一条 Git 分支，会话历史留在本机。</p>
+  <p class="e-line"><b>痛点</b>笔记本合盖 agent 就停，本地并行开几个 agent 互相踩文件；托管方案按月按 agent 计费，代码与密钥要过第三方。</p>
+  <p class="e-line"><b>付费</b>价目公开：Free 每 30 天 100 个云端 agent，Pro 每月 50 美元、Super 150、Ultra 500；模型订阅自备，核心自托管免费，托管版当前邀请制。</p>
+  <p class="e-line"><b>规模化</b>从一人一机到团队多机是同一套安装脚本，agent 换 harness 不改核心结构。</p>
+  <p class="e-line"><b>边际成本</b>中 · 每个 agent 独占一台沙箱，算力是真实成本；交付只发二进制与安装脚本。</p>
+  <p class="e-line"><b>验证</b>在全新的 Ubuntu 24.04 上 <code>curl -fsSL https://raw.githubusercontent.com/davidondrej/cloudroom-core/main/install/install.sh -o install.sh</code> 后 <code>sudo bash install.sh</code>，脚本校验下载、建账号、写 token 并起服务。</p>
+  <div class="risk"><b>风险</b>开发者 alpha，2026-09-17 建库、只有 982 星、6 个 open issue；agent 默认不带审批提示，官方要求一机一可信用户；仅支持 Ubuntu 24.04 与 Apple Silicon 桌面端。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Tracely <span>jwuthri-cloud/Tracely-ai</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,153 · 近 30 天未获取到</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-19 · 无 release（SDK 已上 PyPI）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把线上 agent 的失败轨迹冻成回归用例并接进 CI 闸门：轨迹进来就评分、聚类成 issue、一键固化成可离线重放的案例，PR 重现旧错直接拦下。</p>
+  <p class="e-line"><b>痛点</b>评测工具停在看板，看到 agent 出错也只能手补数据集；线上复现一次要烧一次模型钱，还复不稳定。</p>
+  <p class="e-line"><b>付费</b>整栈 MIT，自托管免费；托管版 Free 每月 2 万条轨迹，Team 每月 49 美元含 100 万条，判官模型走客户自己的 OpenRouter 密钥，不加价。</p>
+  <p class="e-line"><b>规模化</b>只要 agent 上生产就需要这一环，接入走标准 OTLP，交付是 docker compose 与一键部署模板。</p>
+  <p class="e-line"><b>边际成本</b>低 · 纯软件加存储，成本主要在留存的 trace 量；重放走录制夹具，不花模型钱。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/jwuthri-cloud/Tracely-ai &amp;&amp; cd Tracely &amp;&amp; docker compose --profile demo up -d --build --wait</code>，起来就带样例轨迹、聚类与闸门，页面在 localhost:3001。</p>
+  <div class="risk"><b>风险</b>2026-10-11 建库、1,153 星、无正式 release，单人维护；生产接入要自己铺 ClickHouse、Postgres、Redis 与 MinIO 四件套。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">MailCheap <span>marclou/mailcheap</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,307 · 近 30 天未获取到</span>
+      <span class="tag">JavaScript · AGPL-3.0</span>
+      <span class="tag">最近提交 10-21 · 无 release</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>按发送量计费的播报应用，写作、发送、站点发布与统计在一套界面里，也能整条流程由 agent 经 MCP 与 REST 调用。</p>
+  <p class="e-line"><b>痛点</b>多数工具按订阅人数收费，作者为几个月不打开邮件的人继续付钱；想保住送达率还得手动清理名单。</p>
+  <p class="e-line"><b>付费</b>价目公开：Starter 每月 19 美元含 2 万封，超出每千封 0.95 美元；作者自己的 4,000 订阅量级，每周一封时比同类产品便宜约八成。</p>
+  <p class="e-line"><b>规模化</b>自建播报的团队同构，导入覆盖 beehiiv、Substack、Mailchimp 等常见导出文件。</p>
+  <p class="e-line"><b>边际成本</b>低 · 发送费用按量转嫁给 SES，自托管时代码成本为零。</p>
+  <p class="e-line"><b>验证</b>用仓库里的 Vercel 一键模板部署，需要 MongoDB、Upstash QStash 与 SES 或 PostShiba 账号；自托管官方估算约一小时，时间主要花在等 DNS 与发送审批上。</p>
+  <div class="risk"><b>风险</b>2026-10-10 建库、单人作者，自托管明确不提供支持（仓库关掉了 issue）；AGPL-3.0 拦住闭源集成；新发送域要慢慢养信誉，起步每批只放 200 封。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>HyperFrames（heygen-com/hyperframes）</b>。本地渲染免费且不消耗厂商额度，收费落在托管创作、语音与数字人上，是今天离收入最近的一条线。70,032 星、v0.8.186 的日更节奏，加上一条 npx 命令就能在半小时里生成本地 MP4，验证成本也最低。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>五个项目的收费位置同时从按席位、按订阅人数挪到按用量：沙箱按云端 agent 计、回归网关按 trace 计、播报按发送量计、渲染引擎按托管分钟数计，引擎本身免费送出去当入口。对买方，账单会从「多少人用」变成「用了多少」；对卖方，毛利取决于单个 agent、单条轨迹、单封邮件与每分钟渲染的成本能不能压到订阅制之下。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>storytold/photocraft</b>（71,389★ · 2026-09-30 建库 · Apache-2.0）· 同一账号在 09-30 到 10-07 之间建了 11 个结构相同的「纯 Rust 重写某款桌面应用」仓库，覆盖 PDF、视频剪辑、文字处理、CAD、表格、演示，合计二十余万星，全部同一天放量。没有付费主体、没有商业闭环，仓库群同模板同时起量，商业化落点无从判断。</li>
+    <li><b>Ebony-Vinyl/dsh-our-free-model</b>（36,853★ · MIT）· 装上插件即可免登录、免密钥不限量使用前沿模型。没有付费主体，额度来自第三方模型，上游一封禁就失效，读者也拿不到可复现的合法环境。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-10-23 · 0937 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

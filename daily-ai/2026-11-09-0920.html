@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-11-09 第 100 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-09 · 第 100 期</span>
+    </div>
+    <h1>编码 agent 把密钥写进公开仓库，苹果与亚马逊同时押注常驻 agent</h1>
+    <p class="mh-sub">本期收录 Claude Code 免打扰授权泄露密钥、微软把 agent 技能与 MCP 服务器做成依赖包、苹果内部推动 Siri 转向常驻助手、亚马逊组建家用机器人部门，以及 Anthropic 以 34 亿美元接手 1.7 吉瓦燃气发电机组。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · AI 编码 · 凭据治理</span>
+    <h2 class="c-title">Claude Code 的免打扰授权把整条命令写进项目文件，1,122 份公开副本里留着真密钥</h2>
+    <div class="c-tags">
+      <span class="chip b">Apiiro 研究</span><span class="chip">104,185 份配置文件</span><span class="chip o">1,379 个不同密钥</span><span class="chip">涉及 63 家机构</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 6 日，软件安全公司 Apiiro 公开一项研究：在 GitHub 公开仓库里检索到 104,185 份 Claude Code 的项目配置文件 <code>.claude/settings.local.json</code>，其中 1,122 份至少含一个符合密钥特征的凭据，合计 1,379 个不同密钥。写入路径是用户在命令确认框里选择「Yes, and don't ask again」——当授权规则保存的是整条命令而非命令模式时，命令里输入的密码与令牌会以明文留在该文件中。</p>
+      <p>按类型分，超过三分之一可直接连上数据库，包括 379 个数据库密码、43 组公网服务器 SSH 登录、42 个 GitHub / GitLab / npm 令牌与 23 个 AWS 密钥。文件所有者涵盖 63 家机构，多为不同规模的软件公司，其中一例是数据库厂商自己的云管理密钥，另一例是医疗记录库的所有者密码。研究团队用当时最新的 Opus 5.5 与 Fable 5.1 复现了该写入行为。</p>
+      <p>Claude Code 首次在仓库写入该文件时会把它加入用户级 git 全局排除列表，但不会写进项目自身的 .gitignore，这层保护不随仓库走。被追踪的 1,105 个仓库里有 539 个的改动提交把 Claude 列为共同作者，说明文件常由 agent 自己提交。删除文件也无法掩盖：旧版本另有 734 个密钥散落在 509 个仓库，74 个仓库的 211 个分支副本带着同一批密钥；截至报道当天，所有含密钥的文件仍在默认分支上，半数已存在 217 天以上。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>agent 的授权状态一旦落盘，凭据治理的重心就从代码仓库挪到 agent 配置目录，而这一层通常不在密钥扫描、安全检查与 .gitignore 模板的覆盖范围内。授权规则保存整条命令的设计，把一次性的临时输入变成了长期留存。</p>
+      <p>处置顺序上，先轮换再清理是有效路径，因为 git 历史与分支副本会把删除动作抵消掉。把编码 agent 接进持续集成或终端设备的团队，配置文件的提交权限应当和凭据扫描一起纳入流水线。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>The Hacker News https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html ；Apiiro https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI Agent · 配置分发</span>
+    <h2 class="c-title">微软把 agent 的技能与 MCP 服务器打包成依赖，一条命令装进九个编码客户端</h2>
+    <div class="c-tags">
+      <span class="chip b">APM</span><span class="chip">MIT 许可</span><span class="chip o">哈希锁定内容</span><span class="chip">默认阻断传递依赖</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>微软在 GitHub 的 microsoft/apm 仓库公开 APM（Agent Package Manager），定位为 agent 上下文的依赖管理器，MIT 许可，最新版本 v0.35.0 于 10 月 22 日发布。项目在 <code>apm.yml</code> 里集中声明 skills、prompts、instructions、plugins 与 MCP 服务器，执行 <code>apm install</code> 后按各客户端支持的类型分别写入，覆盖 GitHub Copilot、Claude Code、Cursor、Codex、Gemini、Windsurf、OpenCode、Kiro 与 Grok Build 九个客户端。</p>
+      <p>工程约束集中在安装期：lockfile 固定版本与内容哈希，新机器克隆后解析出逐字节一致的内容；每次安装扫描隐藏 Unicode 字符；清单里未声明或未被信任的传递 MCP 服务器默认阻断。apm-policy.yml 在安装时强制执行，策略继承按企业、组织、仓库三级只允许收紧。依赖源除 GitHub 外支持 GitLab、Azure DevOps、Bitbucket、Gitea 等任意 git 服务，可指定路径与 ref。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码 agent 的配置已经变成需要版本管理与供应链审查的资产：技能文件与 MCP 服务器都带执行能力，一旦从个人目录文件变成组织级依赖，锁文件、哈希固定与策略继承就是必需品。</p>
+      <p>九个客户端共用一份清单，把多客户端并存从各自的目录约定问题变成一层分发问题。对同时维护多套 agent 环境的团队，这类工具通常在标准确定之前先出现，成为收敛点。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Microsoft APM 文档 https://microsoft.github.io/apm/ ；仓库 https://github.com/microsoft/apm</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 终端智能 · 语音助手</span>
+    <h2 class="c-title">苹果内部推动 Siri 转向能自己盯住目标的常驻助手，最快明年交出</h2>
+    <div class="c-tags">
+      <span class="chip b">彭博社报道</span><span class="chip">跨对话延续目标</span><span class="chip o">iOS 28 改为六周编码</span><span class="chip">接口依赖 App Intents</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 8 日，彭博社 Mark Gurman 在 Power On 通讯中称，苹果内部在讨论把 Siri 从逐句响应改成能自行跟踪目标、判断下一步、不必由用户逐步发起的助手形态，最早可能明年推出。对标的形态是 ChatGPT Dots、Meta Muse 与 xAI Grok Bot 这类拥有独立虚拟机、在后台持续执行任务的 agent。</p>
+      <p>同一条消息提到开发流程的调整：iOS 28 首个里程碑由编码四周加集成四周，改为编码与探索六周、收敛集成两周，参与员工反馈更喜欢这种安排；9to5Mac 认为这与编码 agent 近两年的产能提升有关。苹果 11 月 3 日刚在 iOS 27.3 上扩展了 Siri 在自家应用内的能力，个性化版本已经交付。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>手机助手转常驻 agent 的难点在权限与调度：应用内动作可以靠 App Intents 这类既有框架声明，省掉屏幕级操作，但跨天保持目标、后台唤醒与耗电控制都要在系统层解决。</p>
+      <p>开发节奏向编码倾斜，说明 agentic 编码工具已经在改变操作系统团队的排期方式。对做终端产品的团队，值得跟踪的是系统级 agent 的权限模型何时对外开放，那决定第三方应用能把多少任务交给它。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>9to5Mac https://9to5mac.com/2026/11/08/apple-working-on-agentic-siri-ai-next-year-report/ ；Bloomberg Power On https://www.bloomberg.com/news/newsletters/2026-11-08/apple-explores-turning-siri-ai-into-chatgpt-dots-like-agent-ios-28-shake-up</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 具身智能 · 家用机器人</span>
+    <h2 class="c-title">亚马逊把 Fauna 编入新的个人机器人部门，招聘指向一台面向家庭的新机型</h2>
+    <div class="c-tags">
+      <span class="chip b">Personal Robotics Group</span><span class="chip">Fauna Sprout 约 107 厘米</span><span class="chip o">原 Astro 团队并入</span><span class="chip">规格未公布</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 8 日，CNBC 依据招聘信息与公开资料报道，亚马逊已把今年 3 月收购的 Fauna Robotics 归入新的个人机器人部门 Personal Robotics Group，成员包括原 Astro 团队的大部分人员，并从外部引入一位麻省理工学院的机器人研究者（报道未具名）。招聘启事描述的产品是一台「new-to-world」的机器人，能在动态家庭环境中导航、与家庭成员一起自主运行；用户体验设计岗位的表述是「定义与 Fauna 机器人共同生活的感受」。形态、价格与发布时间均未公布。</p>
+      <p>Fauna 此前做的是 3.5 英尺高的人形 Sprout，主要卖给开发者、商业与学术研究者。前代 Astro 售价 1,450 美元、仅向数千名用户发货，2023 年的企业版不到一年关停；曾任亚马逊消费机器人副总裁的 Ken Washington 说，他推动过双足方案，管理层未采纳。巴克莱 1 月的报告给出的判断是：人形机器人当前规模 20 至 30 亿美元，2035 年约 400 亿美元，最乐观情形 2,000 亿美元。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>家庭场景的门槛在长时间无人看管下的安全、续航与容错，单点操作只是入场条件；Astro 停在带轮平板形态，正说明这一步跨不过去。把仿人形态交给自己收购的团队、把系统工程交给 Lab126 出身的人，是用产品定义换风险控制。</p>
+      <p>大厂重开家用机器人，信号会先体现在供应链上：轮式底盘、双目深度、语音交互与本地算力的组合比全尺寸双足更容易量产。对做终端产品的团队，这类项目的形态选择比宣传口径更值得记录。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>CNBC https://www.cnbc.com/2026/11/08/amazon-home-robot-fauna-sprout.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 算力 · 电力供应</span>
+    <h2 class="c-title">Anthropic 花约 34 亿美元接手 1.7 吉瓦燃气发电机组，连生产排期一起买下</h2>
+    <div class="c-tags">
+      <span class="chip b">英国金融时报报道</span><span class="chip">1.7 吉瓦</span><span class="chip o">OnePWR Solutions</span><span class="chip">卡特彼勒订单队列</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 8 日，英国《金融时报》报道 Anthropic 在 9 月底达成一笔约 34 亿美元的交易，从圣安东尼奥的设备供应商 OnePWR Solutions 手中接手 1.7 吉瓦重型燃气发电机组的订购承诺，同时获得安装所需的工程与施工能力；交易不含 OnePWR 公司本身，也没有员工随交易转入。这批机组是 OnePWR 约两年前向卡特彼勒下的订单，接手相当于买到生产队列中的位置。Piper Sandler 称这是某前沿 AI 实验室迄今对发电设备的最大单笔采购。Anthropic 与 OnePWR 均未回应置评，路透社表示无法立即核实。</p>
+      <p>背景是容量缺口。路透社 9 月报道 Anthropic 计划未来十年投入超过 5,000 亿美元建设 AI 基础设施，同期它在加拿大新斯科舍省的配套电源项目正遭遇当地抗议。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>电力采购从租用机柜走向自备发电，模型供给的交付周期就由发电机与并网排期决定，芯片不再是唯一瓶颈。买下生产队列中位置的做法，把供应链竞争提前到设备制造环节。</p>
+      <p>单位算力的电费与并网时间，会同时反映到推理单价与可用容量上；对终端与具身产品，这部分成本落在每一次调用里，与模型权重无关。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>CNBC 转述英国《金融时报》 https://www.cnbc.com/2026/11/08/anthropic-generator-deal-ai-data-centers.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Apiiro 统计中的密钥是否仍然有效，Anthropic 是否会把授权文件改为只保存命令模式。</li>
+      <li>APM 在九个客户端上的实际兼容程度，策略继承在大型组织里的推行阻力。</li>
+      <li>苹果系统级 agent 的权限模型与第三方应用接入方式，明年是否进入开发者预览。</li>
+      <li>亚马逊新家用机器人的形态与定价，Fauna 现有开发者生态是否延续。</li>
+      <li>Anthropic 这批机组的并网时间与总容量，是否反映到 Claude 的调用配额上。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-09 09:20 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.35 — 2026-10-30</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.35 · 2026-10-30 · 1004 GMT+8</span></div>
+  <h1>控制入口正从厂商控制台挪到脚本与 REST</h1>
+  <p class="mh-sub">Aerial 用 adb 脚本接管小米与 TCL 的电视桌面，Pomerado 把没有 API 的网站包成 MCP 工具，Dograh 一条 docker 命令替掉按分钟计费的语音平台，Tesserae 靠 REST 推墨水屏，PathSim 用 Python 方块图做仿真；共同点是控制入口从厂商控制台挪到了能被程序调用的那一层。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-30</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>这一批都在处理同一件事：设备的实际控制权锁在厂商的应用界面里，用户只能点，不能调。电视的桌面、没有 API 的网站、电话线路、墨水屏面板、仿真模型，各自的专用入口都被一层薄的脚本、REST 或 Python 包替换掉。付费点也跟着挪了位置，落在运维复杂度上，不在软件许可上。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Aerial <span>pengchujin/aerial-tv</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,763 · 近 30 天 +7,763（建仓 10-20，全部星标都在窗口内）</span>
+      <span class="tag">Kotlin · MIT</span>
+      <span class="tag">最近提交 10-30 · 版本 v1.69（10-29）· 建仓 2026-10-20</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>参照 tvOS 做的 Android TV 桌面，装到小米、TCL 等国产电视上接管开机主页，没有广告与内容推荐。</p>
+  <p class="e-line"><b>痛点</b>国产电视的开机页是广告位与推荐流，厂商设置里关不掉；换桌面通常要 root 或刷机，售后与保修都会出问题。</p>
+  <p class="e-line"><b>付费</b>免费 APK，项目本身没有收费主体；B 端价值在门店、酒店、样板间的批量改机与后续运维，按台收服务费。</p>
+  <p class="e-line"><b>规模化</b>适配按品牌与固件型号推进，README 有分品牌的 ADB 说明；同一型号一次适配，覆盖该型号全部机器。</p>
+  <p class="e-line"><b>边际成本</b>低 · 一个 APK 加一份安装脚本，装机台数增加不带来交付成本。</p>
+  <p class="e-line"><b>验证</b><code>curl -fsSL https://aerial.qust.me/install.sh | KEEP_ADB=1 TV=192.168.1.20 bash</code></p>
+  <div class="risk"><b>风险</b>依赖厂商固件不封 ADB 与无障碍服务，系统升级后可能失效；257 个未关闭 issue，全靠作者一人推进；电视厂商对默认桌面有预装与分成安排，批量改机要自行确认合规。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Dograh <span>dograh-hq/dograh</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 5,989 · 近 30 天未获取到（stargazers 接口不可用）</span>
+      <span class="tag">Python · BSD-2-Clause</span>
+      <span class="tag">最近提交 10-28 · 版本 v1.49.0（10-12）· 建仓 2025-09-09 · 111 个未关闭 issue</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自托管的语音智能体平台，可视化编排工作流，接自有 SIP 中继，语音到语音或 STT 加 LLM 加 TTS 任选，模型自带密钥。</p>
+  <p class="e-line"><b>痛点</b>Vapi、Retell 按分钟计费，通话量一大账单随分钟线性上涨；录音与转写还要过第三方，金融与政务客户过不了这一关。</p>
+  <p class="e-line"><b>付费</b>自托管免费，托管云按用量计费，两侧同一套代码；对标产品是按分钟订阅的闭源 SaaS。</p>
+  <p class="e-line"><b>规模化</b>预约、客服回访、催收、外呼的场景跨行业同构，一套工作流模板换个提示词与线路就能复用。</p>
+  <p class="e-line"><b>边际成本</b>低 · 纯软件，模型与话务成本转嫁给用户自选的供应商与线路。</p>
+  <p class="e-line"><b>验证</b><code>curl -o docker-compose.yaml https://raw.githubusercontent.com/dograh-hq/dograh/main/docker-compose.yaml &amp;&amp; curl -o start_docker.sh https://raw.githubusercontent.com/dograh-hq/dograh/main/scripts/start_docker.sh &amp;&amp; chmod +x start_docker.sh &amp;&amp; ./start_docker.sh</code></p>
+  <div class="risk"><b>风险</b>语音智能体赛道拥挤，Vapi、Retell 之外开源侧还有 bolna、Lampline；通话质量取决于用户自选的模型与线路，交付效果方差大；quickstart 默认开公网隧道并允许注册，上线前必须关掉。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.7</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Pomerado <span>Pomerado/pomerado</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,410 · 近 30 天 +1,410（建仓 10-05，全部星标都在窗口内）</span>
+      <span class="tag">TypeScript · MIT</span>
+      <span class="tag">最近提交 10-30 · 版本 v0.4.0-canary.480（10-29）· 建仓 2026-10-05 · YC F26</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>用一句自然语言描述任务，把没有 API 的网站生成为确定性的 MCP 工具；登录态与两步验证之后也能跑。</p>
+  <p class="e-line"><b>痛点</b>靠截图点击的网页自动化慢且不稳，逐个站点写爬虫，对方改一版前端就全废，维护成本压在集成方身上。</p>
+  <p class="e-line"><b>付费</b>核心 MIT 开源、本地可跑；Pomerado Cloud 收托管费，卖的是集成托管、OAuth 与登录代管、使用权限、过反爬的浏览器机群、站点改版自动修复。</p>
+  <p class="e-line"><b>规模化</b>任何只有网页界面的系统都能包一层，跨行业通用；一个站点一份集成，生成的是归属用户的源码。</p>
+  <p class="e-line"><b>边际成本</b>中 · 自托管接近零；云端每份集成要养浏览器会话与登录凭据。</p>
+  <p class="e-line"><b>验证</b><code>npx -y -p pomerado pomerado-mcp --help</code>（另需 OpenAI Key 与 <code>npx playwright install chromium</code>）</p>
+  <div class="risk"><b>风险</b>建仓 25 天、58 个未关闭 issue，canary 版本一天几十个；生成代码的稳定性吃模型；写入类操作有重复提交风险，README 用 possible_commit 字段提示回读确认。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Tesserae <span>dmellok/tesserae</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 984 · 近 30 天未获取到（stargazers 接口不可用）</span>
+      <span class="tag">Python · AGPL-3.0</span>
+      <span class="tag">最近提交 10-29 · 版本 v0.480.0（10-26）· 建仓 2026-05-25 · 51 个未关闭 issue</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>电子墨水看板的服务端：浏览器里排版，服务端渲染成图，按 REST 或 MQTT 推到面板，按键事件回传。</p>
+  <p class="e-line"><b>痛点</b>墨水屏面板多绑各家私有云，改一版看板要厂商排期；自己搭要处理驱动、刷新残影与定时推送。</p>
+  <p class="e-line"><b>付费</b>AGPL 自托管免费；钱在给面板厂与系统集成商做软件层、按点位部署与维护。</p>
+  <p class="e-line"><b>规模化</b>门店价签、会议室门牌、医院床头卡、仓库库位同一套后端，点位扩张只增加面板。</p>
+  <p class="e-line"><b>边际成本</b>低 · 一次渲染一张位图推到设备，新增点位的服务端开销接近零。</p>
+  <p class="e-line"><b>验证</b><code>mkdir tesserae &amp;&amp; cd tesserae &amp;&amp; curl -fsSLO https://raw.githubusercontent.com/dmellok/tesserae/main/docker-compose.yml &amp;&amp; docker compose up -d</code></p>
+  <div class="risk"><b>风险</b>AGPL 下做闭源 SaaS 分发要开源改动，商业模式被压到集成与运维；面板型号适配是长尾活，刷新与残影问题按屏而异；984 星，社区规模小。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">PathSim <span>pathsim/pathsim</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 512 · 近 30 天 +41（star-history 曲线推算）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 10-28 · 版本 v0.28.0（10-29）· 建仓 2024-07-12 · 14 个未关闭 issue</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Python 里的方块图仿真框架：源、积分器、函数、示波器连起来，跑连续、离散与混合系统，支持刚性求解器与过零事件。</p>
+  <p class="e-line"><b>痛点</b>Simulink 按席位授权，一年几千到上万美元；想脚本化、进 CI、跟 Python 的数据与训练流程对接，都要绕着走。</p>
+  <p class="e-line"><b>付费</b>MIT，作者另开咨询与商业支持，明确接「从闭源工具迁移」的活，按项目收费。</p>
+  <p class="e-line"><b>规模化</b>控制、能源、汽车、教学用同一套方块图建模，模型是代码，能复用也能进版本库。</p>
+  <p class="e-line"><b>边际成本</b>低 · 纯 Python 包，只依赖 numpy、scipy、matplotlib。</p>
+  <p class="e-line"><b>验证</b><code>pip install pathsim</code>，README 的阻尼振子示例十几行跑完并出图。</p>
+  <div class="risk"><b>风险</b>工具箱与生态远不及 Simulink，电力电子、液压、多体这些专业库要自己补；512 星、单人主导，长期支持压在咨询收入上；v0.x 版本 API 还会变。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Dograh（dograh-hq/dograh）</b>。它的收费结构最完整：自托管免费做入口，托管云按用量收，正对着按分钟计费的 Vapi 与 Retell，通话量越大成本差越明显。语音这条线的工作流、线路、模型三层都已经在产品里跑通，一条 docker 命令就能验证，不靠演示视频。赛道拥挤是事实，但它把「数据不出内网」做成了默认值，这是闭源 SaaS 卖不了的部分。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>五项都在拆同一层东西：设备与系统的专用控制界面。电视桌面靠 adb 脚本顶掉，没有 API 的网站包成 MCP 工具，电话平台换成自托管的编排器，墨水屏靠 REST 推送，仿真模型写成 Python。更值得注意的是收费点的位移：钱不再收在软件许可上，而是收在运维复杂度上——浏览器机群、站点改版修复、权限与登录代管、批量改机与上门。许可能免费送出去，是因为真正难的那部分本来就不在许可里。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>Gathin23/cleanyourtv</b>（45,553★，建仓 10-17，11 天涨到这个量级）· 传播力最强的一支，但许可证是自定义的 Other、未声明 SPDX，商用边界要逐个读条文；收入只挂了一个买咖啡的链接，交付物是一份提示词加几个 adb 脚本，没有能承担交付与售后的主体。同一件事 Aerial 用 MIT 做完了。</li>
+    <li><b>HKUDS/DeepTutor</b>（50,198★，Apache-2.0，建仓 2025-12-28）· 个性化教学智能体，把多智能体、RAG、命令行与网页端都塞了进来。机构采购要的是课程内容授权、教务系统对接与合规审查，这三样项目里都没有；239 个未关闭 issue，功能面还在快速外扩，拿它做交付底座会被版本节奏拖住。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-10-30 10:04 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

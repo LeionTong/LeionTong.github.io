@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION &middot; DAILY AI &mdash; 2026-10-21 第 84 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION &middot; DAILY AI</b></span>
+      <span>2026-10-21 &middot; 第 84 期</span>
+    </div>
+    <h1>Claude Code 写完一整款游戏，平台侧补上 agent 的沙箱与监控</h1>
+    <p class="mh-sub">本期收录 Claude Code 用动态工作流完成的 Battle Drones、Notion 第六代 agent harness 与双层 credit、Grafana 的常驻 Watchers 与托管沙箱、DeepSeek 开源的推理框架 DeepInfer，以及工信部对人形机器人全年产量的预计。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> &middot; AI coding · 多智能体</span>
+    <h2 class="c-title">一句「做得更好玩」，Claude Code 用动态工作流把整款即时战略游戏推完 12 个版本</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span>
+      <span class="chip ">多智能体</span>
+      <span class="chip ">游戏</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 20 日，Simon Willison 发布浏览器端即时战略游戏 Battle Drones：12 个大版本、321 次提交，几乎全部由编码 agent 完成，主力是 Claude Code。他从 7 月的 Claude Fable 5 起步，10 月换到 Opus 5.5，全程几乎没有读过代码，而 TypeScript 本身也不是他熟悉的语言。</p>
+      <p>转折发生在 v4。他只给了一句「This game isn&#39;t fun enough yet. Make it a LOT more fun.」，在 Claude Code 的 Ultracode 模式下触发动态工作流（官方说法是用一段 JavaScript 脚本同时编排多个子代理）。任务从当晚跑到次日凌晨，agent 跑了上千局模拟试玩，用结果重新平衡单位、加新单位与新模式。它自己写的发布说明里给出两组数字：在 1,200 局 AI 对 AI 的普通难度测试中，25 分钟仍未分出胜负的对局占比从 14% 降到 0.9%；落后 800 以上资源的一方最终翻盘的比例从 24% 升到 46%。此后 v5 把整套 3D 模型直接写成 TypeScript 代码，v12 用麦克风可及范围内的音频报文做双机联机。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>真正值得记的不是它能跑，而是目标本身是主观的——「好不好玩」被交给 agent，再由它自建模拟对局当评测器闭环调参。这是编码 agent 从写函数走到做产品判断的一个具体样本，也解释了为什么这一轮的长任务需要动态工作流而不是单轮对话。局限同样清楚：评价标准由 agent 自己定、自己打分，人只在最后做游玩体验验收；单一项目、单一作者，换一个代码库能否复现还没有证据。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Simon Willison&#39;s Weblog https://simonwillison.net/2026/Oct/20/battledrones/ ；项目仓库 https://github.com/simonw/battledrones ；可玩版本 https://simonw.github.io/battledrones/</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> &middot; AI Agent · 长程任务</span>
+    <h2 class="c-title">Notion 重写 agent 底座：单任务从 5 分钟拉到 24 小时，靠路由把成本压掉九成</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip ">长程任务</span>
+      <span class="chip ">计费</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 19 日，Notion 发布第六代 agent harness，同时上线新的 Auto 模型路由与双层 credit 体系（11 月 2 日起对现有客户生效）。新底座让每个会话跑在独立服务上，用队列化的 worker 循环推进，官方称任务可以跨重启续跑，单个任务运行时长从 5 分钟提升到 24 小时以上；agent 获得独立的计算机与浏览器，能用写脚本代替反复消耗 token；长对话按各家原生方式压缩，大体积工具结果移出上下文窗口。</p>
+      <p>Auto 会按任务挑模型：简单请求走快而便宜的，分析与多步 agent 任务走更强的，某个模型卡住时改投另一家。Notion 称在 20 多个常见任务上，Auto 的效果接近 Opus 5.5 与 Astra，平均成本低约 90%，折算下来 credit 能用约 10 倍。另有一项「Review for me」，在 agent 执行动作前由另一个模型判断是否安全。企业侧开放自带模型密钥的私有 alpha，Business 与 Enterprise 席位每月含 1,500 个 Standard credit 与 500 个 Select credit。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>长任务与成本是 agent 落地的两个硬约束，Notion 的处理方式是把「能跑多久」和「花多少钱」拆开治理：时长靠独立服务与压缩，成本靠路由，风险靠执行前的第二模型复核。需要打折看的是「接近前沿模型」属厂商自测、任务集自选；而 credit 与席位绑定之后，团队换平台的迁移成本会明显上升。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Notion 发布说明 https://www.notion.com/releases ；官方博客 https://www.notion.com/blog/notion-ai-more-for-less ；WebProNews https://webpronews.com/notion-rebuilt-agents-auto-model-router-new-credit-system</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> &middot; AI Agent · 运维</span>
+    <h2 class="c-title">Grafana 把发现、诊断、改码串成一条链，但修码这一步停在 PR 等人工合并</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span>
+      <span class="chip ">可观测性</span>
+      <span class="chip ">AI coding</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 20 日 ObservabilityCON 2026，Grafana Labs 公布一批面向 agent 化运维的更新。Assistant Watchers 转为正式可用：用自然语言说明要盯什么、选好数据源，watcher 自己从历史遥测里学基线，模式变化时给出带证据的发现，并走现有 Grafana Alerting 派发，严重发现可直接拉起一次 Investigation。Grafana Managed Sandboxes 进入公开预览：Assistant 在受控云环境里克隆仓库，结合线上遥测定位问题、准备修复，再开 PR 交人审核。Agent Observability 支持 OpenTelemetry 后也转为正式可用，agent 的活动、token 与成本按与其他服务相同的标准上报。</p>
+      <p>同周发布的 2026 可观测性调查（300 名 IT 与工程负责人）给出两个比例：68% 已把 AI 用于可观测性推进到试点或生产；85% 能接受只读排查，能接受完全自主修复的只有 52%。另一份由厂商资助的 IDC 白皮书称，使用其 AI 工具的客户平均故障恢复时间下降 63%。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这条链的关键设计是修码环节默认只到 PR：agent 可以读线上遥测、改代码，但合并仍要人点。等于在运维场景给编码 agent 划了一条可审计的边界，也把「上下文」从聊天记录换成了仓库代码与生产行为。门槛不在模型而在遥测覆盖与权限治理——修复质量取决于代码与运行时能否对上；只读与自动修复之间 33 个百分点的差距，说明信任还在建立中。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Grafana 官方公告 https://grafana.com/blog/observabilitycon-2026-announcements ；SiliconANGLE https://siliconangle.com/2026/10/20/grafana-labs-leans-on-ai-agents-to-automate-ai-agent-observability ；Business Wire 新闻稿 https://www.businesswire.com/news/home/20261020082945/en/</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> &middot; 具身智能 · 产业</span>
+    <h2 class="c-title">工信部给出全年口径：人形机器人整机产量预计破 10 万台，上半年已超 4 万台</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip ">人形机器人</span>
+      <span class="chip ">政策</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 19 日国新办发布会上，工信部科技司司长魏巍介绍，今年上半年我国人形机器人整机产品突破 400 款、产量超过 4 万台，预计全年整机产量将突破 10 万台。他给出的另一个数字是场景侧：通过人形机器人与具身智能实景实训专项行动，相关产品已在仓储物流、餐饮零售、家庭服务等 300 多个重点场景验证和部署。</p>
+      <p>下一步的动作包括：对运动控制、仿真模拟、触觉传感等关键共性技术「揭榜挂帅」；鼓励商贸企业开放场景做实训验证；发布《国家人形机器人产业标准体系建设指南（2026 版）》并建设开源社区；构建产业监测体系，加强产品质量、网络与数据安全方面的检验检测，并开展伦理治理。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>从几百台样机到十万台年产量，说明结构件、关节模组与整机产线已经能承接批量订单；但 300 多个场景是「验证部署」，不等于规模复购，真正要看的是单机日均有效作业时长与故障率。标准体系与检测要求落地后，小团队整机出货的门槛会被实质抬高，利好已有量产能力与真实场景数据回流的厂商。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>澎湃新闻 https://www.thepaper.cn/newsDetail_forward_34281306 ；每日经济新闻 https://www.nbd.com.cn/articles/2026-10-19/4608754.html ；中国网 https://www.china.org.cn/2026-10/20/content_118741588.shtml</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> &middot; 推理基础设施 · 开源</span>
+    <h2 class="c-title">DeepSeek 开源生产推理框架 DeepInfer，同一套代码同时支持 SM100 与昇腾 950</h2>
+    <div class="c-tags">
+      <span class="chip b">开源</span>
+      <span class="chip ">推理</span>
+      <span class="chip ">国产算力</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 20 日，DeepSeek 在 GitHub 以 Apache 2.0 开源 DeepInfer，称这是支撑其大规模生产服务的推理框架。当前只支持 DeepSeek-V4.1-Flash 一个模型，硬件上同时支持 NVIDIA SM100 GPU 与华为昇腾 950 NPU。</p>
+      <p>仓库列出的能力包括：FlashMLA、DeepGEMM、DeepEP、TileKernels 等自研算子；Attention DP 配均衡 CP、MoE 专家并行配 EPLB；DSpark 投机解码并按置信度调度校验；SWA 有界重放以削减解码前的预填充开销；零开销批调度；batch-invariant 推理与确定性采样（均限 NVIDIA）；以及正则、JSON Schema、EBNF 三类结构化输出约束。官方明确这是一份离线推理版本，完整服务所需的 KV cache 系统、VE/Prefill/Decode 分离与多副本负载均衡并未包含。项目注明最初基于 vLLM 构建，也参考了 SGLang 与 TensorRT-LLM。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把生产推理栈摊开，意味着同样的模型可以在自有集群上复现官方吞吐，而不是只能比价调用 API；SM100 与昇腾 950 写进同一套代码，对国产算力的适配给出一个可跑、可测的参照。缺口也要看清：缺 KV cache 与 PD 分离，离开箱即用的服务还有距离，且只面向单一模型，换模型需要自己改算子与并行配置。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>GitHub https://github.com/deepseek-ai/DeepInfer ；The Next Web https://thenextweb.com/news/deepseek-deepinfer-open-source-inference-engine ；AI Weekly https://aiweekly.co/alerts/deepseek-open-sources-deepinfer-its-v41-flash-serving-stack</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Battle Drones 这类「让 agent 自建评测器」的做法，换一个非游戏代码库能否复现；动态工作流的单次成本与失败回滚方式尚未公开。</li>
+      <li>Notion Auto 路由「接近前沿模型、成本低九成」是厂商自测结论，需要第三方在真实企业任务上复核；11 月 2 日 credit 切换后的实际月支出。</li>
+      <li>DeepInfer 补齐 KV cache 与 PD 分离的时间表，以及昇腾 950 上的实测吞吐与 SM100 的差距。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>&middot; 2026-10-21 09:27 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

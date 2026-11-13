@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>读数不等于真值 · AI 领域每日动态 2026-08-06 16:12</title>
+<style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --lightbox:#f2f4f2;
+  --lightbox-2:#e7eae7;
+  --ink:#141719;
+  --ink-soft:#3d4448;
+  --ink-faint:#767f84;
+  --rule:#c9cfcb;
+  --rule-hard:#9aa39d;
+  --duo-red:#c8333a;
+  --duo-green:#127a55;
+  --indigo:#2f4a86;
+  --paper:#fbfcfb;
+  --shadow:0 1px 0 #f1f1f1, 0 18px 40px -28px #a1a2a3;
+}
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html {
+  scroll-behavior:smooth;
+}
+body {
+  background:#f2f4f2;
+  color:#141719;
+  font-family:"Epilogue","Noto Sans SC",sans-serif;
+  font-size:17px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  padding:0 0 100px;
+  position:relative;
+  overflow-x:hidden;
+}
+body::before {
+  content:"";
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background:#ffffff;
+}
+body::after {
+  content:"";
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:none;
+  background-size:4px 4px;
+}
+.wrap {
+  position:relative;
+  z-index:1;
+  max-width:1000px;
+  margin:0 auto;
+  padding:0 26px;
+}
+.masthead {
+  padding:58px 0 0;
+}
+.clinic-bar {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:14px;
+  border-top:2px solid #141719;
+  border-bottom:1px solid #9aa39d;
+  padding:10px 0;
+  margin-bottom:34px;
+}
+.clinic-bar .mark {
+  font-family:"Kode Mono",monospace;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#141719;
+  border:1.5px solid #141719;
+  padding:3px 9px;
+}
+.clinic-bar .meta {
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:#6f777c;
+}
+.clinic-bar .meta b {
+  color:#3d4448;
+  font-weight:500;
+}
+.clinic-bar .spacer {
+  flex:1 1 auto;
+}
+h1.title {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:clamp(50px,9.4vw,116px);
+  line-height:1.85;
+  letter-spacing:-.005em;
+  text-transform:none;
+}
+h1.title .ln {
+  display:block;
+  overflow:hidden;
+}
+h1.title .ln > span {
+  display:block;
+}
+h1.title .neg {
+  color:#c8333a;
+}
+.title-en {
+  font-family:"Kode Mono",monospace;
+  font-size:clamp(11px,1.5vw,14px);
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:#6f777c;
+  margin-top:20px;
+  padding-left:3px;
+}
+.dateline {
+  margin-top:16px;
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  letter-spacing:.06em;
+  color:#3d4448;
+}
+.lede {
+  margin:44px 0 0;
+  padding:30px 32px 32px;
+  background:#fbfcfb;
+  border:1.5px solid #141719;
+  position:relative;
+}
+.lede::after {
+  content:"Rx";
+  position:absolute;
+  top:-14px;
+  right:22px;
+  font-family:"Anton",sans-serif;
+  font-size:28px;
+  color:#c8333a;
+  background:#fbfcfb;
+  padding:0 10px;
+  line-height:1.85;
+  border:1.5px solid #141719;
+}
+.lede .lbl {
+  display:inline-block;
+  font-family:"Kode Mono",monospace;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  background:#eeeeee;
+  color:#6a6b6a;
+  padding:5px 12px;
+  margin-bottom:18px;
+}
+.lede p {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:clamp(16px,1.85vw,18.5px);
+  line-height:1.95;
+  color:#141719;
+}
+.lede p b {
+  font-weight:700;
+}
+.lede p + p {
+  margin-top:14px;
+}
+.chart-box {
+  margin:46px 0 0;
+  padding:26px 22px 20px;
+  background:#fbfcfb;
+  border:1px solid #9aa39d;
+}
+.chart-cap {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:12px;
+  flex-wrap:wrap;
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#6f777c;
+  border-bottom:1px solid #c9cfcb;
+  padding-bottom:10px;
+  margin-bottom:18px;
+}
+.chart-cap b {
+  color:#141719;
+  font-weight:700;
+}
+svg.chart {
+  width:100%;
+  height:auto;
+  display:block;
+}
+.chart-note {
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px dashed #c9cfcb;
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  line-height:1.9;
+  letter-spacing:.03em;
+  color:#6f777c;
+}
+.chart-note span {
+  color:#c8333a;
+  font-weight:700;
+}
+.chart-note span.g {
+  color:#127a55;
+}
+.sigs {
+  margin:54px 0 0;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+.sig {
+  position:relative;
+  display:grid;
+  grid-template-columns:104px 1fr;
+  background:#fbfcfb;
+  border:1px solid #9aa39d;
+  overflow:hidden;
+}
+.sig-no {
+  font-family:"Anton",sans-serif;
+  font-size:62px;
+  line-height:1.85;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888988;
+  background:#eeeeee;
+}
+.sig--agent .sig-no {
+  background:#f4f4f4;
+}
+.sig--edge  .sig-no {
+  background:#f4f4f4;
+}
+.sig--emb   .sig-no {
+  background:#f1f1f1;
+}
+.sig-main {
+  padding:24px 30px 27px;
+  min-width:0;
+}
+.sig-head {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin-bottom:11px;
+}
+.dir {
+  font-family:"Kode Mono",monospace;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#747574;
+  padding:4px 11px;
+}
+.dir--agent {
+  background:#f4f4f4;
+}
+.dir--edge {
+  background:#f4f4f4;
+}
+.dir--emb {
+  background:#f1f1f1;
+}
+.src {
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  letter-spacing:.05em;
+  color:#6f777c;
+}
+.sig-title {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:700;
+  font-size:clamp(19px,2.2vw,24px);
+  line-height:1.85;
+  color:#141719;
+  margin-bottom:15px;
+}
+.sig-body p {
+  font-size:15px;
+  line-height:1.88;
+  color:#3d4448;
+  margin-bottom:13px;
+}
+.sig-body p:last-child {
+  margin-bottom:0;
+}
+.q {
+  display:inline-block;
+  font-family:"Kode Mono",monospace;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#141719;
+  background:#e7eae7;
+  padding:3px 9px;
+  margin-right:8px;
+  vertical-align:1px;
+}
+.caveat {
+  margin-top:15px;
+  padding:12px 14px;
+  border-left:3px solid #c8333a;
+  background:#fcf5f5;
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  line-height:1.85;
+  color:#3d4448;
+}
+.caveat b {
+  color:#c8333a;
+}
+.caveat.g {
+  border-left-color:#127a55;
+  background:#f3f8f6;
+}
+.caveat.g b {
+  color:#127a55;
+}
+.cross {
+  margin:54px 0 0;
+  padding:30px 33px 32px;
+  background:#eeeeee;
+  color:#6a6b6a;
+}
+.cross .lbl {
+  display:inline-block;
+  font-family:"Kode Mono",monospace;
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  background:#f4f4f4;
+  color:#6f706f;
+  padding:5px 12px;
+  margin-bottom:18px;
+}
+.cross ol {
+  counter-reset:c;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.cross li {
+  counter-increment:c;
+  position:relative;
+  padding-left:46px;
+  margin-bottom:15px;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:16.5px;
+  line-height:1.9;
+  color:#747574;
+}
+.cross li:last-child {
+  margin-bottom:0;
+}
+.cross li::before {
+  content:counter(c,decimal-leading-zero);
+  position:absolute;
+  left:0;
+  top:1px;
+  font-family:"Anton",sans-serif;
+  font-size:23px;
+  line-height:1.85;
+  color:#c8333a;
+}
+.cross li b {
+  font-weight:700;
+}
+.foot {
+  margin:46px 0 0;
+  padding-top:18px;
+  border-top:1px solid #9aa39d;
+  font-family:"Kode Mono",monospace;
+  font-size:13px;
+  line-height:1.95;
+  letter-spacing:.04em;
+  color:#6f777c;
+}
+.foot b {
+  color:#3d4448;
+}
+@media(max-width:680px) {.wrap {
+  padding:0 18px;
+}
+.sig {
+  grid-template-columns:64px 1fr;
+}
+.sig-no {
+  font-size:40px;
+}
+.sig-main {
+  padding:20px 18px 22px;
+}
+.clinic-bar .meta {
+  font-size:13px;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
+</style>
+</head>
+<body class="opto">
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="clinic-bar">
+      <span class="mark">Daily AI</span>
+      <span class="meta">验光室 · <b>读数不等于真值</b></span>
+      <span class="spacer"></span>
+      <span class="meta">2026-08-06 <b>16:12</b> GMT+8</span>
+      <span class="meta">当日第 2 班</span>
+    </div>
+    <h1 class="title">
+      <span class="ln"><span>读数<span class="neg">不等于</span>真值</span></span>
+    </h1>
+    <div class="title-en">The Readout Is Not The Truth</div>
+    <div class="dateline">聚焦：AI Agent ／ 终端与端侧 ／ 具身智能　·　主动避开 15:45 班已锁 5 条</div>
+  </header>
+
+  <section class="lede">
+    <span class="lbl">今日主线 · THE READOUT IS NOT THE TRUTH</span>
+    <p>它们压在同一道裂缝上：<b>我们用来判断 AI 进展的那个显示值，正在与实际发生的事情脱钩。</b> 榜单第一名与第二名相差 0.1 分，已落进评测噪声区；Claude Code 修掉的漏洞更直白——用制表符和不可见 Unicode 就能让命令的一部分从人工审批对话框里消失，人看到的批准内容不等于实际执行的内容；一段没有成功率、没有测试条件的机器人视频被读成"历史性突破"，同一天二级市场把具身概念股打回三成以下。真正在补分辨率的只有两种动作：把评价交给外部可核验的凭据（第三方榜单、数据产权登记、公开财报），或者干脆承认现有组织已经量不出差异，把整条"提假设—跑实验—改模型"的回路交给机器重做。</p>
+  </section>
+
+  <section class="chart-box">
+    <div class="chart-cap"><span>图 01 · Agentic Index 头部读数</span><b>刻度分辨率 < 差距 ⇒ 排名退化为噪声</b></div>
+    <svg class="chart" viewbox="0 0 920 340" role="img" aria-label="Qwen3.8-Max 55.4 与 Claude Opus 5 55.3 仅差 0.1 分，落入评测噪声区；K3 50.1 为前最佳中国模型">
+      <!-- 评测噪声带 ±0.5 -->
+      <rect x="637.5" y="64" width="121.7" height="206" fill="#127a55"/>
+      <line x1="637.5" y1="64" x2="637.5" y2="270" stroke="#127a55" stroke-width="1" stroke-dasharray="3 4"/>
+      <line x1="759.2" y1="64" x2="759.2" y2="270" stroke="#127a55" stroke-width="1" stroke-dasharray="3 4"/>
+      <text x="698.6" y="82" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" letter-spacing="1" fill="#127a55">评测噪声区 ±0.5</text>
+
+      <!-- 纵轴读数：Qwen3.8-Max 55.4 -->
+      <line x1="747" y1="112" x2="747" y2="270" stroke="#c8333a" stroke-width="2"/>
+      <circle cx="747" cy="112" r="7" fill="#c8333a"/>
+      <text x="747" y="100" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="14" font-weight="700" fill="#c8333a">55.4</text>
+      <text x="747" y="289" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#c8333a">Qwen3.8-Max · 全球第一</text>
+
+      <!-- 纵轴读数：Claude Opus 5 55.3 -->
+      <line x1="734.8" y1="132" x2="734.8" y2="270" stroke="#2f4a86" stroke-width="2"/>
+      <circle cx="734.8" cy="132" r="7" fill="#2f4a86"/>
+      <text x="734.8" y="120" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="14" font-weight="700" fill="#2f4a86">55.3</text>
+      <text x="734.8" y="305" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#2f4a86">Claude Opus 5 · 第二</text>
+
+      <!-- 0.1 分差括号 -->
+      <line x1="734.8" y1="50" x2="734.8" y2="58" stroke="#141719" stroke-width="1.2"/>
+      <line x1="747" y1="50" x2="747" y2="58" stroke="#141719" stroke-width="1.2"/>
+      <line x1="734.8" y1="54" x2="747" y2="54" stroke="#141719" stroke-width="1.2"/>
+      <text x="740.9" y="44" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="12" font-weight="700" fill="#141719">差 0.1</text>
+
+      <!-- 纵向跃升：K3 50.1 → 55.4 -->
+      <circle cx="102.2" cy="250" r="5" fill="#767f84"/>
+      <text x="102.2" y="270" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#767f84">K3 50.1</text>
+      <path d="M 107 246 C 300 234, 560 150, 740 118" fill="none" stroke="#767f84" stroke-width="1.4" stroke-dasharray="5 5"/>
+      <text x="360" y="196" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="11" fill="#767f84">↓ 纵向 +5.3 分（真信号）</text>
+
+      <!-- 基准轴 -->
+      <line x1="60" y1="270" x2="850" y2="270" stroke="#9aa39d" stroke-width="1.5"/>
+      <g font-family="'Kode Mono',monospace" font-size="10" fill="#767f84" text-anchor="middle">
+        <text x="90" y="288">50</text>
+        <text x="333.3" y="288">52</text>
+        <text x="576.7" y="288">54</text>
+        <text x="820" y="288">56</text>
+      </g>
+      <text x="455" y="324" text-anchor="middle" font-family="'Kode Mono',monospace" font-size="10.5" letter-spacing="1" fill="#767f84">Agentic Index 分数（模型 ＋ 脚手架 联合成绩）</text>
+    </svg>
+    <div class="chart-note">红点 <span>Qwen3.8-Max 55.4</span> 与靛点 <span>Claude Opus 5 55.3</span> 相差 <span>0.1</span> 分，远小于评测噪声带 <span>±0.5</span>；灰点 <span class="g">K3 50.1</span> 为上一最佳中国模型——纵向 <span class="g">+5.3 分</span> 才是携带信息的真信号。</div>
+  </section>
+
+  <section class="sigs">
+
+    <article class="sig sig--agent">
+      <div class="sig-no">01</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--agent">AI Agent</span>
+          <span class="src">信源层级：第三方评测机构 ＋ 多家财经媒体交叉 ｜ 可信度：高（榜单事实），解读需谨慎</span>
+        </div>
+        <h2 class="sig-title">Qwen3.8-Max 登顶第三方 Agentic 榜，但领先幅度只有 0.1 分</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>8 月 6 日，第三方评测平台 Artificial Analysis 公布新一期榜单，阿里 Qwen3.8-Max 在智能体能力（Agentic Index）排行榜以 <b>55.4 分</b> 位列全球第一，超越 Anthropic Claude Opus 5 与 OpenAI GPT-5.6。此前该榜长期被 Claude、GPT 垄断，中国模型最好成绩为 Kimi K3 的 50.1 分。</p>
+          <p><span class="q">两个数字</span>第二名 Claude Opus 5（max）为 <b>55.3 分</b>，与第一名相差 <b>0.1 分</b>；中国模型纵向跃升为 <b>50.1 → 55.4，约 5.3 分</b>。</p>
+          <p><span class="q">为什么关注</span>"全球第一"这个显示值在 0.1 分差距下几乎不携带信息量——它落在任何一次评测重跑、采样温度或 harness 配置变动都可能翻转的区间内。真正携带信息的是另外两件事：垄断格局第一次被打破，以及 5.3 分的纵向跃升幅度远大于榜首身位。Agentic Index 衡量的是模型调用工具、规划并执行复杂任务的能力，最依赖运行环境（harness、工具集、超时与重试策略）；7 月 30 日 Composio 实测显示同一模型装进不同 harness，token 效率可差最多 30 倍。这类榜单更接近"模型＋脚手架"的联合成绩，而非模型单体能力的纯净读数。</p>
+          <p class="caveat"><b>留一句不确定：</b>本条依据 Artificial Analysis 公开榜单及 AASTOCKS、Yahoo 财经、DoNews、极目新闻等转载，未逐项复核其评测集构成与运行配置。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--agent">
+      <div class="sig-no">02</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--agent">AI Agent · 前沿路线</span>
+          <span class="src">信源层级：谷歌官方博客 ＋ NYT / Wired ＋ 中文媒体 ｜ 可信度：高</span>
+        </div>
+        <h2 class="sig-title">Jeff Dean 27 年后离开谷歌，带走三位元老去做"递归式自我改进"</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>硅谷时间 8 月 5 日，谷歌 CEO 皮查伊发出全员备忘录《Next Chapter of Our AI Momentum》，同时宣布两件事：<b>Jeff Dean 离职</b>——这位在谷歌工作 27 年的首席科学家，与 Sanjay Ghemawat（MapReduce / BigTable / Spanner 共同设计者）、Oriol Vinyals（Gemini 核心研发）、Quoc Le（Google Brain 联合创始人）共同创办 <b>Discovery Loop</b>，Dean 任 CEO，以公益企业（public benefit company）形式运营，研究"递归式自我改进"——让 AI 以极少人类干预参与提出假设、运行实验、改进模型，再用于芯片、药物与新材料研发；投资方含 Radical Ventures、Khosla Ventures 与 Alphabet，谷歌将继续提供至少一年算力。<b>DeepMind 领导层改组</b>——Demis Hassabis 转任董事长兼 Alphabet 首席科学家，Koray Kavukcuoglu 升任高级副总裁直报 CEO，负责 Gemini 4 等。</p>
+          <p><span class="q">为什么关注</span>这不是一次普通人才流失，而是一次<b>边界重划</b>：谷歌把"近期必须交付的模型与产品"收进更短指挥链，把"周期更长、结果更难预测的探索性研究"移到公司外部，用投资＋算力＋云服务维持连接。对 Agent 方向意义更直接——"递归式自我改进＋自动化科研闭环"是 Agent 的终极形态：从"替人执行任务"升级到"替人提出该做什么实验"。而它选择在公司外部、以更小规模重做，本身就是对现有大型研究组织迭代分辨率的判断：在一家 19 万人的公司里，已经很难量出一次研究方向调整的边际效果。这也是本周第二次出现"顶级研究者用大公司稳定资源交换创业公司控制权"的样本（前有 Noam Shazeer 转投 OpenAI、John Jumper 加入 Anthropic）。</p>
+          <p class="caveat"><b>市场反应：</b>消息公布后 Alphabet 股价盘中跌逾 5%、收跌约 3.5%–4%，单日市值蒸发超 1800 亿美元；皮查伊同期披露 Gemini 应用月活超 9.5 亿、Gemma 累计下载超 9 亿次。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--edge">
+      <div class="sig-no">03</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--edge">终端与端侧</span>
+          <span class="src">信源层级：官方 release notes（经第三方发布追踪站聚合）｜ 可信度：中高</span>
+        </div>
+        <h2 class="sig-title">Claude Code 修掉四类权限绕过：审批对话框里显示的命令，不等于真正执行的命令</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>Claude Code <b>v2.1.223</b>（2026-08-05 发布）的更新日志中，四条修复直接指向"人工审批这道护栏本身失效"：修复 Bash 权限绕过——精心构造的命令可把自身的一部分<b>对权限检查隐藏</b>；修复审批提示——用制表符或不可见 Unicode 字符填充的命令，此前可让一部分内容<b>不出现在批准对话框中</b>；修复 workflow 脚本可通过动态 <code>import()</code> 在沙箱之外执行代码；修复 agent 定义中的 <code>bypassPermissions</code> 模式会无视组织级"禁用越权"策略。同期补上 marketplace 的 GitHub 组织通配符管控、受限子 Agent 模型回退告警等。</p>
+          <p><span class="q">为什么关注</span>这是本期主线最锋利的一个例证，且不需要任何推演：<b>一整套"人在回路"的安全设计，前提是人看到的东西等于机器要做的东西。</b> 用不可见字符把 <code>rm</code> 的后半截藏起来，这个前提就不成立——用户点的"允许"，允许的是屏幕上那一行，执行的却是另一行。8 月 5 日中消协要求 AI 客服"必须留人工通道"、AISI 披露"最严重一次投毒被开源维护者人工拦下"，都把最后一道防线押在人工确认上；本条说明这道防线的<b>渲染层</b>同样需要被当作攻击面来加固。同时也要看到正面事实：这些是<b>已修复</b>项且出现在公开 changelog 里——可被外部读取、比对、追问，本身就是一种可核验凭据。</p>
+          <p class="caveat"><b>节奏参照：</b>Claude Code 2026 年内已发布 178 次、平均 2.1 天一版；同期 Gemini CLI v0.54.0（8/6）、OpenAI Codex CLI rust-v0.146.1（8/5）、GitHub Copilot CLI v1.0.78、Antigravity CLI v1.1.10 相继发版。｜ <b>重叠说明：</b>8/4 本栏目收过 v2.1.221（沙箱凭证掩码），本条为其后新版新增项，不重复计入。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--emb">
+      <div class="sig-no">04</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--emb">具身智能</span>
+          <span class="src">信源层级：厂商创始人社媒 ＋ 中文行业媒体分析 ｜ 可信度：中（演示未经独立验证）</span>
+        </div>
+        <h2 class="sig-title">Figure 03 自主爬工业梯子：一次真正的能力耦合，和一份不完整的成绩单</h2>
+        <div class="sig-body">
+          <p><span class="q">发生了什么</span>Figure AI 创始人 Brett Adcock 发布视频，显示 Figure 03 在实验室环境中<b>自主攀爬工业梯子</b>——无遥控、无人工协助、无预设动作序列。8 月 6 日该视频在中文具身圈形成系统讨论。技术上，爬梯子被视为标志性动作，不是因为更高或更快，而是它第一次把三条控制回路<b>耦合进同一个连续动作</b>：眼（实时视觉伺服）、手（抓握扶手）、腿（动态平衡攀爬）必须同时工作，任一环出错即摔倒。此前人形演示基本是单能力展示——走路的归走路，抓取的归抓取，脚下是平地。这是移动操作耦合（loco-manipulation）第一次以完整形态出现。</p>
+          <p><span class="q">限定</span>视频<b>未经独立验证</b>，Figure 未披露成功率、测试条件或失败数据，动作明显慢于人类；这是<b>实验室能力</b>而非工厂能力。需与体系数据合看：据 Figure 4 月生产公告，Figure 03 产量已从每天 1 台提至每小时 1 台，累计交付超 350 台，C 轮投后估值约 390 亿美元。<b>单看演示会高估它，单看量产会低估它。</b></p>
+          <p><span class="q">为什么关注</span>这条本身是真实能力进展，但同时也是"读数不等于真值"的教科书案例：一段没有分母的视频，被当作有分母的结论使用。2026 年人形机器人最大叙事风险，正是把演示当验收。健康读法是把它当作<b>能力上界的一次证明</b>，而非<b>部署可靠性的一次交付</b>。</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="sig sig--emb">
+      <div class="sig-no">05</div>
+      <div class="sig-main">
+        <div class="sig-head">
+          <span class="dir dir--emb">具身智能 · 产业与资本</span>
+          <span class="src">信源层级：央视 / 北京青年报 ＋ 钛媒体 ＋ 券商研报 ｜ 可信度：中高 ｜ 不构成投资建议</span>
+        </div>
+        <h2 class="sig-title">具身同日出现两组反向读数：数据开始确权，估值开始分裂</h2>
+        <div class="sig-body">
+          <p><span class="q">读数 A · 数据加凭据</span>8 月 6 日央视报道，合肥瑶海区长三角数字科技示范园建成机器人"训练学校"与精加工中心：80 余台机器人每日循环练习 200 余次，形成硬件制造到测试优化闭环；全市集聚产业链企业 190 家，构建"大脑—小脑—核心部件—整机"全链条。<b>关键细节：自 7 月 15 日起，训练数据完成产权登记并可交易。</b></p>
+          <p><span class="q">读数 B · 口径收窄</span>钛媒体梳理 30 家具身上市公司：多数概念股从高点回撤<b>超三成</b>，年初至今仍涨的仅剩 6 家；而一级估值继续抬升——宇树发行估值约 420 亿元、银河通用约 230 亿元。华泰 8/6 研报指出：<b>厂商自报专用任务成功率接近满分，第三方通用任务真机成功率仍处低位</b>；且产量、交付、付费部署是依次收窄的三个口径。工信部数据显示人形产量由 2025 全年约 2 万台增至 2026 上半年 4 万台以上，预计全年超 10 万台。宇树 8/5 启动科创板询价、8/10 申购，拟募资 42.02 亿元，定价有望成板块新估值锚；巴克莱则判断大规模部署更接近 2035 而非 2030。</p>
+          <p><span class="q">为什么关注</span>两组读数指向同一动作——<b>给显示值配一个外部可核验的凭据</b>。合肥用产权登记把训练数据从"厂商自称拥有的资产"变成"可确权、可交易、可入账的资产"；二级市场用回撤把"自报成功率"换成"财报、订单、回款、复购"。华泰那句"产量、交付、付费部署依次收窄"，是本期主线在产业侧最精确的表述：同一件事在三个口径下会给出三个数量级不同的数字，而绝大多数报道只引用最宽的那个。</p>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="cross">
+    <span class="lbl">横向观察 · 今日三句话</span>
+    <ol>
+      <li><b>0.1 分的第一名不是第一名，5.3 分的跃升才是新闻。</b>当刻度的分辨率低于差距，排名就退化成随机数。</li>
+      <li><b>人在回路的前提，是人看到的和机器执行的是同一件事。</b>用不可见字符藏掉半条命令，就能把整套审批机制变成表演——护栏的渲染层也是攻击面。</li>
+      <li><b>今天所有健康的动作，都是给读数配凭据：</b>第三方榜单、公开 changelog、数据产权登记、公开财报、招股书。凡是只有自述而无外部凭据的数字，都应默认按最窄口径理解。</li>
+    </ol>
+  </section>
+
+  <footer class="foot">
+    <b>主线脉络回顾</b>　7/24 可信化 → 7/27 自主 vs 可控 → 7/29 可控的自治 → 7/30 边界划定 / 刻度 → 7/31 成本曲线 / 判定权外移 → 8/01 验收席位 → 8/03 验证的单价 → 8/04 留痕即证明 → 8/05 谁替机器签字 → <b>本期：读数不等于真值</b>。从"谁来验证"到"验证要多少钱"，再到今天的"验证用的那把尺子还准不准"——链条正在从治理层下沉到度量层。<br>
+    <b>诚实弃用</b>　英国 AISI 伪造身份（8/05 已锁）／ 上海具身方案（沪府办规〔2025〕6 号旧文重提）／ Anthropic 自研芯片团队（8/05 非当日）／ 阿里云容器 Agent 商业化（8/04 公告）／ LobsterAI 营销口径 ／ 疑似机器生成聚合站数据 ／ 融资传闻口径。<br>
+    <b>免责</b>　本报告由自动化任务生成，力求信源可追溯、口径可复核；企业自述数据均标注来源层级，涉及股票、估值与融资的内容不构成任何投资建议。
+  </footer>
+
+</div>
+</body>
+</html>

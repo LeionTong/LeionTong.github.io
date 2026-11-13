@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>AI 领域每日动态 · 2026-07-28 20:34 深空夜话电讯</title>
+
+<style>
+
+/* <<EINK:BASE>> */
+
+/* ============================================================
+
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+
+             · 无外部字体 · 层级靠边框/字重/留白表达
+
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+
+   ============================================================ */
+
+
+
+:root{
+
+  --paper:#ffffff;
+
+  --paper-2:#f4f4f4;
+
+  --ink:#000000;
+
+  --ink-soft:#2b2b2b;
+
+  --ink-faint:#4d4d4d;
+
+  --accent:#000000;
+
+  --accent-2:#555555;
+
+  --accent-3:#7a7a7a;
+
+  --rule:#b8b8b8;
+
+  --rule-hard:#000000;
+
+  --rule-soft:#dcdcdc;
+
+  --fill:#f7f7f7;
+
+  --fill-2:#ececec;
+
+}
+
+*{box-sizing:border-box}
+
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+
+body{
+
+  margin:0;
+
+  background:var(--paper);
+
+  color:var(--ink);
+
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+
+  line-height:1.85;
+
+  font-size:17px;
+
+  padding:0 20px 90px;
+
+}
+
+.sheet{max-width:900px;margin:0 auto}
+
+
+
+/* ---------- 报头 ---------- */
+
+.masthead{
+
+  margin:0 -20px 34px;padding:40px 30px 26px;
+
+  background:var(--paper-2);
+
+  border-bottom:3px solid var(--rule-hard);
+
+}
+
+.mh-top{
+
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+
+}
+
+.mh-top b{color:var(--ink);font-weight:700}
+
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+
+
+/* ---------- 规格条 ---------- */
+
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+
+  border:1px solid var(--rule-hard);background:var(--paper)}
+
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+
+.spec-cell:last-child{border-right:none}
+
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+
+  display:block;margin-bottom:4px;font-weight:700}
+
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+
+
+/* ---------- 导语 ---------- */
+
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+
+.lede b{color:var(--ink)}
+
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+
+.lede p:last-child{margin-bottom:0}
+
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+
+  padding:3px 10px;margin-bottom:14px}
+
+
+
+/* ---------- 区块标题 ---------- */
+
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+
+
+/* ---------- 卡片（Daily AI） ---------- */
+
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+
+.card:last-of-type{border-bottom:none}
+
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+
+  display:block;margin-bottom:8px;font-weight:700}
+
+.c-num b{color:var(--ink)}
+
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+
+.c-tags{margin:0 0 16px}
+
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+
+
+.blk{margin:0 0 16px}
+
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+
+  display:block;margin-bottom:6px}
+
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+
+.blk p:last-child{margin-bottom:0}
+
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+
+strong{color:var(--ink);font-weight:700}
+
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+
+  border-bottom:2px solid var(--ink)}
+
+
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+
+  border:1px solid var(--rule-hard);background:var(--paper)}
+
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+
+.fig-cap b{color:var(--ink)}
+
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+
+.why .blk-k{color:var(--ink)}
+
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+
+.datum b{color:var(--ink)}
+
+
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+
+
+/* ---------- 条目（Daily Github） ---------- */
+
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+
+  border:1px solid var(--rule-hard);background:var(--paper)}
+
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+
+.e-line a{color:var(--ink);text-decoration:underline}
+
+
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+
+pre code{background:none;padding:0}
+
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+
+  display:block;margin-bottom:6px;font-weight:700}
+
+.e-line.risk{color:var(--ink-soft)}
+
+
+
+/* ---------- 评分条 ---------- */
+
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+
+  border-top:1px dashed var(--rule)}
+
+.sc{flex:1 1 112px}
+
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+
+  display:block;margin-bottom:5px;font-weight:700}
+
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+
+.bar i{display:block;height:100%;background:var(--ink)}
+
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+
+.wsum b{color:var(--ink);font-size:17px}
+
+
+
+/* ---------- 结尾 / 页脚 ---------- */
+
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+
+.tail li{margin-bottom:9px}
+
+.tail b{color:var(--ink)}
+
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+
+
+/* ---------- 通用元素 ---------- */
+
+h1,h2,h3{color:var(--ink)}
+
+a{color:var(--ink);text-decoration:underline}
+
+ul,ol{padding-left:1.4em}
+
+li{margin-bottom:8px}
+
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+
+
+/* ---------- 小屏 ---------- */
+
+@media (max-width:640px){
+
+  body{font-size:16.5px;padding:0 14px 70px}
+
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+
+  .entry{padding:20px 16px 18px}
+
+  .entry-no{font-size:28px}
+
+  .e-name{font-size:22px}
+
+  .c-title{font-size:21px}
+
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+
+  .spec-cell:last-child{border-bottom:none}
+
+  pre{white-space:pre-wrap}
+
+}
+
+
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+
+@media print{
+
+  body{background:#fff;padding:0;font-size:11pt}
+
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+
+  .entry-no{color:#d0d0d0}
+
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+
+  a{text-decoration:underline}
+
+}
+
+/* <</EINK:BASE>> */
+
+/* <<EINK:LEGACY>> */
+
+:root {
+
+  --ink:#080b16;
+
+  --ink-2:#0d1322;
+
+  --panel:#10182c;
+
+  --panel-2:#0c1322;
+
+  --line:#f0f3f9;
+
+  --line-soft:#f7f8fb;
+
+  --text:#e7ecf6;
+
+  --muted:#94a3c4;
+
+  --faint:#6b7aa0;
+
+  --amber:#ffb454;
+
+  --cyan:#45d6c8;
+
+  --rose:#ff7a8a;
+
+  --serif:"Source Serif 4","Noto Serif SC",serif;
+
+  --sans:"Manrope","Noto Sans SC",system-ui,sans-serif;
+
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+
+}
+
+* {
+
+  box-sizing:border-box;
+
+}
+
+html {
+
+  scroll-behavior:smooth;
+
+}
+
+body {
+
+  margin:0;
+
+  background:#eeeeee;
+
+  color:#686a6f;
+
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+
+  line-height:1.7;
+
+  -webkit-font-smoothing:antialiased;
+
+  overflow-x:hidden;
+
+}
+
+body::before {
+
+  content:"";
+
+  position:static;
+
+  inset:0;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  background-image:none;
+
+  background-size:46px 46px;
+
+  mask-image:none;
+
+}
+
+body::after {
+
+  content:"";
+
+  position:static;
+
+  inset:0;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+}
+
+.wrap {
+
+  position:relative;
+
+  z-index:1;
+
+  max-width:1080px;
+
+  margin:0 auto;
+
+  padding:54px 26px 90px;
+
+}
+
+.mast {
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:space-between;
+
+  gap:22px;
+
+  flex-wrap:wrap;
+
+  border-bottom:1px solid #f0f3f9;
+
+  padding-bottom:22px;
+
+}
+
+.brand {
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+}
+
+.kicker {
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  letter-spacing:.34em;
+
+  color:#6b758d;
+
+  text-transform:uppercase;
+
+}
+
+.title {
+
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+
+  font-weight:700;
+
+  font-size:clamp(30px,5vw,50px);
+
+  line-height:1.85;
+
+  margin:0;
+
+  letter-spacing:.5px;
+
+}
+
+.title b {
+
+  color:#996c32;
+
+  font-weight:700;
+
+}
+
+.onair {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  letter-spacing:.18em;
+
+  color:#298078;
+
+  border:1px solid #b5efe9;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:#f4fdfc;
+
+}
+
+.dot {
+
+  width:9px;
+
+  height:9px;
+
+  border-radius:50%;
+
+  background:#45d6c8;
+
+}
+
+.meta {
+
+  display:flex;
+
+  gap:26px;
+
+  flex-wrap:wrap;
+
+  margin-top:18px;
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  color:#6b758d;
+
+}
+
+.meta span b {
+
+  color:#74767b;
+
+  font-weight:500;
+
+}
+
+.lead {
+
+  margin:34px 0 40px;
+
+  padding:22px 24px;
+
+  border-left:3px solid #ffb454;
+
+  background:#fff9f1;
+
+  border-radius:0 14px 14px 0;
+
+  font-size:16px;
+
+  color:#6e727a;
+
+}
+
+.lead b {
+
+  color:#757575;
+
+}
+
+.card {
+
+  position:relative;
+
+  background:#eeeeee;
+
+  border:1px solid #f0f3f9;
+
+  border-radius:16px;
+
+  padding:26px 26px 24px;
+
+  margin-bottom:22px;
+
+}
+
+.card:hover {
+
+  border-color:#b8b8b8;
+
+}
+
+.card .idx {
+
+  position:absolute;
+
+  top:-16px;
+
+  left:22px;
+
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+
+  font-weight:700;
+
+  font-size:42px;
+
+  color:#929293;
+
+  line-height:1.85;
+
+}
+
+.chead {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+
+  margin:6px 0 14px;
+
+}
+
+.tag {
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  letter-spacing:.12em;
+
+  padding:5px 11px;
+
+  border-radius:999px;
+
+  text-transform:uppercase;
+
+}
+
+.tag.a {
+
+  color:#966a32;
+
+  border:1px solid #ffddb2;
+
+  background:#fff9f1;
+
+}
+
+.tag.t {
+
+  color:#297e76;
+
+  border:1px solid #abede6;
+
+  background:#f0fcfb;
+
+}
+
+.tag.e {
+
+  color:#b0545f;
+
+  border:1px solid #ffc3ca;
+
+  background:#fff4f6;
+
+}
+
+.ctitle {
+
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+
+  font-weight:700;
+
+  font-size:clamp(19px,2.6vw,24px);
+
+  margin:0;
+
+  color:#757575;
+
+  flex:1 1 auto;
+
+}
+
+.ev {
+
+  color:#70757f;
+
+  font-size:15px;
+
+  margin:0 0 14px;
+
+}
+
+.ev b {
+
+  color:#757575;
+
+  font-weight:600;
+
+}
+
+.why {
+
+  list-style:none;
+
+  padding:0;
+
+  margin:0 0 14px;
+
+  display:grid;
+
+  gap:9px;
+
+}
+
+.why li {
+
+  position:relative;
+
+  padding-left:24px;
+
+  font-size:14.5px;
+
+  color:#6f7481;
+
+}
+
+.why li::before {
+
+  content:"▸";
+
+  position:absolute;
+
+  left:2px;
+
+  top:0;
+
+  color:#996c32;
+
+  font-size:13px;
+
+}
+
+.why li b {
+
+  color:#757575;
+
+  font-weight:600;
+
+}
+
+.src {
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  color:#6b758d;
+
+  border-top:1px dashed #f7f8fb;
+
+  padding-top:11px;
+
+}
+
+.src b {
+
+  color:#6f7689;
+
+  font-weight:500;
+
+}
+
+.obs {
+
+  margin-top:42px;
+
+  padding:26px;
+
+  border:1px solid #f0f3f9;
+
+  border-radius:16px;
+
+  background:#eeeeee;
+
+}
+
+.obs h2 {
+
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+
+  font-size:22px;
+
+  margin:0 0 16px;
+
+  color:#757575;
+
+  letter-spacing:.5px;
+
+}
+
+.obs .q {
+
+  display:grid;
+
+  gap:14px;
+
+  counter-reset:o;
+
+}
+
+.obs .q p {
+
+  position:relative;
+
+  padding-left:40px;
+
+  margin:0;
+
+  font-size:15px;
+
+  color:#71767f;
+
+}
+
+.obs .q p::before {
+
+  counter-increment:o;
+
+  content:"0" counter(o);
+
+  position:absolute;
+
+  left:0;
+
+  top:-2px;
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-weight:700;
+
+  font-size:15px;
+
+  color:#2a837a;
+
+}
+
+.obs .q p b {
+
+  color:#757575;
+
+}
+
+.foot {
+
+  margin-top:34px;
+
+  padding:20px 22px;
+
+  border:1px solid #f7f8fb;
+
+  border-radius:14px;
+
+  background:#ffffff;
+
+  font-size:13px;
+
+  color:#6b758d;
+
+  line-height:1.75;
+
+}
+
+.foot b {
+
+  color:#717682;
+
+  font-weight:600;
+
+}
+
+.sig {
+
+  margin-top:26px;
+
+  text-align:right;
+
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+
+  font-size:13px;
+
+  color:#68769b;
+
+  letter-spacing:.1em;
+
+}
+
+@media (max-width:640px) {.wrap {
+
+  padding:34px 16px 70px;
+
+}
+
+.meta {
+
+  gap:14px;
+
+}
+
+.card {
+
+  padding:22px 18px;
+
+}}
+
+/* <</EINK:LEGACY>> */
+
+/* <<EINK:GUARANTEE>> */
+
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+
+body{background:#ffffff!important;color:#000000!important;
+
+  font-size:17px!important;line-height:1.85!important;
+
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+
+*{box-sizing:border-box}
+
+@media print{
+
+  body{background:#fff!important;color:#000!important}
+
+  [class]{break-inside:avoid;page-break-inside:avoid}
+
+}
+
+/* <</EINK:GUARANTEE>> */
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+
+
+  <header class="mast">
+
+    <div class="brand">
+
+      <div class="kicker">Nightwatch Wire · 深空夜话电讯</div>
+
+      <h1 class="title">AI 领域<b>每日动态</b></h1>
+
+    </div>
+
+    <div class="onair"><span class="dot"></span> ON AIR · 20:34</div>
+
+  </header>
+
+
+
+  <div class="meta">
+
+    <span>日期 <b>2026-07-28 20:34 GMT+8</b></span>
+
+    <span>侧重 <b>AI Agent · 终端与边缘 · 具身智能</b></span>
+
+    <span>编制 <b>Leion</b></span>
+
+  </div>
+
+
+
+  <p class="lead">
+
+    <b>本期主线</b>：智能体正从"会对话"跨入"能执行、可审计、好交付"的深水区——交互上语音接管 CLI（Qoder Voice），工程上用测试门禁与不可变日志替代"人盯代码"，终端上个人 AI 把竞争从硬件移到端侧算力；具身侧则出现"车企集体下场 + 产业化/出口提速"的双信号。一天的增量，共同指向一句话：<b>Agent 的护城河，正从模型能力移向"执行闭环 + 可信 + 可交付"</b>。
+
+  </p>
+
+
+
+  <!-- 1 -->
+
+  <article class="card">
+
+    <div class="idx">01</div>
+
+    <div class="chead">
+
+      <span class="tag a">AI Agent</span>
+
+      <h2 class="ctitle">阿里 Qoder Voice：国内首个实时语音交互智能体上线</h2>
+
+    </div>
+
+    <p class="ev">7/28 16:26，阿里 <b>Qoder</b> 上线实时语音交互智能体 <b>Qoder Voice</b>——据称国内首个实时语音交互智能体，由全双工语音模型 <b>Qwen-Audio-3.0-Realtime</b> 驱动，Speech to Speech Index 评测 <b>84.1 分全球第一</b>。任意界面唤起悬浮语音助手 → 收指令即自动建任务、调工具、持续执行，过程中可打断/追问/调整；已登陆 Qoder 国际版，官方称服务中国一汽、中信证券、亚信科技等数十万家企业，全球用户超 500 万。</p>
+
+    <ul class="why">
+
+      <li><b>把 Agent 入口从"打字"推进到"说话即执行"</b>：全双工 + 后台执行补齐长上下文输入低效的短板，是编程/办公 Agent 人机接口的一次实质升级。</li>
+
+      <li>与本期"执行闭环"主线同构，延续 7/27"Codex 语音"线程，但由国内厂商独立落地。</li>
+
+    </ul>
+
+    <p class="src">信源：网易智能（2026-07-28 16:26）· 厂商发布 + 第三方评测 → <b>一级，强</b>；评测分数以 Artificial Analysis 公开榜为准，建议自行复核。</p>
+
+  </article>
+
+
+
+  <!-- 2 -->
+
+  <article class="card">
+
+    <div class="idx">02</div>
+
+    <div class="chead">
+
+      <span class="tag t">终端与边缘</span>
+
+      <h2 class="ctitle">高通×IDC《从AI设备到个人AI》白皮书：竞争从硬件转向端侧算力</h2>
+
+    </div>
+
+    <p class="ev">7/27 财新圆桌 AI 活动上，高通委托 IDC 发布《从 AI 设备到个人 AI》白皮书：智能体正成为 AI 产业关键方向，<b>终端竞争重点将从硬件规格转向 AI 能力</b>，端边云协同与端侧算力成为"个人 AI"的关键基础；设备不再只是算力载体，而是智能体持续在场的随身入口。</p>
+
+    <ul class="why">
+
+      <li><b>为"终端"方向定调</b>：与 7/22"七家端侧大模型拿证"、7/27"OPPO 小布 Next / 三星 Gemini Intelligence"形成产业—政策—标准闭环，端侧算力被芯片厂+咨询机构共同确认为下一代个人计算底座。</li>
+
+      <li>反向约束 Agent 设计——端侧受限意味着 Agent 必须"小而省、能离线、可协同"，呼应 14:06 Corbenic"成本降 6500 倍"与 09:12 MCP final 把接线标准下沉到端/边。</li>
+
+    </ul>
+
+    <p class="src">信源：凤凰网 / GitHub AI 日报（2026-07-28 引述 7/27 财新圆桌）· 厂商委托白皮书 + 行业媒体 → <b>一级/权威，可信</b>；属趋势判断而非单点事件。</p>
+
+  </article>
+
+
+
+  <!-- 3 -->
+
+  <article class="card">
+
+    <div class="idx">03</div>
+
+    <div class="chead">
+
+      <span class="tag e">具身智能</span>
+
+      <h2 class="ctitle">车企扎堆"造人"：比亚迪 8 月发人形、小鹏 IRON 量产倒计时、理想双路并进</h2>
+
+    </div>
+
+    <p class="ev">7/28 15:40 华尔街见闻：<b>比亚迪</b> 确认 8 月"迪空间"发布人形机器人（预期为可操作实体样机首秀）；<b>小鹏 IRON</b> 广州工厂小批量试产，量产线进入最后联调；<b>理想</b> 规划双轮+双足两款，双轮年内发布。底层逻辑：智能汽车与人形机器人技术重合度 <b>超 70%</b>、供应链共享，汽车工厂即首批应用场景，车业承压下机器人成第二增长曲线。</p>
+
+    <ul class="why">
+
+      <li><b>具身竞争从"创企独舞"升级为"制造业巨头下场"</b>：车企自带电机/电控/减速器/量产体系，补的是具身最缺的制造与供应链短板，与 14:06"星炽量产+厦门国资上游"同构。</li>
+
+      <li>首应用场景高度收敛到"自家工厂"——用真实产线喂数据、验证逻辑，比开放场景更快形成数据飞轮。</li>
+
+    </ul>
+
+    <p class="src">信源：华尔街见闻（2026-07-28 15:40）· 媒体采访 + 厂商确认 → <b>一级/权威，强</b>；比亚迪 8 月发布为厂商确认，实体样机细节待现场验证。</p>
+
+  </article>
+
+
+
+  <!-- 4 -->
+
+  <article class="card">
+
+    <div class="idx">04</div>
+
+    <div class="chead">
+
+      <span class="tag a">AI Agent · 工程</span>
+
+      <h2 class="ctitle">Agent 工程纪律走向成熟：测试门禁 + 不可变事件日志</h2>
+
+    </div>
+
+    <p class="ev">7/28 集中释放"Agent 工程化"信号：①《代码整洁之道》作者 <b>Robert Martin</b> 不再逐行审查 Agent 代码，改用单元测试/gherkin/QA/mutation testing/覆盖率"逼"代码过关，把 Agent 编程定性为系统工程；②社区"百条 Agent 技巧"点出真实曲线——<b>第一周 100% 搭建，如今 20% 搭建、80% 维护</b>；③长周期 Agent 审计主张需<b>不可变事件日志</b>（类比 Git 提交史/金融双录/航空黑匣子）。同期 GitHub Trending 由 Agent 工具链（OpenCodeReview/AIRI/Claude Video）与去中心化通信（bitchat 单日 +2346 星）主导。</p>
+
+    <ul class="why">
+
+      <li><b>把"自主 vs 可控"之争落到工程底座</b>：延续 7/24 可信化、7/27"OpenAI×HF 失控 ↔ Anthropic 砍提示词"主线——当 Agent 越来越自主，"可审计、可验证、可追责"比"更聪明"更紧迫。</li>
+
+      <li>行业共识从"怎么造 Agent"转向"怎么管 Agent"：测试门禁 + 不可变日志，是 Agent 走向生产系统的工程门槛。</li>
+
+    </ul>
+
+    <p class="src">信源：AGI HUNT 日报 / Robert Martin 访谈 / 社区实践（2026-07-28）· 一级+社区混合，方法论类信号，可信但属观点与工程经验，非硬新闻。</p>
+
+  </article>
+
+
+
+  <!-- 5 -->
+
+  <article class="card">
+
+    <div class="idx">05</div>
+
+    <div class="chead">
+
+      <span class="tag e">具身智能 · 产业化</span>
+
+      <h2 class="ctitle">宇树出货翻倍 + 机器人列入"新新三样"：产业化与出口提速</h2>
+
+    </div>
+
+    <p class="ev">7/28 多方信号：① <b>宇树科技</b> 称 2026 出货至少翻倍、最高近 2025 年三倍（2025 超 6500 台），产能扩至 3 万台并借 IPO 建新厂；②机器人列为中国 <b>"新新三样"</b>——上半年工业机器人出口 62.9 亿元、+18.6%、销 141 国，手术机器人 +3.3 倍；③北京推"<b>乏、脏、险、难</b>"4d 场景优先落地；④央视×赛迪发布《机器人进化八大趋势》。</p>
+
+    <ul class="why">
+
+      <li><b>具身从"能不能走"进入"卖不卖得动、出不出得去"</b>：产能 3 万台 + 出口三位数增长 + 地方 4d 政策，构成"供给—需求—场景"三角，与本条三、14:06"星炽/厦门"形成"下游交付+中游产能+上游保供"产业链信号。</li>
+
+      <li>"新新三样"是外贸话语升级，具身智能被抬到国家外贸名片高度，资本与政策确定性进一步增强。</li>
+
+    </ul>
+
+    <p class="src">信源：IT之家 / IT时代网 / 新京报 / 扬眼 / 央视（2026-07-28）· 厂商披露 + 官方统计 + 媒体 → <b>强</b>；宇树出货/产能为厂商口径，待财报与交付验证。</p>
+
+  </article>
+
+
+
+  <!-- observation -->
+
+  <section class="obs">
+
+    <h2>横向观察 · 今日三句话</h2>
+
+    <div class="q">
+
+      <p><b>交互破口</b>：Qoder Voice 把 Agent 入口从键盘推进到全双工语音，"说话即执行"补齐长上下文输入低效的短板，Agent 离"随身助理"更近一步。</p>
+
+      <p><b>纪律补位</b>：当 Agent 越来越自主，行业重心从"更聪明"转向"更可信"——测试门禁 + 不可变事件日志，是 Agent 走向生产系统的工程底座（延续 7/24 可信化、7/27 自主vs可控主线）。</p>
+
+      <p><b>具身进产能</b>：车企集体下场 + 宇树扩产 + 机器人入"新新三样"，具身智能从炫技、验证，正式进入"量产、出口、政策护航"的产业链阶段。</p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- honesty -->
+
+  <div class="foot">
+
+    <b>诚实标注</b>：第 1–5 条均为 2026-07-28 当日新增或当日报道信号（第 2 条白皮书为 7/27 财新圆桌发布、7/28 集中报道）。各条均<b>非投资建议</b>；厂商披露数据（出货、产能、评测分数）以官方后续披露与实际交付为准，评测分数建议自行复核原始榜单。<br/>
+
+    本期刻意避开 09:12（MCP 终版 / 微软 MAI-Cyber / Being-H0.8 / Corbenic / 具身双速）与 14:06（LLaDA2.2 / Nemotron 3 Ultra / 太空在轨 AI / 星炽动力 / 厦门国资）已锁定条目，亦不与 7/27 各班的千问办公 / 企业微信 / 美团 CatPaw / OPPO 小布 / WorkBuddy 鸿蒙 / Kimi K3 开源 / 智元 IPO 等重复。
+
+  </div>
+
+
+
+  <div class="sig">— Leion · 2026-07-28 20:34 GMT+8 —</div>
+
+
+
+</div>
+
+</body>
+
+</html>
+

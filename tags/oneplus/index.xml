@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Oneplus on Leion'Log</title><link>https://leiontong.github.io/tags/oneplus/</link><description>Recent content in Oneplus on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Thu, 17 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/oneplus/index.xml" rel="self" type="application/rss+xml"/><item><title>oneplus6解锁并root教程</title><link>https://leiontong.github.io/posts/oneplus6-unlockroot-manual/</link><pubDate>Thu, 17 May 2018 00:00:00 +0000</pubDate><guid>https://leiontong.github.io/posts/oneplus6-unlockroot-manual/</guid><description>&lt;h1 id="oneplus6解锁并root教程"&gt;oneplus6解锁并root教程&lt;/h1&gt;
+&lt;h2 id="1-打开开发者模式允许解锁设备"&gt;1. 打开开发者模式，允许解锁设备&lt;/h2&gt;
+&lt;p&gt;版本号连续点好多次，可以打开开发者模式，进入开发者模式，选中“允许OEM解锁设备”。&lt;/p&gt;
+&lt;h2 id="2-解锁"&gt;2. 解锁&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fastboot oem unlock&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="3-启动-twrp-321-0-enchiladaimg-临时recovery镜像"&gt;3. 启动 twrp-3.2.1-0-enchilada.img 临时recovery镜像&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;fastboot boot twrp-3.2.1-0-enchilada.img&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>

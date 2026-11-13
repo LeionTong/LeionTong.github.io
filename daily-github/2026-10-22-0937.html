@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.29 — 2026-10-22</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.29 · 2026-10-22 · 0937 GMT+8</span></div>
+  <h1>按屏与按台的软件授权正在被自托管压低</h1>
+  <p class="mh-sub">Fleet 用单个二进制替掉按主机计费的设备管理平台，Anthias 与 ScreenTinker 把数字标牌搬回自有服务器，FreeKiosk 接管安卓平板锁定，Bambuddy 管起 Bambu Lab 打印农场。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-22</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>设备管理、数字标牌、平板锁定、打印农场，这四个场景的付费方式同时在松动：按台数计价的订阅，正在被能装进客户自己服务器的版本换掉，收费挪到支持与合规上。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Fleet <span>fleetdm/fleet</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,019 · 近 30 天未获取到</span>
+      <span class="tag">Go · MIT Expat（ee/ 目录另授权）</span>
+      <span class="tag">最近提交 10-22 · v4.93.2（10-21）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>跨 macOS、Windows、Linux、Android、iOS 的设备管理平台，一个 Go 二进制加 Web 控制台，覆盖入网、合规检查、补丁与漏洞。</p>
+  <p class="e-line"><b>痛点</b>设备上千台后，按台订阅的设备管理变成每年固定大额支出，策略节奏还得跟着云厂商的发版走。</p>
+  <p class="e-line"><b>付费</b>价目公开：Free 每主机每月 0 美元，Premium 每主机每月 7 美元；自托管与付费共用一套代码，ee/ 目录单独授权。</p>
+  <p class="e-line"><b>规模化</b>员工终端、门店设备、实验室机器走同一套入网与合规流程，换行业不改产品。</p>
+  <p class="e-line"><b>边际成本</b>低 · 服务端跑在客户机器上，官方增量成本只有支持人力。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/fleetdm/fleet &amp;&amp; cd fleet &amp;&amp; docker compose up -d</code>，compose 把服务与控制台一起拉起。</p>
+  <div class="risk"><b>风险</b>3970 个 open issue；设备管理能力压在 APNs、ABM、Autopilot、Android EMM 这些厂商通道上，证书与合规材料是深水区；零接触部署与迁移只在 Premium 里。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.6</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Anthias <span>Screenly/Anthias</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,700 · 近 30 天未获取到</span>
+      <span class="tag">Python · GPLv2 与商业许可双授权</span>
+      <span class="tag">最近提交 10-21 · v2026.10.0（10-16）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>刷进树莓派或 x86 小机的数字标牌系统，资产库、播放列表、定时调度与网页控制台都在本机。</p>
+  <p class="e-line"><b>痛点</b>标牌 SaaS 按屏按月收费，几十块屏一年就是一笔固定开销；门店网络常常不允许播放端连外网。</p>
+  <p class="e-line"><b>付费</b>双授权：GPLv2 自用免费，闭源集成或要商业条款向 Screenly 买；官方另卖托管服务与硬件。</p>
+  <p class="e-line"><b>规模化</b>连锁门店、学校、诊所、车间的播放需求同构，烧一张卡能复制到任意台。</p>
+  <p class="e-line"><b>边际成本</b>低 · 只发镜像与容器，播放算力在客户自己的设备上。</p>
+  <p class="e-line"><b>验证</b><code>bash &lt;(curl -sL https://install-anthias.srly.io)</code>，也可在 Raspberry Pi Imager 的 Digital signage and kiosks 里直接选 Anthias。</p>
+  <div class="risk"><b>风险</b>只支持 Debian 系的 Armbian，Ubuntu 版会在 apt 阶段失败；非树莓派板子的视频靠软件解码，1080p 以上容易卡；闭源分发要另买商业许可。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Bambuddy <span>maziggy/bambuddy</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,138 · 近 30 天未获取到</span>
+      <span class="tag">Python · AGPL-3.0</span>
+      <span class="tag">最近提交 10-22 · 稳定版 v1.2.5.7（10-02）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自托管的 Bambu Lab 打印机群控制台，排队、耗材、摄像头、切片、固件回滚都在本地完成。</p>
+  <p class="e-line"><b>痛点</b>打印农场要么绑厂商云，要么用按台订阅的第三方平台；多机排队与失败重打全靠人盯。</p>
+  <p class="e-line"><b>付费</b>AGPL-3.0 开源，收费位置在农场部署与运维支持；对标 SimplyPrint 那类按打印机分档的订阅，Basic 每月 5.99 美元、上限 2 台。</p>
+  <p class="e-line"><b>规模化</b>一台 A1 到几十台的农场是同一套队列逻辑，学校创客空间与小批量代工同构。</p>
+  <p class="e-line"><b>边际成本</b>低 · 自托管，切片挂可选 sidecar，算力由客户出。</p>
+  <p class="e-line"><b>验证</b><code>docker compose up -d</code>，容器起来后在网页里填打印机 IP 与访问码。</p>
+  <div class="risk"><b>风险</b>只覆盖 Bambu Lab 生态，换品牌等于换产品；251 个 open issue，1.3.0 还在 daily beta 上滚动；AGPL 对想闭源集成的买方是硬约束。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">FreeKiosk <span>RushB-fr/freekiosk</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 690 · 近 30 天未获取到</span>
+      <span class="tag">TypeScript · MIT</span>
+      <span class="tag">最近提交 10-20 · v2.0.0-beta.6（10-14）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>安卓平板的锁定模式，用 Device Owner 接管设备，支持 WebView 与外部应用两种模式，40 多个 REST 端点加 MQTT。</p>
+  <p class="e-line"><b>痛点</b>展厅、点单台、签到机的平板必须锁死，商业方案按设备收授权，一百台就是一笔硬支出。</p>
+  <p class="e-line"><b>付费</b>核心 MIT 免费；官方云已在收费，首台永久免费，之后每设备每月 1 欧元起。对照 Fully PLUS 每台 8.90 欧元一次性授权、Fully Cloud 每台每月最高 1.18 欧元。</p>
+  <p class="e-line"><b>规模化</b>任何 Android 8 以上的平板都能刷成同一套配置，连锁门店与临时活动共用流程。</p>
+  <p class="e-line"><b>边际成本</b>低 · 云端只做状态与配置下发，负载随设备数线性增长，单价压得下来。</p>
+  <p class="e-line"><b>验证</b>先装 v2.0.0-beta.6 的 APK，再执行 <code>adb shell dpm set-device-owner com.freekiosk/.DeviceAdminReceiver</code>，之后应直接进锁定页。</p>
+  <div class="risk"><b>风险</b>2.0 仍是 beta；Device Owner 只能在没有登录 Google 账号的新设备上设置，设错要恢复出厂；云端自托管版本排到 2027。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">ScreenTinker <span>screentinker/screentinker</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 235 · 近 30 天未获取到</span>
+      <span class="tag">JavaScript · MIT</span>
+      <span class="tag">最近提交 10-22 · v3.0.2（10-21）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自托管的数字标牌内容管理系统，多租户、播放列表、排期、视频墙与播放端状态监控，播放端就是浏览器。</p>
+  <p class="e-line"><b>痛点</b>连锁门店几十块屏要统一换内容，SaaS 按屏计费，素材还要过第三方服务器；断网只能等人上门。</p>
+  <p class="e-line"><b>付费</b>代码 MIT，托管云有免费额度，付费档位没有公开；自托管设 SELF_HOSTED=true 后首个账号解锁全部功能。</p>
+  <p class="e-line"><b>规模化</b>一个后台管多门店，播放端覆盖 Android TV、Fire TV、Tizen、webOS、Roku、树莓派与普通浏览器，不装播放器授权。</p>
+  <p class="e-line"><b>边际成本</b>低 · 作者说法是一台 5 美元的 VPS 带数百块屏。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/screentinker/screentinker.git &amp;&amp; cd screentinker &amp;&amp; SELF_HOSTED=true npm start</code>。</p>
+  <div class="risk"><b>风险</b>单人维护、235 星，v3 刚发布；托管定价不透明，商业条款要直接谈；播放端靠浏览器兼容，老电视盒子跑复杂动画会掉帧。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>FreeKiosk（RushB-fr/freekiosk）</b>。价格差摆在明面上：MIT 内核免费，官方云每设备每月 1 欧元起，正对 Fully PLUS 每台 8.90 欧元与 Fully Cloud 每台每月 1.18 欧元。装一个 APK 加一条 adb 命令就能验到锁定效果，收费路径已经跑通。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>设备管理、数字标牌、平板锁定、打印农场今天在做同一件事：把按台数计价的订阅换成客户自己服务器上的部署，收费挪到支持、合规与云控制面。对买方，采购清单会从「每月多少台」变成「镜像或容器加支持合同」；对卖方，毛利取决于运维与合规能力，云端只剩状态与配置下发这点负载。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>Gathin23/cleanyourtv</b>（19,398★ · 10-17 建库）· 借 Wi-Fi 上的 ADB 给电视去广告、换成类 Apple TV 的桌面。五天涨到近两万星，却没有付费主体，能收钱的位置只剩厂商定制；权限口子依赖各家电视的调试通道，一次系统升级就可能失效，96 个 open issue 里已经堆着机型差异。</li>
+    <li><b>shihabal3amri/DiPlay</b>（11,972★ · GPL-3.0）· 让后装安卓车机跑 CarPlay。交付绑在特定车机硬件与车规稳定性上，CarPlay 本身要过 Apple 的授权与认证，GPL-3.0 又拦住车机厂的闭源集成，普通读者也拿不到可复现的环境。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-10-22 · 0937 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
