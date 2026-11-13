@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-13-1005.html">
+    <div class="da-card-date">2026-11-13 · 10:05</div>
+    <div class="da-card-title">屏幕这条链从面板驱动开到投屏与控制，每一段都有人拿开源件顶上</div>
+    <div class="da-card-main">这一期收了 LED 面板驱动库 rpi-rgb-led-matrix、开源墨水屏显示器设计 Glider、TRMNL 的自托管服务端 Terminus、把手机画面投到 Windows 的 ZenLink，以及让 ESP32 直接收发 HDMI-CEC 的组件；五件都在屏幕这条链上，替换按屏幕、按台与按授权收费的那几处。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-12-0955.html">
     <div class="da-card-date">2026-11-12 · 09:55</div>
     <div class="da-card-title">推理运行时与物理数据层，都在从云服务搬回自己的机器</div>
