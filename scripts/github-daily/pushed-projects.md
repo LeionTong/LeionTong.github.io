@@ -184,3 +184,8 @@
 - 2026-11-12 · nace-ai/kapitsa · Apple silicon 推理引擎，把编码智能体接到本机模型
 - 2026-11-12 · mosaico-labs/mosaico · 机器人传感器数据平台，bag 变可查询、可切片的数据湖
 - 2026-11-12 · NVIDIA-NeMo/Gym · 环境层打包评测与 RL 训练，千级并发可复跑
+- 2026-11-13 · hzeller/rpi-rgb-led-matrix · 树莓派 GPIO 直驱 HUB75 LED 面板，替发送卡与上位机授权
+- 2026-11-13 · Modos-Labs/Glider · 开源墨水屏显示器硬件设计，整机预售 699 美元起
+- 2026-11-13 · usetrmnl/terminus · TRMNL 墨水屏自托管服务端，MIT 全开源
+- 2026-11-13 · zenvyzenshiro/zenlink · 手机画面投到 Windows 的接收端，替按台投屏授权
+- 2026-11-13 · Palakis/esphome-native-hdmi-cec · ESP32 原生 HDMI-CEC 组件，替 48 美元适配器
