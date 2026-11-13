@@ -202,3 +202,9 @@
 - 2026-11-12 · dax8it/nous-girl-stackchan · StackChan 开源固件，接本地语音服务与长期记忆
 - 2026-11-12 · majorminorlabs/hermes-voice · 二手 Echo 接 Home Assistant 与本地智能体的语音终端
 - 2026-11-12 · m0s4ik/thinksmart-view-debian · ThinkSmart View 会议屏刷成轻量 Debian 13，可作语音入口
+- 2026-11-13 · mathoudebine/turing-smart-screen-python · 多厂商 USB-C 副屏的统一驱动与系统监视器，主题与 Python 接口双用
+- 2026-11-13 · jniebuhr/gaggimate · Gaggia 咖啡机加装屏幕与控制器，PCB 与套件在售，CC BY-NC-SA
+- 2026-11-13 · HybridRobotics/supermimic · 单世界模型训人形全身追踪，mjlab 上的官方实现，Apache-2.0
+- 2026-11-13 · Huy-Quang-Dao/instantTrack · G1 全身追踪训练压到 3 分钟，对标 SuperMimic 的提速复现，MIT
+- 2026-11-13 · alkove-ai/alkove · 端侧语音隔离与任意词唤醒，五模型不到 8MB，权重 Apache-2.0
+- 2026-11-13 · Morvex885/pulsar · Yandex Station 换成原生守护进程，按 ESPHome Native API 接 HA
