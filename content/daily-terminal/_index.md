@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-13-1035.html">
+    <div class="da-card-date">2026-11-13 · 10:35</div>
+    <div class="da-card-title">原厂小屏软件有了开源替代，人形全身追踪训练压到三分钟</div>
+    <div class="da-card-main">本期沿智能屏显示、具身、服务端配套取材：Turing 一众 USB 小屏由脚本接管画面与主题，Gaggia 咖啡机加装屏幕与控制器已有套件在卖；Unitree G1 的全身动作追踪训练从一小时半压到三分钟；语音前端把隔离与唤醒词塞进 8MB，俄区存量音箱被改成 Home Assistant 的本地卫星。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-12-1040.html">
     <div class="da-card-date">2026-11-12 · 10:40</div>
     <div class="da-card-title">Pebble 固件开源到能在电脑上跑，旧 Echo 与旧会议屏改作本地语音入口</div>
