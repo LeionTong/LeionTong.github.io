@@ -1,10 +1,3 @@
-- 2026-09-14 · Roboparty/roboto_origin · 全开源可手搓人形机器人，整机套件可电商化
-- 2026-09-14 · NVlabs/ProtoMotions · GPU 物理仿真训练框架，NVIDIA 出品
-- 2026-09-14 · unitreerobotics/xr_teleoperate · 宇树官方人形 XR 遥操作
-- 2026-09-14 · menloresearch/asimov-1 · CERN-OHL-S 开源人形 v1
-- 2026-09-14 · davidhampgonsalves/Life-Dashboard · Kindle E-Ink 低功耗仪表盘
-- 2026-09-14 · dmellok/tesserae · E-Ink 面板配套服务，服务端渲染
-- 2026-09-14 · ygelfand/echolocal · Echo Dot 刷成本地 Home Assistant 语音卫星
 - 2026-09-24 · BasedHardware/omi · 开源 AI 记忆穿戴全栈，硬件与 App 双开源、官网直销
 - 2026-09-24 · Picovoice/porcupine · 端侧唤醒词引擎，Apache-2.0 仓库 + AccessKey 商用授权
 - 2026-09-24 · Source-Robotics/PAROL6-Desktop-robot-arm · 3D 打印六轴桌面机械臂，图纸开源整机直销
@@ -208,3 +201,10 @@
 - 2026-11-13 · Huy-Quang-Dao/instantTrack · G1 全身追踪训练压到 3 分钟，对标 SuperMimic 的提速复现，MIT
 - 2026-11-13 · alkove-ai/alkove · 端侧语音隔离与任意词唤醒，五模型不到 8MB，权重 Apache-2.0
 - 2026-11-13 · Morvex885/pulsar · Yandex Station 换成原生守护进程，按 ESPHome Native API 接 HA
+- 2026-11-15 · WeebLabs/DSPi · Pico 刷成 USB 声卡加板载 DSP，分频与均衡在片上算，GPL-3.0
+- 2026-11-15 · esphome/home-assistant-voice-pe · 官方语音盒 Voice PE 的 ESP32 与 XMOS 固件同仓，含网页重刷入口
+- 2026-11-15 · meta/meta-wearables-dat-ios · Meta 眼镜开发套件 iOS 版，视频音频与拍照接入按自家开发者条款
+- 2026-11-15 · pocket-xr/pocket-xr · 安卓手机驱动 XREAL 等 AR 眼镜做空间桌面，1.4.6 支持头部翻页
+- 2026-11-15 · YannisDC/FaceFrame · iPhone 扫头拟合 GNM 头模，量鼻梁耳位并出可打印镜架
+- 2026-11-15 · openpnp/openpnp · 桌面贴片机的运动控制与视觉软件，整机目标千美元内
+- 2026-11-15 · openrobokit/graspkit · 抓取合成到真机部署的工具链，一次批处理优化千余抓取，MIT

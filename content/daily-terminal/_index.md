@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-15-1257.html">
+    <div class="da-card-date">2026-11-15 · 12:57</div>
+    <div class="da-card-title">音频处理搬上 Pico 开发板，眼镜应用入口被平台方的套件收走</div>
+    <div class="da-card-main">本期沿语音终端、穿戴、桌面机器人取材：Pico 上的音频 DSP 固件把分频与均衡做成整机，Home Assistant 官方语音盒的 ESP32 与 XMOS 固件同仓；Meta 眼镜开发套件把视频音频接入收进自家条款，手机驱动眼镜的空间桌面与可打印镜架各有实现；桌面贴片机与抓取工具链补软件侧。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-13-1035.html">
     <div class="da-card-date">2026-11-13 · 10:35</div>
     <div class="da-card-title">原厂小屏软件有了开源替代，人形全身追踪训练压到三分钟</div>
