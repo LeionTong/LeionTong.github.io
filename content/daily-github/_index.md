@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-15-1244.html">
+    <div class="da-card-date">2026-11-15 · 12:44</div>
+    <div class="da-card-title">语音入口从听写铺到电话线，五段各有可替换的开源件</div>
+    <div class="da-card-main">本期收了本机听写 Hex、语音智能体框架 Pipecat、实时同传 Cicada、本地会议纪要 Yogurt 与软件定义 PBX RustPBX；五件串起一条语音入口，从说话变文字到走电话线，逐段替掉按席位、按分钟与按坐席的收费。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-13-1005.html">
     <div class="da-card-date">2026-11-13 · 10:05</div>
     <div class="da-card-title">屏幕这条链从面板驱动开到投屏与控制，每一段都有人拿开源件顶上</div>

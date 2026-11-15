@@ -1,14 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-14 · semantica-agi/semantica · 图原生 AI 上下文/知识基础设施，可问责溯源
-- 2026-09-14 · CopilotKit/OpenBot · 开源 AI 同事：每个智能体一台自己的电脑（浏览器/文件/工具）
-- 2026-09-14 · AtomicBot-ai/atomic-agent · 本地优先 AI 智能体，本机跑开源权重模型
-- 2026-09-14 · slothflowlabs/duckle · 自托管 ETL，DuckDB 编译 SQL，替代行计量云端
-- 2026-09-14 · 0xMassi/webclaw · 本地优先 LLM 网页抽取，CLI/REST/MCP
-- 2026-09-15 · CopilotKit/OpenBot · 开源「AI 同事」——给每个 Agent 配一台隔离的电脑（浏览器/文件/登录），动作前经 CEL 策略
-- 2026-09-15 · pascalorg/editor · 开源 3D 建筑编辑器，带本地 CLI 与 MCP 工具，人和 AI Agent 都能读写
-- 2026-09-15 · agentverse-os/AgentVerse-OS · 给每个项目一个隔离的 Incus 工作区，Agent 被限制在里面跑
-- 2026-09-15 · agent-launch/agent-launcher · 一个桌面 App 把六个 coding agent CLI 收拢到一处
-- 2026-09-15 · jnMetaCode/openshorts · 本地优先的短视频生产线：话题进、成片出（脚本→素材/端侧 AI→TTS→字幕→mp4），跑前显示成本
 - 2026-09-16 · alibaba/open-code-review · 混合架构代码评审工具——确定性流水线 + LLM Agent，行级精准评论，内置多语言规则集（NPE/线
 - 2026-09-16 · JustVugg/colibri · 纯 C、零依赖的推理引擎，把前沿 MoE 模型按专家流式从磁盘加载到自有硬件上跑
 - 2026-09-16 · melgarafael/DeskcommCRM · 自托管 AI 销售 OS——内建 AI Agent 与 WhatsApp（WAHA），MCP 就绪、多租
@@ -189,3 +179,8 @@
 - 2026-11-13 · usetrmnl/terminus · TRMNL 墨水屏自托管服务端，MIT 全开源
 - 2026-11-13 · zenvyzenshiro/zenlink · 手机画面投到 Windows 的接收端，替按台投屏授权
 - 2026-11-13 · Palakis/esphome-native-hdmi-cec · ESP32 原生 HDMI-CEC 组件，替 48 美元适配器
+- 2026-11-15 · anomalyco/hex · 本机听写，按住说话松手即粘，替按席位订阅的听写服务
+- 2026-11-15 · pipecat-ai/pipecat · 实时语音智能体框架，六套客户端 SDK，官方托管版收费
+- 2026-11-15 · wquguru/cicada · 系统声音做实时双语字幕与同传，四端同版本，会后出纪要
+- 2026-11-15 · FrigadeHQ/yogurt · 本机录音转写与纪要，whisper.cpp 加 llama.cpp，替按月订阅
+- 2026-11-15 · restsend/rustpbx · Rust 软件定义 PBX，核心 MIT 加三档商业镜像按 license 开通
