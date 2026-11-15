@@ -1,7 +1,3 @@
-- 2026-09-14 · OpenAI Agents API 公开测试版 · 把 Codex harness 封装为托管 API
-- 2026-09-14 · 中国移动云国产GPU+类脑异构推理系统 · 面向代码生成/多智能体
-- 2026-09-14 · Rokid AIUI Studio · 面向AI眼镜的智能体创作平台(IFA)
-- 2026-09-14 · Weave Isaac 1 家用人形机器人 · 7999美元轮式家用
 - 2026-09-23 · 阿里云栖大会真武V900 · 国产AI芯片算力3倍于M890，Qwen计划5-10T参数模型
 - 2026-09-23 · 阶跃星辰 Step 5 Preview · 600B MoE/27B激活开源旗舰，面向Agentic编程
 - 2026-09-23 · 启元 Q1/T1 发售 · 上纬新材消费级人形机器人2万元档发售即发货
@@ -145,3 +141,8 @@
 - 2026-11-13 · 优必选 Walker S2 量产交付 · 首批数百台，1.76 米 / 52 自由度，自主换电支持 7×24
 - 2026-11-13 · Databricks Genie 常驻 agent · Genie Ontology 语义层加 Unity Gateway 花费上限
 - 2026-11-13 · Expo Simulators 云端模拟器 · 编码 agent 在云端 iOS 与安卓模拟器上自验证，0.10 美元/分钟
+- 2026-11-15 · Google Antigravity /teamwork · 多智能体长证明模式证明考塔德-库马尔猜想，Lean 4 形式化 5000 万行
+- 2026-11-15 · Cursor 扩展市场被植入恶意版本 · Fireworks 密钥泄漏致 Claude Code 扩展 2.1.312/2.1.313 上线 11 小时
+- 2026-11-15 · Sierra Poppy 1.0 · 个人智能体协议 1.0，Shopify 全商家自动发布，Meta Muse 默认先查
+- 2026-11-15 · OpenAI 撤销机器人独立团队 · 研究并回 Mark Chen 主线，应用与硬件进 Brockman 部门
+- 2026-11-15 · 苹果 HomeView 开卖 · 299 美元 7 英寸家庭屏围绕 Siri AI，首发七国不含欧盟

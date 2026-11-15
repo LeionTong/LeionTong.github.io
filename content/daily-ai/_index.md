@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-15-1233.html">
+    <div class="da-card-date">2026-11-15 · 12:33</div>
+    <div class="da-card-title">多智能体流水线交出可机检的数学证明，Cursor 扩展市场被植入恶意版本</div>
+    <div class="da-card-main">本期收录 Google Antigravity 的 /teamwork 在数学与系统软件上的可验证结果、Cursor 扩展市场的供应链事件、Sierra 把 Poppy 1.0 铺到全部 Shopify 商家、OpenAI 取消机器人独立团队，以及苹果 HomeView 开卖。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-13-0924.html">
     <div class="da-card-date">2026-11-13 · 09:24</div>
     <div class="da-card-title">英伟达换掉掌舵人，OpenAI 与 Cursor 的直连合同在同一天到期</div>
