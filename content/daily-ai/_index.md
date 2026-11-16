@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-16-1558.html">
+    <div class="da-card-date">2026-11-16 · 15:58</div>
+    <div class="da-card-title">智能体有了逐笔授权的支付凭证，具身模型去掉了固定视觉编码器</div>
+    <div class="da-card-main">本期收录 ChatGPT Wallet 的智能体支付凭证、FBI 对 ARTEX 框架的预警、DeepSeek 把搜索与语音拆成独立接口、NEO-VLA 的原生视觉语言动作架构，以及谷歌整套 TPU 系统对外销售后的云收入构成。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-15-1233.html">
     <div class="da-card-date">2026-11-15 · 12:33</div>
     <div class="da-card-title">多智能体流水线交出可机检的数学证明，Cursor 扩展市场被植入恶意版本</div>
