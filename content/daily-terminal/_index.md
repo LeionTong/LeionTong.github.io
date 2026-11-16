@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-16-1612.html">
+    <div class="da-card-date">2026-11-16 · 16:12</div>
+    <div class="da-card-title">Kobo 阅读器被装上应用商店，人形原型机连训练代码一起开源</div>
+    <div class="da-card-main">本期八个仓库：Kobo 墨水屏的第三方商店与 Rust SDK、横跨四家硬件的墨水屏相框固件、可照图纸自行装配的手搓人形、Apple 的 G1 感知运动数据链，以及两条设备侧服务端。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-15-1257.html">
     <div class="da-card-date">2026-11-15 · 12:57</div>
     <div class="da-card-title">音频处理搬上 Pico 开发板，眼镜应用入口被平台方的套件收走</div>
