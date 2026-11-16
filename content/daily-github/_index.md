@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-16-1608.html">
+    <div class="da-card-date">2026-11-16 · 16:08</div>
+    <div class="da-card-title">容器、家居与健康档案，搬到本机运行的开源件</div>
+    <div class="da-card-main">本期收了 Kiri 轻量容器运行时、HA-MCP 家居配置服务、Mirobody 健康档案引擎、OpenStrap 腕上设备应用与 gputaskman 显存查看器；五件都把原来交给厂商云、按席位授权或按月订阅的那一层，换成本机跑的开源件。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-15-1244.html">
     <div class="da-card-date">2026-11-15 · 12:44</div>
     <div class="da-card-title">语音入口从听写铺到电话线，五段各有可替换的开源件</div>

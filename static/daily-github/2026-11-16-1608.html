@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.50 — 2026-11-16</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.50 · 2026-11-16 · 1608 GMT+8</span></div>
+  <h1>容器、家居与健康档案，搬到本机运行的开源件</h1>
+  <p class="mh-sub">本期收了 Kiri 轻量容器运行时、HA-MCP 家居配置服务、Mirobody 健康档案引擎、OpenStrap 腕上设备应用与 gputaskman 显存查看器；五件都把原来交给厂商云、按席位授权或按月订阅的那一层，换成本机跑的开源件。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-16</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>本机这一侧正在被填满：容器运行时、家居配置、健康档案、腕上设备的数据与显存占用。原来交给厂商云、按席位授权或按月订阅的那一层，现在有能自己跑的软件接住；剩下的成本是硬件、算力与各家接入协议的适配。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Kiri <span>libracoder/kiri</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,379 · 近 30 天 +7,379（建仓 11-02）</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 11-15 · v0.2.1</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Rust 写的轻量容器运行时，直接应答 Docker Engine API，docker、Compose 与 buildx 原样能用，替的是 Docker Desktop 与 OrbStack。</p>
+  <p class="e-line"><b>痛点</b>桌面版容器要按席位买授权，虚拟机常驻吃内存；想把本机起的容器发给同事看一眼，还得另装一条内网穿透。</p>
+  <p class="e-line"><b>付费</b>本体免费 beta、Apache-2.0 开源，省掉的是按席位的桌面版授权与穿透工具的月费；公网分享已经挂在 runkiri.cloud 域名下，收费位置留在这里。</p>
+  <p class="e-line"><b>规模化</b>三个平台各自一个原生窗口，镜像、Compose 工程与 Kubernetes 集群都在同一个运行时里；迁移只换一个 docker context，脚本不用改。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，容器跑在用户自己的机器上，服务端只承担分享域名的流量。</p>
+  <p class="e-line"><b>验证</b>装上后一条命令起容器，再点分享拿公网链接，两分钟出结果：</p>
+  <pre>docker --context kiri run -d --name web -p 8080:80 nginx
+kiri share web</pre>
+  <div class="risk"><b>风险</b>0.2.1 仍是 beta，Windows 版走 WSL2 且标注 beta；官网的「快 8 倍」说的是空容器起停，重镜像构建的差距会缩到很小；单一公司维护，135 个 open issue；名字与标识不在授权范围内，分支发行要改名。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">HA-MCP <span>homeassistant-ai/ha-mcp</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,895 · 近 30 天未获取到</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 11-16 · 86 个工具</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 Home Assistant 的实体、自动化、脚本与仪表盘做成 86 个 MCP 工具，Claude、ChatGPT 这类客户端可以直接读写、排障与批量改配置。</p>
+  <p class="e-line"><b>痛点</b>家居自动化难在 YAML 与模板，改错一处整屋自动化一起停；会写的人少，找人配一次按项目收费，事后排障还得再找一次。</p>
+  <p class="e-line"><b>付费</b>MIT 免费，靠 GitHub Sponsors；省掉的是按次付费的配置服务与人工排障时间，装成 HACS 集成后跑在 Home Assistant 进程里，不额外占一台机器。</p>
+  <p class="e-line"><b>规模化</b>OS、Supervised、Container、Core 四种安装形态功能一致，客户换硬件不用换接入方式；86 个工具按功能分域，接入一套就复用到所有客户端。</p>
+  <p class="e-line"><b>边际</b>低 · 纯本地服务，模型侧调用由用户自己的账号与额度承担。</p>
+  <p class="e-line"><b>验证</b>先填一个管理员长期令牌，再用 uvx 起服务并接到客户端，问一句客厅有哪些实体：</p>
+  <pre>uvx --python 3.14 ha-mcp@latest</pre>
+  <div class="risk"><b>风险</b>默认给的是管理员权限，误改生产配置得靠自己留备份回滚；v7.3.0 把 YAML 编辑挪进 beta 通道，写法还会变；只保证当前稳定版 Home Assistant；同一客户端配两套安装方式会连接挂住，官方专门写了警告。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Mirobody <span>thetahealth/mirobody</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,527 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-16 · v1.6.1</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把化验单、可穿戴与基因文件统一成 LOINC 编码的健康档案，开放版整套跑在自己机器上，另给智能体一个 MCP 入口查历史与趋势。</p>
+  <p class="e-line"><b>痛点</b>同一项指标在不同医院叫不同名字、用不同单位，几年的报告拼不出一条趋势；商业健康应用把完整病历锁在自家云里，换个应用就搬不走。</p>
+  <p class="e-line"><b>付费</b>商业版 Theta 按 Pro 订阅收费，官网写 12,000 多用户、1,700 多日活；开源版是它背后的引擎，自建不花钱，等于把订阅拆成能自己跑的一层。</p>
+  <p class="e-line"><b>规模化</b>标准化引擎一条命令就能嵌进任意客户端，个人、体检机构与医院用的是同一套编码与解析规则，不需要按机构定制词表。</p>
+  <p class="e-line"><b>边际</b>低 · 解析与检索在本地跑，成本是用户自己的机器与模型额度。</p>
+  <p class="e-line"><b>验证</b>一条命令把中英日文的指标名归到同一个 LOINC 编码，血脂这种类别词会正确地留在未解析：</p>
+  <pre>uvx --python 3.12 mirobody resolve "LDL cholesterol" 血红蛋白 "Total Kolesterol" 血脂</pre>
+  <div class="risk"><b>风险</b>医疗数据的合规责任落在自建方；完整解析报告要另装 parse 组件与模型 key；全本地部署要 Docker 与 16GB 内存；开源版与商业版的功能边界会随版本移动，升级前要核。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenStrap Edge <span>OpenStrap/edge</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 930 · 近 30 天未获取到</span>
+      <span class="tag">Dart · AGPL-3.0</span>
+      <span class="tag">最近提交 11-16 · v0.11.3</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>不经厂商服务端读取腕上设备数据的健康应用，WHOOP 4.0、5.0 与 MG 已支持，Android 与 iOS 都能装，除蓝牙之外不留别处。</p>
+  <p class="e-line"><b>痛点</b>表带本身卖得不算贵，数据要按月订阅才给看；订阅一停历史记录跟着停，设备还在手腕上，记录却拿不出来。</p>
+  <p class="e-line"><b>付费</b>AGPL-3.0 免费，靠捐赠与社区维护；省掉的是每年两百美元量级的会员费，Oura、Garmin、Pebble 这些机型在排期里。</p>
+  <p class="e-line"><b>规模化</b>一套 Dart 代码出 Android 与 iOS 两端，新机型接一套蓝牙协议就能进；难处在于每家厂商的协议与固件校验都不一样。</p>
+  <p class="e-line"><b>边际</b>中 · 应用本身无服务端开销，但每接一款设备都要逆向一遍蓝牙协议，人力随机型线性增加。</p>
+  <p class="e-line"><b>验证</b>取安装包装到手机上、与表带蓝牙配对，五分钟能看到心率与睡眠曲线：</p>
+  <pre>gh release download -R OpenStrap/edge -p "*apk"
+adb install *.apk</pre>
+  <div class="risk"><b>风险</b>WHOOP 固件 50.43.1.0 与 50.43.2.0 已被下发展期令牌，蓝牙能连但数据被扣住（社区 11 月 9 日核查）；再连一次官方 App 会被升级固件，项目方明确警告别连；AGPL 对二次分发有约束；机型覆盖仍窄。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.8</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">gputaskman <span>shanselman/gputaskman</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,359 · 近 30 天 +3,359（建仓 11-03）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 11-16 · v0.4.3</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>终端里的显卡进程视图，把每个进程的显存与引擎占用，对上已加载的运行时、模型文件与 KV 缓存分段。</p>
+  <p class="e-line"><b>痛点</b>任务管理器只说「用了 15GB」，说不清是权重、KV 缓存、浏览器还是桌面合成器；本机跑推理的人排显存问题只能靠猜。</p>
+  <p class="e-line"><b>付费</b>MIT 免费，作者个人项目，没有收费形态；省掉的是排查一次显存占用异常所花的时间，这类排障过去靠反复重启试。</p>
+  <p class="e-line"><b>规模化</b>一个 PyPI 包覆盖 Windows、Linux 与 WSL，另有 Apple silicon 版本；本机与远程机器用同一套界面与 JSON 输出。</p>
+  <p class="e-line"><b>边际</b>低 · 纯本地采集，无服务端。</p>
+  <p class="e-line"><b>验证</b>装上一分钟出界面，也可以只取一次快照：</p>
+  <pre>uv tool install gputaskman
+gputaskman --once</pre>
+  <div class="risk"><b>风险</b>模型识别与 GGUF 拆分是估算，作者自己标注为实验软件；只覆盖本机 GPU，云端与纯 CPU 在范围外；Windows 需要受支持的驱动，笔记本双显卡切换时数据会跳。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.7</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Kiri（libracoder/kiri）</b>。装上换一个 docker context 就能验，替掉的是按席位的桌面版授权与穿透工具月费，两笔账当场能算出来。要接受的是 beta 阶段的稳定性与单一维护方，技术团队先在一台机器上并行跑一阵再换默认。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>五件压的是同一侧：数据与算力留在本机，收费的中间层换成能自己跑的软件。对做硬件的团队，含义是 OS、固件与 App 开源之后，收入位置转到设备本身、B 端席位与托管服务上，靠软件授权收钱的空间在收窄。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>Source-Robotics/PAROL6-Desktop-robot-arm</b>（3,480★）· 开源桌面六轴机械臂，交付的是 BOM、打印件与装配说明，一台一台装、一台一台调，边际成本降不下来，属于硬件交付而非软件复制。</li>
+    <li><b>Zagitta/gpu-unlock</b>（19,765★，建仓 10-29）· 解锁消费级显卡 FP16、BF16 限速的工具，改的是驱动与固件行为，仓库没有授权声明，保修与厂商条款的风险落在使用者一侧，也找不到可持续的收费位置。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-16 16:08 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

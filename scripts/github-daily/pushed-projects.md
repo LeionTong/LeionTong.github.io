@@ -1,9 +1,4 @@
 # 已推送项目存档（滚动 60 天）
-- 2026-09-16 · alibaba/open-code-review · 混合架构代码评审工具——确定性流水线 + LLM Agent，行级精准评论，内置多语言规则集（NPE/线
-- 2026-09-16 · JustVugg/colibri · 纯 C、零依赖的推理引擎，把前沿 MoE 模型按专家流式从磁盘加载到自有硬件上跑
-- 2026-09-16 · melgarafael/DeskcommCRM · 自托管 AI 销售 OS——内建 AI Agent 与 WhatsApp（WAHA），MCP 就绪、多租
-- 2026-09-16 · agentpit-io/hunter-community · 多智能体投研终端，覆盖 A 股/港股/美股，推理在本地跑、仓位不出本机，BYOK + docker co
-- 2026-09-16 · FootprintAI/Containarium · 开源 Agent 运行时——SSH 原生隔离、eBPF 出网策略、K8s + LXC 后端、GPU 直通
 - 2026-09-17 · Panniantong/Agent-Reach · 给 AI Agent 一个统一 CLI，免 API 费读取与检索 Twitter、Reddit、YouT
 - 2026-09-17 · hugohe3/ppt-master · 把文档或主题直接生成真正的原生 PowerPoint——原生形状、切换动画、数据图表，可套自己的 .pp
 - 2026-09-17 · aaron-for-value/VeriRun · 面向 RLVR（可验证奖励）的隔离可执行评测与在线奖励基础设施，提供可复现、隔离的执行与打分
@@ -184,3 +179,8 @@
 - 2026-11-15 · wquguru/cicada · 系统声音做实时双语字幕与同传，四端同版本，会后出纪要
 - 2026-11-15 · FrigadeHQ/yogurt · 本机录音转写与纪要，whisper.cpp 加 llama.cpp，替按月订阅
 - 2026-11-15 · restsend/rustpbx · Rust 软件定义 PBX，核心 MIT 加三档商业镜像按 license 开通
+- 2026-11-16 · libracoder/kiri · Rust 轻量容器运行时，兼容 docker 命令并自带公网分享
+- 2026-11-16 · homeassistant-ai/ha-mcp · Home Assistant 的 86 个 MCP 工具，智能体直接改配置
+- 2026-11-16 · thetahealth/mirobody · 化验单与可穿戴统一成 LOINC 编码的本机健康档案
+- 2026-11-16 · OpenStrap/edge · 绕开厂商订阅读取腕上设备数据的健康应用
+- 2026-11-16 · shanselman/gputaskman · 显卡进程视图，显存对上模型权重与 KV 缓存
