@@ -208,3 +208,11 @@
 - 2026-11-15 · YannisDC/FaceFrame · iPhone 扫头拟合 GNM 头模，量鼻梁耳位并出可打印镜架
 - 2026-11-15 · openpnp/openpnp · 桌面贴片机的运动控制与视觉软件，整机目标千美元内
 - 2026-11-15 · openrobokit/graspkit · 抓取合成到真机部署的工具链，一次批处理优化千余抓取，MIT
+- 2026-11-16 · BandarLabs/Cobalt · Kobo 墨水屏阅读器的应用启动器、商店、Rust SDK 与进程隔离运行时
+- 2026-11-16 · aitjcize/esp32-photoframe · 四家墨水屏相框硬件的替换固件，按实测墨色校准做抖动
+- 2026-11-16 · Roboparty/roboto_origin · 跑跳人形原型机整机开源，八子仓含图纸、ROS2 部署与 IsaacLab 训练
+- 2026-11-16 · apple-aiml-research/ml-halo · Apple 的 G1 感知运动链，仿真造数据到 C++ 实时部署
+- 2026-11-16 · mit-han-lab/pear · 机器人推理模型后训练引擎，veRL 异步强化学习与单卡部署
+- 2026-11-16 · facebookresearch/project_superdex · 接触优先物理引擎与灵巧操作仿真平台
+- 2026-11-16 · rmqtt/rmqtt · Rust 分布式 MQTT broker，Raft 集群与多协议桥
+- 2026-11-16 · prasadabhishek/esp-watchtower · 三美元 ESP8266 家庭网络哨兵与绊线蜜罐
