@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-17-0931.html">
+    <div class="da-card-date">2026-11-17 · 09:31</div>
+    <div class="da-card-title">华为云开源昇腾原生具身世界模型，谷歌记录到无人参与的漏洞利用流水线</div>
+    <div class="da-card-main">本期收录华为云开源并发布的具身世界模型 CloudRobo-WM1.2、谷歌威胁情报组记录到的无人参与漏洞利用流水线、上海人工智能实验室以 MIT 许可开源的 321B 科学多模态模型、谷歌与三星智能眼镜的预售规格，以及 AT&amp;T 近五百个智能体工作流的生产数据。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-16-1558.html">
     <div class="da-card-date">2026-11-16 · 15:58</div>
     <div class="da-card-title">智能体有了逐笔授权的支付凭证，具身模型去掉了固定视觉编码器</div>
