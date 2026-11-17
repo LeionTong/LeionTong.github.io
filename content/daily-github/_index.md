@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-17-1010.html">
+    <div class="da-card-date">2026-11-17 · 10:10</div>
+    <div class="da-card-title">桌面机器人这一层，整机在卖，运行时也开始收费</div>
+    <div class="da-card-main">本期收了 LeRobot 数据集与策略库、OpenArm 双臂整机、Reachy Mini 桌面陪伴机、Copper 确定性运行时与 Lyapunov 的 3D 工作区；共同点是桌面与小尺寸机器人已经能直接下单，收费位置正从软件授权挪到运行时、模型额度与应用商店。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-16-1608.html">
     <div class="da-card-date">2026-11-16 · 16:08</div>
     <div class="da-card-title">容器、家居与健康档案，搬到本机运行的开源件</div>

@@ -184,3 +184,8 @@
 - 2026-11-16 · thetahealth/mirobody · 化验单与可穿戴统一成 LOINC 编码的本机健康档案
 - 2026-11-16 · OpenStrap/edge · 绕开厂商订阅读取腕上设备数据的健康应用
 - 2026-11-16 · shanselman/gputaskman · 显卡进程视图，显存对上模型权重与 KV 缓存
+- 2026-11-17 · huggingface/lerobot · 机器人数据集格式、策略训练与真机控制的统一 Python 库
+- 2026-11-17 · enactic/openarm · 7 自由度开源人形臂，双臂整机 6,500 美元配可复现评测场景
+- 2026-11-17 · pollen-robotics/reachy_mini · 桌面陪伴机器人 SDK 与整机，399 美元起带应用商店
+- 2026-11-17 · copper-project/copper-rs · Rust 机器人运行时，编译期任务图加确定性回放，PRO 工具收费
+- 2026-11-17 · ManfredCh/Lyapunov · LLM 原生 3D 机器人与仿真工作区，模型服务按 Credits 计费

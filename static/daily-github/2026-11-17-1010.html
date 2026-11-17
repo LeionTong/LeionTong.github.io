@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.51 — 2026-11-17</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.51 · 2026-11-17 · 1010 GMT+8</span></div>
+  <h1>桌面机器人这一层，整机在卖，运行时也开始收费</h1>
+  <p class="mh-sub">本期收了 LeRobot 数据集与策略库、OpenArm 双臂整机、Reachy Mini 桌面陪伴机、Copper 确定性运行时与 Lyapunov 的 3D 工作区；共同点是桌面与小尺寸机器人已经能直接下单，收费位置正从软件授权挪到运行时、模型额度与应用商店。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-17</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>桌面这一层的机器人整机已经能直接下单，价格也公开：OpenArm 双臂 6,500 美元，Reachy Mini 399 美元起。差价不在铁上。数据怎么存、跑完怎么回放、场景怎么复现，这三件工序正在变成单独的收费项，LeRobot 收托管、Copper 收工具、Lyapunov 收模型额度。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">LeRobot <span>huggingface/lerobot</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 28,914 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-16 · v0.7.0（11-05）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Hugging Face 的机器人学习库，数据集格式、策略训练与真机控制收成一套 Python 接口，从 SO-101 小臂到人形都在支持列表里。</p>
+  <p class="e-line"><b>痛点</b>各家机械臂的采集脚本、数据格式与回放工具都不一样，换一台机器要重写一遍，攒下的数据也没法跨团队共用。</p>
+  <p class="e-line"><b>付费</b>库本身免费，数据集与策略托管在 Hugging Face Hub，收费落在企业版存储、私有数据集与推理额度上，机构买的是共享数据与托管。</p>
+  <p class="e-line"><b>规模化</b>硬件无关的 Robot 接口已成事实标准，OpenArm、LeKiwi、Reachy2 都在原生支持之列；新增一种机器只需实现一个类。</p>
+  <p class="e-line"><b>边际</b>低 · 纯 Python 库，托管侧按存储与流量计费，新增用户的交付成本接近零。</p>
+  <p class="e-line"><b>验证</b>装完直接列出识别到的硬件与依赖版本，一分钟出结果：</p>
+  <pre>pip install lerobot
+lerobot-info</pre>
+  <div class="risk"><b>风险</b>974 个 open issue，接口随版本改动；真机调试依赖具体电机与串口，文档偶尔滞后于代码；Hub 上数据集的授权要逐个确认，不能默认可商用。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenArm <span>enactic/openarm</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 3,710 · 近 30 天未获取到</span>
+      <span class="tag">Apache-2.0 代码 · CERN-OHL-S 硬件</span>
+      <span class="tag">最近提交 11-16</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>7 自由度开源人形臂，双臂整机 6,500 美元，配统一背景与光照的 OpenArm Cell，让接触密集任务的实验能跨机构重复。</p>
+  <p class="e-line"><b>痛点</b>做接触密集的操作研究，商用臂贵且闭源，自己搭又缺 CAD、驱动、标定与可比的评测条件。</p>
+  <p class="e-line"><b>付费</b>整机按台卖，组装版与 DIY 版都有，官网列认证制造商；软件、固件与 CAD 开源，钱落在硬件与交付上。</p>
+  <p class="e-line"><b>规模化</b>同一套 CAD 与固件交给多地认证厂商生产，扩展靠制造商网络，不必自建产线；Cell 场景让实验结果可对照。</p>
+  <p class="e-line"><b>边际</b>中 · 硬件按台计，产量上来 BOM 会摊薄，装配与标定仍需人力。</p>
+  <p class="e-line"><b>验证</b>MuJoCo 模型装上就能起 Cell 场景，先看动作空间再谈采购：</p>
+  <pre>uv venv &amp;&amp; uv pip install openarm-mujoco
+openarm-mujoco-launch</pre>
+  <div class="risk"><b>风险</b>6,500 美元对个人开发者仍高；v1 遥操作走旧栈、v2 迁到 dora-rs，两代教程混着看容易踩版本；国内采购还要加运费与关税。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Reachy Mini <span>pollen-robotics/reachy_mini</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,665 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-16 · v1.14.0（11-03）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>桌面陪伴机器人，Lite 399 美元、无线版 499 美元，SDK 开源，应用经 Hugging Face Spaces 分发成应用商店。</p>
+  <p class="e-line"><b>痛点</b>想试具身应用的人缺一台买得到、改得动、有现成应用的桌面机；自己攒一套，机械、固件与整机调试都要从零来。</p>
+  <p class="e-line"><b>付费</b>整机按台卖，带轮底座 149 美元另售；应用在社区免费，收入落在硬件与后续套件上。</p>
+  <p class="e-line"><b>规模化</b>一套 SDK 覆盖 Lite、无线与仿真三种形态，应用写一次三处跑；装配 2.5 小时、免焊接，出货可交给代工。</p>
+  <p class="e-line"><b>边际</b>中 · 硬件摊薄有限，软件与应用分发几乎零成本。</p>
+  <p class="e-line"><b>验证</b>没有硬件也能用 MuJoCo 起虚拟机体，装完直接连：</p>
+  <pre>uv venv &amp;&amp; uv pip install "reachy-mini[mujoco]"
+reachy-mini-daemon --sim</pre>
+  <div class="risk"><b>风险</b>官网标注 90 天内发货；Python 限定 3.10–3.12，安全通告要求 certifi 与 uv 同步升级；价格不含运费、关税与进口税。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Copper <span>copper-project/copper-rs</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,553 · 近 30 天未获取到</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 11-17 · v1.14.0（11-03）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Rust 写的机器人运行时，任务图在编译期定型，跑完可确定性回放；开源核心之外有 Copper PRO 三件付费工具。</p>
+  <p class="e-line"><b>痛点</b>时序相关的故障只能在机器上复现，日志与回放对不上，回归测试做不起来，认证材料还得另找人写。</p>
+  <p class="e-line"><b>付费</b>Copper PRO 卖 TimeTraveler、Harness 与 Safety，分别对应回放调试、CI 回归与认证证据；核心 Apache-2.0 免费。</p>
+  <p class="e-line"><b>规模化</b>航空、汽车、人形、水下与机械臂共用一套运行时，接 ROS 2 走 Zenoh 可渐进迁移；卖的是工具与工程服务。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，工具授权复制成本为零。</p>
+  <p class="e-line"><b>验证</b>脚手架生成一个可跑的工程，几分钟见到运行结果：</p>
+  <pre>cargo install cargo-cunew
+cargo cunew hello_copper
+cd hello_copper &amp;&amp; cargo run</pre>
+  <div class="risk"><b>风险</b>Rust 与编译期任务图的学习曲线陡；比 ROS 2 快百倍的延迟数据来自自建基准；团队规模小，PRO 工具未公开报价；静态任务图不适合频繁变更的流程。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Lyapunov <span>ManfredCh/Lyapunov</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,201 · 近 30 天未获取到（建仓 10-02）</span>
+      <span class="tag">TypeScript · Apache-2.0</span>
+      <span class="tag">最近提交 11-13 · v0.2.5（11-13）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>杭州团队做的 LLM 原生 3D 工作区，场景搭建、机器人准备、仿真与相机数据放在同一个桌面应用里。</p>
+  <p class="e-line"><b>痛点</b>搭一个机器人仿真场景要在建模、物理引擎与脚本之间来回切，改一次参数就得重跑一遍流程。</p>
+  <p class="e-line"><b>付费</b>客户端免费下载，官网模型服务注册后按 Credits 充值；游客模式用本地 provider，不连产品与计费后端。</p>
+  <p class="e-line"><b>规模化</b>Windows/WSL2、Linux 与 Apple 芯片同一套发布，USD 与 SimReady 资产直接进场景，面向仿真与研究团队交付。</p>
+  <p class="e-line"><b>边际</b>低 · 桌面软件加模型服务，新增用户几乎不增加交付成本。</p>
+  <p class="e-line"><b>验证</b>一条安装脚本备好 MuJoCo 运行环境，装完即可启动：</p>
+  <pre>curl -fsSL https://vorynel.com/lyapunov/install.sh | sh
+lyapunov</pre>
+  <div class="risk"><b>风险</b>版本 0.2.5、建仓六周，接口与数据布局仍在变；用官网模型服务要充值，本地功能需自配 provider；Windows 侧要走 WSL2；源码与产品发布之间有时差。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Copper（copper-project/copper-rs）</b>。开源核心之外已有在售的三件付费工具，回放调试、CI 回归与认证证据都是机器人团队绕不开的工序。纯软件，工具授权的边际成本趋零。三条命令生成工程就能跑通，判断成本很低。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>桌面与小尺寸机器人这一层，整机已经能下单，价格也写在明面上：OpenArm 双臂 6,500 美元，Reachy Mini 399 美元起。软件那头开始把收费点从授权挪到托管、模型额度与工程工具上，LeRobot 收 Hub、Lyapunov 收 Credits、Copper 收 PRO 工具。硬件价格越透明，差价越落在数据、回放与评测这些看不见的工序上。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>LuwuDynamics/xgoduck_hardware</b>（1,957★，建仓 09-24）· 3D 打印双足机器人的硬件资料，仓库没有授权声明，交付是一台一台打印装配，边际成本压不下来，也找不到可复制的收费位置。</li>
+    <li><b>fanhao375/microduck-replica</b>（1,718★，建仓 08-28）· 同类双足复刻件，License 标注为 NOASSERTION，商用边界不清楚；价值集中在装配教程与整机验证，撑不起标准化的软件交付。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-17 10:10 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
