@@ -216,3 +216,11 @@
 - 2026-11-16 · facebookresearch/project_superdex · 接触优先物理引擎与灵巧操作仿真平台
 - 2026-11-16 · rmqtt/rmqtt · Rust 分布式 MQTT broker，Raft 集群与多协议桥
 - 2026-11-16 · prasadabhishek/esp-watchtower · 三美元 ESP8266 家庭网络哨兵与绊线蜜罐
+- 2026-11-17 · duhow/xiaoai-patch · 小爱音箱换开源 rootfs，做自托管语音助手与多协议音箱
+- 2026-11-17 · rbouteiller/airplay-esp32 · 十美元 ESP32 板变 AirPlay 2 接收端，浏览器刷机
+- 2026-11-17 · DresdenGman/AIGlasses_for_navigation · 三十五美元导盲导航眼镜，离线观测到引导链路
+- 2026-11-17 · Szybet/InkWatchy · Watchy/Yatchy 墨水屏手表固件，模块化手表脸与加密保险库
+- 2026-11-17 · brilliantlabsAR/halo-firmware · Halo 眼镜固件开源，Zephyr + Lua 运行时，机主可 OTA 自刷
+- 2026-11-17 · Source-Robotics/Differential-robot-wrist · 全 3D 打印差速腕部机构，双云台电机走一条 CAN
+- 2026-11-17 · roboninecom/SO-ARM102 · SO-ARM100/101 继任主从臂套件，PET-CF 结构，成本约 342 美元
+- 2026-11-17 · SeanChangX/QBIT · ESP32-C3 桌面伴侣机器人兼 IoT 化身，许可禁商用

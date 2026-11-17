@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-17-1039.html">
+    <div class="da-card-date">2026-11-17 · 10:39</div>
+    <div class="da-card-title">小爱音箱改跑开源系统，眼镜与桌面机械臂继续压成本</div>
+    <div class="da-card-main">本期八条：小爱音箱与十美元 ESP32 板改成自托管语音入口，三十五美元的导盲眼镜与厂商开放的眼镜固件，加上 SO-ARM102 主从臂套件、差速腕部机构与 ESP32-C3 桌面伴侣。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-16-1612.html">
     <div class="da-card-date">2026-11-16 · 16:12</div>
     <div class="da-card-title">Kobo 阅读器被装上应用商店，人形原型机连训练代码一起开源</div>
