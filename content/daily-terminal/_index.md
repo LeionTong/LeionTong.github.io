@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-18-1051.html">
+    <div class="da-card-date">2026-11-18 · 10:51</div>
+    <div class="da-card-title">墨水屏设备换自写固件，机器人侧补遥操作与数据管线</div>
+    <div class="da-card-main">本期七条：六款墨水屏阅读器与单一用途相框各有替换固件，机器人侧收录宇树的 XR 遥操作、NVIDIA 的采集底座、数据质检 SDK、多机对话层与多材质物理引擎。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-17-1039.html">
     <div class="da-card-date">2026-11-17 · 10:39</div>
     <div class="da-card-title">小爱音箱改跑开源系统，眼镜与桌面机械臂继续压成本</div>
