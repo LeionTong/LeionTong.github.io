@@ -224,3 +224,10 @@
 - 2026-11-17 · Source-Robotics/Differential-robot-wrist · 全 3D 打印差速腕部机构，双云台电机走一条 CAN
 - 2026-11-17 · roboninecom/SO-ARM102 · SO-ARM100/101 继任主从臂套件，PET-CF 结构，成本约 342 美元
 - 2026-11-17 · SeanChangX/QBIT · ESP32-C3 桌面伴侣机器人兼 IoT 化身，许可禁商用
+- 2026-11-18 · bigbag/papyrix-reader · 六款 Xteink/Seeed 墨水屏阅读器的替换固件，两套镜像覆盖五种面板驱动
+- 2026-11-18 · FrameOS/frameos · 单一用途智能相框操作系统，后端经 SSH 向树莓派或 ESP32-S3 推应用
+- 2026-11-18 · unitreerobotics/xr_teleoperate · XR 头显遥操作宇树人形，位姿重定向到双臂与灵巧手
+- 2026-11-18 · NVIDIA/IsaacCapture · 遥操作与第一视角采集的公共底座，Isaac Teleop 加 Ego Pipeline
+- 2026-11-18 · Hebbian-Robotics/hflow · 机器人多模态语料质检与追溯 SDK，带来源戳与可查询目录
+- 2026-11-18 · rokbenko/quackd · Roboglot 多机对话与分工层，LLM 逐句调用技能并互查护照
+- 2026-11-18 · argonrobotics-ai/alloy · 刚体布料液体颗粒同场景的并行物理引擎，一张卡跑上千世界
