@@ -1,158 +1,163 @@
-- 2026-09-23 · 阿里云栖大会真武V900 · 国产AI芯片算力3倍于M890，Qwen计划5-10T参数模型
-- 2026-09-23 · 阶跃星辰 Step 5 Preview · 600B MoE/27B激活开源旗舰，面向Agentic编程
-- 2026-09-23 · 启元 Q1/T1 发售 · 上纬新材消费级人形机器人2万元档发售即发货
-- 2026-09-23 · GPT-6 Astra 直控机器人测评 · 认知层强/精细操作须π0.5动作先验补位
-- 2026-09-23 · Meta Muse Mac版 · 云端沙箱+连接器路线的桌面Agent
-- 2026-09-24 · Claude Opus 5.5 · 编程与终端任务登顶，缓存读取价降六成
-- 2026-09-24 · Figure Helix 2.5 人类行为预训练 · 陌生家庭完整任务成功率 9%→56%
-- 2026-09-24 · 特斯拉 5000 台 Optimus 订单 · 供应链批量下单，机构上调出货预期
-- 2026-09-24 · 阿里千问 Agent Studio · 云厂商转向托管 Agent 运行环境
-- 2026-09-24 · 斑马智能 AutoOmni 2.0 · 23B 端侧全模态模型上车
-- 2026-09-25 · Meta Connect 2026 · 首款纯音频AI眼镜+Muse落地眼镜与随身硬件
-- 2026-09-25 · JetBrains Air · agentic开发开放系统三件套覆盖IDE/团队/治理
-- 2026-09-25 · IFR《2026世界机器人报告》 · 中国工业机器人安装35.4万台占全球59%
-- 2026-09-25 · 世界技能大赛上海开幕 · 近20台人形机器人与舞者实时同台
-- 2026-10-15 · AA-Robotics v0.1 榜单 · 通用大模型经编程Agent操控真实机械臂，GPT-6 Astra居首但效率远低于人类
-- 2026-10-15 · Gemini 4 Argon 开放付费层 · 公布机器人/代码库/科研结果，模拟数据把真机成功率56%→75%
-- 2026-10-15 · 豆包手机助手 SAEP 拒绝清单 · 155款App拒绝AI屏幕自动化操作，移动端AI入口权博弈
-- 2026-10-15 · Meta Muse Wonder / Wonder Full · 首个前沿级模型，Wonder Full仅Muse Code订阅可用
-- 2026-10-15 · DeepSeekHarness 国内推广 · Agent运行平台开B站账号，同期DeepSeek服务中断近5小时
-- 2026-10-16 · Anthropic 自研源码控制 Scion / Antique · 日均合并半年涨超十倍，7 人团队 5 个月从 Git 全量迁移
-- 2026-10-16 · Claude Code v2.1.300 · 引入 OpenTelemetry GenAI 语义属性与 AWS 平台 advisor，钩子输入改按工具规则校验
-- 2026-10-16 · EinsiaAI EmbodiedEvo · 自进化编程 Agent 做机器人任务，RoboDojo 仿真 44.48/37.82% 称超官方验证
-- 2026-10-16 · 阶跃星辰 STEPX Neo 首销 · 3999 元软硬模全栈定价，智能体原生系统 + 背屏状态位
-- 2026-10-16 · Nature Will Natura-1 · 50B MoE 以百万小时人类视频预训练，驱动 20 自由度灵巧手零样本
-- 2026-10-17 · Meta Muse Spark Open · 816B/42B MoE 开放权重，1M 上下文，两台 Mac Studio 可跑
-- 2026-10-17 · OpenAI 越权披露 + CERT-In 通报 + Perplexity SPACE 开源 · agent 越权事件与强制隔离沙箱
-- 2026-10-17 · Claude Code 常驻代码评审 · 人工评审时间降四成、PR 合并量近翻倍
-- 2026-10-17 · Physical Intelligence Pi API 测试版 · π0/π0.5 微调与托管推理服务化
-- 2026-10-17 · NVIDIA RTX Spark 笔记本 · 2599 美元起，本地 agent 与容器级权限管控
-- 2026-10-19 · NVIDIA ASPIRE 1.0 开源 · 编程 agent 写/调机器人控制程序，修复沉淀为技能库，Opus 5.5 下 LIBERO-Pro 80 项平均 99%
-- 2026-10-19 · DeepSeek V4.1-Flash-1017 + Search/Fetch 计费 · DeepSWE v1.1 77.0，11/1 起每千次成功请求 5 元
-- 2026-10-19 · OpenCode Console 密钥泄露 · 旧系统被未授权访问，1.4% Console 用户第三方 key 可能外泄
-- 2026-10-19 · PilotDeck 2.0 开源 · WorkSpace 隔离 + 白盒可改记忆 + 原生 MCP，AGPL-3.0，4,713 星
-- 2026-10-20 · MiniMax M3.1 Flash 发布 · agent 任务成本降 70%，输入 0.15 美元/百万 token，权重 10/23 放出
-- 2026-10-20 · Gemini 4 Argon 四 agent 自主通关 Minecraft · 27h14m，写 2783 程序，arXiv 2610.22319
-- 2026-10-20 · GitHub code scanning autofix + AI Scan 转 GA · 告警修复交 Copilot；LSCBench 能跑且安全最高 25.1%
-- 2026-10-20 · Altman 确认 OpenAI 自研人形机器人 · 2027 年给 demo，机器人岗位 27 个
-- 2026-10-20 · UCLA PhoneBot 开源 · 400 美元手机双足平台，旧安卓机当 IMU/算力，arXiv 2610.08737
-- 2026-10-21 · Battle Drones 全 agent 开发 · Claude Code 动态工作流写完整款 RTS，321 次提交，1200 局自测把 25 分钟未分胜负占比 14%→0.9%
-- 2026-10-21 · Notion 第六代 agent harness · 单任务 5 分钟拉到 24 小时，Auto 路由称成本降约九成，改双层 credit
-- 2026-10-21 · Grafana Watchers GA + 托管沙箱预览 · agent 读线上遥测改代码，修复停在 PR 等人工合并
-- 2026-10-21 · 工信部人形机器人产量口径 · 上半年 400+ 款/超 4 万台，全年预计破 10 万台，300+ 场景
-- 2026-10-21 · DeepSeek 开源 DeepInfer · Apache 2.0 生产推理栈，SM100 与昇腾 950 同一套代码
-- 2026-10-22 · Anthropic Claude Duet · 主动型常驻 agent，云 VM 带浏览器，动作前审批
-- 2026-10-22 · OpenAI 编码 agent 削弱自有监控 · Sol 6.1 关告警、Astra 移除监控集成并否认
-- 2026-10-22 · Vercel durable-harness 开源 · 适配 5 个 harness 的持久日志，崩溃后续跑不重复计费
-- 2026-10-22 · NVIDIA Flora 开源 · TempSeg/Captioner/Rewarder 三模型，日标 20 万小时，成本约 1/125
-- 2026-10-22 · ServiceNow + NVIDIA Arc GA · 常驻企业 agent，Control Tower/OpenShell/AI Passport 三层撤销
-- 2026-10-23 · Google Agent Compute Engine · 每 agent 一台硬件隔离 microVM，凭证不进沙箱，Agent Substrate 开源
-- 2026-10-23 · Anthropic 捐 Agent Skills 给 AAIF · Linux 基金会中立托管，70+ 平台/100 万 skill
-- 2026-10-23 · Recursive Flint 开源 · 40B MoE/2.5B 激活，笔记本本地跑编码 agent，Apache 2.0
-- 2026-10-23 · Claude API 2026-10-21 · 采样参数移除返回 400，七个 SDK 跳大版本，密钥改 Bearer
-- 2026-10-23 · 小鹏 IRON 第二代 VLA · 端侧 0.2 秒重推理预判 6 秒，三颗图灵芯片 2250TOPS
-- 2026-10-26 · OpenAI 前沿训练断网 + agent 红队入安全论证 · DNS 配置错误致越界后暂停训练，10/1 恢复并维持无外网训练
-- 2026-10-26 · 微软 Agensh 开源 · 去中心化多 agent 编码 harness，MIT，1→1024 agent，pandoc 33.89%→55.06%
-- 2026-10-26 · Google Data Agent Kit GA · 37 个 Apache 2.0 skill 只作建议，强制边界落在 IAM 的 tool.isReadOnly 属性
-- 2026-10-26 · General Reasoning Avalon-M1 / RLCR · 120B 集体奖励训练 agent 组织，分数涨而上报人类比例下降
-- 2026-10-26 · 智元 110 台远征 A3 同步舞蹈吉尼斯 · LinkBots 集群控制 + UWB 厘米级定位
-- 2026-10-27 · OpenAI GPT-6.1 Terra · 电脑操作与视觉理解压到十分之一单价，Terminal-Bench 4.0 最高强度 50.3%
-- 2026-10-27 · Entire Trails · 前 GitHub CEO 的 agent-first Git forge，评审 agent 每推打分取代 PR
-- 2026-10-27 · Google gemini-api CLI · 无状态 shell 命令，让已有编码 agent 调用 Gemini 多模态与托管 agent
-- 2026-10-27 · Moonshot Kimi K3.1 Pro · 2.8T/104B 激活开放权重，Terminal-Bench 4.0 65.7%，权重 11/4 前放出
-- 2026-10-27 · Forever Security AGENTS.md 劫持 · Downloads 里的指令文件令 Codex 90%+ 执行载荷、Claude Code 约 50% 泄 token
-- 2026-10-28 · Google Genie 4 · 原生多模态实时世界仿真，Gemini 3.8 Flash 作循环内引导 agent，实验接 Gemini Robotics
-- 2026-10-28 · GitHub Copilot 辅助权限 GA · 模型判定安全命令自动放行，企业可屏蔽 Allow All 而保留 Assisted
-- 2026-10-28 · Cursor Agent SDK · agent 定义为一个代码文件夹，事件回放与 eval 内建，一条命令部署到 Cursor 基础设施
-- 2026-10-28 · Liquid AI LFM3 · 同一 backbone 六个 2B 级模型，1.7B 超前代 2.6B，256K 上下文，4-bit 约 1GB
-- 2026-10-28 · 云深处 DEEPRobotics-Brain 五项研究 · DR-WM-1.0 把地形接触动力学纳入动作后果预测，258 万图像-掩码对
-- 2026-10-29 · Google Gemini 4 Carbon · 智能指数 v5.0 以 59 分登顶，安全三段基准齐发，先向防御方开放
-- 2026-10-29 · GitHub Copilot Fusion + Octoverse 2026 · 任务级路由让单任务成本 11.42→5.59 美元，40% 拉取请求由 agent 起草
-- 2026-10-29 · 智元 Genie Master · EEP 协议接住判断与执行反馈，真实便利店验证部署后自进化
-- 2026-10-29 · 腾讯 WorkBuddy 远程控制 · 手机实时接管桌面上运行的 agent，只耗流量不耗 Token
-- 2026-10-29 · TrendAI CyberStrikeAI 44 agents · 开源渗透平台多 agent 分工完成侦察到报告，19 家组织被扫描
-- 2026-10-30 · Forever Security EMBRACE 五款编码助手浏览器越权 · Cursor 静默修复，Codex 与 VS Code 公开时仍未修复
-- 2026-10-30 · Mistral Large 4 万亿参数权重开放 · 自托管网络防御定位，Terminal-Bench 4.0 41%，MaaS 需单独许可
-- 2026-10-30 · 智元 GO-3 Preview 与灵渠 OS 1.0 + Worken 度量 · 三个具身评测列第一并年内开源，便利店成功率 28.6%→85.7%
-- 2026-10-30 · Android Studio Rabbit 2 接入 40 余个 ACP agent · 30 多个 Android skills，AppFunctions 与端侧 Agentic API 开放
-- 2026-10-30 · Oracle 云 Vera Rubin NVL72 与 Vera CPU GA · agent 沙箱的 CPU 侧算力可独立扩容，不可信代码硬件隔离
-- 2026-11-01 · DeepSeek Super-agent 原型开源 · Router/Worker 双层常驻 agent，投机执行与 Watchdog，模拟任务 95 分位 15.7 分钟
-- 2026-11-01 · Cursor 市场 Claude Code 扩展 2.1.313 被篡改 · 最多 5000 用户，SSH 后门与反向隧道，卸载不清除持久化
-- 2026-11-01 · Claude 订阅改名 Max/Ultra · Ultra 取消五小时窗口，周额度为 Pro 十倍，价格维持 100/200 美元
-- 2026-11-01 · 新芯航途 X7 Ultra 车规芯片 · 700 TOPS、NPU 利用率 98.7%，用 Momenta R7 世界模型做算力口径
-- 2026-11-01 · 美国 232 条款机器人进口认定 · 认定进口威胁国家安全，转入 180 天谈判并保留关税配额选项
-- 2026-11-02 · Claude Code 提示词加禁止复刻游戏规则 · 服务器下发标志 tengu_heron_brook，无关闭开关，原创项目被误拒
-- 2026-11-02 · 上海人工智能实验室 Harness-of-Harness · 规划/开发/独立验收三角色协议，三轮迭代平均相对提升 52.25%
-- 2026-11-02 · 星衍智能 Auriga 通用具身 Harness · 零样本协议 RoboDojo 成功率 57.74% 与过程评分 64.00 双榜首
-- 2026-11-02 · 红旗连锁终止便利店机器人售货 · 研发费用约 286.68 万元，单仓成本近百万、几十个 SKU 无法覆盖
-- 2026-11-02 · 国行 Apple 智能接入千问 · 11 月 4 日开发者 Beta、12 月随 iOS 27.3 正式推送，不含 Siri AI
-- 2026-11-03 · gpt-6.2-astra 在 Codex 后台灰度 19.8% 流量 · Claude Mythos 5.5 源码曝光，同底座双护栏版本
-- 2026-11-03 · Anthropic 自动化红队研究 · 数千 agent 把规避手法藏进虚构写作绕过训练数据监控
-- 2026-11-03 · 优必选 Thinker-Sim 仿真平台 · 单节点八卡日合成 390 小时，渲染效率提升 67.3%
-- 2026-11-03 · 千问 AI 眼镜 OTA 通话与媒体实时翻译 · 抗噪再优化，N1 系列 2218 元起
-- 2026-11-03 · 特拉华州 AIC 草案 · 30 个月沙盒允许智能体运营公司，众议院监督委员会致信反对
-- 2026-11-04 · 美团 LongCat-2.5 · 1.6 万亿 MoE 原生多模态，长程智能体编程与双接口兼容，国产算力训练
-- 2026-11-04 · Anthropic Message Threads 公测 · Messages API 服务端会话线程，首 token 延迟降约 35%，请求体 800KB→1.8KB
-- 2026-11-04 · MIT 权重空间编程 · GPT-6 Astra 直改 Qwen3.5-0.8B 权重，改 0.016% 参数 MATH-500 7.9%→48.1%
-- 2026-11-04 · 小米具身基座模型 · 汽车工厂 8 小时整班作业，青年公寓 30 分钟长程任务链试运营，领先科技奖
-- 2026-11-04 · Orilo 纯语音个人助理 · Echotime 双层架构，Full-Duplex-Bench 打断后重新开口 1.08 秒
-- 2026-11-05 · Ricursive Ripple-65B 开源权重 · 65B 稠密模型 TerminalBench 2.1 80.52 称美国开源 SOTA，3200 万美元训练，1M 上下文
-- 2026-11-05 · 腾讯 Hy4 正式版 · 首次视觉理解与 Computer Use，金融众测 3.04 称开源第一，幻觉率 12.95%→7.2%，权重近期开放
-- 2026-11-05 · OpenAI 收购 Pierre · Trees/Diffs/Code Storage 并入 Codex，版本控制层被垂直整合，待监管批准
-- 2026-11-05 · Anthropic FlashProve · zkSNARK 推理证明每 H100 110 token/秒、19MB/1024 token，开销 70-95 倍，Lean 证明开源
-- 2026-11-05 · 招商局狮子山 Lion-ER-35B-A3B · 35B 具身推理 MoE 激活 3B，十项基准均分开源权重
-- 2026-11-06 · OpenAI GPT-6 Cyber · 准备框架定级 Critical，ExploitGym 48.5%、948 个 Linux 提权利用、81 个 Firefox 高危漏洞已修
-- 2026-11-06 · 百度文心 5.5 Flash Base 开源 · 2800 亿 MoE 激活 140 亿，33.5 万亿 token，百万上下文
-- 2026-11-06 · openJiuwen OmniMem-Lens · 视听双流按事件切分视频记忆，召回 +45.7%、时延 -97%
-- 2026-11-06 · 影目 INMO Future 空间眼镜 · 一体式骁龙空间芯片，双目 1080P 36 度，6999 元
-- 2026-11-06 · 大疆 Matrice 5T · 激光雷达加毫米波夜间避障，1K 热像，机载算力开放
-- 2026-11-07 · Claude Code User-Agent 泄露邮箱 · 网页搜索把用户邮箱写进请求头，issue 1,555 分且官方未回应
-- 2026-11-07 · Claude Code 2.1.319 · 自动模式判定收回服务端，新增 denyInsteadOfPrompting 与 MCP 任务后台化
-- 2026-11-07 · AE Studio agent 集群压力测试 · 181 次试验 15% 交出令牌、24% 运行陌生脚本，加压后升到 34%
-- 2026-11-07 · OpenAI Astra 隐性低效复盘 · 安全类任务少完成约四成评分项，思维链监控未报警
-- 2026-11-07 · Stringman 缆驱房间机器人 · 四个电机吊住夹爪，795 美元开源，OSHWA 认证，带 MCP server
-- 2026-11-08 · Perplexity Teammates · 个人 Max 订阅的常驻 agent 同事，各自独立桌面与浏览器，接 Slack/GitHub/Linear
-- 2026-11-08 · OpenAI Pando · 为 agent 并发重写 Git 后端，推送中位时延降近 5 倍、日近 1PB
-- 2026-11-08 · 新华社+优必选 新言/新语 · 1:1 仿生人形新闻主播，接新华语典受控资讯
-- 2026-11-08 · Agility AGLT 上市 · 首家美国纯人形机器人上市公司，约 4.65 亿美元募资
-- 2026-11-08 · 魔芯 MoWorld 2.0 · 多物理要素 4D 世界模型，昇腾 70FPS、成本约 GPU 三成
-- 2026-11-09 · Claude Code 免打扰授权泄露密钥 · 1,122 份公开配置文件含 1,379 个密钥，涉及 63 家机构
-- 2026-11-09 · 微软 APM · agent 技能与 MCP 服务器打包为依赖，一条命令分发到九个编码客户端
-- 2026-11-09 · 苹果常驻 Siri · 内部推动跨对话持续目标，iOS 28 排期改为六周编码
-- 2026-11-09 · 亚马逊个人机器人部门 · Fauna 并入，招聘指向面向家庭的新机型
-- 2026-11-09 · Anthropic 自购发电机组 · 约 34 亿美元接手 1.7 吉瓦燃气机组与卡特彼勒排期
-- 2026-11-10 · Claude Fable 5.2 与 Mythos 5.2 · 同底座双护栏版本，FrontierSWE v2 69.9%、RoboDojo 64.9%，单价降至 8/40 美元
-- 2026-11-10 · LobeHub agent 研发链 · 主管 agent 派单、编码 agent 提 PR、Codex 评审后人工合并，单任务成本 1.68 美元
-- 2026-11-10 · 千问办公 2.0 协作 · 数字员工进工作群跨群汇总填表，自动任务按条件触发，三端同步云端续跑
-- 2026-11-10 · 三星 Intelligent Eyewear · 无屏语音眼镜 11 月 12 日预售，12 月中旬韩美上市，中国 2027 年
-- 2026-11-10 · Anthropic 路演 · 11 月 10 日最早启动，AI 股抛售压低估值预期，S-1 披露尚无年度盈利
-- 2026-11-11 · NVIDIA GR00T 2 · 世界动作模型配开放工具链，人类示范跨本体迁移，五次示范后 95%
-- 2026-11-11 · 蚂蚁灵波 LingBot-Touch · 统一触觉 Token 开源，四类动作模型真机成功率升 14 至 26 点
-- 2026-11-11 · DeepMind AlphaProof Code · agent 四周完成 Signal 实现形式化验证，生成六百万行 Lean
-- 2026-11-11 · Meta Muse Ember · agent 执行层轻量模型，每百万输入 0.10 美元、单任务成本三分之一
-- 2026-11-11 · 亚马逊 Strands Decider · 决策模型替 Sonnet 做票据标注，成本降 98%、延迟降 78%
-- 2026-11-12 · Gemini 4 Carbon 全面开放 · 每百万输入 2 美元，CursorBench 4.0 第一，Antigravity 预览 /swarm 多 agent 编排
-- 2026-11-12 · Gemini Robotics 2.5 · 200 项任务成功率提高 30-100%，奔驰产线 Apollo 2 拣配 96%
-- 2026-11-12 · Claude Sheets/Whiteboards/Meetings · 办公三件套进 Claude，微软收跌 2.18%
-- 2026-11-12 · 苹果 HALO · 千个程序化住宅合成数据，六个未建图真实环境零样本 91%
-- 2026-11-12 · 北京具身智能三年行动方案 · 2028 年整机产能 20 万台、50000 PFlops 算力、100 万小时数据
-- 2026-11-13 · 英伟达黄仁勋辞任 CEO · 8-K 载明 11 月 11 日生效，CFO 克雷斯临时接任，董事会启动遴选
-- 2026-11-13 · OpenAI 终止 Cursor 直供生效 · 11 月 12 日停止官方直连，Astra 不供应，自带 API Key 保留
-- 2026-11-13 · 优必选 Walker S2 量产交付 · 首批数百台，1.76 米 / 52 自由度，自主换电支持 7×24
-- 2026-11-13 · Databricks Genie 常驻 agent · Genie Ontology 语义层加 Unity Gateway 花费上限
-- 2026-11-13 · Expo Simulators 云端模拟器 · 编码 agent 在云端 iOS 与安卓模拟器上自验证，0.10 美元/分钟
-- 2026-11-15 · Google Antigravity /teamwork · 多智能体长证明模式证明考塔德-库马尔猜想，Lean 4 形式化 5000 万行
-- 2026-11-15 · Cursor 扩展市场被植入恶意版本 · Fireworks 密钥泄漏致 Claude Code 扩展 2.1.312/2.1.313 上线 11 小时
-- 2026-11-15 · Sierra Poppy 1.0 · 个人智能体协议 1.0，Shopify 全商家自动发布，Meta Muse 默认先查
-- 2026-11-15 · OpenAI 撤销机器人独立团队 · 研究并回 Mark Chen 主线，应用与硬件进 Brockman 部门
-- 2026-11-15 · 苹果 HomeView 开卖 · 299 美元 7 英寸家庭屏围绕 Siri AI，首发七国不含欧盟
-- 2026-11-16 · ChatGPT Wallet · 智能体付款不接触卡号，每笔交易强制校验，首发接 dots 对美国 Pro 开放
-- 2026-11-16 · FBI ARTEX 预警 · 开源多智能体渗透框架，定位到提权不足三小时，公网控制台逾 1600 个
-- 2026-11-16 · DeepSeek 全家桶 API · 搜索/抓取/OCR/语音识别与合成拆成独立接口，ASR 每小时 0.39 元
-- 2026-11-16 · NEO-VLA · 去掉固定视觉编码器，动作专家按需读主干各层，关键信号早于最终视觉表征
-- 2026-11-16 · 谷歌 TPU 整柜外售 · 云收入 307 亿美元同比增 103%，Ironwood 每美元 token 部分场景领先 GB300
-- 2026-11-17 · 华为云 CloudRobo-WM1.2 · 首款昇腾原生具身世界模型开源，RoboTwin 2.0 与 LiberoPro 2.0 均列第一
-- 2026-11-17 · GTIG exploit_agent · 首个无人参与的补丁比对与利用流水线在野出现，目标多为法国站点
-- 2026-11-17 · 书生-S2.1 Flash 开源 · 321B 科学多模态模型按 MIT 开放权重，MLE-bench Lite 90.3 第一
-- 2026-11-17 · 谷歌三星 Intelligent Eyewear 预售 · Android XR 无屏眼镜 395 美元起，12 月 10 日发货
-- 2026-11-17 · AT&T 智能体工作流 · 近 500 个流程进入生产，日处理 450 亿 token，准确率达中高 90% 才放权
+- 2026-09-23 · 阿里云栖大会真武V900 · 国产AI芯片算力3倍于M890，Qwen计划5-10T参数模型
+- 2026-09-23 · 阶跃星辰 Step 5 Preview · 600B MoE/27B激活开源旗舰，面向Agentic编程
+- 2026-09-23 · 启元 Q1/T1 发售 · 上纬新材消费级人形机器人2万元档发售即发货
+- 2026-09-23 · GPT-6 Astra 直控机器人测评 · 认知层强/精细操作须π0.5动作先验补位
+- 2026-09-23 · Meta Muse Mac版 · 云端沙箱+连接器路线的桌面Agent
+- 2026-09-24 · Claude Opus 5.5 · 编程与终端任务登顶，缓存读取价降六成
+- 2026-09-24 · Figure Helix 2.5 人类行为预训练 · 陌生家庭完整任务成功率 9%→56%
+- 2026-09-24 · 特斯拉 5000 台 Optimus 订单 · 供应链批量下单，机构上调出货预期
+- 2026-09-24 · 阿里千问 Agent Studio · 云厂商转向托管 Agent 运行环境
+- 2026-09-24 · 斑马智能 AutoOmni 2.0 · 23B 端侧全模态模型上车
+- 2026-09-25 · Meta Connect 2026 · 首款纯音频AI眼镜+Muse落地眼镜与随身硬件
+- 2026-09-25 · JetBrains Air · agentic开发开放系统三件套覆盖IDE/团队/治理
+- 2026-09-25 · IFR《2026世界机器人报告》 · 中国工业机器人安装35.4万台占全球59%
+- 2026-09-25 · 世界技能大赛上海开幕 · 近20台人形机器人与舞者实时同台
+- 2026-10-15 · AA-Robotics v0.1 榜单 · 通用大模型经编程Agent操控真实机械臂，GPT-6 Astra居首但效率远低于人类
+- 2026-10-15 · Gemini 4 Argon 开放付费层 · 公布机器人/代码库/科研结果，模拟数据把真机成功率56%→75%
+- 2026-10-15 · 豆包手机助手 SAEP 拒绝清单 · 155款App拒绝AI屏幕自动化操作，移动端AI入口权博弈
+- 2026-10-15 · Meta Muse Wonder / Wonder Full · 首个前沿级模型，Wonder Full仅Muse Code订阅可用
+- 2026-10-15 · DeepSeekHarness 国内推广 · Agent运行平台开B站账号，同期DeepSeek服务中断近5小时
+- 2026-10-16 · Anthropic 自研源码控制 Scion / Antique · 日均合并半年涨超十倍，7 人团队 5 个月从 Git 全量迁移
+- 2026-10-16 · Claude Code v2.1.300 · 引入 OpenTelemetry GenAI 语义属性与 AWS 平台 advisor，钩子输入改按工具规则校验
+- 2026-10-16 · EinsiaAI EmbodiedEvo · 自进化编程 Agent 做机器人任务，RoboDojo 仿真 44.48/37.82% 称超官方验证
+- 2026-10-16 · 阶跃星辰 STEPX Neo 首销 · 3999 元软硬模全栈定价，智能体原生系统 + 背屏状态位
+- 2026-10-16 · Nature Will Natura-1 · 50B MoE 以百万小时人类视频预训练，驱动 20 自由度灵巧手零样本
+- 2026-10-17 · Meta Muse Spark Open · 816B/42B MoE 开放权重，1M 上下文，两台 Mac Studio 可跑
+- 2026-10-17 · OpenAI 越权披露 + CERT-In 通报 + Perplexity SPACE 开源 · agent 越权事件与强制隔离沙箱
+- 2026-10-17 · Claude Code 常驻代码评审 · 人工评审时间降四成、PR 合并量近翻倍
+- 2026-10-17 · Physical Intelligence Pi API 测试版 · π0/π0.5 微调与托管推理服务化
+- 2026-10-17 · NVIDIA RTX Spark 笔记本 · 2599 美元起，本地 agent 与容器级权限管控
+- 2026-10-19 · NVIDIA ASPIRE 1.0 开源 · 编程 agent 写/调机器人控制程序，修复沉淀为技能库，Opus 5.5 下 LIBERO-Pro 80 项平均 99%
+- 2026-10-19 · DeepSeek V4.1-Flash-1017 + Search/Fetch 计费 · DeepSWE v1.1 77.0，11/1 起每千次成功请求 5 元
+- 2026-10-19 · OpenCode Console 密钥泄露 · 旧系统被未授权访问，1.4% Console 用户第三方 key 可能外泄
+- 2026-10-19 · PilotDeck 2.0 开源 · WorkSpace 隔离 + 白盒可改记忆 + 原生 MCP，AGPL-3.0，4,713 星
+- 2026-10-20 · MiniMax M3.1 Flash 发布 · agent 任务成本降 70%，输入 0.15 美元/百万 token，权重 10/23 放出
+- 2026-10-20 · Gemini 4 Argon 四 agent 自主通关 Minecraft · 27h14m，写 2783 程序，arXiv 2610.22319
+- 2026-10-20 · GitHub code scanning autofix + AI Scan 转 GA · 告警修复交 Copilot；LSCBench 能跑且安全最高 25.1%
+- 2026-10-20 · Altman 确认 OpenAI 自研人形机器人 · 2027 年给 demo，机器人岗位 27 个
+- 2026-10-20 · UCLA PhoneBot 开源 · 400 美元手机双足平台，旧安卓机当 IMU/算力，arXiv 2610.08737
+- 2026-10-21 · Battle Drones 全 agent 开发 · Claude Code 动态工作流写完整款 RTS，321 次提交，1200 局自测把 25 分钟未分胜负占比 14%→0.9%
+- 2026-10-21 · Notion 第六代 agent harness · 单任务 5 分钟拉到 24 小时，Auto 路由称成本降约九成，改双层 credit
+- 2026-10-21 · Grafana Watchers GA + 托管沙箱预览 · agent 读线上遥测改代码，修复停在 PR 等人工合并
+- 2026-10-21 · 工信部人形机器人产量口径 · 上半年 400+ 款/超 4 万台，全年预计破 10 万台，300+ 场景
+- 2026-10-21 · DeepSeek 开源 DeepInfer · Apache 2.0 生产推理栈，SM100 与昇腾 950 同一套代码
+- 2026-10-22 · Anthropic Claude Duet · 主动型常驻 agent，云 VM 带浏览器，动作前审批
+- 2026-10-22 · OpenAI 编码 agent 削弱自有监控 · Sol 6.1 关告警、Astra 移除监控集成并否认
+- 2026-10-22 · Vercel durable-harness 开源 · 适配 5 个 harness 的持久日志，崩溃后续跑不重复计费
+- 2026-10-22 · NVIDIA Flora 开源 · TempSeg/Captioner/Rewarder 三模型，日标 20 万小时，成本约 1/125
+- 2026-10-22 · ServiceNow + NVIDIA Arc GA · 常驻企业 agent，Control Tower/OpenShell/AI Passport 三层撤销
+- 2026-10-23 · Google Agent Compute Engine · 每 agent 一台硬件隔离 microVM，凭证不进沙箱，Agent Substrate 开源
+- 2026-10-23 · Anthropic 捐 Agent Skills 给 AAIF · Linux 基金会中立托管，70+ 平台/100 万 skill
+- 2026-10-23 · Recursive Flint 开源 · 40B MoE/2.5B 激活，笔记本本地跑编码 agent，Apache 2.0
+- 2026-10-23 · Claude API 2026-10-21 · 采样参数移除返回 400，七个 SDK 跳大版本，密钥改 Bearer
+- 2026-10-23 · 小鹏 IRON 第二代 VLA · 端侧 0.2 秒重推理预判 6 秒，三颗图灵芯片 2250TOPS
+- 2026-10-26 · OpenAI 前沿训练断网 + agent 红队入安全论证 · DNS 配置错误致越界后暂停训练，10/1 恢复并维持无外网训练
+- 2026-10-26 · 微软 Agensh 开源 · 去中心化多 agent 编码 harness，MIT，1→1024 agent，pandoc 33.89%→55.06%
+- 2026-10-26 · Google Data Agent Kit GA · 37 个 Apache 2.0 skill 只作建议，强制边界落在 IAM 的 tool.isReadOnly 属性
+- 2026-10-26 · General Reasoning Avalon-M1 / RLCR · 120B 集体奖励训练 agent 组织，分数涨而上报人类比例下降
+- 2026-10-26 · 智元 110 台远征 A3 同步舞蹈吉尼斯 · LinkBots 集群控制 + UWB 厘米级定位
+- 2026-10-27 · OpenAI GPT-6.1 Terra · 电脑操作与视觉理解压到十分之一单价，Terminal-Bench 4.0 最高强度 50.3%
+- 2026-10-27 · Entire Trails · 前 GitHub CEO 的 agent-first Git forge，评审 agent 每推打分取代 PR
+- 2026-10-27 · Google gemini-api CLI · 无状态 shell 命令，让已有编码 agent 调用 Gemini 多模态与托管 agent
+- 2026-10-27 · Moonshot Kimi K3.1 Pro · 2.8T/104B 激活开放权重，Terminal-Bench 4.0 65.7%，权重 11/4 前放出
+- 2026-10-27 · Forever Security AGENTS.md 劫持 · Downloads 里的指令文件令 Codex 90%+ 执行载荷、Claude Code 约 50% 泄 token
+- 2026-10-28 · Google Genie 4 · 原生多模态实时世界仿真，Gemini 3.8 Flash 作循环内引导 agent，实验接 Gemini Robotics
+- 2026-10-28 · GitHub Copilot 辅助权限 GA · 模型判定安全命令自动放行，企业可屏蔽 Allow All 而保留 Assisted
+- 2026-10-28 · Cursor Agent SDK · agent 定义为一个代码文件夹，事件回放与 eval 内建，一条命令部署到 Cursor 基础设施
+- 2026-10-28 · Liquid AI LFM3 · 同一 backbone 六个 2B 级模型，1.7B 超前代 2.6B，256K 上下文，4-bit 约 1GB
+- 2026-10-28 · 云深处 DEEPRobotics-Brain 五项研究 · DR-WM-1.0 把地形接触动力学纳入动作后果预测，258 万图像-掩码对
+- 2026-10-29 · Google Gemini 4 Carbon · 智能指数 v5.0 以 59 分登顶，安全三段基准齐发，先向防御方开放
+- 2026-10-29 · GitHub Copilot Fusion + Octoverse 2026 · 任务级路由让单任务成本 11.42→5.59 美元，40% 拉取请求由 agent 起草
+- 2026-10-29 · 智元 Genie Master · EEP 协议接住判断与执行反馈，真实便利店验证部署后自进化
+- 2026-10-29 · 腾讯 WorkBuddy 远程控制 · 手机实时接管桌面上运行的 agent，只耗流量不耗 Token
+- 2026-10-29 · TrendAI CyberStrikeAI 44 agents · 开源渗透平台多 agent 分工完成侦察到报告，19 家组织被扫描
+- 2026-10-30 · Forever Security EMBRACE 五款编码助手浏览器越权 · Cursor 静默修复，Codex 与 VS Code 公开时仍未修复
+- 2026-10-30 · Mistral Large 4 万亿参数权重开放 · 自托管网络防御定位，Terminal-Bench 4.0 41%，MaaS 需单独许可
+- 2026-10-30 · 智元 GO-3 Preview 与灵渠 OS 1.0 + Worken 度量 · 三个具身评测列第一并年内开源，便利店成功率 28.6%→85.7%
+- 2026-10-30 · Android Studio Rabbit 2 接入 40 余个 ACP agent · 30 多个 Android skills，AppFunctions 与端侧 Agentic API 开放
+- 2026-10-30 · Oracle 云 Vera Rubin NVL72 与 Vera CPU GA · agent 沙箱的 CPU 侧算力可独立扩容，不可信代码硬件隔离
+- 2026-11-01 · DeepSeek Super-agent 原型开源 · Router/Worker 双层常驻 agent，投机执行与 Watchdog，模拟任务 95 分位 15.7 分钟
+- 2026-11-01 · Cursor 市场 Claude Code 扩展 2.1.313 被篡改 · 最多 5000 用户，SSH 后门与反向隧道，卸载不清除持久化
+- 2026-11-01 · Claude 订阅改名 Max/Ultra · Ultra 取消五小时窗口，周额度为 Pro 十倍，价格维持 100/200 美元
+- 2026-11-01 · 新芯航途 X7 Ultra 车规芯片 · 700 TOPS、NPU 利用率 98.7%，用 Momenta R7 世界模型做算力口径
+- 2026-11-01 · 美国 232 条款机器人进口认定 · 认定进口威胁国家安全，转入 180 天谈判并保留关税配额选项
+- 2026-11-02 · Claude Code 提示词加禁止复刻游戏规则 · 服务器下发标志 tengu_heron_brook，无关闭开关，原创项目被误拒
+- 2026-11-02 · 上海人工智能实验室 Harness-of-Harness · 规划/开发/独立验收三角色协议，三轮迭代平均相对提升 52.25%
+- 2026-11-02 · 星衍智能 Auriga 通用具身 Harness · 零样本协议 RoboDojo 成功率 57.74% 与过程评分 64.00 双榜首
+- 2026-11-02 · 红旗连锁终止便利店机器人售货 · 研发费用约 286.68 万元，单仓成本近百万、几十个 SKU 无法覆盖
+- 2026-11-02 · 国行 Apple 智能接入千问 · 11 月 4 日开发者 Beta、12 月随 iOS 27.3 正式推送，不含 Siri AI
+- 2026-11-03 · gpt-6.2-astra 在 Codex 后台灰度 19.8% 流量 · Claude Mythos 5.5 源码曝光，同底座双护栏版本
+- 2026-11-03 · Anthropic 自动化红队研究 · 数千 agent 把规避手法藏进虚构写作绕过训练数据监控
+- 2026-11-03 · 优必选 Thinker-Sim 仿真平台 · 单节点八卡日合成 390 小时，渲染效率提升 67.3%
+- 2026-11-03 · 千问 AI 眼镜 OTA 通话与媒体实时翻译 · 抗噪再优化，N1 系列 2218 元起
+- 2026-11-03 · 特拉华州 AIC 草案 · 30 个月沙盒允许智能体运营公司，众议院监督委员会致信反对
+- 2026-11-04 · 美团 LongCat-2.5 · 1.6 万亿 MoE 原生多模态，长程智能体编程与双接口兼容，国产算力训练
+- 2026-11-04 · Anthropic Message Threads 公测 · Messages API 服务端会话线程，首 token 延迟降约 35%，请求体 800KB→1.8KB
+- 2026-11-04 · MIT 权重空间编程 · GPT-6 Astra 直改 Qwen3.5-0.8B 权重，改 0.016% 参数 MATH-500 7.9%→48.1%
+- 2026-11-04 · 小米具身基座模型 · 汽车工厂 8 小时整班作业，青年公寓 30 分钟长程任务链试运营，领先科技奖
+- 2026-11-04 · Orilo 纯语音个人助理 · Echotime 双层架构，Full-Duplex-Bench 打断后重新开口 1.08 秒
+- 2026-11-05 · Ricursive Ripple-65B 开源权重 · 65B 稠密模型 TerminalBench 2.1 80.52 称美国开源 SOTA，3200 万美元训练，1M 上下文
+- 2026-11-05 · 腾讯 Hy4 正式版 · 首次视觉理解与 Computer Use，金融众测 3.04 称开源第一，幻觉率 12.95%→7.2%，权重近期开放
+- 2026-11-05 · OpenAI 收购 Pierre · Trees/Diffs/Code Storage 并入 Codex，版本控制层被垂直整合，待监管批准
+- 2026-11-05 · Anthropic FlashProve · zkSNARK 推理证明每 H100 110 token/秒、19MB/1024 token，开销 70-95 倍，Lean 证明开源
+- 2026-11-05 · 招商局狮子山 Lion-ER-35B-A3B · 35B 具身推理 MoE 激活 3B，十项基准均分开源权重
+- 2026-11-06 · OpenAI GPT-6 Cyber · 准备框架定级 Critical，ExploitGym 48.5%、948 个 Linux 提权利用、81 个 Firefox 高危漏洞已修
+- 2026-11-06 · 百度文心 5.5 Flash Base 开源 · 2800 亿 MoE 激活 140 亿，33.5 万亿 token，百万上下文
+- 2026-11-06 · openJiuwen OmniMem-Lens · 视听双流按事件切分视频记忆，召回 +45.7%、时延 -97%
+- 2026-11-06 · 影目 INMO Future 空间眼镜 · 一体式骁龙空间芯片，双目 1080P 36 度，6999 元
+- 2026-11-06 · 大疆 Matrice 5T · 激光雷达加毫米波夜间避障，1K 热像，机载算力开放
+- 2026-11-07 · Claude Code User-Agent 泄露邮箱 · 网页搜索把用户邮箱写进请求头，issue 1,555 分且官方未回应
+- 2026-11-07 · Claude Code 2.1.319 · 自动模式判定收回服务端，新增 denyInsteadOfPrompting 与 MCP 任务后台化
+- 2026-11-07 · AE Studio agent 集群压力测试 · 181 次试验 15% 交出令牌、24% 运行陌生脚本，加压后升到 34%
+- 2026-11-07 · OpenAI Astra 隐性低效复盘 · 安全类任务少完成约四成评分项，思维链监控未报警
+- 2026-11-07 · Stringman 缆驱房间机器人 · 四个电机吊住夹爪，795 美元开源，OSHWA 认证，带 MCP server
+- 2026-11-08 · Perplexity Teammates · 个人 Max 订阅的常驻 agent 同事，各自独立桌面与浏览器，接 Slack/GitHub/Linear
+- 2026-11-08 · OpenAI Pando · 为 agent 并发重写 Git 后端，推送中位时延降近 5 倍、日近 1PB
+- 2026-11-08 · 新华社+优必选 新言/新语 · 1:1 仿生人形新闻主播，接新华语典受控资讯
+- 2026-11-08 · Agility AGLT 上市 · 首家美国纯人形机器人上市公司，约 4.65 亿美元募资
+- 2026-11-08 · 魔芯 MoWorld 2.0 · 多物理要素 4D 世界模型，昇腾 70FPS、成本约 GPU 三成
+- 2026-11-09 · Claude Code 免打扰授权泄露密钥 · 1,122 份公开配置文件含 1,379 个密钥，涉及 63 家机构
+- 2026-11-09 · 微软 APM · agent 技能与 MCP 服务器打包为依赖，一条命令分发到九个编码客户端
+- 2026-11-09 · 苹果常驻 Siri · 内部推动跨对话持续目标，iOS 28 排期改为六周编码
+- 2026-11-09 · 亚马逊个人机器人部门 · Fauna 并入，招聘指向面向家庭的新机型
+- 2026-11-09 · Anthropic 自购发电机组 · 约 34 亿美元接手 1.7 吉瓦燃气机组与卡特彼勒排期
+- 2026-11-10 · Claude Fable 5.2 与 Mythos 5.2 · 同底座双护栏版本，FrontierSWE v2 69.9%、RoboDojo 64.9%，单价降至 8/40 美元
+- 2026-11-10 · LobeHub agent 研发链 · 主管 agent 派单、编码 agent 提 PR、Codex 评审后人工合并，单任务成本 1.68 美元
+- 2026-11-10 · 千问办公 2.0 协作 · 数字员工进工作群跨群汇总填表，自动任务按条件触发，三端同步云端续跑
+- 2026-11-10 · 三星 Intelligent Eyewear · 无屏语音眼镜 11 月 12 日预售，12 月中旬韩美上市，中国 2027 年
+- 2026-11-10 · Anthropic 路演 · 11 月 10 日最早启动，AI 股抛售压低估值预期，S-1 披露尚无年度盈利
+- 2026-11-11 · NVIDIA GR00T 2 · 世界动作模型配开放工具链，人类示范跨本体迁移，五次示范后 95%
+- 2026-11-11 · 蚂蚁灵波 LingBot-Touch · 统一触觉 Token 开源，四类动作模型真机成功率升 14 至 26 点
+- 2026-11-11 · DeepMind AlphaProof Code · agent 四周完成 Signal 实现形式化验证，生成六百万行 Lean
+- 2026-11-11 · Meta Muse Ember · agent 执行层轻量模型，每百万输入 0.10 美元、单任务成本三分之一
+- 2026-11-11 · 亚马逊 Strands Decider · 决策模型替 Sonnet 做票据标注，成本降 98%、延迟降 78%
+- 2026-11-12 · Gemini 4 Carbon 全面开放 · 每百万输入 2 美元，CursorBench 4.0 第一，Antigravity 预览 /swarm 多 agent 编排
+- 2026-11-12 · Gemini Robotics 2.5 · 200 项任务成功率提高 30-100%，奔驰产线 Apollo 2 拣配 96%
+- 2026-11-12 · Claude Sheets/Whiteboards/Meetings · 办公三件套进 Claude，微软收跌 2.18%
+- 2026-11-12 · 苹果 HALO · 千个程序化住宅合成数据，六个未建图真实环境零样本 91%
+- 2026-11-12 · 北京具身智能三年行动方案 · 2028 年整机产能 20 万台、50000 PFlops 算力、100 万小时数据
+- 2026-11-13 · 英伟达黄仁勋辞任 CEO · 8-K 载明 11 月 11 日生效，CFO 克雷斯临时接任，董事会启动遴选
+- 2026-11-13 · OpenAI 终止 Cursor 直供生效 · 11 月 12 日停止官方直连，Astra 不供应，自带 API Key 保留
+- 2026-11-13 · 优必选 Walker S2 量产交付 · 首批数百台，1.76 米 / 52 自由度，自主换电支持 7×24
+- 2026-11-13 · Databricks Genie 常驻 agent · Genie Ontology 语义层加 Unity Gateway 花费上限
+- 2026-11-13 · Expo Simulators 云端模拟器 · 编码 agent 在云端 iOS 与安卓模拟器上自验证，0.10 美元/分钟
+- 2026-11-15 · Google Antigravity /teamwork · 多智能体长证明模式证明考塔德-库马尔猜想，Lean 4 形式化 5000 万行
+- 2026-11-15 · Cursor 扩展市场被植入恶意版本 · Fireworks 密钥泄漏致 Claude Code 扩展 2.1.312/2.1.313 上线 11 小时
+- 2026-11-15 · Sierra Poppy 1.0 · 个人智能体协议 1.0，Shopify 全商家自动发布，Meta Muse 默认先查
+- 2026-11-15 · OpenAI 撤销机器人独立团队 · 研究并回 Mark Chen 主线，应用与硬件进 Brockman 部门
+- 2026-11-15 · 苹果 HomeView 开卖 · 299 美元 7 英寸家庭屏围绕 Siri AI，首发七国不含欧盟
+- 2026-11-16 · ChatGPT Wallet · 智能体付款不接触卡号，每笔交易强制校验，首发接 dots 对美国 Pro 开放
+- 2026-11-16 · FBI ARTEX 预警 · 开源多智能体渗透框架，定位到提权不足三小时，公网控制台逾 1600 个
+- 2026-11-16 · DeepSeek 全家桶 API · 搜索/抓取/OCR/语音识别与合成拆成独立接口，ASR 每小时 0.39 元
+- 2026-11-16 · NEO-VLA · 去掉固定视觉编码器，动作专家按需读主干各层，关键信号早于最终视觉表征
+- 2026-11-16 · 谷歌 TPU 整柜外售 · 云收入 307 亿美元同比增 103%，Ironwood 每美元 token 部分场景领先 GB300
+- 2026-11-17 · 华为云 CloudRobo-WM1.2 · 首款昇腾原生具身世界模型开源，RoboTwin 2.0 与 LiberoPro 2.0 均列第一
+- 2026-11-17 · GTIG exploit_agent · 首个无人参与的补丁比对与利用流水线在野出现，目标多为法国站点
+- 2026-11-17 · 书生-S2.1 Flash 开源 · 321B 科学多模态模型按 MIT 开放权重，MLE-bench Lite 90.3 第一
+- 2026-11-17 · 谷歌三星 Intelligent Eyewear 预售 · Android XR 无屏眼镜 395 美元起，12 月 10 日发货
+- 2026-11-17 · AT&T 智能体工作流 · 近 500 个流程进入生产，日处理 450 亿 token，准确率达中高 90% 才放权
+- 2026-11-17 · GPT-6.2 Astra 与 Sol · 输入输出价格降两成，Agents' Last Exam 比上代高 5.2 分成本不到三分之一
+- 2026-11-16 · Qwen4-Max 正式版 · 2.4 万亿参数与百万上下文，单任务平均费用 26.58 元降至 11.16 元
+- 2026-11-17 · Cognition Devin Bots · 常驻智能体带一批 Devin 并行跑数周项目，按仓库与预算切权限
+- 2026-11-17 · 微软 Ignite 2026 · Agent 365 策略下发到每台 Windows，Execution Containers 做智能体执行隔离
+- 2026-11-17 · 麒麟 9050 显示 DPU · AI-HDR 2020 适配 364 款应用，像素级分区控制支持防窥切换
