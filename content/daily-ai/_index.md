@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-18-0927.html">
+    <div class="da-card-date">2026-11-18 · 09:27</div>
+    <div class="da-card-title">OpenAI 与阿里降低单位任务成本，微软把智能体管控放进 Windows</div>
+    <div class="da-card-main">本期收录 OpenAI GPT-6.2 Astra 与 Sol 的降价发布、阿里 Qwen4-Max 的百万上下文与 token 效率数据、Cognition 的常驻编排智能体、微软 Ignite 公布的智能体治理与端侧混合推理，以及华为麒麟 9050 的显示处理单元。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-17-0931.html">
     <div class="da-card-date">2026-11-17 · 09:31</div>
     <div class="da-card-title">华为云开源昇腾原生具身世界模型，谷歌记录到无人参与的漏洞利用流水线</div>
