@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-18-1004.html">
+    <div class="da-card-date">2026-11-18 · 10:04</div>
+    <div class="da-card-title">算力被切成可计费的份额，服务端这一层已成套</div>
+    <div class="da-card-main">本期收了 GPUStack 的集群编排与计量、Mooncake 的 KVCache 分离式传输、beta9 的按秒计费沙箱、Pixeltable 的多模态数据后端与 kvcached 的单卡共享；共同点是显卡的空闲时段正在被切成可计量、可收费的份额。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-17-1010.html">
     <div class="da-card-date">2026-11-17 · 10:10</div>
     <div class="da-card-title">桌面机器人这一层，整机在卖，运行时也开始收费</div>

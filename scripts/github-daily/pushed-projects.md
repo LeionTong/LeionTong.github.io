@@ -1,191 +1,186 @@
-# 已推送项目存档（滚动 60 天）
-- 2026-09-17 · Panniantong/Agent-Reach · 给 AI Agent 一个统一 CLI，免 API 费读取与检索 Twitter、Reddit、YouT
-- 2026-09-17 · hugohe3/ppt-master · 把文档或主题直接生成真正的原生 PowerPoint——原生形状、切换动画、数据图表，可套自己的 .pp
-- 2026-09-17 · aaron-for-value/VeriRun · 面向 RLVR（可验证奖励）的隔离可执行评测与在线奖励基础设施，提供可复现、隔离的执行与打分
-- 2026-09-17 · cosmo-wander-ai/cosmo-edge · 生产级 C++ 边缘 AI 引擎，做视频分析与端侧 VLM，覆盖 Sophon、Rockchip RKN
-- 2026-09-17 · alphaXiv/OpenResearch · 把 coding agent 变成研究 agent——自动做深度研究、可计算机执行的研究流程
-- 2026-09-18 · cloudflare/security-audit-skill · 给 coding agent 的多阶段安全审计 skill，输出机器可读、独立核验的发现，替代付费 Ap
-- 2026-09-18 · Tencent/BrowserSkill · 让 AI agent 用你真实已登录的浏览器，CLI+扩展跨任意 shell agent，替代 Brow
-- 2026-09-18 · Player-YN/PawWork_ZhuaZhua · 选区即用的网页 agent：真实页面选内容、描述产出，拿走可编辑办公文件
-- 2026-09-18 · HanyuanWang/LiveStream-Agent-Studio · 抖音直播电商本地 AI Agent Studio，贯通主播发现、直播洞察、复盘与短视频编导
-- 2026-09-18 · BoardUI/boardui · 面向 agentic 界面的 React 设计系统，组件全开源可改，首页即用自有密钥跑通 AI 聊天
-- 2026-09-19 · vercel-labs/agent-browser · 给 AI Agent 的浏览器自动化 CLI，替代 Browserbase/Steel 按会话计费 Sa
-- 2026-09-19 · rustfs/rustfs · S3 兼容高性能对象存储，MinIO/Ceph 自托管替代，削 AWS S3 出网费
-- 2026-09-19 · yyjeqhc/webcodex · 让云端 AI Agent 用你本机真实开发环境，替代托管式 Agent 工作区
-- 2026-09-19 · fastino-ai/GLiNER2 · 统一 schema 信息抽取，替代付费实体/字段抽取 API，喂给 RAG/LLM
-- 2026-09-19 · boxlite-ai/boxlite · 给 Agent 的硬件隔离 micro-VM，OCI 原生、可持久，替代 E2B/Modal 按次沙箱
-- 2026-09-20 · headroomlabs-ai/headroom · 在 token 进 LLM 前压缩工具输出、日志、文件与 RAG 块，编码 agent 省 20%、JS
-- 2026-09-20 · HKUDS/nanobot · 超轻量自托管个人 AI Agent 框架，带 WebUI、工具、记忆、MCP、多 Agent 与工作流
-- 2026-09-20 · anthropics/commerce-agents · 用 Claude 构建购物与商户 Agent 的参考蓝图，含零售、电商、电信、娱乐示例
-- 2026-09-20 · Human-Agent-Society/reef · 面向自改进 Agent 的持续学习基础设施，让 Agent 边跑边沉淀经验
-- 2026-09-20 · Albert-Weasker/niubigeo · 开源 AI 品牌可见性与竞品报告，附真实人工 AI 测试与 GEO 优化付费服务
-- 2026-09-21 · stablyai/orca · 面向并行智能体集群的桌面开发环境（ADE），用自有订阅多开 coding agent
-- 2026-09-21 · NVIDIA/SkillSpector · 给 Claude Code / Codex / MCP 技能做安装前安全扫描的命令行工具
-- 2026-09-21 · radixark/miles · 面向企业的 LLM/VLM 训练后强化学习框架，与 slime 同源共生
-- 2026-09-21 · qufei1993/skills-hub · 跨平台桌面应用，集中管理与同步 Agent Skills 到多个 coding 工具
-- 2026-09-21 · HarnessRouter/harnessrouter · 自托管统一 harness API，把 Codex/Claude Code/Hermes 等收进一个 O
-- 2026-09-23 · google/ax · Google 开源的声明式 agent 编排器，用类似 Kubernetes 的清单在集群里批量跑 ag
-- 2026-09-23 · dream-num/univer · 可嵌入自有产品的 Office SDK（表格、文档、幻灯片、看板、Base），本月把定位明确切到面向 a
-- 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
-- 2026-09-23 · nolabs-ai/nono · 零延迟、零配置的 agent 沙箱，单二进制给 Claude Code、Codex、OpenCode 等
-- 2026-09-23 · lahfir/agent-desktop · 给任意 agent 的桌面操作层：Rust 单二进制，读系统无障碍树而不是截图像素，再从稳定引用上执行动
-- 2026-09-24 · t8y2/dbx · 25MB 跨平台数据库客户端，90+ 库 + 内置 AI/MCP，替代按授权计费的商业客户端
-- 2026-09-24 · browser-use/jev-ultrafast · 把网页动作空间索引化的 agent，用 Jev 决策模型替代逐步推理
-- 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
-- 2026-09-24 · shadcn-ui/lint · 面向 Tailwind 设计系统的 agent-first linter，把设计约束写成可校验规则
-- 2026-09-24 · zzet/gortex · 代码库索引成知识图谱的代码智能引擎，单二进制 + MCP，宣称省 token 50 倍
-- 2026-09-25 · omnigent-ai/omnigent · 开源 AI 智能体框架与编排层，统一编排 Claude Code/Codex/Cursor 等并加治理
-- 2026-09-25 · odysseus-dev/odysseus · 自托管 AI 工作区，团队知识/对话/工具收敛到自主可控环境
-- 2026-09-25 · xerj-org/xerj · 面向 AI 的数据搜索引擎，autoindex 让 agent 直接检索业务数据
-- 2026-09-25 · okf-memory/okf-agent-memory · Git 原生编码 agent 持久记忆（OKF v0.2，毫秒级读写）
-- 2026-09-25 · duty1g/x64dbg-mcp-server · 把 x64dbg 调试器暴露给 AI agent 的原生 MCP 插件
-- 2026-10-15 · Niko1221/Strata · 消费级 PC 一键跑 Qwen3.8-Flash-Next 125B 的本地推理引擎
-- 2026-10-15 · NandhaKishorM/laya · 33ms 单次前向的 System-1 决策引擎，替代 LLM 做分类与评分
-- 2026-10-15 · datalab-to/indra · 100 万参数纯 CPU OCR，49 页/秒输出 markdown 与带框 JSON
-- 2026-10-15 · TypeLLM/TypeLLM · 给自回归模型加类型安全生成，按 schema 约束的结构化输出
-- 2026-10-15 · Continuum-AI-Corp/scuttle · 敏感日志的混合后量子加密层，只写不可读
-- 2026-10-16 · earthtojake/text-to-cad · 给 coding agent 装 CAD 能力，一句话生成可编辑的参数化模型与 STEP 文件
-- 2026-10-16 · yetone/magpie · 本机网关+菜单栏，把 Claude Code/Codex 指到任意模型，额度用完自动换账号
-- 2026-10-16 · 0xShug0/audio.cpp · 基于 ggml 的纯 C++ 音频推理运行时，一个引擎跑 TTS/ASR/VAD/声线转换
-- 2026-10-16 · Mentra-Community/MentraOS · 开源智能眼镜运行时，一套 API 多机型复用并自带 MiniApp 商店
-- 2026-10-16 · softmata/horus · 机器人实时分布式中间件，亚 200ns IPC，补 ROS2 高频控制回路短板
-- 2026-10-16 · morluto/rea · agent 逆向二进制与应用的 MCP，读伪代码/汇编/调用关系，产物可复现
-- 2026-10-16 · maximhq/bifrost · 高吞吐 AI 网关，一个 OpenAI 兼容端点接多家模型与 MCP
-- 2026-10-16 · sgl-project/sglang-omni · 音频/omni 模型多阶段推理运行时，TTS/ASR 流式、OpenAI 兼容
-- 2026-10-16 · ARahim3/DigUp · 本机全内容语义检索，EmbeddingGemma 2 建索引、跨百种语言
-- 2026-10-16 · maxpert/marmot · 无主节点分布式 SQLite，gossip 复制加分布式事务、MySQL 协议
-- 2026-10-17 · HKUDS/CLI-Anything · 给任意 CLI 生成 agent 原生操作层 + CLI-Hub 注册中心，今日 +281
-- 2026-10-17 · storytold/artcraft · Rust AI 创作 IDE：2D/3D 构图与图生视频，本周 +20,267
-- 2026-10-17 · QwenAudio/qwen-audio-agent · 实时语音运行时，agent 翻工具不打断对话，ACP/A2A 后端
-- 2026-10-17 · Armur-Ai/Pentest-Swarm-AI · 多 agent 协同自动渗透，XBOW 的开源自托管替代
-- 2026-10-17 · intellectronica/ruler · 一套统一规则文件约束所有编码 agent 的指令与 MCP 配置
-- 2026-10-19 · zai-org/ZCode · Z.ai 的 AI 编程工作台，桌面/浏览器/终端共用一套客户端与运行时，卖 GLM 订阅
-- 2026-10-19 · CopilotKit/OpenDots · 常驻 AI 同事模板，每个 Dot 一台电脑，跨网页/电话/Slack 连续工作
-- 2026-10-19 · daniel3303/Equibles · 自托管金融数据 MCP，64 个工具覆盖 SEC/13F/国会交易/FRED，云版订阅
-- 2026-10-19 · perplexityai/SPACE · Perplexity 的 Firecracker microVM 沙箱平台，HTTP API + E2B 兼容层
-- 2026-10-19 · HelixDB/helix-foundry · 本地优先企业数据本体工作台，Postgres/Stripe/CRM 连成一张图
-- 2026-10-20 · ShawnPana/phone-harness · agent 直连真机（iPhone 镜像窗口 / Android adb / 云手机），云机按分钟计费
-- 2026-10-20 · zhongerxin/iPhone-use · Codex 经 WDA 操作 USB 真机 iPhone，侧边栏同步手机画面
-- 2026-10-20 · physiclaw/PhysiClaw · 相机读屏加触控笔点击的物理手机操作手，卖 CAD-as-code 套件
-- 2026-10-20 · koosoli/ESPHomeDesigner · 智能屏与电子价签可视化拖拽编辑器，导出 ESPHome/OEPL/OpenDisplay
-- 2026-10-20 · chekusu/yomado · 给视觉 agent 一块 macOS 虚拟屏跑桌面图形软件
-- 2026-10-21 · debpalash/VoiceStudio · 本地语音克隆/配音/有声书桌面应用，Pro 商业授权按席位卖
-- 2026-10-21 · KnifeLemon/Filee · 离线拖放格式转换 255 种，含 HWP/HWPX，免 Office 授权
-- 2026-10-21 · nyosegawa/speech.cpp · ggml 上的 TTS/ASR/VAD 单二进制，OpenAI 音频 API 兼容
-- 2026-10-21 · opennookorg/betterwispr · macOS 本地听写替代订阅制听写工具，带会议转写与 MCP
-- 2026-10-21 · lokutor-ai/oido · 5 美元 ESP32-S3 上的开集语音识别固件，英/西两语
-- 2026-10-22 · fleetdm/fleet · 开源跨平台设备管理平台，Free 0 美元、Premium 7 美元/主机/月
-- 2026-10-22 · Screenly/Anthias · 树莓派与 x86 的数字标牌系统，GPLv2 与商业双授权
-- 2026-10-22 · maziggy/bambuddy · 自托管 Bambu Lab 打印机群控制台，切片与固件回滚在本地
-- 2026-10-22 · RushB-fr/freekiosk · 安卓平板 Device Owner 锁定，MIT 内核加 1 欧元/设备/月的云
-- 2026-10-22 · screentinker/screentinker · 自托管数字标牌 CMS，浏览器即播放端
-- 2026-10-23 · NVIDIA/OpenShell · 自主 agent 群的沙箱运行时，内核级隔离加声明式 YAML 策略
-- 2026-10-23 · heygen-com/hyperframes · 把 HTML 与动画渲成确定性 MP4 的开源引擎，本地渲染免费托管收费
-- 2026-10-23 · davidondrej/cloudroom-core · 自托管 Rust 服务跑云端编码 agent，每个 agent 一个沙箱
-- 2026-10-23 · jwuthri-cloud/Tracely-ai · 把线上 agent 的失败轨迹冻成 CI 回归闸门
-- 2026-10-23 · marclou/mailcheap · 按发送量计费的 newsletter，可自托管也可用云版
-- 2026-10-26 · deepseek-ai/DeepInfer · DeepSeek 开源生产推理栈，先放离线批量推理（MoE 专家并行 + 零开销批调度）
-- 2026-10-26 · trycompai/crm · agent 主位的开源 CRM，自托管跑自己的作业队列
-- 2026-10-26 · michaelfeil/infinity · Rust 重写的 embedding 与重排服务，一个进程载多个模型
-- 2026-10-26 · ModernRelay/omnigraph · 跑在对象存储上的图数据库，给多 agent 当共享记忆
-- 2026-10-26 · pgrundev/pgx · 一个进程装几千个 Postgres，毫秒建库、按分支计费
-- 2026-10-27 · akitaonrails/ai-memory · 跨厂商编码智能体长期记忆，32 种工具共用一套交接协议
-- 2026-10-27 · anthropics/sandbox-runtime · 操作系统层给进程加文件与网络限制，不需要容器
-- 2026-10-27 · rasonyang/ai-native-callcenter · 自托管 AI 呼叫中心，FreeSWITCH 接自有 SIP 中继、AI 先接人工后补
-- 2026-10-27 · Nexting-ai/nexting · 用手机与领夹 PIN 远控本机编码智能体，仓库开源设备 SDK
-- 2026-10-27 · reality-opened/openreality · 手机视频重建可查询三维场景，41 个 MCP 工具给编码智能体
-- 2026-10-28 · agentgateway/agentgateway · 智能体的连接层：一个代理同时管模型路由、MCP 工具接入与代理间通信
-- 2026-10-28 · cloudflare/security-audit-skill · 把编码智能体改成安全审计员的技能，六个阶段含独立复核
-- 2026-10-28 · perplexityai/SPACE · Firecracker 微虚拟机上的代码执行沙箱平台，带 E2B 兼容层
-- 2026-10-28 · SoMarkAI/OXR · 1.3B 文档解析模型，输出带版面坐标的 Markdown 与 JSON
-- 2026-10-28 · incoai/splash · Apple 芯片上的本地推理引擎，一条命令接住编码智能体
-- 2026-10-29 · ruvnet/RuView · 拿普通 WiFi 的信道状态做无摄像头的存在与生命体征感知，配套硬件 Seed 卖 257 美元
-- 2026-10-29 · pollen-robotics/microduck · 25 厘米双足小机器人，全身动作由强化学习策略驱动，整机 399 美元
-- 2026-10-29 · trymirai/uzu · 可嵌进应用的本地推理引擎，Apple 统一内存，MIT 开源配商业许可
-- 2026-10-29 · elliothux/open-compute · 单个二进制把 Workers、KV、D1、R2 那一整套搬到自有机器上
-- 2026-10-29 · FlashML-org/FreeVideo · 8 GB 显存本地跑 MiniMax H3 出片，桌面端四档质量加时间线编辑
-- 2026-10-30 · pengchujin/aerial-tv · 参照 tvOS 的电视桌面，靠 adb 脚本接管小米与 TCL 的开机页，MIT
-- 2026-10-30 · dograh-hq/dograh · 自托管语音智能体平台，一条 docker 命令替掉按分钟计费的 Vapi 与 Retell
-- 2026-10-30 · Pomerado/pomerado · 把没有 API 的网站生成为确定性 MCP 工具，MIT 核心加托管云收费
-- 2026-10-30 · dmellok/tesserae · 电子墨水看板服务端，浏览器排版后按 REST 或 MQTT 推屏
-- 2026-10-30 · pathsim/pathsim · Python 方块图动力学仿真，MIT，作者另接闭源工具迁移咨询
-- 2026-10-31 · tangency-labs/solidcraft · Rust 参数化三维 CAD，桌面与浏览器通用并开放 MCP 给智能体
-- 2026-10-31 · callstack/agent-device · 给编码智能体的设备层，真机与模拟器上验证改动，MIT
-- 2026-10-31 · net-merge/net-merge · 把 Wi-Fi、有线与热点叠成一个链路，跨四平台的 MIT 免费工具
-- 2026-10-31 · facebookincubator/muse-gadget-sdk · Meta 外设端 SDK 与固件，ESP32 与树莓派接进语音助手
-- 2026-10-31 · nanaism/yomiyasu · 日语文章结构级润色的智能体技能，MIT
-- 2026-11-01 · Gathin23/cleanyourtv · ADB 清掉 Android 电视预装广告位并换 572KB 原生桌面，407 机型，MIT
-- 2026-11-01 · Droid-Deck/DroidDeck · Android 掌机装 Steam 与 ARM64 Proton，开机进 Big Picture，GPL-3.0
-- 2026-11-01 · RayrenSX/iPhoneMirror · Windows 经 USB 与 AirPlay 采 iPhone 画面并直出 OBS，GPL-3.0
-- 2026-11-01 · jqssun/android-airplay-server · Android 盒子做 AirPlay 2 接收端，支持镜像与 HLS，GPL-3.0
-- 2026-11-01 · BandarLabs/Cobalt · Kobo 阅读器启动器、应用商店与 Rust SDK，AGPL-3.0
-- 2026-11-02 · OpenWhispr/openwhispr · 跨平台本机听写应用，本地模型与云转写可切，Pro 6.67 美元每席位每月
-- 2026-11-02 · QuentinFuxa/WhisperLiveKit · 本地流式转写服务，兼容 OpenAI 音频接口与 Deepgram WebSocket
-- 2026-11-02 · nyosegawa/speech.cpp · 一个 C 接口二进制做合成、识别与去噪，覆盖 CPU、Metal、Vulkan
-- 2026-11-02 · klarluft/pitupitu · 手机语音遥控本机 Claude Code 与 Codex 会话，按通话分钟收费
-- 2026-11-02 · Gamer92000/echo-dot-assist · 刷旧 Echo 成 Home Assistant 本地语音卫星的固件与解锁脚本
-- 2026-11-03 · BasedHardware/omi · 开源吊坠固件与应用，Pro 年费 269 美元，本地后端自搭
-- 2026-11-03 · cactus-compute/needle · 8-29MB 端侧模型做工具调用与抽取，附语音识别件，Apache-2.0
-- 2026-11-03 · the-momentum/open-wearables · 自托管十一家厂商穿戴数据层，Enterprise 报价，MIT
-- 2026-11-03 · Mentra-Community/MentraOS · 眼镜运行时一套 API 跨五款机型，自带 MiniApp 商店
-- 2026-11-03 · OpenStrap/edge · 直连 WHOOP 的本地健康应用，绕开官方订阅，AGPL-3.0
-- 2026-11-04 · JustVugg/colibri · 纯 C 按专家流式读盘的本机 MoE 推理引擎，13 套引擎无显卡可跑
-- 2026-11-04 · floci-io/floci · 本地 AWS 模拟器，一个容器直接替换 LocalStack 付费档
-- 2026-11-04 · goodnight000/api-anything · 智能体互享从站点自身请求里学到的接口，免开浏览器
-- 2026-11-04 · opengeos/RustGIS · 纯 Rust 桌面 GIS，千余工具编到 wasm 与 PyPI
-- 2026-11-04 · elliothux/open-compute · 一个二进制把 Workers 平台搬到单机，含 KV/R2/D1/DO
-- 2026-11-05 · RunanywhereAI/runanywhere-sdks · 八个端侧 SDK 收进一个 C++ 核，按组织营收与融资分级授权
-- 2026-11-05 · maziyarpanahi/openmed · 病历本地抽取与去标识化，35 种语言 PII，Apache-2.0
-- 2026-11-05 · syswonder/robonix · 机器人智能体操作系统，自然语言编译成 RTDL 程序跨机型执行
-- 2026-11-05 · selfpatch/ros2_medkit · ROS 2 机器人的诊断 REST 网关，故障带快照与录包
-- 2026-11-05 · FluxVLA/FluxVLA · VLA 工程平台，数据训练评测到真机部署一条线
-- 2026-11-06 · NVIDIA/auto-ontology · 从企业元数据生成智能体可查的语义层，收费落在 NIM 推理容量
-- 2026-11-06 · wangzan101/Mika · 安卓后台屏执行型智能体，APK 无服务端、模型 key 自备
-- 2026-11-06 · YOLOW92/pagesift · 自托管 Rust 抓取与文档解析，兼容 Firecrawl 接口并另售商业授权
-- 2026-11-06 · sahenjp/RustXNG · Rust 自托管元搜索，JSON 与 MCP 给智能体供结果与正文
-- 2026-11-06 · hugues31/duckpad · DuckDB 上的可视化 SQL 工作台，保存即 Git 提交、结果可溯源
-- 2026-11-07 · pbakaus/impeccable · 给编码智能体的设计词表，62 条确定性规则打分与 P0-P3 审计
-- 2026-11-07 · The-PR-Agent/pr-agent · 自托管 PR 评审智能体，单次调用省掉按席位订阅
-- 2026-11-07 · robocurve/inspect-robots · 物理智能真机评测框架，v1.0.0 出带版本号的评测日志
-- 2026-11-07 · syv-ai/HyperQwen · 固定版本 vLLM 补丁集，27B 进单张 24GB 卡
-- 2026-11-07 · Verlintas/NOIR · 端侧安卓隐私审计，权限与 dex 端点打分出报告
-- 2026-11-08 · l0ng-ai/openidea · Rust 内核的 IntelliJ 式桌面 IDE，六类工具窗与六十多种语言
-- 2026-11-08 · microsoft/TokenEconomizer · 编码智能体成本控制插件，剪事实、剪工具、剪死循环
-- 2026-11-08 · indexable-inc/blaze · cargo 的 Rust 增量构建器，守护进程驻留编译状态
-- 2026-11-08 · kividbio/kividb · Redis 兼容内存键值库，自带全文与 HNSW 向量检索
-- 2026-11-08 · emanuele-em/kanzo · 4.7MB 单二进制看板，人机共用一块板并带 MCP 服务器
-- 2026-11-10 · Niko1221/Strata · 消费级显卡一键装本机大模型，开 OpenAI 兼容端点给编码工具
-- 2026-11-10 · KnifeLemon/Filee · 拖放即转的离线格式转换器，270 种格式不装办公套件
-- 2026-11-10 · leemysw/yovoice · 本机配音与音乐工作站，克隆音色、出歌、拆轨转 MIDI
-- 2026-11-10 · soniqo/speech-swift · Apple 端语音模型 Swift 包，识别合成分离都在本地
-- 2026-11-10 · mbillow/localthings · Home Assistant 直连三星家电，配对后不经厂商云
-- 2026-11-11 · rerun-io/rerun · 机器人多模态数据记录与回放，开源核心配 Hub 商业数据目录
-- 2026-11-11 · newton-physics/newton · Warp 上的 GPU 物理仿真引擎，Linux Foundation 项目
-- 2026-11-11 · cerulion-inc/cerulion · 机器人节点运行时，录制回放把真机故障变成 CI 用例
-- 2026-11-11 · robotocore/robotocore · 本机 AWS 数字孪生，顶掉按席位收费的 LocalStack
-- 2026-11-11 · rsasaki0109/Calibrex · 用 rosbag 查传感器标定漂移，逐轴给通过与超差结论
-- 2026-11-12 · google-ai-edge/LiteRT-LM · Google 端侧大模型运行时，一套引擎覆盖五平台六语言
-- 2026-11-12 · vllm-project/vllm-omni · 多模态与机器人策略统一伺服，OpenAI 兼容单服务端
-- 2026-11-12 · nace-ai/kapitsa · Apple silicon 推理引擎，把编码智能体接到本机模型
-- 2026-11-12 · mosaico-labs/mosaico · 机器人传感器数据平台，bag 变可查询、可切片的数据湖
-- 2026-11-12 · NVIDIA-NeMo/Gym · 环境层打包评测与 RL 训练，千级并发可复跑
-- 2026-11-13 · hzeller/rpi-rgb-led-matrix · 树莓派 GPIO 直驱 HUB75 LED 面板，替发送卡与上位机授权
-- 2026-11-13 · Modos-Labs/Glider · 开源墨水屏显示器硬件设计，整机预售 699 美元起
-- 2026-11-13 · usetrmnl/terminus · TRMNL 墨水屏自托管服务端，MIT 全开源
-- 2026-11-13 · zenvyzenshiro/zenlink · 手机画面投到 Windows 的接收端，替按台投屏授权
-- 2026-11-13 · Palakis/esphome-native-hdmi-cec · ESP32 原生 HDMI-CEC 组件，替 48 美元适配器
-- 2026-11-15 · anomalyco/hex · 本机听写，按住说话松手即粘，替按席位订阅的听写服务
-- 2026-11-15 · pipecat-ai/pipecat · 实时语音智能体框架，六套客户端 SDK，官方托管版收费
-- 2026-11-15 · wquguru/cicada · 系统声音做实时双语字幕与同传，四端同版本，会后出纪要
-- 2026-11-15 · FrigadeHQ/yogurt · 本机录音转写与纪要，whisper.cpp 加 llama.cpp，替按月订阅
-- 2026-11-15 · restsend/rustpbx · Rust 软件定义 PBX，核心 MIT 加三档商业镜像按 license 开通
-- 2026-11-16 · libracoder/kiri · Rust 轻量容器运行时，兼容 docker 命令并自带公网分享
-- 2026-11-16 · homeassistant-ai/ha-mcp · Home Assistant 的 86 个 MCP 工具，智能体直接改配置
-- 2026-11-16 · thetahealth/mirobody · 化验单与可穿戴统一成 LOINC 编码的本机健康档案
-- 2026-11-16 · OpenStrap/edge · 绕开厂商订阅读取腕上设备数据的健康应用
-- 2026-11-16 · shanselman/gputaskman · 显卡进程视图，显存对上模型权重与 KV 缓存
+# 已推送项目存档（滚动 60 天）
+- 2026-09-19 · vercel-labs/agent-browser · 给 AI Agent 的浏览器自动化 CLI，替代 Browserbase/Steel 按会话计费 Sa
+- 2026-09-19 · rustfs/rustfs · S3 兼容高性能对象存储，MinIO/Ceph 自托管替代，削 AWS S3 出网费
+- 2026-09-19 · yyjeqhc/webcodex · 让云端 AI Agent 用你本机真实开发环境，替代托管式 Agent 工作区
+- 2026-09-19 · fastino-ai/GLiNER2 · 统一 schema 信息抽取，替代付费实体/字段抽取 API，喂给 RAG/LLM
+- 2026-09-19 · boxlite-ai/boxlite · 给 Agent 的硬件隔离 micro-VM，OCI 原生、可持久，替代 E2B/Modal 按次沙箱
+- 2026-09-20 · headroomlabs-ai/headroom · 在 token 进 LLM 前压缩工具输出、日志、文件与 RAG 块，编码 agent 省 20%、JS
+- 2026-09-20 · HKUDS/nanobot · 超轻量自托管个人 AI Agent 框架，带 WebUI、工具、记忆、MCP、多 Agent 与工作流
+- 2026-09-20 · anthropics/commerce-agents · 用 Claude 构建购物与商户 Agent 的参考蓝图，含零售、电商、电信、娱乐示例
+- 2026-09-20 · Human-Agent-Society/reef · 面向自改进 Agent 的持续学习基础设施，让 Agent 边跑边沉淀经验
+- 2026-09-20 · Albert-Weasker/niubigeo · 开源 AI 品牌可见性与竞品报告，附真实人工 AI 测试与 GEO 优化付费服务
+- 2026-09-21 · stablyai/orca · 面向并行智能体集群的桌面开发环境（ADE），用自有订阅多开 coding agent
+- 2026-09-21 · NVIDIA/SkillSpector · 给 Claude Code / Codex / MCP 技能做安装前安全扫描的命令行工具
+- 2026-09-21 · radixark/miles · 面向企业的 LLM/VLM 训练后强化学习框架，与 slime 同源共生
+- 2026-09-21 · qufei1993/skills-hub · 跨平台桌面应用，集中管理与同步 Agent Skills 到多个 coding 工具
+- 2026-09-21 · HarnessRouter/harnessrouter · 自托管统一 harness API，把 Codex/Claude Code/Hermes 等收进一个 O
+- 2026-09-23 · google/ax · Google 开源的声明式 agent 编排器，用类似 Kubernetes 的清单在集群里批量跑 ag
+- 2026-09-23 · dream-num/univer · 可嵌入自有产品的 Office SDK（表格、文档、幻灯片、看板、Base），本月把定位明确切到面向 a
+- 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
+- 2026-09-23 · nolabs-ai/nono · 零延迟、零配置的 agent 沙箱，单二进制给 Claude Code、Codex、OpenCode 等
+- 2026-09-23 · lahfir/agent-desktop · 给任意 agent 的桌面操作层：Rust 单二进制，读系统无障碍树而不是截图像素，再从稳定引用上执行动
+- 2026-09-24 · t8y2/dbx · 25MB 跨平台数据库客户端，90+ 库 + 内置 AI/MCP，替代按授权计费的商业客户端
+- 2026-09-24 · browser-use/jev-ultrafast · 把网页动作空间索引化的 agent，用 Jev 决策模型替代逐步推理
+- 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
+- 2026-09-24 · shadcn-ui/lint · 面向 Tailwind 设计系统的 agent-first linter，把设计约束写成可校验规则
+- 2026-09-24 · zzet/gortex · 代码库索引成知识图谱的代码智能引擎，单二进制 + MCP，宣称省 token 50 倍
+- 2026-09-25 · omnigent-ai/omnigent · 开源 AI 智能体框架与编排层，统一编排 Claude Code/Codex/Cursor 等并加治理
+- 2026-09-25 · odysseus-dev/odysseus · 自托管 AI 工作区，团队知识/对话/工具收敛到自主可控环境
+- 2026-09-25 · xerj-org/xerj · 面向 AI 的数据搜索引擎，autoindex 让 agent 直接检索业务数据
+- 2026-09-25 · okf-memory/okf-agent-memory · Git 原生编码 agent 持久记忆（OKF v0.2，毫秒级读写）
+- 2026-09-25 · duty1g/x64dbg-mcp-server · 把 x64dbg 调试器暴露给 AI agent 的原生 MCP 插件
+- 2026-10-15 · Niko1221/Strata · 消费级 PC 一键跑 Qwen3.8-Flash-Next 125B 的本地推理引擎
+- 2026-10-15 · NandhaKishorM/laya · 33ms 单次前向的 System-1 决策引擎，替代 LLM 做分类与评分
+- 2026-10-15 · datalab-to/indra · 100 万参数纯 CPU OCR，49 页/秒输出 markdown 与带框 JSON
+- 2026-10-15 · TypeLLM/TypeLLM · 给自回归模型加类型安全生成，按 schema 约束的结构化输出
+- 2026-10-15 · Continuum-AI-Corp/scuttle · 敏感日志的混合后量子加密层，只写不可读
+- 2026-10-16 · earthtojake/text-to-cad · 给 coding agent 装 CAD 能力，一句话生成可编辑的参数化模型与 STEP 文件
+- 2026-10-16 · yetone/magpie · 本机网关+菜单栏，把 Claude Code/Codex 指到任意模型，额度用完自动换账号
+- 2026-10-16 · 0xShug0/audio.cpp · 基于 ggml 的纯 C++ 音频推理运行时，一个引擎跑 TTS/ASR/VAD/声线转换
+- 2026-10-16 · Mentra-Community/MentraOS · 开源智能眼镜运行时，一套 API 多机型复用并自带 MiniApp 商店
+- 2026-10-16 · softmata/horus · 机器人实时分布式中间件，亚 200ns IPC，补 ROS2 高频控制回路短板
+- 2026-10-16 · morluto/rea · agent 逆向二进制与应用的 MCP，读伪代码/汇编/调用关系，产物可复现
+- 2026-10-16 · maximhq/bifrost · 高吞吐 AI 网关，一个 OpenAI 兼容端点接多家模型与 MCP
+- 2026-10-16 · sgl-project/sglang-omni · 音频/omni 模型多阶段推理运行时，TTS/ASR 流式、OpenAI 兼容
+- 2026-10-16 · ARahim3/DigUp · 本机全内容语义检索，EmbeddingGemma 2 建索引、跨百种语言
+- 2026-10-16 · maxpert/marmot · 无主节点分布式 SQLite，gossip 复制加分布式事务、MySQL 协议
+- 2026-10-17 · HKUDS/CLI-Anything · 给任意 CLI 生成 agent 原生操作层 + CLI-Hub 注册中心，今日 +281
+- 2026-10-17 · storytold/artcraft · Rust AI 创作 IDE：2D/3D 构图与图生视频，本周 +20,267
+- 2026-10-17 · QwenAudio/qwen-audio-agent · 实时语音运行时，agent 翻工具不打断对话，ACP/A2A 后端
+- 2026-10-17 · Armur-Ai/Pentest-Swarm-AI · 多 agent 协同自动渗透，XBOW 的开源自托管替代
+- 2026-10-17 · intellectronica/ruler · 一套统一规则文件约束所有编码 agent 的指令与 MCP 配置
+- 2026-10-19 · zai-org/ZCode · Z.ai 的 AI 编程工作台，桌面/浏览器/终端共用一套客户端与运行时，卖 GLM 订阅
+- 2026-10-19 · CopilotKit/OpenDots · 常驻 AI 同事模板，每个 Dot 一台电脑，跨网页/电话/Slack 连续工作
+- 2026-10-19 · daniel3303/Equibles · 自托管金融数据 MCP，64 个工具覆盖 SEC/13F/国会交易/FRED，云版订阅
+- 2026-10-19 · perplexityai/SPACE · Perplexity 的 Firecracker microVM 沙箱平台，HTTP API + E2B 兼容层
+- 2026-10-19 · HelixDB/helix-foundry · 本地优先企业数据本体工作台，Postgres/Stripe/CRM 连成一张图
+- 2026-10-20 · ShawnPana/phone-harness · agent 直连真机（iPhone 镜像窗口 / Android adb / 云手机），云机按分钟计费
+- 2026-10-20 · zhongerxin/iPhone-use · Codex 经 WDA 操作 USB 真机 iPhone，侧边栏同步手机画面
+- 2026-10-20 · physiclaw/PhysiClaw · 相机读屏加触控笔点击的物理手机操作手，卖 CAD-as-code 套件
+- 2026-10-20 · koosoli/ESPHomeDesigner · 智能屏与电子价签可视化拖拽编辑器，导出 ESPHome/OEPL/OpenDisplay
+- 2026-10-20 · chekusu/yomado · 给视觉 agent 一块 macOS 虚拟屏跑桌面图形软件
+- 2026-10-21 · debpalash/VoiceStudio · 本地语音克隆/配音/有声书桌面应用，Pro 商业授权按席位卖
+- 2026-10-21 · KnifeLemon/Filee · 离线拖放格式转换 255 种，含 HWP/HWPX，免 Office 授权
+- 2026-10-21 · nyosegawa/speech.cpp · ggml 上的 TTS/ASR/VAD 单二进制，OpenAI 音频 API 兼容
+- 2026-10-21 · opennookorg/betterwispr · macOS 本地听写替代订阅制听写工具，带会议转写与 MCP
+- 2026-10-21 · lokutor-ai/oido · 5 美元 ESP32-S3 上的开集语音识别固件，英/西两语
+- 2026-10-22 · fleetdm/fleet · 开源跨平台设备管理平台，Free 0 美元、Premium 7 美元/主机/月
+- 2026-10-22 · Screenly/Anthias · 树莓派与 x86 的数字标牌系统，GPLv2 与商业双授权
+- 2026-10-22 · maziggy/bambuddy · 自托管 Bambu Lab 打印机群控制台，切片与固件回滚在本地
+- 2026-10-22 · RushB-fr/freekiosk · 安卓平板 Device Owner 锁定，MIT 内核加 1 欧元/设备/月的云
+- 2026-10-22 · screentinker/screentinker · 自托管数字标牌 CMS，浏览器即播放端
+- 2026-10-23 · NVIDIA/OpenShell · 自主 agent 群的沙箱运行时，内核级隔离加声明式 YAML 策略
+- 2026-10-23 · heygen-com/hyperframes · 把 HTML 与动画渲成确定性 MP4 的开源引擎，本地渲染免费托管收费
+- 2026-10-23 · davidondrej/cloudroom-core · 自托管 Rust 服务跑云端编码 agent，每个 agent 一个沙箱
+- 2026-10-23 · jwuthri-cloud/Tracely-ai · 把线上 agent 的失败轨迹冻成 CI 回归闸门
+- 2026-10-23 · marclou/mailcheap · 按发送量计费的 newsletter，可自托管也可用云版
+- 2026-10-26 · deepseek-ai/DeepInfer · DeepSeek 开源生产推理栈，先放离线批量推理（MoE 专家并行 + 零开销批调度）
+- 2026-10-26 · trycompai/crm · agent 主位的开源 CRM，自托管跑自己的作业队列
+- 2026-10-26 · michaelfeil/infinity · Rust 重写的 embedding 与重排服务，一个进程载多个模型
+- 2026-10-26 · ModernRelay/omnigraph · 跑在对象存储上的图数据库，给多 agent 当共享记忆
+- 2026-10-26 · pgrundev/pgx · 一个进程装几千个 Postgres，毫秒建库、按分支计费
+- 2026-10-27 · akitaonrails/ai-memory · 跨厂商编码智能体长期记忆，32 种工具共用一套交接协议
+- 2026-10-27 · anthropics/sandbox-runtime · 操作系统层给进程加文件与网络限制，不需要容器
+- 2026-10-27 · rasonyang/ai-native-callcenter · 自托管 AI 呼叫中心，FreeSWITCH 接自有 SIP 中继、AI 先接人工后补
+- 2026-10-27 · Nexting-ai/nexting · 用手机与领夹 PIN 远控本机编码智能体，仓库开源设备 SDK
+- 2026-10-27 · reality-opened/openreality · 手机视频重建可查询三维场景，41 个 MCP 工具给编码智能体
+- 2026-10-28 · agentgateway/agentgateway · 智能体的连接层：一个代理同时管模型路由、MCP 工具接入与代理间通信
+- 2026-10-28 · cloudflare/security-audit-skill · 把编码智能体改成安全审计员的技能，六个阶段含独立复核
+- 2026-10-28 · perplexityai/SPACE · Firecracker 微虚拟机上的代码执行沙箱平台，带 E2B 兼容层
+- 2026-10-28 · SoMarkAI/OXR · 1.3B 文档解析模型，输出带版面坐标的 Markdown 与 JSON
+- 2026-10-28 · incoai/splash · Apple 芯片上的本地推理引擎，一条命令接住编码智能体
+- 2026-10-29 · ruvnet/RuView · 拿普通 WiFi 的信道状态做无摄像头的存在与生命体征感知，配套硬件 Seed 卖 257 美元
+- 2026-10-29 · pollen-robotics/microduck · 25 厘米双足小机器人，全身动作由强化学习策略驱动，整机 399 美元
+- 2026-10-29 · trymirai/uzu · 可嵌进应用的本地推理引擎，Apple 统一内存，MIT 开源配商业许可
+- 2026-10-29 · elliothux/open-compute · 单个二进制把 Workers、KV、D1、R2 那一整套搬到自有机器上
+- 2026-10-29 · FlashML-org/FreeVideo · 8 GB 显存本地跑 MiniMax H3 出片，桌面端四档质量加时间线编辑
+- 2026-10-30 · pengchujin/aerial-tv · 参照 tvOS 的电视桌面，靠 adb 脚本接管小米与 TCL 的开机页，MIT
+- 2026-10-30 · dograh-hq/dograh · 自托管语音智能体平台，一条 docker 命令替掉按分钟计费的 Vapi 与 Retell
+- 2026-10-30 · Pomerado/pomerado · 把没有 API 的网站生成为确定性 MCP 工具，MIT 核心加托管云收费
+- 2026-10-30 · dmellok/tesserae · 电子墨水看板服务端，浏览器排版后按 REST 或 MQTT 推屏
+- 2026-10-30 · pathsim/pathsim · Python 方块图动力学仿真，MIT，作者另接闭源工具迁移咨询
+- 2026-10-31 · tangency-labs/solidcraft · Rust 参数化三维 CAD，桌面与浏览器通用并开放 MCP 给智能体
+- 2026-10-31 · callstack/agent-device · 给编码智能体的设备层，真机与模拟器上验证改动，MIT
+- 2026-10-31 · net-merge/net-merge · 把 Wi-Fi、有线与热点叠成一个链路，跨四平台的 MIT 免费工具
+- 2026-10-31 · facebookincubator/muse-gadget-sdk · Meta 外设端 SDK 与固件，ESP32 与树莓派接进语音助手
+- 2026-10-31 · nanaism/yomiyasu · 日语文章结构级润色的智能体技能，MIT
+- 2026-11-01 · Gathin23/cleanyourtv · ADB 清掉 Android 电视预装广告位并换 572KB 原生桌面，407 机型，MIT
+- 2026-11-01 · Droid-Deck/DroidDeck · Android 掌机装 Steam 与 ARM64 Proton，开机进 Big Picture，GPL-3.0
+- 2026-11-01 · RayrenSX/iPhoneMirror · Windows 经 USB 与 AirPlay 采 iPhone 画面并直出 OBS，GPL-3.0
+- 2026-11-01 · jqssun/android-airplay-server · Android 盒子做 AirPlay 2 接收端，支持镜像与 HLS，GPL-3.0
+- 2026-11-01 · BandarLabs/Cobalt · Kobo 阅读器启动器、应用商店与 Rust SDK，AGPL-3.0
+- 2026-11-02 · OpenWhispr/openwhispr · 跨平台本机听写应用，本地模型与云转写可切，Pro 6.67 美元每席位每月
+- 2026-11-02 · QuentinFuxa/WhisperLiveKit · 本地流式转写服务，兼容 OpenAI 音频接口与 Deepgram WebSocket
+- 2026-11-02 · nyosegawa/speech.cpp · 一个 C 接口二进制做合成、识别与去噪，覆盖 CPU、Metal、Vulkan
+- 2026-11-02 · klarluft/pitupitu · 手机语音遥控本机 Claude Code 与 Codex 会话，按通话分钟收费
+- 2026-11-02 · Gamer92000/echo-dot-assist · 刷旧 Echo 成 Home Assistant 本地语音卫星的固件与解锁脚本
+- 2026-11-03 · BasedHardware/omi · 开源吊坠固件与应用，Pro 年费 269 美元，本地后端自搭
+- 2026-11-03 · cactus-compute/needle · 8-29MB 端侧模型做工具调用与抽取，附语音识别件，Apache-2.0
+- 2026-11-03 · the-momentum/open-wearables · 自托管十一家厂商穿戴数据层，Enterprise 报价，MIT
+- 2026-11-03 · Mentra-Community/MentraOS · 眼镜运行时一套 API 跨五款机型，自带 MiniApp 商店
+- 2026-11-03 · OpenStrap/edge · 直连 WHOOP 的本地健康应用，绕开官方订阅，AGPL-3.0
+- 2026-11-04 · JustVugg/colibri · 纯 C 按专家流式读盘的本机 MoE 推理引擎，13 套引擎无显卡可跑
+- 2026-11-04 · floci-io/floci · 本地 AWS 模拟器，一个容器直接替换 LocalStack 付费档
+- 2026-11-04 · goodnight000/api-anything · 智能体互享从站点自身请求里学到的接口，免开浏览器
+- 2026-11-04 · opengeos/RustGIS · 纯 Rust 桌面 GIS，千余工具编到 wasm 与 PyPI
+- 2026-11-04 · elliothux/open-compute · 一个二进制把 Workers 平台搬到单机，含 KV/R2/D1/DO
+- 2026-11-05 · RunanywhereAI/runanywhere-sdks · 八个端侧 SDK 收进一个 C++ 核，按组织营收与融资分级授权
+- 2026-11-05 · maziyarpanahi/openmed · 病历本地抽取与去标识化，35 种语言 PII，Apache-2.0
+- 2026-11-05 · syswonder/robonix · 机器人智能体操作系统，自然语言编译成 RTDL 程序跨机型执行
+- 2026-11-05 · selfpatch/ros2_medkit · ROS 2 机器人的诊断 REST 网关，故障带快照与录包
+- 2026-11-05 · FluxVLA/FluxVLA · VLA 工程平台，数据训练评测到真机部署一条线
+- 2026-11-06 · NVIDIA/auto-ontology · 从企业元数据生成智能体可查的语义层，收费落在 NIM 推理容量
+- 2026-11-06 · wangzan101/Mika · 安卓后台屏执行型智能体，APK 无服务端、模型 key 自备
+- 2026-11-06 · YOLOW92/pagesift · 自托管 Rust 抓取与文档解析，兼容 Firecrawl 接口并另售商业授权
+- 2026-11-06 · sahenjp/RustXNG · Rust 自托管元搜索，JSON 与 MCP 给智能体供结果与正文
+- 2026-11-06 · hugues31/duckpad · DuckDB 上的可视化 SQL 工作台，保存即 Git 提交、结果可溯源
+- 2026-11-07 · pbakaus/impeccable · 给编码智能体的设计词表，62 条确定性规则打分与 P0-P3 审计
+- 2026-11-07 · The-PR-Agent/pr-agent · 自托管 PR 评审智能体，单次调用省掉按席位订阅
+- 2026-11-07 · robocurve/inspect-robots · 物理智能真机评测框架，v1.0.0 出带版本号的评测日志
+- 2026-11-07 · syv-ai/HyperQwen · 固定版本 vLLM 补丁集，27B 进单张 24GB 卡
+- 2026-11-07 · Verlintas/NOIR · 端侧安卓隐私审计，权限与 dex 端点打分出报告
+- 2026-11-08 · l0ng-ai/openidea · Rust 内核的 IntelliJ 式桌面 IDE，六类工具窗与六十多种语言
+- 2026-11-08 · microsoft/TokenEconomizer · 编码智能体成本控制插件，剪事实、剪工具、剪死循环
+- 2026-11-08 · indexable-inc/blaze · cargo 的 Rust 增量构建器，守护进程驻留编译状态
+- 2026-11-08 · kividbio/kividb · Redis 兼容内存键值库，自带全文与 HNSW 向量检索
+- 2026-11-08 · emanuele-em/kanzo · 4.7MB 单二进制看板，人机共用一块板并带 MCP 服务器
+- 2026-11-10 · Niko1221/Strata · 消费级显卡一键装本机大模型，开 OpenAI 兼容端点给编码工具
+- 2026-11-10 · KnifeLemon/Filee · 拖放即转的离线格式转换器，270 种格式不装办公套件
+- 2026-11-10 · leemysw/yovoice · 本机配音与音乐工作站，克隆音色、出歌、拆轨转 MIDI
+- 2026-11-10 · soniqo/speech-swift · Apple 端语音模型 Swift 包，识别合成分离都在本地
+- 2026-11-10 · mbillow/localthings · Home Assistant 直连三星家电，配对后不经厂商云
+- 2026-11-11 · rerun-io/rerun · 机器人多模态数据记录与回放，开源核心配 Hub 商业数据目录
+- 2026-11-11 · newton-physics/newton · Warp 上的 GPU 物理仿真引擎，Linux Foundation 项目
+- 2026-11-11 · cerulion-inc/cerulion · 机器人节点运行时，录制回放把真机故障变成 CI 用例
+- 2026-11-11 · robotocore/robotocore · 本机 AWS 数字孪生，顶掉按席位收费的 LocalStack
+- 2026-11-11 · rsasaki0109/Calibrex · 用 rosbag 查传感器标定漂移，逐轴给通过与超差结论
+- 2026-11-12 · google-ai-edge/LiteRT-LM · Google 端侧大模型运行时，一套引擎覆盖五平台六语言
+- 2026-11-12 · vllm-project/vllm-omni · 多模态与机器人策略统一伺服，OpenAI 兼容单服务端
+- 2026-11-12 · nace-ai/kapitsa · Apple silicon 推理引擎，把编码智能体接到本机模型
+- 2026-11-12 · mosaico-labs/mosaico · 机器人传感器数据平台，bag 变可查询、可切片的数据湖
+- 2026-11-12 · NVIDIA-NeMo/Gym · 环境层打包评测与 RL 训练，千级并发可复跑
+- 2026-11-13 · hzeller/rpi-rgb-led-matrix · 树莓派 GPIO 直驱 HUB75 LED 面板，替发送卡与上位机授权
+- 2026-11-13 · Modos-Labs/Glider · 开源墨水屏显示器硬件设计，整机预售 699 美元起
+- 2026-11-13 · usetrmnl/terminus · TRMNL 墨水屏自托管服务端，MIT 全开源
+- 2026-11-13 · zenvyzenshiro/zenlink · 手机画面投到 Windows 的接收端，替按台投屏授权
+- 2026-11-13 · Palakis/esphome-native-hdmi-cec · ESP32 原生 HDMI-CEC 组件，替 48 美元适配器
+- 2026-11-15 · anomalyco/hex · 本机听写，按住说话松手即粘，替按席位订阅的听写服务
+- 2026-11-15 · pipecat-ai/pipecat · 实时语音智能体框架，六套客户端 SDK，官方托管版收费
+- 2026-11-15 · wquguru/cicada · 系统声音做实时双语字幕与同传，四端同版本，会后出纪要
+- 2026-11-15 · FrigadeHQ/yogurt · 本机录音转写与纪要，whisper.cpp 加 llama.cpp，替按月订阅
+- 2026-11-15 · restsend/rustpbx · Rust 软件定义 PBX，核心 MIT 加三档商业镜像按 license 开通
+- 2026-11-16 · libracoder/kiri · Rust 轻量容器运行时，兼容 docker 命令并自带公网分享
+- 2026-11-16 · homeassistant-ai/ha-mcp · Home Assistant 的 86 个 MCP 工具，智能体直接改配置
+- 2026-11-16 · thetahealth/mirobody · 化验单与可穿戴统一成 LOINC 编码的本机健康档案
+- 2026-11-16 · OpenStrap/edge · 绕开厂商订阅读取腕上设备数据的健康应用
+- 2026-11-16 · shanselman/gputaskman · 显卡进程视图，显存对上模型权重与 KV 缓存
 - 2026-11-17 · huggingface/lerobot · 机器人数据集格式、策略训练与真机控制的统一 Python 库
 - 2026-11-17 · enactic/openarm · 7 自由度开源人形臂，双臂整机 6,500 美元配可复现评测场景
 - 2026-11-17 · pollen-robotics/reachy_mini · 桌面陪伴机器人 SDK 与整机，399 美元起带应用商店
 - 2026-11-17 · copper-project/copper-rs · Rust 机器人运行时，编译期任务图加确定性回放，PRO 工具收费
 - 2026-11-17 · ManfredCh/Lyapunov · LLM 原生 3D 机器人与仿真工作区，模型服务按 Credits 计费
+- 2026-11-18 · gpustack/gpustack · GPU 集群管理与推理引擎编排，按 MaaS 与 GPUaaS 两种形态出账
+- 2026-11-18 · kvcache-ai/Mooncake · Kimi 的 KVCache 分离式推理架构，缓存单独成层靠传输引擎搬运
+- 2026-11-18 · beam-cloud/beta9 · 自建无服务器运行时，代码沙箱与推理端点按秒计费
+- 2026-11-18 · pixeltable/pixeltable · 多模态数据表加编排与服务，一个 app.py 同时出接口与索引
+- 2026-11-18 · ovg-project/kvcached · 给 KVCache 加虚拟内存，多个模型共享同一块显卡
