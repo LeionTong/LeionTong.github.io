@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-19-0935.html">
+    <div class="da-card-date">2026-11-19 · 09:35</div>
+    <div class="da-card-title">Gemini 4 Neon 在编码智能体榜登顶，人形机器人开始进芯片厂试点</div>
+    <div class="da-card-main">本期收录 Gemini 4 Neon 的编码与智能体基准、波士顿动力 Atlas 与格芯的早期试用、毕马威用百个智能体做审计试运行、OpenAI 用模型改写芯片电路代码的结果，以及加州提出的模型紧急关停建议。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-18-0927.html">
     <div class="da-card-date">2026-11-18 · 09:27</div>
     <div class="da-card-title">OpenAI 与阿里降低单位任务成本，微软把智能体管控放进 Windows</div>
