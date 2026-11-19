@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.53 — 2026-11-19</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.53 · 2026-11-19 · 0955 GMT+8</span></div>
+  <h1>审查与记账从提示词里拆出来，成了可以单独安装的一层</h1>
+  <p class="mh-sub">本期收了阿里的混合式审查工具 Open Code Review、把工具输出挡在窗口外的 Context Mode，以及用图强制分工审查的 zeroshot、逐提交后台审查的 roborev、给缓存未命中记账的 Prefixwise；五者都在把核对智能体产出的活计做成可安装的一层。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-19</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>智能体写代码快过任何人读它。要求它自查、要求它少烧 token，这些写在提示词里的约束正在失效，于是被挪到外面，做成钩子、规则引擎、代理和流程图。谁来决定「这活算不算做完」，已经从模型手里转移给外挂的那一层，付费方式也跟着分成按通道、按请求、按席位三种。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Open Code Review <span>alibaba/open-code-review</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 54,183 · 近 30 天未获取到（本周 +3,056）</span>
+      <span class="tag">Go · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-19 · v1.13.12（11-18）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把审查拆成两段：任务切分、文件过滤、行号定位、规则路由交给确定性代码，智能体只负责风险判断与上下文追查。</p>
+  <p class="e-line"><b>痛点</b>智能体一次交几十个文件，人读不过来；让模型通读整仓，钱花在无关文件上，行号还常指错。</p>
+  <p class="e-line"><b>付费</b>Apache-2.0 全免费，价值落在平台团队：可内网接自建模型、按仓库配规则、结果进 CI 与 MCP。官网称阿里内部 19,000 人使用、跑了 300 万次任务，同类改动 token 花费约为 Claude Code 的九分之一。</p>
+  <p class="e-line"><b>规模化</b>规则集覆盖多种语言与空指针、线程安全、注入、XSS 等类别；命令、CI、Claude Code 插件、MCP 四种接入共用同一套规则。</p>
+  <p class="e-line"><b>边际</b>低 · 单一命令行工具，推理走客户自己的模型 key，服务侧不背成本。</p>
+  <p class="e-line"><b>验证</b>装完后配一个模型提供方，在仓库里直接跑一次改动审查：</p>
+  <pre>npm i -g @alibaba-group/open-code-review
+ocr config provider
+ocr review</pre>
+  <div class="risk"><b>风险</b>Apache-2.0 无付费档，变现要集成方自己做；审查质量随所选模型大幅波动，规则误报还需人工压；超大单仓的耗时依赖配置。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>5.0</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Context Mode <span>mksglu/context-mode</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 34,279 · 近 30 天 +232</span>
+      <span class="tag">JavaScript · ELv2</span>
+      <span class="tag">最近提交 2026-11-18 · v2.2.1（11-17）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把工具输出挡在上下文窗口外面：命令与网页抓取在本地沙箱里跑，全文进 SQLite 索引，模型只拿到它点名要的那一段。</p>
+  <p class="e-line"><b>痛点</b>读文件、跑命令的原始输出动辄几十 KB，窗口一满就触发压缩，前面写下的需求被挤掉，会话越长越贵。</p>
+  <p class="e-line"><b>付费</b>插件用 ELv2 免费，托管的 Gateway 订阅收费：免费每月一千次请求，Pro 二十美元一万次，Team 一百美元十万次含两个席位，企业版走年约或自有 Cloudflare；过线请求直接放行到模型，不中断工作。</p>
+  <p class="e-line"><b>规模化</b>同一套钩子适配 Claude Code、Codex、Gemini CLI、Qwen Code、OpenCode、Copilot CLI 等十一个智能体，本地插件与网关是同一种协议。</p>
+  <p class="e-line"><b>边际</b>低 · 索引与沙箱都落在客户机器上，网关只做转发。</p>
+  <p class="e-line"><b>验证</b>加一个市场源再装插件，然后跑一条长输出命令，看回灌的字节数：</p>
+  <pre>claude plugin marketplace add mksglu/context-mode
+claude plugin install context-mode@context-mode</pre>
+  <div class="risk"><b>风险</b>ELv2 是源码可得许可，拿它对外提供托管服务前要逐条核对；索引存在本机目录，换机要重建；九成九的字节节省取自它自选的 36 行样本，中位数口径偏乐观。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.8</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">zeroshot <span>the-open-engine/zeroshot</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,199 · 近 30 天 +179</span>
+      <span class="tag">Rust · MIT</span>
+      <span class="tag">最近提交 2026-11-18 · v16.1.0（11-18）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把开发流程写成引擎强制执行的图：谁写、谁审、什么必须过、失败回到哪一步全由图定，写代码的智能体不能自己宣布完成。</p>
+  <p class="e-line"><b>痛点</b>上下文一长，智能体开始忘需求、不再质疑自己的假设，还习惯性说做完了；靠提示词让它自查，收效很有限。</p>
+  <p class="e-line"><b>付费</b>本地免费，云侧按通道收：送一条，每多一条每月一百美元；排队任务花五美元买加急，十、二十五、五十、一百份打包，九十天有效，云主机在欧盟。</p>
+  <p class="e-line"><b>规模化</b>图存成文件可复用，同一张图换任意命令行智能体与模型都能跑；一条通道一次只跑一个任务，容量算得清。</p>
+  <p class="e-line"><b>边际</b>中 · 本地版不花钱，云版每加一条通道就是一份常驻执行位。</p>
+  <p class="e-line"><b>验证</b>装好命令行后在自己仓库里让它起一个带审查回环的任务，用界面看进度：</p>
+  <pre>npm i -g @the-open-engine-company/zeroshot
+zeroshot ui</pre>
+  <div class="risk"><b>风险</b>版本号已到 16 但仍在两千 star 量级；画图比写提示词费脑子，团队得先把流程想清楚；本地跑消耗的是自己那份订阅额度。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">roborev <span>kenn-io/roborev</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,821 · 近 30 天 +69</span>
+      <span class="tag">Go · MIT</span>
+      <span class="tag">最近提交 2026-11-19 · v0.75.0（11-09）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>装一个提交后钩子，每次提交在后台起一次审查，问题进台账等人关，不打断当前会话。</p>
+  <p class="e-line"><b>痛点</b>智能体一小时能提交几十次，评审却只在 PR 上做一次；等看见问题时，写坏它的那段上下文早已滚出窗口。</p>
+  <p class="e-line"><b>付费</b>单个 Go 二进制、MIT、全本地，跑在已有的智能体与订阅上；眼下没有付费档，价值相当于把评审成本从 PR 挪到提交这一格。</p>
+  <p class="e-line"><b>规模化</b>自动识别 Codex、Claude Code、Gemini、Copilot、OpenCode 等十二个智能体，任何仓库都能装；结果进终端界面、浏览器界面和事件钩子。</p>
+  <p class="e-line"><b>边际</b>低 · 单文件二进制加 SQLite，不起服务端。</p>
+  <p class="e-line"><b>验证</b>一条脚本装完，进仓库初始化，提交一次就能在终端界面看到后台审查：</p>
+  <pre>curl -fsSL https://roborev.io/install.sh | bash
+cd your-repo &amp;&amp; roborev init &amp;&amp; roborev tui</pre>
+  <div class="risk"><b>风险</b>0.75 版本未到 1.0；提交粒度碎时额度耗得快，得靠批量参数压；无付费档，变现要自己搭。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Prefixwise <span>tejachavali/prefixwise</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 27 · 近 30 天 +27</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 2026-11-18 · v0.12.1（11-13）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>架在智能体与模型之间的本地代理，逐条请求指出提示缓存为什么没命中、这一下多花了多少钱，并把常见成因就地修掉。</p>
+  <p class="e-line"><b>痛点</b>供应商只报未命中的 token 数，不报原因；系统提示词改动一个字节、工具列表换个顺序，后面全按原价重算。</p>
+  <p class="e-line"><b>付费</b>MIT 加 PyPI 包，代理本身不收钱；收费位置清楚，就是按省下来的 token 计价，团队一大账目立刻看得见。</p>
+  <p class="e-line"><b>规模化</b>兼容 OpenAI、Anthropic、vLLM、SGLang、LMCache，能认出引擎并自行订阅 KV 事件；可接 CI 当门禁，也能读本机日志免 key 使用。</p>
+  <p class="e-line"><b>边际</b>低 · 纯 Python 代理，只存哈希与计数，不落提示词原文。</p>
+  <p class="e-line"><b>验证</b>装上后用它包住现有智能体跑一轮，再看会话报告和修复前后对比：</p>
+  <pre>pip install prefixwise
+prefixwise run -- claude</pre>
+  <div class="risk"><b>风险</b>建仓才两周、27 star，0.12 版本接口会动；只解释缓存命中，任务本身对不对不管；订阅制智能体得走日志导入，覆盖不全。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Open Code Review（alibaba/open-code-review）</b>。它把审查里可以确定的部分用代码做掉，只把语义判断留给模型，同时把行号定位和幻觉拦截单列成模块，这种分法直接压低单次审查的 token 与误报。阿里内部十九万人用过、三百万次任务，成熟度不是靠 star 撑的；一条 npm 命令就能在自己的仓库里验真伪。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>三条在管「谁来核对智能体写出来的东西」，两条在管核对本身的上下文与花销。做法一致：从提示词里搬出来，做成钩子、规则引擎、代理和流程图，让约束不依赖模型的自觉。收费已经开始分化，按通道、按请求、按席位都出现了，最贵的一档是把审查变成必须通过的门禁。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>affaan-m/ECC</b>（306,559★）· 把计划、测试、审查、验证串成一套技能和插件，七个智能体各一份，MIT，付费只有针对私有仓库的 GitHub App，十九美元每席每月。交付物是提示词与配置，star 量级远超代码体量能支撑的判断，又是单维护者铺七个面，等私有仓库那边的订阅数出来再看。</li>
+    <li><b>DietrichGebert/ponytail</b>（194,074★）· 一组让智能体少写代码的技能与口径，MIT，10-29 之后没有新提交。读着舒服，但没有可收费的位置，也没有能被别人集成的接口。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-19 09:55 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

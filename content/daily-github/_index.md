@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-19-0955.html">
+    <div class="da-card-date">2026-11-19 · 09:55</div>
+    <div class="da-card-title">审查与记账从提示词里拆出来，成了可以单独安装的一层</div>
+    <div class="da-card-main">本期收了阿里的混合式审查工具 Open Code Review、把工具输出挡在窗口外的 Context Mode，以及用图强制分工审查的 zeroshot、逐提交后台审查的 roborev、给缓存未命中记账的 Prefixwise；五者都在把核对智能体产出的活计做成可安装的一层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-18-1004.html">
     <div class="da-card-date">2026-11-18 · 10:04</div>
     <div class="da-card-title">算力被切成可计费的份额，服务端这一层已成套</div>
