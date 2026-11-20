@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-20-0924.html">
+    <div class="da-card-date">2026-11-20 · 09:24</div>
+    <div class="da-card-title">Anthropic 挂牌募资 813 亿美元，桌面智能体获本机操作权限</div>
+    <div class="da-card-main">本期收录 Anthropic 纳斯达克首日交易与 8954 亿美元算力承诺、Gemini 在 macOS 上的电脑操作、OpenAI 内部编码智能体的使用度量、Meta Muse 串号泄露用户信息，以及星动纪元在中国邮政广东 11 个枢纽的常态化分拣。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-19-0935.html">
     <div class="da-card-date">2026-11-19 · 09:35</div>
     <div class="da-card-title">Gemini 4 Neon 在编码智能体榜登顶，人形机器人开始进芯片厂试点</div>
