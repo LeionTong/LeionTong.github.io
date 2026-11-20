@@ -231,3 +231,9 @@
 - 2026-11-18 · Hebbian-Robotics/hflow · 机器人多模态语料质检与追溯 SDK，带来源戳与可查询目录
 - 2026-11-18 · rokbenko/quackd · Roboglot 多机对话与分工层，LLM 逐句调用技能并互查护照
 - 2026-11-18 · argonrobotics-ai/alloy · 刚体布料液体颗粒同场景的并行物理引擎，一张卡跑上千世界
+- 2026-11-20 · akdeb/ElatoAI · ESP32 上的实时语音管道，安全 WebSocket 与一百多个语音模型可换
+- 2026-11-20 · ygelfand/echolocal · 二手 Echo Dot 与 Show 换开源固件，接 HA 当本地语音卫星
+- 2026-11-20 · runboubou/boubou · Mac 上一条命令起本机语音对话，serve 可共享给手机与机器人
+- 2026-11-20 · Olegu621/OPENSTATION · Yandex Station Max 替换固件，Gemini Live 加本地音乐与遥控
+- 2026-11-20 · yes999zc/rui · NAS 上自建多房间语音端点，音箱留原壳只换服务
+- 2026-11-20 · PopaSpinka/PopkaStudio · 浏览器里拖图层做 ESP32 表盘，一键把成品写成固件

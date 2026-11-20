@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-20-1035.html">
+    <div class="da-card-date">2026-11-20 · 10:35</div>
+    <div class="da-card-title">旧音箱被改写成本地语音端点，手表表盘改成浏览器里拖出来</div>
+    <div class="da-card-main">本期六条：二手 Echo 与 Yandex 音箱各有替换固件，ESP32 上跑实时语音管道、Mac 上一条命令起本机对话、NAS 上自建多房间语音端点；穿戴侧只剩一条，用浏览器画表盘再一键写进板子。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-18-1051.html">
     <div class="da-card-date">2026-11-18 · 10:51</div>
     <div class="da-card-title">墨水屏设备换自写固件，机器人侧补遥操作与数据管线</div>
