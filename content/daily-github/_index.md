@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-20-1000.html">
+    <div class="da-card-date">2026-11-20 · 10:00</div>
+    <div class="da-card-title">把手机、屏幕、零件和法条接成模型可调用的接口</div>
+    <div class="da-card-main">本期收了在后台屏上替你操作 App 的 Mika、用七美元板卡给 iPhone 装上眼手的 ESP32 iPhone Agent，以及把屏幕流、三维件、法条做成可传输、可生成、可追溯形态的 airhand、sand3d、Git for Global Law；五条都在把模型碰不到的东西改成可调用接口。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-19-0955.html">
     <div class="da-card-date">2026-11-19 · 09:55</div>
     <div class="da-card-title">审查与记账从提示词里拆出来，成了可以单独安装的一层</div>

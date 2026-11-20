@@ -1,8 +1,3 @@
-- 2026-09-20 · headroomlabs-ai/headroom · 在 token 进 LLM 前压缩工具输出、日志、文件与 RAG 块，编码 agent 省 20%、JS
-- 2026-09-20 · HKUDS/nanobot · 超轻量自托管个人 AI Agent 框架，带 WebUI、工具、记忆、MCP、多 Agent 与工作流
-- 2026-09-20 · anthropics/commerce-agents · 用 Claude 构建购物与商户 Agent 的参考蓝图，含零售、电商、电信、娱乐示例
-- 2026-09-20 · Human-Agent-Society/reef · 面向自改进 Agent 的持续学习基础设施，让 Agent 边跑边沉淀经验
-- 2026-09-20 · Albert-Weasker/niubigeo · 开源 AI 品牌可见性与竞品报告，附真实人工 AI 测试与 GEO 优化付费服务
 - 2026-09-21 · stablyai/orca · 面向并行智能体集群的桌面开发环境（ADE），用自有订阅多开 coding agent
 - 2026-09-21 · NVIDIA/SkillSpector · 给 Claude Code / Codex / MCP 技能做安装前安全扫描的命令行工具
 - 2026-09-21 · radixark/miles · 面向企业的 LLM/VLM 训练后强化学习框架，与 slime 同源共生
@@ -183,3 +178,8 @@
 - 2026-11-19 · the-open-engine/zeroshot · 流程写成引擎强制执行的审查回环图，云侧按通道月费
 - 2026-11-19 · kenn-io/roborev · 提交后钩子在后台逐次审查，问题进台账等关
 - 2026-11-19 · tejachavali/prefixwise · 提示缓存未命中的归因与本机代理修复，可作 CI 门禁
+- 2026-11-20 · wangzan101/Mika · 安卓后台屏上的本机智能体，无障碍驱动 App，无服务器免费分发
+- 2026-11-20 · onehumanbeing/esp32-iphone-agent · 七美元 ESP32 给 iPhone 装 AirPlay 眼与 USB HID 手，配套企业设备实验室
+- 2026-11-20 · sqlpxc/airhand · 自建中继的 QUIC 远程桌面，显卡编 AV1 与 BBR 拥塞控制，最高 120 帧
+- 2026-11-20 · Sandflow-ai/sand3d · 三维件写成 Python 程序，导出 URDF 进 ROS 与 MuJoCo，十万件代码形态数据集
+- 2026-11-20 · lexifina/global-law · 各国法条按生效日期做成 git 提交，CC0 语料配命令行与 MCP
