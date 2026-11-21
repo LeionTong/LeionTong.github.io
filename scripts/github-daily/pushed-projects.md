@@ -1,8 +1,3 @@
-- 2026-09-21 · stablyai/orca · 面向并行智能体集群的桌面开发环境（ADE），用自有订阅多开 coding agent
-- 2026-09-21 · NVIDIA/SkillSpector · 给 Claude Code / Codex / MCP 技能做安装前安全扫描的命令行工具
-- 2026-09-21 · radixark/miles · 面向企业的 LLM/VLM 训练后强化学习框架，与 slime 同源共生
-- 2026-09-21 · qufei1993/skills-hub · 跨平台桌面应用，集中管理与同步 Agent Skills 到多个 coding 工具
-- 2026-09-21 · HarnessRouter/harnessrouter · 自托管统一 harness API，把 Codex/Claude Code/Hermes 等收进一个 O
 - 2026-09-23 · google/ax · Google 开源的声明式 agent 编排器，用类似 Kubernetes 的清单在集群里批量跑 ag
 - 2026-09-23 · dream-num/univer · 可嵌入自有产品的 Office SDK（表格、文档、幻灯片、看板、Base），本月把定位明确切到面向 a
 - 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
@@ -183,3 +178,8 @@
 - 2026-11-20 · sqlpxc/airhand · 自建中继的 QUIC 远程桌面，显卡编 AV1 与 BBR 拥塞控制，最高 120 帧
 - 2026-11-20 · Sandflow-ai/sand3d · 三维件写成 Python 程序，导出 URDF 进 ROS 与 MuJoCo，十万件代码形态数据集
 - 2026-11-20 · lexifina/global-law · 各国法条按生效日期做成 git 提交，CC0 语料配命令行与 MCP
+- 2026-11-21 · yetone/magpie · 菜单栏里的统一模型网关，Claude Code、Codex、Gemini CLI 任选模型并按额度接力
+- 2026-11-21 · deepseek-ai/DeepInfer · DeepSeek 生产在用的 MoE 推理框架，SM100 与昇腾 950 双后端
+- 2026-11-21 · academa-labs/manimgx · Manim CE API 的 Rust GPU 重写，同脚本渲 1080p60 数学动画快九十倍
+- 2026-11-21 · indexable-inc/blaze · 常驻进程的 Rust 增量构建，改一个函数只重编改动部分，YC F26
+- 2026-11-21 · toyxyz/toyxyz_RGBMocap · Windows 单机视频动捕，本机跑 ExMR/FlowHMR/GVHMR 并导出 FBX 与 VMD
