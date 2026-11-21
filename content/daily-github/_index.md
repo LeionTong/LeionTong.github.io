@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-21-1051.html">
+    <div class="da-card-date">2026-11-21 · 10:51</div>
+    <div class="da-card-title">模型入口、推理、动捕和渲染都挪回自己机器上</div>
+    <div class="da-card-main">本期收了把各家模型与已付订阅统一到本机网关的 magpie、DeepSeek 生产在用的推理框架 DeepInfer，以及只靠摄像头采人体动作的 RGB MoCap、在 Rust GPU 核上渲数学视频的 ManimGX、把 Rust 增量构建压到毫秒的 blaze；五条都在把按次付费或外包出去的环节挪回自有机器。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-20-1000.html">
     <div class="da-card-date">2026-11-20 · 10:00</div>
     <div class="da-card-title">把手机、屏幕、零件和法条接成模型可调用的接口</div>
