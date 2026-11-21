@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.48 — 2026-11-13</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.48 · 2026-11-13 · 1005 GMT+8</span></div>
+  <h1>屏幕这条链从面板驱动开到投屏与控制，每一段都有人拿开源件顶上</h1>
+  <p class="mh-sub">这一期收了 LED 面板驱动库 rpi-rgb-led-matrix、开源墨水屏显示器设计 Glider、TRMNL 的自托管服务端 Terminus、把手机画面投到 Windows 的 ZenLink，以及让 ESP32 直接收发 HDMI-CEC 的组件；五件都在屏幕这条链上，替换按屏幕、按台与按授权收费的那几处。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-13</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>屏幕过去是整机与授权软件一起卖的东西：发送卡配上位机、墨水屏显示器卖千元美元、投屏接收端按台收授权、CEC 控制要买专用适配器。这一期五件把这条链拆开，面板驱动、整机设计、服务端、投屏接收与控制各有一个开源件顶上，钱只剩面板、板卡生产与工程施工。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">rpi-rgb-led-matrix <span>hzeller/rpi-rgb-led-matrix</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 4,402 · 近 30 天 +44</span>
+      <span class="tag">C++ · GPL-2.0</span>
+      <span class="tag">最近提交 11-12</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>用树莓派 GPIO 直驱 HUB75 接口的 16×32 至 64×64 RGB LED 面板，三条链可并联，PWM 给到 11 位、24 位真彩。</p>
+  <p class="e-line"><b>痛点</b>商用 LED 大屏要配厂商发送卡与上位机软件，软件按年授权；店招、展陈、实验室自拼几块面板，买不到这种小体量的配套。</p>
+  <p class="e-line"><b>付费</b>库本身不受费，买单方是屏体集成商与展陈工程方；一块 Pi 加几块二手面板就能出货，省掉发送卡硬件与上位机授权，工程按项目计价。</p>
+  <p class="e-line"><b>规模化</b>面板型号与链长任意拼，官方给的实测上限是单链 12 块、三链 36 块；同一套代码跨店招、展陈与科研可视化。</p>
+  <p class="e-line"><b>边际</b>低 · 纯驱动库，算力与面板都在用户侧。</p>
+  <p class="e-line"><b>验证</b>接好 HUB75 转接板，十来分钟能出画面：</p>
+  <pre>git clone https://github.com/hzeller/rpi-rgb-led-matrix &amp;&amp; cd rpi-rgb-led-matrix
+make -C lib &amp;&amp; sudo ./demo -D0 --led-rows=32 --led-cols=64 --led-slowdown-gpio=4</pre>
+  <div class="risk"><b>风险</b>GPL-2.0 传染性强，做成闭源产品要随货给源码；Pi 5 的 GPIO 时序与旧款不同，slowdown 与引脚映射都得重调；1,345 个 fork 里多数是抄走改私有，主线只有作者一人；刷新率随链长明显下滑。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Glider <span>Modos-Labs/Glider</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,721 · 近 30 天持平</span>
+      <span class="tag">C · CERN-OHL-S-2.0</span>
+      <span class="tag">最近提交 07-11</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>开源墨水屏显示器的硬件设计，含低延迟驱动思路与完整面板资料，成品板卡与整机在 Crowd Supply 预售。</p>
+  <p class="e-line"><b>痛点</b>以读写为主的桌面工作要一块不刺眼的屏幕，Dasung、文石这类墨水屏显示器千元美元级，固件封闭、坏了只能返厂。</p>
+  <p class="e-line"><b>付费</b>设计文件免费，钱在板卡与整机：Modos Flow 预售价 699 至 799 美元，已筹 59.1 万美元、696 人跟单，价格被真实订单验过。</p>
+  <p class="e-line"><b>规模化</b>走标准 13.3 英寸面板，同一套板卡可换尺寸；设计可授权给其他整机厂做白牌，屏体与外壳按需改。</p>
+  <p class="e-line"><b>边际</b>中 · 每台要产一块板并要求料，设计文件复制成本为零。</p>
+  <p class="e-line"><b>验证</b>板卡到手前先按仓库文档估料，按 USAGE.md 走刷写与显示配置：</p>
+  <pre>git clone https://github.com/Modos-Labs/Glider &amp;&amp; cd Glider
+less USAGE.md</pre>
+  <div class="risk"><b>风险</b>核心是硬件，FPGA 时序代码在另一个仓库 Caster，任一处断供就交不了货；主线四个月没提交；CERN-OHL-S 强互惠，改了设计必须开源；面板型号与贴合工艺受限，无法随便换屏。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Terminus <span>usetrmnl/terminus</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 787 · 近 30 天 +23</span>
+      <span class="tag">Ruby · MIT</span>
+      <span class="tag">最近提交 11-12 · 持续发版</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>TRMNL 官方的自托管服务端，管局域网里的墨水屏设备，发布自家云端 Core 没有的能力。</p>
+  <p class="e-line"><b>痛点</b>TRMNL 整机 99 美元一台，看板默认走厂商云；要接内网数据源、要断网也能刷，就得自己在家里架一台服务端。</p>
+  <p class="e-line"><b>付费</b>MIT 全开源，钱在硬件；买单方是不让内容出网的团队，省下的是按台的服务与订阅，以及合规评审里那条出网口子。</p>
+  <p class="e-line"><b>规模化</b>多组织、多设备、多屏管理，Docker 部署，AMD64 与 ARM64 预制镜像，树莓派部署文档齐备，一套服务端带一片设备。</p>
+  <p class="e-line"><b>边际</b>低 · 纯服务端软件，设备只管拉图。</p>
+  <p class="e-line"><b>验证</b>两条命令起本地栈，之后写 .env 指到自己的域名：</p>
+  <pre>git clone https://github.com/usetrmnl/terminus &amp;&amp; cd terminus
+bin/setup docker</pre>
+  <div class="risk"><b>风险</b>官方明写 beta，未到 1.0，升级会有破坏性变更；要求 Docker 29.4.2 以上，老环境得先升；Ruby 加 Postgres 加 Sidekiq 的运维不轻；144 个 fork 说明分叉多过主线讨论，文档仍以自家云为准。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">ZenLink <span>zenvyzenshiro/zenlink</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 298 · 建仓 11-03 后九天到 298</span>
+      <span class="tag">Rust · GPL-3.0</span>
+      <span class="tag">最近提交 11-12 · v2.5.14</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 iPhone、iPad 与安卓画面投到 Windows 的接收端，Rust 原生硬件解码 H.264 与 H.265，安卓侧免装 App。</p>
+  <p class="e-line"><b>痛点</b>Windows 上收手机画面，AirServer、Reflector 这类软件按台卖授权；做直播、演示、移动端调试的人每月都在为一次投屏付钱。</p>
+  <p class="e-line"><b>付费</b>免费开源，替代的是二十美元级的单机授权；买单方是直播间、培训教室与测试团队，按人头装机就能覆盖。</p>
+  <p class="e-line"><b>规模化</b>单个 Windows 程序，绿色版拷过去就跑，苹果与安卓两系都覆盖，走线与无线两种连接方式都在。</p>
+  <p class="e-line"><b>边际</b>低 · 纯桌面软件，解码全在本机。</p>
+  <p class="e-line"><b>验证</b>下便携版直接开，插上线选设备即出画面：</p>
+  <pre>https://github.com/zenvyzenshiro/zenlink/releases/latest → ZenLink-v2.5.14-Portable.exe</pre>
+  <div class="risk"><b>风险</b>建仓九天，单作者，接口与界面还会改；苹果侧走 CoreDevice 与 QuickTime 的逆向协议，iOS 小版本更新就可能打断；GPL-3.0 传染，做成商业产品要开源改动；只出 Windows 版。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">esphome-native-hdmi-cec <span>Palakis/esphome-native-hdmi-cec</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 418 · 近 30 天 +13</span>
+      <span class="tag">C++ · ESPHome 许可</span>
+      <span class="tag">最近提交 10-17</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>ESPHome 原生 HDMI-CEC 组件，按 CEC 1.3a 从零实现，让一颗 ESP32 收发电视的开关机、切源与音量指令。</p>
+  <p class="e-line"><b>痛点</b>会议室与展厅的屏幕要按场景自动开关与切源，现在靠人拿遥控器；商用 CEC 适配器 48 美元一个，还得挂一台常开主机。</p>
+  <p class="e-line"><b>付费</b>组件免费，买单方是弱电与 AV 集成商；几块钱的国产开发板顶掉一个 48 美元的适配器，按点位报价，点位越多差得越多。</p>
+  <p class="e-line"><b>规模化</b>CEC 通用于所有带 HDMI 的电视与投影，一份 YAML 改地址与物理地址就能换点位，配 Home Assistant 可直接编排场景。</p>
+  <p class="e-line"><b>边际</b>低 · 纯组件，硬件是通用开发板。</p>
+  <p class="e-line"><b>验证</b>按文档把 HDMI 13 与 17 脚接到 GPIO，写六行 YAML 后烧录：</p>
+  <pre>hdmi_cec:
+  pin: GPIO26
+  address: 0xE
+  physical_address: 0x4000
+  osd_name: "meeting room"
+esphome run meeting-room.yaml</pre>
+  <div class="risk"><b>风险</b>要自己焊 HDMI 转接板；物理地址靠手填，E-DDC 自动发现还没做，接错就是收不到指令；许可沿用 ESPHome 的双许可，C++ 部分 GPL，闭源固件要单独评估；监控模式开了日志会被总线消息淹没。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>ZenLink（zenvyzenshiro/zenlink）</b>。下载一个便携程序就能验完，替代的是按台卖的投屏授权，成本差当场算得出来。九天 298 星说明需求真实存在，OBS 与直播场景已经有人在用。唯一要盯的是苹果协议随系统版本变，交付前得在自己的 iOS 版本上跑一遍。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>屏幕这条链原本被打包成整机、发送卡与软件授权一起卖，这一期五件把它拆成驱动、整机设计、服务端、投屏接收与控制五段，每段都有开源件可用。工具本身的价格因此趋近于零，剩下的收费位置在面板与板卡的生产、弱电施工，以及把这几段拼成一个能验收的系统。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>colloqi/piSignage</b>（746★）· 树莓派标牌播放端，代码在动但仓库没有 License，商用分发等于要先去问授权，最近一次正式发版还停在 2014 年，现在推等于替人做尽调。</li>
+    <li><b>SirBonney/scrcpy-mirror-control</b>（1,104★，建仓 11-06）· 本质是 scrcpy 的 PowerShell 封装加一个操作说明页，七天涨一千多星，但工程厚度与星数不成比例，真正可改的东西很少。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-13 10:05 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEION · DAILY GITHUB NO.46 — 2026-11-11</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.46 · 2026-11-11 · 0956 GMT+8</span></div>
+  <h1>仿真、运行时与标定校验，都在替掉按席位与按节点的商用工具</h1>
+  <p class="mh-sub">这一期收了给机器人数据做回放与训练流的 Rerun、GPU 物理仿真引擎 Newton、把真机故障变成可复跑用例的 Cerulion、在本机顶掉 LocalStack 的 Robotocore，以及查传感器标定漂移的 Calibrex；共同点是用开源件填上机器人工具链里按人头、按节点计价的位置。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-11</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>机器人团队的钱主要花在三处：仿真算力、调试与回放平台、以及标定与路测的人力。这三处过去都有商用工具按席位或按节点收费，现在陆续有开源件把单点做掉。下面的五件分别落在其中一处，收费空间在工程服务、企业支持与检测报告上，工具本身很难直接收钱。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Rerun <span>rerun-io/rerun</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 11,761 · 近 30 天增量未获取到</span>
+      <span class="tag">Rust · Apache-2.0 与 MIT 双许可</span>
+      <span class="tag">最近提交 11-10 · v0.42.0 于 11-04</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>机器人、无人机、自动驾驶的多模态数据记录、时间轴回放与查询，一份数据模型同时给查看器与训练管线用。</p>
+  <p class="e-line"><b>痛点</b>日志散在 rosbag、MCAP 与各家私有格式里，调试靠人拖时间轴，团队最后都自建一套回放平台。</p>
+  <p class="e-line"><b>付费</b>开源核心免费，商业面是 Rerun Hub 这个对象存储上的数据目录，目前私有预览、面向设计伙伴；公司已融 1,700 万美元。买方省掉的是 Foxglove 这类按席位订阅与自研平台的人力。</p>
+  <p class="e-line"><b>规模化</b>SDK 覆盖 C++、Rust、Python、JavaScript，同一份数据模型能嵌进客户自己的工具；云侧按存储与流式查询量计费，天然随数据量走。</p>
+  <p class="e-line"><b>边际</b>低 · 只发库与查看器，渲染与解码在客户端完成。</p>
+  <p class="e-line"><b>验证</b>装 SDK 后两行记录点云与位姿，查看器直接起：</p>
+  <pre>pip install rerun-sdk
+python -c "import rerun as rr; rr.init('t'); rr.connect(); rr.log('p', rr.Points3D([[0,0,0]]))"
+rerun</pre>
+  <div class="risk"><b>风险</b>Hub 还在私有预览、没有公开价格，收入结构验证不了；可视化这一格 Foxglove 已占住团队工作流；ROS 用户习惯 RViz，迁移要重写工具；Apache 与 MIT 双许可意味着不留商业护城河，护城河全靠 Hub。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Newton <span>newton-physics/newton</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 5,939 · 近 30 天 +381</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-10 · v1.7.0 于 10-14</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>跑在 Warp 上的 GPU 物理引擎，以 MuJoCo Warp 为主后端，求解器可插拔，面向机器人学习与仿真研究。</p>
+  <p class="e-line"><b>痛点</b>CPU 仿真一天才攒出一批 rollout，接触密集的抓取与行走更慢；商用仿真平台按节点授权，扩容先撞预算。</p>
+  <p class="e-line"><b>付费</b>Linux Foundation 项目，代码 Apache-2.0、文档 CC-BY-4.0，引擎本身不收钱；收入落在上游 NVIDIA 的卡与 Omniverse 订阅，以及给研究所搭仿真集群的集成商。</p>
+  <p class="e-line"><b>规模化</b>Isaac Lab 已接进来，同一套 API 覆盖刚体、软体与多物理，可微性直接进训练循环；跨实验室、跨机型通用。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件分发，算力由用户自己的卡承担。</p>
+  <p class="e-line"><b>验证</b>NVIDIA 显卡机器上装 examples 跑一个刚体例程：</p>
+  <pre>pip install "newton[examples]"
+python -m newton.examples --describe robot_omniwheel
+python -m newton.examples robot_omniwheel</pre>
+  <div class="risk"><b>风险</b>只吃 NVIDIA 显卡，Windows 要过 WSL；十月还在删改接口，v1.x 小版本就能打断现有代码；引擎免费，谁也没法靠它单独收费，收益要挂在硬件或服务上；与 Genesis 这类多后端引擎正面撞。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.0</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Cerulion <span>cerulion-inc/cerulion</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 102 · 近 30 天增量未获取到</span>
+      <span class="tag">Rust · AGPL-3.0</span>
+      <span class="tag">最近提交 11-11 · v1.0.0 于 09-21</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>机器人节点运行时，按节点图调度、走 iceoryx2 零拷贝共享内存，运行全程录制，回放同一段能对着新代码重跑并给退出码。</p>
+  <p class="e-line"><b>痛点</b>真机时间最贵，却大半耗在 ROS 2 的 executor 与 DDS 调参上；急停路径一被阻塞就得整机复位，故障没法变成测试用例。</p>
+  <p class="e-line"><b>付费</b>开源运行时 AGPL，公司是 YC S24、两位 MIT 博士创立，商业面是 Studio 图形工具与远程接入，按团队授权；客户是拿真机做交付的机器人公司。</p>
+  <p class="e-line"><b>规模化</b>一套 CLI 跨 Linux 与 macOS，带 ROS 2 Jazzy、Lyrical 的 rmw 桥，现有节点能逐个搬，不必一次重写。</p>
+  <p class="e-line"><b>边际</b>低 · 发二进制与授权文件，录制数据留在客户自己的机器上。</p>
+  <p class="e-line"><b>验证</b>装 CLI 后跑 README 里的激光安全控制器例程，看录制与判定：</p>
+  <pre>curl -fsSL https://raw.githubusercontent.com/cerulion-inc/cerulion/main/tools/scripts/install.sh | sh
+. "$HOME/.cerulion/env" && cerulion login
+cerulion run examples/safety_controller</pre>
+  <div class="risk"><b>风险</b>AGPL 对往闭源产品里嵌的团队是硬门槛，很多机器人公司会因此只试用不采购；节点必须用与 CLI 同一个 rustc 编译，工具链锁得死；102 星，生态薄，离开官方例子就要自己趟。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Robotocore <span>robotocore/robotocore</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 334 · 近 30 天增量未获取到</span>
+      <span class="tag">Rust · MIT</span>
+      <span class="tag">最近提交 11-11 · 发行版 v2026.11.11</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>本机跑一份 AWS 数字孪生，160 个服务、96% 的操作有实现，任意 SDK、CLI 或智能体照常调用，端口 4566 与 LocalStack 相同。</p>
+  <p class="e-line"><b>痛点</b>LocalStack 社区版收缩后，CI 里跑云集成测试要么买 45 美元每席每月的 Base 档，要么连真云烧账户；团队规模一涨，席位费按人头线性走。</p>
+  <p class="e-line"><b>付费</b>无注册、无遥测、MIT 免费，省下的就是席位费；可收钱的位置是企业支持、镜像托管与合规审计包。</p>
+  <p class="e-line"><b>规模化</b>一个容器跨语言跨团队通用，多账号、多区域、IaC 都能本地跑，替换只改端点地址；云原生团队的需求高度同质。</p>
+  <p class="e-line"><b>边际</b>低 · 单容器，全部在用户机器上跑。</p>
+  <p class="e-line"><b>验证</b>起容器后用标准 AWS CLI 打过去：</p>
+  <pre>docker run -d -p 4566:4566 jackdanger/robotocore:latest
+aws --endpoint-url http://localhost:4566 s3 mb s3://demo</pre>
+  <div class="risk"><b>风险</b>一个人全用智能体写出来的，160 个服务的行为保真度只能逐个核对；没有公司主体，出了问题没有合同可依；按日期滚动发版，回归面铺得很大；LocalStack 掉过的坑，它同样会掉。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Calibrex <span>rsasaki0109/Calibrex</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 60 · 近 30 天增量未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag warn">alpha</span>
+      <span class="tag">最近提交 11-11 · v0.6.4 于 11-11</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>拿一段 rosbag 判断车上传感器标定还准不准，对每个轴给通过与超差结论，也能反过来从数据里估一份外参。</p>
+  <p class="e-line"><b>痛点</b>外参漂移靠路测与肉眼发现，激光点云歪到柱子上才有人查；量产车与车队没有下线复检的手段，标定文件几个月没人碰。</p>
+  <p class="e-line"><b>付费</b>车队运维与量产下线检验，按车按次出报告；开源免费，收钱位置是带判定阈值的检测服务与报告归档。</p>
+  <p class="e-line"><b>规模化</b>一条命令吃标准 bag，结论出 JSON 与 HTML，能直接进流水线；覆盖 LiDAR、IMU、相机、GNSS、车辆五类配对，跨车型通用。</p>
+  <p class="e-line"><b>边际</b>低 · 纯 Python，不依赖云与专有硬件。</p>
+  <p class="e-line"><b>验证</b>装 wheel 后先让工具说这段数据能查哪几对：</p>
+  <pre>python -m pip install "https://github.com/rsasaki0109/Calibrex/releases/download/v0.6.4/calibrex-0.6.4-py3-none-any.whl"
+calibrex check my_bag/ --plan</pre>
+  <div class="risk"><b>风险</b>alpha、60 星、单人维护，判错一次就会误报好车或漏放坏车；公开验证只到 KITTI、NTU VIRAL、Hilti 三个数据集；平移量 xyz 不判定，只判角度，装车位置错了它看不出来。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.8</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Cerulion（cerulion-inc/cerulion）</b>。它有公司主体、有已发布的 1.0 运行时、有明确的付费面，客户就是天天受真机时间折磨的机器人团队，需求不需要教育。录制与重跑把故障变成 CI 用例，这一条在别处买不到。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>仿真、运行时、标定校验、本地云替身，四处都在替掉按席位或按节点计价的商用件。工具层已经足够便宜，贵的是把工具串起来的人和验证数据从哪来，所以真正的付费位置退到工程服务、企业支持与检测报告。这一层谁能给出可复核的结论，谁才有收入。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>deepseek-ai/dsh-superagent-prototype</b>（22,203★，MIT，建仓 10-31）· 名称里就带 prototype，11-03 之后没有提交，没有发行包也没有收费口径。热的是公司声量，交付物是研究预览，现在押注等于赌它什么时候转正。</li>
+    <li><b>stablyai/orca</b>（121,511★，MIT）· 让一把编码智能体共用你自己的订阅，价值全挂在别人的计费上；它自己不卖东西，用户多花的钱一分没少，只是换了个 CLI 界面。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-11 09:56 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+</div></body></html>

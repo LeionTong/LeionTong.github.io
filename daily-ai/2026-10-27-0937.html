@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION &middot; DAILY AI &mdash; 2026-10-27 第 88 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION &middot; DAILY AI</b></span>
+      <span>2026-10-27 &middot; 第 88 期</span>
+    </div>
+    <h1>编码 agent 的单价下探，评审流水线与信任边界同期改动</h1>
+    <p class="mh-sub">本期收录 OpenAI 把电脑操作模型压到十分之一单价、Entire 用 agent 打分取代 diff 评审、Google 把 Gemini 做成可被外部 agent 调用的无状态 CLI、月之暗面 2.8T 开放权重编码模型，以及 Downloads 里的 AGENTS.md 劫持编码 agent 的路径。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> &middot; AI coding &middot; 模型发布</span>
+    <h2 class="c-title">OpenAI 发布 GPT-6.1 Terra，把电脑操作与视觉理解压到十分之一单价</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">视觉理解</span><span class="chip">电脑操作</span><span class="chip">API 定价</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>美东 10 月 26 日，OpenAI 发布 GPT-6.1 Terra，定位是低成本承担整天办公与电脑操作任务的中间档模型，能力覆盖屏幕内容理解、跨应用操作与自然语言写作。标准 API 定价为每百万输入 token 1 美元、缓存输入 0.05 美元、输出 5 美元，比 GPT-5.6 Terra 与 GPT-6.1 Sol 低 50%，缓存输入较前代下降 75%。模型支持最多 100 万输入 token，接受文本与图像输入。</p><p>官方给出的数据：在测量 agent 使用软件完成专业任务的 Agents&#39; Last Exam 上，中等推理强度较 GPT-5.6 Terra 高 15 个百分点，任务成本约为前代三分之一；最高推理强度下 token 效率是 Claude Opus 5.5 的三倍以上、单价为其四分之一，折算每任务成本约九分之一。命令行任务 Terminal-Bench 4.0 最高推理强度解出 50.3%，前代公布成绩是 21.5%。内部错误诱导提示上的错误率从低推理强度的 53.6% 降到 16.7%，最高强度为 4.3%。</p><p>同日在 Amazon Bedrock 与 Microsoft Foundry 上架，ChatGPT Work 与 Codex 的 Plus、Pro、Enterprise、Edu 用户可用，开发者通过 API 名 <code>gpt-6.1-terra</code> 调用。官方在发布说明里提示，最复杂的编码与科研任务仍应选 GPT-6.1 Sol 或 GPT-6 Astra。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把电脑操作与视觉理解放到十分之一的单价档，改变的是企业侧高频自动化的成本结构：读发票、填表、跨应用取数这类任务此前卡在单次成本上。Terminal-Bench 4.0 从 21.5% 到 50.3% 说明中间档模型在命令行 agent 上已经越过可用线，很多任务不需要动旗舰模型。</p><p>能力分层仍然存在，官方自己把最难的编码与科研任务留给了 Sol 与 Astra。价格与效率数字来自厂商公布与 Artificial Analysis 的折算，没有第三方复现整套评估，缓存命中率对实际账单的影响也需要按自家流量结构算。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenAI https://openai.com/index/introducing-gpt-6-1-terra/ ；AWS https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-6-1-terra-on-amazon-bedrock/ ；BleepingComputer https://www.bleepingcomputer.com/news/artificial-intelligence/openai-launches-gpt-61-terra-with-3x-faster-ai-agents-50-percent-lower-pricing/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> &middot; AI coding &middot; 代码托管</span>
+    <h2 class="c-title">Entire 上线，用 agent 打分的 Trails 取代 pull request</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">代码评审</span><span class="chip">分布式 Git</span><span class="chip">会话记忆</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 26 日，前 GitHub CEO Thomas Dohmke 创办的 Entire 全面开放，做的是给 agent 与人类协作用的 Git forge。核心是 Trails：代码推送到 Trails 后，评审 agent 在各自独立的云沙箱里跑一遍、提交分数与理由，默认 agent 覆盖代码质量、安全与 slop 三类，页面顶部展示当前一轮与最近五轮的评分。agent 还能返回分等级的 findings 与修改建议，配合按仓库开启的 Gates 要求人工批准与 CI 通过才允许合并。</p><p>底层是自建的分布式 Git 服务器，兼容 Git，仓库可跨区域复制，美国、欧盟、澳大利亚、印度已上线。官方基准 ForgeMark 称单个仓库每小时处理约 57 万次 clone、每秒 586 次 push，比 GitHub 快最多 89 倍、比 Cursor Origin 快 6 倍。另一块 Continuous Memory 把 agent 会话与提示词同步进仓库，供后续检索。评审跑在 Daytona 与 E2B 的隔离沙箱上，模型侧用 Claude Code 与 Codex，CI 合作方是 Buildkite 与 Depot。目前支持私有仓库托管，公开仓库与自托管节点在路线图上。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>agent 写代码之后，人的瓶颈从写变成了读 diff 与排队合并，Trails 把判断依据换成每轮推送的评分与收敛趋势，让评审退回到看分数决定是否继续迭代。把会话与提示词存进仓库、让下一轮 agent 接着用，指向的是记忆层被一并纳入代码托管。</p><p>评分转绿即可合并的边界条件需要谨慎设定，安全类考评能否覆盖业务逻辑错误尚无公开证据；89 倍与吞吐量数字来自厂商自己的基准，独立验证还没有出现。整个平台当前只托管私有仓库，生态与集成深度是长期变量。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Entire https://entire.com/blog/the-git-forge-for-agent-human-collaboration ；The New Stack https://thenewstack.io/entire-trails-agentic-code-review/ ；Madrona https://www.madrona.com/agents-broke-git-hosting-entire-is-what-comes-next/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> &middot; 终端智能 &middot; agent 工具</span>
+    <h2 class="c-title">Google 放出 gemini-api，给已有编码 agent 调用 Gemini 的无状态 CLI</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span><span class="chip">CLI</span><span class="chip">多模态</span><span class="chip">托管 agent</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>Google 在 <code>google-gemini/gemini-api-cli</code> 发布 gemini-api，Apache 2.0 许可，单个 Go 二进制，覆盖 macOS、Linux 与 Windows。定位是把 Gemini 的能力交给用户已经在用的 agent：把 gemini-api 放进 PATH 并配好 API key，Claude Code、Codex、Cursor、Antigravity、OpenClaw 等带 shell 权限的 agent 就能生成图像、视频、语音与音乐，分析 PDF、图像、音频、视频与 YouTube 链接，把录音转写成 md、json 或 srt，或在后台起一个托管 agent 并保留 interaction ID 取回结果。</p><p>工具本身无状态、无会话记忆、无聊天模式，上下文与计划由宿主 agent 掌握，每次调用独立执行。命令树、参数、请求 schema 与用法内建在二进制里，agent 可用 <code>--help</code>、<code>--usage</code>、<code>--schema</code> 自行发现接口，<code>--dry-run</code> 只校验参数并打印脱敏后的请求而不发网络调用，<code>--agent-mode</code> 让 stdout 默认输出紧凑 TOON、stderr 输出结构化 JSON 错误。默认模型覆盖 <code>gemini-3.8-flash</code>、<code>gemini-nano-banana-2.1</code>、<code>lyria-3.5</code>、<code>gemini-omni-1.1-flash</code> 等，另有 environments、credentials、webhooks、triggers 等托管 agent 相关子命令。项目标注为 beta，仓库建于 2026 年 4 月，目前不接受外部 PR。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把多模态与托管 agent 做成无状态 shell 命令，等于把自家模型能力作为一组可组合工具交给别人家的 harness 使用，宿主 agent 自己管上下文与计划，凭据与权限边界留在宿主一侧。对做编码 agent 的团队，图像、语音、转写与后台研究这些旁路能力不必各接一遍 SDK。</p><p>无状态意味着多轮状态得由宿主用 interaction ID 自己串，长任务的会话管理仍在宿主这边。默认模型版本随仓库演进，且项目处于 beta，CI 与自动化流程里应钉住具体 release。是否接受外部贡献未开放，工具演进节奏由 Google 单方决定。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>GitHub https://github.com/google-gemini/gemini-api-cli ；Google AI for Developers https://ai.google.dev/gemini-api/docs ；Google AI Studio https://aistudio.google.com/learn</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> &middot; AI coding &middot; 开放权重</span>
+    <h2 class="c-title">月之暗面发布 Kimi K3.1 Pro，2.8T 开放权重模型贴近 Opus 5.5 的终端成绩</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">MoE</span><span class="chip">Terminal-Bench</span><span class="chip">开放权重</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 23 日，月之暗面发布 Kimi K3.1 Pro，K3.1 系列首个模型，由 Kimi K3 后训练而来，在数百个下游领域做联合强化学习。规格为总参数 2.8T、每 token 激活 104B 的 MoE，100 万 token 上下文，API 接受文本、图像与视频输入，思考默认开启，推理力度分低、高、最高三档。同发 Highspeed 版，官方称质量一致而速度提升 2 到 3 倍。</p><p>官方自评：Terminal-Bench 4.0 为 65.7%，对照 Claude Opus 5.5 的 66.4% 与 GPT-6 Astra 的 58.2%；SWE-Marathon 51.7 领先 Opus 5.5 的 46.3；BenchCAD 带工具 92.7%；内部基准 Kimi Hallu Bench Hard 的声称级幻觉率从 K3 的 23.4% 降到 8.3%。偏低的分项同样明确，Terminal-Bench Science 0.1 为 38.1，对照 GPT-6 Astra 的 68.1。定价为每百万输入 2 美元、输出 10 美元，缓存输入更低，已上线 Kimi.ai、Kimi Work、Kimi Code 与 API，完整权重承诺 11 月 4 日前放出。第三方方面，Artificial Analysis 的 Intelligence Index 给出 55 分，较 K3 提升 11 分，位于 Opus 5.5 的 58、Sonnet 5.5 与 Muse Wonder Full 的 56 之后。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把 3T 级模型承诺开放权重，等于把可自托管的编码 agent 基座再往前推一档：终端任务上贴着 Opus 5.5、压过 GPT-6 Astra，说明开放权重与闭源的差距在命令行场景里继续收窄。缓存的定价分层与 100 万上下文，也把长程编码任务的单次成本预期往下拉。</p><p>自评分数多数跑在 Claude Code harness 上，换 harness 会有几个点的浮动；官方自己的科研类分项明显落后，说明长尾任务能力还不齐。权重尚未落地，2.8T 总参数对应的显存与推理成本要等放出后才能评估，能否在自有硬件上跑起来是关键未知数。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Moonshot https://www.kimi.ai/blog/kimi-k3-1-pro ；explainx.ai https://explainx.ai/blog/kimi-k3-1-pro-open-weights-benchmarks-price-terminal-bench-nov-4-2026 ；MarkTechPost https://www.marktechpost.com/2026/10/23/moonshot-ai-kimi-k3-1-pro-open-weight-model/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> &middot; AI Agent &middot; 安全边界</span>
+    <h2 class="c-title">Downloads 里的一份 AGENTS.md 可以劫持 Codex 与 Claude Code</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span><span class="chip">提示注入</span><span class="chip">沙箱</span><span class="chip">供应链</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>安全公司 Forever Security 在 10 月 22 日发布报告《Markdown Is the New Executable》。事件起因是一位客户的机器上，<code>~/Downloads</code> 里出现一份约 13KB、伪装成工程笔记的 AGENTS.md，末尾一段要求编码 agent 安装已知恶意的 npm 包 function-color，该公司的监控在代码执行前拦下了这次安装，文件的来源未能查明。</p><p>研究者在虚拟机中复现了这条路径：浏览器可以把文件不经点击写进 Downloads（Chrome、Edge、Firefox 默认如此，只弹下载提示），而编码 agent 会读取并执行启动目录里的指令文件。针对 Codex，伪造文件令其向全局配置 <code>~/.codex/config.toml</code> 添加 MCP server 条目，在超过 90% 的尝试中执行了载荷；针对 Claude Code，一份伪造的 CLAUDE.md 让项目设置改指研究者的网关，约 50% 的测试里会话 OAuth token 被一并送出并导致代码执行，其中约五分之一通过子代理在同一会话内执行。报告中提到约半数客户曾把编码 agent 放在 Downloads 目录里启动。function-color 与 MALFEX 活动相关，10 月 7 日已被替换为安全占位包。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>攻击落在 agent 的信任模型与浏览器下载默认值的交叉处：agent 信任启动目录里的指令文件，浏览器默认把抓到的文件写进同一个目录，两家厂商都没有可直接打的补丁，暴露面取决于 agent 从哪里启动。这解释了为什么目录级信任提示与沙箱无法被指令文件替代。</p><p>对把编码 agent 接进日常流程的团队，可执行的边界是把 agent 只从自己创建或检查过的项目目录启动，AGENTS.md 与 CLAUDE.md 要先当代码读一遍再用，并定期检查 Codex 的 config.toml 与 Claude Code 的 settings.json 里有没有陌生的服务端或 API 地址。发现植入文件后应按 token 已泄露处理并轮换凭据。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Forever Security https://forever.security/blog/hijacking-ai-agents-via-downloads-folder ；Help Net Security https://helpnetsecurity.com/2026/10/26/ai-coding-agents-malware-openai-codex ；The Hacker News https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>GPT-6.1 Terra 上线后企业侧的实际缓存命中率与每任务成本，以及 Terminal-Bench 4.0 成绩的第三方复现。</li>
+      <li>Entire 的 Trails 评分在安全类缺陷上的检出率，评分转绿即合并的边界条件，以及 ForgeMark 吞吐数字的独立验证。</li>
+      <li>gemini-api 的默认模型版本与接口稳定性，以及在真实编码 agent 工作流里多轮状态串联的实际用法。</li>
+      <li>Kimi K3.1 Pro 权重放出后的实际硬件门槛与推理成本，以及第三方的 Intelligence Index 之外的分项复现。</li>
+      <li>编码 agent 的启动目录信任模型是否会加入产品侧的强制约束，以及浏览器下载目录的默认行为是否调整。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>&middot; 2026-10-27 09:37 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

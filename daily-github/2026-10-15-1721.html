@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.22 — 2026-10-15</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.22 · 2026-10-15 · 17:21 GMT+8</span></div>
+  <h1>账单与数据边界一起往下压，端侧推理与小模型决策同步出现</h1>
+  <p class="mh-sub">本期收录 12GB 显存跑 125B 的本地推理引擎 Strata、替代 LLM 做决策的 Laya、纯 CPU 的 Indra OCR、schema 约束输出的 TypeLLM 与写不可读的日志加密库 Scuttle：五项都在把调用云端模型这一步换掉或压小。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-10-15</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API · 实测</span></div>
+  </div>
+</header>
+
+<div class="lede"><span class="tag">今日视角</span><p class="lede-title">账单和数据边界一起往下压</p><p>今天五项都指向同一件事：把「调用云端大模型」这一步换掉或压小。端侧跑 125B（Strata）、小模型顶替 LLM 做决策（Laya）、纯 CPU 把 OCR 提速十倍以上（Indra）、结构化输出不再靠 prompt 约束（TypeLLM）、敏感日志只写不可读（Scuttle）。共同点是成本可算、数据不出域，其中三项背后已经站着收费的托管平台。</p></div>
+
+<section><div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Strata <span>Niko1221/Strata</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 24,952 · 近30天 +24,952（9-24 首发）</span>
+      <span class="tag">C++ · MIT</span>
+      <span class="tag">最近提交 10-14</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>消费级 PC 上一键跑 Qwen3.8-Flash-Next（125B）的本地推理引擎，12GB 显存即可，Windows/Linux 都支持。</p>
+  <p class="e-line"><b>痛点</b>云端大模型的按量账单与数据出域：本地 50-90 tok/s 的完整体验，代码和文件不出机器。</p>
+  <p class="e-line"><b>付费</b>仓库本身免费、只有赞助入口；真正的账在替代云端 GPU 推理与 API 调用，差额可直接对比月费。</p>
+  <p class="e-line"><b>规模化</b>装机即交付，显卡档位对应固定压缩级别，跨行业可复制，不需要定制。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，硬件由用户自己出，官方新增客户成本接近零。</p>
+  <p class="e-line"><b>验证</b>从 Releases 取 v0.1.44.1 安装包，Windows 跑 SETUP.bat、Linux 跑 ./setup.sh，按提示选模型档位。</p>
+  <div class="risk"><b>风险</b>自身没有收费路径（仅赞助），涨价/商业化全靠上游模型条款；版本迭代极快（v0.1.44.1），GPU 档位与社区实测差异大。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div><div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Laya <span>NandhaKishorM/laya</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 32,973 · 近30天 +32,973（9-18 首发）</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 10-14</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>非自回归的 System-1 决策引擎：一次前向 33ms 给出带类型的判断、评分与是否，覆盖 100+ 语言。</p>
+  <p class="e-line"><b>痛点</b>用大模型做分类、路由、判分、审核这类「非生成」任务，延迟高、按 token 计费、答案还不稳定。</p>
+  <p class="e-line"><b>付费</b>库免费，按量托管与团队版是明确路线；替代的是按 token 计费的 LLM 调用，成本差立刻算得出来。</p>
+  <p class="e-line"><b>规模化</b>决策是跨行业通用需求，pip 一条命令接入，已有 HTTP/MCP 与 LangChain、LlamaIndex、CrewAI 适配。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，CPU 可跑，ONNX 与 GPU 快路径可选，无重硬件依赖。</p>
+  <p class="e-line"><b>验证</b>pip install "laya[serve]" && python examples/server.py，浏览器打开 127.0.0.1:8000 的 playground 直接试。</p>
+  <div class="risk"><b>风险</b>项目仅一个月，模型权重与路由策略的长期效果待验证；System-1 决策这一波同类仓库密集出现，差异化要靠公开评测说话。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.6</b></div>
+</section>
+
+<section><div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Indra OCR <span>datalab-to/indra</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 293 · 近30天 +293（10-13 首发）</span>
+      <span class="tag">Python · Apache-2.0（模型 OpenRAIL-M）</span>
+      <span class="tag">最近提交 10-15</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>100 万参数、约 18MB 的纯 CPU OCR：49 页/秒输出 markdown/文本/带框 JSON，不依赖 PyTorch。</p>
+  <p class="e-line"><b>痛点</b>文档流水线要么买按页计费的 OCR API，要么自建 GPU 服务；Tesseract/PaddleOCR 精度与速度都难兼顾。</p>
+  <p class="e-line"><b>付费</b>代码开源，模型对研究、个人与融资/营收低于 200 万美元的团队免费；更高用量走官方托管 API、批量折扣与本地部署授权。</p>
+  <p class="e-line"><b>规模化</b>PDF/扫描件转结构化文本是跨行业标准动作，pip 安装即交付，不需要按客户调优。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件 + 小模型，CPU 上跑，没有 GPU 与人力摊销。</p>
+  <p class="e-line"><b>验证</b>pip install indra-ocr，然后 indra-ocr paper.pdf（或 scan.png --format json）看首屏结果。</p>
+  <div class="risk"><b>风险</b>仓库仅两天、v0.3.1，尚无社区长期验证；模型许可为 OpenRAIL-M，有使用范围限制，规模化前要核对条款。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">TypeLLM <span>TypeLLM/TypeLLM</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 947 · 近30天 +947（9-17 首发）</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 10-15</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给自回归模型加类型安全生成：用 JSON Schema 约束输出，取值直接可用，不再出现 schema 外的幻觉。</p>
+  <p class="e-line"><b>痛点</b>抽取、分类、打分场景里用 prompt 求 JSON，仍要写重试与校验代码，字段错一次整条链路就脏。</p>
+  <p class="e-line"><b>付费</b>托管 API 已上线并按量计费（新账号 5 美元额度），也可指向自建模型；两种用法同一套请求。</p>
+  <p class="e-line"><b>规模化</b>结构化输出是所有 LLM 应用层的通用接口，客户端与 schema 一次定义到处复用。</p>
+  <p class="e-line"><b>边际</b>低 · 客户端与推理侧都是软件，纯 API 形态新增客户成本趋零。</p>
+  <p class="e-line"><b>验证</b>pip install -U typellm，在 typellm.ai 建 key 后跑 README 的 TypeLLMClient 示例，几分钟出结构化结果。</p>
+  <div class="risk"><b>风险</b>仍在早期访问阶段，自助开通与计费稳定性待观察；同类「结构化输出」能力正被各家模型厂商内建，需靠开源模型支持面保持差异。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">Scuttle <span>Continuum-AI-Corp/scuttle</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 521 · 近30天 +521（9-23 首发）</span>
+      <span class="tag">Go · Apache-2.0</span>
+      <span class="tag">最近提交 10-01</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>面向敏感日志的混合后量子加密层：应用侧只拿公开的写入密钥，能写不能读，库被拖走只有密文。</p>
+  <p class="e-line"><b>痛点</b>请求响应体常被要求可短期排查，但副本会留在数据库、副本与备份里好几年，出事就是明文泄漏。</p>
+  <p class="e-line"><b>付费</b>企业合规与日志脱敏场景，用法是 B2B 授权或随产品内置；作者方已在自家网关产品里生产使用。</p>
+  <p class="e-line"><b>规模化</b>日志加密是通用合规诉求，但需要改写入链路，交付带集成工作量，不是即插即用。</p>
+  <p class="e-line"><b>边际</b>低 · 单二进制 Go 库，无服务端依赖，新增客户几乎零成本。</p>
+  <p class="e-line"><b>验证</b>go get 该库 + go install .../cmd/scuttle-keygen@latest，按 README 的写入/读取示例跑一遍加解密。</p>
+  <div class="risk"><b>风险</b>v0 状态、无正式 release，密码学方案需时间检验；单一使用方，尚无可参考的第三方生产能力。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div><div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div><div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div><div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Laya（NandhaKishorM/laya）</b>。增速、成熟度与可验证性最均衡：一个月 32,973 星、已发到 v0.4.7、pip 一条命令就能跑出结果。它替换的是按 token 计费的 LLM 调用，成本差可以当天算清，而不是停留在「以后能省」。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>五项的共同动作是重算 AI 成本结构：算力下沉到用户自己的机器（Strata）、非生成任务从小模型走（Laya）、文档解析从 GPU 服务挪回 CPU（Indra）、输出约束从 prompt 移到类型系统（TypeLLM）、日志加密从运维习惯变成库的默认行为（Scuttle）。其中三项的仓库背后已有收费平台，开源在这里更像是分发渠道。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>storytold/photocraft（61,966★）</b> · 9 月 30 日前后同日批量创建的七个同名「纯 Rust 重写」仓库（photo/pdf/film/light/word/vector/effect craft）合计已超 12 万星，issue 与 fork 比例异常；消费端桌面软件没有收费载体，热度更像榜单机制而非付费需求。</li>
+    <li><b>rehan-remade/universal-modder（7,750★）</b> · 让编码 agent 去改任意 PC 游戏，落在游戏 EULA 与反作弊的灰色地带，核心价值又依赖第三方模型订阅，缺少独立的收费出口。</li>
+  </ol>
+</div>
+
+<footer class="colophon"><span>LEION · DAILY GITHUB</span><span>2026-10-15 17:21 GMT+8</span><span>数据来自 GitHub API 当天实测 · 仅供参考</span></footer>
+
+</div></body></html>

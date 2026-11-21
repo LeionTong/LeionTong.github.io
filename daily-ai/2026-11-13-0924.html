@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEION · DAILY AI 第 104 期 · 2026-11-13</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-13 · 第 104 期</span>
+    </div>
+    <h1>英伟达换掉掌舵人，OpenAI 与 Cursor 的直连合同在同一天到期</h1>
+    <p class="mh-sub">本期收录黄仁勋辞任与克雷斯临时接任、OpenAI 终止向 Cursor 直供模型生效、优必选 Walker S2 首批数百台量产交付、Databricks Genie 转为常驻自主同事，以及 Expo 给编码 agent 准备的云端模拟器。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 公司治理 · 具身算力</span>
+    <h2 class="c-title">黄仁勋辞去英伟达总裁与 CEO，财务长克雷斯临时接任</h2>
+    <div class="c-tags">
+      <span class="chip b">8-K 载明 11 月 11 日生效</span><span class="chip">董事会启动遴选</span><span class="chip o">市值今年峰值超 5.5 万亿美元</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 12 日，英伟达董事会宣布黄仁勋辞去总裁、首席执行官与董事职务，公司提交给美国证券交易委员会的 8-K 写明辞呈于 11 月 11 日生效。首席财务官 Colette Kress 出任临时首席执行官，董事会同时开始寻找下一任掌门人。</p>
+      <p>黄仁勋 1993 年创办英伟达，此后一直兼任总裁、首席执行官与董事，公司市值今年一度超过 5.5 万亿美元。辞职发生在董事会就其个人关系展开调查之后；美国官员怀疑与其有往来的人士所任职的公司曾协助向中国转运受管制芯片，中方否认相关指控。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>机器人方向的平台进度由 Isaac、GR00T 与 Jetson Thor 三条线共同决定，这些项目的预算与排期此刻在临时管理层手上，外部团队的排产与选型要按方向延续、节奏可能变化来准备。</p>
+      <p>董事会在遴选期内通常收紧大额资本承诺，对机器人生态的投资节奏、供货优先级与合作条款都可能后移，正在谈的平台授权需要留出重新确认的时间。</p>
+      <p>客户与合作伙伴的公开表态会集中在平台延续性上，接口与许可条款在过渡期内的变动值得逐条核对，尤其涉及长期供货与共同开发的约定。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>The Register https://www.theregister.com/systems/2026/11/12/jensen-huang-resigns-as-nvidia-chief-executive/5309411 ｜ WIRED https://www.wired.com/story/nvidia-ceo-jensen-huang-steps-down</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI 编码 · 模型供应</span>
+    <h2 class="c-title">OpenAI 与 Cursor 的直连合同到期，Astra 始终没有进入 Cursor</h2>
+    <div class="c-tags">
+      <span class="chip b">11 月 12 日终止直供</span><span class="chip">OpenAI 模型约占 Cursor 流量 5%</span><span class="chip o">自带 API Key 仍可用</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>OpenAI 于 8 月 28 日公告的合同终止在 11 月 12 日生效，Cursor 不再获得 OpenAI 模型的官方直连；下一代模型 Astra 从一开始就不在供应范围内。触发点是 SpaceX 完成对 Cursor 的收购，OpenAI 援引合同中的控制权变更条款，并表示无法确认对方会按服务条款使用其技术。</p>
+      <p>Cursor 联合创始人 Michael Truell 回应称 OpenAI 模型约占其用户流量的 5%，双方仍在沟通解决方案。OpenAI 产品负责人 Tibo Sottiaux 补充，开发者自带 OpenAI API Key 继续可用，OpenAI 自家的 Cursor IDE 扩展也继续提供访问。Anthropic 联合创始人 Tom Brown 表示将增加算力，支撑 Claude 在 Cursor 上的部署。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码工具的模型来源从打包进订阅变成按 token 自行付费，成本结构、限流与稳定性责任一并转到使用方，预算与采购流程需要提前改。</p>
+      <p>模型供应商开始按控制权归属与合规判断挑选分发渠道，把编码 agent 绑在单一厂商上的团队在这一轮里承担了全部迁移成本。</p>
+      <p>多模型路由与可替换的接入层从效率优化项变成基础设施要求，团队需要能记录每个任务实际使用的模型与版本，避免自动路由带来的结果漂移。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenAI https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex ｜ 36氪 https://m.36kr.com/p/3960079349054855</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 具身智能 · 量产交付</span>
+    <h2 class="c-title">优必选 Walker S2 首批数百台开启量产交付</h2>
+    <div class="c-tags">
+      <span class="chip b">1.76 米 / 52 自由度</span><span class="chip">15 公斤负载</span><span class="chip o">自主换电支持 7×24 作业</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 12 日，优必选首批数百台全尺寸工业人形机器人 Walker S2 正式开启量产交付，将分批投入产业一线。整机身高 1.76 米、52 自由度，可在 0 至 1.8 米空间内搬运 15 公斤负载，腰部转动 ±162°；第四代工业级灵巧手采用类人尺寸设计，宣称亚毫米级精细操作、耐久测试超过 8 万次。</p>
+      <p>头部采用纯 RGB 双目视觉方案，配合双电池同充同放与标准化电池仓，实现自主换电与 7×24 小时连续作业。软件侧为群脑网络 2.0 与工业协作智能体 Co-Agent，承担意图理解、任务规划、工具调用与异常处理，依赖工业实训积累的数据持续迭代。Walker 系列人形机器人累计订单金额已超过 8 亿元。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>数百台级别的交付把验证重点从单机演示移到批量一致性，灵巧手耐久、换电机构与双目视觉在长班次下的故障率，会成为下一轮采购的硬指标。</p>
+      <p>自主换电把连续作业时长从电池容量问题转成换电节拍与电池周转问题，产线排产、人员配置与场地动线都要按这个节拍重算。</p>
+      <p>Co-Agent 这类把多模态推理模型、交互模型与技能小模型混编的架构，决定了本体厂商对外部模型供应的依赖程度，也决定了算法迭代的自主空间。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>IT之家（凤凰科技转载）https://tech.ifeng.com/c/8oF565HCULE</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · Agent · 企业运行环境</span>
+    <h2 class="c-title">Databricks 把 Genie 改成常驻的自主 AI 同事</h2>
+    <div class="c-tags">
+      <span class="chip b">Genie Ontology 业务语义层</span><span class="chip">Unity Gateway 管工具与花费</span><span class="chip o">邮件 / Slack / Teams 入口</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 12 日 Databricks 发布新版 Genie，定位为常驻的自主 AI 同事，承接长时间运行的企业任务：跟踪进度、追问缺失的输入、在新信息到达时继续动作，遇到需要决策的节点向人请示。业务上下文来自 Genie Ontology，这层语义地图由 agent 构建、由人治理，覆盖指标定义、实体关系与组织知识；Genie Search 在湖仓与已连接的业务系统里检索。</p>
+      <p>Unity Gateway 与 Unity Catalog 负责权限、动作追踪与花费上限，管理员可以看到 agent 的动作、用量与成本。入口覆盖邮件、Slack 与 Microsoft Teams，可同时运行多个任务，在同一处监督、干预与停止，并按时间表或指标触发起跑。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>常驻 agent 的可用性取决于语义层质量，谁维护指标定义与组织知识，谁就掌握 agent 的行为边界，这项工作正在从数据团队的兼职变成独立职能。</p>
+      <p>动作追踪与花费上限写进管理面，企业才愿意把持续运行的任务交出去，审计口径会先于模型能力成为采购门槛。</p>
+      <p>多任务并行加上人工审批点的组合，把 agent 的作业范围推到流程责任层面，配套的岗位设置与考核方式需要同步调整。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Databricks https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · AI 编码 · 验证环节</span>
+    <h2 class="c-title">Expo 把 iOS 模拟器搬上云端，交给编码 agent 自己跑</h2>
+    <div class="c-tags">
+      <span class="chip b">每分钟 0.10 美元</span><span class="chip">不需要 Mac</span><span class="chip o">适配 Cursor / Claude Code / Codex</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 12 日 Expo 发布 Expo Simulators，提供面向编码 agent 的云端 iOS 模拟器与安卓模拟器。agent 可以复现上报的缺陷、改写代码、在模拟器上验证，并把屏幕录制、截图与日志挂到 pull request 上，团队成员通过链接直接打开运行中的构建，不必走 TestFlight。</p>
+      <p>iOS 模拟器可以跑在 Linux、Windows 的 WSL 或云沙箱里，多个 agent 并行不再受开发机内存限制。该服务已适配 Cursor、Claude Code 与 Codex，按模拟器分钟计费，每分钟 0.10 美元，Starter、Production、Enterprise 套餐每月含 60 分钟。Expo 计划在月底前公布 Agent Sessions，为从客户反馈等外部来源触发 agent 的流程加一层防提示注入的隔离。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码 agent 的瓶颈从写代码转到验证，能把跑起来看过这一步自动化的一方，直接决定 agent 交付的返工率与人工评审负担。</p>
+      <p>移动端验证长期依赖苹果硬件与本机资源，云端模拟器把它变成按分钟购买的服务，并行 agent 的数量不再由开发机配置决定。</p>
+      <p>后续的 Agent Sessions 指向输入来源的可信度，企业接入 agent 的下一道关口在触发入口的隔离与准入。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>PR Newswire https://www.prnewswire.com/news-releases/expo-launches-cloud-ios-simulators-and-android-emulators-for-ai-coding-agents-302937712.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>英伟达新掌门人遴选期内，Isaac 与 GR00T 的版本节奏、机器人生态投资是否调整。</li>
+      <li>Cursor 在失去直连后的模型用量结构，以及自带 API Key 的实际使用比例。</li>
+      <li>Walker S2 数百台在产线上的连续作业时长、灵巧手故障率与换电节拍。</li>
+      <li>Genie Ontology 由谁维护、维护成本如何在业务部门之间分摊。</li>
+      <li>Expo Simulators 在多个 agent 并行时的排队时延与单次验证成本。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-13 09:24 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

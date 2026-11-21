@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Kde on Leion'Log</title><link>https://leiontong.github.io/tags/kde/</link><description>Recent content in Kde on Leion'Log</description><generator>Hugo</generator><language>zh-CN</language><lastBuildDate>Mon, 18 May 2020 19:39:26 +0000</lastBuildDate><atom:link href="https://leiontong.github.io/tags/kde/index.xml" rel="self" type="application/rss+xml"/><item><title>KDE-Plasma-Beautify-主题美化</title><link>https://leiontong.github.io/posts/kde-plasma-beautify-theme/</link><pubDate>Mon, 18 May 2020 19:39:26 +0000</pubDate><guid>https://leiontong.github.io/posts/kde-plasma-beautify-theme/</guid><description>&lt;h1 id="kde-beautify"&gt;KDE Beautify&lt;/h1&gt;
+&lt;h2 id="外观"&gt;外观&lt;/h2&gt;
+&lt;p&gt;主题存放在哪里？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全局主题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;/usr/share/plasma/look-and-feel/&lt;/p&gt;
+&lt;p&gt;~/.local/share/plasma/look-and-feel/&lt;/p&gt;</description></item></channel></rss>
