@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-21-1050.html">
+    <div class="da-card-date">2026-11-21 · 10:50</div>
+    <div class="da-card-title">两份黎曼猜想证明在同一天公布，其中一份由模型产出且仅有 Lean 版本</div>
+    <div class="da-card-main">本期收录同日出现的两份广义黎曼猜想证明声明、可在笔记本上离线运行的 Inkling 2 Mini、由智能体集群从零设计并验证的 CPU 架构 Frostbite、Signal 对系统级智能体读屏的拦截，以及光轮智能面向长程操作任务的强化学习仿真环境。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-20-0924.html">
     <div class="da-card-date">2026-11-20 · 09:24</div>
     <div class="da-card-title">Anthropic 挂牌募资 813 亿美元，桌面智能体获本机操作权限</div>
