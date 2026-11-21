@@ -237,3 +237,10 @@
 - 2026-11-20 · Olegu621/OPENSTATION · Yandex Station Max 替换固件，Gemini Live 加本地音乐与遥控
 - 2026-11-20 · yes999zc/rui · NAS 上自建多房间语音端点，音箱留原壳只换服务
 - 2026-11-20 · PopaSpinka/PopkaStudio · 浏览器里拖图层做 ESP32 表盘，一键把成品写成固件
+- 2026-11-21 · ersinkoc/phonebox · 旧安卓手机配 .NET 桌面代理当电脑副屏，126 控件可视化编辑
+- 2026-11-21 · sourpatchdad/patchboard · 自建 homelab 面板读 Docker socket，把故障项顶到首页供墙面屏与墨水屏
+- 2026-11-21 · shengshu-ai/Motus2 · 自演进世界模型，共享权重同当策略、模拟器与评估器做灵巧操作闭环
+- 2026-11-21 · Robbyant/lingbot-touch · JEPA 触觉表征基础模型，异构传感器信号零样本迁移到灵巧手
+- 2026-11-21 · KhushiJ2911/microVLA · 4GB 显存笔记本卡上从零训 10M 参数 VLA，同卡跑 4-bit pi0.5
+- 2026-11-21 · adventists-ai/sophon-realtime · 开源全双工语音模型，能听语气并带笑声叹息回应，Mac 上 MLX 离线
+- 2026-11-21 · n4ze3m/tiny-voca · 4.5M 参数 18MB 英文 TTS，四线程 CPU 约 70 倍实时并可进浏览器

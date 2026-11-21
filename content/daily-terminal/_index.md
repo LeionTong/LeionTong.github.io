@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-21-1106.html">
+    <div class="da-card-date">2026-11-21 · 11:06</div>
+    <div class="da-card-title">旧手机被改成桌面副屏，具身与语音模型一起往小算力压</div>
+    <div class="da-card-main">本期七条：旧安卓手机配桌面代理当电脑副屏，自建 homelab 面板兼做墙面平板与墨水屏看板；具身侧是自演进世界模型、异构触觉表征与 4GB 显卡上从零训练的 VLA；服务端侧是全双工语音模型与 4.5M 参数的离线 TTS。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-20-1035.html">
     <div class="da-card-date">2026-11-20 · 10:35</div>
     <div class="da-card-title">旧音箱被改写成本地语音端点，手表表盘改成浏览器里拖出来</div>
