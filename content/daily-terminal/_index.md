@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-22-1610.html">
+    <div class="da-card-date">2026-11-22 · 16:10</div>
+    <div class="da-card-title">旧屏与旧音箱改做语音入口，腕上与桌面的小设备各接自托管后台</div>
+    <div class="da-card-main">本期五条：联想会议屏刷成带角色的桌面语音伴侣，Wear OS 手表直连自托管网关并把回答念出来，ESP32 圆表靠自写界面库跑到 60 帧；桌面一侧是四足桌宠框架背后的新品众筹，以及一块显示编码会话状态的棱镜小屏。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-21-1106.html">
     <div class="da-card-date">2026-11-21 · 11:06</div>
     <div class="da-card-title">旧手机被改成桌面副屏，具身与语音模型一起往小算力压</div>

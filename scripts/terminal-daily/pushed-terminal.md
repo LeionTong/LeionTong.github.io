@@ -244,3 +244,8 @@
 - 2026-11-21 · KhushiJ2911/microVLA · 4GB 显存笔记本卡上从零训 10M 参数 VLA，同卡跑 4-bit pi0.5
 - 2026-11-21 · adventists-ai/sophon-realtime · 开源全双工语音模型，能听语气并带笑声叹息回应，Mac 上 MLX 离线
 - 2026-11-21 · n4ze3m/tiny-voca · 4.5M 参数 18MB 英文 TTS，四线程 CPU 约 70 倍实时并可进浏览器
+- 2026-11-22 · m0s4ik/home-companion · 会议屏刷成带角色的桌面语音助手，唤醒词与计时闹钟留在设备本地
+- 2026-11-22 · borealBytes/hermes-wearos · Wear OS 手表直连自托管网关，腕上审批与克隆音色播报
+- 2026-11-22 · PopaSpinka/HaloWatch · ESP32-S3 圆表从驱动层自写界面库，静止不画帧
+- 2026-11-22 · PetoiCamp/OpenCat-Quadruped-Robot · 四足桌宠框架，老主板维护中并推 Quaddle 桌面套件众筹
+- 2026-11-22 · joebentham/desk-buddy · 棱镜小屏桌边摆件，显示本机编码会话状态
