@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI 第 112 期 2026-11-22</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-22 · 第 112 期</span>
+    </div>
+    <h1>OpenAI 同日发布 GPT-6.2 两款模型，旗舰版输出价格下调两成</h1>
+    <p class="mh-sub">本期收录 GPT-6.2 Astra 与 Sol 的定价与基准、腾讯 Hy4 全量权重的开放、27B 模型自行改写权重的实验、AMD 完成 World Labs 收购，以及开源的科研智能体 MatOS。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 前沿模型 · 编程与电脑操作</span>
+    <h2 class="c-title">OpenAI 发布 GPT-6.2 Astra 与 Sol，Astra 的输入输出价格降两成</h2>
+    <div class="c-tags"><span class="chip b">高难度专业任务较上一代提升 5.2 个百分点，成本不到三分之一</span><span class="chip">Sol 在 FrontierCode 2.0 上距 Astra 0.5 分，成本约五分之一</span><span class="chip o">缓存输入价格下调六成，两款均进入 Codex 与 ChatGPT Work</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 22 日，OpenAI 发布 GPT-6.2 Astra 与 GPT-6.2 Sol。Astra 面向高难度项目，在 Agents&#39; Last Exam 上比 GPT-6 Astra 高 5.2 个百分点、成本不到三分之一，比 Claude Fable 5.2 高 5.5 个百分点、成本为对方的 5%；Terminal-Bench-Science 0.1 提升 9 个百分点，Vals Science Index 刷新纪录，Artificial Analysis 综合智能指数 62 分，较前代提升 5 分。API 价格为输入每百万 token 8 美元、缓存输入 0.40 美元、输出 40 美元，比上一代低两成，缓存部分降六成。Sol 维持 GPT-6.1 Sol 的价格（输入 2 美元、输出 10 美元），在 Cognition 的 FrontierCode 2.0 上距 Astra 仅 0.5 分、成本约五分之一，OpenAI 称内部许多员工已把它当作默认模型。两款已在 ChatGPT Work、Codex 与 API 上线。Hacker News 同日的讨论帖称两款模型在 SimpleBench 上的得分不及前代。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>定价下移改变的是高难度任务的成本结构，长程编程与电脑操作的单位成本随之下降，团队在 Codex、Claude Code 与第三方智能体之间分配预算时需要重新算一遍。</p><p>Sol 与旗舰的差距压到半分，模型选型从取最强一款变成按任务分层路由，智能体运行时把模型路由当常规配置会更普遍。</p><p>官方公布的成绩集中在专业任务与科研工作流，社区在常识推理基准上的复测没有同步改善，两类评测的分歧提示能力提升并不均匀。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenAI https://openai.com/index/introducing-gpt-6-2-astra-sol ｜ 量子位 https://www.qbitai.com/2026/11/510707.html ｜ Hacker News https://news.ycombinator.com/</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · 开放权重 · 私有部署</span>
+    <h2 class="c-title">腾讯开放 Hy4 全部权重，770B 多模态模型可放进自有环境部署</h2>
+    <div class="c-tags"><span class="chip b">770B 总参数、49B 激活，上下文 1M</span><span class="chip">instruct、FP8 与预训练三个版本一并放出，附系统卡</span><span class="chip o">同系列 Hy4-flash 为 220B 总参数、12B 激活</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 20 日，腾讯混元在 GitHub、Hugging Face、ModelScope 与 GitCode 开放 Hy4 全量权重，此前 11 月 4 日只提供 API。Hy4 是原生多模态的混合专家模型，总参数 770B、每 token 激活 49B，上下文 1M，支持文本、图像与视频理解；开放版本包含 instruct、FP8 量化与预训练三个版本，随权重一同发布系统卡，写明安全评测方法、结果与已知风险。定位低成本部署的 Hy4-flash 权重更早开放，总参数 220B（其中 64B 为 Engram 参数）、每 token 激活 12B，采用稀疏注意力与滑动窗口交替、LatentMoE 与 n-gram 嵌入，许可为腾讯 Hy 许可。至此混元 Hy 系列各代模型均已有开放权重，团队同期在 r/LocalLLaMA 做问答。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>旗舰多模态模型可下载之后，对数据出域敏感的金融、政务与制造场景能自建推理与微调，智能体在私有云与端侧多了一个 1M 上下文的底座选项。</p><p>开源阵营的比拼从榜单分数转向部署深度，推理框架适配、量化版本与系统卡是否齐备，决定模型被真正接入工作流的比例。</p><p>权重开放也把安全评测交给使用方复核，系统卡给出的结论需要与实际部署环境对照，尤其在企业内网的长上下文检索场景。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>腾讯混元 https://x.com/TencentHunyuan/status/2123625549147070538 ｜ Hugging Face https://huggingface.co/tencent/Hy4-Flash</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 模型自我改进 · 研究</span>
+    <h2 class="c-title">27B 模型不用梯度改写自身权重，未见过题目上提升 6.6 个百分点</h2>
+    <div class="c-tags"><span class="chip b">以自身权重、评分结果与自运行能力定位失败并编辑矩阵</span><span class="chip">连续八次会话只提交自身测试支持的编辑，准确率只升不降</span><span class="chip o">损坏副本在未见过的图像任务上恢复到完好模型的八成以上</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 16 日提交、18 日修订的论文《Language Models Can Rewrite Their Own Weights》（arXiv 2611.21885，作者来自 UIUC、CMU、Rutgers、普林斯顿与斯坦福）提出 self-rewriting：给一个 27B 开放模型它的权重、带评分的练习题和运行自身的能力，模型自行诊断失败原因（大量回答耗尽 token 或陷入循环），用推理定位并改写对应矩阵，全程不使用梯度、不做训练。一次编辑使 490 道未见过题目的准确率提升 6.6 个百分点；它只在自身测试支持时才提交编辑，每次替换上一版，前八次连续会话准确率单调上升。修复实验中，模型在不读取原始权重的情况下把损坏副本在六个未见过的图像基准上从 7% 恢复到 70%，约为完好模型的 83%。同一模型家族的较小尺寸要么不作编辑，要么把自己改坏。整个过程只需单卡数小时。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>改进写进权重、不增加每次回答的成本，这条路绕开了推理时扩展的算力开销，对长期在线的智能体是一种可保存的自我校正机制。</p><p>能力只在最大尺寸上出现，规模门槛决定短期适用范围；权重可被模型自行修改，版本追溯、回滚与评测回归会成为工程上的新问题。</p><p>论文把训练与推理的边界当作工具限制来处理，若方法在更大模型与代码任务上成立，模型迭代的周期会从训练集群转移到单机运行时。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>arXiv https://arxiv.org/abs/2611.21885 ｜ Hugging Face Papers https://huggingface.co/papers/2611.21885</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 芯片 · 世界模型</span>
+    <h2 class="c-title">AMD 完成 82 亿美元收购 World Labs，李飞飞出任执行副总裁兼首席科学家</h2>
+    <div class="c-tags"><span class="chip b">1,497.8 万股全股票交割，11 月 13 日完成，规模居 AMD 并购史第二</span><span class="chip">Atlas 世界模型在交割前一日向公众与开发者开放</span><span class="chip o">团队作为独立前沿研究组织参与 Instinct 与 ROCm 的架构设计</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 16 日 AMD 向美国证券交易委员会提交的 8-K/A 显示，对 World Labs 的收购已于 11 月 13 日完成交割，以约 1,497.8 万股普通股支付，估值约 82 亿美元，规模仅次于 2022 年完成的赛灵思收购；从 9 月 28 日签约到交割共 46 天。World Labs 联合创始人李飞飞出任 AMD 执行副总裁兼首席科学家，直接向苏姿丰汇报，Justin Johnson 与 Ben Mildenhall 留任，团队在 AMD 内部作为独立的前沿研究组织继续做基础模型。World Labs 的 Atlas 以相机位姿为条件预测下一个视角，在同一套自回归扩散 Transformer 下切换稠密重建、稀疏重建与纯文本生成，交割前一日向所有公众与开发者开放；该公司今年收购的 Scenix 负责实景转仿真与仿真迁现实，演示中机器人在 Atlas 生成的仿真环境完成训练后零样本部署到真机。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>芯片厂把世界模型团队放进架构设计环节，模型与硬件的联合优化从采购关系变成同一条研发链路，机器人负载可以在芯片与软件栈定型前参与压测。</p><p>可规模化获取的训练环境与真机迁移管线被并入算力供应商，这条链路的开放程度会影响中小团队能否以同样方式训练机器人模型。</p><p>全股票交割与当日股价回调同时出现，说明市场对软硬协同的预期还没有落到估值上，后续要看 Atlas 在 AMD 硬件上的训练与推理成本。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/11/510695.html</p>
+    </div>
+  </article>
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 科研智能体 · 开源</span>
+    <h2 class="c-title">中关村两院开源材料科研智能体 MatOS，材料软件调用成功率 97.96%</h2>
+    <div class="c-tags"><span class="chip b">3,135 个数据集、386 项技能、104 个工作流、51 个专家角色</span><span class="chip">从 3,036 万个候选结构中筛出 97 个固态电解质</span><span class="chip o">以 DeepSeek-V4-Pro 为底座时，完整问题成功率高过 Codex CLI 与 Claude Code</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>量子位 11 月 17 日报道，中关村学院与中关村人工智能研究院开源 MatOS，把数据、知识、工具、技能、角色与工作流组织成六类科学资产，用有状态的执行图调度任务，执行图快照、节点状态与结果独立于模型会话保存，耗时数天的计算交由后台执行并在完成或需要输入时通知。失败的工具调用与用户纠正作为证据进入资产修订，通过结构检查与语义审查后写回工作流或技能，基础模型参数保持不变，同一套资产可换用不同底座模型。资产库含 3,135 个数据集、386 项技能、104 个工作流、51 个专家角色，集成 48 款材料计算软件。在材料软件使用基准 MatTools 上完整问题成功率 97.96%，高于 Codex CLI 的 95.92% 与 Claude Code 的 89.80%；ResearchClawBench 平均分较 Codex CLI 高 33.6%。研究案例中，分层筛选从 30,364,908 个初始结构收窄到 97 个固态电解质候选，主动学习流程把合金熔点预测模型的平均绝对误差降到 3.18°C。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>经验放在模型之外的资产里、经检查后版本化，这条路线与把能力写进权重互补，长周期科研任务的状态与证据能够保存并复用。</p><p>有状态工作流只把方法选择、计划调整与异常解释交给模型，多步执行偏离目标的风险下降，工业与研究场景接入智能体时可以参照这套结构。</p><p>同一套资产换底座模型后成绩仍成立，说明科研智能体的可迁移性更多取决于工具与流程的组织方式，而非单一模型的强弱。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/11/510652.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>GPT-6.2 Astra 在第三方长程任务评测上的独立复测结果，以及缓存降价对智能体长会话成本的实际影响。</li>
+      <li>Hy4 全量权重在 8 卡以上集群的实际吞吐与量化精度损失，企业内网部署的最小可行配置。</li>
+      <li>self-rewriting 方法在 100B 以上模型与代码任务上的表现，以及权重被自行修改后的版本管理与评测回归做法。</li>
+      <li>Atlas 在 AMD Instinct 上的训练成本，World Labs 团队参与架构设计后首款芯片的机器人负载指标。</li>
+      <li>MatOS 的资产修订在多人协作下如何避免冲突，以及材料以外的学科能否复用同一套资产结构。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-22 15:41 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

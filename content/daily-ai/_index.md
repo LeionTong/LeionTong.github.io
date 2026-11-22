@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-22-1541.html">
+    <div class="da-card-date">2026-11-22 · 15:41</div>
+    <div class="da-card-title">OpenAI 同日发布 GPT-6.2 两款模型，旗舰版输出价格下调两成</div>
+    <div class="da-card-main">本期收录 GPT-6.2 Astra 与 Sol 的定价与基准、腾讯 Hy4 全量权重的开放、27B 模型自行改写权重的实验、AMD 完成 World Labs 收购，以及开源的科研智能体 MatOS。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-21-1050.html">
     <div class="da-card-date">2026-11-21 · 10:50</div>
     <div class="da-card-title">两份黎曼猜想证明在同一天公布，其中一份由模型产出且仅有 Lean 版本</div>
