@@ -183,3 +183,8 @@
 - 2026-11-21 · academa-labs/manimgx · Manim CE API 的 Rust GPU 重写，同脚本渲 1080p60 数学动画快九十倍
 - 2026-11-21 · indexable-inc/blaze · 常驻进程的 Rust 增量构建，改一个函数只重编改动部分，YC F26
 - 2026-11-21 · toyxyz/toyxyz_RGBMocap · Windows 单机视频动捕，本机跑 ExMR/FlowHMR/GVHMR 并导出 FBX 与 VMD
+- 2026-11-22 · iflytek/skillhub · 企业内网技能注册中心，命名空间、RBAC、审核与审计日志成套
+- 2026-11-22 · clidey/whodb · 自托管数据库工作台，付费版按成员卖 SSO、审计、流水线与报表
+- 2026-11-22 · wici-ai/inferssd · MoE 专家权重留在 SSD 流式读入，显存装不下的 763B 模型本机可跑
+- 2026-11-22 · NVIDIA-Omniverse/usd-brep · 把 NURBS BRep 精确几何写进 OpenUSD，带布尔、倒角、缝合与三角化
+- 2026-11-22 · emanuele-em/kanzo · 4.7MB 单文件看板加 MCP 服务，人和编码智能体共用任务状态
