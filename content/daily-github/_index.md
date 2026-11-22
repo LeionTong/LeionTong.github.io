@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-22-1545.html">
+    <div class="da-card-date">2026-11-22 · 15:45</div>
+    <div class="da-card-title">席位费、调用费、内核授权，都可以换成自托管的软件</div>
+    <div class="da-card-main">本期收了讯飞的企业技能注册中心 SkillHub、按成员收费的数据库工作台 WhoDB、单二进制看板 Kanzo、用 SSD 流式跑 763B MoE 的 InferSSD，以及把 BRep 精确几何写进 OpenUSD 的 NVIDIA usd-brep；五条都把按席位、按次或按授权的那笔钱，换成自己机器上的一套软件。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-21-1051.html">
     <div class="da-card-date">2026-11-21 · 10:51</div>
     <div class="da-card-title">模型入口、推理、动捕和渲染都挪回自己机器上</div>
