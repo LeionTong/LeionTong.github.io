@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-23-0927.html">
+    <div class="da-card-date">2026-11-23 · 09:27</div>
+    <div class="da-card-title">Lean 与 Mathlib 社区核验黎曼猜想证明，独立内核复算通过</div>
+    <div class="da-card-main">本期收录黎曼猜想形式化证明的社区核验结果、OpenRouter 对三家推理服务商的数据处置、欧洲法规 MCP 服务、25 个模型的视频记忆评测，以及人形机器人格斗赛的实机数据。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-22-1541.html">
     <div class="da-card-date">2026-11-22 · 15:41</div>
     <div class="da-card-title">OpenAI 同日发布 GPT-6.2 两款模型，旗舰版输出价格下调两成</div>

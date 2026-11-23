@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI 第 113 期 2026-11-23</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-23 · 第 113 期</span>
+    </div>
+    <h1>Lean 与 Mathlib 社区核验黎曼猜想证明，独立内核复算通过</h1>
+    <p class="mh-sub">本期收录黎曼猜想形式化证明的社区核验结果、OpenRouter 对三家推理服务商的数据处置、欧洲法规 MCP 服务、25 个模型的视频记忆评测，以及人形机器人格斗赛的实机数据。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 形式化验证 · 编码智能体</span>
+    <h2 class="c-title">Lean 与 Mathlib 社区确认黎曼猜想证明通过核验，独立内核复算 61.6GB 导出</h2>
+    <div class="c-tags"><span class="chip b">175,187 个模块零错误编译，逐模块内核重放无一被拒</span><span class="chip">五个头定理只依赖三条标准公理，Mathlib 文件与官方缓存逐字节一致</span><span class="chip o">独立 Rust 内核 nanoda 用 27 分 42 秒接受导出证明，核验门槛约 100GB 内存</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 20 日，Anthropic 数学家 Levent Alpöge 以 Lean 库的形式发布黎曼猜想的证明，代码约 1,700 万行。11 月 21 日，Lean 与 Mathlib 社区联合发布声明，Lean FRO 与 Mathlib Initiative 背书，确认陈述与证明均正确，并逐条列出四项判据：所证即 Mathlib 中的 RiemannHypothesis 定义、库能零错误编译、所证定理与该陈述一致、导出证明经多个内核复核通过。</p>
+      <p>核验数字：175,187 个模块在 Lean v4.33.1 与 Mathlib v4.33.1 下全部编译通过；五个头定理只依赖 propext、Classical.choice 与 Quot.sound 三条标准公理；8,322 个 Mathlib 文件与 378 个依赖文件与官方缓存逐字节一致；leanchecker 逐模块重放 175,187 个模块，无一被拒；导出证明解包后为 61,570,595,788 字节，独立 Rust 内核 nanoda 在 80 线程上以 27 分 42 秒接受。麻省理工学院的 Andrew Sutherland 用 Claude Code 跑完这套核验并公开验证文件，给出的门槛是约 100GB 内存与 70GB 磁盘。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这套流程给出 AI 参与产出的大规模代码如何被外部复核的完整样板，先公开可执行的证明，再由陌生人和独立内核复算，结论不依赖作者自述。对编码智能体来说，可核验的产出把验收标准换成了能被独立检查器接受，长任务交付的信任成本随之下降。</p><p>代价同样清楚，一套检查要百 GB 级内存、几十 GB 磁盘与数十分钟机时，工具链版本差异仍在制造摩擦，v4.36 的检查器读不了 v4.33 的核心库，两个独立检查器因不支持某个自反归纳类型直接退出。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Lean community blog https://leanprover-community.github.io/blog/posts/riemann-hypothesis/ ｜ MIT 验证文件 https://math.mit.edu/~drew/grh/ ｜ Hacker News https://news.ycombinator.com/item?id=50589618</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · 推理基础设施 · 数据治理</span>
+    <h2 class="c-title">OpenRouter 下架三家推理服务商，125 个端点取消零数据留存资格</h2>
+    <div class="c-tags"><span class="chip b">Together 承认 6 月至 7 月请求的提示词泄露，Novita 与 Phala 另发通告</span><span class="chip">平台自身未被入侵，处置集中在下游服务商与端点</span><span class="chip o">开始核查网络路径是否把请求与响应转发给第三方</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 22 日，OpenRouter 发布公告称，本周有安全研究者报告部分推理服务商的数据被泄露，或有证据显示其数据处理策略未被遵守，OpenRouter 自身未遭入侵。处置动作包括：下架三家服务商、取消 125 个端点的零数据留存（ZDR）资格、通知所有可能受影响的客户；同时开始对网络路径做技术核查，确认请求与响应是否被转发给第三方，被移出名单的端点需要提供保证与验证后才恢复资格。</p>
+      <p>公告附上的服务商说明有 Novita 就 MiniMax 请求发出的隐私通告、Phala 的 11 月初步事故报告，以及 Together 承认 2026 年 6 月至 7 月间请求的提示词泄露。测试源自 Dragos 的报告。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>多模型路由把同一份上下文分发给不同服务商，智能体的系统提示、工具返回与检索片段都在其列，端点失守意味着完整的任务上下文外泄。零数据留存从合同条款变成需要技术验证的属性，采购侧应把它当作可审计项，逐端点核对，不能按默认值处理。</p><p>被点名的三家都处在价格敏感的低成本档，低成本推理与数据承诺之间的张力会随智能体调用量上升而放大。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>OpenRouter https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/ ｜ Hacker News https://news.ycombinator.com/item?id=50595554</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 智能体工具 · 法源数据</span>
+    <h2 class="c-title">Pandex 把欧盟与七国法规做成 MCP 服务，覆盖 280 万份官方文件</h2>
+    <div class="c-tags"><span class="chip b">1.12 亿条可检索段落、3,700 万条原文引用链接，41 家机构中 33 家收录完整</span><span class="chip">REST API 与 MCP 服务器同出，可直接接入 Cursor、Copilot 等工具</span><span class="chip o">未收全的机构逐条写明缺口原因，测试期每日 1,000 次请求免费</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>欧洲法规数据服务 Pandex 上线测试，把欧盟与七个欧洲国家的立法和最高法院判决整理成统一接口，同时提供 REST API 与 MCP 服务器，可接入 Claude、Cursor、GitHub Copilot、Windsurf、Zed 与 Gemini 等工具。站点公布的口径为 280 万份官方文件、1.12 亿条可检索段落、3,700 万条原文引用链接，41 家机构中 33 家收录完整；覆盖欧盟（出版物办公室与欧盟法院）、法国、德国、荷兰、英国、奥地利、瑞士、卢森堡与欧洲理事会。</p>
+      <p>机构登记册标注日期为 11 月 17 日，未收全的机构逐条写明原因，例如法国最高法院 2020 年后的部分判决只在 Judilibre 发布，瑞士联邦法院约 17.97 万份文件中已收 13.1 万份仍在加载。测试期免费，每日 1,000 次请求，之后按每 1,000 次请求 1 欧元计费。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>智能体进入法务与合规场景，答案要落到具体条文与判决，把权威法源做成 MCP 工具省掉了自建抓取、条文版本比对与失效日期跟踪的工作。站点把未收全的机构与原因一并公开，工具的可信边界因此可以被检查，接入方按辖区取舍即可。</p><p>欧洲法规变动频繁，查询若能带出条文的历史版本与生效日期，合规类智能体的数据更新压力会转移到供应侧。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Pandex https://www.pandex.io/ ｜ Hacker News https://news.ycombinator.com/item?id=50593481</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 多模态记忆 · 评测</span>
+    <h2 class="c-title">VideoMemBench 评测 25 个模型的多轮视频记忆，最高分 45.7</h2>
+    <div class="c-tags"><span class="chip b">Claude Opus 5 综合 45.7，人类标注者 86.1%</span><span class="chip">输入统一为带时间戳的 128 帧，问题按对话顺序逐轮给出</span><span class="chip o">答案依赖一项最低，仅 35.7</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 21 日，机器之心报道 VideoMemBench 的评测结果，论文为 arXiv 2610.40131。评测对 25 个多模态模型（8 个闭源、17 个开放权重）给同一份输入：带时间戳的 128 帧采样视频，问题按对话顺序逐轮提出，模型此前的回答保留在上下文中。</p>
+      <p>综合得分由逐轮回答、场景依赖与答案依赖三项合成，Claude Opus 5 以 45.7 居首，三项分别为 52.3、49.1 与 35.7；其后是 Gemini 3.8 Flash 42.4、Kimi K3 42.2、GPT-5.6-sol 41.7、Qwen3.5-27B 34.3。人类标注者的综合成绩为 86.1%。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>带摄像头的终端产品靠连续对话维持续事感，跨轮记忆的分数直接决定追问时会不会答错人或答错场次。三项里答案依赖最低，模型能把画面描述清楚，却难以把先前的回答当作既定事实继续推理，这是多轮助手最容易露出的破绽。</p><p>45.7 与 86.1 之间的差距说明端侧产品需要外置记忆结构，把历史回答写进可检索的存储，查询时再交回模型。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>机器之心 https://www.jiqizhixin.com/ ｜ arXiv 论文 https://arxiv.org/html/2610.40131v1 ｜ 评测代码 https://github.com/Oliiveralien/VideoMemBench</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 具身智能 · 实机测试</span>
+    <h2 class="c-title">URKL 南京站八角笼开打，众擎 T800 用格斗碰撞数据回头改本体</h2>
+    <div class="c-tags"><span class="chip b">关节输出扭矩 450 牛米，受冲击时毫秒级重算 20 余个关节的力矩分配</span><span class="chip">擎安机器人在 T800 上做系统层二次开发，优化视觉感知闭环与全身控制</span><span class="chip o">上半年国内人形机器人出货超 4 万台，占全球 97%</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 21 日晚，全球人形机器人自由格斗联赛 URKL 城市巡回挑战赛南京站在南京国际博览中心开打，上海站冠军「白色雄鹰」对南京主场「紫金麒麟」。紫金麒麟基于众擎 T800 全尺寸人形机器人，身高 1.73 米，由多伦科技与众擎在长三角的运营主体擎安机器人做系统层二次开发，优化视觉感知闭环与全身控制，在被压制后重新站起并逆转取胜。</p>
+      <p>T800 的关节输出扭矩 450 牛米，模组集成无框力矩电机、谐波减速器、编码器、驱动器与力传感器；双足结构受外力冲击时，控制系统需在毫秒级内重新解算全身 20 余个关节的力矩分配。赛事同期公布的口径还包括 2026 年上半年中国人形机器人出货超 4 万台、占全球 97%，上半年国内具身智能融资 935 亿元、为去年同期的 5 倍。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>格斗把碰撞、失衡与连续对抗压缩进几分钟，载荷接近甚至超过设计极限，暴露的是关节疲劳、结构强度与控制冗余这些纸面参数覆盖不到的短板。赛场上采集的姿态扰动、外力冲击与决策样本可以回流到强化学习训练和本体改型，比赛因此更像一轮成本可控的实机压力测试。</p><p>投资侧的判断标准同步变化，项目筛选开始看收入结构、订单可复现性与复购，估值锚点转向在手订单、毛利率与单位交付成本，样机演示的权重下降。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>财联社 https://k.sina.com.cn/article_5953190046_162d6789e06703y2d4.html ｜ 新华日报 https://finance.sina.com.cn/jjxw/2026-11-16/doc-iniywnmm1382556.shtml</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>黎曼猜想证明的核验仍未收尾，Lean 默认内核与 paranoid 内核、lake comparator 的完整比对尚未给出结论，后续要看社区是否为超大规模证明固定一套核验流程。</li>
+      <li>OpenRouter 下架的三家服务商是否公开事故细节，被取消零数据留存资格的 125 个端点何时恢复。</li>
+      <li>Pandex 的西班牙、意大利、爱尔兰等辖区何时补全，条文历史版本与生效日期是否随查询返回。</li>
+      <li>VideoMemBench 的答案依赖一项能否通过外置记忆结构补上，端侧视频助手在连续追问下的实际表现。</li>
+      <li>格斗数据回流后的 T800 改型版本，以及关节、减速器在冲击载荷下的寿命指标是否公开。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-23 09:27 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>
