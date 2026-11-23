@@ -1,8 +1,3 @@
-- 2026-09-23 · google/ax · Google 开源的声明式 agent 编排器，用类似 Kubernetes 的清单在集群里批量跑 ag
-- 2026-09-23 · dream-num/univer · 可嵌入自有产品的 Office SDK（表格、文档、幻灯片、看板、Base），本月把定位明确切到面向 a
-- 2026-09-23 · superdesigndev/treg · 给 agent 用的工具目录与凭据代理：一个 base URL、一个 token，可调 60 多家 pr
-- 2026-09-23 · nolabs-ai/nono · 零延迟、零配置的 agent 沙箱，单二进制给 Claude Code、Codex、OpenCode 等
-- 2026-09-23 · lahfir/agent-desktop · 给任意 agent 的桌面操作层：Rust 单二进制，读系统无障碍树而不是截图像素，再从稳定引用上执行动
 - 2026-09-24 · t8y2/dbx · 25MB 跨平台数据库客户端，90+ 库 + 内置 AI/MCP，替代按授权计费的商业客户端
 - 2026-09-24 · browser-use/jev-ultrafast · 把网页动作空间索引化的 agent，用 Jev 决策模型替代逐步推理
 - 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
@@ -188,3 +183,8 @@
 - 2026-11-22 · wici-ai/inferssd · MoE 专家权重留在 SSD 流式读入，显存装不下的 763B 模型本机可跑
 - 2026-11-22 · NVIDIA-Omniverse/usd-brep · 把 NURBS BRep 精确几何写进 OpenUSD，带布尔、倒角、缝合与三角化
 - 2026-11-22 · emanuele-em/kanzo · 4.7MB 单文件看板加 MCP 服务，人和编码智能体共用任务状态
+- 2026-11-23 · Tracer-Cloud/opensre · CI 失败追到根因并提交修复 PR 的自托管命令行智能体
+- 2026-11-23 · mdiri-ai/SoduWork · 需求到人工验收的企业 AI 协同工作台，可私有部署
+- 2026-11-23 · openmeterio/openmeter · 用量事件算成实时用量、鉴权与账单的开源计费底座
+- 2026-11-23 · RunanywhereAI/trnrt · AWS Trainium2 上的开源 LLM 推理引擎，NKI 巨核跑 GLM
+- 2026-11-23 · sybil-solutions/inference-optimisation-skill · 把本地 LLM 服务调速过程写成可执行技能

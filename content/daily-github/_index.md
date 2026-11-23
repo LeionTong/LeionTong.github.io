@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-23-1002.html">
+    <div class="da-card-date">2026-11-23 · 10:02</div>
+    <div class="da-card-title">智能体接管交付之后，查错、验收与算账都要自己搭一层</div>
+    <div class="da-card-main">本期收了把 CI 失败追到根因并提交修复 PR 的 OpenSRE、把需求推进到人工验收的 SoduWork、把用量事件算成账单的 OpenMeter、在 AWS Trainium2 上跑 GLM 的 TrnRT，以及把推理调优写成步骤的 Sybil 技能；五条都在补智能体进生产后缺的工程环节。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-22-1545.html">
     <div class="da-card-date">2026-11-22 · 15:45</div>
     <div class="da-card-title">席位费、调用费、内核授权，都可以换成自托管的软件</div>
