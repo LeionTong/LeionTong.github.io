@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-23-1033.html">
+    <div class="da-card-date">2026-11-23 · 10:33</div>
+    <div class="da-card-title">标牌后台转向自托管，人形机器人把图纸、仿真与套件一起开源</div>
+    <div class="da-card-main">本期六条：两块数字标牌后台把多租户、设备入网与远程升级做进开源版本，一台 2.9 寸墨水屏掌机用模型现写故事；具身一侧是开源人形整机的 CAD 与两万美元散件套件，以及跨物理后端的训练框架；服务端一条是 .NET 写的多租户工业物联网平台。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-22-1610.html">
     <div class="da-card-date">2026-11-22 · 16:10</div>
     <div class="da-card-title">旧屏与旧音箱改做语音入口，腕上与桌面的小设备各接自托管后台</div>

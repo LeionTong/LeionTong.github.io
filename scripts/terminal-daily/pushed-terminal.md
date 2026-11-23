@@ -249,3 +249,9 @@
 - 2026-11-22 · PopaSpinka/HaloWatch · ESP32-S3 圆表从驱动层自写界面库，静止不画帧
 - 2026-11-22 · PetoiCamp/OpenCat-Quadruped-Robot · 四足桌宠框架，老主板维护中并推 Quaddle 桌面套件众筹
 - 2026-11-22 · joebentham/desk-buddy · 棱镜小屏桌边摆件，显示本机编码会话状态
+- 2026-11-23 · edkahall/vitrail · 自托管多租户数字标牌平台，令牌入网加分批 OTA 与播放证明签名
+- 2026-11-23 · xibosignage/xibo · 十二年在产的标牌 CMS，开源主体加商业版与播放器硬件兼容收费
+- 2026-11-23 · Jeremy-Ngai-Sew-Poh/InkQuest-ESP32 · 2.9 寸墨水屏掌机文字冒险，ESP32 调 Gemini 现写剧情与选项
+- 2026-11-23 · menloresearch/asimov-1 · 1.2 米 25 自由度开源人形整机，CAD 加两万美元散件套件在售
+- 2026-11-23 · Motphys/UniLab · 把任务写成配置的机器人强化学习底座，换物理后端不改环境
+- 2026-11-23 · IoTSharp/IoTSharp · .NET 多租户工业物联网平台，HTTP/MQTT/CoAP 接入加规则链
