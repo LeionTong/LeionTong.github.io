@@ -1,13 +1,3 @@
-- 2026-09-24 · t8y2/dbx · 25MB 跨平台数据库客户端，90+ 库 + 内置 AI/MCP，替代按授权计费的商业客户端
-- 2026-09-24 · browser-use/jev-ultrafast · 把网页动作空间索引化的 agent，用 Jev 决策模型替代逐步推理
-- 2026-09-24 · westpoint-io/mimik · 浏览器扩展把操作自动录成带标注截图的图文步骤，全本地无账号
-- 2026-09-24 · shadcn-ui/lint · 面向 Tailwind 设计系统的 agent-first linter，把设计约束写成可校验规则
-- 2026-09-24 · zzet/gortex · 代码库索引成知识图谱的代码智能引擎，单二进制 + MCP，宣称省 token 50 倍
-- 2026-09-25 · omnigent-ai/omnigent · 开源 AI 智能体框架与编排层，统一编排 Claude Code/Codex/Cursor 等并加治理
-- 2026-09-25 · odysseus-dev/odysseus · 自托管 AI 工作区，团队知识/对话/工具收敛到自主可控环境
-- 2026-09-25 · xerj-org/xerj · 面向 AI 的数据搜索引擎，autoindex 让 agent 直接检索业务数据
-- 2026-09-25 · okf-memory/okf-agent-memory · Git 原生编码 agent 持久记忆（OKF v0.2，毫秒级读写）
-- 2026-09-25 · duty1g/x64dbg-mcp-server · 把 x64dbg 调试器暴露给 AI agent 的原生 MCP 插件
 - 2026-10-15 · Niko1221/Strata · 消费级 PC 一键跑 Qwen3.8-Flash-Next 125B 的本地推理引擎
 - 2026-10-15 · NandhaKishorM/laya · 33ms 单次前向的 System-1 决策引擎，替代 LLM 做分类与评分
 - 2026-10-15 · datalab-to/indra · 100 万参数纯 CPU OCR，49 页/秒输出 markdown 与带框 JSON
@@ -188,3 +178,8 @@
 - 2026-11-23 · openmeterio/openmeter · 用量事件算成实时用量、鉴权与账单的开源计费底座
 - 2026-11-23 · RunanywhereAI/trnrt · AWS Trainium2 上的开源 LLM 推理引擎，NKI 巨核跑 GLM
 - 2026-11-23 · sybil-solutions/inference-optimisation-skill · 把本地 LLM 服务调速过程写成可执行技能
+- 2026-11-24 · vercel-labs/ui · 给智能体用的界面行为库，弹窗、选择、输入提示拆成原语配五套框架适配
+- 2026-11-24 · expo/exact · 一套源码落各平台原生控件的框架，围着智能体构建、运行、核对回路设计
+- 2026-11-24 · software-mansion/argent · 编码智能体操作模拟器与真机的 MCP 服务，录制一次即成 e2e 用例
+- 2026-11-24 · superlinked/sie · OpenAI 兼容的推理集群，上百个检索、OCR 与抽取模型共用一套接口
+- 2026-11-24 · compozy/compozy · 多路编码智能体的常驻会话控制面，审批、worktree 与循环内建

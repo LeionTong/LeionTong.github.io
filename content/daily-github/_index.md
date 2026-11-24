@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-24-1003.html">
+    <div class="da-card-date">2026-11-24 · 10:03</div>
+    <div class="da-card-title">智能体要动手，界面行为、设备控制与模型服务各自被重做</div>
+    <div class="da-card-main">本期收了 Expo 的全平台框架 Exact、Vercel 给智能体用的界面行为库 UI SDK、把模拟器与真机交给编码智能体的 Argent、自托管上百个模型的 SIE，以及管理多路编码会话的 Compozy；共同点是替智能体补齐看得到、点得动、跑得起来的那一层。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-23-1002.html">
     <div class="da-card-date">2026-11-23 · 10:02</div>
     <div class="da-card-title">智能体接管交付之后，查错、验收与算账都要自己搭一层</div>
