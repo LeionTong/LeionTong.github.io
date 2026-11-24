@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-24-1030.html">
+    <div class="da-card-date">2026-11-24 · 10:30</div>
+    <div class="da-card-title">桌面机器人开始按套件出货，语音识别与手表把能力收进端侧</div>
+    <div class="da-card-main">本期五条：两台桌面小机器人，一台把编码智能体的状态演成动作与铃声，一台靠表情屏和双轴云台做成在售商品；语音侧是中文流式识别工具箱与带字级时间戳的转写流水线；穿戴一条是带手表伴生的两步验证客户端。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-23-1033.html">
     <div class="da-card-date">2026-11-23 · 10:33</div>
     <div class="da-card-title">标牌后台转向自托管，人形机器人把图纸、仿真与套件一起开源</div>
