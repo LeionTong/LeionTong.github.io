@@ -1,19 +1,5 @@
-- 2026-09-24 · BasedHardware/omi · 开源 AI 记忆穿戴全栈，硬件与 App 双开源、官网直销
-- 2026-09-24 · Picovoice/porcupine · 端侧唤醒词引擎，Apache-2.0 仓库 + AccessKey 商用授权
-- 2026-09-24 · Source-Robotics/PAROL6-Desktop-robot-arm · 3D 打印六轴桌面机械臂，图纸开源整机直销
-- 2026-09-24 · the-momentum/open-wearables · 自托管可穿戴数据聚合 API + MCP
-- 2026-09-24 · Mentra-Community/MentraOS · 多品牌智能眼镜统一运行时与 MiniApp 商店
-- 2026-09-24 · isair/jarvis · 本地优先桌面语音助手，自定义许可
-- 2026-09-24 · uncle-mark/desk-emoji · 表情屏 + 双轴云台的开源 AI 桌面机器人
-- 2026-09-24 · curisama/The-Badge · ESP32-S3 圆屏 AMOLED 徽章固件，待机从 11.9h 做到 19.6h
-- 2026-09-24 · fatihak/InkyPi · 树莓派驱动的墨水屏信息屏，浏览器打开网页即可配好显示内容。
-- 2026-09-24 · usetrmnl/trmnl-firmware · 墨水屏终端 TRMNL 的官方 C 固件，跑在已经量产销售的 ESP32 墨水屏机器上。
-- 2026-09-24 · TalismanDesign/PocketMage_PDA · ESP32-S3 掌上墨水屏 PDA，用墨水屏加一块小 OLED 互补刷新率，C++ 自
-- 2026-09-24 · arnegiacomo/fugleramme · 树莓派做的「鸟类画框」：本地识别窗外鸟叫，把十八世纪手绘鸟图铺到墨水屏上。
-- 2026-09-24 · leggedrobotics/pace-sim2real · 足式机器人的仿真到实机迁移工具箱，从实测数据里辨识执行器与关节动力学参数。
-- 2026-09-24 · BeijingDynamics/sprite_humanoid_freecad · 人形机器人 Sprite 的 FreeCAD 结构设计源文件，含总装与子系统、关节、电机
-- 2026-09-24 · francescopace/espectre · 基于 WiFi CSI 的被动感知 SDK，ESP32 端采样、服务端判断人体存在与动作
-- 2026-09-24 · jxlarrea/kiosk-satellite · 把闲置 Android 平板变成 Home Assistant 专用中控的 App，原生
+
+
 - 2026-09-25 · huangjunsen0406/py-xiaozhi · 小智语音助手的 Python 生态，MCP+多模态+IoT 接入语音链路
 - 2026-09-25 · KoljaB/RealtimeSTT · 低延迟语音转文字库，内置 VAD 与唤醒词激活
 - 2026-09-25 · cactus-compute/needle · 面向微小设备的 2-bit 自动化基础模型，8-29MB
@@ -255,3 +241,8 @@
 - 2026-11-23 · menloresearch/asimov-1 · 1.2 米 25 自由度开源人形整机，CAD 加两万美元散件套件在售
 - 2026-11-23 · Motphys/UniLab · 把任务写成配置的机器人强化学习底座，换物理后端不改环境
 - 2026-11-23 · IoTSharp/IoTSharp · .NET 多租户工业物联网平台，HTTP/MQTT/CoAP 接入加规则链
+- 2026-11-24 · jamro/tiny-engineer · 桌面小机器人，把编码智能体的读文件、写码、思考、完成演成动作与铃声，ESP32-C3 加开源主控板
+- 2026-11-24 · uncle-mark/desk-emoji · 表情屏加双轴云台的桌面机器人，接大模型语音对话，固件与上位机源码同仓，整机在售
+- 2026-11-24 · modelscope/FunASR · 中文流式语音识别工具箱，带标点、说话人、情绪与 OpenAI 兼容服务，覆盖端侧到服务端
+- 2026-11-24 · m-bain/whisperX · Whisper 转写流水线，wav2vec2 字级时间戳加 pyannote 说话人分离，large-v2 约 70 倍实时
+- 2026-11-24 · stratumauth/app · Android 两步验证客户端，带 Wear OS 伴生应用，加密备份与多来源导入
