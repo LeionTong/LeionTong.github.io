@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-24-0935.html">
+    <div class="da-card-date">2026-11-24 · 09:35</div>
+    <div class="da-card-title">代码评审与合并审批交给智能体，人形机器人五项标准落地实施</div>
+    <div class="da-card-main">本期收录 Anthropic 的 PR 修复与审批智能体、AWS 的决策模型与编码沙箱、Workday 的智能体身份治理、美国大行对第三方智能体的封禁，以及工信部五项人形机器人标准。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-23-0927.html">
     <div class="da-card-date">2026-11-23 · 09:27</div>
     <div class="da-card-title">Lean 与 Mathlib 社区核验黎曼猜想证明，独立内核复算通过</div>
