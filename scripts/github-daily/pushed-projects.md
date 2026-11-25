@@ -183,3 +183,8 @@
 - 2026-11-24 · software-mansion/argent · 编码智能体操作模拟器与真机的 MCP 服务，录制一次即成 e2e 用例
 - 2026-11-24 · superlinked/sie · OpenAI 兼容的推理集群，上百个检索、OCR 与抽取模型共用一套接口
 - 2026-11-24 · compozy/compozy · 多路编码智能体的常驻会话控制面，审批、worktree 与循环内建
+- 2026-11-25 · RoutineMiku/apkstart · Windows 双击 APK 即装的运行器，每个安卓应用一个桌面图标与独立窗口
+- 2026-11-25 · elementalsouls/Claude-BugHunter · 84 个技能打包的红队与漏洞挖掘技能库，681 份披露报告模式
+- 2026-11-25 · pierridotite/mobile-agent-testers · 20 台手机并行跑智能体回归，按人格设定找布局、翻译与无障碍缺陷
+- 2026-11-25 · t8y2/motty · 终端、SFTP、端口转发、VNC/RDP 与 AI 助手合进一个原生窗口
+- 2026-11-25 · reductstore/reductstore · 机器人传感器的时序对象存储，图像视频 ROS bag 按时间与标签取回
