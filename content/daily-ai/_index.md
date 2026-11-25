@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-25-0922.html">
+    <div class="da-card-date">2026-11-25 · 09:22</div>
+    <div class="da-card-title">27B 模型压进手机，机器人开始判断执行走到哪一步</div>
+    <div class="da-card-main">文心 5.5 Flash Preview 与三元量化 27B 同日开放权重，OpenAI 与思科让智能体写内核屏蔽，大晓用执行状态推理的 9B 模型超过闭源旗舰，小鹏把云端教师模型蒸馏到车、机器人、飞行器。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-24-0924.html">
     <div class="da-card-date">2026-11-24 · 09:24</div>
     <div class="da-card-title">代码评审与合并审批交给智能体，人形机器人五项标准落地实施</div>
