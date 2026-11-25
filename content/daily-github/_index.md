@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-25-1006.html">
+    <div class="da-card-date">2026-11-25 · 10:06</div>
+    <div class="da-card-title">用自有机器替掉按项目、席位与设备计费的经常性支出</div>
+    <div class="da-card-main">本期收了把 APK 装成桌面程序的 ApkStart、84 个技能打包的红队技能库 Claude-BugHunter、20 台手机并行测 App 的 mobile-agent-testers、把终端与远程桌面合进一个窗口的 Motty，以及给机器人传感器数据做的时序对象存储 ReductStore；共同点是用客户自己的机器与账号，替掉按项目、席位与设备计费的外层服务。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-24-1003.html">
     <div class="da-card-date">2026-11-24 · 10:03</div>
     <div class="da-card-title">智能体要动手，界面行为、设备控制与模型服务各自被重做</div>
