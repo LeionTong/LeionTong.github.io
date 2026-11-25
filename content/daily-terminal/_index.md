@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-25-1033.html">
+    <div class="da-card-date">2026-11-25 · 10:33</div>
+    <div class="da-card-title">面板和旧阅读器被重新上电，机器人把控制器搬进机身、把策略搬到机房</div>
+    <div class="da-card-main">本期八条：智能屏这一格收了双屏掌上设备、接管墙面面板的开源框架，以及给旧 Kindle 换上安卓的定制系统；具身收了登顶多个榜单的操作模型、机身内跑控制器的板载平台与抓取工具箱；服务端配套是跨公网跑机器人策略的服务，和一层替多台屏做声纹与语音后处理的服务。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-24-1030.html">
     <div class="da-card-date">2026-11-24 · 10:30</div>
     <div class="da-card-title">桌面机器人开始按套件出货，语音识别与手表把能力收进端侧</div>

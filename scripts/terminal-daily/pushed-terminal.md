@@ -1,12 +1,5 @@
 
 
-- 2026-09-25 · huangjunsen0406/py-xiaozhi · 小智语音助手的 Python 生态，MCP+多模态+IoT 接入语音链路
-- 2026-09-25 · KoljaB/RealtimeSTT · 低延迟语音转文字库，内置 VAD 与唤醒词激活
-- 2026-09-25 · cactus-compute/needle · 面向微小设备的 2-bit 自动化基础模型，8-29MB
-- 2026-09-25 · cactus-compute/cactus · 手机/穿戴端侧量化与推理运行时
-- 2026-09-25 · Intent-Lab/VisionClaw · Meta Ray-Ban 眼镜上的实时 AI 助手
-- 2026-09-25 · yjeanrenaud/yj_nearbyglasses · 检测附近智能眼镜的隐私提醒工具
-- 2026-09-25 · Seeed-Projects/reBot-DevArm · Seeed 开源桌面机械臂
 - 2026-10-15 · crosspoint-reader/crosspoint-reader · 开源电子书阅读器固件，Xteink 等墨水屏硬件的可复刻整机体验
 - 2026-10-15 · OpenEPaperLink/OpenEPaperLink · 电子价签改低功耗墨水屏节点，私有 AP 统一刷新（CC BY-NC-SA）
 - 2026-10-15 · CloudZao/Metalio-E-INK4-Plus · 4.7 寸开源墨水屏整机，带语音与云端 AI 交互
@@ -246,3 +239,11 @@
 - 2026-11-24 · modelscope/FunASR · 中文流式语音识别工具箱，带标点、说话人、情绪与 OpenAI 兼容服务，覆盖端侧到服务端
 - 2026-11-24 · m-bain/whisperX · Whisper 转写流水线，wav2vec2 字级时间戳加 pyannote 说话人分离，large-v2 约 70 倍实时
 - 2026-11-24 · stratumauth/app · Android 两步验证客户端，带 Wear OS 伴生应用，加密备份与多来源导入
+- 2026-11-25 · TalismanDesign/PocketMage_PDA · 墨水屏加 OLED 双屏掌上设备，ESP32-S3 自写系统，图纸与固件开源、套件众筹在售
+- 2026-11-25 · GlassworksHQ/glassworks · 把墙面面板与安卓平板接管成家居系统的本地设备，浏览器安装器带备份与撤销
+- 2026-11-25 · hbyxabc/readom · Kindle Paperwhite 3 的 Android 8.1 定制系统，原厂系统保留可一键切回
+- 2026-11-25 · dexmal/opendm · 开放世界机器人操作模型 DM0.5，权重与微调配方开源，多个仿真榜单第一
+- 2026-11-25 · LambdaHumanoid/OnboardMimic · 人形机器人板载控制平台，SONIC 控制器跑在 G1 自带 Jetson 上
+- 2026-11-25 · openrobokit/graspkit · 抓取与操作端到端工具箱，夹爪与灵巧手共用一套流程
+- 2026-11-25 · General-Sequences/sequence-ai · 机器人策略跨公网托管，机器人取动作块，兼容 openpi/LeRobot/GR00T/Octo
+- 2026-11-25 · jxlarrea/kiosk-satellite-ground-control · 多台自助屏的声纹识别与语音裁剪服务，CC BY-NC-ND 禁止商用
