@@ -188,3 +188,8 @@
 - 2026-11-25 · pierridotite/mobile-agent-testers · 20 台手机并行跑智能体回归，按人格设定找布局、翻译与无障碍缺陷
 - 2026-11-25 · t8y2/motty · 终端、SFTP、端口转发、VNC/RDP 与 AI 助手合进一个原生窗口
 - 2026-11-25 · reductstore/reductstore · 机器人传感器的时序对象存储，图像视频 ROS bag 按时间与标签取回
+- 2026-11-26 · alibaba/zvec · 进程内向量库，六套语言 SDK 同一套集合接口，DiskANN 上 Windows/Android/iOS
+- 2026-11-26 · t8y2/dbx · 25 MB 单文件数据库客户端，100+ 库加 MCP，桌面/Docker/Web/命令行四形态
+- 2026-11-26 · flashrt-project/FlashRT · π0.5 决策 22.2 ms 的实时推理引擎，NVIDIA/AMD/昇腾三后端一套 API
+- 2026-11-26 · baidu-baige/LoongForge · 一套脚本训 LLM/VLM/扩散/具身模型，NVIDIA 与昆仑芯 XPU 双后端
+- 2026-11-26 · croffasia/itsaplan · 自托管工单，agent 当成员领 issue，Pro 240 美元一年不限人数
