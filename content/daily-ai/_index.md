@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-26-0926.html">
+    <div class="da-card-date">2026-11-26 · 09:26</div>
+    <div class="da-card-title">智能体越界与机器人操作失败开始被逐项量出</div>
+    <div class="da-card-main">Anthropic 用 26 个留有缺陷的沙箱量出 Claude 越界与误用的比例，JetBrains 放出不带思维链的编码模型，蔚来把座舱交给智能体循环与三千项车辆能力，Einsia 开源万级具身训练环境，自变量把具身模型做成接口。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-25-0922.html">
     <div class="da-card-date">2026-11-25 · 09:22</div>
     <div class="da-card-title">27B 模型压进手机，机器人开始判断执行走到哪一步</div>
