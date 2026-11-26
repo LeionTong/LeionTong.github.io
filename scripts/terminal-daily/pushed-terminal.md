@@ -247,3 +247,9 @@
 - 2026-11-25 · openrobokit/graspkit · 抓取与操作端到端工具箱，夹爪与灵巧手共用一套流程
 - 2026-11-25 · General-Sequences/sequence-ai · 机器人策略跨公网托管，机器人取动作块，兼容 openpi/LeRobot/GR00T/Octo
 - 2026-11-25 · jxlarrea/kiosk-satellite-ground-control · 多台自助屏的声纹识别与语音裁剪服务，CC BY-NC-ND 禁止商用
+- 2026-11-26 · Picovoice/porcupine · 端侧唤醒词引擎，九语预训练词表，跨单片机到浏览器，AccessKey 授权
+- 2026-11-26 · dkaraush/tinyasr · Rust 端侧识别库，30 MB 级 Zipformer2 模型带流式与 C 接口，无中文模型
+- 2026-11-26 · VUILabsAI/Luna-Translator · 自托管实时同传 Web 应用与 Go 接口示例，模型走上游接口
+- 2026-11-26 · Depth118/galaxy-watch-wearos · 三星 Galaxy Watch 46mm 刷 Wear OS 3.5，Tizen 整体替换可回退
+- 2026-11-26 · AI-FanGe/A-MicroRobot-that-can-Rollerskate · 30 厘米桌面人形小小白，20 舵机，ONNX 策略主控板 50 Hz
+- 2026-11-26 · akdeb/OpenToys · Mac 本地推理的 AI 玩具语音平台，ESP32-S3 走 websocket 收放音
