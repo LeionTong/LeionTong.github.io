@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-26-1001.html">
+    <div class="da-card-date">2026-11-26 · 10:01</div>
+    <div class="da-card-title">换了芯片、换了数据库、换了工具，上层接口都不动</div>
+    <div class="da-card-main">本期收了把 π0.5 单次决策压到 22.2 ms 的 FlashRT、同一套脚本跑 NVIDIA 与昆仑芯的 LoongForge、进程内向量库 zvec、25 MB 连 100+ 库的 DBX，以及自托管工单 It&#x27;s a Plan；共同点是底层后端可替换，上层代码与流程不动。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-25-1006.html">
     <div class="da-card-date">2026-11-25 · 10:06</div>
     <div class="da-card-title">用自有机器替掉按项目、席位与设备计费的经常性支出</div>

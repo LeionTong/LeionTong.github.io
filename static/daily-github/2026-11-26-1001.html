@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>LEION · DAILY GITHUB NO.60 — 2026-11-26</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.60 · 2026-11-26 · 10:01 GMT+8</span></div>
+  <h1>换了芯片、换了数据库、换了工具，上层接口都不动</h1>
+  <p class="mh-sub">本期收了把 π0.5 单次决策压到 22.2 ms 的 FlashRT、同一套脚本跑 NVIDIA 与昆仑芯的 LoongForge、进程内向量库 zvec、25 MB 连 100+ 库的 DBX，以及自托管工单 It&#x27;s a Plan；共同点是底层后端可替换，上层代码与流程不动。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-26</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>换芯片、换数据库、换协作工具，代码与流程都不用重写——这是今天五个项目共同的着力点，也是采购方开始用来定价的东西。适配矩阵（机型、芯片、库、迁移器）决定谁能收到钱。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">zvec <span>alibaba/zvec</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 16,290 · 近 30 天增量未获取到（逐日 star 接口不可用）</span>
+      <span class="tag">C++ · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-25 · v0.8.1（11-06）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>进程内向量库，嵌进应用就是一次函数调用，不要服务端，也不要额外进程。</p>
+  <p class="e-line"><b>痛点</b>检索要么自建 Milvus、Qdrant 集群，要么按量买托管向量库；中小规模场景里，网络往返和运维比算本身更贵。</p>
+  <p class="e-line"><b>付费</b>阿里内部长期使用后开源，没有收费层；替掉的是托管向量服务和自建集群的运维人力。</p>
+  <p class="e-line"><b>规模化</b>Python、Node、Go、Rust、Java、Dart 六套 SDK 共用一套集合接口，DiskANN 已上 Windows、Android、iOS。</p>
+  <p class="e-line"><b>边际</b>低 · 纯库形态随应用分发，没有服务端与租户成本。</p>
+  <p class="e-line"><b>验证</b>三十分钟内的第一步：</p>
+  <pre># 需要 64 位 Python 3.10–3.14
+pip install zvec
+# 建集合、插两条向量、查 topk 见 README 示例
+https://zvec.org/en/docs/db/quickstart/</pre>
+  <div class="risk"><b>风险</b>这一层已有 FAISS、sqlite-vec、LanceDB，拥挤度高；项目还在 v0.x，索引参数与落盘格式在变；亿级规模仍要专用集群。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.7</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">DBX <span>t8y2/dbx</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 31,441 · 近 30 天增量未获取到（逐日 star 接口不可用）</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-26 · v0.6.75-beta（11-24）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>25 MB 单文件数据库客户端，桌面、Docker、Web、命令行四种形态，连 100 多种库。</p>
+  <p class="e-line"><b>痛点</b>DataGrip、Navicat 按席位收费还带 JRE；达梦、金仓、OceanBase 这些国产库在通用客户端里支持零散。</p>
+  <p class="e-line"><b>付费</b>开源免费，收入靠赞助商与私有部署支持；替掉的是每席几百到上千元的商业客户端授权。</p>
+  <p class="e-line"><b>规模化</b>单二进制覆盖 macOS、Windows、Linux 含 ARM64 与麒麟、统信；插件市场带签名与沙箱，编码智能体可走 MCP 查库。</p>
+  <p class="e-line"><b>边际</b>低 · 客户端随安装包分发，服务端只有可选的团队 Docker 形态。</p>
+  <p class="e-line"><b>验证</b>三十分钟内的第一步：</p>
+  <pre># 25 MB 安装包，或起 Web 版
+https://dbxio.com/
+# 只用命令行：见 README 的 CLI 段落
+https://github.com/t8y2/dbx</pre>
+  <div class="risk"><b>风险</b>拥挤度极高，DBeaver、TablePlus、JetBrains 全家桶都在同一位置；靠赞助而非产品收费，商业闭环弱；驱动与插件质量参差。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">FlashRT <span>flashrt-project/FlashRT</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 827 · 近 30 天增量未获取到（逐日 star 接口不可用）</span>
+      <span class="tag">C++ · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-24 · v0.2.0（09-11）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>小批量、低延迟推理引擎，机器人策略 π0.5 在 Jetson AGX Thor 上单次决策 22.2 ms。</p>
+  <p class="e-line"><b>痛点</b>同一策略按 OpenPI、LeRobot 原样跑一次要 266 ms，控制回路只到 3.8 Hz，真机动起来一顿一顿。</p>
+  <p class="e-line"><b>付费</b>开源，收入在整机厂集成与调优，MindOn 的 Mind-1 已用它做推理环节；替掉的是自己养一支内核团队。</p>
+  <p class="e-line"><b>规模化</b>NVIDIA、AMD、昇腾三套后端共用一套 API，Jetson Thor、Orin、RTX 50/40、MI350X、910B 都有实测数据。</p>
+  <p class="e-line"><b>边际</b>低 · 内核与镜像一次性交付，换机型主要改配置与校准表。</p>
+  <p class="e-line"><b>验证</b>三十分钟内的第一步：</p>
+  <pre># 公开镜像尚未按新仓库名重建，现阶段本地构建
+git clone https://github.com/flashrt-project/FlashRT
+cd FlashRT
+docker build -t flashrt:dev -f docker/Dockerfile .
+# 之后按 docs/thor/pi05.md 起容器跑 LIBERO 单任务</pre>
+  <div class="risk"><b>风险</b>公开镜像 ghcr.io/liangsu8899/flashrt 尚未重建，现阶段要本地构建；绑定具体机型与显存，冷门卡走源码编译；每上新模型得重新校准量化；827 星，社区小。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">LoongForge <span>baidu-baige/LoongForge</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 925 · 近 6 天 +49（HelloGitHub 记录，30 天口径未获取到）</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-25 · v0.2.2（11-05）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>百度百舸开源的训练框架，一套配置与启动脚本覆盖 LLM、VLM、扩散与具身模型。</p>
+  <p class="e-line"><b>痛点</b>VLA 与扩散模型的训练脚本各家一套，换硬件就要重写并行与通信；国产 XPU 缺现成配置。</p>
+  <p class="e-line"><b>付费</b>开源，靠百度智能云的训练与推理服务变现；替掉的是给每类模型分别搭流水线的人力。</p>
+  <p class="e-line"><b>规模化</b>40 多个开源模型的现成配置，NVIDIA GPU 与昆仑芯 XPU 双后端，预训练、中训、SFT、LoRA 全流程覆盖。</p>
+  <p class="e-line"><b>边际</b>低 · 镜像与脚本分发，算力算客户自己的。</p>
+  <p class="e-line"><b>验证</b>三十分钟内的第一步：</p>
+  <pre>docker pull loongforge/loongforge:latest
+mkdir -p workspace
+docker run --gpus all --ipc=host -it --rm \
+  -v &quot;$(pwd)/workspace:/workspace/data&quot; \
+  loongforge/loongforge:latest bash</pre>
+  <div class="risk"><b>风险</b>绑 Megatron 与特定 torch 版本，升级链路重；昆仑芯路径的文档与社区反馈明显少于 GPU；配置项多，调参门槛不低。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">It&#x27;s a Plan <span>croffasia/itsaplan</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,660 · 近 30 天 +2,104（star-history 曲线）</span>
+      <span class="tag">TypeScript · AGPL-3.0</span>
+      <span class="tag">最近提交 2026-11-26 · v1.13.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自托管的工单与项目管理，智能体作为成员领 issue，按 @、指派或定时触发执行。</p>
+  <p class="e-line"><b>痛点</b>Linear、Jira 按人计费，AI 功能另算；agent 干的活进不了同一块看板，进度靠人抄。</p>
+  <p class="e-line"><b>付费</b>Pro 明码 240 美元一年，不限人数、单域名自托管；对照十人 Linear 1,920、Jira 950、Plane 720。</p>
+  <p class="e-line"><b>规模化</b>通用项目管理，软件、市场、设计、支持都能用；Docker、Coolify、Railway 一键部署，可从 Linear、Trello、Plane 导入。</p>
+  <p class="e-line"><b>边际</b>低 · 客户自托管，模型费用走客户自己的 key。</p>
+  <p class="e-line"><b>验证</b>三十分钟内的第一步：</p>
+  <pre>docker compose up -d
+# 或一键模板
+https://railway.com/deploy/its-a-plan
+# 自托管步骤：docs/self-hosting.md</pre>
+  <div class="risk"><b>风险</b>社区版 AGPL，二次分发要开源；2,660 星，集成生态薄；agent 直接读写生产库，审批与回滚要自己兜。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.7</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>It's a Plan（croffasia/itsaplan）</b>。今天只有它把价格摊在页面上：240 美元一年、不限人数，对照同规模 Linear 的 1,920 美元是八分之一。自托管加一键部署，三十分钟内能验完替换是否成立，定价与交付形态都不需要再谈。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>五处改动都落在接口层：换 GPU 厂商、换 XPU、换数据库引擎、换协作工具，上层代码与团队流程不动。这决定了护城河的位置——机型清单、芯片后端、驱动矩阵、迁移器才是别人短期抄不走的部分，算法与界面都能追。反面也在这里：适配矩阵越宽，维护成本越高，收费只能落在支持、托管与整机集成上。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>p-e-w/heretic</b>（43,204★，AGPL-3.0，11-24 有提交）训练无关的去审查、去谄媚模型改造，热度极高；但产出是权重上的副作用，没有可交付的服务边界，商业客户不会为合规风险付钱，团队投入换不回合同。</li>
+    <li><b>multica-ai/multica</b>（57,934★，许可未明示）人与 agent 同队协作，方向对；GitHub 识别许可为 NOASSERTION，商用前得单独确认条款，且与已有的工单、协作产品正面重叠，没有可验证的差异化切口。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-26 10:01 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>
