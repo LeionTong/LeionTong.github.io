@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-26-1035.html">
+    <div class="da-card-date">2026-11-26 · 10:35</div>
+    <div class="da-card-title">唤醒词与端侧识别各自往下扎，桌面人形把强化学习策略放进主控板</div>
+    <div class="da-card-main">唤醒词引擎与 Rust 端侧识别库把语音链路往设备本地挪，同传翻译的后端可以自己架；旧三星表刷上 Wear OS，30 厘米桌面人形与本地语音玩具各给出一条压成本的路线。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-25-1033.html">
     <div class="da-card-date">2026-11-25 · 10:33</div>
     <div class="da-card-title">面板和旧阅读器被重新上电，机器人把控制器搬进机身、把策略搬到机房</div>
