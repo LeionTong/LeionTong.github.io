@@ -253,3 +253,10 @@
 - 2026-11-26 · Depth118/galaxy-watch-wearos · 三星 Galaxy Watch 46mm 刷 Wear OS 3.5，Tizen 整体替换可回退
 - 2026-11-26 · AI-FanGe/A-MicroRobot-that-can-Rollerskate · 30 厘米桌面人形小小白，20 舵机，ONNX 策略主控板 50 Hz
 - 2026-11-26 · akdeb/OpenToys · Mac 本地推理的 AI 玩具语音平台，ESP32-S3 走 websocket 收放音
+- 2026-11-27 · arnegiacomo/fugleramme · 树莓派本地鸟鸣识别，按物种拼手绘插画刷水墨屏画框（MIT + 插画 CC BY-SA）
+- 2026-11-27 · usetrmnl/trmnl-firmware · TRMNL 墨水屏整机官方固件，唤醒取屏即深睡，含配网退避与 A/B 升级
+- 2026-11-27 · xyc0677/veradroid · 越狱 Kindle 用容器跑 Android 7.1，脏区局部刷新，不改系统分区可回退
+- 2026-11-27 · YaolinDong/infrabot · 七轴开源机械臂，STM32H743 板载 1 kHz 闭环与阻抗导纳，图纸板卡全开
+- 2026-11-27 · argonrobotics-ai/alloy · 多材料并行物理引擎，刚体布料液体颗粒同场，单卡千级并行世界
+- 2026-11-27 · superlinked/sie · 自托管推理引擎，OpenAI 兼容接口盖检索与转写，带 Helm 与自动伸缩
+- 2026-11-27 · ddalcu/mlx-serve · Apple Silicon 原生推理服务，Zig 后端同时说三家协议，离线可跑
