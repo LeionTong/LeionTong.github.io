@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-27-1005.html">
+    <div class="da-card-date">2026-11-27 · 10:05</div>
+    <div class="da-card-title">把运行位置留在买家自己的机器和账号上</div>
+    <div class="da-card-main">本期收了按容量授权的自托管表格引擎 Univer、Chrome 官方调试协议 MCP、8 GB 内存 CPU 上跑 27B 的 openset-llm、把智能体当成员的 agentes.chat，以及用自己浏览器发七个平台的麦田；共同点是软件跑在买方机器与账号里，供应方按容量、席位或设备收费。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-26-1001.html">
     <div class="da-card-date">2026-11-26 · 10:01</div>
     <div class="da-card-title">换了芯片、换了数据库、换了工具，上层接口都不动</div>

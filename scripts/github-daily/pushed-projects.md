@@ -193,3 +193,8 @@
 - 2026-11-26 · flashrt-project/FlashRT · π0.5 决策 22.2 ms 的实时推理引擎，NVIDIA/AMD/昇腾三后端一套 API
 - 2026-11-26 · baidu-baige/LoongForge · 一套脚本训 LLM/VLM/扩散/具身模型，NVIDIA 与昆仑芯 XPU 双后端
 - 2026-11-26 · croffasia/itsaplan · 自托管工单，agent 当成员领 issue，Pro 240 美元一年不限人数
+- 2026-11-27 · dream-num/univer · 自托管表格与文档 SDK，按协作连接与导出量授权，Business 99 美元/月起
+- 2026-11-27 · ChromeDevTools/chrome-devtools-mcp · Chrome 官方调试协议 MCP，智能体录性能追踪并读网络请求
+- 2026-11-27 · opensetlabs/openset-llm · 纯 CPU 推理引擎，8 GB 内存跑 27B 达 17–20 tok/s
+- 2026-11-27 · agentes-chat/agentes-chat · 自托管团队聊天，智能体带角色预算与审批，云版 29 美元起
+- 2026-11-27 · CzzzzzzJ/mdldm-maitian · 自媒体多平台发布台，一句话填七个平台并每天回采数据
