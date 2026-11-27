@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-27-0922.html">
+    <div class="da-card-date">2026-11-27 · 09:22</div>
+    <div class="da-card-title">阿里眼镜给出双光机与价格带，具身零部件开始按量产设计</div>
+    <div class="da-card-main">夸克 AI 眼镜以双光机双目与 1899 至 3799 元六款定价落地，Claude Code 四名核心成员一月内转投 OpenAI，微软把一小时全球恢复设成硬指标并让智能体协助定位故障，生数 20B 世界动作模型与钛虎关节模组推向量产。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-26-0926.html">
     <div class="da-card-date">2026-11-26 · 09:26</div>
     <div class="da-card-title">智能体越界与机器人操作失败开始被逐项量出</div>
