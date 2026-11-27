@@ -7,8 +7,8 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
-  <a class="da-card" href="/daily-terminal/2026-11-27-1042.html">
-    <div class="da-card-date">2026-11-27 · 10:42</div>
+  <a class="da-card" href="/daily-terminal/2026-11-27-1036.html">
+    <div class="da-card-date">2026-11-27 · 10:36</div>
     <div class="da-card-title">墨水屏一头扎进家居画框与整机固件，机器人侧补上七轴臂与同场物理引擎</div>
     <div class="da-card-main">鸟鸣识别驱动的墨水屏画框、TRMNL 整机固件、越狱 Kindle 上的 Android 容器，三条都在用现成硬件做显示终端；七轴开源机械臂、多材料物理引擎、自托管推理集群与 Mac 本地推理服务补上设备侧与后端的缺口。</div>
     <div class="da-card-go">阅读完整报告 →</div>
