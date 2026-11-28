@@ -198,3 +198,8 @@
 - 2026-11-27 · opensetlabs/openset-llm · 纯 CPU 推理引擎，8 GB 内存跑 27B 达 17–20 tok/s
 - 2026-11-27 · agentes-chat/agentes-chat · 自托管团队聊天，智能体带角色预算与审批，云版 29 美元起
 - 2026-11-27 · CzzzzzzJ/mdldm-maitian · 自媒体多平台发布台，一句话填七个平台并每天回采数据
+- 2026-11-28 · Tencent/LoopForge · 编码智能体交付流程固化为可复用 LOOP，节点带沙箱与人工审批
+- 2026-11-28 · KKKKhazix/agent-autoloop · 事件驱动派活给命令行 Agent，只在拍板时发卡片找人
+- 2026-11-28 · jgravelle/jcodemunch-mcp · 本地 MCP 按符号取代码，商用一次买断授权
+- 2026-11-28 · zilliztech/memsearch · 记忆落 Markdown，Milvus 当影子索引，六个编码客户端共用
+- 2026-11-28 · StartLuxLabs/StartLux-Decision · 决策模型一次前向出校准概率，拿不准才短推理

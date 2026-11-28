@@ -7,6 +7,12 @@ title: "Daily Terminal"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-terminal/2026-11-28-1731.html">
+    <div class="da-card-date">2026-11-28 · 17:31</div>
+    <div class="da-card-title">语音终端、智能眼镜与桌面机械臂各自把固件和图纸放开</div>
+    <div class="da-card-main">小智 ESP32 把语音终端固件续到 v2.6.0 并铺到 171 种板型，Jev 把全双工轮次判断写成可改的问题清单；附近眼镜检测与不到 35 美元的助视眼镜占住穿戴两侧，Seeed 的开源六轴臂拿到 OSHWA 认证。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-terminal/2026-11-27-1036.html">
     <div class="da-card-date">2026-11-27 · 10:36</div>
     <div class="da-card-title">墨水屏一头扎进家居画框与整机固件，机器人侧补上七轴臂与同场物理引擎</div>

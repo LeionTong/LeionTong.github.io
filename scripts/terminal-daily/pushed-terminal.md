@@ -1,5 +1,3 @@
-
-
 - 2026-10-15 · crosspoint-reader/crosspoint-reader · 开源电子书阅读器固件，Xteink 等墨水屏硬件的可复刻整机体验
 - 2026-10-15 · OpenEPaperLink/OpenEPaperLink · 电子价签改低功耗墨水屏节点，私有 AP 统一刷新（CC BY-NC-SA）
 - 2026-10-15 · CloudZao/Metalio-E-INK4-Plus · 4.7 寸开源墨水屏整机，带语音与云端 AI 交互
@@ -260,3 +258,8 @@
 - 2026-11-27 · argonrobotics-ai/alloy · 多材料并行物理引擎，刚体布料液体颗粒同场，单卡千级并行世界
 - 2026-11-27 · superlinked/sie · 自托管推理引擎，OpenAI 兼容接口盖检索与转写，带 Helm 与自动伸缩
 - 2026-11-27 · ddalcu/mlx-serve · Apple Silicon 原生推理服务，Zig 后端同时说三家协议，离线可跑
+- 2026-11-28 · 78/xiaozhi-esp32 · MCP 语音终端固件，171 种板型、离线唤醒词与 Wi-Fi 加 4G 双网
+- 2026-11-28 · native-bond-lab/Jev-Interaction · 全双工轮次判定写成可改的问题清单，pip 装即用
+- 2026-11-28 · yjeanrenaud/yj_nearbyglasses · 安卓扫蓝牙广播提示附近智能眼镜，三处商店可装
+- 2026-11-28 · DresdenGman/QuietFrame · 35 美元助视 AI 眼镜加全天记忆应用，不确定就不出声
+- 2026-11-28 · Seeed-Projects/reBot-DevArm · OSHWA 认证的开源桌面六轴臂，硬件软件分开授权
