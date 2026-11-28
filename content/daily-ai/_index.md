@@ -6,6 +6,12 @@ title: "Daily AI"
 > 点击任意卡片，直达当期的完整图文报告。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-ai/2026-11-28-1654.html">
+    <div class="da-card-date">2026-11-28 · 16:54</div>
+    <div class="da-card-title">真实岗位考卷给出零交付，具身智能转向空间记忆与系统底座</div>
+    <div class="da-card-main">机器人长程工作流评测首轮公布，9 个前沿模型装进仿真本体后无一交付；小米用 1260 万段视频把驾驶与机器人合成一套世界模型，蚂蚁灵波开源带空间记忆的导航模型，开源鸿蒙发布具身系统 RoboOH 2.0，OpenAI 修正计费后编程额度触限变快。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-ai/2026-11-27-0922.html">
     <div class="da-card-date">2026-11-27 · 09:22</div>
     <div class="da-card-title">阿里眼镜给出双光机与价格带，具身零部件开始按量产设计</div>
