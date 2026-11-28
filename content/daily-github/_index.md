@@ -6,6 +6,12 @@ title: "Daily Github"
 > 点击任意卡片，直达当期的完整图文报告（含五维评分与 30 分钟验证路径）。
 
 <div class="da-cards">
+  <a class="da-card" href="/daily-github/2026-11-28-1720.html">
+    <div class="da-card-date">2026-11-28 · 17:20</div>
+    <div class="da-card-title">智能体跑长之后，成本与卡点落在哪</div>
+    <div class="da-card-main">本期收了把交付流程固化成可复用 LOOP 的 LoopForge、按事件派活并只在拍板时找人的 Agent Autoloop、按符号取数的 jCodeMunch、把记忆落成 Markdown 的 memsearch，以及一次前向就给概率的 StartLux 决策模型；共同点是让长跑智能体少花无效 token，多留可核对的卡点。</div>
+    <div class="da-card-go">阅读完整报告 →</div>
+  </a>
   <a class="da-card" href="/daily-github/2026-11-27-1005.html">
     <div class="da-card-date">2026-11-27 · 10:05</div>
     <div class="da-card-title">把运行位置留在买家自己的机器和账号上</div>
