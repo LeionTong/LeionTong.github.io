@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEION · DAILY GITHUB NO.44 — 2026-11-08</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.44 · 2026-11-08 · 1820 GMT+8</span></div>
+  <h1>开发工具先比席位费、构建等待与调用账单，再比能力</h1>
+  <p class="mh-sub">这一期收了 Rust 重写的 IntelliJ 式 IDE OpenIDEA、微软研究院的智能体成本控制插件 TokenEconomizer、把 cargo 换掉的增量构建器 blaze、兼容 Redis 并自带向量检索的 KiviDB，以及人机共用一块板的 kanzo；共同点是把席位费、构建等待与调用账单变成可以替换的项。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-08</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>IDE 席位、一次构建的等待、缓存与向量库的账单、每个 token 的钱、每个人每月的协作席位，都能单独算一笔。今天这五件各占一格：都是先在自己机器上跑起来，再按用量算钱，收钱的位置落在部署、支持与用量上。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenIDEA <span>l0ng-ai/openidea</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,731 · 近 30 天 +7,731（10-21 建仓，等于全部）</span>
+      <span class="tag">TypeScript · Apache-2.0</span>
+      <span class="tag">最近提交 11-08 · v0.1.38</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把 IntelliJ 的键位、工具窗口、全仓搜索挪到 Rust 内核的原生桌面端，编辑、调试、Git、终端、数据库、HTTP 客户端齐备。</p>
+  <p class="e-line"><b>痛点</b>IDE 订阅按年收，大仓打开与全仓搜索要等十几秒；换编辑器就得重学一套快捷键。</p>
+  <p class="e-line"><b>付费</b>没有收费层，买方省的是 IDE 席位费；能收钱的是企业统一分发、内置编码规范与插件市场。</p>
+  <p class="e-line"><b>规模化</b>三平台安装包与便携 zip 共用一份代码；主题与语言扩展跑在 WebAssembly 沙箱里，不必改主程序。</p>
+  <p class="e-line"><b>边际</b>低 · 纯客户端，索引在本机完成，不调用服务端。</p>
+  <p class="e-line"><b>验证</b>取 v0.1.38 的 Windows 便携包解压运行 <code>openidea.exe</code>，打开一个 Python 仓看建索引与全仓搜索。</p>
+  <div class="risk"><b>风险</b>建仓 18 天，259 个未关 issue；60 多种语言的语义能力摊薄，插件 API 仍是 preview，今天写的扩展明天可能不兼容；IntelliJ 十年的补全与重构积累一年补不齐。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.4</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">TokenEconomizer <span>microsoft/TokenEconomizer</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 4,972 · 近 30 天 +4,972（10-13 建仓，等于全部）</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-08 · v0.1.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给编码智能体加一层成本控制：仓库里反复重学的固定事实、从没调过的工具定义、绕不出来的死循环，各自剪掉。</p>
+  <p class="e-line"><b>痛点</b>同一个仓每次重学构建命令，工具清单每次全发一遍，卡在同一个报错上刷 token，账单跟着会话长度涨。</p>
+  <p class="e-line"><b>付费</b>开源免费、不碰密钥；买方省的是 API 账单，论文实测五个组合降 18.4%–30.9%；能收钱的是企业成本治理与私有部署。</p>
+  <p class="e-line"><b>规模化</b>插件形式接 Claude Code、Codex、Copilot CLI、Pi 与 opencode，装一次按仓生效，不改智能体本身。</p>
+  <p class="e-line"><b>边际</b>低 · 本地运行，只在判别死循环时调一次判别模型。</p>
+  <p class="e-line"><b>验证</b>克隆仓库后 <code>claude plugin marketplace add "$PWD/TokenEconomizer"</code> 再 <code>claude plugin install tokeneconomizer@tokeneconomizer</code>，进仓跑 <code>/tokeneconomizer:status</code>。</p>
+  <div class="risk"><b>风险</b>v0.1.0 首发，8 个未关 issue；收益只在常去的仓出现，一次性脚本仓看不出差别；记错的事实会持续误导后续会话，判别模型本身也有账单。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">blaze <span>indexable-inc/blaze</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,059 · 近 30 天 +2,059（10-19 建仓，等于全部）</span>
+      <span class="tag">Rust · Apache-2.0</span>
+      <span class="tag">最近提交 11-07 · v0.20261105.4</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>替代 cargo 的 Rust 增量构建器，守护进程把已编译状态留在内存里，改一个函数只重编那部分，再接回原来的产物。</p>
+  <p class="e-line"><b>痛点</b>cargo 改一行要重走类型检查与代码生成，大仓一次十秒起；热重载工具只换来页面刷新，编译时间照旧。</p>
+  <p class="e-line"><b>付费</b>安装脚本与 canary 渠道免费，背后公司是 indexable；买方省构建机时长与等人时间，能收钱的是团队版与 CI 侧加速。</p>
+  <p class="e-line"><b>规模化</b>一条 curl 装到 macOS 与 Linux，同一守护进程提供 build、check、run、test、bench 五个子命令。</p>
+  <p class="e-line"><b>边际</b>低 · 本地二进制，不租云端算力；代价是内存，小项目也要几个 GB。</p>
+  <p class="e-line"><b>验证</b><code>curl -fsSL https://ix.dev/blaze | sh</code>，在任一 Rust 仓 <code>blaze build</code> 全编一次，改个函数再编；README 的 ripgrep 例子是 508ms 降到 56ms。</p>
+  <div class="risk"><b>风险</b>官方写明 v2 还没在 Windows 跑过、数字未测；建仓 20 天积了 486 个未关 issue；自带 Rust 工具链，与项目 pin 的版本可能不一致，CI 仍要 cargo 兜底。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:40%"></i></div><span class="sc-v">2</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.9</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">KiviDB <span>kividbio/kividb</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 985 · 近 30 天 +985（10-16 建仓，等于全部）</span>
+      <span class="tag">Rust · AGPL-3.0</span>
+      <span class="tag">最近提交 11-07 · v1.2.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>兼容 RESP2/RESP3 的内存键值库，redis-cli 与各语言 Redis 客户端直接连，自带全文与向量检索，按核分片跑满多线程。</p>
+  <p class="e-line"><b>痛点</b>Redis 单线程吃不满多核，要横向拆集群；向量检索另挂一个库，两套数据两份运维。</p>
+  <p class="e-line"><b>付费</b>AGPL 自建免费，用不使自己的应用受该许可约束；商业化靠托管与 K8s 支持，买方省企业版与向量库两份账单。</p>
+  <p class="e-line"><b>规模化</b>docker 一条命令起在 6380 端口，与既有 6379 并存；配 Helm chart 与 operator，按节点扩。</p>
+  <p class="e-line"><b>边际</b>低 · 软件分发，算力与内存都在客户侧。</p>
+  <p class="e-line"><b>验证</b><code>docker run -d -p 6380:6380 kividb/kividb</code>，<code>redis-cli -p 6380 PING</code>，再用 FT.CREATE 建 HNSW 索引写向量跑 KNN。</p>
+  <div class="risk"><b>风险</b>建仓 23 天，命令覆盖仍在补；2100 万 GET/s 是 32 核流水线压测，业务混合读写看不到这个量级；AGPL 在嵌入式分发与 OEM 场景要先过法务。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">kanzo <span>emanuele-em/kanzo</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,107 · 近 30 天 +1,107（10-25 建仓，等于全部）</span>
+      <span class="tag">Rust · AGPL-3.0</span>
+      <span class="tag">最近提交 11-07 · v0.4.1</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>4.7MB 的看板程序，浏览器里是看板、<code>kanzo mcp</code> 是 MCP 服务器，人和编码智能体在同一批任务上协作，数据落本地 SQLite。</p>
+  <p class="e-line"><b>痛点</b>Jira 与 Linear 按人收席位费，任务还得抄一遍给智能体；智能体干完活没人知道做到哪一步。</p>
+  <p class="e-line"><b>付费</b>AGPL 免费自建，买方省每人每月的席位费与一台服务器；能收钱的是团队共享、操作审计与私有部署。</p>
+  <p class="e-line"><b>规模化</b>单二进制带 SQLite，树莓派也能跑；一条命令把板子共享到局域网，多台机器用同一块板。</p>
+  <p class="e-line"><b>边际</b>低 · 空闲约 5MB 内存，纯本地，无服务端成本。</p>
+  <p class="e-line"><b>验证</b><code>curl -LsSf https://github.com/emanuele-em/kanzo/releases/latest/download/kanzo-installer.sh | sh</code>，<code>kanzo</code> 打开 4242 端口，再 <code>claude mcp add kanzo -- kanzo mcp</code>。</p>
+  <div class="risk"><b>风险</b>v0.4.1，只有 1 个未关 issue，还没被真实团队捶打；局域网分享无鉴权，只能在可信网络用；看板这一层谁都能抄，护城河浅。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.2</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>TokenEconomizer（microsoft/TokenEconomizer）</b>。企业已经在为 token 账单立项，控制成本的工具比换模型更容易被批准。它不改智能体，按仓生效，降幅有论文里的实测数字，最窄的一步是插进现有工作流。v0.1.0 的成熟度不够，但买方与证据都已到位。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>这五件都在把开发过程中的固定开销换成可替换的件：IDE 席位、一次构建的等待、缓存与向量库的账单、每个 token 的钱、每个人的协作席位。共同动作是先在自己机器上跑通，再按用量算钱；开源负责替换，签约落在部署、支持与用量上。替换的门槛越低，原厂按席位收的年费越难维持。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>milind-soni/OpenMausBot</b>（17,515★，Apache-2.0）· 带云电脑的开源 Grok Bot 替代，今日 Trending +1,986。v0.1.148 配 873 个未关 issue，Electron 外壳加本地 CLI 登录，钱来自 GitHub Sponsors，没有买方要付的那一段。</li>
+    <li><b>dsx-ai-factory/nvke</b>（655★，Apache-2.0）· GPU 裸金属上的 Kubernetes 管理面，今日 +125。价值只有在 DGX 级集群上才成立，三十分钟验不出东西；核心交付跟着 NVIDIA 硬件与支持走，v0.23.1 仍有 182 个未关 issue。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-08 18:20 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+</div></body></html>

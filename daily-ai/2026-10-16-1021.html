@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION &middot; DAILY AI &mdash; 2026-10-16 第 80 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION &middot; DAILY AI</b></span>
+      <span>2026-10-16 &middot; 第 80 期</span>
+    </div>
+    <h1>Anthropic 为 agent 规模重写源码控制，编程 Agent 可观测性与具身自进化同期推进</h1>
+    <p class="mh-sub">本期收录 Anthropic 公开自研版本控制系统 Scion 与代码评审平台 Antique、Claude Code v2.1.300 引入 OpenTelemetry GenAI 语义属性、EmbodiedEvo 用自进化编程 Agent 提升机器人任务成功率、阶跃星辰智能体手机 STEPX Neo 今日首销，以及 Nature Will 用百万小时人类视频预训练灵巧手模型 Natura-1。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> &middot; AI coding &middot; 开发基建</span>
+    <h2 class="c-title">Anthropic 公开自研源码控制系统 Scion，日均合并量半年涨超十倍</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span>
+      <span class="chip">开发基建</span>
+      <span class="chip">Agent</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 13 日，Anthropic 官方工程博客公开自研版本控制系统 Scion 与代码评审平台 Antique，并说明为何弃用 Git 改用自建方案：2026 年 5 月其主干日均合并约 <strong>2500 次</strong>，到 9 月已超过 <strong>30000 次</strong>；主干历史近 <strong>100 GB</strong>，压缩后的工作副本超过 25 GB，CI 每天执行约 <strong>2500 万次</strong>代码检出，按 Git 的分布式设计朴素抓取每天会产生 600 PB 以上流量。</p>
+      <p>Scion 由 7 人团队用 5 个月从 Git 完成全量迁移：客户端默认在线、把 blame / 合并 / 变基等放到服务端，仓库数据分布式存放、无需 packfile 与 refs。团队称参照了 Google Piper 与 Meta Sapling 的经验，并明确 Scion 不是通用 Git 替代品，先公开思路供他人借鉴。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这是「AI 写代码」把人类尺度的开发基建顶穿的第一份公开案例：当合并量的增长来自 agent 而非人，为离线协作设计的分布式版本控制反而成了瓶颈。Anthropic 的解法——服务端承接历史查询、客户端按需取数、CI 不必检出整个仓库——正是「agent 永远在线」这一前提的产物。对 AI coding 方向，它说明瓶颈正从模型能力转到构建、CI 与代码评审这些外围系统。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Anthropic 官方工程博客 https://www.anthropic.com/engineering/redesigning-source-control ；Simon Willison https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> &middot; AI coding &middot; Agent 可观测性</span>
+    <h2 class="c-title">Claude Code v2.1.300 引入 OpenTelemetry GenAI 语义属性与 AWS 平台上的 advisor</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span>
+      <span class="chip">Agent</span>
+      <span class="chip">可观测性</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 14 日，Anthropic 发布 Claude Code v2.1.300，共 <strong>88 项</strong>变更（12 新增 / 13 变更 / 4 改进 / 59 修复）。新增内容集中在运维与治理：trace span 加入 OpenTelemetry GenAI 语义约定属性（如 gen_ai.provider.name、gen_ai.conversation.id、gen_ai.tool.name、error.type），api_request 事件补充按 5 分钟 / 1 小时 TTL 分档的缓存写入 token 统计；服务端工具 /advisor 上线 Claude Platform on AWS，允许主模型在关键节点咨询另一个更强的模型。</p>
+      <p>同版还有破坏性变更：PreToolUse / PermissionRequest 钩子返回的 updatedInput 现按与模型自身输入相同的规则校验。官方另称桌面应用优化了多会话并行与启动速度。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>当 agent 从演示走进生产流水线，团队需要的是「这个会话调用了哪些工具、花了多少缓存、错在哪」的可追溯性，而 OpenTelemetry 的 GenAI 语义约定正在成为跨厂商的事实标准。Claude Code 把工具名、会话 ID 与错误类型写进 span，等于让编程 Agent 的运行过程能被既有监控栈直接消费。advisor 这类「主模型干活、强模型把关」的服务端工具，也是在为长任务加一道质量闸。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>DevelopersIO（classmethod）https://dev.classmethod.jp/en/articles/20261015-cc-updates-v2-1-300</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> &middot; 具身智能 &middot; AI coding</span>
+    <h2 class="c-title">EmbodiedEvo 让编程 Agent 在机器人任务里自进化，RoboDojo 仿真成绩超官方验证记录</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">AI coding</span>
+      <span class="chip">Agent</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月中旬，EinsiaAI 实验室公开论文 EmbodiedEvo（arXiv:2610.18867），把软件工程式的编程 Agent 循环搬到物理世界：Agent 在单个「试炼场」场景里反复执行、观察并修改控制代码，把可复用的 Skills（控制流程与适用条件）与 Lessons（失败模式、约束与恢复经验）沉淀下来，冻结后交给新布局与不同模型上的测试 Agent 使用。</p>
+      <p>在 RoboDojo-Sim 仿真上，EmbodiedEvo 取得平均分 <strong>44.48</strong>、成功率 <strong>37.82%</strong>，论文称超过该基准所有官方验证结果；成对测试中仅靠任务描述就把成功率从 8.50% 抬到 30.17%，Astra 的经验还能把 Sol 与 Luna 的成功率分别提升 8.86 和 5.50 个百分点；相比直接投喂原始交互历史，Skills 与 Lessons 在成绩相当的前提下节省 <strong>53%</strong> 的执行成本。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这条把「AI coding 的自进化」与「具身智能」接在一起：不训练策略权重，而是让 agent 改自己的控制代码，把一次交互中的经验固化成可迁移的技能与教训。经验能跨模型迁移尤其值得注意，说明「产出可用控制知识」与「执行任务」是两种能力，弱执行者也能借用强模型的沉淀。对具身方向，它给出了绕开 VLA 权重堆叠的另一条路，代价是精细插入与液体处理仍然困难（原论文摘要记 44.48 / 37.82%，机器之心报道作 45.08 / 38.95%）。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>arXiv https://arxiv.org/abs/2610.18867 ；项目主页 https://lab.einsia.ai/embodiedevo</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> &middot; 终端智能 &middot; AI Agent</span>
+    <h2 class="c-title">阶跃星辰智能体手机 STEPX Neo 今日 10:13 首销，全栈定价 3999 元</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span>
+      <span class="chip">AI Agent</span>
+      <span class="chip">系统</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 13 日晚于上海发布的 STEPX Neo 先行版，于 10 月 16 日 10:13 正式首销（10 月 13 日 21:00 已开预售），全栈定价 <strong>3999 元</strong>，把手机硬件与 Step AOS 1.0 系统、Step Studio 开发工具及 Step 系列模型服务打包销售，购机赠 12 个月、每月百亿 Token 额度。</p>
+      <p>产品把长期记忆、任务调度与安全机制放进系统层，解锁后默认进入智能体界面，机身背部点阵屏专用于显示智能体的唤醒、聆听、思考等状态；硬件配六麦阵列、低功耗音频感知芯片与自研 Whisper 1.0 拾音算法，官方称音频芯片独立运行 24 小时耗电 1.2%。生态上，个人智能体 Amoo 称已与支付宝、腾讯、携程、滴滴、高德、美团等近百家企业产品打通，首批接入腾讯 WorkBuddy。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>它走的是与豆包手机相反的路：不靠读屏模拟点击，而让应用带接口进系统。两条路的差别落到现实就是——前者要说服应用方开放自动化权限，后者要逐家谈接入。对终端智能方向，这是一次把「手机入口从 App 迁到智能体」的正面押注，首销后的任务完成率与生态兑现程度才是这类产品能否成立的真实检验。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>财闻（网易转载）https://m.163.com/dy/article/L95BGPH00550WHYR.html ；腾讯新闻 https://news.qq.com/rain/a/20261014A08JWQ00</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> &middot; 具身智能 &middot; 灵巧手</span>
+    <h2 class="c-title">Nature Will 发布 Natura-1，用百万小时人类视频预训练灵巧手模型</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span>
+      <span class="chip">灵巧手</span>
+      <span class="chip">预训练</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 13 日，北京具身智能公司自然意志（Nature Will）发布 Natura-1：约 <strong>500 亿参数</strong>的 MoE 模型，在约 <strong>100 万小时</strong>第一人称人类视频（约 6170 万个片段、31.8 万种任务、1.4 万个场景）上预训练，再以少量机器人数据后训练，可在约 100 毫秒的观测—动作回路里驱动 <strong>20 自由度灵巧手</strong>。</p>
+      <p>在其 12 个能力维度的基准中，Natura-1 于灵巧手平台得 53.4 与 59.1，对照的 π0.5 与 GPT-6 Astra 在灵巧手平台未能得分（换夹爪后分别为 13.5 与 16.7），测试任务的场景、物体与动作组合均不在训练集中。团队还观察到未被示范的涌现行为，如借长杆把够不到的篮子拉近、把扑克牌推到边缘再双手配合拿起。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>灵巧手自由度高、接触容错低，长期是通用模型的死角；Natura-1 把突破口放在「人类第一人称视频」这一近乎免费的数据源上，并用零样本跨任务表现证明其可迁移。与依赖遥操作采集的路线相比，它把最贵的一环从数据采集挪到了预训练，也顺带得到失败后自动重试的能力。需要注意官方尚未公布权重、API 与授权细节。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>机器之心（腾讯新闻转载）https://news.qq.com/rain/a/20261014A09CBS00</p>
+    </div>
+  </article>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>&middot; 2026-10-16 10:21 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-11-01 第 92 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-01 · 第 92 期</span>
+    </div>
+    <h1>DeepSeek 开放常驻 agent 原型，Cursor 市场出现被篡改的编码扩展</h1>
+    <p class="mh-sub">本期收录 DeepSeek 的常驻型 agent 原型（路由与执行两层、投机执行）、Cursor 扩展市场里带 SSH 后门的 Claude Code 扩展、Claude 订阅改名并取消五小时窗口、新芯航途 700 TOPS 车规芯片的评测口径，以及美国对进口机器人的 232 条款认定。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · AI Agent · 常驻架构</span>
+    <h2 class="c-title">DeepSeek 开放常驻型 agent 原型，把多个会话交给路由层管理</h2>
+    <div class="c-tags">
+      <span class="chip b">AI Agent</span><span class="chip">多会话</span><span class="chip">投机执行</span><span class="chip">MIT 许可</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 31 日，DeepSeek 在 GitHub 放出 dsh-superagent-prototype，采用 MIT 许可，仓库现有 73 个星标、7 次分叉。结构分两层：上层 Router 接收消息、分配任务并维护全局上下文，下层多个 Worker 会话并行执行；某个 Worker 接手一条 GitHub PR 后可直接订阅后续评论，意见经直通机制交给该 Worker，不再经 Router 逐层转发。</p>
+      <p>公开文档提出四个特征：连续（跨会话、跨工作平台保留任务上下文）、高效（耗时任务不阻塞新的交互）、主动（持续观察环境，必要时自行采取动作）、持久（长期在线，异常可自行恢复）。配套机制包括两级事件过滤（先由程序规则筛除无关消息，再由模型判断是否行动）、异步 ReAct 循环（已在 DeepSeek Harness 中实现，尚未默认开启）、计算与状态、执行环境分离（设备离线时云端维持任务状态），以及一个独立的 Watchdog，用于判断任务是否陷入无效循环或偏离目标并尝试介入。</p>
+      <p>实验环境为约 300 条消息、20 项工作请求的模拟协作场景，每种配置重复 5 次。任务完成时间中位数 12.4 分钟，95 分位 15.7 分钟；传统单会话方案在中性提示下 95 分位为 29.5 分钟。取消直通机制后，Router 决策次数增加约 30%，读取缓存 token 增加约 37%。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这套做法要处理的问题是人的注意力上限：模型单任务能力变强之后，同时能跟进的工作条数成了瓶颈，公开文档给出的观察是多数人只能同时跟进 3 到 5 个活跃会话。把会话管理从人转移到系统，换来的是排队时间，付出的是路由判断与上下文读取的 token。</p>
+      <p>可直接借用的是三项与模型无关的结构：会话与任务解耦、按对象订阅消息、用独立的监督进程判定无效循环。数字来自自建模拟环境，任务类型与规模有限，接入真实 IM 与代码托管平台后的稳定性仍需观察。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/10/506904.html ；GitHub https://github.com/deepseek-ai/dsh-superagent-prototype</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI coding · 分发链路</span>
+    <h2 class="c-title">Cursor 扩展市场里被替换的 Claude Code 扩展装了 SSH 后门</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">供应链</span><span class="chip">凭据外泄</span><span class="chip">持久化</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 29 日，Cursor 市场里的 Anthropic.claude-code 扩展 2.1.313 版本的 macOS 与 Windows 构建被第三方替换，暴露时间约从 09:27 到 20:35 UTC，Cursor 称最多影响 5,000 名用户。恶意代码收集主机名、用户名、操作系统、家目录路径与公网 IP，向目标机器的 SSH 公钥清单写入攻击者密钥，建立指向 134.209.82.225 的反向 SSH 隧道，并落下独立的持久化脚本；分析方指出因代码错误，多数 macOS 与 Windows 上的 SSH 常驻实际未成功。</p>
+      <p>处置过程：Cursor 下架该版本并关闭市场自查，轮换密钥后重建市场，联系托管服务商下线攻击者服务器，Anthropic 当晚发布 2.1.314。卸载扩展不足以清除后门，Cursor 的公告要求删除未经授权的 SSH 公钥、持久化项与隧道进程，并在可信设备上轮换受影响主机的凭据。安全公司 Socket 另指出，Open VSX 的公开记录里没有 2.1.313 的发布或撤除事件，早期把来源归于 Open VSX 的报道缺乏依据。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码助手的扩展市场正在成为新的分发通道：扩展装在有源码、云凭据与生产访问权限的开发机上，一旦被替换，获得的权限接近开发者本人。审核与签名环节没能拦住这次替换，暴露窗口接近 11 小时，说明第三方市场的准入检查不足以承担这类风险。</p>
+      <p>可执行的做法是把 IDE 扩展按供应链组件管理：固定版本、核对安装包哈希、维护装机清单，并单独排查 10 月 29 日是否装过 2.1.313。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Cursor 安全公告 https://cursor.com/blog/claude-code-extension-security-notice ；Reuters https://www.reuters.com/business/media-telecom/cursor-says-up-5000-users-affected-by-tampered-claude-code-extension-2026-10-30 ；Socket https://socket.dev/blog/claude-code-extension-compromise</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · AI coding · 用量与定价</span>
+    <h2 class="c-title">Claude 订阅改名 Max 与 Ultra，Ultra 取消五小时窗口</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">订阅额度</span><span class="chip">长程任务</span><span class="chip">口径变更</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 31 日，Anthropic 把 Claude 的 Max 5x 计划改名为 Max、Max 20x 改名为 Ultra，价格维持每月 100 美元与 200 美元。通过账号验证的 Ultra 用户可以在每周额度内连续使用，不再受五小时窗口限制，周额度仍为 Pro 的 10 倍，并保留新功能优先体验、Claude Code 与后台长程任务的可用权。</p>
+      <p>订阅产品负责人 Mike Overell 说明改名缘由：原先的「20 倍」指单个五小时窗口内为 Pro 的 20 倍，后来叠加的周额度只有 10 倍，两个口径并存造成误解，公司为此前的沟通致歉。现有 Ultra 用户陆续解除限制，新账号需先通过基于账号与支付历史的自动验证，界面上的五小时进度条消失即为生效。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>五小时窗口是长程 agent 任务的硬边界，跑测试、改多个仓库、做批量重构这类任务经常在窗口边界被截断。取消窗口后，连续数小时的工作可以在一个额度内完成，中断与重排的次数下降。</p>
+      <p>额度口径统一到周维度，会改变按订阅折算的单位任务成本。此前按窗口倍率估算容量、用多账号并行跑 agent 的方案，需要按新的周额度重算；改名也把长期存在的宣传与实际额度差异放到了明面上，采购与合规环节的说明材料应同步更新。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/10/506855.html ；The Verge https://www.theverge.com/ai-artificial-intelligence</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 终端智能 · 车规算力</span>
+    <h2 class="c-title">新芯航途发布 700 TOPS 车规芯片，用世界模型做算力口径</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span><span class="chip">端侧算力</span><span class="chip">世界模型</span><span class="chip">车规功能安全</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 31 日，成立两年多的芯片公司新芯航途（XHEART）首次对外亮相，发布车规芯片 X7 Ultra：算力 700 TOPS，NPU 计算利用率 98.7%，量化模型输出与 FP32 基准模型的相似度超过 99.99%，对比行业旗舰产品内存带宽消耗降低 80%、能效提升 100%。NPU 采用超大核架构并提升核间互连带宽，为 LayerNorm、Softmax、Transpose 等高频算子配置专用计算引擎；处理子系统加入每秒 2000 万点的激光雷达加速器，摄像头链路处理稳定性提升 100%；CPU 采用 Arm v9 车规架构（该架构在中国首次上车），SoC 达到 ASIL-B、集成 MCU 达到 ASIL-D。上一代 X7 已在上汽大众的新车上量产。</p>
+      <p>评测口径被命名为「大模型算力」：在模型结构不改、精度不降、驾驶体验不打折的约束下，直接用 Momenta 的量产世界模型 R7 测整颗芯片，而不只看单项实验室基准。Momenta 首席执行官的判断是，端侧模型要达到 10B 甚至 100B 参数级别才支撑 L4 的大规模部署，芯片的算子类型、数据访问与并行关系需要在设计阶段就与模型架构一起考虑。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>端侧算力的可比性长期被 TOPS 数字掩盖，等数据、算子拖尾、调度损耗都不在单项基准里。用真实量产模型测整条流水线，能把这几项一起计入，所得数字更接近车上的实际表现。对做端侧推理选型的团队，这套口径可以搬到自己的模型上复核。</p>
+      <p>世界模型进入设计阶段之后，模型迭代会反过来改写硬件选型的周期：算子分布与数据搬运方式一变，专用加速单元的价值就变。这意味着端侧芯片的替换节奏开始跟随模型版本，硬件规划不能再按五年一代来排。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/10/506866.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 具身智能 · 供应链政策</span>
+    <h2 class="c-title">美国认定进口机器人威胁国家安全，转入 180 天谈判</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">232 条款</span><span class="chip">供应链</span><span class="chip">关税风险</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 28 日，美国总统签署公告，商务部按 232 条款完成的调查认定机器人与工业机械及其零部件的进口数量与情形威胁美国国家安全。公告列出的依据包括：国防系统与 16 个关键基础设施门类依赖机器人与工业机械、2024 年相关设备产值约 860 亿美元、美国多数品类依赖进口且本土产能不足以满足需求、来自特定境外实体的产品存在网络安全风险。文中点名自主机器人、人形与四足机器人、无人地面车辆在侦察、排爆、伤员转运等军事情景中的用途。</p>
+      <p>采取的措施是先谈判：商务部长与贸易代表与贸易伙伴商谈协议，180 天内汇报进展；公告保留后续加征或修改关税、设定配额与费用的选项，并提出可设立鼓励本土投资的项目。公告同时要求商务部持续监测进口情况。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>人形机器人整机与关节、减速器、传感器等主要产能在东亚，这次认定把整机与零部件一起纳入 232 范围，出口美国的成本结构存在被改写的可能。人形与四足机器人被直接点名，说明审查对象已经从工业机械扩展到具身智能的整机品类。</p>
+      <p>180 天的谈判窗口给出明确时间表。做海外交付、海外建厂与供应链选型的团队，需要在报价、合同与备件计划里预留关税情形，并把原产地与关键零部件来源纳入可追溯清单。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>白宫公告 https://www.whitehouse.gov/presidential-actions/2026/10/adjusting-imports-of-robotics-industrial-machinery-and-their-parts-and-components-into-the-united-states ；The Robot Report https://www.therobotreport.com/white-house-makes-section-232-determination-regarding-foreign-made-robots</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>DeepSeek 常驻 agent 原型接入真实 IM 与代码托管平台后的稳定性，直通机制在长会话中的上下文衰减。</li>
+      <li>Cursor 是否公布受影响用户的通知进度，第三方市场对扩展签名与哈希校验的准入规则是否调整。</li>
+      <li>Claude 周额度在 Ultra 上的实际消耗曲线，取消窗口后长程任务的失败与重试成本。</li>
+      <li>X7 Ultra 的「大模型算力」口径能否被第三方复现，10B 以上端侧模型的实测时延与功耗。</li>
+      <li>232 机器人谈判的进展，关税、配额与本土投资激励三种手段的最终组合。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-01 20:30 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

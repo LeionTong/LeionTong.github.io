@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.39 — 2026-11-03</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style></head>
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.39 · 2026-11-03 · 1002 GMT+8</span></div>
+  <h1>穿戴设备的固件、数据管道与端侧模型同时出现开源替代</h1>
+  <p class="mh-sub">Omi 把吊坠的固件、应用与后端整栈开源并靠硬件与年费收钱，Needle 3 用 8-29MB 的二进制把工具调用压进手表与单片机，Open Wearables 自托管十一家厂商的健康数据，MentraOS 让一款眼镜应用跨五款机型，OpenStrap 让 WHOOP 手环脱开订阅。五处拆的都是穿戴产品身上属于云与订阅的那一层。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-03</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">GitHub API 当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>穿戴产品值钱的位置一直落在三处：把采集到的声音画面变成可用数据、把多厂商设备接进自家系统、把用户锁在订阅里。这三处如今各有开源件顶上来——端侧小模型、自托管数据层、能直接连手环的应用。硬件还在原厂手里，云与订阅的收费位正在被挤掉。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">Omi <span>BasedHardware/omi</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 13,879 · 近 30 天 +181（star-history 推算）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 11-03 · 版本 0.12.560</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>吊坠持续采集对话与屏幕，实时转写后生成摘要、待办和可检索的记忆，手机、桌面与佩戴端共用一套后端。</p>
+  <p class="e-line"><b>痛点</b>记忆类穿戴产品的固件与后端大多闭源，录音只能躺在厂商云里，换产品记忆就断档。</p>
+  <p class="e-line"><b>付费</b>硬件出货，眼镜开发套件 499 美元，Pro 年费 269 美元；免费档每台设备每月含 300 分钟云转写。</p>
+  <p class="e-line"><b>规模化</b>应用覆盖 macOS、Windows、iOS、Android，固件与结构件一起开源，团队靠硬件与 Pro 订阅放量。</p>
+  <p class="e-line"><b>边际</b>中 · 每台有物料与整机成本，云档按分钟实付转写费用。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/BasedHardware/omi.git && cd omi/desktop/macos && ./run.sh --yolo</code>，Windows 走 <code>npm run dev</code>。</p>
+  <div class="risk"><b>风险</b>1,483 个未关 issue，主线在跑但摊子铺得大；常开麦克风加屏幕采集，隐私争议没停过；固件与结构件开源，量产良率仍是自家的活；付费靠云分钟，想全本地得自己搭后端，官方只给云端一条快路。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Needle 3 <span>cactus-compute/needle</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 14,444 · 近 30 天 +443（star-history 推算）</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 11-02 · 版本 3.2.10 · 更新追踪</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>8-29MB 的端侧模型，按工具定义选调用并填参数、按结构抽字段、返回句子向量，附带 16.9MB 的语音识别件，跑在手表、机器人、车机与单片机上。</p>
+  <p class="e-line"><b>痛点</b>云端工具调用要联网又要按 token 付费，通用小模型填参数错得多，端侧没有可用的一层。</p>
+  <p class="e-line"><b>付费</b>权重 Apache-2.0 免费，Cactus Platform 收微调、量化、评测与数据集托管的钱，企业单子从平台走。</p>
+  <p class="e-line"><b>规模化</b>一份权重配九个平台的引擎，watchOS、Android、riscv64 到 wasm 都在清单里。</p>
+  <p class="e-line"><b>边际</b>低 · 权重与引擎都是文件，分发不加机器。</p>
+  <p class="e-line"><b>验证</b><code>pip install cactus-needle</code>，或在 cactuscompute.com/needle 的沙盒里说一句要它开灯的话。</p>
+  <div class="risk"><b>风险</b>Needle 3 上线半个月，未关 issue 只有五个，长尾机型没实测；基准数字全出自自家，第三方复现少；四层以下要靠平台微调才追得平云端，微调把用户绑在他们的流水线上；训练数据是私有结构化集，效果上限说不清。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.9</b></div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><span class="n">LONGTALL</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">Open Wearables <span>the-momentum/open-wearables</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,748 · 近 30 天 +157（star-history 推算）</span>
+      <span class="tag">Python · MIT</span>
+      <span class="tag">最近提交 11-03 · 版本 0.11.0</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自托管的穿戴数据层，把 Garmin、Oura、Whoop、Polar 等十一家厂商的 OAuth、后台同步与 webhook 收成一套 schema 和一个 REST 接口，另带 MCP 服务给智能体查。</p>
+  <p class="e-line"><b>痛点</b>数字健康产品每接一家设备就要写一套集成、过一轮审核；聚合服务按连接收费，数据还得过别人的云。</p>
+  <p class="e-line"><b>付费</b>MIT 免费自托管，Enterprise 按项目报价，卖 SLA、HIPAA 架构、BAA 与 GDPR 文档、定制健康分。</p>
+  <p class="e-line"><b>规模化</b>一条 Docker Compose 起服务，跑在客户自己的云和区域，加厂商有固定流程和请求标签。</p>
+  <p class="e-line"><b>边际</b>低 · 代码交付一次，支持人数随企业单量缓慢增长。</p>
+  <p class="e-line"><b>验证</b><code>git clone https://github.com/the-momentum/open-wearables && cd open-wearables && docker compose up -d</code>，开发者门户在 localhost:3000。</p>
+  <div class="risk"><b>风险</b>每家厂商的开发者应用要自己注册过审，接真机数据前有一段行政等待；184 个未关 issue，版本还在 0.11；自带健康分只有睡眠与恢复两项基础算法，深度指标要另买；厂商改接口由你自己跟，Enterprise 才有人接。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.6</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">MentraOS <span>Mentra-Community/MentraOS</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,396 · 近 30 天 +25（star-history 推算）</span>
+      <span class="tag">TypeScript · Apache-2.0</span>
+      <span class="tag">最近提交 11-03 · 夜间构建 3.4.0-dev.1234 · 更新追踪</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>眼镜端运行时，应用跑在手机里，通过一套 API 取显示、麦克风、相机与扬声器，同一款应用跨五款机型。</p>
+  <p class="e-line"><b>痛点</b>每副眼镜一套 SDK，同一个功能按厂商重写，小团队进不了这个品类。</p>
+  <p class="e-line"><b>付费</b>系统 Apache-2.0 免费，Mentra 靠自家 Mentra Live 硬件与 MiniApp 商店分发，厂商可把运行时嵌进自家 App 换品牌保留。</p>
+  <p class="e-line"><b>规模化</b>支持列表已有五款机型，夜间构建每日发，接入方自己出适配层。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件运行时，新机型只多一层适配代码。</p>
+  <p class="e-line"><b>验证</b>下载 nightly 的 mobile 与 ASG 两个 APK，手机连上一副支持的眼镜，跑内置的字幕应用。</p>
+  <div class="risk"><b>风险</b>上游机型多是小众厂牌，出货量决定天花板；829 个未关 issue 大半是机型适配；强依赖手机常驻与蓝牙链路，各家熄屏策略不同；十月十六日推过一次，这次再推是夜间构建在扩适配面。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.8</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">OpenStrap <span>OpenStrap/edge</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 861 · 近 30 天 +168（star-history 推算）</span>
+      <span class="tag">Dart · AGPL-3.0</span>
+      <span class="tag">最近提交 11-02 · 版本 0.11.3</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>直连 WHOOP 4.0、5.0 与 MG 的健康应用，本地读心率、睡眠与恢复，替掉官方订阅才能看的那部分。</p>
+  <p class="e-line"><b>痛点</b>手环买断之后，历史趋势与恢复分数还锁在每年上百美元的订阅后面。</p>
+  <p class="e-line"><b>付费</b>无公司、无订阅、无付费墙，只挂比特币与 EVM 地址收打赏；APK 与 TestFlight 免费发。</p>
+  <p class="e-line"><b>规模化</b>一套 Flutter 应用覆盖 Android 与 iOS，Oura、Garmin、Pebble、Colmi 已进排期。</p>
+  <p class="e-line"><b>边际</b>低 · 纯应用，计算在本地，不带服务端。</p>
+  <p class="e-line"><b>验证</b>从 Releases 下 APK 装上或进 TestFlight，配一台 WHOOP 4.0 开始同步。</p>
+  <div class="risk"><b>风险</b>没有收入就没有维护承诺，主靠一人；只适配 WHOOP，换品牌得等；AGPL-3.0，改完对外提供要开源；读的是厂商私有协议，固件一升就可能断，作者也不承诺准确。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>3.8</b></div>
+</div>
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>Needle 3（cactus-compute/needle）</b>。端侧工具调用这一层，只有它把权重、各平台引擎和附带语音件一起摊开，还带置信度与结构抽取。Apache-2.0 加一行 pip，接进手表或机器人不必先谈商务。先用浏览器沙盒验判断，再决定要不要走平台微调。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>穿戴这条线上被拿掉的都是同一批环节：厂商云的转写分钟、聚合服务的按连接收费、手环的订阅墙、每副眼镜一套 SDK。替代件的接口刻意贴着既有客户端做，OpenAI 音频协议、REST、BLE 都在照抄，换上去只改一行地址。硬件仍旧在原厂手里，软件能替的部分已经替得很干净。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>Intent-Lab/VisionClaw</b>（2,612★，许可自定）· 语音加视觉驱动的眼镜助手，能力靠 Gemini Live 与 OpenClaw 串起来。自定许可要逐条读才能商用，画面与对话都过 Google 云，本地化程度低；回调链上任何一环停摆，整副眼镜就只剩拍照。</li>
+    <li><b>Zagitta/gpu-unlock</b>（14,674★，无许可证）· 改显卡固件放开 FP16 吞吐，只覆盖 RTX 20/30/40 系。无许可证等于保留一切权利，复用到产品里说不清；改的是固件，掉卡与保修的说法各家不一，跑分之外没有稳定性的第三方数据。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-03 10:02 GMT+8</span>
+  <span>数据来自 GitHub API 当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

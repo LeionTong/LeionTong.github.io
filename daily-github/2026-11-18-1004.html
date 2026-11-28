@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY GITHUB NO.52 — 2026-11-18</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+
+</style>
+</head>
+
+<body><div class="sheet">
+
+<header class="masthead">
+  <div class="mh-top"><b>LEION · DAILY GITHUB</b><span>NO.52 · 2026-11-18 · 1004 GMT+8</span></div>
+  <h1>算力被切成可计费的份额，服务端这一层已成套</h1>
+  <p class="mh-sub">本期收了 GPUStack 的集群编排与计量、Mooncake 的 KVCache 分离式传输、beta9 的按秒计费沙箱、Pixeltable 的多模态数据后端与 kvcached 的单卡共享；共同点是显卡的空闲时段正在被切成可计量、可收费的份额。</p>
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">日期</span><span class="spec-v">2026-11-18</span></div>
+    <div class="spec-cell"><span class="spec-k">条目</span><span class="spec-v">5</span></div>
+    <div class="spec-cell"><span class="spec-k">配比</span><span class="spec-v">主流 2 · 小众 3</span></div>
+    <div class="spec-cell"><span class="spec-k">数据</span><span class="spec-v">star 与日期当天实测</span></div>
+  </div>
+</header>
+
+<div class="lede">
+  <span class="tag">今日视角</span>
+  <p>显卡的空闲时段正在被切开计价。Beam 的沙箱标到 0.06 美元每小时，H100 一块卡 1.83 美元每小时；Pixeltable 的托管按 0.035 美元每 vCPU 每小时收；GPUStack 直接把配额、限流与计量做进企业版。这些价格成立的前提，是底下有一整套东西撑着：谁来调度显卡、缓存放在哪、不可信的代码在哪执行、多模态数据存成什么样。</p>
+</div>
+
+<section>
+<div class="sec-head"><span class="n">MAINSTREAM</span><span class="t">主流视野</span></div>
+
+<div class="entry">
+  <span class="entry-no">01</span>
+  <div class="e-head">
+    <h2 class="e-name">GPUStack <span>gpustack/gpustack</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 6,064 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-17 · v2.3.1（11-11）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>把机房、Kubernetes 集群与公有云上的显卡收成一个资源池，替人配好 vLLM、SGLang、TensorRT-LLM 这类引擎，也能按需开出带 SSH 的显卡实例。</p>
+  <p class="e-line"><b>痛点</b>显卡型号混杂、各家引擎参数不同，部署一个新模型要重调一遍显存切分与并行配置，运维侧没有统一入口。</p>
+  <p class="e-line"><b>付费</b>官网单列 GPUStack Enterprise，含显卡调度、配额与限流、计费与用量统计；一套平台可以按卖 token（MaaS）和卖显卡时长（GPUaaS）两种形态收费，具体报价走销售。</p>
+  <p class="e-line"><b>规模化</b>原生支持 NVIDIA、AMD、昇腾、海光、摩尔线程等加速卡，自建机房与混合云共用一套控制面，换硬件不用换平台。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件，Docker 或 Helm 交付，显卡由客户自己采购。</p>
+  <p class="e-line"><b>验证</b>一条命令起服务，登录 80 端口后添加一个模型即可对话：</p>
+  <pre>sudo docker run -d --name gpustack --restart unless-stopped -p 80:80 \
+    --volume gpustack-data:/var/lib/gpustack gpustack/gpustack</pre>
+  <div class="risk"><b>风险</b>worker 节点只支持 Linux，Windows 需走 WSL2 且官方不建议 Docker Desktop；企业版的计价方式没有公开，要谈；显存切分依赖具体驱动与固件版本，偶发识别不到显卡。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.7</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">02</span>
+  <div class="e-head">
+    <h2 class="e-name">Mooncake <span>kvcache-ai/Mooncake</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 7,062 · 近 30 天未获取到</span>
+      <span class="tag">C++ · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-17 · v0.3.14（11-03）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>Kimi 背后的 KVCache 分离式推理架构：预填充与解码分到不同机器上跑，缓存单独成层，靠传输引擎在节点之间搬运。</p>
+  <p class="e-line"><b>痛点</b>多轮对话与长上下文反复重算前缀，显卡花在等缓存搬运上的时间比花在计算上的还多，单机显存也装不下热门前缀。</p>
+  <p class="e-line"><b>付费</b>项目本身不直销。做 MaaS 与私有化推理的团队拿它压低单 token 成本，价值体现在同一批显卡的吞吐与首字延迟上；FAST25 论文与线上真实 trace 都已公开，评估有据可查。</p>
+  <p class="e-line"><b>规模化</b>传输引擎已覆盖 NVIDIA、昇腾、AMD、寒武纪、摩尔线程等后端，跨机房与云上网络都能接入。</p>
+  <p class="e-line"><b>边际</b>中 · 软件免费，收益依赖 RDMA 与高速网络，交付时要按集群规模调参。</p>
+  <p class="e-line"><b>验证</b>装好传输引擎，按文档的 quick-start 在单机起 Store 与 Transfer Engine，跑一次缓存搬运确认链路通：</p>
+  <pre>pip install mooncake-transfer-engine</pre>
+  <div class="risk"><b>风险</b>拿到全部收益需要八块显卡以上的集群与 RDMA 网络；KV 缓存与分离式调度里有一部分不在开源核心内，要自己补齐；版本号仍在 0.3，接口会动。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+</section>
+
+<section>
+<div class="sec-head"><span class="n">NICHE</span><span class="t">小众切口</span></div>
+
+<div class="entry">
+  <span class="entry-no">03</span>
+  <div class="e-head">
+    <h2 class="e-name">beta9 <span>beam-cloud/beta9</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,855 · 近 30 天未获取到</span>
+      <span class="tag">Go · AGPL-3.0</span>
+      <span class="tag">最近提交 2026-11-18 · worker 与 gateway 每日发版</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>自建的无服务器运行时，容器冷启动压到一秒以内，既能接住模型生成的代码沙箱，也能起常驻的推理端点。</p>
+  <p class="e-line"><b>痛点</b>智能体要执行不可信的代码，整台虚拟机太慢太贵，进程隔离又拦不住越权，中间这一层长期自己搭。</p>
+  <p class="e-line"><b>付费</b>官方云明码标价：沙箱与虚拟机 0.06 美元每小时起，H100 1.83 美元每小时，另有 BYOC 模式把运行时装进客户自己的集群。</p>
+  <p class="e-line"><b>规模化</b>沙箱、批处理、推理端点三类负载共用一套接口，接的是标准容器镜像，不绑定具体模型。</p>
+  <p class="e-line"><b>边际</b>中 · 卖的是显卡与运行时长，每多一个客户就多一份真实硬件开销。</p>
+  <p class="e-line"><b>验证</b>装上客户端，注册后跑文档里的沙箱示例，三十秒内拿到返回值：</p>
+  <pre>pip install beam-client</pre>
+  <div class="risk"><b>风险</b>AGPL-3.0，对外提供托管服务前要逐条看清条款；自托管要自备 Kubernetes 与显卡节点；worker 与 gateway 分开走版本号，追版比较费神。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.3</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">04</span>
+  <div class="e-head">
+    <h2 class="e-name">Pixeltable <span>pixeltable/pixeltable</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 1,664 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-18 · v0.7.24（11-07）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>多模态数据表、模型计算与 HTTP 服务写在同一个 Python 文件里，图片、视频与嵌入结果落在同一张可查询的表上。</p>
+  <p class="e-line"><b>痛点</b>智能体后端通常要拼向量库、对象存储与任务队列三套系统，新增一种模态就要重写一遍处理管道。</p>
+  <p class="e-line"><b>付费</b>Community 版免费但空闲七天会停机；Pro 版 29 美元每月外加 0.035 美元每 vCPU 每小时；企业版可做单租户 VPC 与 BYOC；自托管 Apache-2.0 永久免费。</p>
+  <p class="e-line"><b>规模化</b>视频检索、文档解析、影像标注共用同一套表结构，交付物是一份 app.py，本地与云端同一份代码。</p>
+  <p class="e-line"><b>边际</b>低 · 纯软件加托管按量计费，没有硬件依赖。</p>
+  <p class="e-line"><b>验证</b>照十分钟教程在 app.py 里声明一张视频表、一个计算列与一条 HTTP 路由，起服务后用 curl 查一次：</p>
+  <pre>pip install -U 'pixeltable[serve]'</pre>
+  <div class="risk"><b>风险</b>生态还小，1,664 star，第三方教程少；托管按 vCPU 与存储计费，多模态大文件容易把账单堆高；0.7.x 的接口仍有调整。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.5</b></div>
+</div>
+
+<div class="entry">
+  <span class="entry-no">05</span>
+  <div class="e-head">
+    <h2 class="e-name">kvcached <span>ovg-project/kvcached</span></h2>
+    <div class="e-meta">
+      <span class="tag star">⭐ 2,049 · 近 30 天未获取到</span>
+      <span class="tag">Python · Apache-2.0</span>
+      <span class="tag">最近提交 2026-11-17 · v0.1.6（10-03）</span>
+    </div>
+  </div>
+  <p class="e-line"><b>定位</b>给显存里的 KVCache 加一层虚拟内存：先占虚拟地址，用到时才映射物理显存，多个模型因此能共享同一块显卡。</p>
+  <p class="e-line"><b>痛点</b>一块显卡只跑一个模型时显存大量闲置，跑多个模型又要按峰值预留，切多少、留多少只能人工拍板。</p>
+  <p class="e-line"><b>付费</b>项目本身不收费。Red Hat 的 Sardeenz 已经基于它做动态多模型服务，商业价值由集成方在 OpenShift 一侧收取。</p>
+  <p class="e-line"><b>规模化</b>支持 SGLang 与 vLLM 两类引擎，AMD 的 ROCm 后端已接，单机与 Kubernetes 都能用。</p>
+  <p class="e-line"><b>边际</b>低 · 纯 Python 库，随引擎启动加载，不增加额外服务。</p>
+  <p class="e-line"><b>验证</b>装好后打开两个环境变量，起一个 vLLM 实例，对比显存占用曲线：</p>
+  <pre>pip install kvcached --no-build-isolation
+export ENABLE_KVCACHED=true KVCACHED_AUTOPATCH=1</pre>
+  <div class="risk"><b>风险</b>版本号还在 0.1.x，与引擎版本强绑定（当前对 vLLM v0.30、SGLang v0.5.20）；收益只在多模型共卡时出现，单模型场景没有意义；改的是引擎的内存加载方式，出问题要读源码。</div>
+  <div class="scores">
+    <div class="sc"><span class="sc-k">商业化</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+    <div class="sc"><span class="sc-k">规模化</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">边际成本</span><div class="bar"><i style="width:100%"></i></div><span class="sc-v">5</span></div>
+    <div class="sc"><span class="sc-k">验证速度</span><div class="bar"><i style="width:80%"></i></div><span class="sc-v">4</span></div>
+    <div class="sc"><span class="sc-k">成熟度</span><div class="bar"><i style="width:60%"></i></div><span class="sc-v">3</span></div>
+  </div>
+  <div class="wsum">加权 <b>4.1</b></div>
+</div>
+
+</section>
+
+<div class="tail">
+  <h2>今日<em>首选</em></h2>
+  <p><b>GPUStack（gpustack/gpustack）</b>。切分显卡、配置推理引擎、按用量出账这三件事被放进一套可以自托管的软件里，企业版已经把配额、限流与计量做成了模块，卖 token 与卖显卡时长的供应商都能直接挂上去。开源版一条 docker 命令就能验，判断成本很低。</p>
+
+  <h2>组合<em>观察</em></h2>
+  <p>集群编排、缓存传输、沙箱执行、数据后端、单卡共享，五个位置拼起来就是一套自建的服务端底座。收费方式都在往时长与用量上靠：Beam 按秒标价，Pixeltable 按 vCPU 小时，GPUStack 把计量做进企业版。自建这一侧的采购对象也跟着变化，一套能自己出账的系统，正在取代单买软件授权的做法。</p>
+
+  <h2>暂不<em>建议碰</em></h2>
+  <ol>
+    <li><b>storytold/photocraft</b>（80,122★，建仓 09-30）· 同一账号 9 月底以来开出 11 个「纯 Rust 重写」仓库，合计约 20.6 万 star，交付物是本地桌面软件。star 曲线与代码体量、issue 讨论完全不成比例，收费入口只有官网一张应用列表，商业结构还没成形，等两三个月看留存再议。</li>
+    <li><b>Ebony-Vinyl/dsh-our-free-model</b>（78,621★）· 用插件把第三方模型的免费额度转出来用，不签约也不付费，额度与使用条款随时可能被收回，找不到可以收钱的位置。</li>
+  </ol>
+</div>
+
+<footer class="colophon">
+  <span>LEION · DAILY GITHUB</span>
+  <span>2026-11-18 10:04 GMT+8</span>
+  <span>数据来自 GitHub 与项目文档当天实测 · 仅供参考</span>
+</footer>
+
+</div></body></html>

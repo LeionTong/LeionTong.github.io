@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI 领域每日动态 · 2026-07-21</title>
+<style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --paper:#f4f0e7;
+  --paper-2:#fbf8f1;
+  --ink:#1f1d18;
+  --ink-soft:#56524a;
+  --muted:#8a857a;
+  --rule:#e2dccd;
+  --amber:#bf6a25;
+  --teal:#127a6f;
+  --rose:#a23b5c;
+}
+* {
+  box-sizing:border-box;
+}
+html {
+  scroll-behavior:smooth;
+}
+body {
+  margin:0;
+  background:#f4f0e7;
+  color:#1f1d18;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:17px;
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+body::before {
+  content:"";
+  position:static;
+  inset:0;
+  pointer-events:none;
+  z-index:9999;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.wrap {
+  max-width:880px;
+  margin:0 auto;
+  padding:64px 28px 96px;
+}
+.masthead {
+  margin-bottom:46px;
+}
+.kicker-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#7b766d;
+  border-bottom:1px solid #e2dccd;
+  padding-bottom:10px;
+}
+.masthead h1 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:900;
+  font-size:clamp(40px,8vw,76px);
+  line-height:1.85;
+  letter-spacing:-.02em;
+  margin:26px 0 8px;
+}
+.masthead h1 em {
+  font-style:italic;
+  font-weight:500;
+  color:#b06222;
+}
+.subtitle {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.06em;
+  color:#56524a;
+}
+.rule-double {
+  border-top:3px double #1f1d18;
+  margin:22px 0 0;
+}
+.lead {
+  font-size:19px;
+  line-height:1.78;
+  color:#56524a;
+  border-left:3px solid #bf6a25;
+  padding:4px 0 4px 22px;
+  margin:40px 0 14px;
+}
+.lead b {
+  color:#1f1d18;
+  font-weight:600;
+}
+.legend {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  margin:0 0 50px;
+}
+.legend span {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#56524a;
+}
+.dot {
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  display:inline-block;
+}
+.dot.a {
+  background:#f6f6f6;
+}
+.dot.b {
+  background:#f4f4f4;
+}
+.dot.c {
+  background:#f2f2f2;
+}
+article {
+  background:#fbf8f1;
+  border:1px solid #e2dccd;
+  border-radius:3px;
+  padding:30px 34px 32px;
+  margin-bottom:30px;
+}
+.tag-row {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.tag {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:4px 11px;
+  border-radius:999px;
+  border:1px solid currentColor;
+  font-weight:600;
+}
+.tag.t-a {
+  color:#b06222;
+}
+.tag.t-b {
+  color:#127a6f;
+}
+.tag.t-c {
+  color:#a23b5c;
+}
+.tag .dot {
+  width:7px;
+  height:7px;
+}
+.src {
+  color:#7b766d;
+}
+article h2 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:600;
+  font-size:clamp(23px,3.6vw,30px);
+  line-height:1.85;
+  letter-spacing:-.01em;
+  margin:2px 0 18px;
+}
+.sec-label {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#7b766d;
+  display:block;
+  margin:20px 0 6px;
+}
+.body-text {
+  margin:0;
+  color:#56524a;
+}
+ul.why {
+  margin:4px 0 0;
+  padding-left:20px;
+}
+ul.why li {
+  margin:6px 0;
+  color:#56524a;
+}
+ul.why li::marker {
+  color:#1f1d18;
+}
+.note {
+  margin-top:20px;
+  padding:14px 18px;
+  background:#f9f3f5;
+  border-left:3px solid #a23b5c;
+  border-radius:0 3px 3px 0;
+  font-size:15.5px;
+  color:#6c4a55;
+}
+.note.teal {
+  background:#f1f7f6;
+  border-left-color:#127a6f;
+  color:#1d5650;
+}
+.note.amber {
+  background:#fbf5f0;
+  border-left-color:#bf6a25;
+  color:#7a4a1f;
+}
+.note b {
+  font-weight:600;
+}
+footer {
+  margin-top:58px;
+  padding-top:22px;
+  border-top:1px solid #e2dccd;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  line-height:1.9;
+  letter-spacing:.02em;
+  color:#7b766d;
+}
+footer b {
+  color:#56524a;
+  font-weight:600;
+}
+@media (max-width:560px) {.wrap {
+  padding:40px 18px 70px;
+}
+article {
+  padding:24px 20px 26px;
+}
+.kicker-row {
+  font-size:13px;
+  letter-spacing:.12em;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker-row">
+      <span>Daily Intelligence Brief · 智能体 / 终端 / 具身</span>
+      <span>2026.07.21 · GMT+8</span>
+    </div>
+    <h1>AI 领域<em>每日动态</em></h1>
+    
+    <div class="rule-double"></div>
+  </header>
+
+  <p class="lead">
+    WAIC 2026（7/17–7/20）刚收官，本周行业信号高度一致：<b>AI 正从"能聊天、能生成"跨入"能办事、能执行"的深水区</b>。终端侧（智能体手机）与具身侧（机器人进真实场景）同时进入"规模化落地"叙事，而 Agent 侧则从单点工具走向企业级基础设施与治理。需冷静看到：真实成功率、隐私、数据三道门槛，仍是规模化之前的硬约束。
+  </p>
+
+  <div class="legend">
+    <span><i class="dot a"></i>终端·端侧</span>
+    <span><i class="dot b"></i>AI Agent</span>
+    <span><i class="dot c"></i>具身智能</span>
+  </div>
+
+  <!-- 1 -->
+  <article>
+    <div class="tag-row">
+      <span class="tag t-a"><i class="dot a"></i>终端·端侧</span>
+      <span class="src">21 世纪经济报道 · 2026-07-21</span>
+    </div>
+    <h2>智能体手机三强同台，端侧 AI 走向"规模化落地元年"</h2>
+    <span class="sec-label">事件</span>
+    <p class="body-text">WAIC 期间，荣耀 RobotPhone、阶跃星辰 STEPX Neo、努比亚 NaviX Ultra 三款智能体手机同台亮相。荣耀主打"硬件具身智能 + 机械云台"，可手势唤醒自动追踪运镜；阶跃 STEPX Neo 深入操作系统层，以个人智能体 Amoo 统筹跨应用任务（机酒行程规划、规避冲突日程）；努比亚二代豆包手机以实体 AI 键 + 系统级 GUI Agent（MCP/A2A 直连）实现跨 App 闭环。中国信通院将端侧 OS 演进分为 <b>OS+AI → AI 平台型 OS → AI 原生 OS</b> 三阶段；面壁智能发布《端侧智能 2026——规模化落地元年》报告，称 2026 为端侧 AI 落地元年；工信部等《人工智能终端智能化分级》首批测试中，17 家企业 66 款产品达 L3 辅助级。</p>
+    <span class="sec-label">为什么值得关注</span>
+    <ul class="why">
+      <li>交互范式从"以应用为中心"转向"以意图为中心"，系统级 Agent 引擎开始取代 App 列表成为手机 AI 中枢，或驱动新一轮换机潮。</li>
+      <li>苹果、华为、OPPO、vivo、小米、三星、努比亚等 7 款手机端侧生成式 AI 服务集体完成备案，端侧模型从概念走进合规落地，融合进程有望提速。</li>
+    </ul>
+    <div class="note amber">
+      <b>客观提示：</b>信通院姜春宇指出，OSWorld 评测中 500 步以上任务成功率仅 <b>18%</b>、部分完成率 54%，"智能体一多、目标一大，效果显著下降"；隐私与端侧硬件（NPU / 大内存 / 功耗）仍是普及门槛，短期主要定位旗舰产品。
+    </div>
+  </article>
+
+  <!-- 2 -->
+  <article>
+    <div class="tag-row">
+      <span class="tag t-b"><i class="dot b"></i>AI Agent</span>
+      <span class="src">环球网 / 阿里云 · 2026-07-18</span>
+    </div>
+    <h2>阿里云发布 Agent Native Cloud，把 Agent 变成"企业原生能力"</h2>
+    <span class="sec-label">事件</span>
+    <p class="body-text">阿里云在 WAIC 发布 <b>Agent Native Cloud（智能体原生的云）</b>，并推出 AgentTeams（多智能体治理协作）、AgentLoop（全栈观测优化）、Agentic Computer 等。Infra 层提供面向 Agent 场景重设计的 Sandbox（MicroVM/VM 级强隔离、可缩容到 0 的长会话低成本、高并发弹性）；平台层覆盖构建、治理、评估、优化，Identity / Gateway / Policy / 可观测等模块让每次操作可归属、每份资产可复用、每次迭代像微服务一样可控。</p>
+    <span class="sec-label">为什么值得关注</span>
+    <ul class="why">
+      <li>行业共识正从"谁拥有更多 Agent"转向"谁能把 Agents 变成<b>可控、可复用、可协作、会进化</b>的组织资产"——这是 Agent 从 Demo 走向生产的关键一跃。</li>
+      <li>强隔离 + 可审计 + 钥匙集中托管（Agent 本身看不到密钥，用完即收），直击企业最敏感的安全合规诉求。</li>
+    </ul>
+    <div class="note teal">
+      <b>客观提示：</b>工具链再完善，落地仍依赖企业内部的 API / MCP / CLI 成熟度与业务流程改造，并非"上云即解决"。
+    </div>
+  </article>
+
+  <!-- 3 -->
+  <article>
+    <div class="tag-row">
+      <span class="tag t-c"><i class="dot c"></i>具身智能</span>
+      <span class="src">环球网 / 新浪 · 2026-07-21</span>
+    </div>
+    <h2>小米人形机器人进厂，螺柱上件成功率提升至 98%，开源 Xiaomi-Robotics-U0</h2>
+    <span class="sec-label">事件</span>
+    <p class="body-text">小米机器人仿生操控负责人游洋威在 WAIC 分享《进厂手记》：人形机器人已在小米自有汽车工厂多工站试点，螺柱上件工站成功率从 90% 提升至 98%；团队近期开源 <b>Xiaomi-Robotics-U0</b> 具身生成模型，用生成式方式扩充数据样本、以更低成本提升多样性。游洋威判断：整体处于类似自动驾驶 <b>L2 早期</b>，工厂场景因结构化、约束清晰，将先于家庭消费场景实现规模化落地。</p>
+    <span class="sec-label">为什么值得关注</span>
+    <ul class="why">
+      <li>工业场景是具身"价值落地"最务实的试验场：人形机器人可直接适配为人工设计的工位、无需大规模改造产线，一台故障可快速替换，新工位只需少量数据微调即可上岗，更适配多品种、小批量柔性生产。</li>
+      <li>开源数据集 / 模型被视为突破"高质量场景数据匮乏"瓶颈的重要路径，单家企业难以独撑全行业技术突破。</li>
+    </ul>
+    <div class="note">
+      <b>客观提示：</b>游洋威坦言"大脑（认知决策）与小脑（精准执行）深度融合"仍是行业共性难题；高质量真实场景数据获取成本高，行业对"千万 Clips 催生关键突破"的预期偏乐观，数据量级临界阈值目前尚未明确。
+    </div>
+  </article>
+
+  <!-- 4 -->
+  <article>
+    <div class="tag-row">
+      <span class="tag t-c"><i class="dot c"></i>具身智能</span>
+      <span class="src">财联社 / 科创板日报 · 2026-07-20</span>
+    </div>
+    <h2>WAIC 具身展区：触觉成今年最大变量，告别"花架子"进真实场景</h2>
+    <span class="sec-label">事件</span>
+    <p class="body-text">本届 WAIC 具身智能展区汇聚超 200 家企业、300 余台具身机器人，"触觉"与"大脑"被视为破局关键，触觉被认为是今年乃至明年最具突破潜力的技术维度。优艾智合"隙锋"人形机器人采用分级训练框架：出厂即具基础动作能力，<b>最低 50 条数据小样本训练即达 90% 任务成功率</b>；云深处 DR02 全天候人形机器人完成变电站实地测试、2026 年启动商用投放；远征 A3 Ultra 成为 WAIC 十件"镇馆之宝"中唯一具身智能产品。</p>
+    <span class="sec-label">为什么值得关注</span>
+    <ul class="why">
+      <li>行业从"展台演示"推向"真实场景压力测试"（工厂、餐厅后厨、变电站），场景价值成为检验技术成色的核心标尺。</li>
+      <li>"一脑多态 / 多机协同"架构让统一大脑调度不同形态机器人，在同一目标下自动拆解、自动分工，实现全局效率最优，是工业规模化落地的关键能力。</li>
+    </ul>
+    <div class="note">
+      <b>客观提示：</b>多数展示仍为定点 / 限定场景验证，"今天进厂第二天熟练工"依赖 24 小时周期持续数据循环；跨场景泛化与真实环境鲁棒性仍需长期积累。
+    </div>
+  </article>
+
+  <!-- 5 -->
+  <article>
+    <div class="tag-row">
+      <span class="tag t-c"><i class="dot c"></i>具身智能</span>
+      <span class="src">新智元 · 2026-07-15</span>
+    </div>
+    <h2>逐际动力 LimX COSA 0.5：国内首次机器人一镜到底全自主干家务，提出"系统才是大脑"反共识</h2>
+    <span class="sec-label">事件</span>
+    <p class="body-text">逐际动力发布人形大脑系统 <b>LimX COSA 0.5</b>，全尺寸人形机器人 Oli 无遥操、无剪辑、一镜到底完成一屋子家务（收衣、取衣、收纳玩偶、搬箱摞箱、深弯腰拾物、清理垃圾、递物）。系统由 S2 认知层（~1Hz）、S1 技能层、S0 运控层三层协同。创始人张巍提出反共识：纯大模型像"躺在病床上的霍金"——极聪明却无法自主行动；<b>"模型只是技能，系统才是大脑"</b>。</p>
+    <span class="sec-label">为什么值得关注</span>
+    <ul class="why">
+      <li>把行业叙事从"谁的端到端模型更大"拉回到"如何把能力组织成能在真实身体上运转的系统"，对长程移动操作（家庭非结构化场景）是实质性推进。</li>
+      <li>全球唯二、中国首个能全自主完成长程移动操作家庭任务的全尺寸人形机器人（继 Figure 之后）。</li>
+    </ul>
+    <div class="note">
+      <b>客观提示：</b>家庭场景长尾问题多、安全要求高，距真正日常可用仍有距离；Demo 的工程条件（光照、物体摆放、任务编排）与真实家庭的开放性不可等同，需防止把"一镜到底"误读为"全场景可用"。
+    </div>
+  </article>
+
+  <footer>
+    <b>方法说明 —</b> 筛选标准：① 与 AI Agent / 终端·端侧 / 具身智能强相关；② 信息来自一手或可靠媒体；③ 具备产业信号意义或技术转折价值；④ 覆盖三方向并附客观风险提示。<br/>
+    <b>客观性原则 —</b> 每条区分"事件事实"与"价值判断"，并附"客观提示"指出未证实 / 待观察 / 有争议的环节，避免夸大与跟风。<br/>
+    <b>信息时效 —</b> 以 2026-07-21 为基准，优先采用当日及近一周（WAIC 会期 7/17–7/20）公开报道。
+  </footer>
+
+</div>
+</body>
+</html>

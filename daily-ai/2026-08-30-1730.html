@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 领域每日动态 · 2026-08-30 17:30 · 自建·可信·在端·可训：Agent 从「工具」跃迁为「生产要素」与「治理对象」</title>
+<style>
+/* <<EINK:BASE>> */
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+/* <</EINK:BASE>> */
+/* <<EINK:LEGACY>> */
+:root {
+  --paper:#eef1f4;
+  --paper-2:#e2e8ee;
+  --grid:#f2f3f5;
+  --ink:#1b2733;
+  --ink-soft:#4d5c6c;
+  --ink-faint:#7f8d9c;
+  --blue:#1d4e78;
+  --blue-soft:#356b96;
+  --ochre:#a4442a;
+  --teal:#2f6b6b;
+  --amber:#96731c;
+  --rule:#d8dadc;
+  --rule-soft:#eaeced;
+  --tape:#efeadd;
+}
+* {
+  box-sizing:border-box;
+}
+html {
+  -webkit-text-size-adjust:100%;
+}
+body {
+  margin:0;
+  background:#eef1f4;
+  color:#1b2733;
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  line-height:1.84;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet {
+  max-width:912px;
+  margin:0 auto;
+}
+.masthead {
+  position:relative;
+  margin:0 -20px 34px;
+  padding:46px 34px 30px;
+  border-bottom:2px solid #1b2733;
+  background:#e2e8ee;
+}
+.masthead:before {
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:5px;
+  height:1px;
+  background:#efefef;
+}
+.mh-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:18px;
+  flex-wrap:wrap;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#6c7885;
+  border-bottom:1px solid #eaeced;
+  padding-bottom:12px;
+  margin-bottom:22px;
+}
+.mh-top b {
+  color:#1d4e78;
+  font-weight:700;
+}
+.masthead h1 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-weight:700;
+  font-size:clamp(30px,5.6vw,52px);
+  line-height:1.85;
+  margin:0 0 12px;
+  color:#1b2733;
+}
+.masthead h1 em {
+  font-style:italic;
+  color:#1d4e78;
+  font-weight:600;
+}
+.spec-strip {
+  display:flex;
+  flex-wrap:wrap;
+  margin-top:24px;
+  border:1px solid #d8dadc;
+  background:#ffffff;
+}
+.spec-cell {
+  flex:1 1 150px;
+  padding:11px 14px;
+  border-right:1px solid #eaeced;
+}
+.spec-cell:last-child {
+  border-right:none;
+}
+.spec-k {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#6c7885;
+  display:block;
+  margin-bottom:3px;
+}
+.spec-v {
+  font-size:13.5px;
+  color:#1d4e78;
+  font-weight:500;
+}
+.lede {
+  position:relative;
+  margin:0 0 40px;
+  padding:30px 32px 28px;
+  border:1px solid #1b2733;
+  background:#ffffff;
+}
+.lede:before {
+  content:"";
+  position:absolute;
+  top:-11px;
+  left:38px;
+  width:104px;
+  height:22px;
+  background:#efeadd;
+  border-left:1px solid #e0d5bb;
+  border-right:1px solid #e0d5bb;
+}
+.lede .tag {
+  display:inline-block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#6b6c6e;
+  background:#f1f1f1;
+  padding:4px 11px;
+  margin-bottom:16px;
+}
+.lede-title {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:27px;
+  font-weight:700;
+  color:#1d4e78;
+  margin:0 0 14px;
+  line-height:1.85;
+}
+.lede p {
+  margin:0;
+  font-size:15.6px;
+  line-height:1.94;
+}
+.lede strong {
+  color:#a4442a;
+  font-weight:700;
+}
+.figure {
+  margin:0 0 44px;
+  padding:24px 20px 16px;
+  border:1px solid #d8dadc;
+  background:#ffffff;
+}
+.fig-cap {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#6c7885;
+  border-bottom:1px solid #eaeced;
+  padding-bottom:9px;
+  margin-bottom:14px;
+}
+.fig-cap b {
+  color:#a4442a;
+  font-weight:700;
+}
+.fig-note {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  color:#6c7885;
+  margin-top:12px;
+  padding-top:10px;
+  border-top:1px solid #eaeced;
+  line-height:1.7;
+}
+.sec-head {
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  margin:0 0 26px;
+  border-bottom:1px solid #1b2733;
+  padding-bottom:10px;
+}
+.sec-head .n {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  color:#a4442a;
+  font-weight:700;
+}
+.sec-head .t {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:22px;
+  font-weight:700;
+  color:#1b2733;
+  letter-spacing:.02em;
+}
+.card {
+  position:relative;
+  margin:0 0 38px;
+  padding:0 0 30px;
+  border-bottom:1px solid #eaeced;
+}
+.card:last-of-type {
+  border-bottom:none;
+}
+.c-num {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#6c7885;
+  display:block;
+  margin-bottom:8px;
+}
+.c-num b {
+  color:#a4442a;
+}
+.c-title {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:25px;
+  font-weight:700;
+  line-height:1.85;
+  margin:0 0 6px;
+  color:#1b2733;
+}
+.c-tags {
+  margin:0 0 18px;
+}
+.chip {
+  display:inline-block;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:2px 8px;
+  margin:0 6px 6px 0;
+  border:1px solid #d8dadc;
+  color:#4d5c6c;
+  background:#ffffff;
+}
+.chip.b {
+  border-color:#1d4e78;
+  color:#1d4e78;
+}
+.chip.o {
+  border-color:#a4442a;
+  color:#a4442a;
+}
+.chip.t {
+  border-color:#2f6b6b;
+  color:#2f6b6b;
+}
+.blk {
+  margin:0 0 16px;
+}
+.blk-k {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#a4442a;
+  font-weight:700;
+  display:block;
+  margin-bottom:6px;
+}
+.blk p {
+  margin:0 0 10px;
+  font-size:15.3px;
+  color:#1b2733;
+}
+.blk p:last-child {
+  margin-bottom:0;
+}
+.blk ul {
+  margin:8px 0 0;
+  padding-left:20px;
+}
+.blk li {
+  margin-bottom:8px;
+  font-size:15px;
+  color:#1b2733;
+}
+strong {
+  color:#a4442a;
+  font-weight:700;
+}
+em.hl {
+  font-style:normal;
+  color:#1d4e78;
+  font-weight:600;
+}
+.why {
+  border-left:3px solid #1d4e78;
+  padding:2px 0 2px 16px;
+  background:#f5f7f9;
+}
+.why .blk-k {
+  color:#1d4e78;
+}
+.datum {
+  margin-top:14px;
+  padding:10px 14px;
+  border:1px dashed #d8dadc;
+  background:#ffffff;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  line-height:1.9;
+  color:#4d5c6c;
+}
+.datum b {
+  color:#1d4e78;
+}
+.cross {
+  margin:44px 0 0;
+  padding:28px 30px;
+  border:1px solid #1b2733;
+  background:#ffffff;
+}
+.cross h3 {
+  font-family:Georgia,"Songti SC","Noto Serif CJK SC","Source Han Serif SC","Times New Roman",serif;
+  font-size:23px;
+  font-weight:700;
+  color:#1d4e78;
+  margin:0 0 14px;
+}
+.cross ol {
+  margin:0 0 16px;
+  padding-left:22px;
+}
+.cross li {
+  margin-bottom:10px;
+  font-size:15.2px;
+}
+.verdict {
+  margin-top:18px;
+  padding:16px 18px;
+  border-left:3px solid #a4442a;
+  background:#faf6f4;
+  font-size:15.4px;
+}
+.risk {
+  margin-top:18px;
+  padding:14px 16px;
+  border:1px dashed #d8dadc;
+  font-size:14.2px;
+  color:#4d5c6c;
+  background:#ffffff;
+}
+.risk b {
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#a4442a;
+  display:block;
+  margin-bottom:6px;
+}
+footer {
+  margin-top:52px;
+  padding-top:18px;
+  border-top:2px solid #1b2733;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:13px;
+  letter-spacing:.13em;
+  color:#6c7885;
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+@media(max-width:640px) {body {
+  font-size:17px;
+  padding:0 14px 70px;
+}
+.masthead {
+  padding:34px 20px 24px;
+  margin:0 -14px 28px;
+}
+.lede,.cross {
+  padding:22px 20px;
+}
+.c-title {
+  font-size:22px;
+}}
+/* <</EINK:LEGACY>> */
+/* <<EINK:GUARANTEE>> */
+/* ---- E-Ink 保证性规则（置于末尾，同优先级下生效） ---- */
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{background:#ffffff!important;color:#000000!important;
+  font-size:17px!important;line-height:1.85!important;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+@media print{
+  body{background:#fff!important;color:#000!important}
+  [class]{break-inside:avoid;page-break-inside:avoid}
+}
+/* <</EINK:GUARANTEE>> */
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<div class="masthead">
+  <div class="mh-top">
+    <span>Leion · <b>NO.57</b></span>
+    <span>2026-08-30  17:30  GMT+8</span>
+  </div>
+
+  <h1>自建·可信·在端·可训：<em>Agent 从「工具」跃迁为「生产要素」与「治理对象」</em></h1>
+
+  <div class="spec-strip">
+    <div class="spec-cell"><span class="spec-k">Signals</span><span class="spec-v">5 条 / 当日精选</span></div>
+    <div class="spec-cell"><span class="spec-k">主战场</span><span class="spec-v">AI Coding · Agent · 终端 · 具身</span></div>
+    <div class="spec-cell"><span class="spec-k">硬数字</span><span class="spec-v">32% · 70% · 98% · 15万 · 0.926</span></div>
+    <div class="spec-cell"><span class="spec-k">时间锚</span><span class="spec-v">能力就位 → 建 / 管 / 跑 / 训</span></div>
+  </div>
+</div>
+
+<div class="lede">
+  <span class="tag">本期主线</span>
+  <div class="lede-title">重心从「能力演示」移到了四件工程实事上</div>
+  <p>能力就位已是共识，竞争焦点迁移到「谁来建、怎么管、在哪跑、拿什么训」：① McKinsey《State of AI 2026》显示 <strong>32%</strong> 组织因 AI coding agents 放弃外购软件转自研（科技业 <strong>41%</strong>）——coding agent 从提效工具晋升为技术主权变量；② GitHub Copilot 8/28 更新（思考强度档 + 组织级自定义 agent + Git 内联评审）与 OpenAI Codex CLI v0.151（扩展可在 MCP 工具结果到达模型前 inspect/replace）把战场压到 <em class="hl">harness / 客户端控制面</em>，Perplexity Portable Computer 则把整套 agent 运行时压到本地 DGX Spark；③ Uber 称 <strong>&gt;70% PR</strong> 已归属本地/云端 AI agents，Hyr 上线 agent 雇 agent 的市场，SKILL.state 把长会话 token 降 <strong>~94%</strong>——agent 进入真实吞吐并长出承包商经济；④ SAP LeanIX 调研 <strong>98%</strong> 企业已部署/计划部署 agent，仅不到一半能说清自己有哪些，Gartner 预测 Fortune 500 到 2028 年有 <strong>15 万+</strong> agent、仅 13% 治理就绪——agent 泛滥成董事会级议题；⑤ 独立变量 WALL-SS 世界模型实现 <strong>60 秒</strong>连续推理、虚实成功率相关性 <strong>0.926</strong>，大晓×港大 StreamPI 给 VLA 加时间维度——仿真到落地的训练基建在补。一句话：<strong>稀缺资源从「能力」换成了「建 / 管 / 跑 / 训」</strong>。</p>
+</div>
+
+<div class="figure">
+  <div class="fig-cap">图 02 — <b>建 / 管 / 跑 / 训 信号位置</b>  |  能力轴 × 工程层：客户自建（McKinsey）· 本机运行时（Copilot/Codex/Portable）· Agent 经济（Uber/Hyr）· 治理泛滥（SAP/Gartner）· 训练基建（WALL-SS/StreamPI）</div>
+  <svg viewbox="0 0 872 300" width="100%" role="img" aria-label="信号星图：这几条分别落在客户自建、本机运行时、Agent 经济、治理泛滥、训练基建五个工程层">
+    <defs>
+      <marker id="bo7" markerwidth="9" markerheight="9" refx="7" refy="3.2" orient="auto">
+        <path d="M0,0 L7,3.2 L0,6.4 z" fill="#a4442a"/>
+      </marker>
+    </defs>
+
+    <text x="8" y="15" font-family="Courier Prime,monospace" font-size="10" fill="#7f8d9c" letter-spacing="1.6">CAPABILITY SETTLED / BUILD-GOVERN-RUN-TRAIN ERA / 2026-08-30</text>
+
+    <rect x="8" y="34" width="212" height="46" fill=""" stroke="#1d4e78" stroke-width="1.1"/>
+    <text x="114" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">能力就位（往期已证）</text>
+    <text x="114" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">NO.53/54/55/56 交付+风险+整合</text>
+
+    <rect x="652" y="34" width="212" height="46" fill=""" stroke="#a4442a" stroke-width="1.1"/>
+    <text x="758" y="54" text-anchor="middle" font-family="Noto Serif SC,serif" font-size="13.5" fill="#1b2733">建 / 管 / 跑 / 训（今日）</text>
+    <text x="758" y="73" text-anchor="middle" font-family="Courier Prime,monospace" font-size="9.5" fill="#4d5c6c">客户自建·本机·治理·训练场</text>
+
+    <path d="M222,57 L648,57" stroke="#a4442a" stroke-width="1.4" marker-end="url(#bo7)"/>
+
+    <g font-family="Courier Prime,monospace">
+      <rect x="10" y="102" width="162" height="148" fill=""" stroke="#356b96" stroke-width=".9"/>
+      <text x="91" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#1d4e78" font-weight="700">客户自建</text>
+      <text x="91" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">AI Coding · 战略</text>
+      <text x="91" y="172" text-anchor="middle" font-size="9.5" fill="#1d4e78">01 McKinsey 32%</text>
+      <text x="91" y="190" text-anchor="middle" font-size="9.5" fill="#1d4e78">科技业 41%</text>
+      <text x="91" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">放弃外购转自研</text>
+      <text x="91" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">Build-vs-Buy 改写</text>
+
+      <rect x="182" y="102" width="162" height="148" fill=""" stroke="#a4442a" stroke-width=".9"/>
+      <text x="263" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">本机运行时</text>
+      <text x="263" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">Coding × 终端</text>
+      <text x="263" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">02 Copilot/Codex·MCP</text>
+      <text x="263" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">Portable 本地</text>
+      <text x="263" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">思考档+组织 agent</text>
+      <text x="263" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">数据主权默认</text>
+
+      <rect x="354" y="102" width="162" height="148" fill=""" stroke="#2f6b6b" stroke-width=".9"/>
+      <text x="435" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#2f6b6b" font-weight="700">Agent 经济</text>
+      <text x="435" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">生产速度</text>
+      <text x="435" y="172" text-anchor="middle" font-size="9.5" fill="#2f6b6b">03 Uber &gt;70% PR</text>
+      <text x="435" y="190" text-anchor="middle" font-size="9.5" fill="#2f6b6b">Hyr 雇 agent</text>
+      <text x="435" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">SKILL.state −94%</text>
+      <text x="435" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">承包商经济</text>
+
+      <rect x="526" y="102" width="162" height="148" fill=""" stroke="#356b96" stroke-width=".9"/>
+      <text x="607" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#1d4e78" font-weight="700">治理泛滥</text>
+      <text x="607" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">董事会级</text>
+      <text x="607" y="172" text-anchor="middle" font-size="9.5" fill="#1d4e78">04 98% 已部署/计划</text>
+      <text x="607" y="190" text-anchor="middle" font-size="9.5" fill="#1d4e78">仅 13% 就绪</text>
+      <text x="607" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">Fortune500 15万+</text>
+      <text x="607" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">失控扩散</text>
+
+      <rect x="698" y="102" width="162" height="148" fill=""" stroke="#a4442a" stroke-width=".9"/>
+      <text x="779" y="126" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="16" fill="#a4442a" font-weight="700">训练基建</text>
+      <text x="779" y="146" text-anchor="middle" font-size="9.5" fill="#4d5c6c">具身</text>
+      <text x="779" y="172" text-anchor="middle" font-size="9.5" fill="#a4442a">05 WALL-SS 60s</text>
+      <text x="779" y="190" text-anchor="middle" font-size="9.5" fill="#a4442a">虚实 0.926</text>
+      <text x="779" y="218" text-anchor="middle" font-size="9" fill="#7f8d9c">StreamPI 时序 VLA</text>
+      <text x="779" y="240" text-anchor="middle" font-size="9" fill="#7f8d9c">仿真→落地</text>
+    </g>
+
+    <line x1="10" y1="270" x2="860" y2="270" stroke="#1b2733" stroke-width="1"/>
+    <text x="96" y="290" font-family="Noto Serif SC,serif" font-size="11" fill="#4d5c6c">C 客户自建改写入口 · A 本机可信运行时 · B agent 结算与治理原语 · D 世界模型训练场</text>
+  </svg>
+  <div class="fig-note">读法：横轴是「往期已证的能力就位 → 今日推进到的建 / 管 / 跑 / 训」。五点中，01 是 AI coding 改写 Build-vs-Buy（C 入口）；03/04 是 agent 进真实吞吐。四件事共同把「能力」翻译成「客户自建、本机可信、可结算可治理、可训练」。</div>
+</div>
+
+<div class="sec-head">
+  <span class="n">SIGNALS / 05</span>
+  <span class="t">当日动态</span>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>01</b>  /  AI Coding · 战略自建</span>
+  <h2 class="c-title">McKinsey《State of AI 2026》：32% 组织因 AI coding agents 放弃外购软件转自研，科技业达 41%</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">战略</span><span class="chip t">自建能力</span><span class="chip">Build-vs-Buy</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>McKinsey《The state of AI in 2026》于 <strong>8 月 30 日</strong>发布，给出 coding agent 改写软件采购的判断：</p>
+    <ul>
+      <li><strong>Build-vs-Buy 被改写</strong>：近 <em class="hl">32%</em> 受访组织表示已因「可用 agentic coding 工具内部构建」而放弃购买一个或多个软件产品或功能；分行业看，科技业最高 <strong>41%</strong>，医疗支付方/提供方 39%，专业服务与能源材料各 38%，金融 36%。</li>
+      <li><strong>采用度扩散</strong>：近九成受访者在至少一项业务职能常规使用 AI；<em class="hl">44%</em> 报告 AI 在全组织规模化（去年 38%）；部署在 3+ 职能的比例 51%→56%；年营收 ≥10 亿美元企业中，规模化 agent 的占比 <em class="hl">27%→40%</em>，小企业持平 22%。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>这把 coding agent 从「<strong>提效工具</strong>」晋升为「<strong>技术主权 / 自建能力</strong>」的战略变量——企业不再默认外购行业软件，而是用 agent 自建。稀缺资源从「买不买得起某款软件」转向「自己能不能用 agent 建出来」。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>8/30 McKinsey《State of AI 2026》(ANI/LiveMint)</b> · 32% 组织放弃外购转自研 · 科技业 41% / 医疗 39% / 专业服务·能源 38% / 金融 36% · 89% 常规用 AI · 44% 全组织规模化(vs 38%) · ≥$1B 企业 agent 规模化 27%→40%  |  冷静点：样本为企业受访者、偏早期采用者；「放弃外购」为自报意向，未必等于已落地；占比是行业横截面非时间序列
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>02</b>  /  AI Coding × 终端 · 控制面 + 本机运行时</span>
+  <h2 class="c-title">Harness/客户端控制面成型：Copilot 思考强度档 + 组织级 agent，Codex CLI 让扩展改写 MCP 结果，Portable Computer 把运行时压到本机</h2>
+  <p class="c-tags"><span class="chip b">AI Coding</span><span class="chip o">终端智能</span><span class="chip t">Harness</span><span class="chip">MCP 信任层</span><span class="chip">本机运行时</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>三件事共同把战场从「模型能力」压到「harness / 客户端控制面 + 本机运行时」：</p>
+    <ul>
+      <li><strong>GitHub Copilot（VS）8/28 更新</strong>：思考强度档（Low/Medium/High 控制推理深度与 token 开销）；组织/企业级可发布自定义 agent 跨仓库复用；Git 内联代码评审（评审未提交改动/指定 commit）；全局模型策略 GA（8/26–9/1 逐步强制）；Grok 4.6 进 Copilot 做 agentic coding。</li>
+      <li><strong>OpenAI Codex CLI v0.151.0（8/29）</strong>：扩展可在 MCP 工具结果到达模型前 inspect/replace——在工具与推理回路之间插入<em class="hl">脱敏 / 缓存 / 重排</em>层；并修复 /cd 静默削弱沙箱、权限档案跨 TUI 保留等。</li>
+      <li><strong>Perplexity Portable Computer（8/25，与 NVIDIA）</strong>：把模型 + 编排器 + 子代理 + 工具 + 沙箱整套 agent 运行时压到本地 DGX Spark / RTX Linux；本机完成不耗额度，敏感数据默认留本机，仅用户授权才升云。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>思考强度档与组织级 agent 是「<strong>怎么管 agent</strong>」；MCP 结果过滤是 agent 与工具之间的<em class="hl">信任闸门</em>；本机运行时是「<strong>数据主权默认</strong>」。三者合起来，agent 工作从「云端黑箱」变成「可分级、可审计、可留本机」的运行环境。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Copilot VS 8/28 更新(官方 Changelog)</b> · 思考强度档 + 组织级自定义 agent + Git 内联评审 + 全局模型策略 GA + Grok 4.6  ·  <b>Codex CLI v0.151.0(8/29)</b> · 扩展可改写 MCP 工具结果(脱敏/缓存/重排)  ·  <b>Perplexity Portable Computer(8/25)</b> · 本机 DGX Spark/RTX · 本机不耗额度·敏感数据留本机  |  冷静点：Copilot/Grok 为厂商口径；Codex MCP 改写是开发者钩子非开箱策略；Portable Computer 首发限 Linux、Windows 9 月，模型为 Qwen3.8 27B/PPLX 27B
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>03</b>  /  AI Agent · 生产速度 + Agent 经济</span>
+  <h2 class="c-title">Agent 进真实吞吐：Uber 称 &gt;70% PR 已归属 AI agents；Hyr 上线 agent 雇 agent 市场，SKILL.state 把长会话 token 降 ~94%</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">生产速度</span><span class="chip t">Agent 经济</span><span class="chip">长程</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>agent 从 demo 推进到真实吞吐，并长出「承包商经济」雏形：</p>
+    <ul>
+      <li><strong>Uber（据 AGI HUNT 8/30 日报）</strong>：超过 <em class="hl">70%</em> 的 pull request 如今归属于本地或云端 AI agents——agent 进入真实工程吞吐，而非演示。</li>
+      <li><strong>Hyr 市场</strong>：上线「agents hire other agents against a USD budget」——agent 作为承包商，在预算约束下雇佣其他 agent 完成任务，agent 间协作开始计价。</li>
+      <li><strong>Google SKILL.state（同日）</strong>：用结构化状态 + 最新观测替换全量 transcript，长会话 token 用量降约 <em class="hl">94%</em>；PILOT 论文让 agent 在同一次运行中持续反思、更新策略，对抗长程衰减。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>agent 不再只是「能干活」，而是进入真实吞吐（70% PR）并长出「<strong>承包商经济</strong>」雏形——agent 成为可计价、可外包的生产要素，而非一次性调用。SKILL.state 这类「丢掉历史、保留状态」的范式，直接砍掉长程 agent 的成本墙。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>Uber 称 &gt;70% PR 归属 AI agents</b>(AGI HUNT 8/30 聚合，待一手源) · Hyr agent 雇 agent 市场(USD 预算) · Google SKILL.state 长会话 token −94% · PILOT 同运行内策略更新  |  冷静点：Uber 70% 为聚合转述、非官方财报口径；Hyr 为新兴市场、规模待验证；SKILL.state/PILOT 为论文/工程笔记、待生产复现
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>04</b>  /  AI Agent · 治理成董事会级</span>
+  <h2 class="c-title">Agent 泛滥成董事会级议题：SAP LeanIX 调研 98% 企业已部署/计划 agent，仅不到一半说清自己有哪些；Gartner 估 Fortune 500 到 2028 年有 15 万+ agent</h2>
+  <p class="c-tags"><span class="chip b">AI Agent</span><span class="chip o">治理</span><span class="chip t">proliferation</span><span class="chip">董事会级</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+        <ul>
+      <li><strong>SAP LeanIX《Agentic AI》调研</strong>：<em class="hl">98%</em> 企业已部署或计划部署 AI agents，但<em class="hl">不到一半</em>能清晰掌握自己到底有哪些 agent 在运行；仅 <strong>13%</strong> 认为治理就绪。</li>
+      <li><strong>Gartner</strong>：典型 Fortune 500 到 2028 年将拥有 <em class="hl">15 万+</em> AI agents；失控扩散（agent proliferation）带来越权、删数据、不可逆财务操作等风险；CIO 被警告「封堵/严限」不可持续，会逼出 shadow AI。</li>
+      <li><strong>背景呼应</strong>：8/27 Salesforce×Anthropic「Claudeforce」、8/26 OpenAI-Hugging Face 700 agent 自主入侵事件——agent 真实风险已从哲学命题落到时间差。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>「<strong>agent 治理平台</strong>」成为新品类（身份/权限/审计/退役）。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>SAP LeanIX Agentic AI 调研</b> · 98% 已部署/计划 · &lt;50% 说清有哪些 · 仅 13% 治理就绪  ·  <b>Gartner</b> · 典型 Fortune 500 到 2028 年 15 万+ agents · agent proliferation 风险(越权/删数据/不可逆财务)  |  冷静点：SAP 调研为其自家治理产品背书、口径偏营销；Gartner 15 万为预测非实测；「13% 就绪」为自评
+  </div>
+</div>
+
+<div class="card">
+  <span class="c-num">信号 <b>05</b>  /  具身 · 训练基建（世界模型 + 时序 VLA）</span>
+  <h2 class="c-title">仿真到落地的训练基建补位：独立变量 WALL-SS 世界模型 60 秒连续推理、虚实相关性 0.926；大晓×港大 StreamPI 给 VLA 加时间维度</h2>
+  <p class="c-tags"><span class="chip b">具身智能</span><span class="chip o">世界模型</span><span class="chip t">VLA</span><span class="chip">训练基建</span></p>
+
+  <div class="blk">
+    <span class="blk-k">事件</span>
+    <p>两条 8/29 发布共同补「仿真→落地」的训练基建：</p>
+    <ul>
+      <li><strong>独立变量（Independent Variable）WALL-SS 世界模型</strong>：next-scale 自回归架构，攻克因果一致 / 长程推理 / 虚实一致三大瓶颈，实现 <em class="hl">60 秒</em>连续推理，虚拟与现实成功率相关性达 <strong>0.926</strong>——把仿真世界变成可验证的机器人训练场。</li>
+      <li><strong>大晓机器人×香港大学 StreamPI</strong>：为 VLA 模型加入时间维度（流式时序建模），让系统记住过往状态、理解变化，显著提升真实任务成功率，推动具身从「空间智能」迈向「连续物理智能」。</li>
+    </ul>
+  </div>
+
+  <div class="blk why">
+    <span class="blk-k">为什么值得关注</span>
+    <p>世界模型 + 时序 VLA 是把「<strong>仿真→落地</strong>」距离压短的关键基建：前者给机器人可验证的训练场（虚实相关性 0.926 意味着仿真可信），后者给连续物理智能（不再只看一帧）。</p>
+
+  </div>
+
+  <div class="datum">
+    可核验数据点  ·  <b>独立变量 WALL-SS 世界模型(next-scale 自回归)</b> · 60 秒连续推理 · 虚拟/现实成功率相关性 0.926  ·  <b>大晓×港大 StreamPI</b> · VLA + 时间维度(流式时序)  |  冷静点：WALL-SS 相关性为厂商/论文口径、待独立复现；StreamPI 为研究发布、工业产线适配待验证；两者均闭源/早期，不代表即插即用
+  </div>
+</div>
+
+<div class="cross">
+  <h3>逻辑链 · 诚实声明</h3>
+  <ol>
+    <li><strong>主线连续性</strong>：NO.56「工程化整合纪元（怎么规模用）」→ 本日 NO.57「自建·可信·在端·可训（建 / 管 / 跑 / 训）」。叙事从「四层长出标准接口」再推进到「客户自建改写入口、本机运行时落地、agent 结算与治理、世界模型训练场」——稀缺资源从能力演示进一步下沉到四件工程层实事。</li>
+    <li><strong>交叉验证</strong>：01（McKinsey / LiveMint ANI 8/30）、02（GitHub Changelog / OpenAI Codex CLI / Perplexity·NVIDIA 官方）、03（AGI HUNT 8/30 聚合 + Google 工程笔记）、04（SAP LeanIX / Gartner 公开研判 + 8/26–27 事件）、05（GeekPark 8/29 转述独立变量 / 大晓）均为一级或权威转述，中高可信；03/05 含聚合与论文口径。</li>
+    <li><strong>与历史各期零重复</strong>：本期补的是 8/28–30 增量——McKinsey 年度调研新发、Copilot/Codex 8/28–29 更新、Uber/Hyr/SKILL.state 8/30 新信号、SAP/Gartner 治理新研判、WALL-SS/StreamPI 8/29 新模型。与 NO.56（Hy4/Skild/Temporal/优必选/MHS）、NO.55（GLM-5.3/OpenAI-HF/Granite/AgentZ）完全分开。</li>
+    <li><strong>诚实边界</strong>：02 Copilot/Grok、03 Uber 70% / Hyr、05 WALL-SS 相关性多为厂商或聚合口径、待独立复现；McKinsey 32% 为自报意向；SAP 调研偏营销、Gartner 15 万为预测。本报不构成投资建议。</li>
+  </ol>
+  <div class="verdict">本期一句话：能力就位之后，竞争压到「建 / 管 / 跑 / 训」——McKinsey 显示客户因 coding agent 转自建（C 入口被改写）、SAP/Gartner 把 agent 治理推上董事会（B 治理原语）。</div>
+  <div class="risk"><b>风险与未决</b>多项为厂商 / 聚合 / 论文口径、待独立复现（Copilot/Grok、Uber 70%、WALL-SS 相关性）；McKinsey 32% 为自报意向非落地；SAP 调研偏营销、Gartner 15 万为预测；Portable Computer 首发限 Linux、Windows 9 月；世界模型 / 时序 VLA 仍闭源早期，不代表即插即用。开源 / 标准化「能力摊开」是双刃——让开发者可查，也让使用者独担部署后的集成与风险。</div>
+</div>
+
+<footer>
+  <span>LEION · DAILY AI · NO.57</span>
+  <span>2026-08-30 17:30 GMT+8 · 客观冷静 · 务实简练 · 刚柔并济</span>
+</footer>
+
+</div>
+</body>
+</html>

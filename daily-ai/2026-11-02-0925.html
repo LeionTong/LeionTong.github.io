@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI — 2026-11-02 第 93 期</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-02 · 第 93 期</span>
+    </div>
+    <h1>Claude Code 在提示词里加禁令，原创游戏项目被一起拦下</h1>
+    <p class="mh-sub">本期收录 Claude Code 禁止复刻现有游戏的提示词规则与误伤、上海人工智能实验室的三角色长周期编码协议、星衍智能的通用具身 Harness、红旗连锁终止便利店机器人售货，以及国行 Apple 智能接入千问的时间表。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · AI coding · 行为约束</span>
+    <h2 class="c-title">Claude Code 加了禁止复刻游戏的两句话，原创项目也被拦下</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">系统提示词</span><span class="chip">拒绝执行</span><span class="chip">误判成本</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 27 日前后，Claude Code 通过服务器下发的标志 <strong>tengu_heron_brook</strong> 增加了一条规则，原文为：可以构建原创游戏、某一类型的游戏、以及用用户自己的设计和素材做的游戏；不要构建对某个既有游戏的重制，即使改名或声称原创也不行。这条规则没有对应的关闭开关。Anthropic 技术人员 Addy Osmani 在回应博主 chasm 时确认，团队在 Opus 5.5 上的 Claude Code 提示词里加了两句话，把 Claude 引离复刻他人具体游戏的行为，理由是借助 Claude 实施侵权违反使用政策，原创、类型化与自有素材的项目应当继续可用。</p>
+      <p>背景是 9 月 22 日发布的 Opus 5.5 让逆向与移植的门槛骤降：有人在浏览器里跑起《GTA 5》《使命召唤》，被破解的 PS5 上跑起《光环 2》与《塞尔达：旷野之息》；有用户用一句提示，不到两小时做出功能完整、可玩的宝可梦克隆。独立工作室 Alliance Arts 为此取消了新游戏的公开试玩，担心试玩内容被喂给模型后抢在正式版前上线山寨品。禁令落地后，Claude Code 的 GitHub issue 页面出现大量抱怨：开发者称自己写原创游戏写到一半被以「疑似复刻现有游戏」为由拒绝，给桌游打补丁、复现常见游戏机制的请求同样被挡。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这条约束落在系统提示词与服务器下发的标志里，行为边界不可枚举、不可版本化、也没有关闭入口。对把 agent 放进自动化流水线的团队，模型拒绝执行变成一类新的失败源，报错信息是意图判断而不是技术错误，重试与回退都无从下手。</p>
+      <p>可操作的部分有三点：把这类策略判定当作外部依赖，对拒绝率与拒绝原因单独打点；在生成物上保留素材来源与命名记录，便于事后区分原创与复刻；对必须复现某种机制的合法需求，把任务拆到不含上下文的纯技术描述，让判定发生在明确的范围内。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>PC Gamer https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop ；IGN https://www.ign.com/articles/anthropic-blocks-ai-game-clones-in-claude-opus-update ；量子位 https://www.qbitai.com/2026/11/507038.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI coding · 长周期协议</span>
+    <h2 class="c-title">上海人工智能实验室把编码 agent 拆成规划、开发与独立验收三个角色</h2>
+    <div class="c-tags">
+      <span class="chip b">AI coding</span><span class="chip">多轮迭代</span><span class="chip">证据状态</span><span class="chip">回归</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>上海人工智能实验室提出 Harness-of-Harness（HoH），把已有编码 agent 组织为反复执行的规划、开发与独立验收流程。Project Planner 依据产品需求、当前代码与上一轮证据选定一组任务，要求范围小到能定位故障、功能完整到能按可观察行为验收；Developer 从现有项目继续开发并拥有修改产物的权限；QA Tester 检查被冻结的候选版本，结合黑盒交互与白盒源码、配置、日志检查记录每项要求的证据与回归，且不能改动正在验收的产物。三个角色是同一 Harness–Model 配置的三次独立调用，靠提示词、输入上下文与运行权限区分。</p>
+      <p>轮次之间保留两类状态：Artifact State 记录当前源码、资源、配置与元数据，Evidence State 记录测试观察、已验证行为、未满足要求与待处理故障。计划与报告落在文件系统，先暴露分类索引再按需读取，避免把全部历史塞回上下文。实验覆盖 GameCraft-Bench 45 项、FrontierSWE 15 项与 ProgramBench，三种 Harness–Model 组合下 HoH@3 汇总指标均高于单轮基线，三轮迭代平均相对提升 <strong>52.25%</strong>。在 Codex 加 GPT-5.5 的 GameCraft-Bench 对照中，同为三轮，HoH 得 71.52 分，沿用原会话的 Vanilla Continuation 得 58.24 分；HoH 两轮约用 567 万 token 得 64.84 分，后者三轮约用 633 万 token 得 58.24 分。</p>
+      <p>另有一个连续 70 轮的单人 FPS 项目，从产品需求文档与空项目起，用 Codex CLI 加 GPT-5.6-Sol 与 Godot 开发。70 轮共记录 81 个问题，关闭 65 个、未解决 16 个，其中 17 个问题关闭后再次打开。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>长任务里真正难的是需求遗漏、重复劳动与回归累积：项目状态不等于最新代码，哪里没实现、哪次修复为什么失败，都散落在早期对话里。论文把这几个失控点转成可检查的工程约束，收益来自协议而不是模型，同一模型换运行方式就能拿到差别。</p>
+      <p>落到工程基础设施上，Planner 对应划定增量与验收条件，Developer 改 Git 工作区，验收角色接 CI、运行时检查与交互测试，issue 与版本历史承担回归追踪。需要注意「独立验收」只是流程独立与上下文隔离，三角色同模型仍共享知识盲区；70 轮案例的 17 次重开说明长周期自主开发仍会破坏已经验证过的功能。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>论文 https://arxiv.org/html/2609.01481 ；数据派THU（经机器之心转载）https://www.xinfinite.net/t/topic/23227</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 具身智能 · 评测协议</span>
+    <h2 class="c-title">星衍智能的通用具身 Harness 在零样本协议下领跑 RoboDojo</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">零样本</span><span class="chip">在线恢复</span><span class="chip">跨本体</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>星衍智能发布通用具身 Harness 框架 Auriga，把物理感知、动作表达、执行验证与任务状态管理整合成统一交互系统，让大语言模型在陌生任务中自主规划、执行并在线恢复。感知侧融合三维重建、视觉分割与机器人运动学，把图像转成带真实物理尺度、可查询可验证的空间信息；执行侧所有动作经统一网关走预演、执行验证与恢复三步，偏差超出容限时截停后续动作并返回偏差位置；记录侧留存模型意图、规划轨迹、实际运动与执行结果，上下文压缩后关键任务状态仍在。</p>
+      <p>评测以 GPT-6 Astra 为基础模型，采用严格零样本协议：不针对测试任务与布局预调优，所有任务共用同一套冻结的 Harness；不提供成功轨迹、视频演示或任务专用代码模板；每个案例只正式执行一次，中途抓取失败或受阻也必须从当前物理状态继续。RoboDojo 覆盖泛化、精细操作、长程、记忆与开放五类共 42 项任务，3 个随机种子共 <strong>6300</strong> 个回合，Auriga 取得平均成功率 <strong>57.74%</strong> 与过程评分 <strong>64.00</strong>，两项均列榜首，记忆类任务成功率 92.99%；布局随机化后的综合指标 G 为 46.3，领先第二名 2.4 分。迁移到家居移动操作基准 RoboCasa365 Target50 后，本体换成搭载 Franka 单臂的移动机器人、场景换成 10 个未见过的厨房，50 项任务 250 个回合总体成功率 <strong>73.2%</strong>，单技能 92.2%，最长 15 个子任务的组合任务 62.5%。</p>
+      <p>研发过程中 Harness 迭代 13 次，把不同任务暴露的共性问题逐步转成可复用的感知、控制与验证机制，RoboDojo 42 项任务的平均评分从第 4 版的 45.5 提到 64.0，成功率从 36.2% 提到 57.7%，评测前冻结后在另一类本体上检验复用。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把「机器人自我进化」拆成三层看得更清楚：L1 反复重置环境为单个任务找更优解，L2 在一次连续执行中在线适应，L3 把跨任务反复出现的物理难题沉淀为通用工具与控制原语。只有 L3 的改进能被后续不同任务调用，也才谈得上迁移。</p>
+      <p>对做机器人系统的团队，这条路线把投入放在执行接口、轨迹预演、偏差截停与失败记录上，模型可以换，harness 的改进留得住；零样本协议把评测从反复刷题拉回一次执行，57.74% 的成功率因此更接近真实陌生场景下的水平。边界同样清楚：全部结果来自仿真，精密装配、复杂接触与长程操作仍是短板。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>机器之心 https://finance.sina.com.cn/tech/roll/2026-11-01/doc-inixetzy1022544.shtml ；项目页 https://auriga.stelledge.com/ ；技术报告 https://auriga.stelledge.com/assets/docs/Auriga-Technical-Report.pdf</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 具身智能 · 场景经济性</span>
+    <h2 class="c-title">红旗连锁终止便利店机器人售货，研发投入约两百余万元</h2>
+    <div class="c-tags">
+      <span class="chip b">具身智能</span><span class="chip">零售场景</span><span class="chip">概念验证</span><span class="chip">成本结构</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>红旗连锁公告称，机器人无人售货系统暂未达到大规模商业化落地标准，基于投入产出比等考量，拟终止该系统研发，转为 24 小时云值守业务的规模化运营。项目启动时公司曾表示已完成实验室环境下的软硬件测试，样机预计当年 5 月下线，同时提示实验室环境与实际场景差异很大、距离面向消费者销售尚有距离；16 个月后等来的是终止公告。据接近项目的人士，机器人拿不稳夏季结水珠的玻璃瓶冷饮、经常摔碎，复杂包装商品也无法稳定拿取；便利店货架间过道窄，周围还有顾客与店员走动。</p>
+      <p>公司未披露该项目具体投入，2025 年年报显示研发费用约 <strong>286.68 万元</strong>，而此前财报并未公示研发费用，据此推断项目支出大体在这个量级。行业内并不意外：一位从业者的说法是，如果两百多万元能解决零售机器人，具身公司就没有存在价值。</p>
+      <p>机器人零售仍在扩张：全国已有超过 100 个机器人零售仓或零售布局，分布在 30 余座城市，十余家具身公司在做售货、现制饮品、药房拣选与门店导购。真实运营的状态是，零售仓 SKU 只有几十种，顾客扫码下单后机器人只承担移动到货架、夹取、放到窗口这一段，全程 20 多秒，且每天早 10 点到晚 10 点需要人值守补货、充电、报修；单台零售机器人售价近 70 万元，业内人士估算单仓成本近百万元。有从业者判断，文旅景区与城市地标能占到这类落地的六到七成，零售仓的复购率很低，实质更接近文旅项目。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>零售被当作「展示度高、容错率高」的中间形态，恰好暴露了当下的供需方向：本体公司需要场景，场景并不急需机器人。示范点位的传播价值可以支撑一段时间的采购，但几十个 SKU 的销售额覆盖不了百万级硬件加人工值守，商业模式仍停在概念验证。</p>
+      <p>对做整机与场景交付的团队，这个案例给出的成本项很具体：抓取要按包装软硬与表面状态分类，玻璃瓶结露就足以让任务失败；门店地面、货架高度与间距没有统一标准，交付只能是逐店改造的打包方案而非标准机器人；替代一名店员的时间判断在二到五年。选场景时先算清单店营收与回本周期，比先谈泛化能力更有效。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>量子位 https://www.qbitai.com/2026/11/506990.html</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 终端智能 · 系统入口</span>
+    <h2 class="c-title">国行 Apple 智能接入千问，11 月 4 日随开发者 Beta 开放测试</h2>
+    <div class="c-tags">
+      <span class="chip b">终端智能</span><span class="chip">系统级入口</span><span class="chip">账号与授权</span><span class="chip">端云分工</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>10 月 31 日，苹果宣布首批 Apple 智能功能即将在中国推出，并与阿里巴巴合作，在部分体验中接入千问。这批功能自 <strong>11 月 4 日</strong>起随最新 iOS 开发者 Beta 版开放测试，12 月随 iOS 27.3 正式版面向中国用户推出；其他平台的支持待必要审批后推出。这是 Apple 智能自 2024 年发布以来国行版本第一次实质性落地，此前苹果智能已于 7 月 15 日通过生成式 AI 服务备案。</p>
+      <p>首批能力集中在基础高频场景：实时翻译整合在信息、FaceTime 与电话中，支持 AirPods 4 与 AirPods Pro 2 及后续机型做面对面翻译；写作工具提供改写、校对与摘要；视觉智能通过摄像头识别身边物体与场所；照片可消除干扰对象、用自然语言搜索、按描述生成回忆影片；另有智绘表情、优先邮件、邮件摘要、智能回复、通知摘要、首要通知，备忘录与通话转写的文本可自动生成摘要。本次更新<strong>不包含</strong> Siri AI 与 WWDC 2026 上宣布的其他下一代功能。</p>
+      <p>千问以系统级扩展的形式接入三个入口：Siri 处理复杂问答与针对照片、PDF、演示文稿的提问；系统写作工具新增「千问创作」；视觉智能可选「询问千问」。用户可以自主选择是否开通，通过 Apple 登录或千问账号登录，可以决定何时使用、分享哪些信息，请求与生成的回复不会被阿里巴巴用于模型训练。集成范围目前仅限 iPhone。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>这是国内第一次把第三方大模型装进手机操作系统的原生入口。分工也一并写明：苹果自建模型负责基础能力，千问接管复杂文本与图像理解、跨文档问答与从零生成，两者是系统级扩展关系而非替换。</p>
+      <p>对做终端智能的团队，入口位置、账号体系与授权颗粒度都由操作系统决定，第三方应用能调用的位置被收进系统面板，绕过系统的独立 App 路线空间变窄。逐次征得同意、明确数据不用于训练、可随时关闭，这套口径会成为同类合作的默认条款；把系统级入口当作分发渠道来规划，比把它当作一个模型接入点更贴近实际。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>IT之家 https://www.ithome.com/1/020/389.htm ；阿里巴巴公告（IT之家报道）https://www.ithome.com/1/020/395.htm</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Anthropic 是否给出误判的申诉通道或按项目维度的白名单，Claude Code 的拒绝率是否被单独度量。</li>
+      <li>HoH 的三角色协议在真实仓库与 CI 环境中的落地成本，异构模型做验收能否降低同源盲区。</li>
+      <li>Auriga 在真机上的复现结果，尤其是接触力与滑移判断是否仍依赖腕部相机与夹爪状态。</li>
+      <li>机器人零售仓的单店营收与回本周期，是否有厂商公布出货量与运维人机比。</li>
+      <li>国行 Apple 智能 12 月正式版的机型覆盖，iPad 与 Mac 的审批进度，以及千问在 Siri 中的调用边界。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-02 09:25 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

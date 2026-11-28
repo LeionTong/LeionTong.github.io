@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LEION · DAILY AI 第 114 期 2026-11-24</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-24 · 第 114 期</span>
+    </div>
+    <h1>代码评审与合并审批交给智能体，人形机器人五项标准落地实施</h1>
+    <p class="mh-sub">本期收录 Anthropic 的 PR 修复与审批智能体、AWS 的决策模型与编码沙箱、Workday 的智能体身份治理、美国大行对第三方智能体的封禁，以及工信部五项人形机器人标准。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · 编码智能体 · 代码评审</span>
+    <h2 class="c-title">Anthropic 推出 Claude Ship，智能体接管 PR 修复与合并审批</h2>
+    <div class="c-tags"><span class="chip b">PR Steward 处理 CI 失败、合并冲突与评审意见，改完在评论里写明改了什么、怎么回退</span><span class="chip">Claude Approvals 按仓库配置文件里的规则判定能否合并，PR Steward 没有审批权</span><span class="chip o">在 Claude Code 里执行 /ship 触发，Claude Team 与 Enterprise 档的 GitHub 仓库可用</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 23 日，Anthropic 发布 Claude Ship，把自动修复与受策略约束的合并审批接入 Claude Code。三个组件分工明确：Code Review 负责在合并前标出问题，该能力 2026 年 3 月推出、10 月转为正式可用；新加入的 PR Steward 负责修复，响应失败的持续集成检查、合并冲突，以及来自 Code Review、外部开发工具或同事的评审意见，改动会在 PR 下写明改了什么并给出回退办法。</p>
+      <p>开发者在 PR 讨论里用 @claude 下指令介入修复，@claude stop 可停止自动介入。PR Steward 被限定为修复角色，不能自行批准改动或合并。合并授权交给 Claude Approvals：它读取仓库配置文件里的治理规则，可同时参考 Code Review 结论与自定义的自然语言分类器，例如允许智能体批准常规文档更新、涉及业务代码的改动仍需工程师签字。当前为 beta，面向 Claude Team 与 Enterprise 档的 GitHub 仓库，也可对整仓开启，让每个新提交自动进入评审与修复循环。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p><p>PR 流水线里最后一公里的三个动作——发现问题、动手修、决定能否合并——被拆成三个角色，写权限与批准权限彻底分开，修代码的一方拿不到放行权。治理点从人在界面上点按钮，移到仓库里的一份策略文件，权限因此可以被评审、被版本化。</p><p>对自建编码智能体流程的团队，这套分工是可照搬的边界：修复动作必须留可回退的说明，自动审批必须挂在显式规则上。真正需要观察的是策略文件写不好的时候，会不会变成另一种形式的人工阻塞。</p></p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Silicon Report https://www.siliconreport.com/anthropic-s-claude-ship-reviews-fixes-and-approves-pull-requests ｜ Guozhen AI 实时 AI 新闻 https://zglg.work/en/ai/news</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · 智能体基础设施 · 执行沙箱</span>
+    <h2 class="c-title">AWS 发布 Strands Decider v2 与 Box CLI，给编码智能体加执行沙箱</h2>
+    <div class="c-tags"><span class="chip b">五个基于 Gemma 4 的决策模型，从边缘轻量版到 31B 参数，Apache 2.0 许可</span><span class="chip">不再生成文本，改为对预设选项打分，并给出可判断何时转人工的置信度</span><span class="chip o">Box CLI 隔离 Claude Code、Codex、Kiro CLI，密钥存在沙箱外、按策略注入</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 23 日，AWS 发布 Strands Decider v2，同时放出 Box CLI。Decider 是一类不做文本生成、只对给定选项打概率分的模型，用来驱动工单路由、工具选择这类工作流。v2 建立在 Google Gemma 4 架构上，共五个开权重模型，参数从边缘轻量版到 310 亿，以 Apache 2.0 许可发布在 Hugging Face 与 Strands Decider 仓库。新版能处理更长的输入，包括多步执行日志，便于智能体之间互相协作，并细化了置信度分数，用于判断何时自主执行、何时升级给人工。</p>
+      <p>AWS 称已在主工单系统内部署该模型替换 Claude Sonnet 4.6，标注成本下降 98%、工单响应时间缩短 78%；内部实验中它还用于驱动机器人手臂、评估其他智能体、把常规查询路由到更便宜的模型。Box CLI 则为 10 月开源的 Strands Box 操作系统沙箱补上命令行入口，隔离 Anthropic 的 Claude Code、OpenAI 的 Codex 与亚马逊的 Kiro CLI。开发者用策略规定文件访问、shell 命令与可连网络主机，智能体可以在无人值守下连续执行，但被限制在边界内；API 密钥与 AWS 令牌存放在沙箱外，只在策略允许的请求离开沙箱时注入。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p><p>把生成式输出换成在候选动作上打分，适合高频、低创造性的决策点：路由、选工具、判断是否需要人来接手。这类模型小、便宜、可自托管，正好填在智能体循环里最费 token 的位置。</p><p>Box CLI 处理的是另一侧风险。编码智能体为了少被打断普遍关掉权限确认，命令执行、文件改动与工具调用不再有人过目，沙箱加凭证隔离是目前唯一可落地的约束方式：模型看不到凭证，泄露面从模型上下文收敛到策略本身。两条护栏一条管选什么、一条管能碰什么，缺一条都不成立。</p></p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Silicon Report https://www.siliconreport.com/aws-releases-strands-decider-v2-and-box-cli-for-coding-agents</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · 智能体治理 · 身份与权限</span>
+    <h2 class="c-title">Workday 完成收购 C1.ai，用入离职事件管住智能体权限</h2>
+    <div class="c-tags"><span class="chip b">权限绑定入职、调岗、离职事件，覆盖邮件、CRM、代码仓库与云基础设施</span><span class="chip">智能体按需取得访问，任务或角色结束即收回，代员工行事只拿该员工权限的子集</span><span class="chip o">敏感变更需人工批准，配置文件里的明文密钥改为保险库引用</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 23 日，Workday 宣布完成对 C1.ai 的收购，交易金额未披露。该交易 10 月 13 日签约，原定在其 2027 财年第四季度内交割。C1.ai 做的是人与智能体共用的身份治理：因为入职、调岗、离职本身就是 Workday 记录的事件，权限可以直接挂在这些事件上，在邮件、CRM、代码仓库、财务系统与云基础设施之间同步授予或收回。</p>
+      <p>按双方公布的口径，智能体在需要时取得访问，任务或角色结束后立即失效；代某位员工行事的智能体只拿到该员工权限的子集，自主智能体则适用更严的监督。平台还提供发现未获批 AI 工具、智能体与凭证的能力，并对敏感变更要求人工批准，把配置文件中的明文密钥替换为保险库引用。Workday 称其客户超过 11,500 家，财富 500 强覆盖超过 65%，收购后把自己定位为人与智能体的身份治理层。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p><p>智能体大规模上岗之后，权限生命周期是最实际的管控点：谁代表谁、能拿到多少、什么时候失效。把智能体身份挂到人力事件上，访问会随组织变动自动收敛，不必靠定期盘点补漏。</p><p>对做企业级智能体平台的一方，这套模型会成为客户的默认期待：智能体要有可追溯的身份、可预设的权限子集、可强制的人工闸口。谁先在身份层给出这套能力，谁就先拿到进入核心系统的资格。</p></p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Workday 新闻室 https://newsroom.workday.com/2026-11-23-Workday-Completes-Acquisition-of-C1-ai ｜ C1.ai https://c1.ai/blog/where-c1-ai-goes-next ｜ Unite.AI https://unite.ai/workday-closes-c1-ai-deal-to-govern-employee-and-ai-agent-access</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 智能体商业化 · 责任划分</span>
+    <h2 class="c-title">美国多家大行封禁第三方智能体，Wells Fargo 风险自负条款生效</h2>
+    <div class="c-tags"><span class="chip b">更新后的客户协议写明：使用任何 AI 智能体风险自负，11 月 24 日生效</span><span class="chip">摩根大通禁止第三方智能体用客户凭证登录，花旗、PNC、Citizens 相继改条款</span><span class="chip o">亚马逊封禁 Meta 的 Muse 下单，美联航禁止个人智能体代订机票</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>Wired 11 月 22 日报道，美国多家大型银行正在把第三方 AI 智能体挡在客户账户之外。Wells Fargo 与数百万客户的更新协议于 11 月 24 日生效，条款原文写明使用任何 AI 智能体风险自负。摩根大通在 10 月下旬修改条款，禁止第三方智能体以客户凭证登录；美国银行同日提示客户不要把登录信息交给智能体；花旗 11 月更新在线用户协议，客户授权第三方智能体产生的活动由其本人负责，凭证泄露或账号被入侵之后的损失同样适用；PNC 于 11 月 18 日改条款，Citizens 通过邮件发出同类提示。</p>
+      <p>据 Wired 与 TechCrunch 的报道，这等于是先用合同条款把责任划给客户，早于任何立法或监管给出定论。同一批银行在收紧外部智能体的同时也在扩建自家工具：Wells Fargo 的生成式助手交互量超过十亿次，花旗有以智能体为中心的内部开发平台。冲突不止于银行：亚马逊已封禁 Meta 的 Muse 在其平台下单，美联航禁止个人智能体代客订票。运通则表示，智能体买多了之类错误未来可能通过卡组织获得赔付。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p><p>智能体进入真实账户与支付环节，先卡住的环节是合同与责任，产品能力退到其次。以客户凭证登录这条路径正在被封死，第三方智能体只能走银行许可的接口，支付与身份验证的接口化会因此加速。</p><p>对做终端入口与随身智能体的一方，这意味着代操作能力必须建立在被服务方认可的授权通道上：凭证代管、单次授权、可撤销权限都会成为准入门槛。先在合规接入口上留出余量，比事后改产品形态便宜得多。</p></p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Wired https://www.wired.com/story/banks-are-cracking-down-on-ai-agents ｜ TechCrunch https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 具身智能 · 行业标准</span>
+    <h2 class="c-title">工信部五项人形机器人标准发布实施，智能化能力分 L0 至 L5</h2>
+    <div class="c-tags"><span class="chip b">2026 年第 30 号公告，MIIT/TC8 归口，覆盖能力评价、关键零部件、训练三方向</span><span class="chip">智能化能力分级围绕感知认知、决策学习、执行表现、协作交互四个维度</span><span class="chip o">研究机构解读为竞争重点从演示转向可验收，当日人形机器人板块走强</span></div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>工业和信息化部发布 2026 年第 30 号公告，由人形机器人与具身智能标准化技术委员会（MIIT/TC8）归口管理的五项人形机器人领域标准正式发布并实施，覆盖智能化能力评价、关键零部件、人形机器人训练三个方向。其中《人形机器人 智能化能力分级》围绕感知认知、决策学习、执行表现、协作交互四个维度，建立 L0 至 L5 的分级框架。</p>
+      <p>11 月 23 日，多家财经媒体与研究机构就此给出解读，华龙证券的机械设备行业报告认为行业竞争重点正从演示转向可验收。当日 A 股人形机器人板块午后走强，宇树科技以 20% 幅度涨停，市值回升至约 2,863 亿元。政策侧同期还有面向养老场景的配套文件，鼓励发展服务机器人、智能穿戴与外骨骼等产品。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p><p>分级框架落地后，采购与验收有了共同口径：L 级别对应可测的能力门槛，关键零部件与训练各有一套标准，报价单与验收清单都要跟着改。此前各家自说自话的能力描述，会逐步被替换成可核对的条目。</p><p>对做具身整机与场景交付的一方，标准先行意味着需求描述从能演示变成能按级别验收。早期把能力按级别拆开自评、并留下对应测试记录的团队，在投标与验收环节更容易说清边界；反过来，只有演示视频没有分级依据的方案，会在采购评审里失分。</p></p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>每日经济新闻 https://c.m.163.com/news/a/LCE67F850512B07B.html ｜ 市场资讯（华龙证券研报解读）http://www.163.com/dy/article/LCEV36680519QIKK.html</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Claude Ship 的 beta 阶段是否给出策略文件写法指南，以及自动审批在大型仓库里被误放行的比例。</li>
+      <li>Strands Decider v2 的决策模型在真实编码任务里能否替代前沿模型，Box CLI 对 Windows 与 WSL 沙箱的支持范围。</li>
+      <li>Workday 与 C1.ai 合并后的产品何时进入现有客户合同，是否单独计费。</li>
+      <li>Wells Fargo 条款生效后是否出现消费者保护层面的争议，以及是否有第二家大行采用同样的责任转移写法。</li>
+      <li>五项标准的具体文本与配套测试方法何时公开，L 级别如何与技术委员会的验证工作衔接。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-24 09:24 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>

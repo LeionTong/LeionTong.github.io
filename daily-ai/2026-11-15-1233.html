@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LEION · DAILY AI 第 105 期 · 2026-11-15</title>
+<style>
+/* ============================================================
+   E-Ink Base — 墨水瓶友好基线样式（Daily AI / Daily Github 共用）
+   设计约束：纯白底 · 无渐变 · 无阴影 · 无动画 · 无半透明叠层
+             · 无外部字体 · 层级靠边框/字重/留白表达
+   class 为两套页面（AI 卡片式 / Github 条目式）的并集，可直接使用
+   ============================================================ */
+
+:root{
+  --paper:#ffffff;
+  --paper-2:#f4f4f4;
+  --ink:#000000;
+  --ink-soft:#2b2b2b;
+  --ink-faint:#4d4d4d;
+  --accent:#000000;
+  --accent-2:#555555;
+  --accent-3:#7a7a7a;
+  --rule:#b8b8b8;
+  --rule-hard:#000000;
+  --rule-soft:#dcdcdc;
+  --fill:#f7f7f7;
+  --fill-2:#ececec;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;color-scheme:light}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC","Helvetica Neue",Arial,sans-serif;
+  line-height:1.85;
+  font-size:17px;
+  padding:0 20px 90px;
+}
+.sheet{max-width:900px;margin:0 auto}
+
+/* ---------- 报头 ---------- */
+.masthead{
+  margin:0 -20px 34px;padding:40px 30px 26px;
+  background:var(--paper-2);
+  border-bottom:3px solid var(--rule-hard);
+}
+.mh-top{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;
+  font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px;
+}
+.mh-top b{color:var(--ink);font-weight:700}
+.masthead h1{font-size:clamp(27px,4.8vw,40px);font-weight:700;line-height:1.24;
+  margin:0 0 12px;color:var(--ink);letter-spacing:.01em}
+.masthead h1 em{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:3px solid var(--ink);padding-bottom:2px}
+.mh-sub{font-size:16px;color:var(--ink-soft);margin:0;line-height:1.85}
+
+/* ---------- 规格条 ---------- */
+.spec-strip{display:flex;flex-wrap:wrap;margin-top:24px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.spec-cell{flex:1 1 150px;padding:12px 14px;border-right:1px solid var(--rule-soft)}
+.spec-cell:last-child{border-right:none}
+.spec-k{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);
+  display:block;margin-bottom:4px;font-weight:700}
+.spec-v{font-size:14.5px;color:var(--ink);font-weight:700}
+
+/* ---------- 导语 ---------- */
+.lede{margin:0 0 32px;padding:20px 24px;background:var(--fill);
+  border-left:5px solid var(--rule-hard);font-size:16px;color:var(--ink-soft);line-height:1.9}
+.lede b{color:var(--ink)}
+.lede-title{font-size:23px;font-weight:700;color:var(--ink);margin:0 0 14px;line-height:1.4}
+.lede p{margin:0 0 10px;font-size:16px;line-height:1.9}
+.lede p:last-child{margin-bottom:0}
+.lede .tag{display:inline-block;font-size:13px;letter-spacing:.1em;font-weight:700;
+  border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  padding:3px 10px;margin-bottom:14px}
+
+/* ---------- 区块标题 ---------- */
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 24px;
+  border-bottom:2px solid var(--rule-hard);padding-bottom:10px}
+.sec-head .n{font-size:13px;letter-spacing:.14em;color:var(--ink);font-weight:700}
+.sec-head .t{font-size:21px;font-weight:700;color:var(--ink);letter-spacing:.01em}
+
+/* ---------- 卡片（Daily AI） ---------- */
+.card{margin:0 0 36px;padding:0 0 28px;border-bottom:1px solid var(--rule-soft)}
+.card:last-of-type{border-bottom:none}
+.c-num{font-size:13px;letter-spacing:.14em;color:var(--ink-faint);
+  display:block;margin-bottom:8px;font-weight:700}
+.c-num b{color:var(--ink)}
+.c-title{font-size:23px;font-weight:700;line-height:1.42;margin:0 0 8px;color:var(--ink)}
+.c-tags{margin:0 0 16px}
+.chip{display:inline-block;font-size:13px;letter-spacing:.04em;padding:3px 9px;margin:0 6px 6px 0;
+  border:1px solid var(--rule);color:var(--ink-soft);background:var(--paper)}
+.chip.b{border-color:var(--ink);color:var(--ink);font-weight:700}
+.chip.o{border-style:dashed;border-color:var(--accent-2);color:var(--accent-2)}
+.chip.t{border-style:dotted;border-color:var(--accent-3);color:var(--accent-3)}
+
+.blk{margin:0 0 16px}
+.blk-k{font-size:13px;letter-spacing:.12em;color:var(--ink);font-weight:700;
+  display:block;margin-bottom:6px}
+.blk p{margin:0 0 10px;font-size:16.5px;color:var(--ink);line-height:1.85}
+.blk p:last-child{margin-bottom:0}
+.blk ul{margin:8px 0 0;padding-left:1.3em}
+.blk li{margin-bottom:8px;font-size:16.5px;color:var(--ink);line-height:1.85}
+strong{color:var(--ink);font-weight:700}
+em.hl{font-style:normal;color:var(--ink);font-weight:700;
+  border-bottom:2px solid var(--ink)}
+
+.figure{margin:0 0 40px;padding:22px 20px 14px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.fig-cap{font-size:13px;letter-spacing:.12em;color:var(--ink-faint);font-weight:700;
+  border-bottom:1px solid var(--rule-soft);padding-bottom:9px;margin-bottom:14px}
+.fig-cap b{color:var(--ink)}
+.fig-note{font-size:14px;color:var(--ink-faint);margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--rule-soft);line-height:1.8}
+
+.why{border-left:4px solid var(--ink);padding:10px 0 10px 16px;background:var(--fill)}
+.why .blk-k{color:var(--ink)}
+.datum{margin-top:14px;padding:12px 14px;border:1px dashed var(--rule);
+  background:var(--paper);font-size:15px;line-height:1.9;color:var(--ink-soft)}
+.datum b{color:var(--ink)}
+
+.cross{margin:44px 0 0;padding:24px 26px;border:2px solid var(--rule-hard);background:var(--paper)}
+.cross h3{font-size:21px;font-weight:700;color:var(--ink);margin:0 0 14px}
+.cross ol{margin:0 0 16px;padding-left:1.4em}
+.cross li{margin-bottom:10px;font-size:16.5px;line-height:1.85}
+.verdict{margin-top:18px;padding:16px 18px;border-left:5px solid var(--rule-hard);
+  background:var(--fill-2);font-size:16.5px;font-weight:700}
+
+/* ---------- 条目（Daily Github） ---------- */
+.entry{margin:0 0 38px;padding:24px 24px 20px;
+  border:1px solid var(--rule-hard);background:var(--paper)}
+.entry-no{float:right;font-size:34px;line-height:1;color:#939393;font-weight:700;margin:-4px 0 0 14px}
+.e-head{border-bottom:2px solid var(--rule-hard);padding-bottom:12px;margin-bottom:16px}
+.e-name{font-size:25px;font-weight:700;margin:0 0 6px;color:var(--ink);line-height:1.35}
+.e-name span{font-size:14.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.02em}
+.e-meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin:10px 0 0}
+.tag{font-size:13px;letter-spacing:.03em;padding:3px 9px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft)}
+.tag.star{color:var(--ink);border-color:var(--ink);font-weight:700}
+.tag.up{color:var(--accent-2);border-style:dashed;border-color:var(--accent-2)}
+.tag.warn{color:var(--ink);border:2px solid var(--ink);font-weight:700}
+.e-line{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.e-line b{display:inline-block;min-width:66px;color:var(--ink);font-weight:700;font-size:14.5px}
+.e-line em{font-style:normal;color:var(--ink);font-weight:700}
+.e-line a{color:var(--ink);text-decoration:underline}
+
+pre{margin:8px 0 14px;padding:13px 15px;background:var(--fill-2);
+  border:1px solid var(--rule);border-left:4px solid var(--ink);
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:14px;line-height:1.75;color:var(--ink);overflow-x:auto;white-space:pre}
+pre code{background:none;padding:0}
+p code{background:var(--fill-2);padding:1px 5px;border:1px solid var(--rule-soft);font-size:14.5px}
+.risk{margin-top:16px;padding:13px 15px;border:1px dashed var(--rule);
+  font-size:15.5px;color:var(--ink-soft);background:var(--paper)}
+.risk b,.e-line.risk b{font-size:13px;letter-spacing:.12em;color:var(--ink);
+  display:block;margin-bottom:6px;font-weight:700}
+.e-line.risk{color:var(--ink-soft)}
+
+/* ---------- 评分条 ---------- */
+.scores{display:flex;flex-wrap:wrap;gap:12px 18px;margin-top:16px;padding-top:14px;
+  border-top:1px dashed var(--rule)}
+.sc{flex:1 1 112px}
+.sc-k{font-size:13px;letter-spacing:.1em;color:var(--ink-faint);
+  display:block;margin-bottom:5px;font-weight:700}
+.bar{height:7px;background:var(--fill-2);border:1px solid var(--rule)}
+.bar i{display:block;height:100%;background:var(--ink)}
+.sc-v{font-size:13.5px;color:var(--ink);margin-top:4px;display:block;font-weight:700}
+.wsum{margin-top:16px;padding:10px 15px;border:2px solid var(--rule-hard);background:var(--paper);
+  font-size:15px;color:var(--ink);display:inline-block;font-weight:700}
+.wsum b{color:var(--ink);font-size:17px}
+
+/* ---------- 结尾 / 页脚 ---------- */
+.tail{border:2px solid var(--rule-hard);background:var(--paper);padding:22px 24px;margin:34px 0 0}
+.tail h2{font-size:23px;font-weight:700;margin:0 0 12px;color:var(--ink);
+  border-bottom:1px solid var(--rule-soft);padding-bottom:8px}
+.tail h2 em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:3px solid var(--ink)}
+.tail p{margin:0 0 10px;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail ol{margin:0;padding-left:1.4em;font-size:16.5px;color:var(--ink-soft);line-height:1.85}
+.tail li{margin-bottom:9px}
+.tail b{color:var(--ink)}
+.colophon,footer{margin-top:38px;padding-top:16px;border-top:3px solid var(--rule-hard);
+  font-size:13px;letter-spacing:.08em;color:var(--ink-faint);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+
+/* ---------- 通用元素 ---------- */
+h1,h2,h3{color:var(--ink)}
+a{color:var(--ink);text-decoration:underline}
+ul,ol{padding-left:1.4em}
+li{margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--rule);margin:32px 0}
+
+/* ---------- 小屏 ---------- */
+@media (max-width:640px){
+  body{font-size:16.5px;padding:0 14px 70px}
+  .masthead{margin:0 -14px 26px;padding:30px 18px 20px}
+  .entry{padding:20px 16px 18px}
+  .entry-no{font-size:28px}
+  .e-name{font-size:22px}
+  .c-title{font-size:21px}
+  .spec-cell{flex:1 1 100%;border-right:none;border-bottom:1px solid var(--rule-soft)}
+  .spec-cell:last-child{border-bottom:none}
+  pre{white-space:pre-wrap}
+}
+
+/* ---------- 打印 / 墨水瓶导出 ---------- */
+@media print{
+  body{background:#fff;padding:0;font-size:11pt}
+  .masthead{margin:0 0 18px;padding:24px 0 16px;background:#fff}
+  .entry,.tail,.card,.cross,.figure{break-inside:avoid;page-break-inside:avoid}
+  .entry-no{color:#d0d0d0}
+  pre{white-space:pre-wrap;border-left:3px solid #000}
+  a{text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="masthead">
+    <div class="mh-top">
+      <span><b>LEION · DAILY AI</b></span>
+      <span>2026-11-15 · 第 105 期</span>
+    </div>
+    <h1>多智能体流水线交出可机检的数学证明，Cursor 扩展市场被植入恶意版本</h1>
+    <p class="mh-sub">本期收录 Google Antigravity 的 /teamwork 在数学与系统软件上的可验证结果、Cursor 扩展市场的供应链事件、Sierra 把 Poppy 1.0 铺到全部 Shopify 商家、OpenAI 取消机器人独立团队，以及苹果 HomeView 开卖。</p>
+  </header>
+
+  <article class="card">
+    <span class="c-num"><b>NO.01</b> · AI 编码 · 多智能体验证</span>
+    <h2 class="c-title">Google 的 /teamwork 把多智能体拉去做数学证明，全流程走 Lean 4 机检</h2>
+    <div class="c-tags">
+      <span class="chip b">考塔德-库马尔猜想完整证明</span><span class="chip">Lean 4 形式化 5000 万行</span><span class="chip o">并行探索 + 专职证伪器</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 13 日，Google Research 公布 Antigravity 平台内 /teamwork 多智能体系统的阶段结果，覆盖数学、化学、系统软件与机器学习工程四类开放问题。数学侧最完整的一例是 2013 年提出的考塔德-库马尔猜想：Google 与香港中文大学、南加州大学、卡内基梅隆大学的研究者用 /teamwork 的长证明模式给出完整证明，并在 Lean 4 中完成全程形式化，产出 5000 万行代码。过程中 Gemini 先为放宽后的猜想找出反例，再由人类团队提出候选函数把问题压缩到 14 个变量的优化问题，参数空间划分与大部分新解析界、区间算术证书由 Gemini 4 Argon 完成，从平衡函数推广到非平衡函数这一步没有人类输入。</p>
+      <p>系统设计上有两处关键取舍。其一，并行探索的候选解交给专职证伪器判定，包括 Lean 4 证明检查器、未经修改的软件测试套件、执行模拟器、网页搜索与硬件计数器。其二，上下文按构造切分：每个专职 agent 只拿到完成该步骤所需的文件与工具，协调者把任务交给上下文清空的后继 agent，批评者与审计者在不带原推理过程的干净上下文里复核结论。整套工作流写成声明式自然语言模式，由系统按提示动态路由；顺序求解加验证的循环被单独打包成 /boost。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>长任务失败的常见原因在上下文衰减与自我确认，把复核者放到干净上下文、把判定交给外部检查器，是让 agent 的输出能被机器判定的工程做法，可以直接搬到代码评审与回归测试环节。</p>
+      <p>可复用资产从模型能力转到模式本身：声明式工作流、证伪器清单与交接规则构成一套可审计的作业规范，团队可以按任务类型挑选模式，并留下每次运行的轨迹作为改进依据。</p>
+      <p>形式化验证的产出规模说明一件事，agent 的瓶颈正在从生成转向验证吞吐，谁掌握廉价且可靠的检查手段，谁就能承接更长的任务链。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Google Research https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.02</b> · AI 编码 · 供应链安全</span>
+    <h2 class="c-title">Cursor 扩展市场被放上恶意的 Claude Code 版本，源头是一把 Fireworks 密钥</h2>
+    <div class="c-tags">
+      <span class="chip b">v2.1.312 / v2.1.313 存活约 11 小时</span><span class="chip">最多 5000 名开发者受影响</span><span class="chip o">推理流量已迁离 Fireworks</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>Cursor 在 11 月 13 日发布的事件报告里确认，攻击者先取得模型推理服务商 Fireworks AI 上的一把访问密钥，用它从 Cursor 提供给对方的只读存储桶里复制数据。桶内存放的是历史编码 agent 轨迹，以 2025 年为主，来自未开启隐私模式的用户，部分轨迹带有未脱敏的 API 凭证。攻击者借助这些凭证进入 Cursor 内部若干系统，并在 10 月 29 日拿到一个可以发布扩展的凭证，把 Anthropic 的 Claude Code 扩展恶意副本直接放进 Cursor 扩展市场所用的缓存，版本号 2.1.312 与 2.1.313 上线约 11 小时。恶意代码试图在开发者机器上安装常驻 SSH 后门，最多 5000 名开发者可能下载到。</p>
+      <p>Cursor 表示受影响编码轨迹的用户不足 0.05%，凭证被拿走的客户不足 0.01%；生产基础设施、官方应用发布、客户代码仓库与开启隐私模式的数据均未受影响，Anthropic 的正版扩展与 Open VSX 也未被侵入。处置动作包括吊销 Fireworks 密钥、轮换凭证、把所有推理流量迁离 Fireworks、重建扩展市场与重新部署生产环境。安全厂商 Wiz 把这一轮统称「黑色十月」，受影响方还包括 Railway、Northflank、Lightning AI、OpenCode 与 Warp，其中 Railway 被刷出约 74 万美元的欺诈推理账单。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>编码 agent 的信任链现在是扩展市场、推理供应商与日志存储三段串联，任何一段的密钥泄漏都能变成开发者机器上的后门，采购评审需要把第三方推理商纳入同一张风险地图。</p>
+      <p>agent 轨迹里带着真实凭证，这类数据在训练与排查场景里被默认收集、跨组织流转，脱敏规则与保留期限要从合规条目升级为接入前置条件。</p>
+      <p>按扩展名与版本号安装的内部规范已经不够，团队需要能校验发布者身份与构建来源，否则一次上游事故就会变成整批开发环境的清理工作。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>BleepingComputer https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.03</b> · Agent · 商业协议</span>
+    <h2 class="c-title">Sierra 把 Poppy 1.0 铺到全部 Shopify 商家，Meta 的 Muse 默认先找它</h2>
+    <div class="c-tags">
+      <span class="chip b">Personal Agent Protocol 1.0</span><span class="chip">175 个以上国家自动发布</span><span class="chip o">100 多家设计伙伴</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 13 日，Sierra 发布个人智能体协议 Personal Agent Protocol 1.0，代号 Poppy，规定用户的个人 agent 如何发现一家公司、并通过对方的 API、网站或企业自有 agent 协商允许执行的动作。Shopify 为全部商家默认开启，覆盖 175 个以上国家，商家不需要自行配置就会发布一份 Poppy 文件；Meta 的 Muse 在访问每个网站时默认先查找 Poppy。设计伙伴从上一批扩到 100 多家，新加入的包括思科、达美航空、财捷、Twilio 与 Zoom，Mercury、Synchrony 与土耳其航空已上线实现。</p>
+      <p>1.0 版吸收了五周试点反馈，接入 OAuth 与 OpenAPI 等既有标准，把商务能力做成由 Shopify 共同署名的扩展，并允许垂直行业在不改核心协议的前提下追加能力。对企业的实施工具由两部分组成，一个面向编码 agent 的技能包，以及一个无依赖的命令行校验器；校验器扮演测试用个人 agent，逐条报告部署满足与不满足的协议要求，运行需要 Node 22.18 以上，建议在测试环境执行，因为它会真实发起会话。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>个人 agent 代用户办事的瓶颈长期在于每家网站各写一套接入，一份可自动发布的发现文件把双边谈判变成单向适配，商家侧的接入成本因此可以提前估算。</p>
+      <p>渠道位置被写进协议默认值，Shopify 与 Meta 分别握住商家侧与用户侧的分发，接入方在这一层的选择空间会被默认行为压缩。</p>
+      <p>校验器与技能包把合规检查交给 agent 自己跑，企业上线 agent 通道的门槛从咨询项目降为一次可重复的自动检测，安全与权限评审也需要跟着这套检测口径更新。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Sierra https://sierra.ai/blog ｜ Unite.AI https://www.unite.ai/sierra-releases-poppy-1-0-with-shopify-and-meta-muse-support</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.04</b> · 具身智能 · 组织调整</span>
+    <h2 class="c-title">OpenAI 撤掉机器人独立团队，研究并回主线、工程并进应用部门</h2>
+    <div class="c-tags">
+      <span class="chip b">六年来第二次撤销</span><span class="chip">研究归 Mark Chen，工程归 Greg Brockman</span><span class="chip o">自研人形机器人仍在推进</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 13 日 Fortune 报道并经 OpenAI 确认，公司解散了独立设置的机器人团队：机器人研究人员并入主研究团队，向首席研究官 Mark Chen 汇报；应用机器人与硬件团队并入由总裁 Greg Brockman 负责的应用部门。公司发言人称机器人仍是长期规划的核心部分，把这次调整解释为加速推进，理由是一批通用模型已经可以直接驱动机器人，不必再由专职团队维护一套独立方法。</p>
+      <p>这是 OpenAI 六年来第二次拆掉机器人团队。2020 年第一次关闭时，联合创始人 Wojciech Zaremba 提到机器人数据稀缺；2024 年重建独立团队并同时与 Figure 合作，Figure 在 2025 年 2 月终止合作，转向自研机器人智能。有员工公开回应称机器人方向仍在招人，岗位列表上保留着十余个机器人相关职位。公司仍在研发自己的人形机器人，管理层给出的时间表是先做一次公开演示。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>把机器人能力交给通用模型，等于把本体厂商与模型厂商的分工重新划线，谁的模型能在别人家的本体上直接跑通，谁就掌握了议价位置。</p>
+      <p>专职团队解散与岗位保留同时存在，说明这次调整的对象是研究方法而非投入规模，跟随其技术路线的团队要重新评估仿真数据管线与真机微调的比重。</p>
+      <p>机器人智能的竞争重心从造本体转向数据与评测，未来的差异化更可能出现在长尾场景的实测数据与可复现的任务基准上。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Fortune https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <span class="c-num"><b>NO.05</b> · 终端智能 · 家庭入口</span>
+    <h2 class="c-title">苹果 HomeView 开卖，299 美元的家庭屏把 Siri AI 做成主角</h2>
+    <div class="c-tags">
+      <span class="chip b">7 英寸屏 / 299 美元</span><span class="chip">首发七国，不含欧盟</span><span class="chip o">Siri AI 仍标 beta</span>
+    </div>
+    <div class="blk">
+      <span class="blk-k">事件简述</span>
+      <p>11 月 13 日，苹果 HomeView 在七个国家开卖，售价 299 美元，配置 7 英寸 Liquid Retina 屏与 1200 万像素人物居中摄像头，提供桌面支架与壁挂两种形态。设备可识别最多六名家庭成员，按人显示各自的讯息、FaceTime、日历、提醒事项与查找内容，Siri AI 具备屏幕内容感知，能就当前画面提问或执行操作；涉及个人上下文的请求需要配合支持 Apple Intelligence 的 iPhone 或 iPad。首发市场为美国、英国、加拿大、澳大利亚、印度、新西兰与新加坡，欧盟不在其中，原因是 Siri AI 在当地的 iPhone 与 iPad 上尚不可用。Siri AI 在首发期仍标注为 beta，仅支持英语，南非可用同一语言版本。配套的门铃、摄像头、温控器与智能锁要到 12 月起陆续到货，以太网供电的壁挂配件排到 2027 年初。</p>
+    </div>
+    <div class="blk why">
+      <span class="blk-k">关注理由</span>
+      <p>家庭屏是语音助手从随身设备搬进客厅的第一块常驻屏幕，按人识别加个性化内容把多用户共用场景做成产品差异，也把账号与权限设计推到前台。</p>
+      <p>助手以 beta、单语言、分地区的方式发货，说明终端智能的上市节奏正被语言覆盖与监管可用性决定，出海排期要先算这两项。</p>
+      <p>配件晚于主机到货，家庭生态的实际体验由第三方设备接入决定，只做单一终端的厂商在场景完整性上会先失分。</p>
+    </div>
+    <div class="blk">
+      <span class="blk-k">来源</span>
+      <p>Apple Newsroom https://www.apple.com/newsroom/2026/11/apple-homeview-available-today ｜ ppc.land https://ppc.land/apples-299-homeview-goes-on-sale-with-siri-ai-still-in-beta</p>
+    </div>
+  </article>
+
+  <div class="tail">
+    <h2>待跟踪</h2>
+    <ol>
+      <li>Antigravity /teamwork 的外部开放范围，以及长证明模式在自有代码库上的验证成本。</li>
+      <li>Cursor 重建扩展市场后的发布者身份校验方式，以及受影响的 5000 台开发机的清理结果。</li>
+      <li>Poppy 1.0 在非 Shopify 商家上的落地速度，以及校验器在真实站点上的通过率。</li>
+      <li>OpenAI 自研人形机器人的公开演示时间，以及机器人岗位数量在调整后的变化。</li>
+      <li>HomeView 在欧盟的上市时间表，与 Siri AI 多语言支持的推进节奏。</li>
+    </ol>
+  </div>
+
+  <footer class="colophon">
+    <span>整理：Leion</span>
+    <span>· 2026-11-15 12:33 GMT+8</span>
+  </footer>
+</div>
+</body>
+</html>
